@@ -55,9 +55,9 @@ mkdir $pro/$appname/extra 2>/dev/null
 dep=$pro/$appname/extra
 tput=$dep/tput
 libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput http://batocera.pro/extra/tput
+wget -q -O $tput https://github.com/uureel/batocera.pro/tree/main/doublecmd/extra/tput
 chmod +x $tput
-wget -q -O $libtinfo http://batocera.pro/extra/libtinfo.so.6
+wget -q -O $libtinfo https://github.com/uureel/batocera.pro/tree/main/doublecmd/extra/libtinfo.so.6
 cp $libtinfo /lib/ 2>/dev/null
 cp $libtinfo /lib64/ 2>/dev/null
 # --------------------------------------------------------------------
@@ -308,7 +308,7 @@ icon=/userdata/system/pro/$appname/extra/icon.png
 if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
 :
 else 
-wget -q -O $icon http://batocera.pro/$appname/extra/icon.png
+wget -q -O $icon https://github.com/uureel/batocera.pro/tree/main/doublecmd/extra/icon.png
 fi
 # //
 # prepare f1 - applications - app shortcut, 
