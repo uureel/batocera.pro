@@ -50,10 +50,10 @@ libatk=$dep/libatk-bridge-2.0.so.0
 libatspi=$dep/libatspi.so.0
 libcups=$dep/libcups.so.2
 libdbus=$dep/libdbus-glib-1.so.2
-wget -q -O $libatk http://batocera.pro/extra/libatk-bridge-2.0.so.0
-wget -q -O $libatspi http://batocera.pro/extra/libatspi.so.0
-wget -q -O $libcups http://batocera.pro/extra/libcups.so.2
-wget -q -O $libdbus http://batocera.pro/extra/libdbus-glib-1.so.2
+wget -q -O $libatk https://github.com/uureel/batocera.pro/tree/main/discord/extra/libatk-bridge-2.0.so.0
+wget -q -O $libatspi https://github.com/uureel/batocera.pro/tree/main/discord/extra/libatspi.so.0
+wget -q -O $libcups https://github.com/uureel/batocera.pro/tree/main/discord/extra/libcups.so.2
+wget -q -O $libdbus https://github.com/uureel/batocera.pro/tree/main/discord/extra/libdbus-glib-1.so.2
 cp $libatk /lib/ 2>/dev/null
 cp $libatspi /lib/ 2>/dev/null
 cp $libcups /lib/ 2>/dev/null
@@ -67,9 +67,9 @@ cp $libdbus /lib/ 2>/dev/null
 dep=$pro/$appname/extra
 tput=$dep/tput
 libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput http://batocera.pro/extra/tput
+wget -q -O $tput https://github.com/uureel/batocera.pro/tree/main/discord/extra/tput
 chmod +x $tput
-wget -q -O $libtinfo http://batocera.pro/extra/libtinfo.so.6
+wget -q -O $libtinfo https://github.com/uureel/batocera.pro/tree/main/discord/extra/libtinfo.so.6
 cp $libtinfo /lib/ 2>/dev/null
 cp $libtinfo /lib64/ 2>/dev/null
 # --------------------------------------------------------------------
@@ -339,12 +339,13 @@ f1shortcut=/usr/share/applications/$appname.desktop
 cp $shortcut $f1shortcut 2>/dev/null
 # //
 #
-# prepare prelauncher to avoid overlay,
+# prepare prelauncher to avoid overlay and start discord minimized on system launch,
 pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/bin/bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/lib* /lib/ 2>/dev/null" >> $pre
+echo "DISPLAY=:0.0 /userdata/system/pro/$appname/Discord.AppImage --start-minimized --no-sandbox 2>/dev/null" >> $pre
 chmod a+x $pre
 rm -rf /userdata/system/pro/$appname/extra/prelauncher 2>/dev/null
 #
@@ -403,6 +404,6 @@ done
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# /eot,thx,glhf
-# version 1.0.1
+# version 1.0.2
+# glhf
 exit 0
