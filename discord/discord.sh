@@ -364,13 +364,50 @@ fi
 fi
 # //
 #
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# PATCHES FOR CHOSEN APPS IF THEY BLOCK DISCORD PRESENCE: 
+# =================================================================================
+# BATOCERA-SWITCH / YUZU
+file=/userdata/system/switch/configgen/generators/yuzu/yuzuMainlineGenerator.py
+text="enable_discord_presence"
+if [[ -e "$file" ]]; then
+temp=/userdata/system/switch/configgen/generators/yuzu/yuzuMainlineGenerator_tmp.py
+rm $temp 2>/dev/null
+nl=$(cat $file | wc -l)
+l=1; while [[ $l -le $nl ]]; do
+ln=$(cat $file | sed ""$l"q;d")
+if [[ "$(echo $ln | grep "$text")" != "" ]]; then echo "#$ln" >> $temp; else echo "$ln" >> $temp; fi
+((l++))
+done
+timestamp=$(date +"%y%m%d-%H%M%S")
+mv $file $file-backup$timestamp 2>/dev/null
+mv $temp $file 2>/dev/null
+fi
+# =================================================================================
+# BATOCERA-SWITCH / RYUJINX 
+file=/userdata/system/switch/configgen/generators/ryujinx/ryujinxMainlineGenerator.py
+text="enable_discord_integration"
+if [[ -e "$file" ]]; then
+temp=/userdata/system/switch/configgen/generators/ryujinx/ryujinxMainlineGenerator_tmp.py
+rm $temp 2>/dev/null
+nl=$(cat $file | wc -l)
+l=1; while [[ $l -le $nl ]]; do
+ln=$(cat $file | sed ""$l"q;d")
+if [[ "$(echo $ln | grep "$text")" != "" ]]; then echo "#$ln" >> $temp; else echo "$ln" >> $temp; fi
+((l++))
+done
+timestamp=$(date +"%y%m%d-%H%M%S")
+mv $file $file-backup$timestamp 2>/dev/null
+mv $temp $file 2>/dev/null
+fi
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # -- done. 
 sleep 1
 echo -e "${G}> ${W}DONE"
 echo
 sleep 1
 echo -e "${L}-----------------------------------------------------------------------"
-echo -e "${W}> $APPNAME ${G}INSTALLED OK"
+echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
 sleep 4
 #
@@ -410,6 +447,6 @@ done
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.3
+# version 1.0.4
 # glhf
 exit 0
