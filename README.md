@@ -2,7 +2,7 @@
 <b>Provides installers and updaters for Batocera</b><br>
 <br>
 <br>
-<b><i><u>Run these installers using xterm or ssh</u></i></b><br>
+<b><i>Run these installers using xterm or ssh</i></b><br>
 <br>
 <br>
 <b><i>> Discord</i></b><br>
