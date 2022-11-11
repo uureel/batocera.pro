@@ -50,10 +50,10 @@ libatk=$dep/libatk-bridge-2.0.so.0
 libatspi=$dep/libatspi.so.0
 libcups=$dep/libcups.so.2
 libdbus=$dep/libdbus-glib-1.so.2
-wget -q -O $libatk https://github.com/uureel/batocera.pro/tree/main/discord/extra/libatk-bridge-2.0.so.0
-wget -q -O $libatspi https://github.com/uureel/batocera.pro/tree/main/discord/extra/libatspi.so.0
-wget -q -O $libcups https://github.com/uureel/batocera.pro/tree/main/discord/extra/libcups.so.2
-wget -q -O $libdbus https://github.com/uureel/batocera.pro/tree/main/discord/extra/libdbus-glib-1.so.2
+wget -q -O $libatk https://github.com/uureel/batocera.pro/raw/main/discord/extra/libatk-bridge-2.0.so.0
+wget -q -O $libatspi https://github.com/uureel/batocera.pro/raw/main/discord/extra/libatspi.so.0
+wget -q -O $libcups https://github.com/uureel/batocera.pro/raw/main/discord/extra/libcups.so.2
+wget -q -O $libdbus https://github.com/uureel/batocera.pro/raw/main/discord/extra/libdbus-glib-1.so.2
 cp $libatk /lib/ 2>/dev/null
 cp $libatspi /lib/ 2>/dev/null
 cp $libcups /lib/ 2>/dev/null
@@ -67,9 +67,9 @@ cp $libdbus /lib/ 2>/dev/null
 dep=$pro/$appname/extra
 tput=$dep/tput
 libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput https://github.com/uureel/batocera.pro/tree/main/discord/extra/tput
+wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/discord/extra/tput
 chmod +x $tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/tree/main/discord/extra/libtinfo.so.6
+wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/discord/extra/libtinfo.so.6
 cp $libtinfo /lib/ 2>/dev/null
 cp $libtinfo /lib64/ 2>/dev/null
 # --------------------------------------------------------------------
@@ -250,14 +250,14 @@ echo -e "${L}-------------------------------------------------------------------
 echo
 # --------------------------------------------------------------------
 sleep 0.33
-echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
-echo -e "${X}USING $ORIGIN"
+echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
+echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
-echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
+echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${X}IT WILL ALSO AUTOSTART MINIMIZED WITH BATOCERA"
-echo -e "${X}AND RUN IN BACKGROUND FOR RICH PRESENCE"
+echo -e "${W}IT WILL ALSO AUTOSTART MINIMIZED WITH BATOCERA"
+echo -e "${W}AND RUN IN BACKGROUND FOR RICH PRESENCE"
 echo
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
@@ -354,7 +354,7 @@ echo "cp /userdata/system/pro/$appname/extra/lib* /lib/ 2>/dev/null" >> $pre
 echo "DISPLAY=:0.0 /userdata/system/pro/$appname/Discord.AppImage --start-minimized --no-sandbox 2>/dev/null" >> $pre
 chmod a+x $pre
 rm -rf /userdata/system/pro/$appname/extra/prelauncher 2>/dev/null
-#
+# 
 # add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
 if [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
