@@ -141,8 +141,11 @@ sleep 0.33
 echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${X}IT WILL BE AVAILABLE IN F1 -> APPLICATIONS "
+echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
+echo
+echo -e "${X}IT WILL ALSO AUTOSTART MINIMIZED WITH BATOCERA"
+echo -e "${X}AND RUN IN BACKGROUND FOR RICH PRESENCE"
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
@@ -247,11 +250,14 @@ echo -e "${L}-------------------------------------------------------------------
 echo
 # --------------------------------------------------------------------
 sleep 0.33
-echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
-echo -e "${W}USING $ORIGIN"
+echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
+echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${W}IT WILL BE AVAILABLE IN F1 > APPLICATIONS"
-echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
+echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
+echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
+echo
+echo -e "${X}IT WILL ALSO AUTOSTART MINIMIZED WITH BATOCERA"
+echo -e "${X}AND RUN IN BACKGROUND FOR RICH PRESENCE"
 echo
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
@@ -404,6 +410,6 @@ done
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.2
-# glhf
+# /eot,thx,glhf
+# version 1.0.3
 exit 0
