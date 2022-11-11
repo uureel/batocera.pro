@@ -358,7 +358,6 @@ sleep 4
 #
 curl http://127.0.0.1:1234/reloadgames
 # .
-# end of batocera-pro-discord-installer.
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
