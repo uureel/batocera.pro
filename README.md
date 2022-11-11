@@ -5,13 +5,15 @@
 <b><i>Run the installers using xterm or ssh:</i></b><br>
 <br>
 <br>
-<b>Discord</b><br>
+<b><i>Discord</i></b><br>
 curl -L discord.batocera.pro | bash <br>
 <br>
-<b>DoubleCommander</b><br>
+<br>
+<b><i>DoubleCommander</i></b><br>
 curl -L doublecmd.batocera.pro | bash <br>
 <br>
-<b>Spotify</b><br>
+<br>
+<b><i>Spotify</i></b><br>
 curl -L spotify.batocera.pro | bash
 <br>
 <br>
