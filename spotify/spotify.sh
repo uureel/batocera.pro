@@ -53,11 +53,13 @@ d2=libbrotlidec.so.1
 d3=libcurl-gnutls.so.4
 d4=libidn2.so.0
 d5=libnettle.so.7
+cd $dep
 wget -q -O $d1 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d1
 wget -q -O $d2 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d2
 wget -q -O $d3 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d3
 wget -q -O $d4 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d4
 wget -q -O $d5 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d5
+cd ~/
 ######################################################################
 ######################################################################
 ######################################################################
