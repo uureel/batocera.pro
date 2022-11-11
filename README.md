@@ -4,16 +4,10 @@
 <br>
 <b><i>Run these installers using xterm or ssh</i></b><br>
 <br>
-<br>
-<b><i>> Discord</i></b><br>
 curl -L discord.batocera.pro | bash <br>
 <br>
-<br>
-<b><i>> Double-Commander</i></b><br>
 curl -L doublecmd.batocera.pro | bash <br>
 <br>
-<br>
-<b><i>> Spotify</i></b><br>
 curl -L spotify.batocera.pro | bash
 <br>
 <br>
