@@ -2,7 +2,7 @@
 <b>Provides installers and updaters for Batocera</b><br>
 <br>
 <br>
-<b><i>Run these installers using xterm or ssh</i></b><br>
+<i>Run these installers using xterm or ssh:</i><br>
 <br>
 curl -L discord.batocera.pro | bash <br>
 <br>
