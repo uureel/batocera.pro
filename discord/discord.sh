@@ -54,10 +54,6 @@ wget -q -O $libatk https://github.com/uureel/batocera.pro/raw/main/discord/extra
 wget -q -O $libatspi https://github.com/uureel/batocera.pro/raw/main/discord/extra/libatspi.so.0
 wget -q -O $libcups https://github.com/uureel/batocera.pro/raw/main/discord/extra/libcups.so.2
 wget -q -O $libdbus https://github.com/uureel/batocera.pro/raw/main/discord/extra/libdbus-glib-1.so.2
-cp $libatk /lib/ 2>/dev/null
-cp $libatspi /lib/ 2>/dev/null
-cp $libcups /lib/ 2>/dev/null
-cp $libdbus /lib/ 2>/dev/null
 ######################################################################
 ######################################################################
 ######################################################################
@@ -70,9 +66,13 @@ libtinfo=$dep/libtinfo.so.6
 wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/discord/extra/tput
 chmod +x $tput
 wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/discord/extra/libtinfo.so.6
-cp $libtinfo /lib/ 2>/dev/null
-cp $libtinfo /lib64/ 2>/dev/null
 # --------------------------------------------------------------------
+# link dependencies: 
+cd $dep; rm -rf $dep/dep 2>/dev/null
+ls -l ./lib* | awk '{print $9}' | cut -d "/" -f2 >> $dep/dep 2>/dev/null
+nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do
+lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done
+cd ~/
 # --------------------------------------------------------------------
 # // end of dependencies 
 #
@@ -263,7 +263,7 @@ echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # check system before proceeding
-if [[ "$(uname -a | grep "x86_64")" != "" ]] && [[ "$(uname -a | awk '{print $3}')" > "5.19.17" ]] && [[ "$(uname -a | awk '{print $2}')" = "BATOCERA" ]]; then	
+if [[ "$(uname -a | grep "x86_64")" != "" ]] && [[ "$(uname -a | awk '{print $3}')" > "5.19.17" ]] && [[ "$(uname -a | awk '{print $2}')" = "BATOCERA" ]]; then 
 :
 else
 echo -e "${RED}ERROR: SYSTEM NOT SUPPORTED"
@@ -350,8 +350,14 @@ pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/bin/bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
-echo "cp /userdata/system/pro/$appname/extra/lib* /lib/ 2>/dev/null" >> $pre
-echo "DISPLAY=:0.0 /userdata/system/pro/$appname/Discord.AppImage --start-minimized --no-sandbox 2>/dev/null" >> $pre
+# link dependencies: 
+echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $pre
+echo 'ls -l ./lib* | awk '{print $9}' | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
+echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
+echo 'lib=$(cat $dep/dependencies | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
+# autostart minimized on system launch:
+echo "sleep 10; DISPLAY=:0.0 /userdata/system/pro/$appname/Discord.AppImage --start-minimized --no-sandbox" >> $pre
+# // 
 chmod a+x $pre
 rm -rf /userdata/system/pro/$appname/extra/prelauncher 2>/dev/null
 # 
@@ -410,6 +416,5 @@ done
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.3
-# glhf
+# version 1.0.4
 exit 0
