@@ -9,7 +9,7 @@
 curl -L discord.batocera.pro | bash <br>
 <br>
 <br>
-<b><i>> DoubleCommander</i></b><br>
+<b><i>> Double-Commander</i></b><br>
 curl -L doublecmd.batocera.pro | bash <br>
 <br>
 <br>
