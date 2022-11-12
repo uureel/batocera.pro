@@ -12,6 +12,9 @@ curl -L discord.batocera.pro | bash <br>
 <b><i>> Double-Commander</i></b> <br>
 curl -L doublecmd.batocera.pro | bash <br>
 <br>
+<b><i>> Firefox</i></b> <br>
+curl -L firefox.batocera.pro | bash <br>
+<br>
 <b><i>> Spotify</i></b> <br>
 curl -L spotify.batocera.pro | bash
 <br>
