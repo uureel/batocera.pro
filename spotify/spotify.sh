@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO DISCORD INSTALLER
+# BATOCERA.PRO INSTALLER
 ######################################################################
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -9,7 +9,7 @@ APPNAME=SPOTIFY # for installer info
 appname=spotify # directory name in /userdata/system/pro/...
 AppName=Spotify # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://github.com/ivan-hc/Spotify-appimage/releases/download/continuous/Spotify-1.1.84.716-2-x86_64.AppImage
+APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Spotify-appimage/releases | grep AppImage | grep continuous | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g')
 ORIGIN=GITHUB.COM/IVAN-HC/SPOTIFY-APPIMAGE # credit & info 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -347,13 +347,16 @@ chmod a+x $pre
 # // 
 # 
 # -- add prelauncher to custom.sh to run @ reboot
+# -- add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
-if [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
-else
-if [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
+if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
+if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+fi
+if [[ -e $customsh ]]; then :; else
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 # //
 #
@@ -366,11 +369,6 @@ echo -e "${L}-------------------------------------------------------------------
 echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
 sleep 4
-#
-# -- reloadgames
-curl http://127.0.0.1:1234/reloadgames
-#
-# .
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
@@ -387,7 +385,7 @@ appname=$1
   TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 #/
 }
-export -f get-xterm-fontsize discord 2>/dev/null
+export -f get-xterm-fontsize 2>/dev/null
 # --------------------------------------------------------------------
 # run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
