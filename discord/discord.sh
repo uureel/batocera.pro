@@ -310,6 +310,7 @@ echo 'mkdir /userdata/system/pro/discord/home 2>/dev/null; mkdir /userdata/syste
 ######################################################################
 ######################################################################
 ######################################################################
+dos2unix $launcher
 chmod a+x $launcher
 # //
 # -- get icon for shortcut,
@@ -349,6 +350,7 @@ echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null
 # echo 'sleep 20; mkdir /userdata/system/pro/discord/home 2>/dev/null; mkdir /userdata/system/pro/discord/config 2>/dev/null;' >> $pre
 # echo "HOME=/userdata/system/pro/discord/home XDG_CONFIG_HOME=/userdata/system/pro/discord/config DISPLAY=:0.0 /userdata/system/pro/discord/Discord.AppImage --start-minimized --no-sandbox 2>/dev/null &" >> $pre
 # echo 'su -c "HOME=/userdata/system/pro/discord/home XDG_CONFIG_HOME=/userdata/system/pro/discord/config DISPLAY=:0.0 /userdata/system/pro/discord/Discord.AppImage --start-minimized --no-sandbox 2>/dev/null &" root' >> $pre
+dos2unix $pre
 chmod a+x $pre
 # // 
 # 
