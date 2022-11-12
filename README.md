@@ -8,22 +8,22 @@
 <b><i>>&nbsp;&nbsp; Cemu </b>(Experimental Updates)</i><br>
 curl -L cemu.batocera.pro | bash <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/chrome/extra/icon.png" width=20 height=20 /><b><i>>&nbsp;&nbsp; Chrome</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/chrome/extra/icon.png" width=20 height=20 /><b><i>&nbsp;&nbsp;Chrome</i></b> <br>
 curl -L chrome.batocera.pro | bash <br>
 <br>
-<b><i>>&nbsp;&nbsp; Chromium</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/chromium/extra/icon.png" width=20 height=20 /><b><i>&nbsp;&nbsp;Chromium</i></b> <br>
 curl -L chromium.batocera.pro | bash <br>
 <br>
-<b><i>>&nbsp;&nbsp; Discord</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/discord/extra/icon.png" width=20 height=20 /><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Discord</i></b> <br>
 curl -L discord.batocera.pro | bash <br>
 <br>
-<b><i>>&nbsp;&nbsp; Double-Commander</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/doublecmd/extra/icon.png" width=20 height=20 /><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Double-Commander</i></b> <br>
 curl -L doublecmd.batocera.pro | bash <br>
 <br>
-<b><i>>&nbsp;&nbsp; Firefox</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/firefox/extra/icon.png" width=20 height=20 /><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Firefox</i></b> <br>
 curl -L firefox.batocera.pro | bash <br>
 <br>
-<b><i>>&nbsp;&nbsp; Spotify</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/spotify/extra/icon.png" width=20 height=20 /><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Spotify</i></b> <br>
 curl -L spotify.batocera.pro | bash
 <br>
 <br>
