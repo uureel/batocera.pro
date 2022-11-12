@@ -342,13 +342,13 @@ chmod a+x $pre
 # -- add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
 if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 if [[ -e $customsh ]]; then :; else
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 # //
 #
@@ -361,8 +361,6 @@ echo -e "${L}-------------------------------------------------------------------
 echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
 sleep 4
-#
-# .
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
@@ -379,7 +377,7 @@ appname=$1
   TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 #/
 }
-export -f get-xterm-fontsize discord 2>/dev/null
+export -f get-xterm-fontsize 2>/dev/null
 # --------------------------------------------------------------------
 # run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
