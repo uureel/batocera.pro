@@ -245,11 +245,11 @@ echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # check system before proceeding
-if [[ "$(uname -a | grep "x86_64")" != "" ]] && [[ "$(uname -a | awk '{print $3}')" > "5.19.17" ]] && [[ "$(uname -a | awk '{print $2}')" = "BATOCERA" ]]; then 
+if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
 :
 else
 echo -e "${RED}ERROR: SYSTEM NOT SUPPORTED"
-echo -e "${RED}YOU NEED BATOCERA 35+ X86_64${X}"
+echo -e "${RED}YOU NEED BATOCERA X86_64${X}"
 sleep 5
 exit 0
 # quit
@@ -335,14 +335,16 @@ echo "cp /userdata/system/pro/$appname/extra/lib* /lib/ 2>/dev/null" >> $pre
 chmod a+x $pre
 rm -rf /userdata/system/pro/$appname/extra/prelauncher 2>/dev/null
 #
-# add prelauncher to custom.sh to run @ reboot
+# -- add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
-if [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
-else
-if [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+if [[ -e $customs ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
 echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
+if [[ -e $customs ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
+fi
+if [[ -e $customs ]]; then :; else
+echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 # //
 #
