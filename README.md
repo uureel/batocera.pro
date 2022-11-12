@@ -13,27 +13,39 @@ curl -L cemu.batocera.pro | bash <br>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/chrome/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Chrome</i></b> <br>
+```diff
 curl -L chrome.batocera.pro | bash <br>
+```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/chromium/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Chromium</i></b> <br>
+```diff
 curl -L chromium.batocera.pro | bash <br>
+```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/discord/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Discord</i></b> <br>
+```diff
 curl -L discord.batocera.pro | bash <br>
+```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/doublecmd/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Double-Commander</i></b> <br>
+```diff
 curl -L doublecmd.batocera.pro | bash <br>
+```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/firefox/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Firefox</i></b><br>
+```diff
 curl -L firefox.batocera.pro | bash <br>
+```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/spotify/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Spotify</i></b> <br>
+```diff
 curl -L spotify.batocera.pro | bash
+```
 <br>
 <br>
 <br> 
