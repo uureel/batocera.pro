@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO DISCORD INSTALLER
+# BATOCERA.PRO INSTALLER
 ######################################################################
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -368,8 +368,6 @@ echo -e "${L}-------------------------------------------------------------------
 echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
 sleep 4
-#
-# .
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
@@ -386,7 +384,7 @@ appname=$1
   TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 #/
 }
-export -f get-xterm-fontsize discord 2>/dev/null
+export -f get-xterm-fontsize 2>/dev/null
 # --------------------------------------------------------------------
 # run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
