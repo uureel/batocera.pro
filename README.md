@@ -10,7 +10,6 @@ curl -L cemu.batocera.pro | bash <br>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/chrome/extra/icon.png" width=32 height=32 /><b><i>&nbsp;Chrome</i></b> <br>
-<br>
 curl -L chrome.batocera.pro | bash <br>
 <br>
 <br>
