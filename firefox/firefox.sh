@@ -5,12 +5,15 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME=SPOTIFY # for installer info
-appname=spotify # directory name in /userdata/system/pro/...
-AppName=Spotify # App.AppImage name
+APPNAME=FIREFOX-NIGHTLY # for installer info
+appname=firefox # directory name in /userdata/system/pro/...
+AppName=Firefox # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Spotify-appimage/releases | grep AppImage | grep continuous | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g')
-ORIGIN=GITHUB.COM/IVAN-HC/SPOTIFY-APPIMAGE # credit & info 
+# -----
+getrelease=$(curl https://github.com/srevinsaju/Firefox-Appimage/releases/tag/firefox-nightly | grep AppImage | sed 's,^.*firefox-nightly v,,g' | cut -d " " -f1)
+# -----
+APPLINK=https://github.com/srevinsaju/Firefox-Appimage/releases/download/firefox-nightly/firefox-nightly-$getrelease-x86_64.AppImage
+ORIGIN=GITHUB.COM/SREVINSAJU/FIREFOX-APPIMAGE # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -47,18 +50,10 @@ mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 # prepare dependencies for this app and the installer: 
 dep=$pro/$appname/extra
-#######################
-d1=libbrotlicommon.so.1
-d2=libbrotlidec.so.1
-d3=libcurl-gnutls.so.4
-d4=libidn2.so.0
-d5=libnettle.so.7
+######################################################################
+# no dependencies for this app
 cd $dep
-wget -q -O $d1 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d1
-wget -q -O $d2 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d2
-wget -q -O $d3 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d3
-wget -q -O $d4 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d4
-wget -q -O $d5 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d5
+#
 cd ~/
 ######################################################################
 ######################################################################
@@ -295,14 +290,18 @@ echo -e "${G}INSTALLING ${W}. . ."
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo "#!/bin/bash" >> $launcher
-echo "cp /userdata/system/pro/$appname/extra/* /lib/ 2>dev/null && rm /lib/tput" >> $launcher
+# this app has no dependencies, 
+#echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $launcher
+#echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $launcher
+#echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $launcher
+#echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $launcher
 # -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 ######################################################################
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox 2>/dev/null' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -339,14 +338,14 @@ rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 # -- dependencies linker: 
-echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $pre
-echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
-echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
-echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
+# this app has no dependencies, 
+#echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $pre
+#echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
+#echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
+#echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
 chmod a+x $pre
 # // 
 # 
-# -- add prelauncher to custom.sh to run @ reboot
 # -- add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
 if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
@@ -369,9 +368,6 @@ echo -e "${L}-------------------------------------------------------------------
 echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
 sleep 4
-#
-# -- reloadgames
-curl http://127.0.0.1:1234/reloadgames
 #
 # .
 }
