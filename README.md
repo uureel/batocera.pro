@@ -1,7 +1,9 @@
 # batocera.pro
 <b>Provides installers and updaters for Batocera</b><br>
 <br>
+<br>
 <i>Run these installers using xterm or ssh:</i><br>
+<br>
 <br>
 <b><i>>&nbsp;&nbsp; Cemu </b>(Experimental Updates)</i><br>
 curl -L cemu.batocera.pro | bash <br>
