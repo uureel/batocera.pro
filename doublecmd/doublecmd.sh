@@ -51,16 +51,20 @@ mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 ######################################################################
 ######################################################################
-# paths for installer dependencies: 
+# installer dependencies: 
 dep=$pro/$appname/extra
 tput=$dep/tput
 libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput https://github.com/uureel/batocera.pro/tree/main/doublecmd/extra/tput
-chmod +x $tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/tree/main/doublecmd/extra/libtinfo.so.6
-cp $libtinfo /lib/ 2>/dev/null
-cp $libtinfo /lib64/ 2>/dev/null
+wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/tput
+wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
+chmod a+x $tput
 # --------------------------------------------------------------------
+# link dependencies for install and initial run before reboot linker: 
+cd $dep; rm -rf $dep/dep 2>/dev/null
+ls -l ./lib* | awk '{print $9}' | cut -d "/" -f2 >> $dep/dep 2>/dev/null
+nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do
+lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done
+cd ~/
 # --------------------------------------------------------------------
 # // end of dependencies 
 #
