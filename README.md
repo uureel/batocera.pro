@@ -48,6 +48,3 @@ curl -L spotify.batocera.pro | bash
 ```
 <br>
 <br>
-<br> 
-<br>
-
