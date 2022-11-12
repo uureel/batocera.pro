@@ -252,16 +252,16 @@ echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
-#if [[ "$(uname -a | grep "x86_64")" != "" ]] && [[ "$(uname -a | awk '{print $3}')" > "5.18.00" ]] && [[ "$(uname -a | awk '{print $2}')" = "BATOCERA" ]]; then 
-#:
-#else
-#echo -e "${RED}ERROR: SYSTEM NOT SUPPORTED"
-#echo -e "${RED}YOU NEED BATOCERA 35+ X86_64${X}"
-#sleep 5
-#exit 0
+if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
+:
+else
+echo -e "${RED}ERROR: SYSTEM NOT SUPPORTED"
+echo -e "${RED}YOU NEED BATOCERA X86_64${X}"
+sleep 5
+exit 0
 # quit
-#exit 0
-#fi
+exit 0
+fi
 #
 # -- temp for curl download
 temp=/userdata/system/pro/$appname/extra/downloads
