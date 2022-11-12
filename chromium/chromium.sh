@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME=CHROMIUM # for installer info
+APPNAME="CHROMIUM WEB BROWSER" # for installer info
 appname=chromium # directory name in /userdata/system/pro/...
 AppName=Chromium # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
