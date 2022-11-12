@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO DISCORD INSTALLER
+# BATOCERA.PRO INSTALLER
 ######################################################################
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -355,13 +355,13 @@ chmod a+x $pre
 # -- add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
 if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 if [[ -e $customsh ]]; then :; else
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 # //
 #
@@ -411,10 +411,6 @@ echo -e "${L}-------------------------------------------------------------------
 echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
 sleep 4
-#
-# -- reloadgames
-curl http://127.0.0.1:1234/reloadgames
-# .
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
