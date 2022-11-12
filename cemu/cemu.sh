@@ -266,21 +266,30 @@ echo -e "${W}THE LATEST OFFICIAL APPIMAGE RELEASE: ${G}$LATEST"
 echo
 echo -e "${W}THIS SCRIPT IS ALSO AN UPDATER"
 echo
-echo -e "${W}TO UNINSTALL AND RESTORE BATOCERA CEMU:"
-echo -e "${W}REMOVE /USERDATA/SYSTEM/PRO/CEMU & RESTART"
+echo -e "${R}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 echo
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
+echo -e "${R}WARNING: THIS IS EXPERIMENTAL"
+echo -e "${R}-----------------------------"
+echo
+echo -e "${W}BACKUP WILL BE MADE IN /USERDATA/SYSTEM/PRO/BACKUPS"
+echo
+echo -e "${W}TO UNINSTALL AND RESTORE BATOCERA CEMU:"
+echo -e "${W}REMOVE /USERDATA/SYSTEM/PRO/CEMU FOLDER & RESTART"
+echo
+echo -e "${R}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+echo
+echo -e "${R}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 else
 echo
-echo -e "${RED}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-echo -e "${RED}ERROR: SYSTEM NOT SUPPORTED"
-echo -e "${RED}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+echo -e "${R}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+echo -e "${R}ERROR: SYSTEM NOT SUPPORTED"
+echo -e "${R}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 echo
 echo
-echo -e "${RED}> ${W}YOU NEED X86_64 BATOCERA V36+${X}"
-echo -e "${RED}> ${W}TO USE LINUX CEMU BUILDS${X}"
+echo -e "${R}> ${W}YOU NEED X86_64 BATOCERA V36+${X}"
+echo -e "${R}> ${W}TO USE LINUX CEMU BUILDS${X}"
 echo
 echo
 echo
