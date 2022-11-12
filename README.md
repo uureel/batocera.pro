@@ -5,7 +5,7 @@
 <i>Run these installers using xterm or ssh:</i><br>
 <br>
 <br>
-<b><i><p style="color:red;">></p>&nbsp;&nbsp; Cemu </b>(Experimental Updates)</i><br>
+<b><i>>&nbsp;&nbsp; Cemu </b>(Experimental Updates)</i><br>
 curl -L cemu.batocera.pro | bash <br>
 <br>
 <b><i>>&nbsp;&nbsp; Chrome</i></b> <br>
