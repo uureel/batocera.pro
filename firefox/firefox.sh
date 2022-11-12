@@ -348,13 +348,13 @@ chmod a+x $pre
 # 
 # -- add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
-if [[ -e $customs ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
+if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
 echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
-if [[ -e $customs ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
 echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
-if [[ -e $customs ]]; then :; else
+if [[ -e $customsh ]]; then :; else
 echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 # //
