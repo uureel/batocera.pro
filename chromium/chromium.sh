@@ -304,6 +304,7 @@ echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/sy
 ######################################################################
 ######################################################################
 ######################################################################
+dos2unix $launcher
 chmod a+x $launcher
 # //
 # -- get icon for shortcut,
@@ -340,6 +341,7 @@ echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applica
 #echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
 #echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
 #echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
+dos2unix $pre
 chmod a+x $pre
 # // 
 # 
