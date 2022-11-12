@@ -3,10 +3,10 @@
 <br>
 <i>Run these installers using xterm or ssh:</i><br>
 <br>
-<b><i>>&nbsp&nbsp Cemu </b>(Experimental Updates)</i><br>
+<b><i>>&nbsp;&nbsp; Cemu </b>(Experimental Updates)</i><br>
 curl -L cemu.batocera.pro | bash <br>
 <br>
-<b><i>>&nbsp&nbsp Chrome</i></b> <br>
+<b><i>>&nbsp; Chrome</i></b> <br>
 curl -L chrome.batocera.pro | bash <br>
 <br>
 <b><i>>> Chromium</i></b> <br>
