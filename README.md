@@ -29,4 +29,4 @@ curl -L spotify.batocera.pro | bash
 <br>
 <br> 
 <br>
-<p><img src="https://github.com/uureel/batocera.pro/raw/main/doublecmd/extra/icon.png" style="-moz-transform:scale(0.2);-webkit-transform:scale(0.2);transform:scale(0.2);"> Double-Commander</p><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/doublecmd/extra/icon.png" width="20%" style="-moz-transform:scale(0.2);-webkit-transform:scale(0.2);transform:scale(0.2);"> Double-Commander<br>
