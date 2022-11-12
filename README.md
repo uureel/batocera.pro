@@ -1,10 +1,10 @@
 # batocera.pro
-<b>Provides installers and updaters for Batocera</b><br>
+<p style="font-size: 16pt;"><b>Provides installers and updaters for Batocera</b><br>
 `Run these installers from xterm or ssh`
 <br>
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=42 height=42 /><b><i>&nbsp;<font size=16>CEMU </font></b>(Experimental Updates)</i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=42 height=42 /><b><i>&nbsp;CEMU </font></b>(Experimental Updates)</i><br>
 ```curl -L cemu.batocera.pro | bash```
 <br>
 <br>
@@ -44,4 +44,4 @@
 <br>
 <br>
 <br>
-
+</p>
