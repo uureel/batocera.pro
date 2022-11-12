@@ -1,5 +1,5 @@
 # batocera.pro
-<p style="font-size: 16pt;"><b>Provides installers and updaters for Batocera</b><br>
+<b>Provides installers and updaters for Batocera</b><br>
 `Run these installers from xterm or ssh`
 <br>
 <br>
@@ -44,4 +44,3 @@
 <br>
 <br>
 <br>
-</p>
