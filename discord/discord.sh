@@ -253,11 +253,11 @@ echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
-if [[ "$(uname -a | grep "x86_64")" != "" ]] && [[ "$(uname -a | awk '{print $3}')" > "5.19.17" ]] && [[ "$(uname -a | awk '{print $2}')" = "BATOCERA" ]]; then 
+if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
 :
 else
 echo -e "${RED}ERROR: SYSTEM NOT SUPPORTED"
-echo -e "${RED}YOU NEED BATOCERA 35+ X86_64${X}"
+echo -e "${RED}YOU NEED BATOCERA X86_64${X}"
 sleep 5
 exit 0
 # quit
@@ -414,6 +414,7 @@ sleep 4
 # -- reloadgames
 curl http://127.0.0.1:1234/reloadgames
 #
+# -- end of batocera-pro-discord-installer.
 # .
 }
 export -f batocera-pro-installer 2>/dev/null
@@ -446,6 +447,6 @@ done
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.4
+# version 1.0.3
 # glhf
 exit 0
