@@ -2,14 +2,14 @@
 <b>Provides installers and updaters for Batocera</b><br>
 <br>
 <br>
-```diff
 __***Run these installers using xterm or ssh:***__
-```
 <br>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Cemu </b>(Experimental Updates)</i><br>
+```diff
 curl -L cemu.batocera.pro | bash <br>
+```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/chrome/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Chrome</i></b> <br>
