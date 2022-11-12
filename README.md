@@ -2,9 +2,7 @@
 <b>Provides installers and updaters for Batocera</b><br>
 <br>
 <br>
-```
-__***Run these installers using xterm or ssh***__
-```
+__***Run these installers using xterm or ssh:***__
 <br>
 <br>
 <br>
