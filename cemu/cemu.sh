@@ -48,17 +48,17 @@ mkdir /userdata/system/pro/$appname/extra 2>/dev/null
 ######################################################################
 # prepare the dependencies for this app: 
 dep=$pro/$appname/extra
-dep1=libthai.so.0
-wget -q -O $dep/$dep1 http://batocera.pro/extra/$dep1
+d1=libthai.so.0
+wget -q -O $dep/$d1 https://github.com/uureel/batocera.pro/raw/main/cemu/extra/$d1
 cp $dep/$dep1 /lib/ 2>/dev/null
 ######################################################################
 # paths for installer dependencies: 
 dep=$pro/$appname/extra
 dep1=tput
 dep2=libtinfo.so.6
-wget -q -O $dep/$dep1 http://batocera.pro/extra/$dep1
+wget -q -O $dep/$dep1 https://github.com/uureel/batocera.pro/raw/main/cemu/extra/$dep1
 cp $dep/$dep1 /usr/bin/ 2>/dev/null
-wget -q -O $dep/$dep2 http://batocera.pro/extra/$dep2
+wget -q -O $dep/$dep2 https://github.com/uureel/batocera.pro/raw/main/cemu/extra/$dep2
 cp $dep/$dep2 /lib/ 2>/dev/null
 cp $dep/$dep2 /lib64/ 2>/dev/null
 # --------------------------------------------------------------------
