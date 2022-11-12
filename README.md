@@ -8,7 +8,7 @@
 <b><i>>&nbsp;&nbsp; Cemu </b>(Experimental Updates)</i><br>
 curl -L cemu.batocera.pro | bash <br>
 <br>
-<b><i>>&nbsp;&nbsp; Chrome</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/chrome/extra/icon.png" width=20 height=20 /><b><i>>&nbsp;&nbsp; Chrome</i></b> <br>
 curl -L chrome.batocera.pro | bash <br>
 <br>
 <b><i>>&nbsp;&nbsp; Chromium</i></b> <br>
