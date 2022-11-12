@@ -284,12 +284,14 @@ echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 else
 echo
 echo -e "${R}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+echo
 echo -e "${R}ERROR: SYSTEM NOT SUPPORTED"
+echo -e "${R}---------------------------"
+echo
+echo -e "${R}TO USE LINUX CEMU BUILDS${X}"
+echo -e "${R}YOU NEED X86_64 BATOCERA V36+${X}"
+echo
 echo -e "${R}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-echo
-echo
-echo -e "${R}> ${W}YOU NEED X86_64 BATOCERA V36+${X}"
-echo -e "${R}> ${W}TO USE LINUX CEMU BUILDS${X}"
 echo
 echo
 echo
