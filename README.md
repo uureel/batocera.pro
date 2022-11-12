@@ -34,6 +34,11 @@
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/minecraft/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Minecraft</i></b><br>
+```curl -L minecraft.batocera.pro | bash```
+<br>
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/spotify/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Spotify</i></b> <br>
 ```curl -L spotify.batocera.pro | bash```
 <br>
