@@ -354,6 +354,7 @@ fi
 if [[ -e $customsh ]]; then :; else
 echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
+dos2unix $customsh 2>/dev/null
 # //
 #
 # -- done. 
