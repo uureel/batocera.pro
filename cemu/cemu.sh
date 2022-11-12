@@ -365,6 +365,7 @@ echo "mv /userdata/system/pro/cemu/Cemu /userdata/system/pro/cemu/.Cemu" >> $lau
 echo "rm /usr/bin/cemu/cemu" >> $launcher
 echo "mv /userdata/system/pro/cemu/.Cemu /userdata/system/pro/cemu/Cemu" >> $launcher
 echo "ln -s /userdata/system/pro/cemu/Cemu /usr/bin/cemu/cemu" >> $launcher
+dos2unix $launcher
 chmod a+x $launcher
 # --------------------------------------------------------------------
 # add prelauncher to custom.sh to run @ reboot / systemstart
