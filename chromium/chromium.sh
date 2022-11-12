@@ -344,7 +344,6 @@ chmod a+x $pre
 # // 
 # 
 # -- add prelauncher to custom.sh to run @ reboot
-# -- add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
 if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
 echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
@@ -355,6 +354,7 @@ fi
 if [[ -e $customsh ]]; then :; else
 echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
+dos2unix $customsh 2>/dev/null
 # //
 #
 # -- done. 
