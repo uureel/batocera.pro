@@ -4,7 +4,7 @@
 <br>
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=42 height=42 /><b><i>&nbsp;CEMU </b>(Experimental Updates)</i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=42 height=42 /><b><i>&nbsp;<font size=16>CEMU </font></b>(Experimental Updates)</i><br>
 ```curl -L cemu.batocera.pro | bash```
 <br>
 <br>
