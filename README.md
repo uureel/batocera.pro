@@ -6,6 +6,9 @@
 <b><i>> Chrome</i></b> <br>
 curl -L chrome.batocera.pro | bash <br>
 <br>
+<b><i>> Chromium</i></b> <br>
+curl -L chromium.batocera.pro | bash <br>
+<br>
 <b><i>> Discord</i></b> <br>
 curl -L discord.batocera.pro | bash <br>
 <br>
