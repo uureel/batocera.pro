@@ -8,7 +8,7 @@
 APPNAME=DISCORD # for installer info
 appname=discord # directory name /userdata/system/pro/...
 APPPATH=/userdata/system/pro/discord/Discord.AppImage
-APPLINK=https://github.com/srevinsaju/discord-appimage/releases/download/stable/Discord-0.0.21-x86_64.AppImage
+APPLINK=$(curl -s https://api.github.com/repos/srevinsaju/discord-appimage/releases | grep stable | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g' | head -n1)
 ORIGIN=GITHUB.COM/SREVINSAJU/DISCORD-APPIMAGE # credit & info 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -50,10 +50,10 @@ libatk=$dep/libatk-bridge-2.0.so.0
 libatspi=$dep/libatspi.so.0
 libcups=$dep/libcups.so.2
 libdbus=$dep/libdbus-glib-1.so.2
-wget -q -O $libatk https://github.com/uureel/batocera.pro/raw/main/discord/extra/libatk-bridge-2.0.so.0
-wget -q -O $libatspi https://github.com/uureel/batocera.pro/raw/main/discord/extra/libatspi.so.0
-wget -q -O $libcups https://github.com/uureel/batocera.pro/raw/main/discord/extra/libcups.so.2
-wget -q -O $libdbus https://github.com/uureel/batocera.pro/raw/main/discord/extra/libdbus-glib-1.so.2
+wget -q -O $libatk https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libatk-bridge-2.0.so.0
+wget -q -O $libatspi https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libatspi.so.0
+wget -q -O $libcups https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libcups.so.2
+wget -q -O $libdbus https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libdbus-glib-1.so.2
 ######################################################################
 ######################################################################
 ######################################################################
@@ -63,9 +63,9 @@ wget -q -O $libdbus https://github.com/uureel/batocera.pro/raw/main/discord/extr
 dep=$pro/$appname/extra
 tput=$dep/tput
 libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/discord/extra/tput
+wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/tput
 chmod +x $tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/discord/extra/libtinfo.so.6
+wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
 # --------------------------------------------------------------------
 # link dependencies: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
@@ -155,7 +155,6 @@ echo
 #
 # THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-# --batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
 APPNAME=$1
 appname=$2
 APPPATH=$3
@@ -355,12 +354,14 @@ chmod a+x $pre
 # 
 # -- add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
-if [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
-else
-if [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+if [[ -e $customs ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
 echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
+if [[ -e $customs ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
+fi
+if [[ -e $customs ]]; then :; else
+echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 # //
 #
@@ -413,8 +414,6 @@ sleep 4
 #
 # -- reloadgames
 curl http://127.0.0.1:1234/reloadgames
-#
-# -- end of batocera-pro-discord-installer.
 # .
 }
 export -f batocera-pro-installer 2>/dev/null
@@ -432,7 +431,7 @@ appname=$1
   TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 #/
 }
-export -f get-xterm-fontsize discord 2>/dev/null
+export -f get-xterm-fontsize 2>/dev/null
 # --------------------------------------------------------------------
 # run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
