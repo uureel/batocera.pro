@@ -2,7 +2,7 @@
 <b>Provides installers and updaters for Batocera</b><br>
 <br>
 <br>
-<font style="text-decoration: underline;"><u><i>Run these installers using xterm or ssh:</i></u></font><br>
+***Run these installers using xterm or ssh:***<br>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=42 height=42 /><b><i>&nbsp;Cemu </b>(Experimental Updates)</i><br>
