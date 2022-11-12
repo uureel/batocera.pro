@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------
 APPNAME=DOUBLE-COMMANDER # for installer info
 appname=doublecmd # directory name /userdata/system/pro/...
+AppName=DoubleCmd # App.AppImage
 APPPATH=/userdata/system/pro/doublecmd/DoubleCmd.AppImage
 APPLINK=https://apprepo.de/appimage/download/doublecmd
 ORIGIN=APPREPO.DE/APPIMAGE # credit & info 
@@ -44,8 +45,13 @@ mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 ######################################################################
 ######################################################################
-# prepare the dependencies for this app: 
-# none 
+# prepare dependencies for this app and the installer: 
+dep=$pro/$appname/extra
+#######################
+# no dependencies for chrome
+cd $dep
+#
+cd ~/
 ######################################################################
 ######################################################################
 ######################################################################
@@ -68,17 +74,9 @@ cd ~/
 # --------------------------------------------------------------------
 # // end of dependencies 
 #
-# RUN APP SPECIFIC FIXES FOR INSTALLER: 
+# RUN BEFORE INSTALLER: 
 ######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-# none
-######################################################################
-######################################################################
-######################################################################
-######################################################################
+killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
 ######################################################################
 #
 # --------------------------------------------------------------------
@@ -133,31 +131,28 @@ sleep 0.33
 echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${X}IT WILL BE AVAILABLE IN F1 -> APPLICATIONS "
+echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
 echo -e "${X}. . .${X}" 
 echo
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
 # // end of console info. 
 #
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 #
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
-# THIS WILL BE SHOWN ON BATOCERA DISPLAY:   
+# THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-# batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
+# --batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
 APPNAME=$1
 appname=$2
-APPPATH=$3
-APPLINK=$4
-ORIGIN=$5
-# colors: 
+AppName=$3
+APPPATH=$4
+APPLINK=$5
+ORIGIN=$6
+# -- colors: 
 ###########################
 X='\033[0m'               # / resetcolor
 W='\033[0;37m'            # white
@@ -171,7 +166,7 @@ DARKBLUE='\033[0;34m'     # darkblue
 DARKGREEN='\033[0;32m'    # darkgreen
 DARKPURPLE='\033[0;35m'   # darkpurple
 ###########################
-# display theme:
+# -- display theme:
 L=$W
 T=$W
 R=$RED
@@ -242,13 +237,13 @@ sleep 0.33
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}IT WILL BE AVAILABLE IN F1 > APPLICATIONS"
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-# check system before proceeding
+# -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
 :
 else
@@ -260,7 +255,7 @@ exit 0
 exit 0
 fi
 #
-# temp for curl download
+# -- temp for curl download
 temp=/userdata/system/pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir $temp 2>/dev/null
@@ -287,19 +282,23 @@ sleep 1.333
 # --------------------------------------------------------------------
 #
 echo
-echo -e "${G}INSTALLING ${W} . . ."
-# make launcher to solve dependencies on each run and avoid overlay, 
+echo -e "${G}INSTALLING ${W}. . ."
+# -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo "#!/bin/bash" >> $launcher
-echo "cp /userdata/system/pro/$appname/extra/* /lib/ 2>dev/null && rm /lib/tput" >> $launcher
-# APP SPECIFIC LAUNCHER COMMAND: 
+# this app has no dependencies, 
+#echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $launcher
+#echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $launcher
+#echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $launcher
+#echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $launcher
+# -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 ######################################################################
+###################################################################### 
 ######################################################################
 ######################################################################
-######################################################################
-echo 'DISPLAY=:0.0 SCALE=1.25 QT_SCALE_FACTOR="$SCALE" GDK_SCALE="$SCALE" /userdata/system/pro/doublecmd/DoubleCmd.AppImage --no-sandbox 2>/dev/null &' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox 2>/dev/null' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -307,15 +306,11 @@ echo 'DISPLAY=:0.0 SCALE=1.25 QT_SCALE_FACTOR="$SCALE" GDK_SCALE="$SCALE" /userd
 ######################################################################
 chmod a+x $launcher
 # //
-# get icon for shortcut,
+# -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/icon.png
-if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
-:
-else 
-wget -q -O $icon https://github.com/uureel/batocera.pro/tree/main/doublecmd/extra/icon.png
-fi
+wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
 # //
-# prepare f1 - applications - app shortcut, 
+# -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
@@ -330,15 +325,20 @@ f1shortcut=/usr/share/applications/$appname.desktop
 cp $shortcut $f1shortcut 2>/dev/null
 # //
 #
-# prepare prelauncher to avoid overlay,
+# -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
-echo "#!/bin/bash" >> $pre
+echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
-echo "cp /userdata/system/pro/$appname/extra/lib* /lib/ 2>/dev/null" >> $pre
+# -- dependencies linker: 
+# this app has no dependencies, 
+#echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $pre
+#echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
+#echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
+#echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
 chmod a+x $pre
-rm -rf /userdata/system/pro/$appname/extra/prelauncher 2>/dev/null
-#
+# // 
+# 
 # -- add prelauncher to custom.sh to run @ reboot
 customsh=/userdata/system/custom.sh
 if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
@@ -352,17 +352,16 @@ echo "/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 # //
 #
-# done. 
+# -- done. 
 sleep 1
 echo -e "${G}> ${W}DONE"
 echo
 sleep 1
 echo -e "${L}-----------------------------------------------------------------------"
-echo -e "${W}> $APPNAME ${G}INSTALLED OK"
+echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
 sleep 4
 #
-curl http://127.0.0.1:1234/reloadgames
 # .
 }
 export -f batocera-pro-installer 2>/dev/null
@@ -393,8 +392,8 @@ cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
 # --------------------------------------------------------------------
 # RUN ALL:
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN" 2>/dev/null
+  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK $ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# /eot,thx,glhf
-# version 1.0.1
+# version 1.0.3
+# glhf
 exit 0
