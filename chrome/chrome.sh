@@ -47,8 +47,8 @@ mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 # prepare dependencies for this app and the installer: 
 dep=$pro/$appname/extra
-#######################
-# no dependencies, 
+# --------------------------------------------------------------------
+# this app has no dependencies, 
 cd $dep
 # -----
 cd ~/
@@ -59,11 +59,13 @@ cd ~/
 ######################################################################
 # installer dependencies: 
 dep=$pro/$appname/extra
-tput=$dep/tput
-libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
-chmod a+x $tput
+d1=tput
+d2=libtinfo.so.6
+wget -q -O $dep/$d1 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d1
+wget -q -O $dep/$d2 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d2
+cp $dep/$d2 /lib/$d2 
+cp $dep/$d2 /lib64/$d2
+chmod a+x $dep/$d1
 # --------------------------------------------------------------------
 # link dependencies for install and initial run before reboot linker: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
