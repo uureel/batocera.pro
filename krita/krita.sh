@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO INSTALLER
+# BATOCERA.PRO/KRITA INSTALLER
 ######################################################################
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -9,8 +9,8 @@ APPNAME="KRITA" # for installer info
 appname=krita # directory name in /userdata/system/pro/...
 AppName=Krita # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://download.kde.org/stable/krita/5.1.3/krita-5.1.3-x86_64.appimage
-ORIGIN="KRITA.ORG STABLE APPIMAGE" # credit & info
+APPLINK=https://apprepo.de/appimage/download/krita
+ORIGIN="APPREPO.DE/APPIMAGE/KRITA" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -48,7 +48,7 @@ mkdir $pro/$appname/extra 2>/dev/null
 # prepare dependencies for this app and the installer: 
 dep=$pro/$appname/extra
 #######################
-# no dependencies for chrome
+# no dependencies
 cd $dep
 #
 cd ~/
@@ -402,6 +402,6 @@ done
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK '$ORIGIN'" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.3
-# glhf
+# BATOCERA.PRO/KRITA INSTALLER //
+################################
 exit 0
