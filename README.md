@@ -69,4 +69,8 @@
 <br>
 <br>
 <br>
- 
+<img src="https://github.com/uureel/batocera.pro/raw/main/whatsapp/extra/icon.png" width=42 height=42 /><b><i>&nbsp;WHATSAPP</i></b><br>
+```curl -L whatsapp.batocera.pro | bash```
+<br>
+<br>
+<br>
