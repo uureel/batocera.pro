@@ -9,7 +9,7 @@ APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 APPLINK=https://download.kde.org/stable/krita/5.1.3/krita-5.1.3-x86_64.appimage
 ORIGIN="KRITA.ORG STABLE APPIMAGE" # credit & info
 # --------------------------------------------------------------------
-# output colors:
+# -- output colors:
 ###########################
 X='\033[0m'               # / resetcolor
 W='\033[0;37m'            # white
@@ -23,7 +23,7 @@ DARKBLUE='\033[0;34m'     # darkblue
 DARKGREEN='\033[0;32m'    # darkgreen
 DARKPURPLE='\033[0;35m'   # darkpurple
 ###########################
-# console theme
+# -- console theme
 L=$X
 R=$X
 # --------------------------------------------------------------------
