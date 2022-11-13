@@ -1,9 +1,7 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO INSTALLER
+# BATOCERA.PRO/CEMU INSTALLER
 ######################################################################
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -16,10 +14,9 @@ ORIGIN=GITHUB.COM/CEMU-PROJECT # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
 # output colors:
 ###########################
+X='\033[0m'               # / resetcolor
 W='\033[0;37m'            # white
 #-------------------------#
 RED='\033[1;31m'          # red
@@ -32,7 +29,6 @@ DARKGREEN='\033[0;32m'    # darkgreen
 DARKPURPLE='\033[0;35m'   # darkpurple
 ###########################
 # console theme
-X='\033[0m' # / resetcolor
 L=$X
 R=$X
 # --------------------------------------------------------------------
@@ -40,27 +36,27 @@ R=$X
 # paths:
 cd /userdata/system/
 pro=/userdata/system/pro
-mkdir /userdata/system/pro 2>/dev/null
-mkdir /userdata/system/pro/extra 2>/dev/null
-mkdir /userdata/system/pro/backups 2>/dev/null
-mkdir /userdata/system/pro/$appname 2>/dev/null
-mkdir /userdata/system/pro/$appname/extra 2>/dev/null
+mkdir $pro 2>/dev/null
+mkdir $pro/extra 2>/dev/null
+mkdir $pro/backups 2>/dev/null
+mkdir $pro/$appname 2>/dev/null
+mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 # prepare the dependencies for this app: 
 dep=$pro/$appname/extra
 d1=libthai.so.0
 wget -q -O $dep/$d1 https://github.com/uureel/batocera.pro/raw/main/cemu/extra/$d1
-cp $dep/$dep1 /lib/ 2>/dev/null
+cp $dep/$d1 /lib/ 2>/dev/null
 ######################################################################
 # paths for installer dependencies: 
 dep=$pro/$appname/extra
-dep1=tput
-dep2=libtinfo.so.6
-wget -q -O $dep/$dep1 https://github.com/uureel/batocera.pro/raw/main/cemu/extra/$dep1
-cp $dep/$dep1 /usr/bin/ 2>/dev/null
-wget -q -O $dep/$dep2 https://github.com/uureel/batocera.pro/raw/main/cemu/extra/$dep2
-cp $dep/$dep2 /lib/ 2>/dev/null
-cp $dep/$dep2 /lib64/ 2>/dev/null
+d1=tput
+d2=libtinfo.so.6
+wget -q -O $dep/$d1 https://github.com/uureel/batocera.pro/raw/main/cemu/extra/$d1
+cp $dep/$d1 /usr/bin/ 2>/dev/null
+wget -q -O $dep/$dep2 https://github.com/uureel/batocera.pro/raw/main/cemu/extra/$d2
+cp $dep/$d2 /lib/ 2>/dev/null
+cp $dep/$d2 /lib64/ 2>/dev/null
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # // end of dependencies 
@@ -71,7 +67,7 @@ cp $dep/$dep2 /lib64/ 2>/dev/null
 ######################################################################
 ######################################################################
 ######################################################################
-killall Cemu 2>/dev/null && killall Cemu 2>/dev/null && sleep 0.5 
+killall Cemu 2>/dev/null && killall cemu 2>/dev/null && sleep 0.5 
 ######################################################################
 ######################################################################
 ######################################################################
@@ -168,7 +164,6 @@ fi
 # --------------------------------------------------------------------
 # THIS WILL BE SHOWN ON BATOCERA DISPLAY:   
 function batocera-pro-installer {
-# batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
 APPNAME=$1
 appname=$2
 APPPATH=$3
@@ -302,7 +297,6 @@ exit 0
 fi
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #
-#
 # temp for curl download
 temp=/userdata/system/pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null
@@ -369,17 +363,17 @@ dos2unix $launcher
 chmod a+x $launcher
 # --------------------------------------------------------------------
 # add prelauncher to custom.sh to run @ reboot / systemstart
-customsh=/userdata/system/custom.sh
-if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+csh=/userdata/system/custom.sh
+if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-if [[ -e $customsh ]]; then :; else
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+if [[ -e $csh ]]; then :; else
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-dos2unix $customsh 2>/dev/null
+dos2unix $csh 2>/dev/null
 #///
 # --------------------------------------------------------------------
 sleep 1.333
@@ -411,7 +405,6 @@ appname=$1
 }
 export -f get-xterm-fontsize
 # --------------------------------------------------------------------
-# run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
 cfg=/userdata/system/pro/$appname/extra/display.settings
 cols=$(cat $cfg | tail -1) 2>/dev/null
@@ -422,8 +415,9 @@ cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
 # --------------------------------------------------------------------
 # RUN ALL:
+# |
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN $LATEST" 2>/dev/null
 # --------------------------------------------------------------------
-# /eot,thx,glhf
-# version 1.0.1
+# BATOCERA.PRO/CEMU INSTALLER //
+###############################
 exit 0
