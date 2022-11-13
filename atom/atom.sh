@@ -46,6 +46,7 @@ mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 ######################################################################
 # prepare dependencies for this app and the installer: 
+url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
 dep=$pro/$appname/extra
 # --------------------------------------------------------------------
 # this app has no dependencies
@@ -57,13 +58,13 @@ cd ~/
 ######################################################################
 ######################################################################
 ######################################################################
-# installer dependencies: 
+# prepare installer dependencies: 
 dep=$pro/$appname/extra
 d1=tput
 d2=libtinfo.so.6
-wget -q -O $d1 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d1
+wget -q -O $dep/$d1 $url/$d1
 chmod a+x $dep/$d1
-wget -q -O $d2 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d2
+wget -q -O $dep/$d2 $url/$d2
 cp $dep/$d2 /lib/$d2 2>/dev/null
 cp $dep/$d2 /lib64/$d2 2>/dev/null
 #
@@ -328,6 +329,7 @@ echo "Categories=Game;batocera.linux;" >> $shortcut
 echo "Name=$appname" >> $shortcut
 f1shortcut=/usr/share/applications/$appname.desktop
 dos2unix $shortcut
+chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # //
 #
