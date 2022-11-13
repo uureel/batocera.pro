@@ -272,11 +272,11 @@ echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/nul
 cd $pro
 curl --progress-bar --remote-name --location "$APPLINK"
 yes "A" | unzip -qq $pro/$appname.zip 2>/dev/null
-
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE"
 echo
+rm -rf $pro/$appname.zip 2>/dev/null
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 sleep 1.333
 #
