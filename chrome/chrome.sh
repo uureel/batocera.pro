@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO INSTALLER
+# BATOCERA.PRO/CHROME INSTALLER
 ######################################################################
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -48,9 +48,9 @@ mkdir $pro/$appname/extra 2>/dev/null
 # prepare dependencies for this app and the installer: 
 dep=$pro/$appname/extra
 #######################
-# no dependencies for chrome
+# no dependencies, 
 cd $dep
-#
+# -----
 cd ~/
 ######################################################################
 ######################################################################
@@ -145,7 +145,6 @@ echo
 #
 # THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-# --batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
 APPNAME=$1
 appname=$2
 AppName=$3
@@ -247,8 +246,10 @@ echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
 :
 else
+echo
 echo -e "${RED}ERROR: SYSTEM NOT SUPPORTED"
 echo -e "${RED}YOU NEED BATOCERA X86_64${X}"
+echo
 sleep 5
 exit 0
 # quit
@@ -309,11 +310,7 @@ chmod a+x $launcher
 # //
 # -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/icon.png
-if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
-:
-else 
 wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
-fi
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
@@ -385,8 +382,6 @@ appname=$1
 #/
 }
 export -f get-xterm-fontsize 2>/dev/null
-# --------------------------------------------------------------------
-# run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
 cfg=/userdata/system/pro/$appname/extra/display.settings
 cols=$(cat $cfg | tail -1) 2>/dev/null
@@ -397,8 +392,9 @@ cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
 # --------------------------------------------------------------------
 # RUN ALL:
+# |
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK $ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.3
-# glhf
+# BATOCERA.PRO/CHROME INSTALLER //
+#################################
 exit 0
