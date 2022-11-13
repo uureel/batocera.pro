@@ -69,6 +69,11 @@
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/sayonara/extra/icon.png" width=42 height=42 /><b><i>&nbsp;SAYONARA</i></b> <br>
+```curl -L sayonara.batocera.pro | bash```
+<br>
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/spotify/extra/icon.png" width=42 height=42 /><b><i>&nbsp;SPOTIFY</i></b> <br>
 ```curl -L spotify.batocera.pro | bash```
 <br>
