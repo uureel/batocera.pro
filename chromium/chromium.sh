@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO INSTALLER
+# BATOCERA.PRO/CHROMIUM INSTALLER
 ######################################################################
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -16,6 +16,7 @@ ORIGIN=GITHUB.COM/IVAN-HC/CHROMIUM-WEB-BROWSER-APPIMAGE # credit & info
 # --------------------------------------------------------------------
 # output colors:
 ###########################
+X='\033[0m'               # / resetcolor
 W='\033[0;37m'            # white
 #-------------------------#
 RED='\033[1;31m'          # red
@@ -28,7 +29,6 @@ DARKGREEN='\033[0;32m'    # darkgreen
 DARKPURPLE='\033[0;35m'   # darkpurple
 ###########################
 # console theme
-X='\033[0m' # / resetcolor
 L=$X
 R=$X
 # --------------------------------------------------------------------
@@ -47,10 +47,10 @@ mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 # prepare dependencies for this app and the installer: 
 dep=$pro/$appname/extra
-#######################
-# no dependencies for chrome
+# --------------------------------------------------------------------
+# this app has no dependencies,
 cd $dep
-#
+# -----
 cd ~/
 ######################################################################
 ######################################################################
@@ -64,6 +64,7 @@ libtinfo=$dep/libtinfo.so.6
 wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/tput
 wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
 chmod a+x $tput
+cp $libtinfo /lib/libtinfo.so.6 2>/dev/null
 # --------------------------------------------------------------------
 # link dependencies for install and initial run before reboot linker: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
@@ -145,7 +146,6 @@ echo
 #
 # THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-# --batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
 APPNAME=$1
 appname=$2
 AppName=$3
@@ -309,11 +309,7 @@ chmod a+x $launcher
 # //
 # -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/icon.png
-if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
-:
-else 
 wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
-fi
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
@@ -327,6 +323,8 @@ echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
 echo "Name=$appname" >> $shortcut
 f1shortcut=/usr/share/applications/$appname.desktop
+dos2unix $shortcut
+chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # //
 #
@@ -346,17 +344,17 @@ chmod a+x $pre
 # // 
 # 
 # -- add prelauncher to custom.sh to run @ reboot
-customsh=/userdata/system/custom.sh
-if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+csh=/userdata/system/custom.sh
+if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-if [[ -e $customsh ]]; then :; else
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+if [[ -e $csh ]]; then :; else
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-dos2unix $customsh 2>/dev/null
+dos2unix $csh 2>/dev/null
 # //
 #
 # -- done. 
@@ -385,8 +383,6 @@ appname=$1
 #/
 }
 export -f get-xterm-fontsize 2>/dev/null
-# --------------------------------------------------------------------
-# run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
 cfg=/userdata/system/pro/$appname/extra/display.settings
 cols=$(cat $cfg | tail -1) 2>/dev/null
@@ -397,8 +393,9 @@ cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
 # --------------------------------------------------------------------
 # RUN ALL:
+# |
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK $ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.3
-# glhf
+# BATOCERA.PRO/CHROMIUM INSTALLER //
+###################################
 exit 0
