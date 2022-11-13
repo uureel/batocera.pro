@@ -57,15 +57,14 @@ cd ~/
 ######################################################################
 ######################################################################
 ######################################################################
-# installer dependencies: 
+# prepare installer dependencies: 
+url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
 dep=$pro/$appname/extra
 d1=tput
 d2=libtinfo.so.6
-wget -q -O $dep/$d1 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d1
-wget -q -O $dep/$d2 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d2
-cp $dep/$d2 /lib/$d2 
-cp $dep/$d2 /lib64/$d2
-chmod a+x $dep/$d1
+wget -q -O $dep/$d1 $url/$d1
+wget -q -O $dep/$d2 $url/$d2
+chmod +x $dep/$d1
 # --------------------------------------------------------------------
 # link dependencies for install and initial run before reboot linker: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
