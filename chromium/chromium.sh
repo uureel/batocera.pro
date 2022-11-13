@@ -65,6 +65,7 @@ wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/
 wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
 chmod a+x $tput
 cp $libtinfo /lib/libtinfo.so.6 2>/dev/null
+cp $libtinfo /lib64/libtinfo.so.6 2>/dev/null
 # --------------------------------------------------------------------
 # link dependencies for install and initial run before reboot linker: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
