@@ -59,3 +59,8 @@
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/telegram/extra/icon.png" width=42 height=42 /><b><i>&nbsp;TELEGRAM</i></b><br>
+```curl -L telegram.batocera.pro | bash```
+<br>
+<br>
+<br>
