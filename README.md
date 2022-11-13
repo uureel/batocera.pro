@@ -44,7 +44,11 @@
 <br>
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/krita/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KRITA</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/kdenlive/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KDENLIVE</i></b><br>
+```curl -L kdenlive.batocera.pro | bash```
+<br>
+<br>
+<br><img src="https://github.com/uureel/batocera.pro/raw/main/krita/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KRITA</i></b><br>
 ```curl -L krita.batocera.pro | bash```
 <br>
 <br>
