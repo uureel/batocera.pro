@@ -64,7 +64,8 @@ d2=libtinfo.so.6
 wget -q -O $d1 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d1
 chmod a+x $dep/$d1
 wget -q -O $d2 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d2
-cp $d2 /lib/$d2 2>/dev/null
+cp $dep/$d2 /lib/$d2 2>/dev/null
+cp $dep/$d2 /lib64/$d2 2>/dev/null
 #
 # --------------------------------------------------------------------
 # link all dependencies for install and initial run before reboot linker: 
