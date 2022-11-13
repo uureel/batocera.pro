@@ -83,6 +83,11 @@
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/sublime/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SUBLIME-TEXT</i></b><br>
+```curl -L sublime.batocera.pro | bash```
+<br>
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/telegram/extra/icon.png" width=48 height=48 /><b><i>&nbsp;TELEGRAM</i></b><br>
 ```curl -L telegram.batocera.pro | bash```
 <br>
