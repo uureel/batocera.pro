@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO INSTALLER
+# BATOCERA.PRO/DISCORD INSTALLER
 ######################################################################
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -45,15 +45,16 @@ mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 ######################################################################
 # prepare the dependencies for this app: 
+url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
 dep=$pro/$appname/extra
-libatk=$dep/libatk-bridge-2.0.so.0
-libatspi=$dep/libatspi.so.0
-libcups=$dep/libcups.so.2
-libdbus=$dep/libdbus-glib-1.so.2
-wget -q -O $libatk https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libatk-bridge-2.0.so.0
-wget -q -O $libatspi https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libatspi.so.0
-wget -q -O $libcups https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libcups.so.2
-wget -q -O $libdbus https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libdbus-glib-1.so.2
+d1=libatk-bridge-2.0.so.0
+d2=libatspi.so.0
+d3=libcups.so.2
+d4=libdbus-glib-1.so.2
+wget -q -O $dep/$d1 $url/$d1
+wget -q -O $dep/$d2 $url/$d2
+wget -q -O $dep/$d3 $url/$d3
+wget -q -O $dep/$d4 $url/$d4
 ######################################################################
 ######################################################################
 ######################################################################
@@ -61,11 +62,11 @@ wget -q -O $libdbus https://github.com/uureel/batocera.pro/raw/main/$appname/ext
 ######################################################################
 # paths for installer dependencies: 
 dep=$pro/$appname/extra
-tput=$dep/tput
-libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/tput
-chmod +x $tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
+d1=tput
+d2=libtinfo.so.6
+wget -q -O $dep/$d1 $url/$d1
+wget -q -O $dep/$d2 $url/$d2
+chmod +x $dep/$d1
 # --------------------------------------------------------------------
 # link dependencies: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
@@ -315,11 +316,7 @@ chmod a+x $launcher
 # //
 # -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/icon.png
-if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
-:
-else 
 wget -q -O $icon http://batocera.pro/$appname/extra/icon.png
-fi
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
@@ -333,6 +330,8 @@ echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
 echo "Name=$appname" >> $shortcut
 f1shortcut=/usr/share/applications/$appname.desktop
+dos2unix $shortcut
+chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # //
 #
@@ -346,7 +345,7 @@ echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev
 echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
 echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
 echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
-# -- autostart minimized on systemlaunch (currently not working)
+# -- autostart minimized on systemlaunch (currently not working for discord)
 # echo 'sleep 20; mkdir /userdata/system/pro/discord/home 2>/dev/null; mkdir /userdata/system/pro/discord/config 2>/dev/null;' >> $pre
 # echo "HOME=/userdata/system/pro/discord/home XDG_CONFIG_HOME=/userdata/system/pro/discord/config DISPLAY=:0.0 /userdata/system/pro/discord/Discord.AppImage --start-minimized --no-sandbox 2>/dev/null &" >> $pre
 # echo 'su -c "HOME=/userdata/system/pro/discord/home XDG_CONFIG_HOME=/userdata/system/pro/discord/config DISPLAY=:0.0 /userdata/system/pro/discord/Discord.AppImage --start-minimized --no-sandbox 2>/dev/null &" root' >> $pre
@@ -355,23 +354,23 @@ chmod a+x $pre
 # // 
 # 
 # -- add prelauncher to custom.sh to run @ reboot
-customsh=/userdata/system/custom.sh
-if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+csh=/userdata/system/custom.sh
+if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-if [[ -e $customsh ]]; then :; else
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+if [[ -e $csh ]]; then :; else
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-dos2unix $customsh 2>/dev/null
+dos2unix $csh 2>/dev/null
 # //
 #
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# PATCHES FOR CHOSEN APPS IF THEY BLOCK DISCORD PRESENCE: 
+# PATCHES FOR CHOSEN APPS: 
 # =================================================================================
-# BATOCERA-SWITCH / YUZU
+# DISCORD PATCH FOR BATOCERA-SWITCH / YUZU
 file=/userdata/system/switch/configgen/generators/yuzu/yuzuMainlineGenerator.py
 text="enable_discord_presence"
 if [[ -e "$file" ]]; then
@@ -388,7 +387,7 @@ mv $file $file-backup$timestamp 2>/dev/null
 mv $temp $file 2>/dev/null
 fi
 # =================================================================================
-# BATOCERA-SWITCH / RYUJINX 
+# DISCORD PATCH FOR BATOCERA-SWITCH / RYUJINX 
 file=/userdata/system/switch/configgen/generators/ryujinx/ryujinxMainlineGenerator.py
 text="enable_discord_integration"
 if [[ -e "$file" ]]; then
@@ -431,8 +430,6 @@ appname=$1
 #/
 }
 export -f get-xterm-fontsize 2>/dev/null
-# --------------------------------------------------------------------
-# run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
 cfg=/userdata/system/pro/$appname/extra/display.settings
 cols=$(cat $cfg | tail -1) 2>/dev/null
@@ -445,6 +442,6 @@ done
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.3
-# glhf
+# BATOCERA.PRO/DISCORD INSTALLER //
+##################################
 exit 0
