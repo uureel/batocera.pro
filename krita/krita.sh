@@ -10,7 +10,7 @@ appname=krita # directory name in /userdata/system/pro/...
 AppName=Krita # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 APPLINK=https://download.kde.org/stable/krita/5.1.3/krita-5.1.3-x86_64.appimage
-ORIGIN="KRITA.ORG STABLE APPIMAGE"# credit & info
+ORIGIN="KRITA.ORG STABLE APPIMAGE" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -400,7 +400,7 @@ cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
 # --------------------------------------------------------------------
 # RUN ALL:
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK $ORIGIN" 2>/dev/null
+  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK '$ORIGIN'" 2>/dev/null
 # --------------------------------------------------------------------
 # version 1.0.3
 # glhf
