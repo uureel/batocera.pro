@@ -9,7 +9,7 @@
 <br>
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CEMU </font></b>(Experimental Updater)</i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CEMU </font></b>Experimental Updater</i><br>
 ```curl -L cemu.batocera.pro | bash```
 <br>
 <br>
