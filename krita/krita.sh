@@ -2,20 +2,16 @@
 ######################################################################
 # BATOCERA.PRO/KRITA INSTALLER
 ######################################################################
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
 APPNAME="KRITA" # for installer info
 appname=krita # directory name in /userdata/system/pro/...
 AppName=Krita # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/krita
-ORIGIN="APPREPO.DE/APPIMAGE/KRITA" # credit & info
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
+APPLINK=https://download.kde.org/stable/krita/5.1.3/krita-5.1.3-x86_64.appimage
+ORIGIN="KRITA.ORG STABLE APPIMAGE" # credit & info
 # --------------------------------------------------------------------
 # output colors:
 ###########################
+X='\033[0m'               # / resetcolor
 W='\033[0;37m'            # white
 #-------------------------#
 RED='\033[1;31m'          # red
@@ -28,59 +24,30 @@ DARKGREEN='\033[0;32m'    # darkgreen
 DARKPURPLE='\033[0;35m'   # darkpurple
 ###########################
 # console theme
-X='\033[0m' # / resetcolor
 L=$X
 R=$X
 # --------------------------------------------------------------------
-# prepare paths and files for installation 
-# paths:
+# -- prepare paths and files for installation: 
 cd ~/
 pro=/userdata/system/pro
 mkdir $pro 2>/dev/null
 mkdir $pro/extra 2>/dev/null
 mkdir $pro/$appname 2>/dev/null
 mkdir $pro/$appname/extra 2>/dev/null
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-# prepare dependencies for this app and the installer: 
-dep=$pro/$appname/extra
-#######################
-# no dependencies
-cd $dep
-#
-cd ~/
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-# installer dependencies: 
-dep=$pro/$appname/extra
-tput=$dep/tput
-libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
-chmod a+x $tput
 # --------------------------------------------------------------------
-# link dependencies for install and initial run before reboot linker: 
-cd $dep; rm -rf $dep/dep 2>/dev/null
-ls -l ./lib* | awk '{print $9}' | cut -d "/" -f2 >> $dep/dep 2>/dev/null
-nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do
-lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done
+# -- prepare dependencies for this app and the installer: 
+url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
+depfile=dependencies.txt; dep=$pro/$appname/extra; cd $dep
+wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile
+nl=$(cat $dep/$depfile | wc -l); l=1; while [[ $l -le $nl ]]; do
+d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
+if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
 cd ~/
 # --------------------------------------------------------------------
-# // end of dependencies 
-#
-# RUN BEFORE INSTALLER: 
-######################################################################
+# -- run before installer:  
 killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
-######################################################################
-#
 # --------------------------------------------------------------------
-# show console/ssh info: 
+# -- show console/ssh info: 
 clear
 echo
 echo
@@ -90,9 +57,7 @@ echo
 echo
 echo
 echo
-# --------------------------------------------------------------------
 sleep 0.33
-# --------------------------------------------------------------------
 clear
 echo
 echo
@@ -102,9 +67,7 @@ echo -e "${X}--------------------------------------------------------"
 echo
 echo
 echo
-# --------------------------------------------------------------------
 sleep 0.33
-# --------------------------------------------------------------------
 clear
 echo
 echo -e "${X}--------------------------------------------------------"
@@ -114,9 +77,7 @@ echo -e "${X}--------------------------------------------------------"
 echo -e "${X}--------------------------------------------------------"
 echo
 echo
-# --------------------------------------------------------------------
 sleep 0.33
-# --------------------------------------------------------------------
 clear
 echo -e "${X}--------------------------------------------------------"
 echo -e "${X}--------------------------------------------------------"
@@ -126,7 +87,6 @@ echo -e "${X}--------------------------------------------------------"
 echo -e "${X}--------------------------------------------------------"
 echo -e "${X}--------------------------------------------------------"
 echo
-# --------------------------------------------------------------------
 sleep 0.33
 echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
@@ -138,20 +98,18 @@ echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
 echo -e "${X}. . .${X}" 
 echo
-# // end of console info. 
-#
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# --------------------------------------------------------------------
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-#
-# THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
+# -- THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-# --batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
 APPNAME=$1
 appname=$2
 AppName=$3
 APPPATH=$4
 APPLINK=$5
 ORIGIN=$6
+# --------------------------------------------------------------------
 # -- colors: 
 ###########################
 X='\033[0m'               # / resetcolor
@@ -173,8 +131,7 @@ R=$RED
 B=$BLUE
 G=$GREEN
 P=$PURPLE
-# .
-######################################################################
+# --------------------------------------------------------------------
 clear
 echo
 echo
@@ -184,9 +141,7 @@ echo
 echo
 echo
 echo
-# --------------------------------------------------------------------
 sleep 0.33
-# --------------------------------------------------------------------
 clear
 echo
 echo
@@ -196,9 +151,7 @@ echo
 echo
 echo
 echo
-# --------------------------------------------------------------------
 sleep 0.33
-# --------------------------------------------------------------------
 clear
 echo
 echo
@@ -208,9 +161,7 @@ echo -e "${L}-------------------------------------------------------------------
 echo
 echo
 echo
-# --------------------------------------------------------------------
 sleep 0.33
-# --------------------------------------------------------------------
 clear
 echo
 echo -e "${L}-----------------------------------------------------------------------"
@@ -220,9 +171,7 @@ echo -e "${L}-------------------------------------------------------------------
 echo -e "${L}-----------------------------------------------------------------------"
 echo
 echo
-# --------------------------------------------------------------------
 sleep 0.33
-# --------------------------------------------------------------------
 clear
 echo -e "${L}-----------------------------------------------------------------------"
 echo -e "${L}-----------------------------------------------------------------------"
@@ -232,7 +181,6 @@ echo -e "${L}-------------------------------------------------------------------
 echo -e "${L}-----------------------------------------------------------------------"
 echo -e "${L}-----------------------------------------------------------------------"
 echo
-# --------------------------------------------------------------------
 sleep 0.33
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
@@ -243,6 +191,7 @@ echo
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+# --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
 :
@@ -256,18 +205,14 @@ exit 0
 # quit
 exit 0
 fi
-#
-# -- temp for curl download
-temp=/userdata/system/pro/$appname/extra/downloads
-rm -rf $temp 2>/dev/null
-mkdir $temp 2>/dev/null
-#
 # --------------------------------------------------------------------
-#
 echo
 echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
+temp=/userdata/system/pro/$appname/extra/downloads
+rm -rf $temp 2>/dev/null
+mkdir $temp 2>/dev/null
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
@@ -280,20 +225,17 @@ echo -e "${G}> ${W}DONE"
 echo
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 sleep 1.333
-#
-# --------------------------------------------------------------------
-#
 echo
+# --------------------------------------------------------------------
 echo -e "${G}INSTALLING ${W}. . ."
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo "#!/bin/bash" >> $launcher
-# this app has no dependencies, 
-#echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $launcher
-#echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $launcher
-#echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $launcher
-#echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $launcher
+echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $launcher
+echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $launcher
+echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $launcher
+echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $launcher
 # -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 ######################################################################
@@ -308,15 +250,6 @@ echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/sy
 ######################################################################
 dos2unix $launcher
 chmod a+x $launcher
-# //
-# -- get icon for shortcut,
-icon=/userdata/system/pro/$appname/extra/icon.png
-if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
-:
-else 
-wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
-fi
-# //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
@@ -330,24 +263,20 @@ echo "Categories=Game;batocera.linux;" >> $shortcut
 echo "Name=$appname" >> $shortcut
 f1shortcut=/usr/share/applications/$appname.desktop
 dos2unix $shortcut
+chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
-# //
-#
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 # -- dependencies linker: 
-# this app has no dependencies, 
-#echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $pre
-#echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
-#echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
-#echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
+echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $pre
+echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
+echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
+echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
 dos2unix $pre
 chmod a+x $pre
-# // 
-# 
 # -- add prelauncher to custom.sh to run @ reboot
 csh=/userdata/system/custom.sh
 if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
@@ -360,8 +289,6 @@ if [[ -e $csh ]]; then :; else
 echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
 dos2unix $csh
-# //
-#
 # -- done. 
 sleep 1
 echo -e "${G}> ${W}DONE"
@@ -374,22 +301,18 @@ sleep 4
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
-# include display output: 
+# -- include display output: 
 function get-xterm-fontsize {
 appname=$1
-#\
-  tput=/userdata/system/pro/$appname/extra/tput
-  chmod a+x $tput
-  cfg=/userdata/system/pro/$appname/extra/display.settings
-  rm $cfg 2>/dev/null
-  DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "sleep 0.042 && $tput cols >> $cfg" 2>/dev/null
-  cols=$(cat $cfg | tail -1) 2>/dev/null
-  TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
-#/
+tput=/userdata/system/pro/$appname/extra/tput
+chmod a+x $tput
+cfg=/userdata/system/pro/$appname/extra/display.settings
+rm $cfg 2>/dev/null
+DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "sleep 0.042 && $tput cols >> $cfg" 2>/dev/null
+cols=$(cat $cfg | tail -1) 2>/dev/null
+TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 }
 export -f get-xterm-fontsize 2>/dev/null
-# --------------------------------------------------------------------
-# run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
 cfg=/userdata/system/pro/$appname/extra/display.settings
 cols=$(cat $cfg | tail -1) 2>/dev/null
@@ -399,7 +322,8 @@ get-xterm-fontsize $appname 2>/dev/null
 cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
 # --------------------------------------------------------------------
-# RUN ALL:
+# RUN:
+# |
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK '$ORIGIN'" 2>/dev/null
 # --------------------------------------------------------------------
 # BATOCERA.PRO/KRITA INSTALLER //
