@@ -44,39 +44,16 @@ mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 ######################################################################
 ######################################################################
-# prepare the dependencies for this app: 
+# prepare dependencies for this app and the installer: 
 url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
-dep=$pro/$appname/extra
-d1=libatk-bridge-2.0.so.0
-d2=libatspi.so.0
-d3=libcups.so.2
-d4=libdbus-glib-1.so.2
-wget -q -O $dep/$d1 $url/$d1
-wget -q -O $dep/$d2 $url/$d2
-wget -q -O $dep/$d3 $url/$d3
-wget -q -O $dep/$d4 $url/$d4
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-# paths for installer dependencies: 
-dep=$pro/$appname/extra
-d1=tput
-d2=libtinfo.so.6
-wget -q -O $dep/$d1 $url/$d1
-wget -q -O $dep/$d2 $url/$d2
-chmod +x $dep/$d1
-# --------------------------------------------------------------------
-# link dependencies: 
-cd $dep; rm -rf $dep/dep 2>/dev/null
-ls -l ./lib* | awk '{print $9}' | cut -d "/" -f2 >> $dep/dep 2>/dev/null
-nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do
-lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done
+depfile=dependencies.txt; dep=$pro/$appname/extra; cd $dep
+wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile
+nl=$(cat $dep/$depfile | wc -l); l=1; while [[ $l -le $nl ]]; do
+d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
+if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
 cd ~/
-# --------------------------------------------------------------------
 # // end of dependencies 
-#
+# --------------------------------------------------------------------
 # RUN APP SPECIFIC FIXES FOR INSTALLER: 
 ######################################################################
 ######################################################################
@@ -313,10 +290,6 @@ echo 'mkdir /userdata/system/pro/discord/home 2>/dev/null; mkdir /userdata/syste
 ######################################################################
 dos2unix $launcher
 chmod a+x $launcher
-# //
-# -- get icon for shortcut,
-icon=/userdata/system/pro/$appname/extra/icon.png
-wget -q -O $icon http://batocera.pro/$appname/extra/icon.png
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
