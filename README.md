@@ -44,6 +44,11 @@
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/foobar/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FOOBAR2000</i></b><br>
+```curl -L batocera.pro/foobar | bash```
+<br>
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/kdenlive/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KDENLIVE</i></b><br>
 ```curl -L batocera.pro/kdenlive | bash```
 <br>
