@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO/CEMU INSTALLER
+# BATOCERA.PRO/CEMU INSTALLER-UPDATER
 ######################################################################
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -418,6 +418,6 @@ done
 # |
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN $LATEST" 2>/dev/null
 # --------------------------------------------------------------------
-# BATOCERA.PRO/CEMU INSTALLER //
-###############################
+# BATOCERA.PRO/CEMU INSTALLER-UPDATER //
+#######################################
 exit 0
