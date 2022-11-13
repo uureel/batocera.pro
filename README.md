@@ -1,6 +1,6 @@
 # batocera.pro
 <b>Provides apps, installers and updaters for Batocera</b><br>
-`Run these installers from xterm or ssh`
+`Run these installers using xterm or ssh`
 <br>
 <br>
 <br>
