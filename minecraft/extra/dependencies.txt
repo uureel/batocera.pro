@@ -1,0 +1,6 @@
+icon.png
+libsecret-1.so.0
+libselinux.so.1
+libtinfo.so.6
+tar
+tput
