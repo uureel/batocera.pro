@@ -42,7 +42,7 @@ mkdir $pro/backups 2>/dev/null
 mkdir $pro/$appname 2>/dev/null
 mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
-# prepare the dependencies for this app: 
+# prepare dependencies for this app: 
 dep=$pro/$appname/extra
 d1=libthai.so.0
 wget -q -O $dep/$d1 https://github.com/uureel/batocera.pro/raw/main/cemu/extra/$d1
@@ -404,7 +404,6 @@ appname=$1
 #/
 }
 export -f get-xterm-fontsize
-# --------------------------------------------------------------------
 get-xterm-fontsize $appname 2>/dev/null
 cfg=/userdata/system/pro/$appname/extra/display.settings
 cols=$(cat $cfg | tail -1) 2>/dev/null
