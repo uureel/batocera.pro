@@ -29,6 +29,11 @@
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/edge/extra/icon.png" width=42 height=42 /><b><i>&nbsp;EDGE</i></b><br>
+```curl -L edge.batocera.pro | bash```
+<br>
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/firefox/extra/icon.png" width=42 height=42 /><b><i>&nbsp;FIREFOX</i></b><br>
 ```curl -L firefox.batocera.pro | bash```
 <br>
