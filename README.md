@@ -4,7 +4,7 @@
 <br>
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=42 height=42 /><b><i>&nbsp;ATOM </font></b>(Experimental Updater)</i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=42 height=42 /><b><i>&nbsp;ATOM </font></b></i><br>
 ```curl -L atom.batocera.pro | bash```
 <br>
 <br>
