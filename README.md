@@ -54,6 +54,11 @@
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/museeks/extra/icon.png" width=42 height=42 /><b><i>&nbsp;MUSEEKS</i></b><br>
+```curl -L museeks.batocera.pro | bash```
+<br>
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/qbittorrent/extra/icon.png" width=42 height=42 /><b><i>&nbsp;QBITTORRENT</i></b><br>
 ```curl -L qbittorrent.batocera.pro | bash```
 <br>
