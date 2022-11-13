@@ -16,6 +16,7 @@ ORIGIN="APPREPO.DE/APPIMAGE/ATOM" # credit & info
 # --------------------------------------------------------------------
 # output colors:
 ###########################
+X='\033[0m'               # / resetcolor
 W='\033[0;37m'            # white
 #-------------------------#
 RED='\033[1;31m'          # red
@@ -28,7 +29,6 @@ DARKGREEN='\033[0;32m'    # darkgreen
 DARKPURPLE='\033[0;35m'   # darkpurple
 ###########################
 # console theme
-X='\033[0m' # / resetcolor
 L=$X
 R=$X
 # --------------------------------------------------------------------
@@ -48,9 +48,9 @@ mkdir $pro/$appname/extra 2>/dev/null
 # prepare dependencies for this app and the installer: 
 dep=$pro/$appname/extra
 #######################
-# no dependencies for chrome
+# no dependencies
 cd $dep
-#
+# -----
 cd ~/
 ######################################################################
 ######################################################################
@@ -145,7 +145,6 @@ echo
 #
 # THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-# --batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
 APPNAME=$1
 appname=$2
 AppName=$3
@@ -396,8 +395,9 @@ cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
 # --------------------------------------------------------------------
 # RUN ALL:
+# |
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK '$ORIGIN'" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.3
-# glhf
+# BATOCERA.PRO/ATOM INSTALLER //
+###############################
 exit 0
