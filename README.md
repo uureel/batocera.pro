@@ -34,6 +34,11 @@
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/krita/extra/icon.png" width=42 height=42 /><b><i>&nbsp;KRITA</i></b><br>
+```curl -L krita.batocera.pro | bash```
+<br>
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/minecraft/extra/icon.png" width=42 height=42 /><b><i>&nbsp;MINECRAFT</i></b><br>
 ```curl -L minecraft.batocera.pro | bash```
 <br>
