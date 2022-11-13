@@ -47,8 +47,8 @@ mkdir $pro/$appname/extra 2>/dev/null
 ######################################################################
 # prepare dependencies for this app and the installer: 
 dep=$pro/$appname/extra
-#######################
-# no dependencies
+# --------------------------------------------------------------------
+# this app has no dependencies
 cd $dep
 # -----
 cd ~/
@@ -59,13 +59,15 @@ cd ~/
 ######################################################################
 # installer dependencies: 
 dep=$pro/$appname/extra
-tput=$dep/tput
-libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
-chmod a+x $tput
+d1=tput
+d2=libtinfo.so.6
+wget -q -O $d1 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d1
+chmod a+x $dep/$d1
+wget -q -O $d2 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d2
+cp $d2 /lib/$d2 2>/dev/null
+#
 # --------------------------------------------------------------------
-# link dependencies for install and initial run before reboot linker: 
+# link all dependencies for install and initial run before reboot linker: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
 ls -l ./lib* | awk '{print $9}' | cut -d "/" -f2 >> $dep/dep 2>/dev/null
 nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do
@@ -383,8 +385,6 @@ appname=$1
 #/
 }
 export -f get-xterm-fontsize 2>/dev/null
-# --------------------------------------------------------------------
-# run until proper size is found (quick fix for a very long story): 
 get-xterm-fontsize $appname 2>/dev/null
 cfg=/userdata/system/pro/$appname/extra/display.settings
 cols=$(cat $cfg | tail -1) 2>/dev/null
