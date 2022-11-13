@@ -88,6 +88,11 @@
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/totalcmd/extra/icon.png" width=48 height=48 /><b><i>&nbsp;TOTAL-COMMANDER</i></b><br>
+```curl -L totalcmd.batocera.pro | bash```
+<br>
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/whatsapp/extra/icon.png" width=48 height=48 /><b><i>&nbsp;WHATSAPP</i></b><br>
 ```curl -L whatsapp.batocera.pro | bash```
 <br>
