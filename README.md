@@ -7,7 +7,10 @@
 <b>where they work as full desktop apps - meaning they can stay</b><br>
 <b>running in the background, and you can Alt+Tab between them</b><br>
 <br>
+---------------------------------------
 `RUN THE INSTALLERS USING XTERM OR SSH`
+---------------------------------------
+<br>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ATOM </font></b></i><br>
