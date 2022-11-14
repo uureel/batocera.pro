@@ -4,7 +4,7 @@ in order to create a tiny but functional desktop environment</b><br>
 <br>
 <b>The apps below will be available in the F1 > Applications Menu,</b><br>
 <b>where they work as full desktop apps - meaning they can stay</b><br>
-<b>running in the background, and you can Alt+Tab between them</b><br>
+<b>running in the background & you can Alt+Tab between them</b><br>
 <br>
 <br>
 `SIMPLY RUN THESE INSTALLER COMMANDS USING XTERM OR SSH`
