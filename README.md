@@ -7,7 +7,7 @@ in order to create a tiny but functional desktop environment</b><br>
 <b>running in the background, and you can Alt+Tab between them</b><br>
 <br>
 <br>
-`YOU CAN RUN THESE INSTALLERS USING XTERM OR SSH`
+`SIMPLY RUN THESE INSTALLER COMMANDS USING XTERM OR SSH`
 <br>
 <br>
 <br>
