@@ -3,6 +3,7 @@
 <br>
 `RUN THESE INSTALLERS USING XTERM OR SSH`
 <br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ATOM </font></b></i><br>
 ```curl -L batocera.pro/atom | bash```
 <br>
