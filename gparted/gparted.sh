@@ -378,6 +378,6 @@ done
 # |
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK '$ORIGIN'" 2>/dev/null
 # --------------------------------------------------------------------
-# BATOCERA.PRO/KRITA INSTALLER //
-################################
+# BATOCERA.PRO INSTALLER //
+##########################
 exit 0
