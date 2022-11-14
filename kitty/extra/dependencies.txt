@@ -1,5 +1,7 @@
 icon.png
 libcanberra.so.0
+libselinux.so.1
 libtdb.so.1
 libtinfo.so.6
+tar
 tput
