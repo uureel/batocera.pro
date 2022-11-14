@@ -51,6 +51,10 @@ in order to create a tiny but functional desktop environment</b><br>
 ```curl -L batocera.pro/foobar | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/gparted/extra/icon.png" width=48 height=48 /><b><i>&nbsp;GPARTED</i></b><br>
+```curl -L batocera.pro/gparted | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/kdenlive/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KDENLIVE</i></b><br>
 ```curl -L batocera.pro/kdenlive | bash```
 <br>
