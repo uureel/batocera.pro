@@ -1,0 +1,5 @@
+icon.png
+libcanberra.so.0
+libtdb.so.1
+libtinfo.so.6
+tput
