@@ -42,7 +42,7 @@ wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile;
 nl=$(cat $dep/$depfile | wc -l); l=1; while [[ $l -le $((nl+1)) ]]; do
 d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
 if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
-cd ~/
+chmod a+x $dep/tput; cd ~/
 # --------------------------------------------------------------------
 # -- run before installer:  
 killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
