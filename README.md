@@ -75,6 +75,10 @@ in order to create a tiny but functional desktop environment</b><br>
 ```curl -L batocera.pro/museeks | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/odio/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ODIO</i></b><br>
+```curl -L batocera.pro/odio | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/qbittorrent/extra/icon.png" width=48 height=48 /><b><i>&nbsp;QBITTORRENT</i></b><br>
 ```curl -L batocera.pro/qbittorrent | bash```
 <br>
