@@ -53,6 +53,7 @@
 ```curl -L batocera.pro/kdenlive | bash```
 <br>
 <br>
+<br>
 <br><img src="https://github.com/uureel/batocera.pro/raw/main/kitty/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KITTY</i></b><br>
 ```curl -L batocera.pro/kitty | bash```
 <br>
