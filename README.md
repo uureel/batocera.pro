@@ -1,5 +1,5 @@
 # batocera.pro
-<b>Provides apps, installers and updaters for Batocera, <br>
+<b>Provides apps, installers and updaters for Batocera.linux, <br>
 in order to create a tiny but functional desktop environment</b><br>
 <br>
 <b>The apps below will be available in the F1 > Applications Menu,</b><br>
