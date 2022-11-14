@@ -27,6 +27,10 @@ in order to create a tiny but functional desktop environment</b><br>
 ```curl -L batocera.pro/chromium | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/cockatrice/extra/icon.png" width=48 height=48 /><b><i>&nbsp;COCKATRICE</i></b> <br>
+```curl -L batocera.pro/cockatrice | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/discord/extra/icon.png" width=48 height=48 /><b><i>&nbsp;DISCORD</i></b> <br>
 ```curl -L batocera.pro/discord | bash```
 <br>
