@@ -1,7 +1,13 @@
 # batocera.pro
 <b>Provides apps, installers and updaters for Batocera</b><br>
 <br>
-`RUN THESE INSTALLERS USING XTERM OR SSH`
+<b>The aim of this project is to create a tiny desktop environment in Batocera</b><br>
+<br>
+<b>The apps below will be available in the F1 > Applications Menu,</b><br>
+<b>where they work as full desktop apps, meaning they can</b><br>
+<b>stay running in the background and you can Alt+Tab between them</b><br>
+<br>
+`RUN THE INSTALLERS USING XTERM OR SSH`
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ATOM </font></b></i><br>
