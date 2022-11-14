@@ -4,8 +4,8 @@
 <b>The aim of this project is to create a tiny desktop environment in Batocera</b><br>
 <br>
 <b>The apps below will be available in the F1 > Applications Menu,</b><br>
-<b>where they work as full desktop apps, meaning they can</b><br>
-<b>stay running in the background and you can Alt+Tab between them</b><br>
+<b>where they work as full desktop apps - meaning they can stay</b><br>
+<b>running in the background, and you can Alt+Tab between them</b><br>
 <br>
 `RUN THE INSTALLERS USING XTERM OR SSH`
 <br>
