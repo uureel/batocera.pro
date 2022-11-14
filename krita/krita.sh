@@ -47,6 +47,15 @@ cd ~/
 # -- run before installer:  
 killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
 # --------------------------------------------------------------------
+cols=$($dep/tput cols); rm -rf /userdata/system/pro/$appname/extra/cols
+echo $cols >> /userdata/system/pro/$appname/extra/cols
+line(){
+  local start=1
+  local end=${1:-80}
+  local str="${2:-=}"
+  local range=$(seq $start $end)
+  for i in $range ; do echo -n "${str}"; done
+}
 # -- show console/ssh info: 
 clear
 echo
@@ -61,31 +70,31 @@ sleep 0.33
 clear
 echo
 echo
-echo -e "${X}--------------------------------------------------------"
+line $cols '-'; echo
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${X}--------------------------------------------------------"
+line $cols '-'; echo
 echo
 echo
 echo
 sleep 0.33
 clear
 echo
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
+line $cols '-'; echo
+line $cols ' '; echo
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
+line $cols ' '; echo
+line $cols '-'; echo
 echo
 echo
 sleep 0.33
 clear
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
+line $cols '\'; echo
+line $cols '/'; echo
+line $cols ' '; echo
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
+line $cols ' '; echo
+line $cols '/'; echo
+line $cols '\'; echo
 echo
 sleep 0.33
 echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
@@ -98,6 +107,38 @@ echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
 echo -e "${X}. . .${X}" 
 echo
+spinner()
+{
+    status=/userdata/system/pro/$appname/extra/status; done=0
+    local pid=$1
+    local delay=0.2
+    local spinstr='|/-\'
+    while [ "$done" -le "1" ]; do
+        local temp=${spinstr#?}
+        printf "  %c  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b"
+          if [[ -e $status ]]; then
+          check=$(cat $status | tail -n 1)
+          if [[ "$check" = "1" ]]; then done=1; clear && echo; echo "$APPNAME INSTALLED OK"; echo; exit 0; fi
+          fi
+    done
+    printf "\b\b\b\b\b"
+}
+waiter()
+{
+status=/userdata/system/pro/$appname/extra/status; done=0
+rm -rf $status 2>/dev/null
+while [[ "$done" -le "1" ]]; do
+sleep 1
+if [[ -e $status ]]; then
+check=$(cat $status | tail -n 1)
+if [[ "$check" != "" ]]; then done=1; exit 0; fi
+fi
+done  
+}
+waiter & spinner $! &
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 # --------------------------------------------------------------------
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -132,6 +173,16 @@ B=$BLUE
 G=$GREEN
 P=$PURPLE
 # --------------------------------------------------------------------
+cols=$(cat /userdata/system/pro/$appname/extra/display.settings | tail -n 1)
+cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
+#cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
+line(){
+  local start=1
+  local end=${1:-80}
+  local str="${2:-=}"
+  local range=$(seq $start $end)
+  for i in $range ; do echo -n "${str}"; done
+}
 clear
 echo
 echo
@@ -155,42 +206,42 @@ sleep 0.33
 clear
 echo
 echo
-echo -e "${L}-----------------------------------------------------------------------"
+line $cols '-'; echo
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo -e "${L}-----------------------------------------------------------------------"
+line $cols '-'; echo
 echo
 echo
 echo
 sleep 0.33
 clear
 echo
-echo -e "${L}-----------------------------------------------------------------------"
-echo -e "${L}-----------------------------------------------------------------------"
+line $cols '-'; echo
+line $cols '-'; echo
 echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
-echo -e "${L}-----------------------------------------------------------------------"
-echo -e "${L}-----------------------------------------------------------------------"
+line $cols '-'; echo
+line $cols '-'; echo
 echo
 echo
 sleep 0.33
 clear
-echo -e "${L}-----------------------------------------------------------------------"
-echo -e "${L}-----------------------------------------------------------------------"
-echo -e "${L}-----------------------------------------------------------------------"
+line $cols '='; echo
+line $cols '-'; echo
+line $cols '-'; echo
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo -e "${L}-----------------------------------------------------------------------"
-echo -e "${L}-----------------------------------------------------------------------"
-echo -e "${L}-----------------------------------------------------------------------"
+line $cols '-'; echo
+line $cols '-'; echo
+line $cols '='; echo
 echo
 sleep 0.33
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
-echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+line $cols '='; echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -207,7 +258,7 @@ exit 0
 fi
 # --------------------------------------------------------------------
 echo
-echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
+echo -e "${G}DOWNLOADING${W}"
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 temp=/userdata/system/pro/$appname/extra/downloads
@@ -221,13 +272,13 @@ chmod a+x $APPPATH 2>/dev/null
 rm -rf $temp/*.AppImage
 SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
-echo -e "${G}> ${W}DONE"
+#echo -e "${G}> ${W}DONE"
 echo
-echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+line $cols '='; echo
 sleep 1.333
 echo
 # --------------------------------------------------------------------
-echo -e "${G}INSTALLING ${W}. . ."
+echo -e "${G}INSTALLING${W}"
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
@@ -291,13 +342,14 @@ fi
 dos2unix $csh
 # -- done. 
 sleep 1
-echo -e "${G}> ${W}DONE"
+echo -e "${G}> ${W}DONE${W}"
 echo
 sleep 1
-echo -e "${L}-----------------------------------------------------------------------"
-echo -e "${W}> $APPNAME INSTALLED ${G}OK"
-echo -e "${L}-----------------------------------------------------------------------"
-sleep 4
+line $cols '='; echo
+echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
+line $cols '='; echo
+echo "1" >> /userdata/system/pro/$appname/extra/status 2>/dev/null
+sleep 3
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
@@ -308,7 +360,7 @@ tput=/userdata/system/pro/$appname/extra/tput
 chmod a+x $tput
 cfg=/userdata/system/pro/$appname/extra/display.settings
 rm $cfg 2>/dev/null
-DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "sleep 0.042 && $tput cols >> $cfg" 2>/dev/null
+DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
 cols=$(cat $cfg | tail -1) 2>/dev/null
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 }
