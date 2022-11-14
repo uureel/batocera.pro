@@ -75,6 +75,10 @@ in order to create a tiny but functional desktop environment</b><br>
 ```curl -L batocera.pro/museeks | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/nomacs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;NOMACS</i></b><br>
+```curl -L batocera.pro/nomacs | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/obs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;OBS-STUDIO</i></b><br>
 ```curl -L batocera.pro/obs | bash```
 <br>
