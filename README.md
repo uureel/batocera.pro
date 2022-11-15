@@ -2,7 +2,7 @@
 </b>Provides apps, installers and updaters for Batocera.linux, <br>
 in order to create a tiny but functional desktop environment</b><br>
 <br>
-</b>The apps below will be available in the F1 > Applications Menu,</b><br>
+</b>The apps below will be available in the [F1] > Applications Menu,</b><br>
 where they work as full desktop apps - meaning they can stay</b><br>
 running in the background & you can Alt+Tab between them</b><br>
 <br>
