@@ -110,6 +110,10 @@ running in the background & you can Alt+Tab between them</b><br>
 ```curl -L olive.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/opera/extra/icon.png" width=48 height=48 /><b><i>&nbsp;OPERA</i></b><br>
+```curl -L opera.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/peazip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;PEAZIP</i></b><br>
 ```curl -L peazip.batocera.pro | bash```
 <br>
