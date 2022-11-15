@@ -141,6 +141,10 @@ in order to create a tiny but functional desktop environment</b><br>
 ```curl -L totalcmd.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/transmission/extra/icon.png" width=48 height=48 /><b><i>&nbsp;TRANSMISSION</i></b><br>
+```curl -L transmission.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/whatsapp/extra/icon.png" width=48 height=48 /><b><i>&nbsp;WHATSAPP</i></b><br>
 ```curl -L whatsapp.batocera.pro | bash```
 <br>
