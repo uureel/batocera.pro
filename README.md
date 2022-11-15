@@ -60,7 +60,7 @@ in order to create a tiny but functional desktop environment</b><br>
 <br>
 <br>
 <a href=https://github.com/vercel/hyper target=_blank>
-<img src="https://github.com/uureel/batocera.pro/raw/main/hyper/extra/icon.png" width=48 height=48 /></a><b><i>&nbsp;HYPER</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/hyper/extra/icon.png" width=48 height=48 /><b><i>&nbsp;HYPER</i></b><br></a>
 ```curl -L hyper.batocera.pro | bash```
 <br>
 <br>
