@@ -59,9 +59,10 @@ in order to create a tiny but functional desktop environment</b><br>
 ```curl -L gparted.batocera.pro | bash```
 <br>
 <br>
-<a href=https://github.com/vercel/hyper style="position:relative; margin-right:20px;">
+<a href=https://github.com/vercel/hyper>
 <img src="https://github.com/uureel/batocera.pro/raw/main/hyper/extra/icon.png" width=48 height=48 /></a>
-<a href=https://github.com/vercel/hyper style="position:relative; margin-left:20px;">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href=https://github.com/vercel/hyper>
 <b><i>HYPER</i></b><br></a>
 ```curl -L hyper.batocera.pro | bash```
 <br>
