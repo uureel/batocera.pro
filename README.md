@@ -51,11 +51,19 @@ in order to create a tiny but functional desktop environment</b><br>
 ```curl -L firefox.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/foobar/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FOOBAR2000</i></b><br>
+<a href=https://github.com/mmtrt/foobar2000_AppImage>
+<img src="https://github.com/uureel/batocera.pro/raw/main/foobar/extra/icon.png" width=48 height=48 /></a>
+&nbsp;&nbsp;
+<a href=https://github.com/mmtrt/foobar2000_AppImage>
+<b><i>FOOBAR2000</i></b><br></a>
 ```curl -L foobar.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/gparted/extra/icon.png" width=48 height=48 /><b><i>&nbsp;GPARTED</i></b><br>
+<a href=https://apprepo.de/appimage/gparted>
+<img src="https://github.com/uureel/batocera.pro/raw/main/gparted/extra/icon.png" width=48 height=48 /></a>
+&nbsp;&nbsp;
+<a href=https://apprepo.de/appimage/gparted>
+<b><i>GPARTED</i></b><br></a>
 ```curl -L gparted.batocera.pro | bash```
 <br>
 <br>
