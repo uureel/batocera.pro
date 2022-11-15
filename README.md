@@ -7,9 +7,8 @@ where they work as full desktop apps - meaning they can stay</b><br>
 running in the background & you can Alt+Tab between them</b><br>
 <br>
 <br>
-<br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
-`SIMPLY RUN THESE INSTALLER COMMANDS USING XTERM OR SSH`
+`SIMPLY RUN THESE COMMANDS IN XTERM OR USING SSH`
 <br>
 <br>
 <br>
