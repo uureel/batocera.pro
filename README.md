@@ -53,19 +53,19 @@ in order to create a tiny but functional desktop environment</b><br>
 <br>
 <a href=https://github.com/mmtrt/foobar2000_AppImage>
 <img src="https://github.com/uureel/batocera.pro/raw/main/foobar/extra/icon.png" width=48 height=48 /></a>
-<b><i>FOOBAR2000</i></b><br>
+<b><i>&nbsp;FOOBAR2000</i></b><br>
 ```curl -L foobar.batocera.pro | bash```
 <br>
 <br>
 <a href=https://apprepo.de/appimage/gparted>
 <img src="https://github.com/uureel/batocera.pro/raw/main/gparted/extra/icon.png" width=48 height=48 /></a>
-<b><i>GPARTED</i></b><br>
+<b><i>&nbsp;GPARTED</i></b><br>
 ```curl -L gparted.batocera.pro | bash```
 <br>
 <br>
 <a href=https://github.com/vercel/hyper>
 <img src="https://github.com/uureel/batocera.pro/raw/main/hyper/extra/icon.png" width=48 height=48 /></a>
-<b><i>HYPER</i></b><br>
+<b><i>&nbsp;HYPER</i></b><br>
 ```curl -L hyper.batocera.pro | bash```
 <br>
 <br>
