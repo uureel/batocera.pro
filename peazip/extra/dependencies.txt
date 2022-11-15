@@ -1,0 +1,6 @@
+icon.png
+libgdk-x11-2.0.so.0
+libgtk-x11-2.0.so.0
+libtinfo.so.6
+tput
+
