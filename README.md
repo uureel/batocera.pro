@@ -11,6 +11,10 @@ in order to create a tiny but functional desktop environment</b><br>
 <br>
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/7zip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;7ZIP </font></b></i><br>
+```curl -L batocera.pro/7zip | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ATOM </font></b></i><br>
 ```curl -L batocera.pro/atom | bash```
 <br>
