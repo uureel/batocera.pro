@@ -121,6 +121,10 @@ in order to create a tiny but functional desktop environment</b><br>
 ```curl -L qdirstat.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/rats/extra/icon.png" width=48 height=48 /><b><i>&nbsp;RATS-SEARCH</i></b> <br>
+```curl -L rats.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/sayonara/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SAYONARA</i></b> <br>
 ```curl -L sayonara.batocera.pro | bash```
 <br>
