@@ -1,3 +1,5 @@
 icon.png
+photocollage.png
 libtinfo.so.6
 tput
+
