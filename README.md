@@ -91,6 +91,10 @@ in order to create a tiny but functional desktop environment</b><br>
 ```curl -L batocera.pro/olive | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/photocollage/extra/icon.png" width=48 height=48 /><b><i>&nbsp;PHOTOCOLLAGE</i></b><br>
+```curl -L batocera.pro/photocollage | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/qbittorrent/extra/icon.png" width=48 height=48 /><b><i>&nbsp;QBITTORRENT</i></b><br>
 ```curl -L batocera.pro/qbittorrent | bash```
 <br>
