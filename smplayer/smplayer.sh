@@ -306,19 +306,19 @@ rm /userdata/system/pro/$appname/extra/command 2>/dev/null
 # -- prepare Play file for possible integration in ES 
 play=/userdata/system/pro/$appname/Play
 echo '#!/bin/bash' >> $play
-echo 'dep=/userdata/system/pro/smplayer/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $play
+echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $play
 echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $play
 echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $play
 echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $play
 echo 'unclutter-remote -s' >> $play
-echo 'mkdir /userdata/system/pro/smplayer/home 2>/dev/null' >> $play
-echo 'mkdir /userdata/system/pro/smplayer/config 2>/dev/null' >> $play
-echo 'mkdir /userdata/system/pro/smplayer/roms 2>/dev/null' >> $play
-echo 'HOME=/userdata/system/pro/smplayer/home \' >> $play
-echo 'XDG_DATA_HOME=/userdata/system/pro/smplayer/home \' >> $play
-echo 'XDG_CONFIG_HOME=/userdata/system/pro/smplayer/config \' >> $play
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $play
+echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $play
+echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $play
+echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $play
+echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $play
+echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $play
 echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $play
-echo 'DISPLAY=:0.0 /userdata/system/pro/smplayer/smplayer.AppImage "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8"' >> $play
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8"' >> $play
 dos2unix $play
 chmod a+x $play
 # --------------------------------------------------------------------
