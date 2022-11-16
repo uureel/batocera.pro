@@ -52,6 +52,10 @@ running in the background & you can Alt+Tab between them</b><br>
 ```curl -L edge.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/ferdium/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FERDIUM</i></b><br>
+```curl -L ferdium.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/firefox/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FIREFOX</i></b><br>
 ```curl -L firefox.batocera.pro | bash```
 <br>
