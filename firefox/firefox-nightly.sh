@@ -43,31 +43,15 @@ mkdir $pro 2>/dev/null
 mkdir $pro/extra 2>/dev/null
 mkdir $pro/$appname 2>/dev/null
 mkdir $pro/$appname/extra 2>/dev/null
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-# prepare dependencies for this app and the installer: 
-dep=$pro/$appname/extra
-######################################################################
-# no dependencies for this app
-cd $dep
-#
-cd ~/
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-# installer dependencies: 
-dep=$pro/$appname/extra
-tput=$dep/tput
-libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/firefox/extra/tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/firefox/extra/libtinfo.so.6
-chmod a+x $tput
-wget -q -O $pro/$appname/extra/nightly.png https://github.com/uureel/batocera.pro/raw/main/firefox/extra/nightly.png
+# --------------------------------------------------------------------
+# -- prepare dependencies for this app and the installer: 
+url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
+depfile=dependencies.txt; dep=$pro/$appname/extra; cd $dep
+wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile;
+nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+1))" ]]; do
+d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
+if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
+wget -q -O $dep/tput $url/tput; chmod a+x $dep/tput; cd ~/
 # --------------------------------------------------------------------
 # link dependencies for install and initial run before reboot linker: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
