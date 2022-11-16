@@ -144,6 +144,10 @@ in the background, you can Alt+Tab between them</b><br>
 ```curl -L sayonara.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/smplayer/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SMPLAYER</i></b> <br>
+```curl -L smplayer.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/spotify/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SPOTIFY</i></b> <br>
 ```curl -L spotify.batocera.pro | bash```
 <br>
@@ -151,7 +155,7 @@ in the background, you can Alt+Tab between them</b><br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/sublime/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SUBLIME-TEXT</i></b><br>
 ```curl -L sublime.batocera.pro | bash```
 <br>
-<br>
+<br> 
 <img src="https://github.com/uureel/batocera.pro/raw/main/telegram/extra/icon.png" width=48 height=48 /><b><i>&nbsp;TELEGRAM</i></b><br>
 ```curl -L telegram.batocera.pro | bash```
 <br>
