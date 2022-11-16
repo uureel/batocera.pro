@@ -6,8 +6,8 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 APPNAME=FIREFOX-NIGHTLY # for installer info
-appname=firefox # directory name in /userdata/system/pro/...
-AppName=Firefox # App.AppImage name
+appname=ffnightly # directory name in /userdata/system/pro/...
+AppName=ffnightly # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 # -----
 getrelease=$(curl https://github.com/srevinsaju/Firefox-Appimage/releases/tag/firefox-nightly | grep AppImage | sed 's,^.*firefox-nightly v,,g' | cut -d " " -f1)
