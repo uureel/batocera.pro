@@ -283,8 +283,10 @@ echo; #line $cols '='; echo
 sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
-# add config file to turn off software volume control (bug): 
-mkdir -p $pro/$appname/config/smplayer; cp $pro/$appname/extra/smplayer.ini $pro/$appname/config/smplayer/smplayer.ini 2>/dev/null
+# -- add config file to turn off software volume control (bug): 
+mkdir -p $pro/$appname/config/smplayer
+cp $pro/$appname/extra/smplayer.ini $pro/$appname/config/smplayer/smplayer.ini 2>/dev/null
+# --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
@@ -300,6 +302,26 @@ echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
 dos2unix $launcher
 chmod a+x $launcher
 rm /userdata/system/pro/$appname/extra/command 2>/dev/null
+# --------------------------------------------------------------------
+# -- prepare Play file for possible integration in ES 
+play=/userdata/system/pro/$appname/Play
+echo '#!/bin/bash' >> $play
+echo 'dep=/userdata/system/pro/smplayer/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $play
+echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $play
+echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $play
+echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $play
+echo 'unclutter-remote -s' >> $play
+echo 'mkdir /userdata/system/pro/smplayer/home 2>/dev/null' >> $play
+echo 'mkdir /userdata/system/pro/smplayer/config 2>/dev/null' >> $play
+echo 'mkdir /userdata/system/pro/smplayer/roms 2>/dev/null' >> $play
+echo 'HOME=/userdata/system/pro/smplayer/home \' >> $play
+echo 'XDG_DATA_HOME=/userdata/system/pro/smplayer/home \' >> $play
+echo 'XDG_CONFIG_HOME=/userdata/system/pro/smplayer/config \' >> $play
+echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $play
+echo 'DISPLAY=:0.0 /userdata/system/pro/smplayer/smplayer.AppImage "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8"' >> $play
+dos2unix $play
+chmod a+x $play
+# --------------------------------------------------------------------
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
