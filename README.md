@@ -3,6 +3,7 @@
 create a functional desktop environment in Batocera</i></b>
 <br>
 <br>
+<br>
 </b>Apps will be available in [F1] > Applications</b><br>
 & they work as full desktop apps, stay running <br>
 in the background, you can Alt+Tab between them</b><br>
