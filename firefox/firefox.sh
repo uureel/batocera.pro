@@ -303,7 +303,7 @@ shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
-echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
+echo "Icon=/userdata/system/pro/$appname/extra/firefox.png" >> $shortcut
 echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
