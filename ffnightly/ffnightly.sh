@@ -308,7 +308,7 @@ echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
-echo "Name=$appname" >> $shortcut
+echo "Name=firefox-nightly" >> $shortcut
 f1shortcut=/usr/share/applications/$appname.desktop
 cp $shortcut $f1shortcut 2>/dev/null
 # //
