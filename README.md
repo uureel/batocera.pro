@@ -100,6 +100,10 @@ in the background, you can Alt+Tab between them</b><br>
 ```curl -L minecraft.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/moonlight/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MOONLIGHT</i></b><br>
+```curl -L moonlight.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/museeks/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MUSEEKS</i></b><br>
 ```curl -L museeks.batocera.pro | bash```
 <br>
