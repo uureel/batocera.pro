@@ -67,7 +67,7 @@ libtinfo=$dep/libtinfo.so.6
 wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/firefox/extra/tput
 wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/firefox/extra/libtinfo.so.6
 chmod a+x $tput
-wget -q -O nightly.png https://github.com/uureel/batocera.pro/raw/main/firefox/extra/nightly.png
+wget -q -O $pro/$appname/extra/nightly.png https://github.com/uureel/batocera.pro/raw/main/firefox/extra/nightly.png
 # --------------------------------------------------------------------
 # link dependencies for install and initial run before reboot linker: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
