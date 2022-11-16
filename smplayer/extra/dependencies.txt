@@ -1,4 +1,5 @@
 icon.png
+libjack.so.0
 libtinfo.so.6
 smplayer.ini
 tput
