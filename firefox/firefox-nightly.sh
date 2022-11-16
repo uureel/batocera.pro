@@ -64,9 +64,10 @@ cd ~/
 dep=$pro/$appname/extra
 tput=$dep/tput
 libtinfo=$dep/libtinfo.so.6
-wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
+wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/firefox/extra/tput
+wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/firefox/extra/libtinfo.so.6
 chmod a+x $tput
+wget -q -O nightly.png https://github.com/uureel/batocera.pro/raw/main/firefox/extra/nightly.png
 # --------------------------------------------------------------------
 # link dependencies for install and initial run before reboot linker: 
 cd $dep; rm -rf $dep/dep 2>/dev/null
@@ -135,7 +136,7 @@ echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
-echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$appname"
+echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
@@ -240,8 +241,8 @@ sleep 0.33
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
-echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$appname"
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS"
+echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
@@ -312,11 +313,6 @@ chmod a+x $launcher
 # //
 # -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/nightly.png
-if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
-:
-else 
-wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/nightly.png
-fi
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
