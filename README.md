@@ -162,6 +162,10 @@ running in the background & you can Alt+Tab between them</b><br>
 ```curl -L transmission.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/vivaldi/extra/icon.png" width=48 height=48 /><b><i>&nbsp;VIVALDI</i></b><br>
+```curl -L vivaldi.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/whatsapp/extra/icon.png" width=48 height=48 /><b><i>&nbsp;WHATSAPP</i></b><br>
 ```curl -L whatsapp.batocera.pro | bash```
 <br>
