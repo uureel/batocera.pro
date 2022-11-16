@@ -311,11 +311,11 @@ dos2unix $launcher
 chmod a+x $launcher
 # //
 # -- get icon for shortcut,
-icon=/userdata/system/pro/$appname/extra/icon.png
+icon=/userdata/system/pro/$appname/extra/nightly.png
 if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
 :
 else 
-wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
+wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/nightly.png
 fi
 # //
 # -- prepare f1 - applications - app shortcut, 
@@ -323,7 +323,7 @@ shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
-echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
+echo "Icon=/userdata/system/pro/$appname/extra/nightly.png" >> $shortcut
 echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
