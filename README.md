@@ -62,6 +62,10 @@ in the background, you can Alt+Tab between them</b><br>
 ```curl -L firefox.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/firefox/extra/nightly.png" width=48 height=48 /><b><i>&nbsp;FIREFOX-NIGHTLY</i></b><br>
+```curl -L ffnightly.batocera.pro | bash```
+<br>
+<br>
 <a href=https://github.com/mmtrt/foobar2000_AppImage>
 <img src="https://github.com/uureel/batocera.pro/raw/main/foobar/extra/icon.png" width=48 height=48 /></a>
 <b><i>&nbsp;FOOBAR2000</i></b><br>
