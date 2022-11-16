@@ -1,6 +1,6 @@
 # batocera.pro
 <b><i>Provides unofficial apps, installers & updaters to create<br>
-a functional desktop environment in Batocera</i></b>
+a functional desktop environment in Batocera x86_64</i></b>
 <br>
 <br>
 <br>
