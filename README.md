@@ -1,10 +1,11 @@
 # batocera.pro
-</b>Provides <b><i>experimental</i></b> apps, installers & updaters for Batocera, <br>
-in order to create a tiny but functional desktop environment</b><br>
+<b><i>Provides experimental apps, installers & updaters to<br>
+create a functional desktop environment in Batocera</i></b>
 <br>
-</b>The apps below will be available in the [F1] > Applications Menu,</b><br>
-where they work as full desktop apps - meaning they can stay</b><br>
-running in the background & you can Alt+Tab between them</b><br>
+<br>
+</b>Apps will be available in [F1] > Applications</b><br>
+& they work as full desktop apps, stay running in 
+the background & you can Alt+Tab between them</b><br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
