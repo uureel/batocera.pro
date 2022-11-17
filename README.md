@@ -191,6 +191,10 @@ Some unofficial AppImages, few official binaries <br>
 <br>
 <br>
 <br>
+This is small a hobby repository in no way <br>
+shape or form affiliated with Batocera <br>
+<br>
+<br>
 <b><i>&nbsp;FOR QUESTIONS : </font></b></i><br>
 <a href=https://discord.gg/8gKnCs42>https://discord.gg/8gKnCs42</a>
 <br>
