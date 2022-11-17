@@ -337,7 +337,13 @@ dos2unix $port
 chmod a+x $port
 ports=/userdata/roms/ports
 if [[ -e "$ports/Moonlight.sh" ]]; 
-then cp $port "$ports/Moonlight $version.sh";
+then 
+  if [[ "$(cat "$ports/Moonlight.sh" | grep "/userdata/system/pro/moonlight/moonlight.AppImage")" != "" ]]; 
+  then 
+  cp $port "$ports/Moonlight.sh"
+  else
+  cp $port "$ports/Moonlight $version.sh";
+  fi
 else cp $port "$ports/Moonlight.sh"; 
 fi
 # --------------------------------------------------------------------
