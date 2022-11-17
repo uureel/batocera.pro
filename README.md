@@ -13,8 +13,10 @@ Some unofficial AppImages, few official binaries <br>
 & a few are official wine versions <br>
 <br>
 <br>
+<br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
 `JUST USE XTERM OR SSH TO RUN THESE COMMANDS`
+<br>
 <br>
 <br>
 <br>
