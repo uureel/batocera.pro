@@ -183,7 +183,9 @@ in the background & you can Alt+Tab between them, <br>
 <br>
 <br>
 <br>
+<br>
 <b><i>&nbsp;FOR QUESTIONS : </font></b></i><br>
 <a href=https://discord.gg/8gKnCs42>https://discord.gg/8gKnCs42</a>
+<br>
 <br>
 <br>
