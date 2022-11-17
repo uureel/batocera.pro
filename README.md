@@ -68,6 +68,10 @@ Some unofficial AppImages, few official binaries <br>
 ```curl -L ferdium.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/filezilla/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FILEZILLA</i></b><br>
+```curl -L filezilla.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/firefox/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FIREFOX</i></b><br>
 ```curl -L firefox.batocera.pro | bash```
 <br>
