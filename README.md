@@ -7,8 +7,10 @@ in the background & you can Alt+Tab between them, <br>
 & go back to EmulationStation </b><br>
 <br>
 <br>
+<br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
 `SIMPLY RUN THESE COMMANDS, IN XTERM OR SSH`
+<br>
 <br>
 <br>
 <br>
