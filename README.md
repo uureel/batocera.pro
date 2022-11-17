@@ -9,7 +9,7 @@ in the background & you can Alt+Tab between them, <br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
-`SIMPLY RUN THESE COMMANDS, IN XTERM OR SSH`
+`JUST USE XTERM OR SSH TO RUN THESE COMMANDS`
 <br>
 <br>
 <br>
