@@ -332,7 +332,7 @@ echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
 echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8"' >> $port
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage' >> $port
 dos2unix $port
 chmod a+x $port
 ports=/userdata/roms/ports
