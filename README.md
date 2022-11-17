@@ -1,15 +1,15 @@
 # batocera.pro
-<b><i>provides unofficial apps for Batocera</i></b>
-<br>
+<b><i>Provides 'unofficial' desktop apps for Batocera</i></b>
 <br>
 </b>These apps will be available in [F1 > Applications] <br>
 where they work as normal desktop apps, stay running <br>
-in the background & you can Alt+Tab between them & go <br>
-back to EmulationStation</b><br>
+in the background & you can Alt+Tab between them, <br>
+& go back to EmulationStation </b><br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
 `SIMPLY RUN THESE COMMANDS, IN XTERM OR SSH`
+<br>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/7zip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;7ZIP </font></b></i><br>
