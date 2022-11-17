@@ -18,7 +18,6 @@ Some unofficial AppImages, few official binaries <br>
 <br>
 <br>
 <br>
-<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/7zip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;7ZIP </font></b></i><br>
 ```curl -L 7zip.batocera.pro | bash```
 <br>
