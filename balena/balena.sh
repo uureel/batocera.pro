@@ -16,11 +16,13 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
 APPNAME="BALENA-ETCHER"
+appname=balena
+#
 APPLINK=https://apprepo.de/appimage/download/etcher
 APPHOME="apprepo.de/appimage/etcher"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage'
+COMMAND='mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null; HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$appname'/home DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -36,7 +38,7 @@ COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata
 ######################################################################
 ######################################################################
 # --------------------------------------------------------------------
-APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=balena; AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 # --------------------------------------------------------------------
 # -- output colors:
 ###########################
