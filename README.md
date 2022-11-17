@@ -1,5 +1,5 @@
 # batocera.pro
-<b><i>Provides 'unofficial' apps for Batocera </i></b><br>
+<b><i>Provides unofficial apps for Batocera </i></b><br>
 <br>
 <br>
 </b>These apps will be available in &nbsp; / F1 > Applications / <br>
@@ -11,6 +11,7 @@ in the background & you can Alt+Tab between them, <br>
 Most of these apps are official AppImages <br>
 Some unofficial AppImages, few official binaries <br>
 & a few are official wine versions <br>
+<br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
@@ -29,6 +30,10 @@ Some unofficial AppImages, few official binaries <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ATOM </font></b></i><br>
 ```curl -L atom.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/balena/extra/icon.png" width=48 height=48 /><b><i>&nbsp;BALENA-ETCHER </font></b></i><br>
+```curl -L balena.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CEMU </font></b>Experimental Updater</i><br>
