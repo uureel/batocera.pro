@@ -38,7 +38,7 @@ COMMAND='mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata
 ######################################################################
 ######################################################################
 # --------------------------------------------------------------------
-APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; AppName=$appname; APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 # --------------------------------------------------------------------
 # -- output colors:
 ###########################
