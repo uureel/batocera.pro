@@ -1,17 +1,15 @@
 # batocera.pro
-<b><i>Provides unofficial apps, installers & updaters to create<br>
-a functional desktop environment in Batocera</i></b>
+<b><i>provides unofficial apps for Batocera</i></b>
 <br>
 <br>
-<br>
-</b>Apps will be available in [F1] > Applications</b><br>
-& they work as full desktop apps, stay running <br>
-in the background, you can Alt+Tab between them</b><br>
+</b>These apps will be available in [F1 > Applications] <br>
+where they work as normal desktop apps, stay running <br>
+in the background & you can Alt+Tab between them & go <br>
+back to EmulationStation</b><br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
-`SIMPLY RUN THESE COMMANDS IN XTERM OR USING SSH`
-<br>
+`SIMPLY RUN THESE COMMANDS, IN XTERM OR SSH`
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/7zip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;7ZIP </font></b></i><br>
@@ -182,5 +180,10 @@ in the background, you can Alt+Tab between them</b><br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/whatsapp/extra/icon.png" width=48 height=48 /><b><i>&nbsp;WHATSAPP</i></b><br>
 ```curl -L whatsapp.batocera.pro | bash```
+<br>
+<br>
+<br>
+<b><i>&nbsp;FOR QUESTIONS : </font></b></i><br>
+<a href=https://discord.gg/8gKnCs42>https://discord.gg/8gKnCs42</a>
 <br>
 <br>
