@@ -31,6 +31,10 @@ Some unofficial AppImages, few official binaries <br>
 ```curl -L atom.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/balena/extra/icon.png" width=48 height=48 /><b><i>&nbsp;BALENA-ETCHER </font></b></i><br>
+```curl -L balena.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CEMU </font></b>Experimental Updater</i><br>
 ```curl -L cemu.batocera.pro | bash```
 <br>
