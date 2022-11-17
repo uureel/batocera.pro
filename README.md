@@ -191,7 +191,7 @@ Some unofficial AppImages, few official binaries <br>
 <br>
 <br>
 <br>
-This is small a hobby repository in no way <br>
+This is a small hobby repository in no way <br>
 shape or form affiliated with Batocera <br>
 <br>
 <br>
