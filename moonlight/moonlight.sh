@@ -315,6 +315,32 @@ f1shortcut=/usr/share/applications/$appname.desktop
 dos2unix $shortcut
 chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
+# --------------------------------------------------------------------
+# -- prepare Ports file, 
+version=$(echo $APPLINK | sed 's,^.*Moonlight-,,g' | sed 's,-x86_64.AppImage,,g')
+port=/userdata/system/pro/$appname/Moonlight.sh
+echo '#!/bin/bash' >> $port
+echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $port
+echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $port
+echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $port
+echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $port
+echo 'unclutter-remote -s' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $port
+echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
+echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8"' >> $port
+dos2unix $port
+chmod a+x $port
+ports=/userdata/roms/ports
+if [[ -e "$ports/Moonlight.sh" ]]; 
+then cp $port "$ports/Moonlight $version.sh";
+else cp $port "$ports/Moonlight.sh"; 
+fi
+# --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
