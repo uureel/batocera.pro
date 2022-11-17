@@ -9,7 +9,7 @@ in the background & you can Alt+Tab between them, <br>
 <br>
 <br>
 Most of these apps are official AppImages <br>
-Few are official linux binaries <br>
+Some unofficial AppImages, few official binaries <br>
 & a few are official Wine versions <br>
 <br>
 <br>
