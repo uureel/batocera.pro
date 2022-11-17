@@ -1,10 +1,10 @@
 # batocera.pro
 <b><i>Provides 'unofficial' desktop apps for Batocera </i></b><br>
 <br>
-</b>These apps will be available in [F1 > Applications] <br>
+</b>These apps will be available in  / F1 > Applications / <br>
 where they work as normal desktop apps, stay running <br>
 in the background & you can Alt+Tab between them, <br>
-& go back to EmulationStation </b><br>
+& also use EmulationStation with them running <br>
 <br>
 <br>
 <br>
