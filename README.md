@@ -1,5 +1,5 @@
 # batocera.pro
-<b><i>Provides 'unofficial' desktop apps for Batocera </i></b><br>
+<b><i>Provides 'unofficial' apps for Batocera </i></b><br>
 <br>
 <br>
 </b>These apps will be available in &nbsp; / F1 > Applications / <br>
