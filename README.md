@@ -191,8 +191,8 @@ Some unofficial AppImages, few official binaries <br>
 <br>
 <br>
 <br>
-This is a small hobby repository in no way <br>
-shape or form affiliated with Batocera <br>
+<i>This is a small hobby repository in no way <br>
+shape or form affiliated with Batocera </i><br>
 <br>
 <br>
 <b><i>&nbsp;FOR QUESTIONS : </font></b></i><br>
