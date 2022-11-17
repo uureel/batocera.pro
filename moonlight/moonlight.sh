@@ -338,7 +338,7 @@ chmod a+x $port
 ports=/userdata/roms/ports
 if [[ -e "$ports/Moonlight.sh" ]]; 
 then 
-  if [[ "$(cat "$ports/Moonlight.sh" | grep "/userdata/system/pro/moonlight/moonlight.AppImage")" != "" ]]; 
+  if [[ "$(cat "$ports/Moonlight.sh" | grep "/userdata/system/pro/moonlight" | tail -n 1)" != "" ]]; 
   then 
   cp $port "$ports/Moonlight.sh"
   else
