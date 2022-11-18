@@ -20,7 +20,7 @@ clear
 echo
 echo
 echo
-echo -e "${X}PREPARING $APPNAME INSTALLER . . . ${X}"
+echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
 echo
 echo
 echo

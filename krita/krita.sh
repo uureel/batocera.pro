@@ -9,6 +9,18 @@ APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 APPLINK=https://download.kde.org/stable/krita/5.1.3/krita-5.1.3-x86_64.appimage
 ORIGIN="KRITA.ORG STABLE APPIMAGE" # credit & info
 # --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# show console/ssh info: 
+clear
+echo
+echo
+echo
+echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
+echo
+echo
+echo
+echo
+# --------------------------------------------------------------------
 # -- output colors:
 ###########################
 X='\033[0m'               # / resetcolor

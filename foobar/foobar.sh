@@ -9,6 +9,18 @@ APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 APPLINK=$(curl -s https://api.github.com/repos/mmtrt/foobar2000_AppImage/releases | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g' | head -n 1)
 ORIGIN="GITHUB.COM/MMTRT/FOOBAR2000_APPIMAGE" # credit & info
 # --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# show console/ssh info: 
+clear
+echo
+echo
+echo
+echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
+echo
+echo
+echo
+echo
+# --------------------------------------------------------------------
 # -- output colors:
 ###########################
 X='\033[0m'               # / resetcolor

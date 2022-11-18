@@ -9,6 +9,18 @@ APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 APPLINK=https://apprepo.de/appimage/download/olive
 ORIGIN="APPREPO.DE/APPIMAGE/OLIVE" # credit & info
 # --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# show console/ssh info: 
+clear
+echo
+echo
+echo
+echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
+echo
+echo
+echo
+echo
+# --------------------------------------------------------------------
 # -- output colors:
 ###########################
 X='\033[0m'               # / resetcolor

@@ -9,6 +9,18 @@ APPPATH=/userdata/system/pro/$appname
 APPLINK=https://github.com/uureel/batocera.pro/raw/main/cockatrice/extra/dependencies.txt
 ORIGIN="COCKATRICE.GITHUB.IO" # credit & info
 # --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# show console/ssh info: 
+clear
+echo
+echo
+echo
+echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
+echo
+echo
+echo
+echo
+# --------------------------------------------------------------------
 # -- output colors:
 ###########################
 X='\033[0m'               # / resetcolor

@@ -38,6 +38,18 @@ COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata
 # --------------------------------------------------------------------
 APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 # --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# show console/ssh info: 
+clear
+echo
+echo
+echo
+echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
+echo
+echo
+echo
+echo
+# --------------------------------------------------------------------
 # -- output colors:
 ###########################
 X='\033[0m'               # / resetcolor

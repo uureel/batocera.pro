@@ -9,6 +9,18 @@ APPPATH=/userdata/system/pro/$appname/bin/$appname
 APPLINK=https://github.com/uureel/batocera.pro/raw/main/kitty/extra/kitty-0.26.5-x86_64.txz
 ORIGIN="GITHUB.COM/KOVIDGOYAL/KITTY" # credit & info
 # --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# show console/ssh info: 
+clear
+echo
+echo
+echo
+echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
+echo
+echo
+echo
+echo
+# --------------------------------------------------------------------
 # -- output colors:
 ###########################
 X='\033[0m'               # / resetcolor
