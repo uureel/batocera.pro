@@ -344,16 +344,7 @@ echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage' >> $port
 dos2unix $port
 chmod a+x $port
 ports=/userdata/roms/ports
-if [[ -e "$ports/Chiaki.sh" ]]; 
-then 
-  if [[ "$(cat "$ports/Chiaki.sh" | grep "/userdata/system/pro/chiaki" | tail -n 1)" != "" ]]; 
-  then 
-  cp $port "$ports/Chiaki.sh"; 
-  else 
-  cp $port "$ports/Chiaki $version.sh";
-  fi
-else cp $port "$ports/Chiaki.sh"; 
-fi
+cp $port "$ports/Chiaki.sh"
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
