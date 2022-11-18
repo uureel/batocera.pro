@@ -40,6 +40,10 @@ Some unofficial AppImages, few official binaries <br>
 ```curl -L cemu.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/chiaki/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CHIAKI </font></b></i><br>
+```curl -L chiaki.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/chrome/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CHROME</i></b> <br>
 ```curl -L chrome.batocera.pro | bash```
 <br>
