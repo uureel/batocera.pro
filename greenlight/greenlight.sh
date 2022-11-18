@@ -320,7 +320,7 @@ cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
 version=$(echo $APPLINK | sed 's,^.*Greenlight-,,g' | sed 's,.AppImage,,g')
-port=/userdata/system/pro/$appname/Moonlight.sh
+port=/userdata/system/pro/$appname/Greenlight.sh
 echo '#!/bin/bash' >> $port
 echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $port
 echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $port
@@ -344,7 +344,7 @@ then
   then 
   cp $port "$ports/Greenlight.sh"
   else
-  cp $port "$ports/Moonlight $version.sh";
+  cp $port "$ports/Greenlight $version.sh";
   fi
 else cp $port "$ports/Greenlight.sh"; 
 fi
