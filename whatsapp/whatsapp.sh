@@ -14,6 +14,18 @@ ORIGIN="APPREPO.DE/APPIMAGE/WHATSAPP" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# show console/ssh info: 
+clear
+echo
+echo
+echo
+echo -e "${X}PREPARING $APPNAME INSTALLER . . . ${X}"
+echo
+echo
+echo
+echo
+# --------------------------------------------------------------------
 # output colors:
 ###########################
 W='\033[0;37m'            # white
@@ -270,7 +282,7 @@ echo '#!/bin/bash ' >> $launcher
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
+echo ' cp $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
 # -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 ######################################################################
