@@ -15,9 +15,9 @@
 ######################################################################
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
-APPNAME=heroic 
-APPLINK=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
-APPHOME="github.com/Heroic-Games-Launcher"
+APPNAME=greenlight 
+APPLINK=$(curl -s https://api.github.com/repos/unknownskl/xbox-xcloud-client/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
+APPHOME="github.com/unknownskl/xbox-xcloud-client"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
 COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox'
@@ -131,7 +131,7 @@ line $cols '/'; echo
 line $cols '\'; echo
 echo
 sleep 0.33
-echo -e "${X}THIS WILL INSTALL HEROIC-LAUNCHER FOR BATOCERA"
+echo -e "${X}THIS WILL INSTALL XBOX-XCLOUD-CLIENT FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
@@ -236,7 +236,7 @@ echo; #line $cols '-'; echo
 line $cols '='; echo
 echo
 sleep 0.33
-echo -e "${W}THIS WILL INSTALL HEROIC-LAUNCHER FOR BATOCERA"
+echo -e "${W}THIS WILL INSTALL XBOX-XCLOUD-CLIENT FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
@@ -319,9 +319,8 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-portname=Heroic
-version=$(echo $APPLINK | sed 's,^.*'$portname'-,,g' | sed 's,.AppImage,,g')
-port=/userdata/system/pro/$appname/$portname.sh
+version=$(echo $APPLINK | sed 's,^.*Greenlight-,,g' | sed 's,.AppImage,,g')
+port=/userdata/system/pro/$appname/Greenlight.sh
 echo '#!/bin/bash' >> $port
 echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $port
 echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $port
@@ -339,15 +338,15 @@ echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sand
 dos2unix $port 
 chmod a+x $port 
 ports=/userdata/roms/ports
-if [[ -e "$ports/$portname.sh" ]]; 
+if [[ -e "$ports/Greenlight.sh" ]]; 
 then 
-  if [[ "$(cat "$ports/$portname.sh" | grep "/userdata/system/pro/$appname" | tail -n 1)" != "" ]]; 
+  if [[ "$(cat "$ports/Greenlight.sh" | grep "/userdata/system/pro/greenlight" | tail -n 1)" != "" ]]; 
   then 
-  cp $port "$ports/$portname.sh"
+  cp $port "$ports/Greenlight.sh"
   else
-  cp $port "$ports/$portname $version.sh";
+  cp $port "$ports/Greenlight $version.sh";
   fi
-else cp $port "$ports/$portname.sh"; 
+else cp $port "$ports/Greenlight.sh"; 
 fi
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
