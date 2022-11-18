@@ -344,7 +344,7 @@ echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage' >> $port
 dos2unix $port
 chmod a+x $port
 ports=/userdata/roms/ports
-cp $port "$ports/Chiaki.sh"
+cp $port "$ports/Chiaki.sh" 
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
