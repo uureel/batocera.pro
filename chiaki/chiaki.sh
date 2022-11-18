@@ -134,11 +134,12 @@ sleep 0.33
 echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${X}$APPNAME WILL BE IN THE F1->APPLICATIONS MENU"
+echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
+echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${X}CHECK CHIAKI PROJECT FOR INSTRUCTIONS"
-echo -e "${X}HOW TO USE THIS APP"
+echo -e "${R}CHECK CHIAKI PROJECT FOR INSTRUCTIONS"
+echo -e "${R}ON HOW TO USE THIS APP"
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
@@ -241,11 +242,12 @@ sleep 0.33
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}$APPNAME WILL BE IN THE F1->APPLICATIONS MENU"
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
+echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${R}CHECK CHIAKI PROJECT FOR INSTRUCTIONS"
-echo -e "${R}HOW TO USE THIS APP"
+echo -e "${R}ON HOW TO USE THIS APP"
 echo
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
@@ -321,6 +323,36 @@ f1shortcut=/usr/share/applications/$appname.desktop
 dos2unix $shortcut
 chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
+# --------------------------------------------------------------------
+# -- prepare Ports file, 
+version="2.1.1"
+port=/userdata/system/pro/$appname/Chiaki.sh
+echo '#!/bin/bash' >> $port
+echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $port
+echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $port
+echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $port
+echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $port
+echo 'unclutter-remote -s' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $port
+echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
+echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage' >> $port
+dos2unix $port
+chmod a+x $port
+ports=/userdata/roms/ports
+if [[ -e "$ports/Chiaki.sh" ]]; 
+then 
+  if [[ "$(cat "$ports/Chiaki.sh" | grep "/userdata/system/pro/chiaki" | tail -n 1)" != "" ]]; 
+  then 
+  else
+  cp $port "$ports/Chiaki $version.sh";
+  fi
+else cp $port "$ports/Chiaki.sh"; 
+fi
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
