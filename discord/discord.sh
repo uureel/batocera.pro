@@ -382,26 +382,23 @@ export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # include display output: 
 function get-xterm-fontsize {
-appname=$1
-#\
-  tput=/userdata/system/pro/$appname/extra/tput
-  chmod a+x $tput
-  cfg=/userdata/system/pro/$appname/extra/display.settings
-  rm $cfg 2>/dev/null
-  DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "sleep 0.042 && $tput cols >> $cfg" 2>/dev/null
-  cols=$(cat $cfg | tail -1) 2>/dev/null
-  TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
-#/
+tput=/userdata/system/pro/.dep/tput; chmod a+x $tput; 
+ln -s /userdata/system/pro/.dep/libtinfo.so.6 /lib/ 2>/dev/null
+cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null
+DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
+cols=$(cat $cfg | tail -1) 2>/dev/null
+TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 }
 export -f get-xterm-fontsize 2>/dev/null
-get-xterm-fontsize $appname 2>/dev/null
-cfg=/userdata/system/pro/$appname/extra/display.settings
+get-xterm-fontsize 2>/dev/null
+cfg=/userdata/system/pro/.dep/display.cfg
 cols=$(cat $cfg | tail -1) 2>/dev/null
 until [[ "$cols" != "80" ]] 
-do 
-get-xterm-fontsize $appname 2>/dev/null
+do
+get-xterm-fontsize 2>/dev/null
 cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
+TEXT_SIZE=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
 # --------------------------------------------------------------------
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN" 2>/dev/null

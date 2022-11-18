@@ -268,7 +268,7 @@ d4=libsecret-1.so.0
 wget -q -O /userdata/system/pro/minecraft/extra/$d4 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d4
 # --- join liblauncher
 cat /userdata/system/pro/minecraft/extra/liblauncher.tar.bz2.parta* >/userdata/system/pro/minecraft/extra/liblauncher.tar.gz
-/userdata/system/pro/minecraft/extra/tar -xf /userdata/system/pro/minecraft/extra/liblauncher.tar.gz
+pro=/userdata/system/pro; chmod a+x $pro/.dep/tar; $pro/.dep/tar -xf /userdata/system/pro/minecraft/extra/liblauncher.tar.gz
 chmod a+x /userdata/system/pro/minecraft/extra/liblauncher.so
 chmod a+x /userdata/system/pro/minecraft/extra/libsecret-1.so.0
 rm -rf /userdata/system/pro/minecraft/extra/liblauncher.tar* 2>/dev/null
@@ -400,28 +400,23 @@ export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # include display output: 
 function get-xterm-fontsize {
-appname=$1
-#\
-  tput=/userdata/system/pro/$appname/extra/tput
-  chmod a+x $tput
-  cfg=/userdata/system/pro/$appname/extra/display.settings
-  rm $cfg 2>/dev/null
-  DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "sleep 0.042 && $tput cols >> $cfg" 2>/dev/null
-  cols=$(cat $cfg | tail -1) 2>/dev/null
-  TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
-#/
+tput=/userdata/system/pro/.dep/tput; chmod a+x $tput; 
+ln -s /userdata/system/pro/.dep/libtinfo.so.6 /lib/ 2>/dev/null
+cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null
+DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
+cols=$(cat $cfg | tail -1) 2>/dev/null
+TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 }
 export -f get-xterm-fontsize 2>/dev/null
-# --------------------------------------------------------------------
-# run until proper size is found (quick fix for a very long story): 
-get-xterm-fontsize $appname 2>/dev/null
-cfg=/userdata/system/pro/$appname/extra/display.settings
+get-xterm-fontsize 2>/dev/null
+cfg=/userdata/system/pro/.dep/display.cfg
 cols=$(cat $cfg | tail -1) 2>/dev/null
 until [[ "$cols" != "80" ]] 
-do 
-get-xterm-fontsize $appname 2>/dev/null
+do
+get-xterm-fontsize 2>/dev/null
 cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
+TEXT_SIZE=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
 # --------------------------------------------------------------------
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK '$ORIGIN'" 2>/dev/null
