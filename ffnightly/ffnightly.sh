@@ -358,7 +358,7 @@ do
 get-xterm-fontsize 2>/dev/null
 cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
-TEXT_SIZE=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
+TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK $ORIGIN" 2>/dev/null
