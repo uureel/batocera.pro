@@ -40,35 +40,15 @@ mkdir $pro 2>/dev/null
 mkdir $pro/extra 2>/dev/null
 mkdir $pro/$appname 2>/dev/null
 mkdir $pro/$appname/extra 2>/dev/null
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-# prepare dependencies for this app and the installer: 
-dep=$pro/$appname/extra
-#######################
-# moving to downloads in installer function due to liblauncher >> size
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-# installer dependencies: 
-dep=$pro/$appname/extra
-tput=$dep/tput
-libtinfo=$dep/libtinfo.so.6
-cd $dep
-wget -q -O $tput https://github.com/uureel/batocera.pro/raw/main/$appname/extra/tput
-wget -q -O $libtinfo https://github.com/uureel/batocera.pro/raw/main/$appname/extra/libtinfo.so.6
-chmod a+x $tput
 # --------------------------------------------------------------------
-# link dependencies for install and initial run before reboot linker: 
-cd $dep; rm -rf $dep/dep 2>/dev/null
-ls -l ./lib* | awk '{print $9}' | cut -d "/" -f2 >> $dep/dep 2>/dev/null
-nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do
-lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done
-cd ~/
+# -- prepare dependencies for this app and the installer: 
+url=https://github.com/uureel/batocera.pro/raw/main/.dep
+depfile=dependencies.txt; dep=$pro/.dep; mkdir $pro/.dep 2>/dev/null; cd $dep
+wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile;
+nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do
+d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
+if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
+wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png; chmod a+x $dep/tput; cd ~/
 # --------------------------------------------------------------------
 # // end of dependencies 
 #
@@ -326,12 +306,11 @@ echo -e "${G}INSTALLING ${W}. . ."
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/minecraft/Launcher
 rm -rf $launcher
-echo "#!/bin/bash" >> $launcher
-echo 'dep=/userdata/system/pro/minecraft/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $launcher
-echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $launcher
-echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $launcher
-echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $launcher
-echo 'mkdir /userdata/system/pro/minecraft/home 2>/dev/null; chmod a+x /userdata/system/pro/minecraft/Minecraft' >> $launcher
+echo '#!/bin/bash ' >> $launcher
+echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
+echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
 # -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 ######################################################################

@@ -70,13 +70,16 @@ command=$pro/$appname/extra/command; rm $command 2>/dev/null;
 echo "$COMMAND" >> $command 2>/dev/null 
 # --------------------------------------------------------------------
 # -- prepare dependencies for this app and the installer: 
-url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
-depfile=dependencies.txt; dep=$pro/$appname/extra; cd $dep
+url=https://github.com/uureel/batocera.pro/raw/main/.dep
+depfile=dependencies.txt; dep=$pro/.dep; mkdir $pro/.dep 2>/dev/null; cd $dep
 wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile;
-nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+1))" ]]; do
+nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do
 d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
 if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
-wget -q -O $dep/tput $url/tput; chmod a+x $dep/tput; cd ~/
+wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png; chmod a+x $dep/tput; cd ~/
+# --------------------------------------------------------------------
+# // end of dependencies 
+#
 # --------------------------------------------------------------------
 # -- run before installer:  
 killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
@@ -289,11 +292,11 @@ echo -e "${G}INSTALLING${W}"
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
-echo "#!/bin/bash" >> $launcher
-echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $launcher
-echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $launcher
-echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $launcher
-echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $launcher
+echo '#!/bin/bash ' >> $launcher
+echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
+echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
 # -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
@@ -322,11 +325,11 @@ cp $shortcut $f1shortcut 2>/dev/null
 portname=Heroic
 version=$(echo $APPLINK | sed 's,^.*'$portname'-,,g' | sed 's,.AppImage,,g')
 port=/userdata/system/pro/$appname/$portname.sh
-echo '#!/bin/bash' >> $port
-echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $port
-echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $port
-echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $port
-echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $port
+echo '#!/bin/bash ' >> $port
+echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
+echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $port
 echo 'unclutter-remote -s' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
@@ -355,11 +358,6 @@ pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
-# -- dependencies linker: 
-echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $pre
-echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
-echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
-echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
 dos2unix $pre
 chmod a+x $pre
 # -- add prelauncher to custom.sh to run @ reboot

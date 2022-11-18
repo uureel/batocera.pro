@@ -41,24 +41,15 @@ mkdir $pro/extra 2>/dev/null
 mkdir $pro/backups 2>/dev/null
 mkdir $pro/$appname 2>/dev/null
 mkdir $pro/$appname/extra 2>/dev/null
-######################################################################
-# prepare dependencies for this app: 
-url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
-dep=$pro/$appname/extra
-#
-d1=libthai.so.0
-wget -q -O $dep/$d1 $url/$d1
-cp $dep/$d1 /lib/ 2>/dev/null
-######################################################################
-# paths for installer dependencies: 
-d1=tput
-d2=libtinfo.so.6
-wget -q -O $dep/$d1 $url/$d1
-cp $dep/$d1 /usr/bin/ 2>/dev/null
-wget -q -O $dep/$dep2 $url/$d2
-cp $dep/$d2 /lib/ 2>/dev/null
-cp $dep/$d2 /lib64/ 2>/dev/null
 # --------------------------------------------------------------------
+# -- prepare dependencies for this app and the installer: 
+url=https://github.com/uureel/batocera.pro/raw/main/.dep
+depfile=dependencies.txt; dep=$pro/.dep; mkdir $pro/.dep 2>/dev/null; cd $dep
+wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile;
+nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do
+d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
+if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
+wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png; chmod a+x $dep/tput; cd ~/
 # --------------------------------------------------------------------
 # // end of dependencies 
 #
@@ -354,8 +345,11 @@ ln -s /userdata/system/pro/cemu/Cemu /usr/bin/cemu/cemu 2>/dev/null
 # make startup launcher to solve dependencies and avoid overlay, 
 launcher=/userdata/system/pro/$appname/extra/startup
 rm -rf $launcher
-echo "#!/bin/bash" >> $launcher
-echo "cp /userdata/system/pro/$appname/extra/lib* /lib/" >> $launcher
+echo '#!/bin/bash ' >> $launcher
+echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
+echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo "mv /userdata/system/pro/cemu/Cemu /userdata/system/pro/cemu/.Cemu" >> $launcher
 echo "rm /usr/bin/cemu/cemu" >> $launcher
 echo "mv /userdata/system/pro/cemu/.Cemu /userdata/system/pro/cemu/Cemu" >> $launcher
