@@ -1,3 +1,4 @@
 icon.png
+libatk-bridge-2.0.so.0
 libtinfo.so.6
 tput
