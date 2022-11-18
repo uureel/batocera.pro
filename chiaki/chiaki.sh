@@ -15,9 +15,9 @@
 ######################################################################
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
-APPNAME="filezilla"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
-APPLINK=https://apprepo.de/appimage/download/filezilla
-APPHOME="apprepo.de/appimage/filezilla"
+APPNAME="chiaki"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
+APPLINK=https://git.sr.ht/~thestr4ng3r/chiaki/refs/download/v2.1.1/Chiaki-v2.1.1-Linux-x86_64.AppImage
+APPHOME="git.sr.ht/~thestr4ng3r/chiaki"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
 COMMAND='mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null; HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$appname'/home DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
@@ -137,6 +137,9 @@ echo
 echo -e "${X}$APPNAME WILL BE IN THE F1->APPLICATIONS MENU"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
+echo -e "${X}CHECK CHIAKI PROJECT FOR INSTRUCTIONS"
+echo -e "${X}HOW TO USE THIS APP"
+echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
 echo -e "${X}. . .${X}" 
@@ -241,7 +244,10 @@ echo
 echo -e "${W}$APPNAME WILL BE IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${R}> > > ${W}PRESS ENTER TO CONTINUE"
+echo -e "${R}CHECK CHIAKI PROJECT FOR INSTRUCTIONS"
+echo -e "${R}HOW TO USE THIS APP"
+echo
+echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo; #line $cols '='; echo
 # --------------------------------------------------------------------
