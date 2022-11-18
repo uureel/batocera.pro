@@ -348,6 +348,7 @@ if [[ -e "$ports/Chiaki.sh" ]];
 then 
   if [[ "$(cat "$ports/Chiaki.sh" | grep "/userdata/system/pro/chiaki" | tail -n 1)" != "" ]]; 
   then 
+  cp $port "$ports/Chiaki.sh"; 
   else
   cp $port "$ports/Chiaki $version.sh";
   fi
