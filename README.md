@@ -102,6 +102,12 @@ Some unofficial AppImages, few official binaries <br>
 ```curl -L greenlight.batocera.pro | bash```
 <br>
 <br>
+<a href=https://github.com/Heroic-Games-Launcher>
+<img src="https://github.com/uureel/batocera.pro/raw/main/heroic/extra/icon.png" width=48 height=48 /></a>
+<b><i>&nbsp;HEROIC-LAUNCHER</i></b><br>
+```curl -L heroic.batocera.pro | bash```
+<br>
+<br>
 <a href=https://github.com/vercel/hyper>
 <img src="https://github.com/uureel/batocera.pro/raw/main/hyper/extra/icon.png" width=48 height=48 /></a>
 <b><i>&nbsp;HYPER</i></b><br>
