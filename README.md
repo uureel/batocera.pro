@@ -96,6 +96,12 @@ Some unofficial AppImages, few official binaries <br>
 ```curl -L gparted.batocera.pro | bash```
 <br>
 <br>
+<a href=https://github.com/unknownskl/xbox-xcloud-client>
+<img src="https://github.com/uureel/batocera.pro/raw/main/greenlight/extra/icon.png" width=48 height=48 /></a>
+<b><i>&nbsp;GREENLIGHT</i></b><br>
+```curl -L greenlight.batocera.pro | bash```
+<br>
+<br>
 <a href=https://github.com/vercel/hyper>
 <img src="https://github.com/uureel/batocera.pro/raw/main/hyper/extra/icon.png" width=48 height=48 /></a>
 <b><i>&nbsp;HYPER</i></b><br>
