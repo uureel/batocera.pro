@@ -290,8 +290,8 @@ cd $temp
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p1"
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p2"
 wget -q -O $pro/.dep/tar $url/.dep/tar; chmod a+x $pro/.dep/tar
-cat $pro/$appname/extra/java.tar.bz2.parta* >$pro/$appname/extra/java.tar.gz; mv $temp/java.tar.gz $pro/
-cd ~/; rm -rf $pro/java 2>/dev/null; rm -rf $temp 2>/dev/null; $pro/.dep/tar -xf $pro/java.tar.gz
+cat $temp/java.tar.bz2.parta* >$temp/java.tar.gz; mv $temp/java.tar.gz $pro/
+cd ~/pro; rm -rf $temp 2>/dev/null; $pro/.dep/tar -xf $pro/java.tar.gz
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo
