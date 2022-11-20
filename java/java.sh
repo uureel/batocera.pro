@@ -256,7 +256,7 @@ echo
 echo -e "${W}$APPNAME WILL BE INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo -e "${W}AND AVAILABLE AS A SYSTEM ADDON" 
 echo
-echo -e "${R}> > > ${W}PRESS ENTER TO CONTINUE"
+echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo; #line $cols '='; echo
 # --------------------------------------------------------------------
@@ -280,7 +280,8 @@ temp=$pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null 
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
-echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [2/2]. . ."
+echo
+echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [1+1/2]. . ."
 url=https://github.com/uureel/batocera.pro/raw/main/
 p1=java.tar.bz2.partaa
 p2=java.tar.bz2.partab
