@@ -234,7 +234,7 @@ shape or form affiliated with Batocera </i><br>
 <br>
 <br>
 <br><b><i>SUGGESTIONS, QUESTIONS <br>
-or ISSUES, contact me @ </font></b></i><br>
+or ISSUES, contact me here: </font></b></i><br>
 <a href=https://discord.gg/8gKnCs42>https://discord.gg/8gKnCs42</a>
 <br>
 <br>
