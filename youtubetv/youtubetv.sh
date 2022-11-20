@@ -357,7 +357,7 @@ echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/YouTubeonTV --no-sandbox' >> 
 dos2unix $port 
 chmod a+x $port 
 ports=/userdata/roms/ports 
-cp $port "/userdata/roms/ports/YoutubeTV.sh"
+cp $port "/userdata/roms/ports/YoutubeTV.sh" 
 # --------------------------------------------------------------------
 # -- get padtokey profile 
 url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
