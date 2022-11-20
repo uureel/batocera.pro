@@ -335,7 +335,7 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-port=/userdata/system/pro/$appname/YoutubeTV.sh
+port=/userdata/system/pro/$appname/GeForceNow.sh
 cp /userdata/system/pro/$appname/Launcher $port
 dos2unix $port 
 chmod a+x $port 
