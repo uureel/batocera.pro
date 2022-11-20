@@ -296,13 +296,31 @@ echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/sy
 dos2unix $launcher
 chmod a+x $launcher
 # //
+# --------------------------------------------------------------------
+# -- prepare Ports file, 
+port=/userdata/system/pro/$appname/Spotify.sh
+rm -rf $port 2>/dev/null
+echo '#!/bin/bash ' >> $port
+echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
+echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $port
+echo 'unclutter-remote -s' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
+#echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $port
+echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
+echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port 
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox' >> $port
+dos2unix $port 
+chmod a+x $port 
+cp $port "/userdata/roms/ports/Spotify.sh" 
+# --------------------------------------------------------------------
 # -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/icon.png
-if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
-:
-else 
 wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
-fi
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
