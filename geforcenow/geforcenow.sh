@@ -242,13 +242,13 @@ echo
 echo
 sleep 0.33
 clear
-echo -e "${W}-----"
+echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo; #echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
-echo -e "${W}-----"
+echo -e "${W}- - -"
 echo
 sleep 0.33
 echo -e "${W}THIS WILL INSTALL YOUTUBETV FOR BATOCERA"
@@ -282,28 +282,26 @@ temp=$pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null 
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
+#
 echo
-echo -e "${G}DOWNLOADING${W}"
-url=https://github.com/uureel/batocera.pro/raw/main/
+echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
+sleep 1
+echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
-SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
-echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
+cd ~/
+mv $temp/* $APPPATH 2>/dev/null
+chmod a+x $APPPATH 2>/dev/null
+rm -rf $temp/*.AppImage
+SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
+echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
+echo -e "${G}> ${W}DONE"
 echo
-echo; #echo -e "${W}- - -" 
-sleep 1.333 
+echo -e "${W}- - -"
+sleep 1.333
+#
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}" 
-# --------------------------------------------------------------------
-mkdir youtubetv 2>/dev/null
-yes "A" | unzip -qq $temp/*.zip -d $temp/youtubetv
-cd $temp/youtubetv/*/
-mv ./* $pro/$appname/
-cd ~/pro
-rm -rf $temp
-SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
-echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
-# --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
