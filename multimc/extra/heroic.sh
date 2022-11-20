@@ -14,13 +14,13 @@
 ######################################################################
 ######################################################################
 #--------------------------------------------------------------------- 
-#  DEFINE APP INFO > 
-APPNAME=86box 
-APPLINK=$(curl -s https://api.github.com/repos/86Box/86Box/releases | grep AppImage | grep x86_64 | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g' | head -n 1)
-APPHOME="github.com/86Box APPIMAGE AND ROMSET"
+#       DEFINE APP INFO >>
+APPNAME=heroic
+APPLINK=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
+APPHOME="github.com/Heroic-Games-Launcher" 
 #---------------------------------------------------------------------
-#  DEFINE LAUNCHER COMMAND >
-COMMAND='mkdir /userdata/system/pro/86box/home 2>/dev/null; mkdir /userdata/system/pro/86box/config 2>/dev/null; mkdir /userdata/system/pro/86box/roms 2>/dev/null; HOME=/userdata/system/pro/86box/home XDG_CONFIG_ROMS=/userdata/system/pro/86box/roms XDG_CONFIG_HOME=/userdata/system/pro/86box/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/86box/roms DISPLAY=:0.0 /userdata/system/pro/86box/86box.AppImage --rompath /userdata/system/pro/86box/roms'
+#       DEFINE LAUNCHER COMMAND >>
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -37,18 +37,6 @@ COMMAND='mkdir /userdata/system/pro/86box/home 2>/dev/null; mkdir /userdata/syst
 ######################################################################
 # --------------------------------------------------------------------
 APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
-# show console/ssh info: 
-clear
-echo
-echo
-echo
-echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
-echo
-echo
-echo
-echo
 # --------------------------------------------------------------------
 # -- output colors:
 ###########################
@@ -82,16 +70,14 @@ command=$pro/$appname/extra/command; rm $command 2>/dev/null;
 echo "$COMMAND" >> $command 2>/dev/null 
 # --------------------------------------------------------------------
 # -- prepare dependencies for this app and the installer: 
-url=https://github.com/uureel/batocera.pro/raw/main/.dep
-depfile=dependencies.txt; dep=$pro/.dep; mkdir $pro/.dep 2>/dev/null; cd $dep
-wget -q -O $dep/$depfile $url/.dep/$depfile 2>/dev/null; dos2unix $dep/$depfile;
-nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do
-d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/.dep/$d 2>/dev/null; 
+url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
+depfile=dependencies.txt; dep=$pro/$appname/extra; cd $dep
+wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile;
+nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+1))" ]]; do
+d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
 if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
-wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png; chmod a+x $dep/tput; cd ~/
+wget -q -O $dep/tput $url/tput; chmod a+x $dep/tput; cd ~/
 # --------------------------------------------------------------------
-# // end of dependencies 
-#
 # -- run before installer:  
 killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
 # --------------------------------------------------------------------
@@ -145,10 +131,11 @@ line $cols '/'; echo
 line $cols '\'; echo
 echo
 sleep 0.33
-echo -e "${X}THIS WILL INSTALL RATS-SEARCH FOR BATOCERA"
+echo -e "${X}THIS WILL INSTALL HEROIC-LAUNCHER FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
+echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
+echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
@@ -249,10 +236,11 @@ echo; #line $cols '-'; echo
 line $cols '='; echo
 echo
 sleep 0.33
-echo -e "${W}THIS WILL INSTALL RATS-SEARCH FOR BATOCERA"
+echo -e "${W}THIS WILL INSTALL HEROIC-LAUNCHER FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS"
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
+echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${R}> > > ${W}PRESS ENTER TO CONTINUE"
@@ -280,7 +268,7 @@ rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
 # DOWNLOAD 86BOX: 
-echo -e "${G}DOWNLOADING   1/2   ${W}86BOX"
+echo -e "${G}DOWNLOADING${W}"
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
@@ -293,39 +281,19 @@ SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 #echo -e "${G}> ${W}DONE"
 echo
-echo
-# --------------------------------------------------------------------
-# DOWNLOAD ROMSET: 
-#link type https://github.com/86Box/roms/archive/refs/tags/v3.7.zip
-latestromsetversion=$(curl -s https://api.github.com/repos/86Box/roms/releases | grep zipball_url | head -n 1 | sed 's,^.*zipball_url": ,,g' | sed 's,",,g' | sed 's,^.*zipball/,,g' | sed 's/,//g')
-APPLINK=https://github.com/86Box/roms/archive/refs/tags/$latestromsetversion.zip
-latestromset=$(echo $latestromsetversion | sed 's,v,,g')
-rm -rf $temp 2>/dev/null
-mkdir -p $temp 2>/dev/null
-echo -e "${G}DOWNLOADING   2/2   ${W}ROMSET"
-sleep 1
-echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
-cd $temp
-curl --progress-bar --remote-name --location "$APPLINK"
-cd ~/
-unzip -qq *.zip 2>/dev/null
-mv ./roms-$latestromset $pro/$appname/roms 2>/dev/null
-SIZE=$(du -sh $pro/$appname/roms | awk '{print $1}') 2>/dev/null
-echo -e "${T}$pro/$appname/roms  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
-#echo -e "${G}> ${W}DONE"
-echo
 echo; #line $cols '='; echo
 sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
+# --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
-echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
+echo "#!/bin/bash" >> $launcher
+echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $launcher
+echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $launcher
+echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $launcher
+echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $launcher
 # -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
@@ -333,6 +301,7 @@ echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
 dos2unix $launcher
 chmod a+x $launcher
 rm /userdata/system/pro/$appname/extra/command 2>/dev/null
+# --------------------------------------------------------------------
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
@@ -348,11 +317,49 @@ f1shortcut=/usr/share/applications/$appname.desktop
 dos2unix $shortcut
 chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
+# --------------------------------------------------------------------
+# -- prepare Ports file, 
+portname=Heroic
+version=$(echo $APPLINK | sed 's,^.*'$portname'-,,g' | sed 's,.AppImage,,g')
+port=/userdata/system/pro/$appname/$portname.sh
+echo '#!/bin/bash' >> $port
+echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $port
+echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $port
+echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $port
+echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $port
+echo 'unclutter-remote -s' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $port
+echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
+echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox' >> $port
+dos2unix $port 
+chmod a+x $port 
+ports=/userdata/roms/ports
+if [[ -e "$ports/$portname.sh" ]]; 
+then 
+  if [[ "$(cat "$ports/$portname.sh" | grep "/userdata/system/pro/$appname" | tail -n 1)" != "" ]]; 
+  then 
+  cp $port "$ports/$portname.sh"
+  else
+  cp $port "$ports/$portname $version.sh";
+  fi
+else cp $port "$ports/$portname.sh"; 
+fi
+# --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
+# -- dependencies linker: 
+echo 'dep=/userdata/system/pro/'$appname'/extra; cd $dep; rm -rf $dep/dep 2>/dev/null' >> $pre
+echo 'ls -l ./lib* | awk "{print $9}" | cut -d "/" -f2 >> $dep/dep 2>/dev/null' >> $pre
+echo 'nl=$(cat $dep/dep | wc -l); l=1; while [[ $l -le $nl ]]; do' >> $pre
+echo 'lib=$(cat $dep/dep | sed ""$l"q;d"); ln -s $dep/$lib /lib/$lib 2>/dev/null; ((l++)); done' >> $pre
 dos2unix $pre
 chmod a+x $pre
 # -- add prelauncher to custom.sh to run @ reboot
@@ -377,28 +384,31 @@ echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
 line $cols '='; echo
 echo "1" >> /userdata/system/pro/$appname/extra/status 2>/dev/null
 sleep 3
+# reaload for ports file
+curl http://127.0.0.1:1234/reloadgames
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # -- include display output: 
 function get-xterm-fontsize {
-tput=/userdata/system/pro/.dep/tput; chmod a+x $tput; 
-ln -s /userdata/system/pro/.dep/libtinfo.so.6 /lib/ 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null
+appname=$1
+tput=/userdata/system/pro/$appname/extra/tput
+chmod a+x $tput
+cfg=/userdata/system/pro/$appname/extra/display.settings
+rm $cfg 2>/dev/null
 DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
 cols=$(cat $cfg | tail -1) 2>/dev/null
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 }
 export -f get-xterm-fontsize 2>/dev/null
-get-xterm-fontsize 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg
+get-xterm-fontsize $appname 2>/dev/null
+cfg=/userdata/system/pro/$appname/extra/display.settings
 cols=$(cat $cfg | tail -1) 2>/dev/null
 until [[ "$cols" != "80" ]] 
 do
-get-xterm-fontsize 2>/dev/null
+get-xterm-fontsize $appname 2>/dev/null
 cols=$(cat $cfg | tail -1) 2>/dev/null
 done 
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN:
 # |
