@@ -9,7 +9,7 @@ in the background & you can Alt+Tab between them, <br>
 <br>
 <br>
 Most of these apps are official AppImages <br>
-Some unofficial AppImages, few official binaries <br>
+Some unofficial AppImages, some official binaries <br>
 & a few are official wine versions <br>
 <br>
 <br>
@@ -217,6 +217,10 @@ Some unofficial AppImages, few official binaries <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/whatsapp/extra/icon.png" width=48 height=48 /><b><i>&nbsp;WHATSAPP</i></b><br>
 ```curl -L whatsapp.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/youtubetv/extra/icon.png" width=48 height=48 /><b><i>&nbsp;YOUTUBE-TV</i></b><br>
+```curl -L youtubetv.batocera.pro | bash```
 <br>
 <br>
 <br>
