@@ -337,9 +337,8 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-portname=YoutubeTV
-version=$(cat /userdata/system/pro/$appname/version)
-port=/userdata/system/pro/$appname/$portname.sh
+port=/userdata/system/pro/$appname/YoutubeTV.sh
+rm -rf $port 2>/dev/null
 echo '#!/bin/bash ' >> $port
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
@@ -356,7 +355,7 @@ echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
 echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/YouTubeonTV --no-sandbox' >> $port
 dos2unix $port 
 chmod a+x $port 
-cp /userdata/system/pro/$appname/YoutubeTV.sh "/userdata/roms/ports/YoutubeTV.sh" 
+cp $port "/userdata/roms/ports/YoutubeTV.sh" 
 # --------------------------------------------------------------------
 # -- get padtokey profile 
 wget -q -O /userdata/roms/ports/YoutubeTV.sh.keys https://raw.githubusercontent.com/uureel/batocera.pro/main/youtubetv/extra/YoutubeTV.sh.keys
