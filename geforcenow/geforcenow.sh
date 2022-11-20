@@ -234,20 +234,20 @@ sleep 0.33
 clear
 echo
 echo -e "${W}- - -"
-echo; #echo -e "${W}- - -"
+echo; 
 echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
-echo; #echo -e "${W}- - -"
+echo; 
 echo -e "${W}- - -"
 echo
 echo
 sleep 0.33
 clear
 echo -e "${W}- - -"
-echo; #echo -e "${W}- - -"
-echo; #echo -e "${W}- - -"
+echo; 
+echo; 
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo; #echo -e "${W}- - -"
-echo; #echo -e "${W}- - -"
+echo; 
+echo; 
 echo -e "${W}- - -"
 echo
 sleep 0.33
@@ -260,7 +260,7 @@ echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo 
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
 read -p ""
-echo; #echo -e "${W}- - -"
+echo; 
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -297,7 +297,6 @@ SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE" 
 echo
-echo -e "${W}- - -"  
 sleep 1.333 
 # 
 # -------------------------------------------------------------------- 
@@ -364,14 +363,12 @@ if [[ -e $csh ]]; then :; else
 echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
 dos2unix $csh
-# -- done. 
 sleep 1
 echo -e "${G}> ${W}DONE${W}"
 echo
 sleep 1
-echo; #echo -e "${W}- - -"
+echo; 
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
-echo -e "${W}- - -"
 sleep 3
 # reaload for ports file
 curl http://127.0.0.1:1234/reloadgames
