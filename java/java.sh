@@ -275,25 +275,28 @@ fi
 # --------------------------------------------------------------------
 # -- temp for curl download
 pro=/userdata/system/pro
-temp=/userdata/system/pro/$appname/extra/downloads
+temp=$pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
 echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [2/2]. . ."
 url=https://github.com/uureel/batocera.pro/raw/main/
-p1=java.tar.bz2.partaa; p2=java.tar.bz2.partab
-temp=$pro/$appname/extra/downloads; rm -rf $temp 2>/dev/null;
+p1=java.tar.bz2.partaa
+p2=java.tar.bz2.partab
 cd $temp
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p1"
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p2"
+cat java.tar.bz2.parta* >java.tar.gz; cp java.tar.gz $pro/java.tar.gz
 wget -q -O $pro/.dep/tar $url/.dep/tar; chmod a+x $pro/.dep/tar
-cat $temp/java.tar.bz2.parta* >$temp/java.tar.gz; mv $temp/java.tar.gz $pro/
-cd ~/pro; rm -rf $temp 2>/dev/null; $pro/.dep/tar -xf $pro/java.tar.gz
+cd ~/pro
+rm -rf $pro/$appname 2>/dev/null
+$pro/.dep/tar -xf $pro/java.tar.gz
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo
 echo; #line $cols '='; echo
 sleep 1.333
+exit 0
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
 # --------------------------------------------------------------------
