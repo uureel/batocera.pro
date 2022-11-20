@@ -40,14 +40,14 @@ APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # show console/ssh info: 
-clear
-echo
-echo
-echo
+clear 
+echo 
+echo 
+echo 
 echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
-echo
-echo
-echo
+echo 
+echo 
+echo 
 # --------------------------------------------------------------------
 # -- output colors:
 ###########################
