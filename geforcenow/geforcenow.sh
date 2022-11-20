@@ -15,12 +15,12 @@
 ######################################################################
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >> 
-APPNAME=youtubetv 
-APPLINK=$(curl -s https://api.github.com/repos/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases | grep linux-x64 | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
-APPHOME="github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop" 
+APPNAME=geforcenow 
+APPLINK=$(curl -s https://api.github.com/repos/hmlendea/gfn-electron/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
+APPHOME="github.com/hmlendea/gfn-electron" 
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/YouTubeonTV --no-sandbox'
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -339,27 +339,13 @@ cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
 port=/userdata/system/pro/$appname/YoutubeTV.sh
-rm -rf $port 2>/dev/null
-echo '#!/bin/bash ' >> $port
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
-echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $port
-echo 'unclutter-remote -s' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $port
-echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
-echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
-echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
-echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/YouTubeonTV --no-sandbox' >> $port
+cp /userdata/system/pro/$appname/Launcher $port
 dos2unix $port 
 chmod a+x $port 
-cp $port "/userdata/roms/ports/YoutubeTV.sh" 
+cp $port "/userdata/roms/ports/$appname.sh" 
 # --------------------------------------------------------------------
 # -- get padtokey profile 
-wget -q -O /userdata/roms/ports/YoutubeTV.sh.keys https://raw.githubusercontent.com/uureel/batocera.pro/main/youtubetv/extra/YoutubeTV.sh.keys
+#
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
