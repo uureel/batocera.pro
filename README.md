@@ -114,6 +114,11 @@ Some unofficial AppImages, few official binaries <br>
 ```curl -L hyper.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/java/extra/icon.png" width=48 height=48 /></a>
+<b><i>&nbsp;JAVA-RUNTIME</i></b><br>
+```curl -L java.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/kdenlive/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KDENLIVE</i></b><br>
 ```curl -L kdenlive.batocera.pro | bash```
 <br>
