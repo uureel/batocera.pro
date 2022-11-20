@@ -332,8 +332,8 @@ echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
 echo "Name=$appname" >> $shortcut
 f1shortcut=/usr/share/applications/$appname.desktop
-dos2unix $shortcut
-chmod a+x $shortcut
+dos2unix $shortcut 
+chmod a+x $shortcut 
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
