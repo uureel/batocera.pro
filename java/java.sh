@@ -48,7 +48,6 @@ echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
 echo
 echo
 echo
-echo
 # --------------------------------------------------------------------
 # -- output colors:
 ###########################
