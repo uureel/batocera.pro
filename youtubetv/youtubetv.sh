@@ -257,7 +257,7 @@ echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
-echo
+echo 
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
 read -p ""
 echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
