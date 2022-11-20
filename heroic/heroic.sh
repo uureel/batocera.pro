@@ -191,7 +191,7 @@ B=$BLUE
 G=$GREEN
 P=$PURPLE
 # --------------------------------------------------------------------
-cols=$(cat /userdata/system/pro/$appname/extra/display.settings | tail -n 1)
+cols=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
@@ -282,7 +282,6 @@ temp=/userdata/system/pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
-# DOWNLOAD 86BOX: 
 echo -e "${G}DOWNLOADING${W}"
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null

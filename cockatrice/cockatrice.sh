@@ -155,7 +155,7 @@ B=$BLUE
 G=$GREEN
 P=$PURPLE
 # --------------------------------------------------------------------
-cols=$(cat /userdata/system/pro/$appname/extra/display.settings | tail -n 1)
+cols=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){

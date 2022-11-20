@@ -15,7 +15,7 @@
 ######################################################################
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
-APPNAME=heroic
+APPNAME=multimc
 APPLINK=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
 APPHOME="github.com/Heroic-Games-Launcher" 
 #---------------------------------------------------------------------
@@ -191,7 +191,7 @@ B=$BLUE
 G=$GREEN
 P=$PURPLE
 # --------------------------------------------------------------------
-cols=$(cat /userdata/system/pro/$appname/extra/display.settings | tail -n 1)
+cols=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
