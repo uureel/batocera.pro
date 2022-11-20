@@ -90,6 +90,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L foobar.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/geforcenow/extra/nightly.png" width=48 height=48 /><b><i>&nbsp;GEFORCENOW</i></b><br>
+```curl -L geforcenow.batocera.pro | bash```
+<br>
+<br>
 <a href=https://apprepo.de/appimage/gparted>
 <img src="https://github.com/uureel/batocera.pro/raw/main/gparted/extra/icon.png" width=48 height=48 /></a>
 <b><i>&nbsp;GPARTED</i></b><br>
