@@ -73,6 +73,7 @@ cd ~/
 pro=/userdata/system/pro
 mkdir $pro 2>/dev/null
 mkdir $pro/extra 2>/dev/null
+rm -rf $pro/$appname 2>/dev/null
 mkdir $pro/$appname 2>/dev/null
 mkdir $pro/$appname/extra 2>/dev/null
 # --------------------------------------------------------------------
@@ -289,7 +290,6 @@ curl --progress-bar --remote-name --location "$url/$appname/extra/$p2"
 cat java.tar.bz2.parta* >java.tar.gz; cp java.tar.gz $pro/java.tar.gz
 wget -q -O $pro/.dep/tar $url/.dep/tar; chmod a+x $pro/.dep/tar
 cd ~/pro
-rm -rf $pro/$appname 2>/dev/null
 $pro/.dep/tar -xf $pro/java.tar.gz
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
