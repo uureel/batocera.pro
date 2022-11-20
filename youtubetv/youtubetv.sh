@@ -119,20 +119,20 @@ sleep 0.33
 clear
 echo
 echo
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo -e "${W}- - -"
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo -e "${W}- - -"
 echo
 echo
 echo
 sleep 0.33
 clear
 echo
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo -e "${W}- - -"
 line $cols ' '; echo
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
 line $cols ' '; echo
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo -e "${W}- - -"
 echo
 echo
 sleep 0.33
@@ -224,31 +224,31 @@ sleep 0.33
 clear
 echo
 echo
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo -e "${W}- - -"
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo -e "${W}- - -"
 echo
 echo
 echo
 sleep 0.33
 clear
 echo
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
-echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo -e "${W}- - -"
+echo; #echo -e "${W}- - -"
 echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
-echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo; #echo -e "${W}- - -"
+echo -e "${W}- - -"
 echo
 echo
 sleep 0.33
 clear
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
-echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
-echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo -e "${W}- - -"
+echo; #echo -e "${W}- - -"
+echo; #echo -e "${W}- - -"
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
-echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo; #echo -e "${W}- - -"
+echo; #echo -e "${W}- - -"
+echo -e "${W}- - -"
 echo
 sleep 0.33
 echo -e "${W}THIS WILL INSTALL YOUTUBETV FOR BATOCERA"
@@ -260,7 +260,7 @@ echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo 
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
 read -p ""
-echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo; #echo -e "${W}- - -"
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -290,7 +290,7 @@ curl --progress-bar --remote-name --location "$APPLINK"
 SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
 echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo
-echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo; #echo -e "${W}- - -"
 sleep 1.333 
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}" 
@@ -384,9 +384,9 @@ sleep 1
 echo -e "${G}> ${W}DONE${W}"
 echo
 sleep 1
-echo; #echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo; #echo -e "${W}- - -"
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
-echo -e "${W}/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+echo -e "${W}- - -"
 sleep 3
 # reaload for ports file
 curl http://127.0.0.1:1234/reloadgames
