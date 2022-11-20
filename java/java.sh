@@ -300,6 +300,7 @@ wget -q -O $pro/.dep/tar $url/.dep/tar
 chmod a+x $pro/.dep/tar
 $pro/.dep/tar -xf $temp/java.tar.gz
 mv $temp/java/* $pro/java/
+chmod a+x $pro/java/bin/*
 rm -rf $temp
 cd ~/pro
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
@@ -403,6 +404,7 @@ pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
+echo "cp /userdata/system/pro/$appname/bin/java /usr/bin/java 2>/dev/null" >> $pre
 dos2unix $pre
 chmod a+x $pre
 # -- add prelauncher to custom.sh to run @ reboot
