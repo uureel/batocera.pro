@@ -287,23 +287,26 @@ p2=java.tar.bz2.partab
 cd $temp
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p1"
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p2"
-cat $temp/java.tar.bz2.parta* > $temp/java.tar.gz
-wget -q -O $pro/.dep/tar $url/.dep/tar
-chmod a+x $pro/.dep/tar
-$pro/.dep/tar -xf $temp/java.tar.gz
-mv $temp/java $pro/java
-rm -rf $temp
-cd ~/pro
-SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
-echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
+SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
+echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo
 echo; #line $cols '='; echo
 sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
 # --------------------------------------------------------------------
+cat $temp/java.tar.bz2.parta* > $temp/java.tar.gz
+wget -q -O $pro/.dep/tar $url/.dep/tar
+chmod a+x $pro/.dep/tar
+$pro/.dep/tar -xf $temp/java.tar.gz
+mv $temp/java/* $pro/java/
+rm -rf $temp
+cd ~/pro
+SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
+echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
+# --------------------------------------------------------------------
 export='export PATH=/userdata/system/pro/java/bin:$PATH'
-find="$export"
+find="system/pro/java"
 # --------------------------------------------------------------------
 # attach java runtime to ~/.profile
 file=/userdata/system/.profile
@@ -316,10 +319,10 @@ ln=$(cat $file | sed ""$l"q;d")
 if [[ "$(echo $ln | grep "$find")" != "" ]]; then :; else echo "$ln" >> $temp; fi
 ((l++))
 done
-echo -e "\n$export" >> $temp
+echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $temp
 cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
   else
-echo -e "\n$export" >> $file
+echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $file
   fi
 dos2unix ~/.profile
 # --------------------------------------------------------------------
@@ -334,10 +337,10 @@ ln=$(cat $file | sed ""$l"q;d")
 if [[ "$(echo $ln | grep "$find")" != "" ]]; then :; else echo "$ln" >> $temp; fi
 ((l++))
 done
-echo -e "\n$export" >> $temp
+echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $temp
 cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
   else
-echo -e "\n$export" >> $file
+echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $file
   fi
 dos2unix ~/.bashrc
 # --------------------------------------------------------------------
@@ -347,11 +350,12 @@ export PATH=/userdata/system/pro/java/bin:$PATH
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo 'export PATH=/userdata/system/pro/java/bin:$PATH' >> $launcher
+echo 'export PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $launcher
 echo 'function get-java-version {' >> $launcher
+echo 'W="\033[0;37m" ' >> $launcher
 echo 'java=/userdata/system/pro/java/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then clear; echo "JAVA RUNTIME AVAILABLE:"; echo; $java --version; sleep 4;' >> $launcher 
-echo 'else clear; echo; echo "JAVA RUNTIME NOT FOUND..."; echo; sleep 4; ' >> $launcher
+echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA RUNTIME AVAILABLE:"; echo; $java --version; sleep 4;' >> $launcher 
+echo 'else clear; echo; echo -e "${W}JAVA RUNTIME NOT FOUND..."; echo; sleep 4; ' >> $launcher
 echo 'fi' >> $launcher
 echo '}' >> $launcher
 echo 'export -f get-java-version 2>/dev/null' >> $launcher
