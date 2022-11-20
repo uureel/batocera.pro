@@ -277,7 +277,7 @@ fi
 # -- temp for curl download
 pro=/userdata/system/pro
 temp=$pro/$appname/extra/downloads
-rm -rf $temp 2>/dev/null
+rm -rf $temp 2>/dev/null 
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
 echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [2/2]. . ."
