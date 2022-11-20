@@ -338,7 +338,7 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-port=/userdata/system/pro/$appname/YoutubeTV.sh
+port=/userdata/system/pro/$appname/YoutubeTV.sh 
 rm -rf $port 2>/dev/null
 echo '#!/bin/bash ' >> $port
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
