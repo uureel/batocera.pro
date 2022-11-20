@@ -291,9 +291,9 @@ SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
 echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo
 echo; #line $cols '='; echo
-sleep 1.333
+sleep 1.333 
 # --------------------------------------------------------------------
-echo -e "${G}INSTALLING${W}"
+echo -e "${G}INSTALLING${W}" 
 # --------------------------------------------------------------------
 cat $temp/java.tar.bz2.parta* > $temp/java.tar.gz
 wget -q -O $pro/.dep/tar $url/.dep/tar
