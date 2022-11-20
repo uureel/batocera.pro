@@ -295,9 +295,9 @@ chmod a+x $APPPATH 2>/dev/null
 rm -rf $temp/*.AppImage
 SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
-echo -e "${G}> ${W}DONE"
+echo -e "${G}> ${W}DONE" 
 echo
-echo -e "${W}- - -" 
+echo -e "${W}- - -"  
 sleep 1.333 
 #
 # --------------------------------------------------------------------
