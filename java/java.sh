@@ -87,7 +87,7 @@ wget -q -O $dep/$depfile $url/.dep/$depfile 2>/dev/null; dos2unix $dep/$depfile;
 nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do
 d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/.dep/$d 2>/dev/null; 
 if [[ "$(echo $d | grep "lib")" != "" ]]; then
-if [[ "$(wc -c $dep/$d | awk '{print $1}')" > "3" ]]; then :; else wget wget -q -O $dep/$depfile $url/.dep/$depfile 2>/dev/null; fi;
+if [[ "$(wc -c $dep/$d | awk '{print $1}')" > "2" ]]; then :; else wget wget -q -O $dep/$depfile $url/.dep/$depfile 2>/dev/null; fi;
 if [[ -e "/lib/$d" ]] && [[ "$(wc -c /lib/$d | awk '{print $1}')" > 3 ]]; then :; else rm /lib/$d; ln -s $dep/$d /lib/$lib; fi;
 fi; ((l++)); done; chmod a+x $dep/tput 2>/dev/null; wget -q -O $pro/$appname/extra/icon.png $url/$appname/extra/icon.png; cd ~/
 # --------------------------------------------------------------------
