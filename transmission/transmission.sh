@@ -300,7 +300,8 @@ echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launc
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
 echo ' cp $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
-# -- GET APP SPECIFIC LAUNCHER COMMAND: 
+echo 'unclutter-remote -s' >> $launcher
+## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
 ######################################################################
