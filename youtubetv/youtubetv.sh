@@ -242,13 +242,13 @@ echo
 echo
 sleep 0.33
 clear
-echo -e "${W}- - -"
+echo -e "${W}= = ="
 echo; #echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo; #echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
-echo -e "${W}- - -"
+echo -e "${W}= = ="
 echo
 sleep 0.33
 echo -e "${W}THIS WILL INSTALL YOUTUBETV FOR BATOCERA"
