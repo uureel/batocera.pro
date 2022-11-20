@@ -219,6 +219,10 @@ Some unofficial AppImages, few official binaries <br>
 ```curl -L whatsapp.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/youtubetv/extra/icon.png" width=48 height=48 /><b><i>&nbsp;YOUTUBE-TV</i></b><br>
+```curl -L youtubetv.batocera.pro | bash```
+<br>
+<br>
 <br>
 <br>
 <i>This is a small hobby repository in no way <br>
