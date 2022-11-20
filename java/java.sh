@@ -17,7 +17,7 @@
 #       DEFINE APP INFO >>
 APPNAME=java
 APPLINK=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
-APPHOME="github.com/Heroic-Games-Launcher" 
+APPHOME="azul.com/downloads java 19.0.1" 
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
 COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox'
@@ -146,7 +146,7 @@ line $cols '/'; echo
 line $cols '\'; echo
 echo
 sleep 0.33
-echo -e "${X}THIS WILL INSTALL JAVA-RUNTIME FOR BATOCERA"
+echo -e "${X}THIS WILL INSTALL JAVA-RUNTIME 19.0.1 FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
 echo -e "${X}$APPNAME WILL BE INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
@@ -250,7 +250,7 @@ echo; #line $cols '-'; echo
 line $cols '='; echo
 echo
 sleep 0.33
-echo -e "${W}THIS WILL INSTALL JAVA-RUNTIME FOR BATOCERA"
+echo -e "${W}THIS WILL INSTALL JAVA-RUNTIME 19.0.1 FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
 echo -e "${W}$APPNAME WILL BE INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
@@ -280,37 +280,94 @@ temp=/userdata/system/pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
-# DOWNLOAD 86BOX: 
-echo -e "${G}DOWNLOADING${W}"
-sleep 1
-echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
-cd $temp
-curl --progress-bar --remote-name --location "$APPLINK"
-cd ~/
-mv $temp/* $APPPATH 2>/dev/null
-chmod a+x $APPPATH 2>/dev/null
-rm -rf $temp/*.AppImage
-SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
-echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
-#echo -e "${G}> ${W}DONE"
+echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [2/2]. . ."
+url=https://github.com/uureel/batocera.pro/raw/main/
+p1=java.tar.bz2.partaa; p2=java.tar.bz2.partab
+curl --progress-bar --remote-name --location "$url/$appname/extra/$p1"
+curl --progress-bar --remote-name --location "$url/$appname/extra/$p2"
+wget -q -O $pro/.dep/tar $url/.dep/tar; chmod a+x $pro/.dep/tar
+cat $pro/$appname/extra/java.tar.bz2.parta* >$pro/$appname/extra/java.tar.gz; mv $pro/$appname/extra/java.tar.gz $pro/
+rm -rf $pro/java 2>/dev/null; $pro/.dep/tar -xf $pro/java.tar.gz
+SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
+echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo
 echo; #line $cols '='; echo
 sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
 # --------------------------------------------------------------------
+export='export PATH=/userdata/system/pro/java/bin:$PATH'
+find="$export"
+# --------------------------------------------------------------------
+# attach java runtime to ~/.profile
+file=/userdata/system/.profile
+  if [[ -e "$file" ]]; then
+temp=/userdata/system/.profile.tmp
+rm $temp 2>/dev/null
+nl=$(cat $file | wc -l)
+l=1; while [[ $l -le $nl ]]; do
+ln=$(cat $file | sed ""$l"q;d")
+if [[ "$(echo $ln | grep "$find")" != "" ]]; then :; else echo "$ln" >> $temp; fi
+((l++))
+done
+echo -e "\n$export" >> $temp
+cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
+  else
+echo -e "\n$export" >> $file
+  fi
+dos2unix ~/.profile
+# --------------------------------------------------------------------
+# attach java runtime to ~/.bashrc
+file=/userdata/system/.bashrc
+  if [[ -e "$file" ]]; then
+temp=/userdata/system/.profile.tmp
+rm $temp 2>/dev/null
+nl=$(cat $file | wc -l)
+l=1; while [[ $l -le $nl ]]; do
+ln=$(cat $file | sed ""$l"q;d")
+if [[ "$(echo $ln | grep "$find")" != "" ]]; then :; else echo "$ln" >> $temp; fi
+((l++))
+done
+echo -e "\n$export" >> $temp
+cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
+  else
+echo -e "\n$export" >> $file
+  fi
+dos2unix ~/.bashrc
+# --------------------------------------------------------------------
+# run export: 
+export PATH=/userdata/system/pro/java/bin:$PATH
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
-# -- GET APP SPECIFIC LAUNCHER COMMAND: 
-######################################################################
-echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
-######################################################################
+echo 'export PATH=/userdata/system/pro/java/bin:$PATH' >> $launcher
+echo 'function get-java-version {' >> $launcher
+echo 'java=/userdata/system/pro/java/bin/java' >> $launcher
+echo 'if [[ -e "$java" ]]; then clear; echo "JAVA RUNTIME AVAILABLE:"; echo; $java --version; sleep 4;' >> $launcher 
+echo 'else clear; echo; echo "JAVA RUNTIME NOT FOUND..."; echo; sleep 4; ' >> $launcher
+echo 'fi' >> $launcher
+echo '}' >> $launcher
+echo 'export -f get-java-version 2>/dev/null' >> $launcher
+echo 'function get-xterm-fontsize {' >> $launcher
+echo 'tput=/userdata/system/pro/.dep/tput; chmod a+x $tput;' >> $launcher 
+echo 'ln -s /userdata/system/pro/.dep/libtinfo.so.6 /lib/ 2>/dev/null' >> $launcher
+echo 'cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null' >> $launcher
+echo 'DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null' >> $launcher
+echo 'cols=$(cat $cfg | tail -1) 2>/dev/null' >> $launcher
+echo 'TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null' >> $launcher
+echo '}' >> $launcher
+echo 'export -f get-xterm-fontsize 2>/dev/null' >> $launcher
+echo 'get-xterm-fontsize 2>/dev/null' >> $launcher
+echo 'cfg=/userdata/system/pro/.dep/display.cfg' >> $launcher
+echo 'cols=$(cat $cfg | tail -1) 2>/dev/null' >> $launcher
+echo 'until [[ "$cols" != "80" ]] ' >> $launcher
+echo 'do' >> $launcher
+echo 'get-xterm-fontsize 2>/dev/null' >> $launcher
+echo 'cols=$(cat $cfg | tail -1) 2>/dev/null' >> $launcher
+echo 'done ' >> $launcher
+echo 'TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null' >> $launcher
+echo 'DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "get-java-version" 2>/dev/null' >> $launcher
 dos2unix $launcher
 chmod a+x $launcher
 rm /userdata/system/pro/$appname/extra/command 2>/dev/null
@@ -330,38 +387,6 @@ f1shortcut=/usr/share/applications/$appname.desktop
 dos2unix $shortcut
 chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
-# --------------------------------------------------------------------
-# -- prepare Ports file, 
-portname=Heroic
-version=$(echo $APPLINK | sed 's,^.*'$portname'-,,g' | sed 's,.AppImage,,g')
-port=/userdata/system/pro/$appname/$portname.sh
-echo '#!/bin/bash ' >> $port
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
-echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $port
-echo 'unclutter-remote -s' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $port
-echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
-echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
-echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
-echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox' >> $port
-dos2unix $port 
-chmod a+x $port 
-ports=/userdata/roms/ports
-if [[ -e "$ports/$portname.sh" ]]; 
-then 
-  if [[ "$(cat "$ports/$portname.sh" | grep "/userdata/system/pro/$appname" | tail -n 1)" != "" ]]; 
-  then 
-  cp $port "$ports/$portname.sh"
-  else
-  cp $port "$ports/$portname $version.sh";
-  fi
-else cp $port "$ports/$portname.sh"; 
-fi
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
