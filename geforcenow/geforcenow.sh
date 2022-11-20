@@ -301,7 +301,7 @@ echo -e "${W}- - -"
 sleep 1.333 
 # 
 # -------------------------------------------------------------------- 
-echo -e "${G}INSTALLING${W}" 
+echo -e "${G}INSTALLING${W} $APPLINK" 
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
