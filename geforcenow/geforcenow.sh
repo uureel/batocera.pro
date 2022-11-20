@@ -299,8 +299,8 @@ echo -e "${G}> ${W}DONE"
 echo
 echo -e "${W}- - -"  
 sleep 1.333 
-#
-# --------------------------------------------------------------------
+# 
+# -------------------------------------------------------------------- 
 echo -e "${G}INSTALLING${W}" 
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
