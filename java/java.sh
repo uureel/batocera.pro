@@ -82,15 +82,13 @@ command=$pro/$appname/extra/command; rm $command 2>/dev/null;
 echo "$COMMAND" >> $command 2>/dev/null 
 # --------------------------------------------------------------------
 # -- prepare dependencies for this app and the installer: 
-url=https://github.com/uureel/batocera.pro/raw/main
+url=https://github.com/uureel/batocera.pro/raw/main/.dep
 depfile=dependencies.txt; dep=$pro/.dep; mkdir $pro/.dep 2>/dev/null; cd $dep
-wget -q -O $dep/$depfile $url/.dep/$depfile 2>/dev/null; dos2unix $dep/$depfile;
+wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile;
 nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do
-d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/.dep/$d 2>/dev/null; 
-if [[ "$(echo $d | grep "lib")" != "" ]]; then
-if [[ "$(wc -c $dep/$d | awk '{print $1')" > 3 ]]; then :; else wget wget -q -O $dep/$depfile $url/.dep/$depfile 2>/dev/null; fi;
-if [[ -e "/lib/$d" ]] && [[ "$(wc -c /lib/$d | awk '{print $1}')" > 3 ]]; then :; else rm /lib/$d; ln -s $dep/$d /lib/$lib; fi;
-fi; ((l++)); done; chmod a+x $dep/tput 2>/dev/null; wget -q -O $pro/$appname/extra/icon.png $url/$appname/extra/icon.png; cd ~/
+d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
+if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
+wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png; chmod a+x $dep/tput; cd ~/
 # --------------------------------------------------------------------
 # // end of dependencies 
 #
