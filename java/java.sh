@@ -283,11 +283,13 @@ mkdir -p $temp 2>/dev/null
 echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [2/2]. . ."
 url=https://github.com/uureel/batocera.pro/raw/main/
 p1=java.tar.bz2.partaa; p2=java.tar.bz2.partab
+temp=$pro/$appname/extra/downloads; rm -rf $temp 2>/dev/null;
+cd $temp
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p1"
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p2"
 wget -q -O $pro/.dep/tar $url/.dep/tar; chmod a+x $pro/.dep/tar
-cat $pro/$appname/extra/java.tar.bz2.parta* >$pro/$appname/extra/java.tar.gz; mv $pro/$appname/extra/java.tar.gz $pro/
-rm -rf $pro/java 2>/dev/null; $pro/.dep/tar -xf $pro/java.tar.gz
+cat $pro/$appname/extra/java.tar.bz2.parta* >$pro/$appname/extra/java.tar.gz; mv $temp/java.tar.gz $pro/
+cd ~/; rm -rf $pro/java 2>/dev/null; rm -rf $temp 2>/dev/null; $pro/.dep/tar -xf $pro/java.tar.gz
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo
@@ -415,10 +417,7 @@ sleep 1
 echo; #line $cols '='; echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
 line $cols '='; echo
-echo "1" >> /userdata/system/pro/$appname/extra/status 2>/dev/null
 sleep 3
-# reaload for ports file
-curl http://127.0.0.1:1234/reloadgames
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
