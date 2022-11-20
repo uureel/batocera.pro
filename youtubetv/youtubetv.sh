@@ -14,8 +14,8 @@
 ######################################################################
 ######################################################################
 #--------------------------------------------------------------------- 
-#       DEFINE APP INFO >>
-APPNAME=youtubetv
+#       DEFINE APP INFO >> 
+APPNAME=youtubetv 
 APPLINK=$(curl -s https://api.github.com/repos/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases | grep linux-x64 | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
 APPHOME="github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop" 
 #---------------------------------------------------------------------
