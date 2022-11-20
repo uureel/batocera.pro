@@ -17,7 +17,7 @@
 #       DEFINE APP INFO >>
 APPNAME=java
 APPLINK=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
-APPHOME="azul.com/downloads java 19.0.1" 
+APPHOME="azul.com/downloads" 
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
 COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox'
@@ -190,7 +190,7 @@ B=$BLUE
 G=$GREEN
 P=$PURPLE
 # --------------------------------------------------------------------
-cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
+cols=$(cat /userdata/system/pro/$appname/extra/display.settings | tail -n 1)
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
@@ -287,16 +287,18 @@ p2=java.tar.bz2.partab
 cd $temp
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p1"
 curl --progress-bar --remote-name --location "$url/$appname/extra/$p2"
-cat java.tar.bz2.parta* >java.tar.gz; cp java.tar.gz $pro/java.tar.gz
-wget -q -O $pro/.dep/tar $url/.dep/tar; chmod a+x $pro/.dep/tar
+cat $temp/java.tar.bz2.parta* > $temp/java.tar.gz
+wget -q -O $pro/.dep/tar $url/.dep/tar
+chmod a+x $pro/.dep/tar
+$pro/.dep/tar -xf $temp/java.tar.gz
+mv $temp/java $pro/java
+rm -rf $temp
 cd ~/pro
-$pro/.dep/tar -xf $pro/java.tar.gz
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo
 echo; #line $cols '='; echo
 sleep 1.333
-exit 0
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
 # --------------------------------------------------------------------
