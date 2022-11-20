@@ -290,7 +290,7 @@ curl --progress-bar --remote-name --location "$APPLINK"
 SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
 echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 echo
-echo; #echo -e "${W}- - -"
+echo; #echo -e "${W}- - -" 
 sleep 1.333 
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}" 
