@@ -281,7 +281,7 @@ rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
 echo
-echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [1+1/2]. . ."
+echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [ 1+1 / 2 ]. . ."
 url=https://github.com/uureel/batocera.pro/raw/main/
 p1=java.tar.bz2.partaa
 p2=java.tar.bz2.partab
