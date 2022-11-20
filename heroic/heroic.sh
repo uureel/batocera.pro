@@ -336,6 +336,7 @@ cp $shortcut $f1shortcut 2>/dev/null
 portname=Heroic
 version=$(echo $APPLINK | sed 's,^.*'$portname'-,,g' | sed 's,.AppImage,,g')
 port=/userdata/system/pro/$appname/$portname.sh
+rm -rf $port 2>/dev/null
 echo '#!/bin/bash ' >> $port
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port

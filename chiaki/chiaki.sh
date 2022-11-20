@@ -341,6 +341,7 @@ cp $shortcut $f1shortcut 2>/dev/null
 # -- prepare Ports file, 
 version="2.1.1"
 port=/userdata/system/pro/$appname/Chiaki.sh
+rm -rf $port 2>/dev/null 
 echo '#!/bin/bash ' >> $port
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
