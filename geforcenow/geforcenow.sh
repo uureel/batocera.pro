@@ -297,8 +297,8 @@ SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE"
 echo
-echo -e "${W}- - -"
-sleep 1.333
+echo -e "${W}- - -" 
+sleep 1.333 
 #
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}" 
