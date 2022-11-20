@@ -94,7 +94,7 @@ wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/r
 #
 # --------------------------------------------------------------------
 # -- run before installer:  
-killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
+#killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
 # --------------------------------------------------------------------
 cols=$($dep/tput cols); rm -rf /userdata/system/pro/$appname/extra/cols
 echo $cols >> /userdata/system/pro/$appname/extra/cols
@@ -190,7 +190,7 @@ B=$BLUE
 G=$GREEN
 P=$PURPLE
 # --------------------------------------------------------------------
-cols=$(cat /userdata/system/pro/$appname/extra/display.settings | tail -n 1)
+cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
