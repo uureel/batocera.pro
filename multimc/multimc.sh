@@ -214,14 +214,12 @@ echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo
 echo
 echo
-echo
 sleep 0.33
 clear
 echo
 echo
 echo
 echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
-echo
 echo
 echo
 echo
@@ -239,20 +237,20 @@ sleep 0.33
 clear
 echo
 echo -e '- - -'; echo
-echo; #echo -e '- - -'; echo
+echo
 echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
-echo; #echo -e '- - -'; echo
+echo
 echo -e '- - -'; echo
 echo
 echo
 sleep 0.33
 clear
 echo -e '- - -'; echo
-echo; #echo -e '- - -'; echo
-echo; #echo -e '- - -'; echo
+echo;
+echo; 
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo; #echo -e '- - -'; echo
-echo; #echo -e '- - -'; echo
+echo;
+echo;
 echo -e '- - -'; echo
 echo
 sleep 0.33
@@ -263,7 +261,7 @@ echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${R}> > > ${W}PRESS ENTER TO CONTINUE"
+echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo; #echo -e '- - -'; echo
 # --------------------------------------------------------------------
