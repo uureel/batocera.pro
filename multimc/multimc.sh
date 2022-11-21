@@ -15,12 +15,12 @@
 ######################################################################
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
-APPNAME=java
-APPLINK=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
-APPHOME="azul.com/downloads" 
+APPNAME=multimc
+APPLINK=https://files.multimc.org/downloads/mmc-stable-lin64.tar.gz
+APPHOME="multimc.org" 
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox'
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/MultiMC'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -40,14 +40,16 @@ APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # show console/ssh info: 
-clear 
-echo 
-echo 
-echo 
+clear
+echo
+echo
+echo
+echo
 echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
+echo
 echo 
-echo 
-echo 
+echo
+echo
 # --------------------------------------------------------------------
 # -- output colors:
 ###########################
@@ -66,14 +68,13 @@ DARKPURPLE='\033[0;35m'   # darkpurple
 # --------------------------------------------------------------------
 # -- console theme
 L=$X
-R=$X
+R=$RED
 # --------------------------------------------------------------------
 # -- prepare paths and files for installation: 
 cd ~/
 pro=/userdata/system/pro
 mkdir $pro 2>/dev/null
 mkdir $pro/extra 2>/dev/null
-rm -rf $pro/$appname 2>/dev/null
 mkdir $pro/$appname 2>/dev/null
 mkdir $pro/$appname/extra 2>/dev/null
 # --------------------------------------------------------------------
@@ -94,7 +95,7 @@ wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/r
 #
 # --------------------------------------------------------------------
 # -- run before installer:  
-#killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
+killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
 # --------------------------------------------------------------------
 cols=$($dep/tput cols); rm -rf /userdata/system/pro/$appname/extra/cols
 echo $cols >> /userdata/system/pro/$appname/extra/cols
@@ -107,6 +108,8 @@ line(){
 }
 # -- show console/ssh info: 
 clear
+
+echo
 echo
 echo
 echo
@@ -115,42 +118,59 @@ echo
 echo
 echo
 echo
+
+sleep 0.33
+clear
+
+echo
+echo
+echo
+echo -e '- - - - - - -'
+echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
+echo -e '- - - - - - -'
+echo
+echo
+echo
+
+sleep 0.33
+clear
+
+echo
+echo
+echo -e '- - - - - - -'
+echo
+echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
+echo
+echo -e '- - - - - - -'
+echo
+echo
+
 sleep 0.33
 clear
 echo
-echo
-line $cols '-'; echo
+line $cols '\'
+line $cols '/'
+line $cols ' '
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-line $cols '-'; echo
+line $cols ' '
+line $cols '/'
+line $cols '\'
 echo
-echo
-echo
+
 sleep 0.33
-clear
 echo
-line $cols '-'; echo
-line $cols ' '; echo
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-line $cols ' '; echo
-line $cols '-'; echo
-echo
-echo
-sleep 0.33
-clear
-line $cols '\'; echo
-line $cols '/'; echo
-line $cols ' '; echo
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-line $cols ' '; echo
-line $cols '/'; echo
-line $cols '\'; echo
-echo
-sleep 0.33
-echo -e "${X}THIS WILL INSTALL JAVA-RUNTIME 19.0.1 FOR BATOCERA"
+echo -e "${X}THIS WILL INSTALL MULTIMC-LAUNCHER FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${X}$APPNAME WILL BE INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
-echo -e "${X}AND AVAILABLE AS A SYSTEM ADDON" 
+echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
+echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
+echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
+echo
+if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
+echo -e "${R}-------------------------------------------------${W}"
+echo -e "${R}YOU WILL ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
+echo -e "${R}-------------------------------------------------${W}"
+fi
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
@@ -200,17 +220,9 @@ line(){
   local range=$(seq $start $end)
   for i in $range ; do echo -n "${str}"; done
 }
+
 clear
-echo
-echo
-echo
-echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo
-echo
-echo
-echo
-sleep 0.33
-clear
+
 echo
 echo
 echo
@@ -218,47 +230,66 @@ echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
 echo
 echo
 echo
-echo
+
 sleep 0.33
 clear
+
 echo
 echo
-line $cols '-'; echo
+echo -e '- - - - - - -'
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-line $cols '-'; echo
+echo -e '- - - - - - -'
 echo
 echo
 echo
+
 sleep 0.33
 clear
+
 echo
-line $cols '-'; echo
-echo; #line $cols '-'; echo
+echo -e '- - - - - - -'
+echo
 echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
-echo; #line $cols '-'; echo
-line $cols '-'; echo
+echo
+echo -e '- - - - - - -'
 echo
 echo
+
 sleep 0.33
 clear
-line $cols '='; echo
-echo; #line $cols '-'; echo
-echo; #line $cols '-'; echo
-echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo; #line $cols '-'; echo
-echo; #line $cols '-'; echo
-line $cols '='; echo
+
+echo -e '- - - - - - -'
 echo
+echo
+echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
+echo
+echo 
+echo -e '- - - - - - -'
+
 sleep 0.33
-echo -e "${W}THIS WILL INSTALL JAVA-RUNTIME 19.0.1 FOR BATOCERA"
+clear
+
+echo 
+echo
+echo
+echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
+echo
+echo
+echo 
+
+sleep 0.33
+
+echo
+echo -e "${W}THIS WILL INSTALL MULTIMC-LAUNCHER FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}$APPNAME WILL BE INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
-echo -e "${W}AND AVAILABLE AS A SYSTEM ADDON" 
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
+echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
+echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
-echo; #line $cols '='; echo
+echo; #echo -e '- - - - - - -'; echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -276,111 +307,127 @@ fi
 # --------------------------------------------------------------------
 # -- temp for curl download
 pro=/userdata/system/pro
-temp=$pro/$appname/extra/downloads
-rm -rf $temp 2>/dev/null 
+temp=/userdata/system/pro/$appname/extra/downloads
+rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
-echo
-echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [ 1+1 / 2 ]. . ."
-url=https://github.com/uureel/batocera.pro/raw/main/
-p1=java.tar.bz2.partaa
-p2=java.tar.bz2.partab
+# DOWNLOAD
+echo -e "${G}DOWNLOADING${W} MULTIMC-LAUNCHER"
+sleep 1
+echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
-curl --progress-bar --remote-name --location "$url/$appname/extra/$p1"
-curl --progress-bar --remote-name --location "$url/$appname/extra/$p2"
-SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
-echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
-echo
-echo; #line $cols '='; echo
-sleep 1.333 
-# --------------------------------------------------------------------
-echo -e "${G}INSTALLING${W}" 
-# --------------------------------------------------------------------
-cat $temp/java.tar.bz2.parta* > $temp/java.tar.gz
-wget -q -O $pro/.dep/tar $url/.dep/tar
+curl --progress-bar --remote-name --location "$APPLINK"
+cd ~/
+SIZE=$(($(wc -c $temp/mmc-stable-lin64.tar.gz | awk '{print $1}')/1048576)) 2>/dev/null
+echo -e "${T}mmc-stable-lin64.tar.gz   ${T}$SIZE( )MB   ${G}OK${W}  " | sed 's/( )//g'
+#
+wget -q -O $pro/.dep/tar https://github.com/uureel/batocera.pro/raw/main/.dep/tar
 chmod a+x $pro/.dep/tar
-$pro/.dep/tar -xf $temp/java.tar.gz
-mv $temp/java/* $pro/java/
-chmod a+x $pro/java/bin/*
-rm -rf $temp
-cd ~/pro
-SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
-echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
+cd $temp
+~/pro/.dep/tar -xf $temp/mmc-stable-lin64.tar.gz
+cp -rL $temp/MultiMC/* $pro/$appname/
+cd ~/
+#
+# -- fix UID=0 check
+sed -i 's,'EUID' '-eq' '0','EUID' '-eq' '-1',g' $pro/$appname/MultiMC 2>/dev/null 
+echo
 # --------------------------------------------------------------------
-export='export PATH=/userdata/system/pro/java/bin:$PATH'
-find="system/pro/java"
+rm -rf $temp 2>/dev/null
+mkdir $temp 2>/dev/null
+echo -e "${G}DOWNLOADING${W} MULTIMC-LIBS"
+sleep 1
+APPLINK2=https://github.com/uureel/batocera.pro/raw/main/multimc/extra/libmultimc.zip
+echo -e "${T}$APPLINK2" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
+cd $temp
+curl --progress-bar --remote-name --location "$APPLINK2"
+cd ~/
+SIZE=$(($(wc -c $temp/libmultimc.zip | awk '{print $1}')/1048576)) 2>/dev/null
+echo -e "${T}libmultimc.zip   ${T}$SIZE( )MB   ${G}OK${W}" | sed 's/( )//g'
+#
+cd $temp; mkdir $temp/libmultimc 
+yes "A" | unzip -qq $temp/libmultimc.zip -d $pro/$appname/extra/
+cd $pro/$appname/extra; rm -rf $pro/$appname/extra/dependencies.txt 2>/dev/null
+ls $pro/$appname/extra/lib* | sed 's,^.*/lib,lib,g' >> $pro/$appname/extra/dependencies.txt
+cd ~/
+#
+echo
 # --------------------------------------------------------------------
-# attach java runtime to ~/.profile
-file=/userdata/system/.profile
-  if [[ -e "$file" ]]; then
-temp=/userdata/system/.profile.tmp
-rm $temp 2>/dev/null
-nl=$(cat $file | wc -l)
-l=1; while [[ $l -le $nl ]]; do
-ln=$(cat $file | sed ""$l"q;d")
-if [[ "$(echo $ln | grep "$find")" != "" ]]; then :; else echo "$ln" >> $temp; fi
-((l++))
-done
-echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $temp
-cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
-  else
-echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $file
-  fi
-dos2unix ~/.profile
+rm -rf $temp 2>/dev/null
+mkdir $temp 2>/dev/null
+echo -e "${G}DOWNLOADING${W} QT5-FRAMEWORK-LIBS"
+sleep 1
+APPLINK3=https://github.com/uureel/batocera.pro/raw/main/multimc/extra/qt5.zip
+echo -e "${T}$APPLINK3" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
+cd $temp
+curl --progress-bar --remote-name --location "$APPLINK3"
+cd ~/
+SIZE=$(($(wc -c $temp/qt5.zip | awk '{print $1}')/1048576)) 2>/dev/null
+echo -e "${T}qt5.zip   ${T}$SIZE( )MB   ${G}OK${W}" | sed 's/( )//g'
+#
+cd $temp; 
+yes "A" | unzip -qq $temp/qt5.zip -d $pro/$appname/extra/ 2>/dev/null
+cd $pro/$appname/extra; rm -rf $pro/$appname/extra/dependencies.txt 2>/dev/null
+ls $pro/$appname/extra/lib* | sed 's,^.*/lib,lib,g' >> $pro/$appname/extra/dependencies.txt
+cd ~/
+#
+echo
 # --------------------------------------------------------------------
-# attach java runtime to ~/.bashrc
-file=/userdata/system/.bashrc
-  if [[ -e "$file" ]]; then
-temp=/userdata/system/.bashrc.tmp
-rm $temp 2>/dev/null
-nl=$(cat $file | wc -l)
-l=1; while [[ $l -le $nl ]]; do
-ln=$(cat $file | sed ""$l"q;d")
-if [[ "$(echo $ln | grep "$find")" != "" ]]; then :; else echo "$ln" >> $temp; fi
-((l++))
-done
-echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $temp
-cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
-  else
-echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $file
-  fi
-dos2unix ~/.bashrc
+rm -rf $temp 2>/dev/null
+mkdir $temp 2>/dev/null
+echo -e "${G}DOWNLOADING${W} QT5-LIBS+" 
+sleep 1
+APPLINK4=https://github.com/uureel/batocera.pro/raw/main/multimc/extra/qt5lib.zip
+echo -e "${T}$APPLINK4" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
+cd $temp
+curl --progress-bar --remote-name --location "$APPLINK4"
+cd ~/
+SIZE=$(($(wc -c $temp/qt5lib.zip | awk '{print $1}')/1048576)) 2>/dev/null
+echo -e "${T}qt5lib.zip   ${T}$SIZE( )MB   ${G}OK${W}" | sed 's/( )//g'
+#
+mkdir $pro/.dep/.x86_64-linux-gnu 2>/dev/null
+mkdir $pro/.dep/.temp 2>/dev/null
+yes "A" | unzip -qq $temp/qt5lib.zip -d $pro/.dep/.temp/ 2>/dev/null
+cp -rL $pro/.dep/.temp/x86_64-linux-gnu/* $pro/.dep/.x86_64-linux-gnu/
+rm -rf $pro/.dep/.temp 2>/dev/null
+cd ~/
+#
+echo
 # --------------------------------------------------------------------
-# run export: 
-export PATH=/userdata/system/pro/java/bin:$PATH
-export JAVA_HOME=/userdata/system/pro/java
+echo
+sleep 1.333
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+echo -e "${G}INSTALLING${W}"
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+#rm -rf $temp 2>/dev/null
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo 'export PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $launcher
-echo 'function get-java-version {' >> $launcher
-echo 'W="\033[0;37m" ' >> $launcher
-echo 'java=/userdata/system/pro/java/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA RUNTIME AVAILABLE:"; echo; $java --version; sleep 4;' >> $launcher 
-echo 'else clear; echo; echo -e "${W}JAVA RUNTIME NOT FOUND..."; echo; sleep 4; ' >> $launcher
-echo 'fi' >> $launcher
-echo '}' >> $launcher
-echo 'export -f get-java-version 2>/dev/null' >> $launcher
-echo 'function get-xterm-fontsize {' >> $launcher
-echo 'tput=/userdata/system/pro/.dep/tput; chmod a+x $tput;' >> $launcher 
-echo 'ln -s /userdata/system/pro/.dep/libtinfo.so.6 /lib/ 2>/dev/null' >> $launcher
-echo 'cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null' >> $launcher
-echo 'DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null' >> $launcher
-echo 'cols=$(cat $cfg | tail -1) 2>/dev/null' >> $launcher
-echo 'TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null' >> $launcher
-echo '}' >> $launcher
-echo 'export -f get-xterm-fontsize 2>/dev/null' >> $launcher
-echo 'get-xterm-fontsize 2>/dev/null' >> $launcher
-echo 'cfg=/userdata/system/pro/.dep/display.cfg' >> $launcher
-echo 'cols=$(cat $cfg | tail -1) 2>/dev/null' >> $launcher
-echo 'until [[ "$cols" != "80" ]] ' >> $launcher
-echo 'do' >> $launcher
-echo 'get-xterm-fontsize 2>/dev/null' >> $launcher
-echo 'cols=$(cat $cfg | tail -1) 2>/dev/null' >> $launcher
-echo 'done ' >> $launcher
-echo 'TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null' >> $launcher
-echo 'DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "get-java-version" 2>/dev/null' >> $launcher
+echo 'export PATH=/userdata/system/pro/java/bin:$PATH ' >> $launcher
+echo 'export JAVA_HOME=/userdata/system/pro/java ' >> $launcher
+echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
+echo ' cp $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
+#- add extra dependencies: 
+echo ' dep=/userdata/system/pro/'$appname'/extra; depfile=$dep/dependencies.txt; ' >> $launcher
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
+echo ' rm /lib/$d 2>/dev/null; ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
+#- add qt5libs: 
+echo ' rm /usr/lib/x86_64-linux-gnu 2>/dev/null; ln -s /userdata/system/pro/.dep/.x86_64-linux-gnu /usr/lib/x86_64-linux-gnu 2>/dev/null;' >> $launcher
+echo ' rm /lib/x86_64-linux-gnu 2>/dev/null; ln -s /userdata/system/pro/.dep/.x86_64-linux-gnu /lib/x86_64-linux-gnu 2>/dev/null;' >> $launcher
+echo 'unclutter-remote -s' >> $launcher 
+## -- GET APP SPECIFIC LAUNCHER COMMAND: 
+######################################################################
+echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
+######################################################################
 dos2unix $launcher
 chmod a+x $launcher
 rm /userdata/system/pro/$appname/extra/command 2>/dev/null
@@ -389,7 +436,7 @@ rm /userdata/system/pro/$appname/extra/command 2>/dev/null
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
-echo "Version=1.0" >> $shortcut 
+echo "Version=1.0" >> $shortcut
 echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
 echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
 echo "Terminal=false" >> $shortcut
@@ -401,12 +448,15 @@ dos2unix $shortcut
 chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
-# -- prepare prelauncher to avoid overlay,
+# -- prepare Ports file, 
+rm /userdata/roms/ports/MultiMC.sh 2>/dev/null
+cp $pro/$appname/Launcher /userdata/roms/ports/MultiMC.sh
+# --------------------------------------------------------------------
+# -- prepare prelauncher,
 pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
-echo "cp /userdata/system/pro/$appname/bin/java /usr/bin/java 2>/dev/null" >> $pre
 dos2unix $pre
 chmod a+x $pre
 # -- add prelauncher to custom.sh to run @ reboot
@@ -426,10 +476,18 @@ sleep 1
 echo -e "${G}> ${W}DONE${W}"
 echo
 sleep 1
-echo; #line $cols '='; echo
-echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
-line $cols '='; echo
-sleep 3
+echo; #echo -e '- - - - - - -'; echo
+echo -e "${G}> ${W}MULTIMC INSTALLED ${G}OK${W}"
+echo -e "${G}--${G}------------------${G}--${W}"
+echo
+if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
+echo -e "${R}--------------------------------------------${W}"
+echo -e "${R}YOU ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
+echo -e "${R}--------------------------------------------${W}"
+fi
+sleep 4
+# reaload for ports file
+curl http://127.0.0.1:1234/reloadgames
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
