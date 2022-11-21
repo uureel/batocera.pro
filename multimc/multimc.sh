@@ -152,6 +152,12 @@ echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
+if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
+echo -e "${R}-------------------------------------------------${W}"
+echo -e "${R}YOU WILL ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
+echo -e "${R}-------------------------------------------------${W}"
+fi
+echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
 echo -e "${X}. . .${X}" 
@@ -341,14 +347,6 @@ rm -rf $temp 2>/dev/null
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
-echo
-echo -e "${R}--------------------------------------------${W}"
-echo -e "${R}YOU ALSO NEDD TO INSTALL LATEST JAVA-RUNTIME${W}" 
-echo -e "${R}--------------------------------------------${W}"
-echo
-fi
-# --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
@@ -420,8 +418,14 @@ sleep 1
 echo; #echo -e '- - -'; echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
 echo -e '- - -'; echo
-echo "1" >> /userdata/system/pro/$appname/extra/status 2>/dev/null
-sleep 3
+echo
+echo
+if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
+echo -e "${R}--------------------------------------------${W}"
+echo -e "${R}YOU ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
+echo -e "${R}--------------------------------------------${W}"
+fi
+sleep 4
 # reaload for ports file
 curl http://127.0.0.1:1234/reloadgames
 }
