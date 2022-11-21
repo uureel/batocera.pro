@@ -207,6 +207,7 @@ line(){
   for i in $range ; do echo -n "${str}"; done
 }
 clear
+
 echo
 echo
 echo
@@ -214,8 +215,10 @@ echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo
 echo
 echo
+
 sleep 0.33
 clear
+
 echo
 echo
 echo
@@ -223,8 +226,10 @@ echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
 echo
 echo
 echo
+
 sleep 0.33
 clear
+
 echo
 echo
 echo -e '- - -'; echo
@@ -233,8 +238,10 @@ echo -e '- - -'; echo
 echo
 echo
 echo
+
 sleep 0.33
 clear
+
 echo
 echo -e '- - -'; echo
 echo
@@ -243,17 +250,20 @@ echo
 echo -e '- - -'; echo
 echo
 echo
+
 sleep 0.33
 clear
-echo -e '- - -'; echo
-echo;
-echo; 
-echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo;
-echo;
+
 echo -e '- - -'; echo
 echo
+echo
+echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
+echo
+echo
+echo -e '- - -'; echo
+
 sleep 0.33
+
 echo -e "${W}THIS WILL INSTALL MULTIMC-LAUNCHER FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
