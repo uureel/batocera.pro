@@ -321,17 +321,17 @@ ln=$(cat $file | sed ""$l"q;d")
 if [[ "$(echo $ln | grep "$find")" != "" ]]; then :; else echo "$ln" >> $temp; fi
 ((l++))
 done
-echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $temp
+echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $temp
 cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
   else
-echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $file
+echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $file
   fi
 dos2unix ~/.profile
 # --------------------------------------------------------------------
 # attach java runtime to ~/.bashrc
 file=/userdata/system/.bashrc
   if [[ -e "$file" ]]; then
-temp=/userdata/system/.profile.tmp
+temp=/userdata/system/.bashrc.tmp
 rm $temp 2>/dev/null
 nl=$(cat $file | wc -l)
 l=1; while [[ $l -le $nl ]]; do
@@ -339,10 +339,10 @@ ln=$(cat $file | sed ""$l"q;d")
 if [[ "$(echo $ln | grep "$find")" != "" ]]; then :; else echo "$ln" >> $temp; fi
 ((l++))
 done
-echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $temp
+echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $temp
 cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
   else
-echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $file
+echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $file
   fi
 dos2unix ~/.bashrc
 # --------------------------------------------------------------------
@@ -352,7 +352,7 @@ export PATH=/userdata/system/pro/java/bin:$PATH
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo 'export PATH=/userdata/system/pro/java/bin:$PATH && cp $pro/$appname/bin/java /usr/bin/java 2>/dev/null' >> $launcher
+echo 'export PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $launcher
 echo 'function get-java-version {' >> $launcher
 echo 'W="\033[0;37m" ' >> $launcher
 echo 'java=/userdata/system/pro/java/bin/java' >> $launcher
