@@ -291,30 +291,63 @@ cd ~/
 SIZE=$(($(wc -c $temp | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo
-echo -e "${G}DOWNLOADING${W} QT5 LIBS"
+# --------------------------------------------------------------------
+echo -e "${G}DOWNLOADING${W} MULTIMC-LIBS"
 sleep 1
-APPLINK2=
+APPLINK2=https://github.com/uureel/batocera.pro/raw/main/multimc/extra/libmultimc.zip
 echo -e "${T}$APPLINK2" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK2"
 cd ~/
-SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
+SIZE=$(($(wc -c $temp/libmultimc.zip | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo
-
-
-
-
-
-
- ~/pro/.dep/tar -xf mmc-stable-lin64.tar.gz -C ./mmc/
-
-
+# --------------------------------------------------------------------
+echo -e "${G}DOWNLOADING${W} QT5-LIBS" 
+sleep 1
+APPLINK3=https://github.com/uureel/batocera.pro/raw/main/multimc/extra/libqt5.zip
+echo -e "${T}$APPLINK3" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
+cd $temp
+curl --progress-bar --remote-name --location "$APPLINK3"
+cd ~/
+SIZE=$(($(wc -c $temp/libqt5.zip | awk '{print $1}')/1048576)) 2>/dev/null
+echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
+echo
+# --------------------------------------------------------------------
 echo
 echo; #echo -e '- - -'; echo
 sleep 1.333
 # --------------------------------------------------------------------
-echo -e "${G}INSTALLING${W}"
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+echo -e "${G}INSTALLING${W} . . ."
+# --------------------------------------------------------------------
+wget -q -O $pro/.dep/tar https://github.com/uureel/batocera.pro/raw/main/.dep/tar
+chmod a+x $pro/.dep/tar
+cd $temp
+$pro/.dep/tar -xf mmc-stable-lin64.tar.gz -C $temp/mmc/
+cd $temp/mmc/*/
+mv ./* $pro/$appname/
+cd $temp
+mkdir $temp/libmultimc 
+yes "A" | unzip -qq $temp/libmultimc.zip -d $pro/MultiMC/extra/
+mkdir $pro/.dep/.x86_64-linux-gnu 2>/dev/null
+yes "A" | unzip -qq $temp/libqt5.zip -d $pro/.dep/.x86_64-linux-gnu/
+# --------------------------------------------------------------------
+cd $pro/$appname/extra
+ls lib* >> dependencies.txt
+cd ~/
+rm -rf $temp 2>/dev/null
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
+echo
+echo -e "${R}--------------------------------------------${W}"
+echo -e "${R}YOU ALSO NEDD TO INSTALL LATEST JAVA-RUNTIME${W}" 
+echo -e "${R}--------------------------------------------${W}"
+echo
+fi
 # --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
@@ -324,7 +357,14 @@ echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launc
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
 echo ' cp $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
-echo 'unclutter-remote -s' >> $launcher
+#- add extra dependencies: 
+echo ' dep=/userdata/system/pro/'$appname'/extra; depfile=$dep/dependencies.txt; ' >> $launcher
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
+echo ' rm /lib/$d 2>/dev/null; ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
+#- add qt5libs: 
+echo ' rm /usr/lib/x86_64-linux-gnu 2>/dev/null; ln -s /userdata/system/pro/.dep/.x86_64-linux-gnu /usr/lib/x86_64-linux-gnu 2>/dev/null; fi; ((l++)); done ' >> $launcher
+echo 'unclutter-remote -s' >> $launcher 
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
@@ -350,39 +390,10 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-portname=Heroic
-version=$(echo $APPLINK | sed 's,^.*'$portname'-,,g' | sed 's,.AppImage,,g')
-port=/userdata/system/pro/$appname/$portname.sh
-rm -rf $port 2>/dev/null
-echo '#!/bin/bash ' >> $port
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
-echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $port
-echo 'unclutter-remote -s' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $port
-echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
-echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
-echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
-echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox' >> $port
-dos2unix $port 
-chmod a+x $port 
-ports=/userdata/roms/ports
-if [[ -e "$ports/$portname.sh" ]]; 
-then 
-  if [[ "$(cat "$ports/$portname.sh" | grep "/userdata/system/pro/$appname" | tail -n 1)" != "" ]]; 
-  then 
-  cp $port "$ports/$portname.sh"
-  else
-  cp $port "$ports/$portname $version.sh";
-  fi
-else cp $port "$ports/$portname.sh"; 
-fi
+rm /userdata/roms/ports/MultiMC.sh 2>/dev/null
+cp $pro/$appname/Launcher /userdata/roms/ports/MultiMC.sh
 # --------------------------------------------------------------------
-# -- prepare prelauncher to avoid overlay,
+# -- prepare prelauncher,
 pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
