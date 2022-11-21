@@ -143,6 +143,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L moonlight.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/multimc/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MULTIMC-LAUNCHER</i></b><br>
+```curl -L multimc.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/museeks/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MUSEEKS</i></b><br>
 ```curl -L museeks.batocera.pro | bash```
 <br>
