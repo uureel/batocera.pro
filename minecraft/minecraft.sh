@@ -319,7 +319,6 @@ echo -e "${G}INSTALLING ${W}. . ."
 launcher=/userdata/system/pro/minecraft/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' unclutter-remote -s' >> $launcher
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
@@ -331,7 +330,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'HOME=/userdata/system/pro/minecraft/home DISPLAY=:0.0 /userdata/system/pro/minecraft/Minecraft 2>/dev/null' >> $launcher
+echo 'HOME=/userdata/system/pro/minecraft/home DISPLAY=:0.0 /userdata/system/pro/minecraft/Minecraft' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -342,11 +341,7 @@ chmod a+x $launcher
 # //
 # -- get icon for shortcut,
 icon=/userdata/system/pro/minecraft/extra/icon.png
-if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
-:
-else 
 wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
-fi
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/minecraft/extra/minecraft-launcher.desktop
@@ -363,6 +358,9 @@ f1shortcut=/usr/share/applications/minecraft-launcher.desktop
 dos2unix $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # //
+# -- prepare Ports file, 
+rm /userdata/roms/ports/Minecraft.sh 2>/dev/null
+cp $pro/$appname/Launcher /userdata/roms/ports/Minecraft.sh
 #
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/minecraft/extra/startup
