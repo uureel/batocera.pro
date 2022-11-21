@@ -319,6 +319,7 @@ echo -e "${G}INSTALLING ${W}. . ."
 launcher=/userdata/system/pro/minecraft/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
+echo ' unclutter-remote -s' >> $launcher
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
