@@ -123,9 +123,9 @@ clear
 echo
 echo
 echo
-echo -e '- - -'
+echo -e '- - - - - - -'
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e '- - -'
+echo -e '- - - - - - -'
 echo
 echo
 echo
@@ -135,11 +135,11 @@ clear
 
 echo
 echo
-echo -e '- - -'
+echo -e '- - - - - - -'
 echo
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
 echo
-echo -e '- - -'
+echo -e '- - - - - - -'
 echo
 echo
 
@@ -156,6 +156,7 @@ line $cols '\'
 echo
 
 sleep 0.33
+echo
 echo -e "${X}THIS WILL INSTALL MULTIMC-LAUNCHER FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
@@ -233,9 +234,9 @@ clear
 
 echo
 echo
-echo -e '- - -'
+echo -e '- - - - - - -'
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo -e '- - -'
+echo -e '- - - - - - -'
 echo
 echo
 echo
@@ -244,27 +245,39 @@ sleep 0.33
 clear
 
 echo
-echo -e '- - -'
+echo -e '- - - - - - -'
 echo
 echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
 echo
-echo -e '- - -'
+echo -e '- - - - - - -'
 echo
 echo
 
 sleep 0.33
 clear
 
-echo -e '- - -'
+echo -e '- - - - - - -'
+echo
+echo
+echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
+echo
+echo 
+echo -e '- - - - - - -'
+
+sleep 0.33
+clear
+
+echo 
 echo
 echo
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo
 echo
-echo -e '- - -'
+echo 
 
 sleep 0.33
 
+echo
 echo -e "${W}THIS WILL INSTALL MULTIMC-LAUNCHER FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
@@ -274,7 +287,7 @@ echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
-echo; #echo -e '- - -'; echo
+echo; #echo -e '- - - - - - -'; echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -330,7 +343,7 @@ echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo
 # --------------------------------------------------------------------
 echo
-echo; #echo -e '- - -'; echo
+echo; #echo -e '- - - - - - -'; echo
 sleep 1.333
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -424,9 +437,9 @@ sleep 1
 echo -e "${G}> ${W}DONE${W}"
 echo
 sleep 1
-echo; #echo -e '- - -'; echo
+echo; #echo -e '- - - - - - -'; echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
-echo -e '- - -'; echo
+echo -e '- - - - - - -'; echo
 echo
 echo
 if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
