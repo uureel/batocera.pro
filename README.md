@@ -15,7 +15,7 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
-`JUST USE XTERM OR SSH TO RUN THESE COMMANDS`
+`  JUST RUN THESE COMMANDS IN XTERM OR SSH  `
 <br>
 <br>
 <br>
