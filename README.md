@@ -238,7 +238,8 @@ Some unofficial AppImages, some official binaries <br>
 shape or form affiliated with Batocera </i><br>
 <br>
 <br>
-<br><b><i>SUGGESTIONS, QUESTIONS <br>
+<br>
+<br><b><i>QUESTIONS, SUGGESTIONS<br>
 or ISSUES, contact me here: </font></b></i><br>
 <a href=https://discord.gg/8gKnCs42>https://discord.gg/8gKnCs42</a>
 <br>
