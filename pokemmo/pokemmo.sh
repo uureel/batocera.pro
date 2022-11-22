@@ -1,43 +1,19 @@
 #!/usr/bin/env bash 
 # BATOCERA.PRO INSTALLER
 ######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-#--------------------------------------------------------------------- 
-#       DEFINE APP INFO >> 
 APPNAME=pokemmo 
-APPLINK=$(curl -s https://api.github.com/repos/hmlendea/gfn-electron/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
-APPHOME="pokemmo.com/downloads/portable/" 
+APPLINK=https://pokemmo.com/download_file/1/
+APPHOME="pokemmo.com/downloads/portable/"
 #---------------------------------------------------------------------
-#       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/PokeMMO.sh'
+AppName=PokeMMO.sh
+INFONAME=POKEMMO
+PORTNAME=PokeMMO.sh
+######################################################################
+#---------------------------------------------------------------------
+COMMAND='su -c "DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$AppName'" root'
 #--------------------------------------------------------------------- 
 ######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-# --------------------------------------------------------------------
-APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-# --------------------------------------------------------------------
+APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); APPPATH=/userdata/system/pro/$appname/$AppName
 # --------------------------------------------------------------------
 # show console/ssh info: 
 clear 
@@ -144,9 +120,10 @@ echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
 line $cols ' '; echo
 line $cols '/'; echo
 line $cols '\'; echo
-echo
+
 sleep 0.33
-echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
+echo
+echo -e "${X}THIS WILL INSTALL $INFONAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
@@ -162,12 +139,14 @@ echo
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 # -- THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-APPNAME=$1
-appname=$2
-AppName=$3
-APPPATH=$4
-APPLINK=$5
-ORIGIN=$6
+APPNAME="$1"
+appname="$2"
+AppName="$3"
+APPPATH="$4"
+APPLINK="$5"
+ORIGIN="$6"
+INFONAME="$7"
+PORTNAME="$8"
 # --------------------------------------------------------------------
 # -- colors: 
 ###########################
@@ -261,8 +240,7 @@ echo
 echo
 sleep 0.33
 
-echo
-echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
+echo -e "${W}THIS WILL INSTALL $INFONAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
@@ -295,23 +273,25 @@ mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
 #
 echo
-echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
+echo -e "${G}DOWNLOADING${W}"
 sleep 1
-echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
-cd $temp
-curl --progress-bar --remote-name --location "$APPLINK"
+cd $pro/$appname
+su -c "cd $pro/$appname && wget -q --show-progress https://pokemmo.com/download_file/1/ -O $pro/$appname/PokeMMO.zip" root 
 cd ~/
-mv $temp/* $APPPATH 2>/dev/null
-chmod a+x $APPPATH 2>/dev/null
-rm -rf $temp/*.AppImage
-SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
-echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
+SIZE=$(($(wc -c $pro/$appname/PokeMMO.zip | awk '{print $1}')/1048576)) 2>/dev/null
+echo -e "${T}$pro/$appname/PokeMMO.zip   ${T}$SIZE( )MB   ${G}OK${W}" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE" 
 echo
 sleep 1.333 
 # 
 # -------------------------------------------------------------------- 
 echo -e "${G}INSTALLING${W}" 
+#
+yes "A" | unzip -qq $pro/$appname/PokeMMO.zip -d $pro/$appname/ 2>/dev/null
+rm -rf $pro/$appname/PokeMMO.zip 2>/dev/null
+rm -rf $temp 2>/dev/null
+# -- increase java memsize: 
+sed -i 's,'Xmx384M','Xmx768M',g' $pro/$appname/$AppName 2>/dev/null 
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
@@ -320,6 +300,9 @@ echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launc
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
 echo ' cp $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
+echo 'cd '$pro'/'$appname'/' >> $launcher  
+echo 'export JAVA_HOME=/userdata/system/pro/java/bin' >> $launcher
+echo 'export PATH=/userdata/system/pro/java/bin:$PATH ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher 
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
@@ -346,11 +329,16 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-port=/userdata/system/pro/$appname/GeForceNow.sh 
-cp /userdata/system/pro/$appname/Launcher $port 
-dos2unix $port 
-chmod a+x $port 
-cp $port "/userdata/roms/ports/$appname.sh" 
+portfile="$pro/$appname/extra/$PORTNAME"
+echo '#!/usr/bin/env bash' >> "$portfile"
+echo 'cd '$pro'/'$appname'/' >> "$portfile"  
+echo 'export JAVA_HOME=/userdata/system/pro/java/bin' >> "$portfile"
+echo 'export PATH=/userdata/system/pro/java/bin:$PATH ' >> "$portfile"
+echo 'unclutter-remote -s' >> "$portfile"
+echo '/userdata/system/pro/'$appname'/Launcher' >> "$portfile" 
+dos2unix "$portfile" 
+chmod a+x "$portfile" 
+cp "$portfile" "/userdata/roms/ports/$PORTNAME" 
 # --------------------------------------------------------------------
 # -- get padtokey profile 
 #
@@ -364,22 +352,41 @@ dos2unix $pre
 chmod a+x $pre
 # -- add prelauncher to custom.sh to run @ reboot
 csh=/userdata/system/custom.sh
-if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
-fi
-if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
-fi
-if [[ -e $csh ]]; then :; else
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
-fi
-dos2unix $csh
+startup=/userdata/system/pro/$appname/extra/startup
+if [[ -e $csh ]];
+then
+   tmp=/userdata/system/customsh.tmp
+   remove=/userdata/system/pro/$appname/extra/startup
+   rm $tmp 2>/dev/null
+   nl=$(cat $csh | wc -l)
+   l=1; while [[ $l -le $nl ]]; do
+   ln=$(cat $csh | sed ""$l"q;d")
+   if [[ "$(echo $ln | grep "$remove")" != "" ]]; then :; else echo "$ln" >> $tmp; fi
+   ((l++))
+   done
+   cp $tmp $csh 2>/dev/null
+   rm $tmp 2>/dev/null
+   echo -e "\n$startup \n" >> $csh   
+   dos2unix $csh 
+   chmod a+x $csh 
+else 
+   echo -e "\n$startup \n" >> $csh
+fi 
+dos2unix $csh 2>/dev/null
+chmod a+x $csh
+echo -e "${G}> ${W}DONE" 
 sleep 1
-echo -e "${G}> ${W}DONE${W}"
 echo
-sleep 1
-echo; 
+echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
+sleep 1
+echo
+echo
+if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
+echo -e "${R}--------------------------------------------${W}"
+echo -e "${R}YOU ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
+echo -e "${R}--------------------------------------------${W}"
+fi
 sleep 3
 # reaload for ports file
 curl http://127.0.0.1:1234/reloadgames
@@ -408,7 +415,7 @@ TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN:
 # |
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK '$ORIGIN'" 2>/dev/null
+  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK '$ORIGIN' '$INFONAME' '$PORTNAME'" 2>/dev/null
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER //
 ##########################
