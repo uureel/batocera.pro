@@ -330,7 +330,9 @@ echo
 echo
 echo -e "${W}PREPARING TO AUTOMATICALLY RUN ${G}SWITCH UPDATER${W} . . ." 
 echo -e "${W}(THIS WILL TEMPORARILY RETURN TO THE MAIN SCREEN)" 
-sleep 3
+echo 
+echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
+read -p ""
 echo
 rm -rf /userdata/system/switch/extra/installation 2>/dev/null
 echo "OK" >> /userdata/system/switch/extra/installation
