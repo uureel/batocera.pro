@@ -146,7 +146,7 @@ line $cols '/'; echo
 line $cols '\'; echo
 echo
 sleep 0.33
-echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
+echo -e "${X}THIS WILL INSTALL YOUTUBETV FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
@@ -251,7 +251,7 @@ echo;
 echo -e "${W}- - -"
 echo
 sleep 0.33
-echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
+echo -e "${W}THIS WILL INSTALL YOUTUBETV FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
