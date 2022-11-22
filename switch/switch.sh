@@ -370,7 +370,7 @@ rm /userdata/system/switch/extra/display.cfg 2>/dev/null
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME '$ORIGIN'" 2>/dev/null
 # & automatically run switch updater after installation: 
 if [[ -e /userdata/system/switch/extra/installation ]]; then
-curl https://raw.githubusercontent.com/uureel/batocera-switch/main/system/switch/extra/batocera-switch-updater.sh | bash 
+curl https://raw.githubusercontent.com/ordovice/batocera-switch/main/system/switch/extra/batocera-switch-updater.sh | bash 
 rm /userdata/system/switch/extra/installation 2>/dev/null
 else
 echo
