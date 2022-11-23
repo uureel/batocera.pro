@@ -36,7 +36,7 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L balena.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CEMU UPDATER</i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/cemu/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CEMU </b>UPDATER</i><br>
 ```curl -L cemu.batocera.pro | bash```
 <br>
 <br>
@@ -195,7 +195,7 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L rats.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/icon.png" width=48 height=48 /><b><i>&nbsp;RPCS3 UPDATER</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/icon.png" width=48 height=48 /><b><i>&nbsp;RPCS3 </b>UPDATER</i></b> <br>
 ```curl -L rpcs3.batocera.pro | bash```
 <br>
 <br>
