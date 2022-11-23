@@ -19,6 +19,8 @@ echo
 echo 
 # --------------------------------------------------------------------
 ORIGIN="${ORIGIN^^}"
+extra=/userdata/system/switch/extra
+mkdir -p $extra 2>/dev/null 
 # -- output colors:
 ###########################
 X='\033[0m'               # / resetcolor
@@ -127,7 +129,7 @@ B=$BLUE
 G=$GREEN
 P=$PURPLE
 # --------------------------------------------------------------------
-cols=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
+cols=$(cat /userdata/system/switch/extra/display.cfg | tail -n 1) 2>/dev/null
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
