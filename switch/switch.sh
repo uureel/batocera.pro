@@ -340,13 +340,15 @@ echo "OK" >> /userdata/system/switch/extra/installation
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # -- include display output: 
-
 function get-xterm-fontsize {
 extra=/userdata/system/switch/extra
+mkdir -p $extra 2>/dev/null 
+wget -q -O $extra/batocera-switch-tput https://github.com/uureel/batocera.pro/raw/main/switch/extra/batocera-switch-tput
+wget -q -O $extra/batocera-switch-libtinfo.so.6 https://github.com/uureel/batocera.pro/raw/main/switch/extra/batocera-switch-libtinfo.so.6
 chmod a+x $extra/batocera-switch-tput
 chmod a+x $extra/batocera-switch-tar
 rm /lib/libtinfo.so.6 2>/dev/null
-ln -s $extra/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
+ln -s $extra/batocera-switch-libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
 tput=/userdata/system/switch/extra/batocera-switch-tput
 cfg=/userdata/system/switch/extra/display.cfg; rm $cfg 2>/dev/null
 DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
