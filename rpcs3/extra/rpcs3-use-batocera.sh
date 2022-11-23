@@ -101,4 +101,3 @@ TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "set-rpcs3-version" 2>/dev/null
 # --------------------------------------------------------------------
-exit 0
