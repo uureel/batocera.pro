@@ -19,7 +19,7 @@ echo
 echo 
 # --------------------------------------------------------------------
 ORIGIN="${ORIGIN^^}"
-extra=/userdata/system/switch/extra
+extra=/userdata/system/switch/extra 
 mkdir -p $extra 2>/dev/null 
 # -- output colors:
 ###########################
