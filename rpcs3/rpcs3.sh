@@ -1,7 +1,8 @@
 #!/usr/bin/env bash 
-###########################
+# 
+########################### 
 W='\033[0;37m'            # white
-#-------------------------#
+#-------------------------# 
 RED='\033[1;31m'          # red
 BLUE='\033[1;34m'         # blue
 GREEN='\033[1;32m'        # green
@@ -10,39 +11,40 @@ DARKRED='\033[0;31m'      # darkred
 DARKBLUE='\033[0;34m'     # darkblue
 DARKGREEN='\033[0;32m'    # darkgreen
 DARKPURPLE='\033[0;35m'   # darkpurple
-###########################
+########################### 
 # theme
-X='\033[0m' # / resetcolor
+X='\033[0m' # / resetcolor 
 L=$X
 R=$X
+G=$GREEN
 # -----------------------------------------------------------------------------------------
 # show console/ssh info: 
 clear 
 echo 
 echo 
 echo 
-echo -e "${X}PREPARING RPCS3 INSTALLER/UPDATER, PLEASE WAIT . . . ${X}"
+echo -e "${X}PREPARING RPCS3 UPDATER, PLEASE WAIT . . . ${X}"
 echo 
 echo 
 echo 
 # -----------------------------------------------------------------------------------------
-# paths for batocera.pro:
+# paths:
 pro=/userdata/system/pro
 mkdir -p $pro 2>/dev/null
 mkdir -p $pro/rpcs3 2>/dev/null
 mkdir -p $pro/rpcs3/extra 2>/dev/null
 extra=$pro/rpcs3/extra 
 # prepare dependencies: 
-wget -q -O "/userdata/system/pro/rpcs3/extra/tput" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/tput
+wget -q -O /userdata/system/pro/rpcs3/extra/tput https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/tput
 chmod +x $pro/rpcs3/extra/tput
-wget -q -O "/userdata/system/pro/rpcs3/extra/libtinfo.so.6" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/libtinfo.so.6
-cp "$pro/.config/lib/batocera-pro-libtinfo.so.6" /lib/libtinfo.so.6 2>/dev/null
+wget -q -O /userdata/system/pro/rpcs3/extra/libtinfo.so.6 https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/libtinfo.so.6
+rm /lib/libtinfo.so.6 2>/dev/null; ln -s /userdata/system/pro/rpcs3/extra/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
 # -----------------------------------------------------------------------------------------
 clear
 echo
 echo
 echo
-echo -e "${R}BATOCERA.PRO/RPCS3 INSTALLER/UPDATER${W}"
+echo -e "${R}BATOCERA.PRO/RPCS3 UPDATER${W}"
 echo
 echo
 echo
@@ -54,7 +56,7 @@ clear
 echo
 echo
 echo -e "${L}--------------------------------------------------------"
-echo -e "${R}BATOCERA.PRO/RPCS3 INSTALLER/UPDATER${W}"
+echo -e "${R}BATOCERA.PRO/RPCS3 UPDATER${W}"
 echo -e "${L}--------------------------------------------------------"
 echo
 echo
@@ -65,9 +67,9 @@ sleep 0.33
 clear
 echo
 echo -e "${L}--------------------------------------------------------"
-echo -e "${L}--------------------------------------------------------"
-echo -e "${R}BATOCERA.PRO/RPCS3 INSTALLER/UPDATER${W}"
-echo -e "${L}--------------------------------------------------------"
+echo
+echo -e "${R}BATOCERA.PRO/RPCS3 UPDATER${W}"
+echo
 echo -e "${L}--------------------------------------------------------"
 echo
 echo
@@ -76,28 +78,27 @@ sleep 0.33
 ######################################################################
 clear
 echo -e "${L}--------------------------------------------------------"
-echo -e "${L}--------------------------------------------------------"
-echo -e "${L}--------------------------------------------------------"
-echo -e "${R}BATOCERA.PRO/RPCS3 INSTALLER/UPDATER${W}"
-echo -e "${L}--------------------------------------------------------"
-echo -e "${L}--------------------------------------------------------"
+echo
+echo
+echo -e "${R}BATOCERA.PRO/RPCS3 UPDATER${W}"
+echo
+echo
 echo -e "${L}--------------------------------------------------------"
 echo
 ######################################################################
 sleep 0.33
 echo -e "${R}THIS WILL INSTALL THE LATEST RPCS3 FOR BATOCERA"
-echo
+echo 
 echo -e "${R}BACKUP WILL BE MADE IN /USERDATA/SYSTEM/PRO/RPCS3/"
+echo 
+echo -e "${R}YOU'LL BE ABLE TO CHOOSE RPCS3 VERSIONS FROM PORTS"
 echo
-echo -e "${R}TO REMOVE THIS VERSION, JUST REMOVE FOLDER:"
-echo -e "${R}/USERDATA/SYSTEM/PRO/RPCS3" 
 echo
-echo -e "${R}FOLLOW THE BATOCERA DISPLAY . . ."
+echo -e "${R}> FOLLOW THE BATOCERA DISPLAY . . ."
 echo
-echo -e "${R}. . .${X}" 
 echo
 # -----------------------------------------------------------------------------------------
-function batocera-pro-installer {
+function batocera-pro-rpcs3updater {
 ###########################
 W='\033[0;37m'            # white
 #-------------------------#
@@ -121,7 +122,7 @@ clear
 echo
 echo
 echo
-echo -e "${G}BATOCERA.PRO/RPCS3 INSTALLER/UPDATER ${W}"
+echo -e "${W}BATOCERA.PRO"
 echo
 echo
 echo
@@ -133,7 +134,7 @@ clear
 echo
 echo
 echo
-echo -e "${G}BATOCERA.PRO/RPCS3 INSTALLER/UPDATER ${W}"
+echo -e "${W}BATOCERA.PRO/${G}RPCS3 UPDATER ${W}"
 echo
 echo
 echo
@@ -145,7 +146,7 @@ clear
 echo
 echo
 echo -e "${L}-------------------------------------------------------"
-echo -e "${G}BATOCERA.PRO/RPCS3 INSTALLER/UPDATER ${W}"
+echo -e "${W}BATOCERA.PRO/${G}RPCS3 UPDATER ${W}"
 echo -e "${L}-------------------------------------------------------"
 echo
 echo
@@ -157,7 +158,7 @@ clear
 echo
 echo -e "${L}-------------------------------------------------------"
 echo
-echo -e "${G}BATOCERA.PRO/RPCS3 INSTALLER/UPDATER ${W}"
+echo -e "${W}BATOCERA.PRO/${G}RPCS3 UPDATER ${W}"
 echo
 echo -e "${L}-------------------------------------------------------"
 echo
@@ -169,7 +170,7 @@ clear
 echo -e "${L}-------------------------------------------------------"
 echo
 echo
-echo -e "${G}BATOCERA.PRO/RPCS3 INSTALLER/UPDATER ${W}"
+echo -e "${W}BATOCERA.PRO/${G}RPCS3 UPDATER ${W}"
 echo
 echo
 echo -e "${L}-------------------------------------------------------"
@@ -177,13 +178,12 @@ echo
 ######################################################################
 sleep 0.33
 echo -e "${R}THIS WILL INSTALL THE LATEST RPCS3 FOR BATOCERA"
-echo
-echo -e "${R}BACKUP WILL BE MADE IN /USERDATA/SYSTEM/PRO/RPCS3/"
-echo
-echo -e "${R}TO REMOVE THIS VERSION, JUST REMOVE FOLDER:"
-echo -e "${R}/USERDATA/SYSTEM/PRO/RPCS3" 
 echo 
-echo -e "${RED}> ${W}PRESS ENTER TO CONTINUE"
+echo -e "${R}BACKUP WILL BE MADE IN /USERDATA/SYSTEM/PRO/RPCS3/"
+echo 
+echo -e "${R}YOU'LL BE ABLE TO CHOOSE RPCS3 VERSIONS FROM PORTS"
+echo 
+echo -e "${G}> ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 # -----------------------------------------------------------------------------------------
@@ -203,7 +203,7 @@ exit 0
 exit 0
 fi
 sleep 1
-echo -e "${T}PREPARING BACKUP...${WHITE}"
+echo -e "${T}PREPARING BACKUP . . .${WHITE}"
 # -----------------------------------------------------------------------------------------
 # prepare directories for newrpcs3
 mkdir /userdata/system/pro 2>/dev/null
@@ -253,7 +253,7 @@ cp -r /userdata/system/pro/rpcs3/backup/saves-$timestamp/* /userdata/saves/ps3/ 
 sleep 1
 # -----------------------------------------------------------------------------------------
 # show backup info
-if [[ "$(cat /userdata/system/pro/rpcs3/extra/rpcs3backup | tail -n 1)" = "1" ]]; then
+if [[ "$(cat /userdata/system/pro/rpcs3/extra/rpcs3backup.txt | tail -n 1)" = "1" ]]; then
 echo -e "${W}/userdata/system/pro/rpcs3/backup/rpcs3"
 sleep 1
 fi
@@ -269,9 +269,21 @@ echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 sleep 1
 echo
 echo -e "${T}DOWNLOADING LATEST RPCS3 . . .${T}"
-wget -q --show-progress -O /userdata/system/pro/rpcs3/newrpcs3 $(curl -s https://rpcs3.net/download | grep rpcs3-binaries-linux | grep "<a href" | cut -d " -f 2 | cut -d " -f 2 | cut -d = -f 2 | tr -d \") 
-sleep 1
-chmod a+x /userdata/system/pro/rpcs3/newrpcs3 2>/dev/null
+#wget -q --show-progress -O /userdata/system/pro/rpcs3/newrpcs3 $(curl -s https://rpcs3.net/download | grep rpcs3-binaries-linux | grep "<a href" | cut -d " -f 2 | cut -d " -f 2 | cut -d = -f 2 | tr -d \") 
+appname=rpcs3
+APPLINK=$(curl -s https://rpcs3.net/download | grep rpcs3-binaries-linux | grep "<a href" | cut -d " -f 2 | cut -d " -f 2 | cut -d = -f 2 | tr -d \")
+APPPATH=/userdata/system/pro/rpcs3/newrpcs3
+temp=/userdata/system/pro/$appname/extra/downloads
+rm -rf $temp 2>/dev/null
+mkdir -p $temp 2>/dev/null
+# --------------------------------------------------------------------
+echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' | sed 's,^.*github.com/,,g' 2>/dev/null
+cd $temp
+curl --progress-bar --remote-name --location "$APPLINK"
+cd ~/
+mv $temp/* $APPPATH 2>/dev/null
+chmod a+x $APPPATH 2>/dev/null
+rm -rf $temp
 newrpcs3size=$(($(wc -c /userdata/system/pro/rpcs3/newrpcs3 | awk '{print $1}')/1048576)) 2>/dev/null
 newrpcs3version=$(curl -s https://rpcs3.net/download | grep rpcs3-binaries-linux | grep "<a href" | cut -d " -f 2 | cut -d " -f 2 | cut -d = -f 2 | sed 's/rpcs3-v//g' | tr -d \" | cut -d / -f 9 | cut -d _ -f 1)
 batorpcs3version=$(/userdata/system/pro/rpcs3/backup/rpcs3 --version 2>/dev/null | grep RPCS3 | cut -d " " -f 2 | tr -d \")
@@ -296,34 +308,34 @@ echo "#!/usr/bin/env bash" >> "/userdata/roms/ports/RPCS3 Updater.sh" 2>/dev/nul
 echo "curl -L rpcs3.batocera.pro | bash" >> "/userdata/roms/ports/RPCS3 Updater.sh" 2>/dev/null
 chmod a+x "/userdata/roms/ports/RPCS3 Updater.sh" 2>/dev/null
 # prepare ports 'use batocera version' 
-wget -q -O "/userdata/roms/ports/RPCS3 use Batocera.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-use-batocera-version.sh
+wget -q -O "/userdata/roms/ports/RPCS3 use Batocera.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-use-batocera.sh
 dos2unix "/userdata/roms/ports/RPCS3 use Batocera.sh" && chmod a+x "/userdata/roms/ports/RPCS3 use Batocera.sh"
 # prepare ports 'use latest version'
-wget -q -O "/userdata/roms/ports/RPCS3 use Latest.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-use-latest-version.sh
+wget -q -O "/userdata/roms/ports/RPCS3 use Latest.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-use-latest.sh
 dos2unix "/userdata/roms/ports/RPCS3 use Latest.sh" && chmod a+x "/userdata/roms/ports/RPCS3 use Latest.sh"
 #
-echo -e "${T}ADDING PORTS . . ."
-echo -e "${W}1/ RPCS3${W} Updater"
-sleep 1
-echo -e "${W}2/ RPCS3${W} use Batocera"
-sleep 1
-echo -e "${W}3/ RPCS3${W} use Latest"
-sleep 1
+echo -e "${T}ADDING PORTS . . ." 
+echo -e "${G}1${W} RPCS3 Updater" 
+sleep 1 
+echo -e "${G}2${W} RPCS3 use Batocera" 
+sleep 1 
+echo -e "${G}3${W} RPCS3 use Latest" 
+sleep 1 
 # -----------------------------------------------------------------------------------------
 # prepare launchers for chosen rpcs3 version:
 wget -q -O "/userdata/system/pro/rpcs3/backup/batocera-config-rpcs3" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/batocera-config-rpcs3.sh
 dos2unix "/userdata/system/pro/rpcs3/backup/batocera-config-rpcs3" && chmod a+x "/userdata/system/pro/rpcs3/backup/batocera-config-rpcs3"
 # 
 if [[ -e "/userdata/system/pro/rpcs3/backup/rpcs3" ]] && [[ -e "/userdata/system/pro/rpcs3/backup/batocera-config-rpcs3" ]]; then 
-wget -q -O "/userdata/system/pro/rpcs3/extra/usrbinrpcs3" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-usr-bin-rpcs3.sh
+wget -q -O "/userdata/system/pro/rpcs3/extra/usrbinrpcs3" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-usrbinrpcs3.sh
 dos2unix "/userdata/system/pro/rpcs3/extra/usrbinrpcs3" && chmod a+x "/userdata/system/pro/rpcs3/extra/usrbinrpcs3"
 fi
 # 
 if [[ -e "/userdata/system/pro/rpcs3/backup/batocera-config-rpcs3" ]]; then 
-wget -q -O "/usr/bin/batocera-config-rpcs3" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-usr-bin-rpcs3.sh
+wget -q -O "/usr/bin/batocera-config-rpcs3" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-usrbinrpcs3.sh
 dos2unix "/usr/bin/batocera-config-rpcs3" && chmod a+x "/usr/bin/batocera-config-rpcs3"
 else
-wget -q -O "/usr/bin/batocera-config-rpcs3" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-usr-bin-rpcs3.sh
+wget -q -O "/usr/bin/batocera-config-rpcs3" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-usrbinrpcs3.sh
 dos2unix "/usr/bin/batocera-config-rpcs3" && chmod a+x "/usr/bin/batocera-config-rpcs3"
 fi
 # 
@@ -332,12 +344,12 @@ echo
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 sleep 2
 echo
-echo -e "${T}PREPARING SYSTEM..."
+echo -e "${T}PREPARING SYSTEM . . . "
 sleep 0.5
 # -----------------------------------------------------------------------------------------
 # set rpcs3 to use latest version: 
-rm $pro/rpcs3/extra/whichrpcs3.cfg 2>/dev/null
-echo "/userdata/system/pro/rpcs3/newrpcs3" >> $pro/rpcs3/extra/whichrpcs3.cfg 2>/dev/null
+rm /userdata/system/pro/rpcs3/extra/whichrpcs3.cfg 2>/dev/null
+echo "/userdata/system/pro/rpcs3/newrpcs3" >> /userdata/system/pro/rpcs3/extra/whichrpcs3.cfg 2>/dev/null
 cp /userdata/system/pro/rpcs3/extra/usrbinrpcs3 /usr/bin/rpcs3 2>/dev/null
 # -----------------------------------------------------------------------------------------
 # prepare prelauncher for startup to avoid overlay:
@@ -374,44 +386,59 @@ chmod a+x $csh
 # -----------------------------------------------------------------------------------------
 echo -e "${G}> ${W}DONE"
 echo
-sleep 2
+sleep 1
 #echo -e "${L}--------------------------------------------------------"
 #echo -e "${L}--------------------------------------------------------"
 echo -e "${L}-------------------------------------------------------"
-echo -e "${G}> NEW RPCS3 INSTALLED ${W}"
+echo -e "${G}> NEW RPCS3 INSTALLED OK ${W}"
 echo -e "${L}-------------------------------------------------------"
 #echo -e "${L}--------------------------------------------------------"
 #echo -e "${L}--------------------------------------------------------"
 echo
+rm -rf /userdata/system/pro/rpcs3/extra/installation.txt 2>/dev/null
+echo "done" >> /userdata/system/pro/rpcs3/extra/installation.txt 2>/dev/null
 sleep 3
-clear
-curl http://127.0.0.1:1234/reloadgames
+curl http:/127.0.0.1:1234/reloadgames 2>/dev/null 
+sleep 0.1
 }
 # --------------------------------------------------------------------
-  export -f batocera-pro-installer 2>/dev/null
+export -f batocera-pro-rpcs3updater 2>/dev/null
 # --------------------------------------------------------------------
 # include display output: 
 function get-xterm-fontsize { 
 # prepare dependencies: 
-tput=/userdata/system/pro/rpcs3/extra/tput; chmod a+x $tput; 
+tput=/userdata/system/pro/rpcs3/extra/tput; chmod a+x $tput 2>/dev/null 
 rm /lib/libtinfo.so.6; ln -s /userdata/system/pro/rpcs3/extra/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
 cfg=/userdata/system/pro/rpcs3/extra/display.cfg; rm $cfg 2>/dev/null
 DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
 cols=$(cat $cfg | tail -1) 2>/dev/null
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
-}
-export -f get-xterm-fontsize 2>/dev/null
-get-xterm-fontsize 2>/dev/null
-cfg=/userdata/system/pro/rpcs3/extra/display.cfg
-cols=$(cat $cfg | tail -1) 2>/dev/null
+} 
+export -f get-xterm-fontsize 2>/dev/null 
+get-xterm-fontsize 2>/dev/null 
+cfg=/userdata/system/pro/rpcs3/extra/display.cfg 
+cols=$(cat $cfg | tail -1) 2>/dev/null 
 until [[ "$cols" != "80" ]] 
-do
-get-xterm-fontsize 2>/dev/null
-cols=$(cat $cfg | tail -1) 2>/dev/null
+do 
+get-xterm-fontsize 2>/dev/null 
+cols=$(cat $cfg | tail -1) 2>/dev/null 
 done 
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
+TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null 
+# -------------------------------------------------------------------- 
+DISPLAY=:0.0 xterm -fullscreen -bg black -fa "Monospace" -fs $TEXT_SIZE -e bash -c "batocera-pro-rpcs3updater" 2>/dev/null 
+# -------------------------------------------------------------------- 
+if [[ "$(cat /userdata/system/pro/rpcs3/extra/installation.txt | tail -n 1)" = "done" ]]; then 
+clear 
+echo 
+echo 
+echo -e "${L}-------------------------------------------------------" 
+echo -e "${G}> NEW RPCS3 INSTALLED OK ${W}" 
+echo -e "${L}-------------------------------------------------------" 
+echo 
+echo 
+rm -rf /userdata/system/pro/rpcs3/extra/installation.txt 2>/dev/null 
+fi 
 # --------------------------------------------------------------------
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer" 2>/dev/null
-# --------------------------------------------------------------------
+# BATOCERA.PRO INSTALLER // 
+########################## 
 exit 0 
-
