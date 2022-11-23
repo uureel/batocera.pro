@@ -383,5 +383,7 @@ echo -e "${W}LOOKS LIKE THE INSTALLATION FAILED${W} . . ."
 echo
 echo
 echo
+sleep 3
+exit 0
 fi
-# done.
+# done. 
