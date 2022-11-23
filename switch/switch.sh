@@ -230,7 +230,7 @@ echo -e "${W}PLEASE WAIT${W}"
 # -------------------------------------------------------------------- 
 # -------------------------------------------------------------------- 
 # -------------------------------------------------------------------- 
-# CLEAR OLD INSTALLS 
+# PURGE OLD INSTALLS 
 rm -rf /userdata/system/switch 2>/dev/null
 rm /userdata/system/configs/emulationstation/add_feat_switch.cfg 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_features.cfg 2>/dev/null
