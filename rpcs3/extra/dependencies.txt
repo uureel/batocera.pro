@@ -1,0 +1,8 @@
+dependencies.txt
+batocera-config-rpcs3
+icon.png
+libtinfo.so.6
+rpcs3-use-batocera-version.sh
+rpcs3-use-latest-version.sh
+tput
+
