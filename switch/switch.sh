@@ -345,8 +345,7 @@ extra=/userdata/system/switch/extra
 mkdir -p $extra 2>/dev/null 
 wget -q -O $extra/batocera-switch-tput https://github.com/uureel/batocera.pro/raw/main/switch/extra/batocera-switch-tput
 wget -q -O $extra/batocera-switch-libtinfo.so.6 https://github.com/uureel/batocera.pro/raw/main/switch/extra/batocera-switch-libtinfo.so.6
-chmod a+x $extra/batocera-switch-tput
-chmod a+x $extra/batocera-switch-tar
+chmod a+x $extra/batocera-switch-tput 2>/dev/null
 rm /lib/libtinfo.so.6 2>/dev/null
 ln -s $extra/batocera-switch-libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
 tput=/userdata/system/switch/extra/batocera-switch-tput
