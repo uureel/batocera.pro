@@ -364,20 +364,20 @@ echo '}' >> $launcher
 echo 'export -f get-java-version 2>/dev/null' >> $launcher
 echo 'function get-xterm-fontsize {' >> $launcher
 echo 'tput=/userdata/system/pro/.dep/tput; chmod a+x $tput;' >> $launcher 
-echo 'ln -s /userdata/system/pro/.dep/libtinfo.so.6 /lib/ 2>/dev/null' >> $launcher
+echo 'cp /userdata/system/pro/.dep/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null' >> $launcher
 echo 'cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null' >> $launcher
 echo 'DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null' >> $launcher
-echo 'cols=$(cat $cfg | tail -1) 2>/dev/null' >> $launcher
+echo 'cols=$(cat $cfg | tail -n 1) 2>/dev/null' >> $launcher
 echo 'TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null' >> $launcher
 echo '}' >> $launcher
 echo 'export -f get-xterm-fontsize 2>/dev/null' >> $launcher
 echo 'get-xterm-fontsize 2>/dev/null' >> $launcher
 echo 'cfg=/userdata/system/pro/.dep/display.cfg' >> $launcher
-echo 'cols=$(cat $cfg | tail -1) 2>/dev/null' >> $launcher
+echo 'cols=$(cat $cfg | tail -n 1) 2>/dev/null' >> $launcher
 echo 'until [[ "$cols" != "80" ]] ' >> $launcher
 echo 'do' >> $launcher
 echo 'get-xterm-fontsize 2>/dev/null' >> $launcher
-echo 'cols=$(cat $cfg | tail -1) 2>/dev/null' >> $launcher
+echo 'cols=$(cat $cfg | tail -n 1) 2>/dev/null' >> $launcher
 echo 'done ' >> $launcher
 echo 'TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null' >> $launcher
 echo 'DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "get-java-version" 2>/dev/null' >> $launcher

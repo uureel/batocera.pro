@@ -349,21 +349,21 @@ wget -q -O $extra/batocera-switch-tput https://github.com/uureel/batocera.pro/ra
 wget -q -O $extra/batocera-switch-libtinfo.so.6 https://github.com/uureel/batocera.pro/raw/main/switch/extra/batocera-switch-libtinfo.so.6
 chmod a+x $extra/batocera-switch-tput 2>/dev/null
 rm /lib/libtinfo.so.6 2>/dev/null
-ln -s $extra/batocera-switch-libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
+cp $extra/batocera-switch-libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
 tput=/userdata/system/switch/extra/batocera-switch-tput
 cfg=/userdata/system/switch/extra/display.cfg; rm $cfg 2>/dev/null
 DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
-cols=$(cat $cfg | tail -1) 2>/dev/null
+cols=$(cat $cfg | tail -n 1) 2>/dev/null
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 }
 export -f get-xterm-fontsize 2>/dev/null
 get-xterm-fontsize 2>/dev/null
 cfg=/userdata/system/switch/extra/display.cfg
-cols=$(cat $cfg | tail -1) 2>/dev/null
+cols=$(cat $cfg | tail -n 1) 2>/dev/null
 until [[ "$cols" != "80" ]] 
 do
 get-xterm-fontsize 2>/dev/null
-cols=$(cat $cfg | tail -1) 2>/dev/null
+cols=$(cat $cfg | tail -n 1) 2>/dev/null
 done 
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 rm /userdata/system/switch/extra/display.cfg 2>/dev/null
