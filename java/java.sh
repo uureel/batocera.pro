@@ -539,9 +539,14 @@ TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # BATOCERA.PRO INSTALLER //
 ##########################
 clear
+if [[ -e "/userdata/pro/java/java19/bin/java" ]] && [[ -e "/userdata/pro/java/java17/bin/java" ]] && [[ -e "/userdata/pro/java/java15/bin/java" ]] && [[ -e "/userdata/pro/java/java13/bin/java" ]] && [[ -e "/userdata/pro/java/java11/bin/java" ]] && [[ -e "/userdata/pro/java/java8/bin/java" ]]; then
+echo
 echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
+echo
 echo
 echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION, JUST COPY WHAT'S INSIDE"
 echo -e "${W}~/pro/java/java[V] VERSION, TO THE MAIN ~/pro/java DIRECTORY"
 echo
+echo
+fi
