@@ -308,6 +308,8 @@ echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launc
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
+echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $launcher
+echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
@@ -343,6 +345,8 @@ echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
+echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $port
+echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $port
 echo 'unclutter-remote -s' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
@@ -371,6 +375,8 @@ pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
+echo "cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $pre
+echo "cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $pre
 dos2unix $pre
 chmod a+x $pre
 # -- add prelauncher to custom.sh to run @ reboot

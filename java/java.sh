@@ -146,13 +146,14 @@ line $cols '/'; echo
 line $cols '\'; echo
 echo
 sleep 0.33
-echo -e "${X}THIS WILL INSTALL JAVA-RUNTIME 19.0.1 FOR BATOCERA"
-echo -e "${X}USING $ORIGIN"
+echo -e "${X}THIS WILL INSTALL JAVA-RUNTIMES FOR BATOCERA" 
+echo -e "${X}USING $ORIGIN JRE PACKAGES FOR JAVA" 
+echo -e "${X}VERSIONS: 19, 17, 15, 13, 11, 8"  
 echo
-echo -e "${X}$APPNAME WILL BE INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
-echo -e "${X}AND AVAILABLE AS A SYSTEM ADDON" 
+echo -e "${X}$APPNAME VERSIONS WILL BE INSTALLED IN:"
+echo -e "${X}/USERDATA/SYSTEM/PRO/$APPNAME" 
 echo
-echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
+echo -e "${X}FOLLOW THE BATOCERA DISPLAY" 
 echo
 echo -e "${X}. . .${X}" 
 echo
@@ -250,12 +251,13 @@ echo; #line $cols '-'; echo
 line $cols '='; echo
 echo
 sleep 0.33
-echo -e "${W}THIS WILL INSTALL JAVA-RUNTIME 19.0.1 FOR BATOCERA"
-echo -e "${W}USING $ORIGIN"
+echo -e "${W}THIS WILL INSTALL JAVA-RUNTIMES FOR BATOCERA" 
+echo -e "${W}USING $ORIGIN JRE PACKAGES FOR JAVA" 
+echo -e "${W}VERSIONS: ${G}19, 17, 15, 13, 11, 8${W}"  
 echo
-echo -e "${W}$APPNAME WILL BE INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
-echo -e "${W}AND AVAILABLE AS A SYSTEM ADDON" 
-echo
+echo -e "${W}$APPNAME VERSIONS WILL BE INSTALLED IN:"
+echo -e "${W}/USERDATA/SYSTEM/PRO/$APPNAME" 
+echo 
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo; #line $cols '='; echo
@@ -281,13 +283,15 @@ rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
 echo
-echo -e "${G}DOWNLOADING${W} JAVA-RUNTIME 19.0.1 PACKAGE [ 1+1 / 2 ] . . ."
+echo -e "${G}DOWNLOADING${W} [6] JAVA-RUNTIME PACKAGES . . ."
 url=https://github.com/uureel/batocera.pro/raw/main/
-p1=java.tar.bz2.partaa
-p2=java.tar.bz2.partab
 cd $temp
-curl --progress-bar --remote-name --location "$url/$appname/extra/$p1"
-curl --progress-bar --remote-name --location "$url/$appname/extra/$p2"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java19.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java17.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java15.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java13.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java11.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java8.tar.gz"
 SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
 echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g' 2>/dev/null
 echo
@@ -296,14 +300,47 @@ sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W} . . ." 
 # --------------------------------------------------------------------
-cat $temp/java.tar.bz2.parta* >$temp/java.tar.gz 2>/dev/null
+# get tar 
 wget -q -O $pro/.dep/tar $url/.dep/tar 2>/dev/null
 chmod a+x $pro/.dep/tar
-$pro/.dep/tar -xf $temp/java.tar.gz 2>/dev/null
-mv $temp/java/* $pro/java/
+# --------------------------------------------------------------------
+# java19
+$pro/.dep/tar -xf $temp/java19.tar.gz 2>/dev/null
+# --------------------------------------------------------------------
+# -- make this version the default system java version: 
+cp $temp/java19/* $pro/java/ 2>/dev/null
+# -- --------------------------------------------------
+mv $temp/java19 $pro/ 2>/dev/null
+# --------------------------------------------------------------------
+# java17
+$pro/.dep/tar -xf $temp/java17.tar.gz 2>/dev/null
+mv $temp/java17 $pro/ 2>/dev/null
+# --------------------------------------------------------------------
+# java15
+$pro/.dep/tar -xf $temp/java15.tar.gz 2>/dev/null
+mv $temp/java15 $pro/ 2>/dev/null
+# --------------------------------------------------------------------
+# java13
+$pro/.dep/tar -xf $temp/java13.tar.gz 2>/dev/null
+mv $temp/java13 $pro/ 2>/dev/null
+# --------------------------------------------------------------------
+# java11
+$pro/.dep/tar -xf $temp/java11.tar.gz 2>/dev/null
+mv $temp/java11 $pro/ 2>/dev/null
+# --------------------------------------------------------------------
+# java17
+$pro/.dep/tar -xf $temp/java8.tar.gz 2>/dev/null
+mv $temp/java8 $pro/ 2>/dev/null
+# --------------------------------------------------------------------
 chmod a+x $pro/java/bin/* 2>/dev/null
-rm -rf $temp
+chmod a+x $pro/java19/bin/* 2>/dev/null
+chmod a+x $pro/java17/bin/* 2>/dev/null
+chmod a+x $pro/java15/bin/* 2>/dev/null
+chmod a+x $pro/java13/bin/* 2>/dev/null
+chmod a+x $pro/java11/bin/* 2>/dev/null
+chmod a+x $pro/java8/bin/* 2>/dev/null
 cd ~/
+rm -rf $temp
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g' 2>/dev/null
 # --------------------------------------------------------------------
@@ -357,9 +394,43 @@ echo 'export PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userd
 echo 'function get-java-version {' >> $launcher
 echo 'W="\033[0;37m" ' >> $launcher
 echo 'java=/userdata/system/pro/java/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA RUNTIME AVAILABLE:"; echo; $java --version; sleep 4;' >> $launcher 
-echo 'else clear; echo; echo -e "${W}JAVA RUNTIME NOT FOUND..."; echo; sleep 4; ' >> $launcher
+#
+echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}DEFAULT JAVA RUNTIME:"; echo; $java -version; sleep 0.33;' >> $launcher 
+echo 'else clear; echo; echo -e "${W}JAVA RUNTIME NOT FOUND"; sleep 0.33;' >> $launcher
 echo 'fi' >> $launcher
+#
+echo 'java=/userdata/system/pro/java19/bin/java' >> $launcher
+echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 19:\/userdata/system/pro/java19"; echo; $java -version; sleep 0.33;' >> $launcher 
+echo 'else clear; echo; echo -e "${W}JAVA 19 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'fi' >> $launcher
+#
+echo 'java=/userdata/system/pro/java17/bin/java' >> $launcher
+echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 17:\/userdata/system/pro/java17"; echo; $java -version; sleep 0.33;' >> $launcher 
+echo 'else clear; echo; echo -e "${W}JAVA 17 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'fi' >> $launcher
+#
+echo 'java=/userdata/system/pro/java15/bin/java' >> $launcher
+echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 15:\/userdata/system/pro/java15"; echo; $java -version; sleep 0.33;' >> $launcher 
+echo 'else clear; echo; echo -e "${W}JAVA 15 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'fi' >> $launcher
+#
+echo 'java=/userdata/system/pro/java13/bin/java' >> $launcher
+echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 13:\n/userdata/system/pro/java13"; echo; $java -version; sleep 0.33;' >> $launcher 
+echo 'else clear; echo; echo -e "${W}JAVA 13 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'fi' >> $launcher
+#
+echo 'java=/userdata/system/pro/java11/bin/java' >> $launcher
+echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 11:\n/userdata/system/pro/java11"; echo; $java -version; sleep 0.33;' >> $launcher 
+echo 'else clear; echo; echo -e "${W}JAVA 11 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'fi' >> $launcher
+#
+echo 'java=/userdata/system/pro/java8/bin/java' >> $launcher
+echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 8:\n/userdata/system/pro/java8"; echo; $java -version; sleep 0.33;' >> $launcher 
+echo 'else clear; echo; echo -e "${W}JAVA 8 NOT FOUND"; echo; sleep 0.33;' >> $launcher
+echo 'fi' >> $launcher
+#
+echo 'sleep 5' >> $launcher
+#
 echo '}' >> $launcher
 echo 'export -f get-java-version 2>/dev/null' >> $launcher
 echo 'function get-xterm-fontsize {' >> $launcher
@@ -407,6 +478,8 @@ rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 echo "cp /userdata/system/pro/$appname/bin/java /usr/bin/java 2>/dev/null" >> $pre
+echo "cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $pre
+echo "cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $pre
 dos2unix $pre 2>/dev/null
 chmod a+x $pre 2>/dev/null
 # -- add prelauncher to custom.sh to run @ reboot
@@ -429,8 +502,13 @@ echo
 sleep 1
 echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
+echo
+echo
+echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION, JUST COPY WHAT'S INSIDE"
+echo -e "${W}~/pro/java/java[V] VERSION, TO THE MAIN ~/pro/java DIRECTORY"
+echo
 line $cols '='; echo
-sleep 3
+sleep 5
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
@@ -463,4 +541,7 @@ TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 clear
 echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
+echo
+echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION, JUST COPY WHAT'S INSIDE"
+echo -e "${W}~/pro/java/java[V] VERSION, TO THE MAIN ~/pro/java DIRECTORY"
 echo
