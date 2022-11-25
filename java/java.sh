@@ -44,7 +44,7 @@ clear
 echo 
 echo 
 echo 
-echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
+echo -e "${X}PREPARING $APPNAME RUNTIMES INSTALLER, PLEASE WAIT . . . ${X}"
 echo 
 echo 
 echo 
