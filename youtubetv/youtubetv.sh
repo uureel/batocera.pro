@@ -344,7 +344,7 @@ echo '#!/bin/bash ' >> $port
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
-echo ' ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
+echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
 echo 'unclutter-remote -s' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
