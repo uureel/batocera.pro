@@ -17,7 +17,7 @@ T=$W
 B=$BLUE
 P=$PURPLE
 G=$GREEN
-L=$W
+L=$W 
 # paths for batocera.pro:
 pro=/userdata/system/pro
 rm $pro/rpcs3/extra/whichrpcs3.cfg 2>/dev/null

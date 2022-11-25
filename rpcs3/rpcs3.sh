@@ -360,10 +360,10 @@ echo "cp /userdata/system/pro/rpcs3/extra/usrbinrpcs3 /usr/bin/rpcs3 2>/dev/null
 dos2unix $pre
 chmod a+x $pre
 # -- add prelauncher to custom.sh to run @ reboot
-csh=/userdata/system/custom.sh
-startup=$pre
-if [[ -e $csh ]];
-then
+csh=/userdata/system/custom.sh 
+startup=$pre 
+if [[ -e $csh ]]; 
+then 
    tmp=/userdata/system/customsh.tmp
    remove=$pre
    rm $tmp 2>/dev/null

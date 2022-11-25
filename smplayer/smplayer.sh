@@ -87,7 +87,7 @@ depfile=dependencies.txt; dep=$pro/.dep; mkdir $pro/.dep 2>/dev/null; cd $dep
 wget -q -O $dep/$depfile $url/$depfile 2>/dev/null; dos2unix $dep/$depfile;
 nl=$(cat $dep/$depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do
 d=$(cat $dep/$depfile | sed ""$l"q;d"); wget -q -O $dep/$d $url/$d 2>/dev/null; 
-if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done
+if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done
 wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png; chmod a+x $dep/tput; cd ~/
 # --------------------------------------------------------------------
 # // end of dependencies 
@@ -309,7 +309,7 @@ echo '#!/bin/bash ' >> $launcher
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $launcher
+echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
@@ -325,7 +325,7 @@ echo '#!/bin/bash ' >> $play
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $play
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $play
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $play
-echo ' ln -s $dep/$d /lib/$lib 2>/dev/null; fi; ((l++)); done ' >> $play
+echo ' ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $play
 echo 'unclutter-remote -s' >> $play
 echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $play
 echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $play

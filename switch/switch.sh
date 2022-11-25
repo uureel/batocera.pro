@@ -302,8 +302,8 @@ path=/userdata/system/configs/evmapy
 url=https://raw.githubusercontent.com/ordovice/batocera-switch/main/system/configs/evmapy
 wget -q -O $path/switch.keys $url/switch.keys
 # -------------------------------------------------------------------- 
-# FILL /USERDATA/ROMS/PORTS
-path=/userdata/roms/ports
+# FILL /USERDATA/ROMS/PORTS 
+path=/userdata/roms/ports 
 url=https://raw.githubusercontent.com/ordovice/batocera-switch/main/roms/ports
 wget -q -O "$path/Switch Updater.sh" "$url/Switch Updater.sh"
 # -------------------------------------------------------------------- 
