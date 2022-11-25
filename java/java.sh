@@ -501,7 +501,7 @@ echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION, JUST COPY WHAT'S INSIDE"
 echo -e "${W}~/pro/java/java[V] VERSION, TO THE MAIN ~/pro/java DIRECTORY"
 echo
 line $cols '='; echo
-sleep 6
+sleep 10
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
