@@ -543,8 +543,8 @@ if [[ -e "/userdata/pro/java/java19/bin/java" ]] && [[ -e "/userdata/pro/java/ja
 echo
 echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
-echo
-echo
+echo 
+echo 
 echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION, JUST COPY WHAT'S INSIDE"
 echo -e "${W}~/pro/java/java[V] VERSION, TO THE MAIN ~/pro/java DIRECTORY"
 echo
