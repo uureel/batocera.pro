@@ -147,7 +147,7 @@ line $cols '\'; echo
 echo
 sleep 0.33
 echo -e "${X}THIS WILL INSTALL JAVA-RUNTIMES FOR BATOCERA" 
-echo -e "${X}USING $ORIGIN JRE PACKAGES FOR JAVA" 
+echo -e "${X}USING $ORIGIN JRE PACKAGES" 
 echo -e "${X}VERSIONS: 19, 17, 15, 13, 11, 8"  
 echo
 echo -e "${X}$APPNAME VERSIONS WILL BE INSTALLED IN:"
@@ -252,7 +252,7 @@ line $cols '='; echo
 echo
 sleep 0.33
 echo -e "${W}THIS WILL INSTALL JAVA-RUNTIMES FOR BATOCERA" 
-echo -e "${W}USING $ORIGIN JRE PACKAGES FOR JAVA" 
+echo -e "${W}USING $ORIGIN JRE PACKAGES" 
 echo -e "${W}VERSIONS: ${G}19, 17, 15, 13, 11, 8${W}"  
 echo
 echo -e "${W}$APPNAME VERSIONS WILL BE INSTALLED IN:"
@@ -395,38 +395,38 @@ echo 'function get-java-version {' >> $launcher
 echo 'W="\033[0;37m" ' >> $launcher
 echo 'java=/userdata/system/pro/java/bin/java' >> $launcher
 #
-echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}DEFAULT JAVA RUNTIME:"; echo; $java -version; sleep 0.33;' >> $launcher 
-echo 'else clear; echo; echo -e "${W}JAVA RUNTIME NOT FOUND"; sleep 0.33;' >> $launcher
+echo 'if [[ -e "$java" ]]; then echo -e "${W}DEFAULT JAVA RUNTIME:"; $java -version; sleep 0.33;' >> $launcher 
+echo 'else echo; echo -e "${W}JAVA RUNTIME NOT FOUND"; sleep 0.33;' >> $launcher
 echo 'fi' >> $launcher
 #
 echo 'java=/userdata/system/pro/java19/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 19:\/userdata/system/pro/java19"; echo; $java -version; sleep 0.33;' >> $launcher 
-echo 'else clear; echo; echo -e "${W}JAVA 19 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'if [[ -e "$java" ]]; then echo -e "${W}JAVA 19:\/userdata/system/pro/java19"; $java -version; sleep 0.33;' >> $launcher 
+echo 'else echo; echo -e "${W}JAVA 19 NOT FOUND"; echo; sleep 0.33' >> $launcher
 echo 'fi' >> $launcher
 #
 echo 'java=/userdata/system/pro/java17/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 17:\/userdata/system/pro/java17"; echo; $java -version; sleep 0.33;' >> $launcher 
-echo 'else clear; echo; echo -e "${W}JAVA 17 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'if [[ -e "$java" ]]; then echo -e "${W}JAVA 17:\/userdata/system/pro/java17"; $java -version; sleep 0.33;' >> $launcher 
+echo 'else echo; echo -e "${W}JAVA 17 NOT FOUND"; echo; sleep 0.33' >> $launcher
 echo 'fi' >> $launcher
 #
 echo 'java=/userdata/system/pro/java15/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 15:\/userdata/system/pro/java15"; echo; $java -version; sleep 0.33;' >> $launcher 
-echo 'else clear; echo; echo -e "${W}JAVA 15 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'if [[ -e "$java" ]]; then echo -e "${W}JAVA 15:\/userdata/system/pro/java15"; $java -version; sleep 0.33;' >> $launcher 
+echo 'else echo; echo -e "${W}JAVA 15 NOT FOUND"; echo; sleep 0.33' >> $launcher
 echo 'fi' >> $launcher
 #
 echo 'java=/userdata/system/pro/java13/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 13:\n/userdata/system/pro/java13"; echo; $java -version; sleep 0.33;' >> $launcher 
-echo 'else clear; echo; echo -e "${W}JAVA 13 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'if [[ -e "$java" ]]; then echo -e "${W}JAVA 13:\n/userdata/system/pro/java13"; $java -version; sleep 0.33;' >> $launcher 
+echo 'else echo; echo -e "${W}JAVA 13 NOT FOUND"; echo; sleep 0.33' >> $launcher
 echo 'fi' >> $launcher
 #
 echo 'java=/userdata/system/pro/java11/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 11:\n/userdata/system/pro/java11"; echo; $java -version; sleep 0.33;' >> $launcher 
-echo 'else clear; echo; echo -e "${W}JAVA 11 NOT FOUND"; echo; sleep 0.33' >> $launcher
+echo 'if [[ -e "$java" ]]; then echo -e "${W}JAVA 11:\n/userdata/system/pro/java11"; $java -version; sleep 0.33;' >> $launcher 
+echo 'else echo; echo -e "${W}JAVA 11 NOT FOUND"; echo; sleep 0.33' >> $launcher
 echo 'fi' >> $launcher
 #
 echo 'java=/userdata/system/pro/java8/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then clear; echo -e "${W}JAVA 8:\n/userdata/system/pro/java8"; echo; $java -version; sleep 0.33;' >> $launcher 
-echo 'else clear; echo; echo -e "${W}JAVA 8 NOT FOUND"; echo; sleep 0.33;' >> $launcher
+echo 'if [[ -e "$java" ]]; then echo -e "${W}JAVA 8:\n/userdata/system/pro/java8"; $java -version; sleep 0.33;' >> $launcher 
+echo 'else echo; echo -e "${W}JAVA 8 NOT FOUND"; echo; sleep 0.33;' >> $launcher
 echo 'fi' >> $launcher
 #
 echo 'sleep 5' >> $launcher
