@@ -17,7 +17,7 @@
 #       DEFINE APP INFO >>
 APPNAME=java
 APPLINK=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1) 2>/dev/null
-APPHOME=azul.com/downloads
+APPHOME=azul.com
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
 COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox'
@@ -146,11 +146,11 @@ line $cols '/'; echo
 line $cols '\'; echo
 echo
 sleep 0.33
-echo -e "${X}THIS WILL INSTALL JAVA-RUNTIMES FOR BATOCERA" 
-echo -e "${X}USING $ORIGIN JRE PACKAGES" 
+echo -e "${X}THIS WILL INSTALL JAVA RUNTIMES FOR BATOCERA" 
+echo -e "${X}USING $ORIGIN JAVA JRE PACKAGES" 
 echo -e "${X}VERSIONS: 19, 17, 15, 13, 11, 8"  
 echo
-echo -e "${X}$APPNAME VERSIONS WILL BE INSTALLED IN:"
+echo -e "${X}$APPNAME RUNTIMES WILL BE INSTALLED IN:"
 echo -e "${X}/USERDATA/SYSTEM/PRO/$APPNAME" 
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY" 
@@ -251,12 +251,12 @@ echo; #line $cols '-'; echo
 line $cols '='; echo
 echo
 sleep 0.33
-echo -e "${W}THIS WILL INSTALL JAVA-RUNTIMES FOR BATOCERA" 
-echo -e "${W}USING $ORIGIN JRE PACKAGES" 
-echo -e "${W}VERSIONS: ${G}19, 17, 15, 13, 11, 8${W}"  
+echo -e "${W}THIS WILL INSTALL JAVA RUNTIMES FOR BATOCERA" 
+echo -e "${W}USING $ORIGIN JAVA JRE PACKAGES" 
+echo -e "${W}VERSIONS: 19, 17, 15, 13, 11, 8"  
 echo
-echo -e "${W}$APPNAME VERSIONS WILL BE INSTALLED IN:"
-echo -e "${W}/USERDATA/SYSTEM/PRO/$APPNAME" 
+echo -e "${W}$APPNAME RUNTIMES WILL BE INSTALLED IN:"
+echo -e "${W}/USERDATA/SYSTEM/PRO/$APPNAME"
 echo 
 echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
@@ -308,29 +308,29 @@ chmod a+x $pro/.dep/tar
 $pro/.dep/tar -xf $temp/java19.tar.gz 2>/dev/null
 # --------------------------------------------------------------------
 # -- make this version the default system java version: 
-cp $temp/java19/* $pro/java/ 2>/dev/null
-# -- --------------------------------------------------
-mv $temp/java19 $pro/ 2>/dev/null
+cp $temp/java19/* $pro/$appname/ 2>/dev/null
+# -- and move to version folder
+mv $temp/java19 $pro/$appname/ 2>/dev/null
 # --------------------------------------------------------------------
 # java17
 $pro/.dep/tar -xf $temp/java17.tar.gz 2>/dev/null
-mv $temp/java17 $pro/ 2>/dev/null
+mv $temp/java17 $pro/$appname/ 2>/dev/null
 # --------------------------------------------------------------------
 # java15
 $pro/.dep/tar -xf $temp/java15.tar.gz 2>/dev/null
-mv $temp/java15 $pro/ 2>/dev/null
+mv $temp/java15 $pro/$appname/ 2>/dev/null
 # --------------------------------------------------------------------
 # java13
 $pro/.dep/tar -xf $temp/java13.tar.gz 2>/dev/null
-mv $temp/java13 $pro/ 2>/dev/null
+mv $temp/java13 $pro/$appname/ 2>/dev/null
 # --------------------------------------------------------------------
 # java11
 $pro/.dep/tar -xf $temp/java11.tar.gz 2>/dev/null
-mv $temp/java11 $pro/ 2>/dev/null
+mv $temp/java11 $pro/$appname/ 2>/dev/null
 # --------------------------------------------------------------------
 # java17
 $pro/.dep/tar -xf $temp/java8.tar.gz 2>/dev/null
-mv $temp/java8 $pro/ 2>/dev/null
+mv $temp/java8 $pro/$appname/ 2>/dev/null
 # --------------------------------------------------------------------
 chmod a+x $pro/java/bin/* 2>/dev/null
 chmod a+x $pro/java19/bin/* 2>/dev/null
@@ -340,7 +340,7 @@ chmod a+x $pro/java13/bin/* 2>/dev/null
 chmod a+x $pro/java11/bin/* 2>/dev/null
 chmod a+x $pro/java8/bin/* 2>/dev/null
 cd ~/
-rm -rf $temp
+#rm -rf $temp
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g' 2>/dev/null
 # --------------------------------------------------------------------
@@ -501,14 +501,14 @@ echo -e "${G}> ${W}DONE${W}"
 echo
 sleep 1
 echo
-echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
+echo -e "${G}> $APPNAME INSTALLED ${G}OK${W}"
 echo
 echo
 echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION, JUST COPY WHAT'S INSIDE"
 echo -e "${W}~/pro/java/java[V] VERSION, TO THE MAIN ~/pro/java DIRECTORY"
 echo
 line $cols '='; echo
-sleep 5
+sleep 6
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
