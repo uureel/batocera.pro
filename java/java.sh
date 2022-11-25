@@ -393,36 +393,31 @@ echo '#!/bin/bash ' >> $launcher
 echo 'export PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $launcher
 echo 'function get-java-version {' >> $launcher
 echo 'W="\033[0;37m" ' >> $launcher
-# default
+# 
 echo 'java=/userdata/system/pro/java/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then echo -e "${W}DEFAULT JAVA RUNTIME:"; $java -version; sleep 0.33; echo' >> $launcher 
-echo 'else echo -e "${W}JAVA RUNTIME NOT FOUND"; sleep 0.33; echo; fi' >> $launcher
-# 19
-echo 'java19=/userdata/system/pro/java19/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then echo -e "${W}JAVA 19:\n/userdata/system/pro/java19"; $java19 -version; sleep 0.33; echo' >> $launcher 
+echo 'if [[ -e "$java" ]]; then echo -e "${G}> DEFAULT JAVA RUNTIME${W}"; $java -version; sleep 0.33; echo; echo' >> $launcher
+echo 'else echo -e "${W}JAVA RUNTIME NOT FOUND"; sleep 0.33; echo; echo; fi' >> $launcher
+echo 'java19=/userdata/system/pro/java/java19/bin/java' >> $launcher
+echo 'if [[ -e "$java19" ]]; then echo -e "${G}~/pro/java/java19${W}"; $java19 -version; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 19 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
-# 17
-echo 'java17=/userdata/system/pro/java17/bin/java' >> $launcher
-echo 'if [[ -e "$java17" ]]; then echo -e "${W}JAVA 17:\n/userdata/system/pro/java17"; $java17 -version; sleep 0.33; echo' >> $launcher 
+echo 'java17=/userdata/system/pro/java/java17/bin/java' >> $launcher
+echo 'if [[ -e "$java17" ]]; then echo -e "${G}~/pro/java/java17${W}"; $java17 -version; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 17 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
-# 15
-echo 'java15=/userdata/system/pro/java15/bin/java' >> $launcher
-echo 'if [[ -e "$java15" ]]; then echo -e "${W}JAVA 15:\n/userdata/system/pro/java15"; $java15 -version; sleep 0.33; echo' >> $launcher 
+echo 'java15=/userdata/system/pro/java/java15/bin/java' >> $launcher
+echo 'if [[ -e "$java15" ]]; then echo -e "${G}~/pro/java/java15${W}"; $java15 -version; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 15 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
-# 13
-echo 'java13=/userdata/system/pro/java13/bin/java' >> $launcher
-echo 'if [[ -e "$java13" ]]; then echo -e "${W}JAVA 13:\n/userdata/system/pro/java13"; $java13 -version; sleep 0.33; echo' >> $launcher 
+echo 'java13=/userdata/system/pro/java/java13/bin/java' >> $launcher
+echo 'if [[ -e "$java13" ]]; then echo -e "${G}~/pro/java/java13${W}"; ~/pro/java/java13/bin/java -version; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 13 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
-# 11
-echo 'java11=/userdata/system/pro/java11/bin/java' >> $launcher
-echo 'if [[ -e "$java11" ]]; then echo -e "${W}JAVA 11:\n/userdata/system/pro/java11"; $java11 -version; sleep 0.33; echo' >> $launcher 
+echo 'java11=/userdata/system/pro/java/java11/bin/java' >> $launcher
+echo 'if [[ -e "$java11" ]]; then echo -e "${G}~/pro/java/java11${W}"; $java11 -version; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 11 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
-# 8
-echo 'java8=/userdata/system/pro/java8/bin/java' >> $launcher
-echo 'if [[ -e "$java8" ]]; then echo -e "${W}JAVA 8:\n/userdata/system/pro/java8"; $java8 -version; sleep 0.33; echo' >> $launcher 
+echo 'java8=/userdata/system/pro/java/java8/bin/java' >> $launcher
+echo 'if [[ -e "$java8" ]]; then echo -e "${G}~/pro/java/java8${W}"; $java8 -version; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 8 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
-#
-echo 'sleep 5' >> $launcher
+echo 'echo ' >> $launcher
+echo 'echo "will close after 10 seconds"' >> $launcher
+echo 'sleep 10' >> $launcher
 #
 echo '}' >> $launcher
 echo 'export -f get-java-version 2>/dev/null' >> $launcher
