@@ -253,7 +253,7 @@ echo
 sleep 0.33
 echo -e "${W}THIS WILL INSTALL JAVA RUNTIMES FOR BATOCERA" 
 echo -e "${W}USING $ORIGIN JAVA JRE PACKAGES" 
-echo -e "${W}VERSIONS: 19, 17, 15, 13, 11, 8"  
+echo -e "${W}VERSIONS: ${G}19, 17, 15, 13, 11, 8${W}"  
 echo
 echo -e "${W}$APPNAME RUNTIMES WILL BE INSTALLED IN:"
 echo -e "${W}/USERDATA/SYSTEM/PRO/$APPNAME"
@@ -393,10 +393,11 @@ echo '#!/bin/bash ' >> $launcher
 echo 'export PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $launcher
 echo 'function get-java-version {' >> $launcher
 echo 'W="\033[0;37m" ' >> $launcher
+echo 'G="\033[1;32m" ' >> $launcher
 # 
 echo 'java=/userdata/system/pro/java/bin/java' >> $launcher
 echo 'if [[ -e "$java" ]]; then echo -e "${G}> DEFAULT JAVA RUNTIME${W}"; $java -version; sleep 0.33; echo; echo' >> $launcher
-echo 'else echo -e "${W}JAVA RUNTIME NOT FOUND"; sleep 0.33; echo; echo; fi' >> $launcher
+echo 'else echo -e "${W}DEFAULT JAVA RUNTIME NOT FOUND"; sleep 0.33; echo; echo; fi' >> $launcher
 echo 'java19=/userdata/system/pro/java/java19/bin/java' >> $launcher
 echo 'if [[ -e "$java19" ]]; then echo -e "${G}~/pro/java/java19${W}"; $java19 -version; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 19 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
@@ -490,10 +491,9 @@ echo
 sleep 1
 echo
 echo -e "${G}> $APPNAME INSTALLED ${G}OK${W}"
-echo
-echo
-echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION, JUST COPY WHAT'S INSIDE"
-echo -e "${W}~/pro/java/java[V] VERSION, TO THE MAIN ~/pro/java DIRECTORY"
+sleep 0.5
+echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION: COPY CONTENTS OF"
+echo -e "${W}~/pro/java/java[VER] TO THE MAIN ~/pro/java FOLDER"
 echo
 line $cols '='; echo
 sleep 10
@@ -533,8 +533,8 @@ echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
 echo 
 echo 
-echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION, JUST COPY WHAT'S INSIDE"
-echo -e "${W}~/pro/java/java[V] VERSION, TO THE MAIN ~/pro/java DIRECTORY"
+echo -e "${W}TO CHANGE THE DEFAULT JAVA VERSION: COPY CONTENTS OF"
+echo -e "${W}~/pro/java/java[VER] TO THE MAIN ~/pro/java FOLDER"
 echo
 echo
 fi
