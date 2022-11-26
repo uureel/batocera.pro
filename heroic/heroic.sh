@@ -381,7 +381,7 @@ dos2unix $pre
 chmod a+x $pre
 /userdata/system/pro/$appname/extra/startup
 # -- add prelauncher to custom.sh to run @ reboot
-csh=/userdata/system/custom.sh
+csh=/userdata/system/custom.sh 
 if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
 echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
