@@ -379,6 +379,7 @@ echo "cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/n
 echo "cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $pre
 dos2unix $pre
 chmod a+x $pre
+/userdata/system/pro/$appname/extra/startup
 # -- add prelauncher to custom.sh to run @ reboot
 csh=/userdata/system/custom.sh
 if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
