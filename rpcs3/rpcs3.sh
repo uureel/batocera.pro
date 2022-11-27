@@ -203,10 +203,10 @@ exit 0
 exit 0
 fi
 sleep 1
-echo -e "${T}PREPARING BACKUP . . .${WHITE}"
+echo -e "${T}PREPARING BACKUP . . .${WHITE}" 
 # -----------------------------------------------------------------------------------------
 # prepare directories for newrpcs3
-timestamp=$(date +"%y%m%d-%H%M%S")
+timestamp=$(date +"%y%m%d-%H%M%S") 
 mkdir /userdata/system/pro 2>/dev/null
 mkdir /userdata/system/pro/rpcs3 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup 2>/dev/null
