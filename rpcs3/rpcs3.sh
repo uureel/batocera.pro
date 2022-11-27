@@ -212,6 +212,9 @@ mkdir /userdata/system/pro/rpcs3 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup/saves 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup/saves-$timestamp 2>/dev/null
+if [[ -e /userdata/system/pro/rpcs3/backup/rpcs3 ]]; then
+cp /userdata/system/pro/rpcs3/backup/rpcs3 /usr/bin/rpcs3 
+fi
 # -----------------------------------------------------------------------------------------
 # backup original /usr/bin/rpcs3 to /userdata/system/pro/rpcs3/backup/rpcs3
 rpcs3backup=0
@@ -222,13 +225,13 @@ if [ "$batorpcs3version" = "" ]; then
   batorpcs3version="not found"
   else
   rpcs3backup=1
-  rm -rf /userdata/system/pro/rpcs3/extra/rpcs3backup.txt
-  echo "1" >> /userdata/system/pro/rpcs3/extra/rpcs3backup.txt
+  rm -rf /userdata/system/pro/rpcs3/extra/rpcs3backup.txt 
+  echo "1" >> /userdata/system/pro/rpcs3/extra/rpcs3backup.txt 
   fi
 batorpcs3version="not found"
 else
-  cp /usr/bin/rpcs3 /userdata/system/pro/rpcs3/backup/ 2>/dev/null
-  rm -rf /userdata/system/pro/rpcs3/extra/rpcs3backup.txt
+  cp /usr/bin/rpcs3 /userdata/system/pro/rpcs3/backup/rpcs3 2>/dev/null
+  rm -rf /userdata/system/pro/rpcs3/extra/rpcs3backup.txt 2>/dev/null
   echo "1" >> /userdata/system/pro/rpcs3/extra/rpcs3backup.txt
 fi 
 cp /usr/bin/batocera-config-rpcs3 /userdata/system/pro/rpcs3/backup/ 2>/dev/null
@@ -312,18 +315,11 @@ wget -q -O "/userdata/roms/ports/RPCS3 Config.sh.keys" https://github.com/uureel
 chmod a+x "/userdata/roms/ports/RPCS3 Config.sh" 2>/dev/null
 # -------------------------------------------------
 # prepare ports updater
-file="/userdata/system/pro/rpcs3/rpcs3.sh"
-url=https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra
-wget -q -O "$file" "$url/rpcs3-updater.sh"
-replace="PRESS ENTER TO CONTINUE"
-with="PRESS [START] OR [ENTER] TO CONTINUE"
-sed -i "s/.*$replace*/$with/" $file
-dos2unix $file; chmod a+x $file
 port="/userdata/roms/ports/RPCS3 Updater.sh"
-echo -e "#!/bin/bash" >> $port 
-echo -e "su -c 'su -c "$file" root' root \n" >> $port 
-dos2unix $port; chmod a+x $port
-wget -q -O "/userdata/roms/ports/RPCS3 Updater.sh.keys" $url/rpcs3-updater.sh.keys
+rm -rf "$port" 2>/dev/null
+echo -e '#!/usr/bin/env bash' >> "$port" 
+echo -e 'curl https://github.com/uureel/batocera.pro/raw/main/rpcs3/rpcs3.sh | bash' >> "$port"
+dos2unix "$port"; chmod a+x "$port"
 # -------------------------------------------------
 # prepare ports 'use batocera version' 
 wget -q -O "/userdata/roms/ports/RPCS3 use Batocera.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-use-batocera.sh
@@ -424,26 +420,28 @@ sleep 0.1
 # --------------------------------------------------------------------
 export -f batocera-pro-rpcs3updater 2>/dev/null
 # --------------------------------------------------------------------
-# include display output: 
-function get-xterm-fontsize { 
-# prepare dependencies: 
-tput=/userdata/system/pro/rpcs3/extra/tput; chmod a+x $tput 2>/dev/null 
-cp /userdata/system/pro/rpcs3/extra/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
-cfg=/userdata/system/pro/rpcs3/extra/display.cfg; rm $cfg 2>/dev/null
-DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
+# -- include display output: 
+function get-xterm-fontsize {
+depurl=https://github.com/uureel/batocera.pro/raw/main/.dep
+dep=/userdata/system/pro/.dep; mkdir -p $dep 2>/dev/null
+wget -q -O $dep/libtinfo.so.6 $depurl/libtinfo.so.6
+wget -q -O $dep/tput $depurl/tput; chmod a+x $dep/tput; 
+cp $dep/tput /usr/bin/tput 2>/dev/null; cp $dep/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
+cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null
+DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "/usr/bin/tput cols >> $cfg" 2>/dev/null
 cols=$(cat $cfg | tail -n 1) 2>/dev/null
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
-} 
-export -f get-xterm-fontsize 2>/dev/null 
-get-xterm-fontsize 2>/dev/null 
-cfg=/userdata/system/pro/rpcs3/extra/display.cfg 
-cols=$(cat $cfg | tail -n 1) 2>/dev/null 
+}
+export -f get-xterm-fontsize 2>/dev/null
+get-xterm-fontsize 2>/dev/null
+cfg=/userdata/system/pro/.dep/display.cfg
+cols=$(cat $cfg | tail -n 1) 2>/dev/null
 until [[ "$cols" != "80" ]] 
-do 
-get-xterm-fontsize 2>/dev/null 
-cols=$(cat $cfg | tail -n 1) 2>/dev/null 
+do
+get-xterm-fontsize 2>/dev/null
+cols=$(cat $cfg | tail -n 1) 2>/dev/null
 done 
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null 
+TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # -------------------------------------------------------------------- 
 DISPLAY=:0.0 xterm -fullscreen -bg black -fa "Monospace" -fs $TEXT_SIZE -e bash -c "batocera-pro-rpcs3updater" 2>/dev/null 
 # -------------------------------------------------------------------- 
