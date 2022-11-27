@@ -212,9 +212,10 @@ mkdir /userdata/system/pro/rpcs3 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup/saves 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup/saves-$timestamp 2>/dev/null
-if [[ -e /userdata/system/pro/rpcs3/backup/rpcs3 ]]; then
+if [[ -e /userdata/system/pro/rpcs3/backup/rpcs3 ]]; then 
 cp /userdata/system/pro/rpcs3/backup/rpcs3 /usr/bin/rpcs3 
-fi
+else cp /usr/bin/rpcs3 /userdata/system/pro/rpcs3/backup/rpcs3backup 2>/dev/null 
+fi 
 # -----------------------------------------------------------------------------------------
 # backup original /usr/bin/rpcs3 to /userdata/system/pro/rpcs3/backup/rpcs3
 rpcs3backup=0
