@@ -183,7 +183,7 @@ echo -e "${R}BACKUP WILL BE MADE IN /USERDATA/SYSTEM/PRO/RPCS3/"
 echo 
 echo -e "${R}YOU'LL BE ABLE TO CHOOSE RPCS3 VERSIONS FROM PORTS"
 echo 
-echo -e "${G}> > >${W}PRESS ENTER TO CONTINUE"
+echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 # -----------------------------------------------------------------------------------------
