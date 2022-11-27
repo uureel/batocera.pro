@@ -300,7 +300,10 @@ echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 sleep 1
 echo
 # delete old ports
+rm -rf "/userdata/roms/ports/RPCS3 Config.sh" 2>/dev/null
+rm -rf "/userdata/roms/ports/RPCS3 Config.sh.keys" 2>/dev/null
 rm -rf "/userdata/roms/ports/RPCS3 Updater.sh" 2>/dev/null
+rm -rf "/userdata/roms/ports/RPCS3 Updater.sh.keys" 2>/dev/null
 rm -rf "/userdata/roms/ports/RPCS3 use Batocera.sh" 2>/dev/null
 rm -rf "/userdata/roms/ports/RPCS3 use Latest.sh" 2>/dev/null
 # prepare ports config
@@ -320,11 +323,13 @@ wget -q -O "/userdata/roms/ports/RPCS3 use Latest.sh" https://github.com/uureel/
 dos2unix "/userdata/roms/ports/RPCS3 use Latest.sh" && chmod a+x "/userdata/roms/ports/RPCS3 use Latest.sh"
 #
 echo -e "${T}ADDING PORTS . . ." 
-echo -e "${G}1${W} RPCS3 Updater" 
+echo -e "${G}1${W} RPCS3 Config" 
 sleep 1 
-echo -e "${G}2${W} RPCS3 use Batocera" 
+echo -e "${G}2${W} RPCS3 Updater" 
 sleep 1 
-echo -e "${G}3${W} RPCS3 use Latest" 
+echo -e "${G}3${W} RPCS3 use Batocera" 
+sleep 1 
+echo -e "${G}4${W} RPCS3 use Latest" 
 sleep 1 
 # -----------------------------------------------------------------------------------------
 # prepare launchers for chosen rpcs3 version:
