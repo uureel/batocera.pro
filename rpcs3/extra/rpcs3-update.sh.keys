@@ -1,0 +1,33 @@
+{
+    "actions_player1": [
+        {
+            "trigger": "joystick1",
+            "type": "mouse"
+        },
+        {
+            "trigger": "b",
+            "type": "key",
+            "target": "BTN_LEFT"
+        },
+        {
+            "trigger": "a",
+            "type": "key",
+            "target": "BTN_RIGHT"
+        },
+        {
+            "trigger": "start",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": [
+                "hotkey",
+                "start"
+            ],
+            "type": "exec",
+            "target": [
+                "killall -9 rpcs3 & unclutter-remote -h"
+            ]
+        }
+    ]
+}
