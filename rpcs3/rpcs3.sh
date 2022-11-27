@@ -314,14 +314,11 @@ rm -rf "/userdata/roms/ports/RPCS3 use Latest.sh" 2>/dev/null
 wget -q -O "/userdata/roms/ports/RPCS3 Config.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-config.sh
 wget -q -O "/userdata/roms/ports/RPCS3 Config.sh.keys" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-config.sh.keys
 chmod a+x "/userdata/roms/ports/RPCS3 Config.sh" 2>/dev/null
-# -------------------------------------------------
 # prepare ports updater
-port="/userdata/roms/ports/RPCS3 Updater.sh"
-rm -rf "$port" 2>/dev/null
-echo -e '#!/usr/bin/env bash' >> "$port" 
-echo -e 'curl https://github.com/uureel/batocera.pro/raw/main/rpcs3/rpcs3.sh | bash' >> "$port"
-dos2unix "$port"; chmod a+x "$port"
-# -------------------------------------------------
+echo "#!/usr/bin/env bash" >> "/userdata/roms/ports/RPCS3 Updater.sh" 2>/dev/null
+wget -q -O "/userdata/roms/ports/RPCS3 Updater.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/rpcs3.sh
+wget -q -O "/userdata/roms/ports/RPCS3 Updater.sh.keys" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-updater.sh.keys
+chmod a+x "/userdata/roms/ports/RPCS3 Updater.sh" 2>/dev/null
 # prepare ports 'use batocera version' 
 wget -q -O "/userdata/roms/ports/RPCS3 use Batocera.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-use-batocera.sh
 dos2unix "/userdata/roms/ports/RPCS3 use Batocera.sh" && chmod a+x "/userdata/roms/ports/RPCS3 use Batocera.sh"
