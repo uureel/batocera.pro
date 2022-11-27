@@ -437,6 +437,7 @@ TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # -------------------------------------------------------------------- 
 DISPLAY=:0.0 xterm -fullscreen -bg black -fa "Monospace" -fs $TEXT_SIZE -e bash -c "batocera-pro-rpcs3updater" 2>/dev/null 
 # -------------------------------------------------------------------- 
+if [[ -e "/userdata/system/pro/rpcs3/extra/installation.txt" ]]; then 
 if [[ "$(cat /userdata/system/pro/rpcs3/extra/installation.txt | tail -n 1)" = "done" ]]; then 
 clear 
 echo 
@@ -447,7 +448,17 @@ echo -e "${L}-------------------------------------------------------"
 echo 
 echo 
 rm -rf /userdata/system/pro/rpcs3/extra/installation.txt 2>/dev/null 
-fi 
+fi
+else
+clear
+echo 
+echo 
+echo -e "${L}-------------------------------------------------------" 
+echo -e "${G}> UDPATE WAS NOT SUCCESFULL ${W}" 
+echo -e "${L}-------------------------------------------------------" 
+echo 
+echo 
+fi
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER // 
 ########################## 
