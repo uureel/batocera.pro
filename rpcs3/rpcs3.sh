@@ -206,12 +206,12 @@ sleep 1
 echo -e "${T}PREPARING BACKUP . . .${WHITE}"
 # -----------------------------------------------------------------------------------------
 # prepare directories for newrpcs3
+timestamp=$(date +"%y%m%d-%H%M%S")
 mkdir /userdata/system/pro 2>/dev/null
 mkdir /userdata/system/pro/rpcs3 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup/saves 2>/dev/null
 mkdir /userdata/system/pro/rpcs3/backup/saves-$timestamp 2>/dev/null
-timestamp=$(date +"%y%m%d-%H%M%S")
 # -----------------------------------------------------------------------------------------
 # backup original /usr/bin/rpcs3 to /userdata/system/pro/rpcs3/backup/rpcs3
 rpcs3backup=0
