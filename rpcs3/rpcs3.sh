@@ -183,7 +183,7 @@ echo -e "${R}BACKUP WILL BE MADE IN /USERDATA/SYSTEM/PRO/RPCS3/"
 echo 
 echo -e "${R}YOU'LL BE ABLE TO CHOOSE RPCS3 VERSIONS FROM PORTS"
 echo 
-echo -e "${G}> ${W}PRESS  [ENTER]  TO CONTINUE"
+echo -e "${G}> > >${W}PRESS ENTER TO CONTINUE"
 read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 # -----------------------------------------------------------------------------------------
@@ -310,10 +310,21 @@ rm -rf "/userdata/roms/ports/RPCS3 use Latest.sh" 2>/dev/null
 wget -q -O "/userdata/roms/ports/RPCS3 Config.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-config.sh
 wget -q -O "/userdata/roms/ports/RPCS3 Config.sh.keys" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-config.sh.keys
 chmod a+x "/userdata/roms/ports/RPCS3 Config.sh" 2>/dev/null
+# -------------------------------------------------
 # prepare ports updater
-wget -q -O "/userdata/roms/ports/RPCS3 Updater.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-updater.sh
-wget -q -O "/userdata/roms/ports/RPCS3 Updater.sh.keys" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-updater.sh.keys
-chmod a+x "/userdata/roms/ports/RPCS3 Updater.sh" 2>/dev/null
+file="/userdata/system/pro/rpcs3/rpcs3.sh"
+url=https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra
+wget -q -O "$file" "$url/rpcs3-updater.sh"
+replace="PRESS ENTER TO CONTINUE"
+with="PRESS [START] OR [ENTER] TO CONTINUE"
+sed -i "s/.*$replace*/$with/" $file
+dos2unix $file; chmod a+x $file
+port="/userdata/roms/ports/RPCS3 Updater.sh"
+echo -e "#!/bin/bash" >> $port 
+echo -e "su -c 'su -c "$file" root' root \n" >> $port 
+dos2unix $port; chmod a+x $port
+wget -q -O "/userdata/roms/ports/RPCS3 Updater.sh.keys" $url/rpcs3-updater.sh.keys
+# -------------------------------------------------
 # prepare ports 'use batocera version' 
 wget -q -O "/userdata/roms/ports/RPCS3 use Batocera.sh" https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/rpcs3-use-batocera.sh
 dos2unix "/userdata/roms/ports/RPCS3 use Batocera.sh" && chmod a+x "/userdata/roms/ports/RPCS3 use Batocera.sh"
