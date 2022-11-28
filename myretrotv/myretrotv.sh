@@ -119,8 +119,8 @@ echo
 # --------------------------------------------------------------------
 sleep 0.33
 echo -e "${X}THIS WILL INSTALL MY-RETRO-TV FOR BATOCERA"
-echo -e "${X}USING $ORIGIN "
-echo -e "${X}& GOOGLE CHROME BROWSER"
+echo -e "${X}USING GOOGLE CHROME BROWSER "
+echo -e "${X}& $ORIGIN "
 echo
 echo -e "${X}MY-RETRO-TV WILL BE AVAILABLE IN PORTS "
 echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
@@ -226,8 +226,8 @@ echo
 # --------------------------------------------------------------------
 sleep 0.33
 echo -e "${W}THIS WILL INSTALL MY-RETRO-TV FOR BATOCERA"
-echo -e "${W}USING $ORIGIN "
-echo -e "${W}& GOOGLE CHROME BROWSER"
+echo -e "${W}USING GOOGLE CHROME BROWSER "
+echo -e "${W}& $ORIGIN "
 echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS "
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
@@ -564,7 +564,7 @@ cols=$(cat $cfg | tail -n 1) 2>/dev/null; TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 
 }
 export -f get-xterm-fontsize 2>/dev/null; get-xterm-fontsize 2>/dev/null
 cfg=/userdata/system/pro/.dep/display.cfg; cols=$(cat $cfg | tail -n 1) 2>/dev/null
-until [[ "$cols" != "80" ]] do sleep 0.042 && get-xterm-fontsize 2>/dev/null; cols=$(cat $cfg | tail -n 1) 2>/dev/null; done 
+until [[ "$cols" != "80" ]]; do sleep 0.042 && get-xterm-fontsize 2>/dev/null; cols=$(cat $cfg | tail -n 1) 2>/dev/null; done 
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
