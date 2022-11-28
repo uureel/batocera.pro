@@ -471,7 +471,7 @@ cp /userdata/system/pro/$appname/Launcher "/userdata/roms/ports/Google Chrome.sh
 dos2unix "/userdata/roms/ports/Google Chrome.sh" 2>/dev/null
 chmod a+x "/userdata/roms/ports/Google Chrome.sh" 2>/dev/null
 cp /userdata/system/pro/$appname/myretrotv.sh.keys "/userdata/roms/ports/Google Chrome.sh.keys" 2>/dev/null
-dos2unix "/userdata/roms/ports/Google Chrome.sh.keys" 2>/dev/null
+dos2unix "/userdata/roms/ports/Google Chrome.sh.keys" 2>/dev/null 
 # --------------------------------------------------------------------
 # -- add pad2keys:
 if [[ -e "/userdata/system/pro/chrome/myretrotv.sh.keys" ]]; then 
