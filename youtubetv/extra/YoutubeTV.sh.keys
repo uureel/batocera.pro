@@ -21,14 +21,6 @@
             "target": "KEY_RIGHT"
         },
         {
-            "trigger": [
-                "hotkey",
-                "start"
-            ],
-            "type": "key",
-            "target": "KEY_ESC"
-        },
-        {
             "trigger": "b",
             "type": "key",
             "target": "KEY_ENTER"
@@ -69,8 +61,47 @@
             "target": "KEY_ESC"
         },
         {
+            "trigger": "pageup",
+            "type": "exec",
+            "target": [
+            "batocera-audio setSystemVolume -5"
+            ]
+        },
+        {
+            "trigger": "pagedown",
+            "type": "exec",
+            "target": [
+            "batocera-audio setSystemVolume +5"
+            ]
+        },
+        {
+            "trigger": "l2",
+            "type": "exec",
+            "target": [
+            "batocera-audio setSystemVolume -5"
+            ]
+        },
+        {
+            "trigger": "r2",
+            "type": "exec",
+            "target": [
+            "batocera-audio setSystemVolume +5"
+            ]
+        },
+        {
             "trigger": "joystick2",
             "type": "mouse"
+        },
+        {
+            "trigger": [
+                "hotkey",
+                "start"
+            ],
+            "type": "key",
+            "target": [
+              "KEY_LEFTALT",
+              "KEY_F4"
+          ]
         }
     ]
 }

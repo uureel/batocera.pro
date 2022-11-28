@@ -251,6 +251,16 @@ echo; #echo -e "${W}- - -"
 echo -e "${W}-----"
 echo
 sleep 0.33
+
+clear
+echo;
+echo; #echo -e "${W}- - -"
+echo; #echo -e "${W}- - -"
+echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
+echo; #echo -e "${W}- - -"
+echo; #echo -e "${W}- - -"
+echo;
+echo
 echo -e "${W}THIS WILL INSTALL YOUTUBETV FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
@@ -376,7 +386,7 @@ echo
 sleep 1
 echo; #echo -e "${W}- - -"
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
-echo -e "${W}- - -"
+#echo -e "${W}- - -"
 sleep 3
 # reaload for ports file
 curl http://127.0.0.1:1234/reloadgames
