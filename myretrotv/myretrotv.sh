@@ -234,9 +234,9 @@ echo
 echo -e "${W}MYRETROTV AND CHROME WILL BE AVAILABLE IN PORTS "
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED INTO /USERDATA/SYSTEM/PRO/$APPNAME"
-echo
+echo 
 echo -e "${W}PAD2KEY PROFILES ARE INCLUDED"
-echo
+echo 
 #echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 #read -p ""
 sleep 4
