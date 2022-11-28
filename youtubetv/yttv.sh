@@ -20,7 +20,7 @@ APPLINK=$(curl -s https://api.github.com/repos/mattruzzi/Nativefier-YouTube-on-T
 APPHOME="github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop" 
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/YouTubeonTV "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9" --no-sandbox'
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/YouTubeonTV --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -352,7 +352,7 @@ port="/userdata/roms/ports/YoutubeTV.sh"
 rm $port 2>/dev/null
 echo '#!/bin/bash ' >> $port
 echo 'killall -9 YouTubeonTV && unclutter-remote -s' >> $port
-echo '/userdata/system/pro/'$appname'/Launcher' >> $port
+echo '/userdata/system/pro/youtubetv/Launcher' >> $port
 dos2unix $port 
 chmod a+x $port 
 # --------------------------------------------------------------------
