@@ -119,20 +119,20 @@ sleep 0.33
 clear
 echo
 echo
-echo -e "${W}- - -"
+echo -e "${W}- - - - - - -"
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${W}- - -"
+echo -e "${W}- - - - - - -"
 echo
 echo
 echo
 sleep 0.33
 clear
 echo
-echo -e "${W}- - -"
+echo -e "${W}- - - - - - -"
 line $cols ' '; echo
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
 line $cols ' '; echo
-echo -e "${W}- - -"
+echo -e "${W}- - - - - - -"
 echo
 echo
 sleep 0.33
@@ -224,31 +224,31 @@ sleep 0.33
 clear
 echo
 echo
-echo -e "${W}- - -"
+echo -e "${W}- - - - - - -"
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo -e "${W}- - -"
+echo -e "${W}- - - - - - -"
 echo
 echo
 echo
 sleep 0.33
 clear
 echo
-echo -e "${W}- - -"
+echo -e "${W}- - - - - - -"
 echo; #echo -e "${W}- - -"
 echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
 echo; #echo -e "${W}- - -"
-echo -e "${W}- - -"
+echo -e "${W}- - - - - - -"
 echo
 echo
 sleep 0.33
 clear
-echo -e "${W}-----"
+echo -e "${W}- - - - - - -"
 echo; #echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo; #echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
-echo -e "${W}-----"
+echo -e "${W}- - - - - - -"
 echo
 sleep 0.33
 
@@ -260,7 +260,6 @@ echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo; #echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
 echo;
-echo
 echo -e "${W}THIS WILL INSTALL YOUTUBETV FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
@@ -268,8 +267,9 @@ echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo 
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
-read -p ""
+#echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
+#read -p ""
+sleep 4
 echo; #echo -e "${W}- - -"
 # --------------------------------------------------------------------
 # -- check system before proceeding
