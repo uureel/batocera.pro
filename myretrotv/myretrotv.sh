@@ -382,18 +382,18 @@ cp $shortcut $f1shortcut 2>/dev/null
 # //
 # MYRETROTVS: 
 # -- prepare f1 - applications - app shortcut, 
-shortcut=/userdata/system/pro/$appname/extra/MyRetroTVs.desktop
-rm -rf $shortcut 2>/dev/null
-echo "[Desktop Entry]" >> $shortcut
-echo "Version=1.0" >> $shortcut
-echo "Icon=/userdata/system/pro/$appname/extra/myretrotvs.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/MyRetroTVs.sh" >> $shortcut
-echo "Terminal=false" >> $shortcut
-echo "Type=Application" >> $shortcut
-echo "Categories=Game;batocera.linux;" >> $shortcut
-echo "Name=MyRetroTVs" >> $shortcut
-f1shortcut=/usr/share/applications/$appname.desktop
-cp $shortcut $f1shortcut 2>/dev/null
+#shortcut=/userdata/system/pro/$appname/extra/MyRetroTVs.desktop
+#rm -rf $shortcut 2>/dev/null
+#echo "[Desktop Entry]" >> $shortcut
+#echo "Version=1.0" >> $shortcut
+#echo "Icon=/userdata/system/pro/$appname/extra/myretrotvs.png" >> $shortcut
+#echo "Exec=/userdata/system/pro/$appname/MyRetroTVs.sh" >> $shortcut
+#echo "Terminal=false" >> $shortcut
+#echo "Type=Application" >> $shortcut
+#echo "Categories=Game;batocera.linux;" >> $shortcut
+#echo "Name=MyRetroTVs" >> $shortcut
+#f1shortcut=/usr/share/applications/$appname.desktop
+#cp $shortcut $f1shortcut 2>/dev/null
 # //
 # MY00STV: 
 # -- prepare f1 - applications - app shortcut, 
