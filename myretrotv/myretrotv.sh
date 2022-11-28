@@ -297,12 +297,12 @@ dos2unix $launcher
 chmod a+x $launcher
 # //
 # -- prepare myretrotvs launcher, 
-launcher=/userdata/system/pro/$appname/MyRetroTVs.sh
-rm -rf $launcher
-echo '#!/bin/bash ' >> $launcher
-echo 'unclutter-remote -s ' >> $launcher
-echo '/userdata/system/pro/'$appname'/Launcher my00stv.com my90stv.com my80stv.com my70stv.com my60stv.com' >> $launcher
-dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/dev/null
+#launcher=/userdata/system/pro/$appname/MyRetroTVs.sh
+#rm -rf $launcher
+#echo '#!/bin/bash ' >> $launcher
+#echo 'unclutter-remote -s ' >> $launcher
+#echo '/userdata/system/pro/'$appname'/Launcher my00stv.com my90stv.com my80stv.com my70stv.com my60stv.com' >> $launcher
+#dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/dev/null
 # //
 # -- prepare myretrotvs launcher, 
 launcher=/userdata/system/pro/$appname/My00sTV.sh
@@ -494,13 +494,13 @@ dos2unix /userdata/roms/ports/My70sTV.sh.keys 2>/dev/null
 dos2unix /userdata/roms/ports/My60sTV.sh.keys 2>/dev/null
 else 
 wget -q -O "/userdata/system/pro/chrome/myretrotv.sh.keys" https://raw.githubusercontent.com/uureel/batocera.pro/main/myretrotv/extra/myretrotv.sh.keys
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/MyRetroTVs.sh.keys" 2>/dev/null
+#cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/MyRetroTVs.sh.keys" 2>/dev/null
 cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My00sTV.sh.keys" 2>/dev/null
 cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My90sTV.sh.keys" 2>/dev/null
 cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My80sTV.sh.keys" 2>/dev/null
 cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My70sTV.sh.keys" 2>/dev/null
 cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My60sTV.sh.keys" 2>/dev/null
-dos2unix /userdata/roms/ports/MyRetroTVs.sh.keys 2>/dev/null
+#dos2unix /userdata/roms/ports/MyRetroTVs.sh.keys 2>/dev/null
 dos2unix /userdata/roms/ports/My00sTV.sh.keys 2>/dev/null
 dos2unix /userdata/roms/ports/My90sTV.sh.keys 2>/dev/null
 dos2unix /userdata/roms/ports/My80sTV.sh.keys 2>/dev/null
@@ -518,7 +518,7 @@ echo "cp /userdata/system/pro/$appname/extra/My70sTV.desktop /usr/share/applicat
 echo "cp /userdata/system/pro/$appname/extra/My80sTV.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/My90sTV.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/My00sTV.desktop /usr/share/applications/ 2>/dev/null" >> $pre
-echo "cp /userdata/system/pro/$appname/extra/MyRetroTVs.desktop /usr/share/applications/ 2>/dev/null" >> $pre
+#echo "cp /userdata/system/pro/$appname/extra/MyRetroTVs.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 dos2unix $pre
 chmod a+x $pre
 /userdata/system/pro/$appname/extra/startup
