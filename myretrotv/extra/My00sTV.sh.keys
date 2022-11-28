@@ -4,7 +4,21 @@
             "trigger": "joystick1",
             "type": "mouse"
         },
-	    {
+        {
+            "trigger": "up",
+            "type": "exec",
+            "target": [
+                "batocera-audio setSystemVolume +5"
+            ]
+        },
+        {
+            "trigger": "down",
+            "type": "exec",
+            "target": [
+                "batocera-audio setSystemVolume -5"
+            ]
+        },        
+	{
             "trigger": "b",
             "type": "key",
             "target": "BTN_LEFT"
@@ -15,26 +29,6 @@
             "target": "BTN_RIGHT"
         },
         {
-            "trigger": "up",
-            "type": "key",
-            "target": "KEY_UP"
-        },
-        {
-            "trigger": "down",
-            "type": "key",
-            "target": "KEY_DOWN"
-        },
-        {
-            "trigger": "left",
-            "type": "key",
-            "target": "KEY_MINUS"
-        },
-        {
-            "trigger": "right",
-            "type": "key",
-            "target": "KEY_EQUAL"
-        },
-        {
             "trigger": "select",
             "type": "key",
             "target": "KEY_F11"
@@ -42,13 +36,23 @@
         {
             "trigger": "start",
             "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "pageup",
+            "type": "exec",
+            "target": "KEY_TAB"
+        },
+        {
+            "trigger": "pagedown",
+            "type": "exec",
             "target": "KEY_SPACE"
         },
         {
             "trigger": "l2",
             "type": "key",
             "target": [
-              "KEY_LEFTCTRL",
+              "KEY_LEFTCONTROL",
               "KEY_MINUS"
           ]
         },
@@ -56,8 +60,8 @@
             "trigger": "r2",
             "type": "key",
             "target": [
-              "KEY_LEFTCTRL",
-              "KEY_EQUAL"
+              "KEY_LEFTCONTROL",
+              "KEY_PLUS"
           ]
         },
         {
@@ -65,11 +69,10 @@
                 "hotkey",
                 "start"
             ],
-            "type": "key",
+            "type": "exec",
             "target": [
-              "KEY_LEFTALT",
-              "KEY_F4"
-          ]
+                "killall -9 chrome & unclutter-remote -h"
+            ]
         }
     ]
 }
