@@ -294,7 +294,7 @@ echo 'unclutter-remote -s' >> $launcher
 ######################################################################
 ######################################################################
 echo 'if [ "$(pidof Discord)" != "" ]; then killall Discord 2>/dev/null && killall Discord 2>/dev/null && killall Discord 2>/dev/null; fi' >> $launcher
-echo 'mkdir /userdata/system/pro/discord/home 2>/dev/null; mkdir /userdata/system/pro/discord/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/discord/home XDG_CONFIG_HOME=/userdata/system/pro/discord/config /userdata/system/pro/discord/Discord.AppImage --no-sandbox' >> $launcher
+echo 'mkdir /userdata/system/pro/discord/home 2>/dev/null; mkdir /userdata/system/pro/discord/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/discord/home XDG_CONFIG_HOME=/userdata/system/pro/discord/config /userdata/system/pro/discord/Discord.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
 #echo 'DISPLAY=:0.0 QT_SCALE_FACTOR=1.50 GDK_SCALE=1.50 DISPLAY=:0.0 /userdata/system/pro/discord/Discord.AppImage --no-sandbox &' >> $launcher
 ######################################################################
 ######################################################################

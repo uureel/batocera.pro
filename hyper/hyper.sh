@@ -20,7 +20,7 @@ APPLINK=https://github.com/vercel/hyper/releases/download/v3.3.0/Hyper-3.3.0.App
 APPHOME="github.com/vercel/hyper"
 #---------------------------------------------------------------------
 #  DEFINE LAUNCHER COMMAND >
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1.25" GDK_SCALE="1.25" su -c "/userdata/system/pro/hyper/hyper.AppImage --no-sandbox" root'
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1.25" GDK_SCALE="1.25" su -c "/userdata/system/pro/hyper/hyper.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"" root'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
