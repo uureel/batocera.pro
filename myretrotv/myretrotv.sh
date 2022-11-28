@@ -296,6 +296,7 @@ chmod a+x $launcher
 launcher=/userdata/system/pro/$appname/MyRetroTVs.sh
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
+echo 'unclutter-remote -s ' >> $launcher
 echo '/userdata/system/pro/'$appname'/Launcher my00stv.com my90stv.com my80stv.com my70stv.com my60stv.com' >> $launcher
 dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/dev/null
 # //
@@ -303,6 +304,7 @@ dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/d
 launcher=/userdata/system/pro/$appname/My00sTV.sh
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
+echo 'unclutter-remote -s ' >> $launcher
 echo '/userdata/system/pro/'$appname'/Launcher my00stv.com' >> $launcher
 dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/dev/null
 # //
@@ -310,6 +312,7 @@ dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/d
 launcher=/userdata/system/pro/$appname/My90sTV.sh
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
+echo 'unclutter-remote -s ' >> $launcher
 echo '/userdata/system/pro/'$appname'/Launcher my90stv.com' >> $launcher
 dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/dev/null
 # //
@@ -317,6 +320,7 @@ dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/d
 launcher=/userdata/system/pro/$appname/My80sTV.sh
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
+echo 'unclutter-remote -s ' >> $launcher
 echo '/userdata/system/pro/'$appname'/Launcher my80stv.com' >> $launcher
 dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/dev/null
 # //
@@ -324,6 +328,7 @@ dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/d
 launcher=/userdata/system/pro/$appname/My70sTV.sh
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
+echo 'unclutter-remote -s ' >> $launcher
 echo '/userdata/system/pro/'$appname'/Launcher my70stv.com' >> $launcher
 dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/dev/null
 # //
@@ -331,6 +336,7 @@ dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/d
 launcher=/userdata/system/pro/$appname/My60sTV.sh
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
+echo 'unclutter-remote -s ' >> $launcher
 echo '/userdata/system/pro/'$appname'/Launcher my60stv.com' >> $launcher
 dos2unix $launcher; chmod a+x $launcher; cp $launcher /userdata/roms/ports/ 2>/dev/null
 # //
@@ -508,7 +514,7 @@ echo "cp /userdata/system/pro/$appname/extra/My70sTV.desktop /usr/share/applicat
 echo "cp /userdata/system/pro/$appname/extra/My80sTV.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/My90sTV.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/My00sTV.desktop /usr/share/applications/ 2>/dev/null" >> $pre
-echo "cp /userdata/system/pro/$appname/extra/myRetroTVs.desktop /usr/share/applications/ 2>/dev/null" >> $pre
+echo "cp /userdata/system/pro/$appname/extra/MyRetroTVs.desktop /usr/share/applications/ 2>/dev/null" >> $pre
 dos2unix $pre
 chmod a+x $pre
 /userdata/system/pro/$appname/extra/startup
