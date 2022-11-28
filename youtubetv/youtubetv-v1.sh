@@ -20,7 +20,7 @@ APPLINK=$(curl -s https://api.github.com/repos/mattruzzi/Nativefier-YouTube-on-T
 APPHOME="github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop" 
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/YouTubeonTV "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9" --no-sandbox'
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/YouTubeonTV --no-sandbox'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -338,17 +338,28 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-port="/userdata/roms/ports/YoutubeTV.sh" 
-rm $port 2>/dev/null
+port=/userdata/system/pro/$appname/YoutubeTV.sh 
+rm -rf $port 2>/dev/null
 echo '#!/bin/bash ' >> $port
-echo 'killall -9 YouTubeonTV && unclutter-remote -s' >> $port
-echo '/userdata/system/pro/'$appname'/Launcher' >> $port
+echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
+echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
+echo 'unclutter-remote -s' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
+echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $port
+echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
+echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
+echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/YouTubeonTV --no-sandbox' >> $port
 dos2unix $port 
 chmod a+x $port 
+cp $port "/userdata/roms/ports/YoutubeTV.sh" 
 # --------------------------------------------------------------------
-# -- get padtokey profile
-rm "/userdata/roms/ports/YoutubeTV.sh.keys" 2>/dev/null 
-wget -q -O "/userdata/roms/ports/YoutubeTV.sh.keys" "https://raw.githubusercontent.com/uureel/batocera.pro/main/youtubetv/extra/YoutubeTV.sh.keys"
+# -- get padtokey profile 
+wget -q -O /userdata/roms/ports/YoutubeTV.sh.keys https://raw.githubusercontent.com/uureel/batocera.pro/main/youtubetv/extra/YoutubeTV.sh.keys
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
@@ -383,18 +394,25 @@ curl http://127.0.0.1:1234/reloadgames
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
+# -- include display output: 
 function get-xterm-fontsize {
-depurl=https://github.com/uureel/batocera.pro/raw/main/.dep; dep=/userdata/system/pro/.dep; mkdir -p $dep 2>/dev/null;
-wget -q -O $dep/tput $depurl/tput; wget -q -O $dep/libtinfo.so.6 $depurl/libtinfo.so.6; chmod a+x $dep/tput 2>/dev/null; chmod a+x $dep/libtinfo.so.6 2>/dev/null;
-cp $dep/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null & cp $dep/libtinfo.so.6 /lib64/libtinfo.so.6 2>/dev/null
+tput=/userdata/system/pro/.dep/tput; chmod a+x $tput; 
+cp /userdata/system/pro/.dep/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
 cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null
-DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$dep/tput cols >> $cfg" 2>/dev/null
-cols=$(cat $cfg | tail -n 1) 2>/dev/null; TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
+DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
+cols=$(cat $cfg | tail -n 1) 2>/dev/null
+TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 }
-export -f get-xterm-fontsize 2>/dev/null; get-xterm-fontsize 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg; cols=$(cat $cfg | tail -n 1) 2>/dev/null
-until [[ "$cols" != "80" ]]; do get-xterm-fontsize; cols="$(cat $cfg | tail -n 1)"; done 
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null 
+export -f get-xterm-fontsize 2>/dev/null
+get-xterm-fontsize 2>/dev/null
+cfg=/userdata/system/pro/.dep/display.cfg
+cols=$(cat $cfg | tail -n 1) 2>/dev/null
+until [[ "$cols" != "80" ]] 
+do
+get-xterm-fontsize 2>/dev/null
+cols=$(cat $cfg | tail -n 1) 2>/dev/null
+done 
+TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN:
 # |
