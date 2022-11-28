@@ -151,7 +151,7 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L museeks.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/myretrotv/extra/myretrotv.png" width=48 height=48 /><b><i>&nbsp;MYRETROTV</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/myretrotv/extra/myretrotv2.png" width=48 height=48 /><b><i>&nbsp;MYRETROTV</i></b><br>
 ```curl -L myretrotv.batocera.pro | bash```
 <br>
 <br>
