@@ -52,6 +52,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L chromium.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/clonehero/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CLONEHERO</i></b> <br>
+```curl -L clonehero.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/cockatrice/extra/icon.png" width=48 height=48 /><b><i>&nbsp;COCKATRICE</i></b> <br>
 ```curl -L cockatrice.batocera.pro | bash```
 <br>
