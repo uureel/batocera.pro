@@ -146,10 +146,10 @@ line $cols '/'; echo
 line $cols '\'; echo
 echo
 sleep 0.33
-echo -e "${X}THIS WILL INSTALL CLONE-HERO FOR BATOCERA"
+echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${X}CLONE-HERO WILL BE AVAILABLE IN PORTS"
+echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
@@ -260,10 +260,10 @@ echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo; #echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
 echo;
-echo -e "${W}THIS WILL INSTALL CLONE-HERO FOR BATOCERA"
+echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}CLONE-HERO WILL BE AVAILABLE IN PORTS"
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo 
@@ -292,13 +292,14 @@ temp=$pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null 
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
-echo
-echo -e "${G}DOWNLOADING${W}"
-cd $temp
+echo 
+echo -e "${G}DOWNLOADING${W}" 
+cd $temp 
+echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null 
 curl --progress-bar --remote-name --location "$APPLINK"
-SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
-echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
-echo
+SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null 
+echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g' 
+echo 
 echo; #echo -e "${W}- - -" 
 sleep 1.333 
 # --------------------------------------------------------------------
@@ -309,7 +310,7 @@ wget -q -O $pro/.dep/tar $depurl/tar
 wget -q -O $pro/.dep/libselinux.so.1 $depurl/libselinux.so.1
 chmod a+x $pro/.dep/tar; cp $depurl/libselinux.so.1 /lib/ 2>/dev/null
 cd $temp
-$pro/.dep/tar -xd $temp/*.tar.xz
+$pro/.dep/tar -xf $temp/clonehero-linux.tar.xz
 mv $temp/clonehero-linux/* $pro/$appname/
 chmod a+x $pro/$appname/$appname 2>/dev/null
 cd $pro
@@ -325,7 +326,7 @@ echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launc
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
-echo 'unclutter-remote -s' >> $launcher 
+#echo 'unclutter-remote -s' >> $launcher 
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
@@ -333,6 +334,10 @@ echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
 dos2unix $launcher
 chmod a+x $launcher
 rm /userdata/system/pro/$appname/extra/command 2>/dev/null
+# --------------------------------------------------------------------
+# get icon
+extra=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
+wget -q -O $pro/$appname/extra/icon.png $extra/icon.png
 # --------------------------------------------------------------------
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
@@ -351,13 +356,13 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-port="/userdata/roms/ports/Clone Hero.sh" 
-rm $port 2>/dev/null
+port="/userdata/roms/ports/CloneHero.sh" 
+rm "$port" 2>/dev/null
 echo '#!/bin/bash ' >> $port
 echo 'killall -9 clonehero' >> $port
 echo '/userdata/system/pro/'$appname'/Launcher' >> $port
-dos2unix $port 
-chmod a+x $port 
+dos2unix "$port"
+chmod a+x "$port" 
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
