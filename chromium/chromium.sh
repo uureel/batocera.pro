@@ -9,7 +9,7 @@ APPNAME="CHROMIUM WEB BROWSER" # for installer info
 appname=chromium # directory name in /userdata/system/pro/...
 AppName=Chromium # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Chromium-Web-Browser-appimage/releases | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g')
+APPLINK="$(curl -s https://api.github.com/repos/ivan-hc/Chromium-Web-Browser-appimage/releases | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g')"
 ORIGIN=GITHUB.COM/IVAN-HC/CHROMIUM-WEB-BROWSER-APPIMAGE # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -135,12 +135,12 @@ echo
 #
 # THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-APPNAME=$1
-appname=$2
-AppName=$3
-APPPATH=$4
-APPLINK=$5
-ORIGIN=$6
+APPNAME="$1"
+appname="$2"
+AppName="$3"
+APPPATH="$4"
+APPLINK="$5"
+ORIGIN="$6"
 # -- colors: 
 ###########################
 X='\033[0m'               # / resetcolor
@@ -247,21 +247,21 @@ fi
 # -- temp for curl download
 temp=/userdata/system/pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null
-mkdir $temp 2>/dev/null
+mkdir -p $temp 2>/dev/null
 #
 # --------------------------------------------------------------------
 #
 echo
 echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
 sleep 1
-echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
+echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g'
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
-mv $temp/* $APPPATH 2>/dev/null
-chmod a+x $APPPATH 2>/dev/null
+mv $temp/* "$APPPATH" 2>/dev/null
+chmod a+x "$APPPATH" 2>/dev/null
 rm -rf $temp/*.AppImage
-SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
+SIZE=$(($(wc -c "$APPPATH" | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE"
 echo
@@ -374,7 +374,7 @@ TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
 # |
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $AppName $APPPATH $APPLINK $ORIGIN" 2>/dev/null
+  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer '$APPNAME' '$appname' '$AppName' '$APPPATH' '$APPLINK' '$ORIGIN'" 2>/dev/null
 # --------------------------------------------------------------------
 # BATOCERA.PRO/CHROMIUM INSTALLER //
 ###################################
