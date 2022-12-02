@@ -136,12 +136,12 @@ echo
 # THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
 # --batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
-APPNAME=$1
-appname=$2
-AppName=$3
-APPPATH=$4
-APPLINK=$5
-ORIGIN=$6
+APPNAME="$1"
+appname="$2"
+AppName="$3"
+APPPATH="$4"
+APPLINK="$5"
+ORIGIN="$6"
 # -- colors: 
 ###########################
 X='\033[0m'               # / resetcolor
@@ -379,7 +379,7 @@ done
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer '$APPNAME' $appname $AppName $APPPATH $APPLINK '$ORIGIN'" 2>/dev/null
+  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer '$APPNAME' '$appname' '$AppName' '$APPPATH' '$APPLINK' '$ORIGIN'" 2>/dev/null
 # --------------------------------------------------------------------
 # version 1.0.3
 # glhf

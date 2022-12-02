@@ -142,11 +142,11 @@ echo
 #
 # THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-APPNAME=$1
-appname=$2
-APPPATH=$3
-APPLINK=$4
-ORIGIN=$5
+APPNAME="$1"
+appname="$2"
+APPPATH="$3"
+APPLINK="$4"
+ORIGIN="$5"
 # -- colors: 
 ###########################
 X='\033[0m'               # / resetcolor
@@ -414,7 +414,7 @@ done
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN" 2>/dev/null
+  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer '$APPNAME' '$appname' '$APPPATH' '$APPLINK' '$ORIGIN'" 2>/dev/null
 # --------------------------------------------------------------------
 # BATOCERA.PRO/DISCORD INSTALLER //
 ##################################

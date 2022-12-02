@@ -141,7 +141,7 @@ echo
 function batoceraproinstaller {
 APPNAME=CHROME # for installer info
 appname=chrome # directory name in /userdata/system/pro/...
-AppName=Chrome # App.AppImage name
+AppName=Chrome # App.AppImage name 
 APPPATH="/userdata/system/pro/chrome/Chrome.AppImage"
 APPLINK="https://apprepo.de/appimage/download/google-chrome"
 ORIGIN="@JOEYCATO'S MYRETROTV" # credits
