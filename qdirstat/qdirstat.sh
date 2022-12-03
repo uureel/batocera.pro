@@ -231,8 +231,9 @@ echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
+#echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
+#read -p ""
+sleep 3
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
