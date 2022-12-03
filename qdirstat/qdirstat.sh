@@ -228,7 +228,7 @@ sleep 0.33
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS AND F1->APPLICATIONS "
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 #echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
@@ -349,14 +349,15 @@ dos2unix $csh
 #
 # -- add port 
 port=/userdata/roms/ports/QDirStat.sh
-rm -rf $port 
+rm -rf $port 2>/dev/null
 echo '#!/bin/bash' >> $port 
-echo 'unclutter-remote -s'
+echo 'unclutter-remote -s' >> $port 
 echo '/userdata/system/pro/qdirstat/Launcher' >> $port
-dos2unix $port; chmod a+x $port 
+dos2unix $port 2>/dev/null
+chmod a+x $port 2>/dev/null
 # -- add pad2key: 
 url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
-pad2key=/userdata/roms/ports/$port.keys
+pad2key=/userdata/roms/ports/QDirStat.sh.keys
 wget -q -O $pad2key $url/QDirStat.sh
 # -- done. 
 sleep 1
