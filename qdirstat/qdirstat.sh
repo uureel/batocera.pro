@@ -17,9 +17,9 @@ ORIGIN=APPREPO.DE/APPIMAGE/QDIRSTAT # credit & info
 # --------------------------------------------------------------------
 # show console/ssh info: 
 clear
-echo
-echo
-echo
+echo 
+echo 
+echo 
 echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
 echo
 echo
