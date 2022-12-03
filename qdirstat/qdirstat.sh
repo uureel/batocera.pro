@@ -10,7 +10,7 @@ appname=qdirstat # directory name in /userdata/system/pro/...
 AppName=QDirStat # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 APPLINK=https://apprepo.de/appimage/download/qdirstat
-ORIGIN=APPREPO.DE/APPIMAGE/QDIRSTAT # credit & info
+ORIGIN=APPREPO.DE/APPIMAGE/QDIRSTAT # credit / info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
