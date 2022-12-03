@@ -4,7 +4,11 @@
             "trigger": "joystick1",
             "type": "mouse"
         },
-	    {
+        {
+            "trigger": "joystick2",
+            "type": "mouse"
+        },
+	{
             "trigger": "b",
             "type": "key",
             "target": "BTN_LEFT"
@@ -13,6 +17,11 @@
             "trigger": "a",
             "type": "key",
             "target": "BTN_RIGHT"
+        },
+        {
+            "trigger": "y",
+            "type": "key",
+            "target": "BTN_MIDDLE"
         },
         {
             "trigger": "up",
@@ -27,38 +36,42 @@
         {
             "trigger": "left",
             "type": "key",
-            "target": "KEY_MINUS"
+            "target": "KEY_LEFT"
         },
         {
             "trigger": "right",
             "type": "key",
-            "target": "KEY_EQUAL"
+            "target": "KEY_RIGHT"
         },
         {
             "trigger": "select",
             "type": "key",
-            "target": "KEY_F11"
+            "target": "KEY_TAB"
         },
         {
             "trigger": "start",
             "type": "key",
-            "target": "KEY_SPACE"
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "pageup",
+            "type": "key",
+            "target": "KEY_PAGEUP"
+        },
+        {
+            "trigger": "pagedown",
+            "type": "key",
+            "target": "KEY_PAGEDOWN"
         },
         {
             "trigger": "l2",
             "type": "key",
-            "target": [
-              "KEY_LEFTCTRL",
-              "KEY_MINUS"
-          ]
+            "target": "KEY_PAGEUP"
         },
         {
             "trigger": "r2",
             "type": "key",
-            "target": [
-              "KEY_LEFTCTRL",
-              "KEY_EQUAL"
-          ]
+            "target": "KEY_PAGEDOWN"
         },
         {
             "trigger": [
