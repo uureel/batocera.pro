@@ -290,7 +290,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage 2>/dev/null' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1.5" GDK_SCALE="1.5" /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -346,6 +346,17 @@ fi
 dos2unix $csh
 # //
 #
+# -- add port 
+port=/userdata/roms/ports/QDirStat.sh
+rm -rf $port 
+echo '#!/bin/bash' >> $port 
+echo 'unclutter-remote -s'
+echo '/userdata/system/pro/qdirstat/Launcher' >> $port
+dos2unix $port; chmod a+x $port 
+# -- add pad2key: 
+url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
+pad2key=/userdata/roms/ports/$port.keys
+wget -q -O $pad2key $url/QDirStat.sh
 # -- done. 
 sleep 1
 echo -e "${G}> ${W}DONE"
