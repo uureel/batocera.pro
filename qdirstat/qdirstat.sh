@@ -291,7 +291,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1.5" GDK_SCALE="1.5" /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -356,9 +356,8 @@ echo '/userdata/system/pro/qdirstat/Launcher' >> $port
 dos2unix $port 2>/dev/null
 chmod a+x $port 2>/dev/null
 # -- add pad2key: 
-url=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
 pad2key=/userdata/roms/ports/QDirStat.sh.keys
-wget -q -O $pad2key $url/QDirStat.sh
+wget -q -O $pad2key https://raw.githubusercontent.com/uureel/batocera.pro/main/qdirstat/extra/QDirStat.sh.keys
 # -- done. 
 sleep 1
 echo -e "${G}> ${W}DONE"
@@ -368,6 +367,7 @@ echo -e "${L}-------------------------------------------------------------------
 echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
 sleep 4
+curl http://127.0.0.1:1234/reloadgames
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
