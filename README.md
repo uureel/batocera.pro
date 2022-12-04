@@ -261,7 +261,7 @@ shape or form affiliated with Batocera </i><br>
 <br>
 <br><b><i>QUESTIONS, SUGGESTIONS<br>
 or ISSUES, contact me here: </font></b></i><br>
-<a href=https://discord.gg/8gKnCs42>https://discord.gg/8gKnCs42</a>
+<a href=https://discord.com/invite/JXhfRTr>https://discord.com/invite/JXhfRTr</a>
 <br>
 <br>
 <br>
