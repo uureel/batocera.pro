@@ -20,7 +20,7 @@ APPLINK=https://itch.io/app/download?platform=linux
 APPHOME='itch.io/ official linux app'
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME' "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home LATEST=$(ls -td ~/.itch/app* | head -n 1 | sed 's,^.*/app,app,g') DISPLAY=:0.0 "/userdata/system/pro/'$APPNAME'/home/$LATEST/itch" "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9" --no-sandbox'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -305,14 +305,29 @@ sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}" 
 # --------------------------------------------------------------------
-depurl=https://github.com/uureel/batocera.pro/raw/main/.dep
-wget -q -O $pro/.dep/tar $depurl/tar
-wget -q -O $pro/.dep/libselinux.so.1 $depurl/libselinux.so.1
-chmod a+x $pro/.dep/tar; cp $depurl/libselinux.so.1 /lib/ 2>/dev/null
+mkdir $pro/$appname/home 2>/dev/null
+# clear ~/.itch folder for seamless install
+cp -rL ~/.itch/* $pro/$appname/home/ 2>/dev/null
+mv $pro/$appname/home $pro/$appname/home_tmp 2>/dev/null
+rm -rf ~/.itch 2>/dev/null
+mv $pro/$appname/home_tmp $pro/$appname/home 2>/dev/null
+# clear //
+#
 cd $temp
-$pro/.dep/tar -xf $temp/clonehero-linux.tar.xz
-mv $temp/clonehero-linux/* $pro/$appname/
-chmod a+x $pro/$appname/$appname 2>/dev/null
+chmod a+x $temp/* 2>/dev/null
+$temp/download 2>/dev/null
+wait
+#
+# move default ~/.itch installdir & link it with pro/itch
+# -- link folders \
+mkdir $pro/$appname/home 2>/dev/null
+cp -rL ~/.itch/* $pro/$appname/home/ 2>/dev/null
+mv $pro/$appname/home $pro/$appname/home_tmp 2>/dev/null
+rm -rf ~/.itch 2>/dev/null
+mv $pro/$appname/home_tmp $pro/$appname/home 2>/dev/null
+ln -s $pro/$appname/home ~/.itch 2>/dev/null
+# -- link folders // 
+#
 cd $pro
 #rm -rf $temp
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
@@ -326,7 +341,14 @@ echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launc
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
-#echo 'unclutter-remote -s' >> $launcher 
+echo 'unclutter-remote -s' >> $launcher 
+echo 'pro=/userdata/system/pro; APPNAME=itch; appname=itch' >> $launcher
+echo 'mkdir $pro/$appname/home 2>/dev/null' >> $launcher 
+echo 'cp -rL ~/.itch $pro/$appname/home 2>/dev/null' >> $launcher 
+echo 'mv $pro/$appname/home $pro/$appname/home_tmp 2>/dev/null' >> $launcher 
+echo 'rm -rf ~/.itch 2>/dev/null' >> $launcher 
+echo 'mv $pro/$appname/home_tmp $pro/$appname/home 2>/dev/null' >> $launcher 
+echo 'ln -s $pro/$appname/home ~/.itch 2>/dev/null' >> $launcher 
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
@@ -356,12 +378,12 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-port="/userdata/roms/ports/CloneHero.sh" 
+port="/userdata/roms/ports/itch.io.sh" 
 rm "$port" 2>/dev/null
 echo '#!/bin/bash ' >> $port
-echo 'killall -9 clonehero' >> $port
+echo 'killall -9 itch' >> $port
 echo '/userdata/system/pro/'$appname'/Launcher' >> $port
-dos2unix "$port"
+dos2unix "$port" 
 chmod a+x "$port" 
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
@@ -389,9 +411,16 @@ echo -e "${G}> ${W}DONE${W}"
 echo
 sleep 1
 echo; #echo -e "${W}- - -"
-echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
+echo
+echo -e "${G}> ${W}$APPNAME INSTALLED ${G}OK${W}"
 #echo -e "${W}- - -"
-sleep 3
+echo
+R='\033[1;31m'
+echo
+echo -e "${R}-------${W}" 
+echo -e "${R}> NOTE:   ${W}STARTING ITCH FROM PORTS CAN OPEN IT IN BACKGROUND! (USE ALT+TAB) ${W}"
+echo -e "${R}-------${W}" 
+sleep 8
 # reaload for ports file
 curl http://127.0.0.1:1234/reloadgames
 }
@@ -416,4 +445,14 @@ TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER //
 ##########################
+R='\033[1;31m'
+X='\033[0m'
+W=$X
+echo
+echo
+echo -e "${R}-------${W}" 
+echo -e "${R}> NOTE:   ${W}STARTING ITCH FROM PORTS CAN OPEN IT IN BACKGROUND! (USE ALT+TAB) ${W}"
+echo -e "${R}-------${W}" 
+echo
+echo
 exit 0
