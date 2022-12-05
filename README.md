@@ -28,6 +28,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L 86box.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/altus/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ALTUS </font></b></i><br>
+```curl -L altus.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ATOM </font></b></i><br>
 ```curl -L atom.batocera.pro | bash```
 <br>
