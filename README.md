@@ -127,7 +127,7 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/itch/extra/icon.png" width=48 height=48 /></a>
-<b><i>&nbsp;ITCH.IO</i></b><br>
+<b><i>&nbsp;ITCH</i></b><br>
 ```curl -L itch.batocera.pro | bash```
 <br>
 <br>
