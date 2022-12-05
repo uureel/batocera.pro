@@ -417,9 +417,9 @@ echo -e "${G}> ${W}$APPNAME INSTALLED ${G}OK${W}"
 echo
 R='\033[1;31m'
 echo
-echo -e "${R}-------${W}" 
-echo -e "${R}> NOTE:   ${W}STARTING ITCH FROM PORTS CAN OPEN IT IN BACKGROUND! (USE ALT+TAB) ${W}"
-echo -e "${R}-------${W}" 
+echo -e "${R}----${W}" 
+echo -e "${R}NOTE   ${W}STARTING ITCH FROM PORTS CAN OPEN IT IN BACKGROUND! (USE ALT+TAB) ${W}"
+echo -e "${R}----${W}" 
 sleep 8
 # reaload for ports file
 curl http://127.0.0.1:1234/reloadgames
@@ -450,9 +450,9 @@ X='\033[0m'
 W=$X
 echo
 echo
-echo -e "${R}-------${W}" 
-echo -e "${R}> NOTE:   ${W}STARTING ITCH FROM PORTS CAN OPEN IT IN BACKGROUND! (USE ALT+TAB) ${W}"
-echo -e "${R}-------${W}" 
+echo -e "${R}----${W}" 
+echo -e "${R}NOTE   ${W}STARTING ITCH FROM PORTS CAN OPEN IT IN BACKGROUND! (USE ALT+TAB) ${W}"
+echo -e "${R}----${W}" 
 echo
 echo
 exit 0
