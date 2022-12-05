@@ -122,6 +122,11 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L hyper.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/itch/extra/icon.png" width=48 height=48 /></a>
+<b><i>&nbsp;ITCH.IO</i></b><br>
+```curl -L itch.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/java/extra/icon.png" width=48 height=48 /></a>
 <b><i>&nbsp;JAVA-RUNTIME</i></b><br>
 ```curl -L java.batocera.pro | bash```
