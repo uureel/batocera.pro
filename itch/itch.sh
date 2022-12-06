@@ -149,8 +149,7 @@ sleep 0.33
 echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
-echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
+echo -e "${X}$APPNAME WILL BE AVAILABLE F1->APPLICATIONS"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
@@ -263,8 +262,7 @@ echo;
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
-echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
+echo -e "${W}$APPNAME WILL BE AVAILABLE F1->APPLICATIONS"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo 
 #echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
@@ -378,13 +376,13 @@ chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-port="/userdata/roms/ports/itch.io.sh" 
-rm "$port" 2>/dev/null
-echo '#!/bin/bash ' >> $port
-echo 'killall -9 itch' >> $port
-echo '/userdata/system/pro/'$appname'/Launcher' >> $port
-dos2unix "$port" 
-chmod a+x "$port" 
+#port="/userdata/roms/ports/itch.io.sh" 
+#rm "$port" 2>/dev/null
+#echo '#!/bin/bash ' >> $port
+#echo 'killall -9 itch' >> $port
+#echo '/userdata/system/pro/'$appname'/Launcher' >> $port
+#dos2unix "$port" 
+#chmod a+x "$port" 
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
@@ -417,10 +415,10 @@ echo -e "${G}> ${W}$APPNAME INSTALLED ${G}OK${W}"
 echo
 R='\033[1;31m'
 echo
-echo -e "${R}----${W}" 
-echo -e "${R}NOTE   ${W}STARTING ITCH FROM PORTS CAN OPEN IT IN BACKGROUND! (USE ALT+TAB) ${W}"
-echo -e "${R}----${W}" 
-sleep 8
+#echo -e "${R}----${W}" 
+#echo -e "${R}NOTE   ${W}STARTING ITCH FROM PORTS CAN OPEN IT IN BACKGROUND! (USE ALT+TAB) ${W}"
+#echo -e "${R}----${W}" 
+sleep 5
 # reaload for ports file
 curl http://127.0.0.1:1234/reloadgames
 }
@@ -445,14 +443,4 @@ TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER //
 ##########################
-R='\033[1;31m'
-X='\033[0m'
-W=$X
-echo
-echo
-echo -e "${R}----${W}" 
-echo -e "${R}NOTE   ${W}STARTING ITCH FROM PORTS CAN OPEN IT IN BACKGROUND! (USE ALT+TAB) ${W}"
-echo -e "${R}----${W}" 
-echo
-echo
 exit 0
