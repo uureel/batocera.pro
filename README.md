@@ -32,6 +32,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L altus.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/antimicrox/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ANTIMICROX </font></b></i><br>
+```curl -L antimicrox.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ATOM </font></b></i><br>
 ```curl -L atom.batocera.pro | bash```
 <br>
