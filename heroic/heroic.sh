@@ -335,6 +335,34 @@ dos2unix $shortcut
 chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
+# -- prepare SystemLauncher for integration, 
+sl=/userdata/system/pro/$appname/SystemLauncher
+rm -rf $sl 2>/dev/null
+echo '#!/bin/bash ' >> $sl
+echo "#FILE=\$(echo "\"\$\1\"" | sed 's,\s,\ ,g')" >> $sl
+echo '#ID=$(cat $FILE)' >> $sl
+echo 'ID=$(cat "$1")' >> $sl
+echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $sl
+echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $sl
+echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $sl
+echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $sl
+echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $sl
+echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $sl
+echo 'unclutter-remote -s' >> $sl
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $sl
+echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $sl
+echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $sl
+echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $sl
+echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $sl
+echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $sl
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --disable-gpu "heroic://launch/$ID"' >> $sl
+dos2unix $sl 
+chmod a+x $sl 
+# --------------------------------------------------------------------
+# -- get es_systems_heroic.cfg for integration, 
+wget -q -O $pro/$appname/es_systems_heroic.cfg https://github.com/uureel/batocera.pro/raw/main/$appname/extra/es_systems_heroic.cfg
+dos2unix $pro/$appname/es_systems_heroic.cfg
+# --------------------------------------------------------------------
 # -- prepare Ports file, 
 portname=Heroic
 version=$(echo $APPLINK | sed 's,^.*'$portname'-,,g' | sed 's,.AppImage,,g')
@@ -355,7 +383,7 @@ echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
 echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox' >> $port
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --disable-gpu' >> $port
 dos2unix $port 
 chmod a+x $port 
 ports=/userdata/roms/ports
