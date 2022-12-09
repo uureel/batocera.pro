@@ -362,6 +362,11 @@ chmod a+x $sl
 # -- get es_systems_heroic.cfg for integration, 
 wget -q -O $pro/$appname/es_systems_heroic.cfg https://github.com/uureel/batocera.pro/raw/main/$appname/extra/es_systems_heroic.cfg
 dos2unix $pro/$appname/es_systems_heroic.cfg
+cp $pro/$appname/es_systems_heroic.cfg /userdata/system/configs/emulationstation/es_systems_heroic.cfg 2>/dev/null
+# -- create example rom, 
+mkdir -p /userdata/roms/heroic 2>/dev/null
+wget -q -O "/userdata/roms/heroic/Fall Guys.txt" "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/FallGuys.txt"
+dos2unix "/userdata/roms/heroic/Fall Guys.txt" 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
 portname=Heroic
