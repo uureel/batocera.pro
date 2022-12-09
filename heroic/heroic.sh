@@ -341,7 +341,7 @@ rm -rf $sl 2>/dev/null
 echo '#!/bin/bash ' >> $sl
 echo "#FILE=\$(echo "\"\$\1\"" | sed 's,\s,\ ,g')" >> $sl
 echo '#ID=$(cat $FILE)' >> $sl
-echo 'ID=$(cat "$1")' >> $sl
+echo 'ID=$(cat "$1" | head -n 1)' >> $sl
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $sl
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $sl
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $sl
