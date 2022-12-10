@@ -334,10 +334,10 @@ sleep 0.1
 rm -rf /userdata/system/pro/heroic/config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz 2>/dev/null
 rm -rf $temp/* 2>/dev/null
 # --------------------------------------------------------------------
-# get sync_heroic.sh 
-wget -q -O /userdata/system/pro/$appname/extra/sync_heroic.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/heroic/extra/sync_heroic.sh
-dos2unix /userdata/system/pro/$appname/extra/sync_heroic.sh 2>/dev/null
-chmod a+x /userdata/system/pro/$appname/extra/sync_heroic.sh 2>/dev/null
+# get heroic-sync.sh 
+wget -q -O /userdata/system/pro/$appname/extra/heroic-sync.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/heroic/extra/heroic-sync.sh
+dos2unix /userdata/system/pro/$appname/extra/heroic-sync.sh 2>/dev/null
+chmod a+x /userdata/system/pro/$appname/extra/heroic-sync.sh 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
@@ -349,7 +349,7 @@ echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" 
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $launcher
 echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $launcher
-echo '/userdata/system/pro/'$appname'/extra/sync_heroic.sh' >> $launcher
+echo '/userdata/system/pro/'$appname'/extra/heroic-sync.sh' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
@@ -388,7 +388,7 @@ echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" 
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $sl
 echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $sl
 echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $sl
-echo '/userdata/system/pro/'$appname'/extra/sync_heroic.sh' >> $sl
+echo '/userdata/system/pro/'$appname'/extra/heroic-sync.sh' >> $sl
 echo 'unclutter-remote -s' >> $sl
 echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $sl
 echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $sl
@@ -421,7 +421,7 @@ echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" 
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
 echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $port
 echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $port
-echo '/userdata/system/pro/'$appname'/extra/sync_heroic.sh' >> $port
+echo '/userdata/system/pro/'$appname'/extra/heroic-sync.sh' >> $port
 echo 'unclutter-remote -s' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
