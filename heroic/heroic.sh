@@ -282,7 +282,7 @@ temp=/userdata/system/pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
-echo -e "${G}DOWNLOADING${W}"
+echo -e "${G}DOWNLOADING${W} HEROIC LAUNCHER"
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
@@ -292,13 +292,44 @@ mv $temp/* $APPPATH 2>/dev/null
 chmod a+x $APPPATH 2>/dev/null
 rm -rf $temp/*.AppImage
 SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
-echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
+echo -e "${T}$APPPATH   ${T}$SIZE( )MB   ${G}OK${W}" | sed 's/( )//g'
+#echo -e "${G}> ${W}DONE"
+echo
+echo; #line $cols '='; echo
+sleep 1.333
+# --------------------------------------------------------------------
+echo -e "${G}DOWNLOADING${W} PROTON-GE 7.42 [3/3]"
+sleep 1
+echo -e "${T}https://github.com/uureel/batocera.pro/raw/main/heroic/extra/Proton-GE-Proton7-42.tar.xz" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
+cd $temp
+p1=https://github.com/uureel/batocera.pro/raw/main/heroic/extra/Proton-GE-Proton7-42.tar.xz.partaa
+p2=https://github.com/uureel/batocera.pro/raw/main/heroic/extra/Proton-GE-Proton7-42.tar.xz.partab
+p3=https://github.com/uureel/batocera.pro/raw/main/heroic/extra/Proton-GE-Proton7-42.tar.xz.partac
+curl --progress-bar --remote-name --location "$p1"
+curl --progress-bar --remote-name --location "$p2"
+curl --progress-bar --remote-name --location "$p3"
+cat $temp/Proton-GE-Proton7-42.tar.xz.parta* >$temp/Proton-GE-Proton7-42.tar.xz
+mkdir -p /userdata/system/pro/heroic/config/heroic/tools/proton 2>/dev/null
+mv $temp/$temp/Proton-GE-Proton7-42.tar.xz /userdata/system/pro/heroic/config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz 2>/dev/null
+SIZE=$(($(wc -c /userdata/system/pro/heroic/config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz | awk '{print $1}')/1048576)) 2>/dev/null
+echo -e "${T}PROTON-GE 7.42   ${T}$SIZE( )MB   ${G}OK${W}" | sed 's/( )//g'
 #echo -e "${G}> ${W}DONE"
 echo
 echo; #line $cols '='; echo
 sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
+# --------------------------------------------------------------------
+cd ~/
+rm -rf $temp/* 2>/dev/null
+# --------------------------------------------------------------------
+# prepare dependencies
+cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null
+cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null
+# --------------------------------------------------------------------
+# unpack proton
+cd /userdata/system/pro/heroic/config/heroic/tools/proton
+tar -xf /userdata/system/pro/heroic/config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz
 # --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
