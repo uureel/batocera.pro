@@ -334,6 +334,11 @@ sleep 0.1
 rm -rf /userdata/system/pro/heroic/config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz 2>/dev/null
 rm -rf $temp/* 2>/dev/null
 # --------------------------------------------------------------------
+# get sync_heroic.sh 
+wget -q -O /userdata/system/pro/$appname/extra/sync_heroic.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/heroic/extra/sync_heroic.sh
+dos2unix /userdata/system/pro/$appname/extra/sync_heroic.sh 2>/dev/null
+chmod a+x /userdata/system/pro/$appname/extra/sync_heroic.sh 2>/dev/null
+# --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
@@ -344,6 +349,7 @@ echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" 
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $launcher
 echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $launcher
+echo '/userdata/system/pro/'$appname'/extra/sync_heroic.sh' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
@@ -382,6 +388,7 @@ echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" 
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $sl
 echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $sl
 echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $sl
+echo '/userdata/system/pro/'$appname'/extra/sync_heroic.sh' >> $sl
 echo 'unclutter-remote -s' >> $sl
 echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $sl
 echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $sl
@@ -389,7 +396,7 @@ echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $sl
 echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $sl
 echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $sl
 echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $sl
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --disable-gpu "heroic://launch/$ID"' >> $sl
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --no-gui --disable-gpu "heroic://launch/$ID"' >> $sl
 dos2unix $sl 
 chmod a+x $sl 
 # --------------------------------------------------------------------
@@ -414,6 +421,7 @@ echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" 
 echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
 echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $port
 echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $port
+echo '/userdata/system/pro/'$appname'/extra/sync_heroic.sh' >> $port
 echo 'unclutter-remote -s' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
@@ -425,7 +433,7 @@ echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
 echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --disable-gpu' >> $port
 dos2unix $port 
 chmod a+x $port 
-ports=/userdata/roms/ports
+ports=/userdata/roms/ports 
 if [[ -e "$ports/$portname.sh" ]]; 
 then 
   if [[ "$(cat "$ports/$portname.sh" | grep "/userdata/system/pro/$appname" | tail -n 1)" != "" ]]; 
