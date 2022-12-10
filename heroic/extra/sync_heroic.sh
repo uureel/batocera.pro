@@ -19,7 +19,18 @@ if [[ -e $list ]]; then
     icon=$(ls $icons | grep $gid | head -n1)
     cp $icons/$icon $images/$icon 2>/dev/null
     rm -rf $roms/$gid.txt 2>/dev/null
-    echo "$gid" >> $roms/$gid.txt
+      check=$extra/check.txt; rm -rf $check
+      allroms=$(ls $roms >> $check)
+      romsnr=$(ls $roms | wc -l)
+      r=1; for r in $(seq 1 $romsnr); 
+      do
+      rom=$(cat $allroms | sed ''$r'q;d')
+      echo "$rom" >> $check
+      ((r++))
+      done
+      if [[ "$(cat $check | grep $gid)" = "" ]]; then
+      echo "$gid" >> $roms/$gid.txt
+      fi
     ((g++))
     done 
   fi 
@@ -35,3 +46,4 @@ else
   echo "$nrgames" >> $games 
   curl http://127.0.0.1:1234/reloadgames  
 fi
+rm -rf $check 2>/dev/null
