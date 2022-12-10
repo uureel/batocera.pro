@@ -44,7 +44,7 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L balena.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/blender/extra/icon.png" width=48 height=48 /><b><i>&nbsp;BLENDER </font></b></i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/blender/extra/blender.png" width=48 height=48 /><b><i>&nbsp;BLENDER </font></b></i><br>
 ```curl -L blender.batocera.pro | bash```
 <br>
 <br>
