@@ -31,11 +31,26 @@ if [[ -e "$list" ]]; then
       if [[ $thisrom != "" ]]; then
       romcheck=$(cat "$roms/$thisrom")
       #  &remove empty roms
-         if [[ -e "$images/$romcheck.png" ]] || [[ -e "$images/$romcheck.jpg" ]]; 
+         ## &remove roms if previously existing games were removed from heroic \\\
+         if [[ -e "$images/$romcheck.png" ]] && [[ -e "$icons/$romcheck.png" ]]; 
          then
           echo -e "$romcheck" >> $check
-          else rm "$roms/$thisrom" 2>/dev/null; reload=1
          fi
+         if [[ -e "$images/$romcheck.jpg" ]] && [[ -e "$icons/$romcheck.jpg" ]]; 
+         then
+          echo -e "$romcheck" >> $check
+         fi
+         if [[ -e "$images/$romcheck.jpg" ]] && [[ ! -e "$icons/$romcheck.jpg" ]]; 
+         then
+           rm "$roms/$thisrom" 2>/dev/null; reload=1
+           rm "$images/$romcheck.jpg" 2>/dev/null; reload=1
+         fi
+         if [[ -e "$images/$romcheck.png" ]] && [[ ! -e "$icons/$romcheck.png" ]]; 
+         then
+           rm "$roms/$thisrom" 2>/dev/null; reload=1
+           rm "$images/$romcheck.png" 2>/dev/null; reload=1
+         fi
+         ## ///
       #  //
       fi
       ((r++))
@@ -62,4 +77,3 @@ else
 fi
 rm -rf $check 2>/dev/null
 rm -rf $all 2>/dev/null
-
