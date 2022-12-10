@@ -62,3 +62,4 @@ else
 fi
 rm -rf $check 2>/dev/null
 rm -rf $all 2>/dev/null
+
