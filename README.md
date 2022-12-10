@@ -232,6 +232,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L spotify.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/strawberry/extra/icon.png" width=48 height=48 /><b><i>&nbsp;STRAWBERRY</i></b> <br>
+```curl -L strawberry.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/sublime/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SUBLIME-TEXT</i></b><br>
 ```curl -L sublime.batocera.pro | bash```
 <br>
