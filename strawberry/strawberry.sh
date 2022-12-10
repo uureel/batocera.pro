@@ -9,7 +9,7 @@ APPNAME="STRAWBERRY" # for installer info
 appname=strawberry # directory name in /userdata/system/pro/...
 AppName=strawberry # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/strawberry
+APPLINK=https://apprepo.de/appimage/download/strawberry
 ORIGIN="apprepo.de/appimage/strawberry" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -292,7 +292,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_FONT_DPI=128 QT_SCALE_FACTOR=1 GDK_SCALE=1 /userdata/system/pro/'$appname'/'$AppName'.AppImage "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_FONT_DPI=128 QT_SCALE_FACTOR=1 GDK_SCALE=1 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
