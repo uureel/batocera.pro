@@ -61,10 +61,10 @@ if [[ -e "$list" ]]; then
       fi
       # /
     ((g++))
-    done 
-  fi 
+    done
+  fi
 fi
-if [[ -e "$games" ]]; then 
+if [[ -e "$games" ]]; then
   was=$(cat "$games" | wc -l)
   if [[ "$nrgames" > "$was" ]] || [[ "$reload" = "1" ]]; then
     rm -rf "$games" 2>/dev/null
