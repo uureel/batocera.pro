@@ -1,10 +1,10 @@
 7zip
 86box
-LICENSE
-README.md
+altus
+antimicrox
 atom
 balena
-batocera.pro.list.txt
+blender
 cemu
 chiaki
 chrome
@@ -24,10 +24,12 @@ gparted
 greenlight
 heroic
 hyper
+itch
 java
 kdenlive
 kitty
 krita
+mediaelch
 minecraft
 moonlight
 multimc
@@ -48,6 +50,7 @@ rpcs3
 sayonara
 smplayer
 spotify
+strawberry
 sublime
 switch
 telegram
