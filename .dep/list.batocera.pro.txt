@@ -1,110 +1,61 @@
-1 7zip
-2 86box
-3 atom
-4 balena
-5 cemu
-6 chiaki
-7 chrome
-8 chromium
-9 clonehero
-10 cockatrice
-11 discord
-12 doublecmd
-13 edge
-14 ferdium
-15 ffnightly
-16 filezilla
-17 firefox
-18 foobar
-19 geforcenow
-20 gparted
-21 greenlight
-22 heroic
-23 hyper
-24 java
-25 kdenlive
-26 kitty
-27 krita
-28 minecraft
-29 moonlight
-30 multimc
-31 museeks
-32 myretrotv
-33 nomacs
-34 obs
-35 odio
-36 olive
-37 opera
-38 peazip
-39 photocollage
-40 pokemmo
-41 qbittorrent
-42 qdirstat
-43 rats
-44 rpcs3
-45 sayonara
-46 smplayer
-47 spotify
-48 sublime
-49 switch
-50 telegram
-51 totalcmd
-52 transmission
-53 vivaldi
-54 whatsapp
-55 youtubetv
-56 7zip
-57 86box
-58 atom
-59 balena
-60 cemu
-61 chiaki
-62 chrome
-63 chromium
-64 clonehero
-65 cockatrice
-66 discord
-67 doublecmd
-68 edge
-69 ferdium
-70 ffnightly
-71 filezilla
-72 firefox
-73 foobar
-74 geforcenow
-75 gparted
-76 greenlight
-77 heroic
-78 hyper
-79 java
-80 kdenlive
-81 kitty
-82 krita
-83 minecraft
-84 moonlight
-85 multimc
-86 museeks
-87 myretrotv
-88 nomacs
-89 obs
-90 odio
-91 olive
-92 opera
-93 peazip
-94 photocollage
-95 pokemmo
-96 qbittorrent
-97 qdirstat
-98 rats
-99 rpcs3
-100 sayonara
-101 smplayer
-102 spotify
-103 sublime
-104 switch
-105 telegram
-106 totalcmd
-107 transmission
-108 vivaldi
-109 whatsapp
-110 youtubetv
+7zip
+86box
+altus
+antimicrox
+atom
+balena
+blender
+cemu
+chiaki
+chrome
+chromium
+clonehero
+cockatrice
+discord
+doublecmd
+edge
+ferdium
+ffnightly
+filezilla
+firefox
+foobar
+geforcenow
+gparted
+greenlight
+heroic
+hyper
+itch
+java
+kdenlive
+kitty
+krita
+mediaelch
+minecraft
+moonlight
+multimc
+museeks
+myretrotv
+nomacs
+obs
+odio
+olive
+opera
+peazip
+photocollage
+pokemmo
+qbittorrent
+qdirstat
+rats
+rpcs3
+sayonara
+smplayer
+spotify
+strawberry
+sublime
+switch
+telegram
+totalcmd
+transmission
+vivaldi
+whatsapp
+youtubetv
