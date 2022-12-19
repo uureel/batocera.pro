@@ -7,17 +7,6 @@ APPLINK=github.com/ordovice/batocera-switch
 ORIGIN="github.com/ordovice/batocera-switch" 
 #---------------------------------------------------------------------
 ######################################################################
-# --------------------------------------------------------------------
-# show console/ssh info: 
-clear 
-echo 
-echo 
-echo 
-echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
-echo 
-echo 
-echo 
-# --------------------------------------------------------------------
 ORIGIN="${ORIGIN^^}"
 extra=/userdata/system/switch/extra 
 mkdir -p $extra 2>/dev/null 
@@ -91,7 +80,6 @@ echo
 echo
 sleep 0.33
 
-echo
 echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
@@ -129,17 +117,16 @@ B=$BLUE
 G=$GREEN
 P=$PURPLE
 # --------------------------------------------------------------------
-cols=$(cat /userdata/system/switch/extra/display.cfg | tail -n 1) 2>/dev/null
-cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
+#cols=$(cat /userdata/system/switch/extra/display.cfg | tail -n 1) 2>/dev/null
+#cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
-line(){
-  local start=1
-  local end=${1:-80}
-  local str="${2:-=}"
-  local range=$(seq $start $end)
-  for i in $range ; do echo -n "${str}"; done
-}
-
+#line(){
+#  local start=1
+#  local end=${1:-80}
+#  local str="${2:-=}"
+#  local range=$(seq $start $end)
+#  for i in $range ; do echo -n "${str}"; done
+#}
 clear
 echo
 echo
@@ -204,8 +191,9 @@ echo
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo 
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
-read -p ""
+#echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
+#read -p ""
+sleep 3
 echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
@@ -237,7 +225,9 @@ rm /userdata/system/configs/emulationstation/es_features.cfg 2>/dev/null
 # -------------------------------------------------------------------- 
 # FILL PATHS
 mkdir -p /userdata/roms/ports/images 2>/dev/null
+mkdir -p /userdata/roms/switch 2>/dev/null
 mkdir -p /userdata/bios/switch 2>/dev/null
+mkdir -p /userdata/bios/switch/firmware 2>/dev/null
 mkdir -p /userdata/system/configs/emulationstation 2>/dev/null
 mkdir -p /userdata/system/configs/evmapy 2>/dev/null
 mkdir -p /userdata/system/switch/configgen/generators/yuzu 2>/dev/null
@@ -297,7 +287,7 @@ url=https://raw.githubusercontent.com/ordovice/batocera-switch/main/system/confi
 wget -q -O $path/es_features_switch.cfg $url/es_features_switch.cfg
 wget -q -O $path/es_systems_switch.cfg $url/es_systems_switch.cfg
 # -------------------------------------------------------------------- 
-# FILL /USERDATA/SYSTEM/CONFIGS/EMULATIONSTATION
+# FILL /USERDATA/SYSTEM/CONFIGS/EMULATIONSTATION 
 path=/userdata/system/configs/evmapy
 url=https://raw.githubusercontent.com/ordovice/batocera-switch/main/system/configs/evmapy
 wget -q -O $path/switch.keys $url/switch.keys
@@ -307,7 +297,7 @@ path=/userdata/roms/ports
 url=https://raw.githubusercontent.com/ordovice/batocera-switch/main/roms/ports
 wget -q -O "$path/Switch Updater.sh" "$url/Switch Updater.sh"
 # -------------------------------------------------------------------- 
-# FILL /USERDATA/ROMS/PORTS/IMAGES
+# FILL /USERDATA/ROMS/PORTS/IMAGES 
 path=/userdata/roms/ports/images
 url=https://raw.githubusercontent.com/ordovice/batocera-switch/main/roms/ports/images
 wget -q -O "$path/Switch Updater-boxart.png" "$url/Switch Updater-boxart.png"
@@ -321,35 +311,46 @@ path=/userdata/roms/switch
 url=https://raw.githubusercontent.com/ordovice/batocera-switch/main/roms/switch
 wget -q -O "$path/_info.txt" "$url/_info.txt"
 # -------------------------------------------------------------------- 
-# FILL /USERDATA/BIOS/SWITCH
+# FILL /USERDATA/BIOS/SWITCH 
 path=/userdata/bios/switch
 url=https://raw.githubusercontent.com/ordovice/batocera-switch/main/bios/switch
 wget -q -O "$path/_info.txt" "$url/_info.txt"
+# -------------------------------------------------------------------- 
+# REMOVE OLD UPDATERS 
+rm /userdata/roms/ports/updateyuzu.sh 2>/dev/null 
+rm /userdata/roms/ports/updateyuzuea.sh 2>/dev/null
+rm /userdata/roms/ports/updateyuzuEA.sh 2>/dev/null 
+rm /userdata/roms/ports/updateryujinx.sh 2>/dev/null
+rm /userdata/roms/ports/updateryujinxavalonia.sh 2>/dev/null
+# -------------------------------------------------------------------- 
 echo -e "${G}INSTALLED OK${W}" 
 sleep 2
 echo
 echo
 echo
-echo -e "${W}PREPARING TO AUTOMATICALLY RUN ${G}SWITCH UPDATER${W} . . ." 
-echo -e "${W}(THIS WILL TEMPORARILY RETURN TO THE MAIN SCREEN)" 
-echo 
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
-read -p ""
-echo
+# restore xterm font
+X='\033[0m' # / resetcolor
+echo -e "${W}PREPARING TO AUTOMATICALLY RUN ${G}SWITCH UPDATER${X} . . ." 
+#echo -e "${W}(THIS WILL TEMPORARILY RETURN TO THE MAIN SCREEN)" 
+echo -e "${X} "
+#echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
+#read -p ""
+sleep 5
 rm -rf /userdata/system/switch/extra/installation 2>/dev/null
 echo "OK" >> /userdata/system/switch/extra/installation
+curl https://raw.githubusercontent.com/ordovice/batocera-switch/main/system/switch/extra/batocera-switch-updater.sh | bash 
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
-# -- include display output: 
+# --- include display output: 
 function get-xterm-fontsize {
-extra=/userdata/system/switch/extra
-mkdir -p $extra 2>/dev/null 
-wget -q -O $extra/batocera-switch-tput https://github.com/uureel/batocera.pro/raw/main/switch/extra/batocera-switch-tput
-wget -q -O $extra/batocera-switch-libtinfo.so.6 https://github.com/uureel/batocera.pro/raw/main/switch/extra/batocera-switch-libtinfo.so.6
+url_tput=https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-tput
+url_libtinfo=https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-libtinfo.so.6
+extra=/userdata/system/switch/extra; mkdir -p $extra 2>/dev/null 
+wget -q -O $extra/batocera-switch-tput $url_tput
+wget -q -O $extra/batocera-switch-libtinfo.so.6 $url_libtinfo
+cp $extra/batocera-switch-libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null & cp $extra/batocera-switch-libtinfo.so.6 /lib64/libtinfo.so.6 2>/dev/null
 chmod a+x $extra/batocera-switch-tput 2>/dev/null
-rm /lib/libtinfo.so.6 2>/dev/null
-cp $extra/batocera-switch-libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
 tput=/userdata/system/switch/extra/batocera-switch-tput
 cfg=/userdata/system/switch/extra/display.cfg; rm $cfg 2>/dev/null
 DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
@@ -362,7 +363,7 @@ cfg=/userdata/system/switch/extra/display.cfg
 cols=$(cat $cfg | tail -n 1) 2>/dev/null
 until [[ "$cols" != "80" ]] 
 do
-get-xterm-fontsize 2>/dev/null
+sleep 0.042 && get-xterm-fontsize 2>/dev/null
 cols=$(cat $cfg | tail -n 1) 2>/dev/null
 done 
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
@@ -371,19 +372,29 @@ rm /userdata/system/switch/extra/display.cfg 2>/dev/null
 # RUN: 
 # | 
   DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME '$ORIGIN'" 2>/dev/null
-# & automatically run switch updater after installation: 
+# &+automatically run switch updater after installation
+# --------------------------------------------------------------------
+X='\033[0m' # / resetcolor
 if [[ -e /userdata/system/switch/extra/installation ]]; then
-curl https://raw.githubusercontent.com/ordovice/batocera-switch/main/system/switch/extra/batocera-switch-updater.sh | bash 
 rm /userdata/system/switch/extra/installation 2>/dev/null
+clear
+echo
+echo
+echo
+echo -e "${X}$APPNAME INSTALLED AND UPDATED OK${X}" 
+echo
+echo
+echo
 else
+clear 
 echo
 echo
 echo
-echo -e "${W}LOOKS LIKE THE INSTALLATION FAILED${W} . . ." 
+echo -e "${X}LOOKS LIKE THE INSTALLATION FAILED . . .${X}" 
 echo
 echo
 echo
-sleep 3
+sleep 1
 exit 0
 fi
 # done. 
