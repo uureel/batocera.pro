@@ -83,6 +83,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L edge.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/f1/extra/icon.png" width=48 height=48 /><b><i>&nbsp;OPEN F1 MENU REMOTELY</i></b><br>
+```curl -L f1.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/ferdium/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FERDIUM</i></b><br>
 ```curl -L ferdium.batocera.pro | bash```
 <br>
