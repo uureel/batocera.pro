@@ -15,7 +15,7 @@
 #      DEFINE APP INFO:
 APPNAME=sak 
 APPLINK=https://github.com/uureel/batocera.pro/raw/main/sak/extra/sak.zip 
-APPHOME="https://github.com/dezem/SAK v0.7.14_64bit" 
+APPHOME="github.com/dezem/SAK v0.7.14_64bit" 
 # --------------------------------------------------------------------
                                                                        APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 # --------------------------------------------------------------------
