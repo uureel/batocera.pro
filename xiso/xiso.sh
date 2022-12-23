@@ -334,7 +334,7 @@ echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
-echo "Name=SAK" >> $shortcut
+echo "Name=$appname" >> $shortcut
 f1shortcut=/usr/share/applications/$appname.desktop
 dos2unix $shortcut
 chmod a+x $shortcut
