@@ -154,6 +154,9 @@ sleep 0.33
 echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
+echo -e "${X}$APPNAME WILL BE AVAILABLE F1->APPLICATIONS"
+echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
+echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
 echo -e "${X}. . .${X}" 
@@ -266,6 +269,8 @@ echo
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo 
+echo -e "${X}$APPNAME WILL BE AVAILABLE F1->APPLICATIONS"
+echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 #echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
 #read -p ""
 sleep 3
