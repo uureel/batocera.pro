@@ -100,7 +100,7 @@ line(){
   local range=$(seq $start $end)
   for i in $range ; do echo -n "${str}"; done
 }
-# -- show console/ssh info: 
+# -- show console/ssh info:
 clear
 echo
 echo
@@ -109,43 +109,50 @@ echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
 echo
 echo
 echo
-echo
 sleep 0.33
+
 clear
 echo
 echo
-line $cols '-'; echo
+echo -e "${W}- - - - - - -"
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-line $cols '-'; echo
-echo
+echo -e "${W}- - - - - - -"
 echo
 echo
 sleep 0.33
+
 clear
 echo
-line $cols '-'; echo
-line $cols ' '; echo
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-line $cols ' '; echo
-line $cols '-'; echo
+echo -e "${W}- - - - - - -"
 echo
+echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
+echo
+echo -e "${W}- - - - - - -"
 echo
 sleep 0.33
+
 clear
-line $cols '\'; echo
-line $cols '/'; echo
-line $cols ' '; echo
+echo -e "${W}- - - - - - -"
+echo
+echo
 echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-line $cols ' '; echo
-line $cols '/'; echo
-line $cols '\'; echo
+echo
+echo
+echo -e "${W}- - - - - - -"
+sleep 0.33
+
+clear
+echo
+echo
+echo
+echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
+echo
+echo
 echo
 sleep 0.33
+
 echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
-echo
-echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
-echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
@@ -203,8 +210,8 @@ echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo
 echo
 echo
-echo
 sleep 0.33
+
 clear
 echo
 echo
@@ -213,48 +220,56 @@ echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
 echo
 echo
 echo
-echo
 sleep 0.33
+
 clear
 echo
 echo
-line $cols '-'; echo
+echo -e "${W}- - - - - - -"
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-line $cols '-'; echo
-echo
+echo -e "${W}- - - - - - -"
 echo
 echo
 sleep 0.33
 clear
+
 echo
-line $cols '-'; echo
-echo; #line $cols '-'; echo
+echo -e "${W}- - - - - - -"
+echo
 echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
-echo; #line $cols '-'; echo
-line $cols '-'; echo
-echo
+echo 
+echo -e "${W}- - - - - - -"
 echo
 sleep 0.33
+
 clear
-line $cols '='; echo
-echo; #line $cols '-'; echo
-echo; #line $cols '-'; echo
+echo -e "${W}- - - - - - -"
+echo 
+echo 
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo; #line $cols '-'; echo
-echo; #line $cols '-'; echo
-line $cols '='; echo
+echo 
+echo 
+echo -e "${W}- - - - - - -"
+sleep 0.33
+
+clear
+echo
+echo
+echo 
+echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
+echo 
+echo 
 echo
 sleep 0.33
+
+echo
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
-echo
-echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS"
-echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
-echo
-#echo -e "${R}> > > ${W}PRESS ENTER TO CONTINUE"
+echo 
+#echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE" 
 #read -p ""
 sleep 3
-echo; #line $cols '='; echo
+echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
