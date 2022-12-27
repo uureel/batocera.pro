@@ -6,8 +6,9 @@ echo "installing batocera-logs"
 echo
 echo "this script will be available in ports: Batocera Logs.sh"
 echo "and also in F1->Applications: logs"
+echo
 echo "also as a system command: logs"
-echo "or: batocera-logs"
+echo "or as: batocera-logs"
 echo
 echo ". . . "
 echo
