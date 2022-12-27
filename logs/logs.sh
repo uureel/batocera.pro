@@ -22,6 +22,7 @@ logs=/userdata/system/pro/logs
 wget -q -O $logs/batocera-logs.sh $url/batocera-logs.sh 2>/dev/null
 wget -q -O $logs/batocera-logs-port.sh $url/batocera-logs-port.sh 2>/dev/null
 wget -q -O $logs/batocera-logs-port.sh.keys $url/batocera-logs-port.sh.keys 2>/dev/null
+wget -q -O $logs/extra/icon.png $url/icon.png 2>/dev/null
 chmod a+x $logs/batocera-logs-port.sh 2>/dev/null
 chmod a+x $logs/batocera-logs.sh 2>/dev/null
 #
