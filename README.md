@@ -223,6 +223,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L pokemmo.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/prism-launcher/extra/icon.png" width=48 height=48 /><b><i>&nbsp;PRISM-LAUNCHER</i></b><br>
+```curl -L prism.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/qbittorrent/extra/icon.png" width=48 height=48 /><b><i>&nbsp;QBITTORRENT</i></b><br>
 ```curl -L qbittorrent.batocera.pro | bash```
 <br>
