@@ -326,6 +326,7 @@ cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
 cp -rL $temp/*.AppImage $pro/$appname/$appname.AppImage
+chmod a+x $pro/$appname/$appname.AppImage
 SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH   ${T}$SIZE( )MB   ${G}OK${W}  " | sed 's/( )//g'
 #
