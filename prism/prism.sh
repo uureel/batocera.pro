@@ -45,7 +45,7 @@ echo
 echo
 echo
 echo
-echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
+echo -e "${X}PREPARING $APPNAME-LAUNCHER INSTALLER, PLEASE WAIT . . . ${X}"
 echo
 echo 
 echo
@@ -313,17 +313,16 @@ rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
 # DOWNLOAD
-echo -e "${G}DOWNLOADING${W} $APPNAME"
+echo -e "${G}DOWNLOADING${W} $APPNAME-LAUNCHER"
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
+cp -rL $temp/*.AppImage $pro/$appname/$appname.AppImage
 SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH   ${T}$SIZE( )MB   ${G}OK${W}  " | sed 's/( )//g'
 #
-cd $temp
-cp -rL $temp/*.AppImage $pro/$appname/$appname.AppImage
 cd ~/
 #
 echo
