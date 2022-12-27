@@ -165,17 +165,11 @@ echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
-echo
-if [[ -e "/usr/bin/java" ]]; then
-  if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
+echo 
+if [[ "$(which java | head -n 1)" = "" ]]; then
   echo -e "${R}-------------------------------------------------${W}"
   echo -e "${R}YOU WILL ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
   echo -e "${R}-------------------------------------------------${W}"
-  fi
-else
-  echo -e "${R}-------------------------------------------------${W}"
-  echo -e "${R}YOU WILL ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
-  echo -e "${R}-------------------------------------------------${W}"  
 fi
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
@@ -411,16 +405,10 @@ echo; #echo -e '- - - - - - -'; echo
 echo -e "${G}> ${W}$APPNAME INSTALLED ${G}OK${W}"
 echo
 echo
-if [[ -e "/usr/bin/java" ]]; then
-  if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
+if [[ "$(which java | head -n 1)" = "" ]]; then
   echo -e "${R}-------------------------------------------------${W}"
   echo -e "${R}YOU WILL ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
   echo -e "${R}-------------------------------------------------${W}"
-  fi
-else
-  echo -e "${R}-------------------------------------------------${W}"
-  echo -e "${R}YOU WILL ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
-  echo -e "${R}-------------------------------------------------${W}"  
 fi
 sleep 4
 # reaload for ports file
