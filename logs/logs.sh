@@ -1,4 +1,6 @@
 #!/bin/bash
+clear 
+echo
 echo
 echo "installing batocera-logs"
 echo
@@ -8,6 +10,8 @@ echo "also as a system command: logs"
 echo "or: batocera-logs"
 echo
 echo ". . . "
+echo
+echo
 #
 sleep 5
 appname=logs
@@ -84,8 +88,8 @@ fi
 dos2unix $csh
 # //
 #
+echo ">> batocera-logs installed"
+echo
+echo
 curl http://127.0.0.1:1234/reloadgames
-echo
-echo "batocera-logs installed"
-echo
 # -- done. 
