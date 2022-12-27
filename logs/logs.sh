@@ -64,7 +64,7 @@ cp $shortcut $f1shortcut 2>/dev/null
 pre=/userdata/system/pro/logs/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/bin/bash" >> $pre
-echo 'if [[ ! -e /usr/bin/batocera-logs]] || [[ ! -e /usr/bin/logs ]] || [[ ! -e "/userdata/roms/ports/Batocera Logs.sh" ]]; then' >> $pre
+echo 'if [[ ! -e "/usr/bin/batocera-logs" ]] || [[ ! -e "/usr/bin/logs" ]] || [[ ! -e "/userdata/roms/ports/Batocera Logs.sh" ]]; then' >> $pre
 echo "cp /userdata/system/pro/logs/batocera-logs.sh /usr/bin/batocera-logs 2>/dev/null" >> $pre
 echo "cp /userdata/system/pro/logs/batocera-logs.sh /usr/bin/logs 2>/dev/null" >> $pre
 echo "cp /userdata/system/pro/logs/batocera-logs-port.sh '/userdata/roms/ports/Batocera Logs.sh' 2>/dev/null" >> $pre
