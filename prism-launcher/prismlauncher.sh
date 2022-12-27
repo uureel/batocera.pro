@@ -15,7 +15,7 @@
 ######################################################################
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
-APPNAME=prism
+APPNAME=prism-launcher
 APPLINK=$(curl https://prismlauncher.org/download/linux/ | grep AppImage | sed 's,^.*href=",,g' | cut -d \" -f1)
 APPHOME="prismlauncher.org" 
 #---------------------------------------------------------------------
@@ -45,7 +45,7 @@ echo
 echo
 echo
 echo
-echo -e "${X}PREPARING $APPNAME-LAUNCHER INSTALLER, PLEASE WAIT . . . ${X}"
+echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
 echo
 echo 
 echo
@@ -159,10 +159,10 @@ echo
 
 sleep 0.33
 echo
-echo -e "${X}THIS WILL INSTALL $APPNAME-LAUNCHER FOR BATOCERA"
+echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${X}$APPNAME-LAUNCHER WILL BE AVAILABLE IN PORTS"
+echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
@@ -286,10 +286,10 @@ echo
 sleep 0.33
 
 echo
-echo -e "${W}THIS WILL INSTALL $APPNAME-LAUNCHER FOR BATOCERA"
+echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}$APPNAME-LAUNCHER WILL BE AVAILABLE IN PORTS"
+echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
@@ -319,7 +319,7 @@ rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 # --------------------------------------------------------------------
 # DOWNLOAD
-echo -e "${G}DOWNLOADING${W} $APPNAME-LAUNCHER"
+echo -e "${G}DOWNLOADING${W} $APPNAME"
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
