@@ -15,7 +15,7 @@
 ######################################################################
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
-APPNAME=prism-launcher
+APPNAME=prism
 APPLINK=$(curl https://prismlauncher.org/download/linux/ | grep AppImage | sed 's,^.*href=",,g' | cut -d \" -f1)
 APPHOME="prismlauncher.org" 
 #---------------------------------------------------------------------
@@ -159,10 +159,10 @@ echo
 
 sleep 0.33
 echo
-echo -e "${X}THIS WILL INSTALL MULTIMC-LAUNCHER FOR BATOCERA"
+echo -e "${X}THIS WILL INSTALL $APPNAME-LAUNCHER FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
-echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
+echo -e "${X}$APPNAME-LAUNCHER WILL BE AVAILABLE IN PORTS"
 echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
@@ -280,10 +280,10 @@ echo
 sleep 0.33
 
 echo
-echo -e "${W}THIS WILL INSTALL MULTIMC-LAUNCHER FOR BATOCERA"
+echo -e "${W}THIS WILL INSTALL $APPNAME-LAUNCHER FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
-echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
+echo -e "${W}$APPNAME-LAUNCHER WILL BE AVAILABLE IN PORTS"
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
