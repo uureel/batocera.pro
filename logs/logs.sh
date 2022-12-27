@@ -40,7 +40,7 @@ launcher=/userdata/system/pro/logs/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
-echo 'DISPLAY=:0.0 xterm -en en_US.UTF-8 -u8 -bg black -fg white -fa Monospace -fs 4 -sb -e bash -c "/usr/bin/logs 2>/dev/null" 2>/dev/null &' >> $launcher
+echo 'DISPLAY=:0.0 xterm -en en_US.UTF-8 -u8 -bg black -fg white -fa Monospace -fs 5 -sb -e bash -c "/usr/bin/logs 2>/dev/null" 2>/dev/null &' >> $launcher
 dos2unix $launcher
 chmod a+x $launcher
 rm /userdata/system/pro/$appname/extra/command 2>/dev/null
