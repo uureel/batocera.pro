@@ -410,10 +410,16 @@ echo; #echo -e '- - - - - - -'; echo
 echo -e "${G}> ${W}$APPNAME INSTALLED ${G}OK${W}"
 echo
 echo
-if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
-echo -e "${R}--------------------------------------------${W}"
-echo -e "${R}YOU ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
-echo -e "${R}--------------------------------------------${W}"
+if [[ -e "/usr/bin/java" ]]; then
+  if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
+  echo -e "${R}-------------------------------------------------${W}"
+  echo -e "${R}YOU WILL ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
+  echo -e "${R}-------------------------------------------------${W}"
+  fi
+else
+  echo -e "${R}-------------------------------------------------${W}"
+  echo -e "${R}YOU WILL ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
+  echo -e "${R}-------------------------------------------------${W}"  
 fi
 sleep 4
 # reaload for ports file
