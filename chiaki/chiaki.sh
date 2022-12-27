@@ -14,12 +14,12 @@
 ######################################################################
 ######################################################################
 #--------------------------------------------------------------------- 
-#       DEFINE APP INFO >>
+# DEFINE APP INFO >>
 APPNAME="chiaki"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
 APPLINK=https://git.sr.ht/~thestr4ng3r/chiaki/refs/download/v2.1.1/Chiaki-v2.1.1-Linux-x86_64.AppImage
 APPHOME="git.sr.ht/~thestr4ng3r/chiaki"
 #---------------------------------------------------------------------
-#       DEFINE LAUNCHER COMMAND >>
+# DEFINE LAUNCHER COMMAND >>
 COMMAND='mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null; HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$appname'/home DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
 #--------------------------------------------------------------------- 
 ######################################################################
