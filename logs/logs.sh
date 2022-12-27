@@ -59,7 +59,7 @@ f1shortcut=/usr/share/applications/$appname.desktop
 dos2unix $shortcut
 chmod a+x $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
-#
+# 
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/logs/extra/startup
 rm -rf $pre 2>/dev/null
