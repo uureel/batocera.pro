@@ -1,0 +1,113 @@
+{
+    "actions_player1": [
+        {
+            "trigger": "up",
+            "type": "key",
+            "target": [
+              "KEY_LEFTSHIFT",
+              "KEY_PAGEUP"
+          ]
+        },
+        {
+            "trigger": "down",
+            "type": "key",
+            "target": [
+              "KEY_LEFTSHIFT",
+              "KEY_PAGEDOWN"
+          ]
+        },
+        {
+            "trigger": "a",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "b",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "x",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "y",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "start",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "joystick1up",
+            "type": "key",
+            "target": [
+              "KEY_LEFTSHIFT",
+              "KEY_PAGEUP"
+          ]
+        },
+        {
+            "trigger": "joystick1down",
+            "type": "key",
+            "target": [
+              "KEY_LEFTSHIFT",
+              "KEY_PAGEDOWN"
+          ]
+        },
+        {
+            "trigger": "select",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "pageup",
+            "type": "key",
+            "target": [
+              "KEY_LEFTSHIFT",
+              "KEY_PAGEUP"
+          ]
+        },
+        {
+            "trigger": "pagedown",
+            "type": "key",
+            "target": [
+              "KEY_LEFTSHIFT",
+              "KEY_PAGEDOWN"
+          ]
+        },
+        {
+            "trigger": "l2",
+            "type": "key",
+            "target": [
+              "KEY_LEFTSHIFT",
+              "KEY_PAGEUP"
+          ]
+        },
+        {
+            "trigger": "r2",
+            "type": "key",
+            "target": [
+              "KEY_LEFTSHIFT",
+              "KEY_PAGEDOWN"
+          ]
+        },
+        {
+            "trigger": "joystick2",
+            "type": "mouse"
+        },
+        {
+            "trigger": [
+                "hotkey",
+                "start"
+            ],
+            "type": "key",
+            "target": [
+              "KEY_LEFTALT",
+              "KEY_F4"
+          ]
+        }
+    ]
+}
