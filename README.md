@@ -10,7 +10,7 @@ in the background & you can Alt+Tab between them, <br>
 <br>
 Most of these apps are official AppImages <br>
 Some unofficial AppImages, some official binaries <br>
-& a few are official wine versions <br>
+& a few are wine versions <br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
