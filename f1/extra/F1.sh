@@ -9,5 +9,6 @@ chmod a+x /userdata/roms/ports/F1.press 2>/dev/null
 chmod a+x /userdata/roms/ports/F1.sh 2>/dev/null
 cp /userdata/system/configs/libxdo.so.3 /lib/ 2>/dev/null
 cp /userdata/system/configs/xdotool /usr/bin/ 2>/dev/null
+unclutter-remote -s
 su -c "su -c "/userdata/roms/ports/F1.press" root &" root &
 
