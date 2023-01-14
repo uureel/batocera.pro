@@ -131,9 +131,6 @@ echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
-echo
-echo -e "${X}. . .${X}" 
 echo
 # // end of console info. 
 #
@@ -414,7 +411,8 @@ done
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer '$APPNAME' '$appname' '$APPPATH' '$APPLINK' '$ORIGIN'" 2>/dev/null
+#  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer '$APPNAME' '$appname' '$APPPATH' '$APPLINK' '$ORIGIN'" 2>/dev/null
+	batocera-pro-installer
 # --------------------------------------------------------------------
 # BATOCERA.PRO/DISCORD INSTALLER //
 ##################################
