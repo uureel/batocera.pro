@@ -76,64 +76,6 @@ killall wget 2>/dev/null && killall Discord 2>/dev/null && killall Discord 2>/de
 ######################################################################
 ######################################################################
 #
-# --------------------------------------------------------------------
-# show console/ssh info: 
-clear
-echo
-echo
-echo
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo
-echo
-echo
-echo
-# --------------------------------------------------------------------
-sleep 0.33
-# --------------------------------------------------------------------
-clear
-echo
-echo
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${X}--------------------------------------------------------"
-echo
-echo
-echo
-# --------------------------------------------------------------------
-sleep 0.33
-# --------------------------------------------------------------------
-clear
-echo
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo
-echo
-# --------------------------------------------------------------------
-sleep 0.33
-# --------------------------------------------------------------------
-clear
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo
-# --------------------------------------------------------------------
-sleep 0.33
-echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
-echo -e "${X}USING $ORIGIN"
-echo
-echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
-echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
-echo
-echo
-# // end of console info. 
-#
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 #
@@ -388,7 +330,7 @@ echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
 sleep 4
 }
-export -f batocera-pro-installer 2>/dev/null
+export -f batocera-pro-installer
 # --------------------------------------------------------------------
 # include display output: 
 function get-xterm-fontsize {
@@ -400,15 +342,15 @@ cols=$(cat $cfg | tail -n 1) 2>/dev/null
 TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 }
 export -f get-xterm-fontsize 2>/dev/null
-get-xterm-fontsize 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg
-cols=$(cat $cfg | tail -n 1) 2>/dev/null
-until [[ "$cols" != "80" ]] 
-do
-get-xterm-fontsize 2>/dev/null
-cols=$(cat $cfg | tail -n 1) 2>/dev/null
-done 
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
+#get-xterm-fontsize 2>/dev/null
+#cfg=/userdata/system/pro/.dep/display.cfg
+#cols=$(cat $cfg | tail -n 1) 2>/dev/null
+#until [[ "$cols" != "80" ]] 
+#do
+#get-xterm-fontsize 2>/dev/null
+#cols=$(cat $cfg | tail -n 1) 2>/dev/null
+#done 
+#TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
 #  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer '$APPNAME' '$appname' '$APPPATH' '$APPLINK' '$ORIGIN'" 2>/dev/null
