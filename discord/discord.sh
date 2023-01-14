@@ -8,7 +8,7 @@
 APPNAME=DISCORD # for installer info
 appname=discord # directory name /userdata/system/pro/...
 APPPATH=/userdata/system/pro/discord/Discord.AppImage
-APPLINK=$(curl -s https://api.github.com/repos/srevinsaju/discord-appimage/releases | grep stable | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g' | head -n1)
+APPLINK=$(curl -s https://api.github.com/repos/srevinsaju/discord-appimage/releases | grep "download/ptb" | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g' | head -n1)
 ORIGIN=GITHUB.COM/SREVINSAJU/DISCORD-APPIMAGE # credit & info 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
