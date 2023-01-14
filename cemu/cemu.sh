@@ -214,10 +214,6 @@ echo
 echo -e "${W}TO UNINSTALL AND RESTORE BATOCERA CEMU:"
 echo -e "${W}REMOVE /USERDATA/SYSTEM/PRO/CEMU FOLDER & RESTART"
 echo
-echo -e "${R}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-echo
-echo -e "${R}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 else
 echo
