@@ -77,56 +77,6 @@ killall Cemu 2>/dev/null && killall cemu 2>/dev/null && sleep 0.5
 ######################################################################
 ######################################################################
 ######################################################################
-#
-# --------------------------------------------------------------------
-# show console/ssh info: 
-clear
-echo
-echo
-echo
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo
-echo
-echo
-echo
-# --------------------------------------------------------------------
-sleep 0.33
-# --------------------------------------------------------------------
-clear
-echo
-echo
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${X}--------------------------------------------------------"
-echo
-echo
-echo
-# --------------------------------------------------------------------
-sleep 0.33
-# --------------------------------------------------------------------
-clear
-echo
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo
-echo
-# --------------------------------------------------------------------
-sleep 0.33
-# --------------------------------------------------------------------
-clear
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo -e "${X}--------------------------------------------------------"
-echo
-# --------------------------------------------------------------------
-sleep 0.33
 # 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # check system before proceeding
@@ -139,12 +89,6 @@ echo
 echo -e "${X}TO UNINSTALL:"
 echo -e "${X}REMOVE FOLDER /USERDATA/SYSTEM/PRO/CEMU & RESTART"
 echo
-echo
-echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
-echo
-echo
-echo -e "${X}. . .${X}" 
-echo
 else
 echo -e "${RED}--------------------------------------------------------"
 echo -e "${RED}ERROR: SYSTEM NOT SUPPORTED"
@@ -153,13 +97,8 @@ echo
 echo -e "${X}YOU NEED X86_64 BATOCERA V36+${X}"
 echo -e "${X}TO USE LINUX CEMU BUILDS${X}"
 echo
-echo
-echo
 fi
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
-# // end of console info. 
 #
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -393,34 +332,10 @@ sleep 1.333
 echo -e "${L}-----------------------------------------------------------------------"
 echo -e "${W}$APPNAME $LATEST ${G}INSTALLED OK"
 echo -e "${L}-----------------------------------------------------------------------"
-sleep 3
+sleep 2
 }
 export -f batocera-pro-installer 2>/dev/null
-# --------------------------------------------------------------------
-# include display output: 
-function get-xterm-fontsize {
-tput=/userdata/system/pro/.dep/tput; chmod a+x $tput; 
-cp /userdata/system/pro/.dep/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null
-DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null
-cols=$(cat $cfg | tail -n 1) 2>/dev/null
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
-}
-export -f get-xterm-fontsize 2>/dev/null
-get-xterm-fontsize 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg
-cols=$(cat $cfg | tail -n 1) 2>/dev/null
-until [[ "$cols" != "80" ]] 
-do
-get-xterm-fontsize 2>/dev/null
-cols=$(cat $cfg | tail -n 1) 2>/dev/null
-done 
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
-# --------------------------------------------------------------------
-# RUN ALL:
-# |
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer $APPNAME $appname $APPPATH $APPLINK $ORIGIN $LATEST" 2>/dev/null
-# --------------------------------------------------------------------
-# BATOCERA.PRO/CEMU INSTALLER-UPDATER //
-#######################################
+# ------------------------------------------------------------------------------------
+batocera-pro-installer "$APPNAME" "$appname" "$APPPATH" "$APPLINK" "$ORIGIN" "$LATEST"
+# ------------------------------------------------------------------------------------
 exit 0
