@@ -412,7 +412,7 @@ TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
 #  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer '$APPNAME' '$appname' '$APPPATH' '$APPLINK' '$ORIGIN'" 2>/dev/null
-	batocera-pro-installer
+	batocera-pro-installer "$APPNAME" "$appname" "$APPPATH" "$APPLINK" "$ORIGIN"
 # --------------------------------------------------------------------
 # BATOCERA.PRO/DISCORD INSTALLER //
 ##################################
