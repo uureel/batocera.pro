@@ -17,7 +17,7 @@
 #  DEFINE APP INFO > 
 APPNAME=hyper 
 APPHOME="github.com/vercel/hyper"
-latestv=$curl -L https://github.com/vercel/hyper/releases/latest | grep "/hyper/releases/tag/" | tail -n1 | sed 's,^.*/tag/v,,g' | cut -d \" -f1)
+latestv=$(curl -L https://github.com/vercel/hyper/releases/latest | grep "/hyper/releases/tag/" | tail -n1 | sed 's,^.*/tag/v,,g' | cut -d \" -f1)
 APPLINK=https://github.com/vercel/hyper/releases/download/v$latestv/Hyper-$latestv.AppImage
 #---------------------------------------------------------------------
 #  DEFINE LAUNCHER COMMAND >
