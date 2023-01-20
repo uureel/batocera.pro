@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Icon=/userdata/system/pro/sunshine/extra/sunshined.png
+Exec=/userdata/system/pro/sunshine/Launcher
+Terminal=false
+Type=Application
+Categories=Game;batocera.linux;
+Name=sunshine-restart

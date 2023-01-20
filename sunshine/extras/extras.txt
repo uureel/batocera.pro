@@ -1,0 +1,8 @@
+extras.txt
+apps.json
+sunshine.conf
+batocera.png
+sunshined.desktop
+sunshine.desktop
+sunshined.png
+sunshine.png
