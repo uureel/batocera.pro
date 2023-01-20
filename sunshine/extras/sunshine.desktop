@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
-Icon=/userdata/system/pro/sunshine/extra/sunshine.png
-Exec=/userdata/system/pro/sunshine/Launcher
+Icon=/userdata/system/fi/sunshine/extra/sunshine.png
+Exec=/userdata/system/fi/sunshine/launcher.sh
 Terminal=false
 Type=Application
 Categories=Game;batocera.linux;
