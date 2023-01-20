@@ -2,6 +2,9 @@ extras.txt
 apps.json
 boost.sh
 batocera.png
+custom.sh
+launcher.sh
+startup.sh
 sunshine.conf
 sunshined.desktop
 sunshine.desktop
