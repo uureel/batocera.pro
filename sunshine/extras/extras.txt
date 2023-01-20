@@ -1,7 +1,8 @@
 extras.txt
 apps.json
-sunshine.conf
+boost.sh
 batocera.png
+sunshine.conf
 sunshined.desktop
 sunshine.desktop
 sunshined.png
