@@ -81,7 +81,7 @@ echo -e "${A}  ${X}        "
 #echo -e "${A}╚╝${X}        "
 echo
 sleep 8
-rm -rf /tmp/batocera.pro*
+# rm -rf /tmp/batocera.pro* 2>/dev/null
 curl http://127.0.0.1:1234/reloadgames
 }
 export -f say-bye 
@@ -231,7 +231,7 @@ echo -e "${A}··${X}  done, $(echo "$size") MB"
 							#echo -e "${A}  ${X}        "
 		cp $prefix/extras/launcher.sh $prefix/ 2>/dev/null
 		cd /userdata/system/
-		rm -rf "$temp"
+		rm -rf "$temp" 2>/dev/null
 sleep 2
 }
 export -f get-extras
@@ -286,7 +286,7 @@ echo -e "${A}██${X}  ${A}downloading:   $(echo "$app")"
 							echo -e "${A}  ${X}  done,   "$size""
 							#echo -e "${A}  ${X}        "
 			cd /userdata/system/
-			rm -rf "$temp"
+			rm -rf "$temp" 2>/dev/null
 sleep 2
 }
 export -f download-dependencies 
@@ -394,8 +394,8 @@ port="$(cat /tmp/batocera.pro-config | grep "port=" | cut -d "=" -f2)"
 			cp "$temp/$name" /userdata/roms/ports/
 				cp -rL "$prefix/extras/*.sh.keys" "/userdata/roms/ports/$name.keys" 2>/dev/null
 		cd /userdata/system/
-		rm -rf "$temp"
-		rm /tmp/batocera.pro-port
+		rm -rf "$temp" 2>/dev/null
+		rm /tmp/batocera.pro-port 2>/dev/null
 		echo "added" >> /tmp/batocera.pro-port
 sleep 2
 }
