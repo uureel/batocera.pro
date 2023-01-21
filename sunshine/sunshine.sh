@@ -25,27 +25,12 @@ custom="" 								# run app-custom/post/install script, default=/extras/custom.s
 port="" 								# add port (name), none = /extras/port.sh (to $app.sh), or /extras/launcher.sh 
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
-# prepare settings for pro-framework v1 
-cfg=/tmp/batocera.pro-config
-	rm $cfg 2>/dev/null
-		echo -e "app=$app" >> $cfg
-		echo -e "url=$url" >> $cfg
-		echo -e "prefix=$prefix" >> $cfg 
-		echo -e "ext=$ext" >> $cfg
-		echo -e "dep=$dep" >> $cfg
-		echo -e "repo=$repo" >> $cfg
-		echo -e "mode=$mode" >> $cfg
-		echo -e "theme=$theme" >> $cfg
-		echo -e "loader=$loader" >> $cfg
-		echo -e "custom=$custom" >> $cfg
-		echo -e "port=$port" >> $cfg
-mkdir -p "$prefix/$app/extras" 
-#--------------------------------------------------------------------------------------------------------------------------------
 #################################################################################################################################
 # start pro-framework 
 wget -q -O /tmp/batocera.pro-framework.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/pro-framework.sh ; 
 cd /tmp/ ; dos2unix /tmp/batocera.pro-framework.sh ; 
 source /tmp/batocera.pro-framework.sh 
+start-pro-framework
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
 say-hi

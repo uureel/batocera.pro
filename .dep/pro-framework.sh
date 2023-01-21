@@ -30,7 +30,7 @@ A=$RED
 
 
 #-------------------------------------
-function start() {
+function start-pro-framework() {
 cd /tmp/
 cfg=/tmp/batocera.pro-config
 	rm $cfg 2>/dev/null
@@ -42,9 +42,10 @@ cfg=/tmp/batocera.pro-config
 		echo -e "repo=$repo" >> $cfg
 		echo -e "port=$port" >> $cfg
 		echo -e "mode=$mode" >> $cfg
-mkdir -p "$prefix/$app/extras" 
+if [[ "$prefix" = "" ]]; then prefix=/userdata/system/pro/$app; fi	
+mkdir -p "$prefix/extras" 2>/dev/null 
 }
-export -f start
+export -f start-pro-framework
 #-------------------------------------
 
 
