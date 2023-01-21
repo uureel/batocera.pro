@@ -23,8 +23,9 @@ WHITE='\033[0;37m'        # white
 BLACK='\033[0;30m'        # black
 ###########################
 #-------------------------------------
-X=$WHITE
+X=$BLUE
 A=$BLUE
+H=$WHITE
 #-------------------------------------
 
 
@@ -75,7 +76,7 @@ prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 clear
 echo
 echo
-echo -e "${A}██${X}  ${A}batocera.pro "$app" installer "
+echo -e "${A}██${X}  ${H}batocera.pro "$app" installer "
 sleep 2
 }
 export -f say-hi
@@ -89,12 +90,12 @@ app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 echo
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${A}"$app" installed to $prefix"
+echo -e "${A}██${X}  ${H}"$app" installed ${A}to $prefix"
 port=$(cat /tmp/batocera.pro-port | tail -n 1 | grep "added")
 if [[ "$port" != "" ]]; then
-	echo -e "${A}  ${X}  & available in f1->applications and ports"
+	echo -e "${A}  ${X}  ${A}& available in f1->applications and ports"
 else
-	echo -e "${A}  ${X}  & available in f1->applications"
+	echo -e "${A}  ${X}  ${A}& available in f1->applications"
 fi
 echo -e "${A}  ${X}        "
 #echo -e "${A}╚╝${X}        "
@@ -151,7 +152,7 @@ prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 		mkdir -p "$temp"
 		mkdir -p "$to" 
 			cd "$temp"
-				echo -e "${A}██${X}  ${A}downloading:   "$from""
+				echo -e "${A}██${X}  ${H}downloading:   "$from""
 					curl --progress-bar --remote-name --location "$1"
 						size=$(du -h "$temp" | awk '{print $1}')
 							echo -e "${A}  ${X}  downloaded,  "$size""
@@ -178,7 +179,7 @@ name="$3"
 if [[ "$name" != "" ]]; then name="$name"; else name="$app"; fi
 echo
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${A}downloading $(echo "$app")"
+echo -e "${A}██${X}  ${H}downloading $(echo "$app")"
 	if [[ "$2" = "" ]]; then to="$prefix"; fi
 		time=$(date +"%y%m%d-%H%M%S")
 		temp="/tmp/batocera.pro-$time"
@@ -186,8 +187,8 @@ echo -e "${A}██${X}  ${A}downloading $(echo "$app")"
 		mkdir -p "$to" 
 		size_before=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 			cd "$temp"
-				echo -e "${A}  ${X}  from  >  ${X}$(echo "$from" | sed 's,https://,,g' | sed 's,http://,,g')${A}"
-				echo -e "${A}  ${X}  to  >  ${X}$(echo "$to")/$(echo "$app").AppImage${A}"
+				echo -e "${A}  ${X}  from > ${X}$(echo "$from" | sed 's,https://,,g' | sed 's,http://,,g')${A}"
+				echo -e "${A}  ${X}  to   > ${X}$(echo "$to")/$(echo "$app").AppImage${A}"
 					curl --progress-bar --remote-name --location "$from"
 					cp -rL $temp/* $to/$app.AppImage
 					chmod a+x $to/$app.AppImage  
@@ -213,9 +214,9 @@ export -f get-appimage
 function get-extras() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
-echo
-echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${A}downloading additional files"
+#echo
+#echo -e "${A}  ${X}"
+#echo -e "${A}██${X}  ${A}downloading additional files"
 	xurl=https://raw.githubusercontent.com/uureel/batocera.pro/main/$app/extras
 	x=https://raw.githubusercontent.com/uureel/batocera.pro/main/$app/extras/extras.txt
 	if [[ "$2" = "" ]]; then extras="$prefix/extras/extras.txt"; fi
@@ -229,7 +230,10 @@ echo -e "${A}██${X}  ${A}downloading additional files"
 					wget -q "$x" 
 					nrfiles=$(cat $temp/extras.txt | wc -l)
 					if [[ "$nrfiles" < "1" ]]; then exit 1; fi
-echo -e "${A}  ${X}  $nrfiles files found"
+echo
+echo -e "${A}  ${X}"
+echo -e "${A}██${X}  ${H}downloading additional files ${A}$nrfiles files found"
+#echo -e "${A}  ${X}  $nrfiles files found"
 					f=1; while [[ "$f" -le "$nrfiles" ]]
 					do 
 						thisfile="$(cat $temp/extras.txt | sed ''$f'q;d')"
@@ -267,7 +271,7 @@ prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 	chmod a+x "$prefix/extras/custom.sh"
 echo
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${A}installing"
+echo -e "${A}██${X}  ${H}installing"
 	$prefix/extras/custom.sh 2>/dev/null
 echo -e "${A}  ${X}  done "
 	sleep 0.2
@@ -283,7 +287,7 @@ export -f add-custom
 function download-dependencies() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
-echo -e "${A}██${X}  ${A}downloading:   $(echo "$app")"
+echo -e "${A}██${X}  ${H}downloading:   $(echo "$app")"
 	from="$1"
 	to="$2"
 	if [[ "$2" = "" ]]; then to="/userdata/system/fi/$app"; fi
@@ -318,7 +322,7 @@ function prepare-settings() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${A}preparing config"
+echo -e "${A}██${X}  ${H}preparing config"
 	cfg=/tmp/batocera.pro-config
 	 rm /tmp/batocera.pro-config 2>/dev/null
 	 wget -q -O /tmp/batocera.pro-settings
@@ -337,7 +341,7 @@ function set-config() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${A}preparing config"
+echo -e "${A}██${X}  ${H}preparing config"
 	cfg=/tmp/batocera.pro-config
 	 rm /tmp/batocera.pro-config 2>/dev/null
 			echo "app=$app" >> $cfg
@@ -360,7 +364,7 @@ function prepare-launcher() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${A}preparing launcher"
+echo -e "${A}██${X}  ${H}preparing launcher"
 	cfg=/tmp/batocera.pro-config
 	repo=""
 	app=$(cat $cfg | grep "app=" | cut -d "=" -f2)
@@ -430,7 +434,7 @@ function add-autostart() {
 #echo -e "${A}  ${X}"
 #echo -e "${A}  ${X}"
 #echo -e "${A}  ${X}"
-#echo -e "${A}██${X}  ${A}preparing launchers"
+#echo -e "${A}██${X}  ${H}preparing launchers"
 csh=/userdata/system/custom.sh; dos2unix $csh
 startup="/userdata/system/pro-custom.sh"
 time=$(date +"%y%m%d-%H%M%S")
@@ -438,11 +442,9 @@ temp="/tmp/batocera.pro-autostart"
 rm -rf /tmp/batocera.pro-autostart 2>/dev/null
 mkdir -p /tmp/batocera.pro-autostart 2>/dev/null
 
-
 if [[ -f $csh ]]; then 
 cp "$csh" "$csh-backup-$time"
 fi
-
 
 if [[ -f $csh ]];
    then
@@ -466,7 +468,7 @@ if [[ -f $csh ]];
          done
          # 
        echo -e '#!/bin/bash' >> $tmp2
-       echo -e "\n$startup \n" >> $tmp2          
+       echo -e "\n$startup & \n" >> $tmp2          
       	if [[ -e "$tmp1" ]] && [[ "$(cat $tmp1 | wc -l)" > "0" ]]; then       
       	cat $tmp1 | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp2
    		fi
@@ -475,7 +477,7 @@ if [[ -f $csh ]];
        		chmod a+x $csh  
    else  #(!f csh)   
        echo -e '#!/bin/bash' >> $csh
-       echo -e "\n$startup\n" >> $csh  
+       echo -e "\n$startup & \n" >> $csh  
        dos2unix $csh; chmod a+x $csh  
 fi 
 dos2unix $csh
@@ -484,81 +486,74 @@ chmod a+x $csh
 
 
 
+pro=/userdata/system/pro
 procustomsh=/userdata/system/pro-custom.sh
 mkdir -p /userdata/system/pro 2>/dev/null
 cd /userdata/system/pro
-rm $temp/listpro.txt 2>/dev/null
-ls -d */ >> $temp/listpro.txt
-nr=$(cat $temp/listpro.txt | wc -l)
-L=1
-while [ "$L" -le "$nr" ]
-do
-	thisL=$(cat $temp/listpro.txt | sed ''$L'q;d')
-	oldstartup=$(echo "$thisL/extra/startup.sh" | sed 's,//,/,g')
-	newstartup=$(echo "$thisL/extras/startup.sh" | sed 's,//,/,g')
-		if [[ -e "oldstartup" ]]; then
-		   echo "$oldstartup" >> $procustomsh
-		fi 
-		if [[ -e "newstartup" ]]; then
-		   echo "$newstartup" >> $procustomsh
-		fi
-	L=$(($L + 1))
-done
-dos2unix $procustomsh ; chmod a+x $procustomsh
-cd /userdata/system/ 
+rm /tmp/listpro.txt 2>/dev/null
+ls -d */ >> /tmp/listpro.txt
+if [[ "$(cat /tmp/listpro.txt | wc -l)" > "0" ]]; then
+cp $procustomsh /tmp/oldprocustom.sh 2>/dev/null
+rm $procustomsh 2>/dev/null
+echo "#!/bin/bash" >> $procustomsh
+	nr=$(cat /tmp/listpro.txt | wc -l)
+	L=1
+	while [ "$L" -le "$nr" ]
+	do
+		thisL=$(cat /tmp/listpro.txt | sed ''$L'q;d')
+		oldstartup=$(echo "$thisL/extra/startup" | sed 's,//,/,g')
+		newstartup=$(echo "$thisL/extras/startup.sh" | sed 's,//,/,g')
+			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup")" = "" ]]; then
+			   echo "$pro/$oldstartup" >> $procustomsh
+			fi 
+			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup")" != "" ]]; then
+			   echo "#$pro/$oldstartup" >> $procustomsh
+			fi 
+			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup")" = "" ]]; then
+			   echo "$pro/$newstartup" >> $procustomsh
+			fi
+			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup")" = "" ]]; then
+			   echo "#$pro/$newstartup" >> $procustomsh
+			fi
+		L=$(($L + 1))
+	done
+	dos2unix $procustomsh ; chmod a+x $procustomsh
+	cd /userdata/system/ 
+fi
 
 
 
+csh=/userdata/system/custom.sh; dos2unix $csh
+check1="/userdata/system/pro/"
+check2="/extra/startup"
+time=$(date +"%y%m%d-%H%M%S")
+temp="/tmp/batocera.pro-autostart"
+rm -rf /tmp/batocera.pro-autostart 2>/dev/null
+mkdir -p /tmp/batocera.pro-autostart 2>/dev/null
 
+if [[ -f $csh ]]; then 
+cp "$csh" "$csh-backup-$time"
+fi
 
-ash=/userdata/system/pro-custom.sh
-dos2unix $ash
-startup="$prefix/extras/startup.sh"
-check="$app/extras/startup.sh"
-if [[ -f $ash ]];
-   then
-      tmp1=$temp/tash1.txt
-      tmp2=$temp/tash2.txt
+if [[ -f $csh ]]; then
+      tmp1=$temp/tcsh1.txt
+      tmp2=$temp/tcsh2.txt
       remove="$startup"
       rm $tmp1 2>/dev/null; rm $tmp2 2>/dev/null
-      nl=$(cat "$ash" | wc -l); nl1=$(($nl + 1))
-         L=1
-         while [[ "$L" -le "$nl1" ]]
-         do
-            Ln=$(cat $ash | sed ''$L'q;d' )
-               if [[ "$(echo "$Ln" | grep "$remove")" != "" ]]; then :; 
-                else 
-                  if [[ "$L" = "1" ]]; then
-                        if [[ "$(echo "$Ln" | grep "#" | grep "/bin/" | grep "bash" )" = "" ]]; then :; 
-                     	else echo "$Ln" >> "$tmp1"
-                     	fi
-                  fi
-               	if [[ "$L" > "1" ]]; then
-                     	if [[ "$(echo "$Ln" | grep "$check")" != "" ]]; then
-                        echo "$Ln" >> $tmp1;
-                     	fi
-                  fi
+      nl=$(cat "$csh" | wc -l); nl1=$(($nl + 1))
+         l=1; 
+         for l in $(seq 1 $nl1); do
+            ln=$(cat "$csh" | sed ""$l"q;d" );
+               if [[ "$(echo "$ln" | grep "$check1")" != "" ]] && [[ "$(echo "$ln" | grep "$check2")" != "" ]]; 
+               	then :; else
+                  echo "$ln" >> $tmp1;
                fi            
-         L=$(($L+1))
+            ((l++))
          done
-         # 
-      echo -e '#!/bin/bash' >> $tmp2
-      echo -e "\n$startup \n" >> $tmp2
-	      if [[ -e "$tmp1" ]] && [[ "$(cat $tmp1 | wc -l)" > "0" ]]; then       
-	      cat $tmp1 | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp2
-	   	fi
-      		cp $tmp2 $ash; 
-      		dos2unix $ash; 
-      		chmod a+x $ash  
-   else  #(!f ash)   
-      echo -e '#!/bin/bash' >> $ash
-      if [[ "$(cat "$ash" | grep "$check")" != "" ]]; then
-      echo -e "\n$startup\n" >> $ash  
-    	fi
-      dos2unix $ash; chmod a+x $ash  
 fi 
-dos2unix $ash
-chmod a+x $ash
+cp "$tmp1" "$csh"
+dos2unix "$csh"
+chmod a+x "$csh"
 
 sleep 2
 } 

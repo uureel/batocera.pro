@@ -10,6 +10,6 @@ elif [[ "$(ls /usr/share/applications/ | grep "sunshine.desktop")" != "" ]]; the
 fi 
 killall -9 sunshine 1>/dev/null 2>/dev/null & 
 sleep 1 
-/userdata/system/fi/sunshine/extras/boost.sh & 
-/userdata/system/fi/sunshine/sunshine.AppImage 
+/userdata/system/pro/sunshine/extras/boost.sh & 
+/userdata/system/pro/sunshine/sunshine.AppImage 
  
