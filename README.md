@@ -267,6 +267,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L sublime.batocera.pro | bash```
 <br>
 <br> 
+<img src="https://github.com/uureel/batocera.pro/raw/main/sunshine/extras/sunshine.png" width=48 height=48 /><b><i>&nbsp;SUNSHINE</i></b><br>
+```curl -L sunshine.batocera.pro | bash```
+<br>
+<br> 
 <img src="https://github.com/uureel/batocera.pro/raw/main/switch/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SWITCH-EMULATION</i></b><br>
 ```curl -L switch.batocera.pro | bash```
 <br>
