@@ -44,7 +44,8 @@ cfg=/tmp/batocera.pro-config
 		echo -e "mode=$mode" >> $cfg
 if [[ "$prefix" = "" ]]; then prefix=/userdata/system/pro/$app; fi	
 mkdir -p "$prefix/extras" 2>/dev/null 
-}
+mkdir -p ~/pro/.dep 2>/dev/null  
+} 
 export -f start-pro-framework
 #-------------------------------------
 
@@ -554,23 +555,24 @@ export -f add-autostart
          rm /tmp/batocera.pro-font 2>/dev/null
 
 # include display output: 
-   tput=/userdata/system/switch/extra/batocera-switch-tput
-   libtinfo=/userdata/system/switch/extra/batocera-switch-libtinfo.so.6
-   mkdir /userdata/system/switch 2>/dev/null; mkdir /userdata/system/switch/extra 2>/dev/null
+   tput=/userdata/system/pro/.dep/tput
+   libtinfo=/userdata/system/pro/.dep/libtinfo.so.6
+   mkdir -p /userdata/system/pro/.dep 2>/dev/null
       if [[ ( -e "$tput" && "$(wc -c "$tput" | awk '{print $1}')" < "444" ) || ( ! -e "$tput" ) ]]; then
          rm "$tput" 2>/dev/null
-         wget -q -O /userdata/system/switch/extra/batocera-switch-tput https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-tput
+         wget -q -O "$tput" https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.tput
       fi
       if [[ ( -e "$libtinfo" && "$(wc -c "$libtinfo" | awk '{print $1}')" < "444" ) || ( ! -e "$libtinfo" ) ]]; then
          rm "$libtinfo" 2>/dev/null
-         wget -q -O /userdata/system/switch/extra/batocera-switch-libtinfo.so.6 https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-libtinfo.so.6
+         wget -q -O $libtinfo https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.libtinfo.so.6
       fi
    chmod a+x "$tput" 2>/dev/null
    cp "$libtinfo" "/lib/libtinfo.so.6" 2>/dev/null
+   cp "$tput" /usr/bin/tput 2>/dev/null
 
             rm /tmp/cols 2>/dev/null
             killall -9 xterm 2>/dev/null
-            DISPLAY=:0.0 xterm -fullscreen -fg black -bg black -fa Monospace -en UTF-8 -e bash -c "unset COLUMNS & /userdata/system/switch/extra/batocera-switch-tput cols >> /tmp/cols" 2>/dev/null
+            DISPLAY=:0.0 xterm -fullscreen -fg black -bg black -fa Monospace -en UTF-8 -e bash -c "unset COLUMNS & tput cols >> /tmp/cols" 2>/dev/null
             killall -9 xterm 2>/dev/null
          res=$(xrandr | grep " connected " | awk '{print $3}' | cut -d x -f1)
          columns=$(cat /tmp/cols); echo "$res=$columns" >> "$cfg"
@@ -588,19 +590,20 @@ mode="$(cat /tmp/batocera.pro-config | grep "mode=" | cut -d "=" -f2)"
 theme="$(cat /tmp/batocera.pro-config | grep "theme=" | cut -d "=" -f2)"
 loader="$(cat /tmp/batocera.pro-config | grep "loader=" | cut -d "=" -f2)"
 # include display output: 
-   tput=/userdata/system/switch/extra/batocera-switch-tput
-   libtinfo=/userdata/system/switch/extra/batocera-switch-libtinfo.so.6
-   mkdir /userdata/system/switch 2>/dev/null; mkdir /userdata/system/switch/extra 2>/dev/null
+   tput=/userdata/system/pro/.dep/tput
+   libtinfo=/userdata/system/pro/.dep/libtinfo.so.6
+   mkdir -p /userdata/system/pro/.dep 2>/dev/null
       if [[ ( -e "$tput" && "$(wc -c "$tput" | awk '{print $1}')" < "444" ) || ( ! -e "$tput" ) ]]; then
          rm "$tput" 2>/dev/null
-         wget -q -O /userdata/system/switch/extra/batocera-switch-tput https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-tput
+         wget -q -O "$tput" https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.tput
       fi
       if [[ ( -e "$libtinfo" && "$(wc -c "$libtinfo" | awk '{print $1}')" < "444" ) || ( ! -e "$libtinfo" ) ]]; then
          rm "$libtinfo" 2>/dev/null
-         wget -q -O /userdata/system/switch/extra/batocera-switch-libtinfo.so.6 https://github.com/uureel/batocera-switch/raw/main/system/switch/extra/batocera-switch-libtinfo.so.6
+         wget -q -O $libtinfo https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.libtinfo.so.6
       fi
    chmod a+x "$tput" 2>/dev/null
    cp "$libtinfo" "/lib/libtinfo.so.6" 2>/dev/null
+   cp "$tput" /usr/bin/tput 2>/dev/null
 
 get-xterm-fontsize 2>/dev/null
 #
