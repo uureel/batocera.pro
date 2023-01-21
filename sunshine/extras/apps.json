@@ -13,7 +13,7 @@
                     "undo": "xrandr --output HDMI-1 --mode 1920x1080"
                 }
             ],
-            "image-path": "\/userdata\/system\/fi\/sunshine\/extras\/batocera.png"
+            "image-path": "\/userdata\/system\/pro\/sunshine\/extras\/batocera.png"
         }
     ]
 }
