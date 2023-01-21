@@ -28,7 +28,7 @@ port="" 		# add port (name), none = /extras/port.sh (to $app.sh), or /extras/lau
 #################################################################################################################################
 # start pro-framework 
 cd /tmp/ ; rm /tmp/pro-framework.sh 2>/dev/null ; 
-wget -q -O --no-cache /tmp/pro-framework.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/pro-framework.sh ; 
+wget --no-cache -q -O /tmp/pro-framework.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/pro-framework.sh ; 
 dos2unix /tmp/pro-framework.sh ; source /tmp/pro-framework.sh ; start-pro-framework
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
