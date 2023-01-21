@@ -227,6 +227,7 @@ prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 		mkdir -p $prefix/extras 2>/dev/null
 		size_before=$(du -H $temp | tail -n 1 | awk '{print $1}')
 			cd $temp
+					rm "$x" 2>/dev/null
 					wget -q "$x" 
 					nrfiles=$(cat $temp/extras.txt | wc -l)
 					if [[ "$nrfiles" < "1" ]]; then exit 1; fi
