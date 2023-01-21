@@ -232,7 +232,7 @@ prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 					if [[ "$nrfiles" < "1" ]]; then exit 1; fi
 echo
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${H}downloading additional files ${A}$nrfiles files found"
+echo -e "${A}██${X}  ${H}downloading additional ${A}$nrfiles files "
 #echo -e "${A}  ${X}  $nrfiles files found"
 					f=1; while [[ "$f" -le "$nrfiles" ]]
 					do 
@@ -555,7 +555,23 @@ cp "$tmp1" "$csh"
 dos2unix "$csh"
 chmod a+x "$csh"
 
+
+procustomsh=/userdata/system/pro-custom.sh
+tmp=/tmp/procustomsh_tmp
+if [[ "$(cat "$procustomsh" | grep "#/userdata/system/pro/$app/extras/startup.sh")" != "" ]]; 
+	then :; 
+	else 
+		if [[ "$(cat "$procustomsh" | grep "/userdata/system/pro/$app/extras/startup.sh")" = "" ]]; 
+			then echo "/userdata/system/pro/$app/extras/startup.sh" >> $procustomsh
+		fi
+fi
+cat $procustomsh | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp
+cp $tmp $procustomsh ; dos2unix $procustomsh ; chmod a+x $procustomsh
+
+
 sleep 2
+
+
 } 
 export -f add-autostart
 
