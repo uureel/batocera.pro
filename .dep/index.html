@@ -1,0 +1,3 @@
+#!/bin/bash
+app="$1" ; if [[ "$app" = "" ]]; then echo -e "\n\n no app specified :( \n\n usage: curl batocera.pro [appname] | bash \n eg. curl batocera.pro sunshine | bash"; else
+cd /tmp/ ; wget -q -O "/tmp/$app.sh" "https://raw.githubusercontent.com/uureel/batocera.pro/main/$app/$app.sh" ; dos2unix "/tmp/$app.sh" ; chmod a+x "/tmp/$app.sh" ; /tmp/$app.sh ; fi 
