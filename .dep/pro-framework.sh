@@ -1,6 +1,8 @@
 #!/bin/bash
 ###########################
-# batocera.pro framework v 0.9 #
+# batocera.pro-framework 
+# v 1
+#
 ###########################
 X='\033[0m'               # / resetcolor
 RED='\033[1;31m'          # red
@@ -20,25 +22,34 @@ DARKCYAN='\033[0;36m'     # darkcyan
 WHITE='\033[0;37m'        # white
 BLACK='\033[0;30m'        # black
 ###########################
+#-------------------------------------
 X=$WHITE
 A=$RED
+#-------------------------------------
 
+
+
+#-------------------------------------
 function start() {
-cd /userdata/system/
+cd /tmp/
 cfg=/tmp/batocera.pro-config
 	rm $cfg 2>/dev/null
 		echo -e "app=$app" >> $cfg
 		echo -e "prefix=$prefix" >> $cfg 
 		echo -e "url=$url" >> $cfg
-		echo -e "ext=" >> $cfg
-		echo -e "dep=" >> $cfg
-		echo -e "repo=" >> $cfg
-		echo -e "port=" >> $cfg
-		echo -e "mode=screen" >> $cfg
-mkdir -p "$prefix/$app/extras"	
+		echo -e "ext=$ext" >> $cfg
+		echo -e "dep=$dep" >> $cfg
+		echo -e "repo=$repo" >> $cfg
+		echo -e "port=$port" >> $cfg
+		echo -e "mode=$mode" >> $cfg
+mkdir -p "$prefix/$app/extras" 
 }
 export -f start
+#-------------------------------------
 
+
+
+#-------------------------------------
 function say-hi() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
@@ -49,7 +60,11 @@ echo -e "${A}██${X}  ${A}batocera.pro "$app" installer "
 sleep 2
 }
 export -f say-hi
+#-------------------------------------
 
+
+
+#-------------------------------------
 function say-bye() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
@@ -75,6 +90,8 @@ function spacer() {
 echo -e "\n\n"
 }
 export -f spacer 
+#-------------------------------------
+
 
 
 #-------------------------------------
