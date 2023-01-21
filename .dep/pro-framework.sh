@@ -24,29 +24,46 @@ BLACK='\033[0;30m'        # black
 ###########################
 #-------------------------------------
 X=$WHITE
-A=$RED
+A=$BLUE
 #-------------------------------------
 
 
 
 #-------------------------------------
 function start-pro-framework() {
-cd /tmp/
-cfg=/tmp/batocera.pro-config
-	rm $cfg 2>/dev/null
-		echo -e "app=$app" >> $cfg
-		echo -e "prefix=$prefix" >> $cfg 
-		echo -e "url=$url" >> $cfg
-		echo -e "ext=$ext" >> $cfg
-		echo -e "dep=$dep" >> $cfg
-		echo -e "repo=$repo" >> $cfg
-		echo -e "port=$port" >> $cfg
-		echo -e "mode=$mode" >> $cfg
+	cd /tmp ; c=/tmp/batocera.pro-config ; rm $c 2>/dev/null
+		echo "app="$app"" >> $c
+		echo "url="$url"" >> $c
+		echo "prefix="$prefix"" >> $c
+		echo "name="$name"" >> $c
+		echo "ext="$ext"" >> $c
+		echo "dep="$dep"" >> $c
+		echo "repo="$repo"" >> $c 
+		echo "mode="$mode"" >> $c 
+		echo "theme="$theme"" >> $c 
+		echo "loader="$loader"" >> $c 
+		echo "custom="$custom"" >> $c 
+		echo "port="$port"" >> $c 
 if [[ "$prefix" = "" ]]; then prefix=/userdata/system/pro/$app; fi	
+if [[ "$name" = "" ]]; then name="$app"; fi 	
+	cd /tmp ; c=/tmp/batocera.pro-config ; rm $c 2>/dev/null
+		echo "app="$app"" >> $c
+		echo "url="$url"" >> $c
+		echo "prefix="$prefix"" >> $c
+		echo "name="$name"" >> $c
+		echo "ext="$ext"" >> $c
+		echo "dep="$dep"" >> $c
+		echo "repo="$repo"" >> $c 
+		echo "mode="$mode"" >> $c 
+		echo "theme="$theme"" >> $c 
+		echo "loader="$loader"" >> $c 
+		echo "custom="$custom"" >> $c 
+		echo "port="$port"" >> $c 
 mkdir -p "$prefix/extras" 2>/dev/null 
 mkdir -p ~/pro/.dep 2>/dev/null  
 } 
 export -f start-pro-framework
+start-pro-framework 2>/dev/null
 #-------------------------------------
 
 
@@ -75,9 +92,9 @@ echo -e "${A}  ${X}"
 echo -e "${A}██${X}  ${A}"$app" installed to $prefix"
 port=$(cat /tmp/batocera.pro-port | tail -n 1 | grep "added")
 if [[ "$port" != "" ]]; then
-	echo -e "${A}··${X}  & available in f1->applications and ports"
+	echo -e "${A}  ${X}  & available in f1->applications and ports"
 else
-	echo -e "${A}··${X}  & available in f1->applications"
+	echo -e "${A}  ${X}  & available in f1->applications"
 fi
 echo -e "${A}  ${X}        "
 #echo -e "${A}╚╝${X}        "
@@ -169,18 +186,18 @@ echo -e "${A}██${X}  ${A}downloading $(echo "$app")"
 		mkdir -p "$to" 
 		size_before=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 			cd "$temp"
-				echo -e "${A}··${X}  from  >  ${X}$(echo "$from" | sed 's,https://,,g' | sed 's,http://,,g')${A}"
-				echo -e "${A}··${X}  to  >  ${X}$(echo "$to")/$(echo "$app").AppImage"
+				echo -e "${A}  ${X}  from  >  ${X}$(echo "$from" | sed 's,https://,,g' | sed 's,http://,,g')${A}"
+				echo -e "${A}  ${X}  to  >  ${X}$(echo "$to")/$(echo "$app").AppImage${A}"
 					curl --progress-bar --remote-name --location "$from"
 					cp -rL $temp/* $to/$app.AppImage
 					chmod a+x $to/$app.AppImage  
 						size_after=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 						size=$(($size_after-$size_before))
 						if [[ "$size" -le "1000" ]]; then size=$((size)); 
-							echo -e "${A}··${X}  done, $(echo "$size") kB"
+							echo -e "${A}  ${X}  done, $(echo "$size") kB"
 						fi 
 						if [[ "$size" -gt "1000" ]]; then size=$((size/1000)); 
-							echo -e "${A}··${X}  done, $(echo "$size") MB"
+							echo -e "${A}  ${X}  done, $(echo "$size") MB"
 						fi
 							#echo -e "${A}  ${X}        "
 			cd /userdata/system/
@@ -212,7 +229,7 @@ echo -e "${A}██${X}  ${A}downloading additional files"
 					wget -q "$x" 
 					nrfiles=$(cat $temp/extras.txt | wc -l)
 					if [[ "$nrfiles" < "1" ]]; then exit 1; fi
-echo -e "${A}··${X}  $nrfiles files found"
+echo -e "${A}  ${X}  $nrfiles files found"
 					f=1; while [[ "$f" -le "$nrfiles" ]]
 					do 
 						thisfile="$(cat $temp/extras.txt | sed ''$f'q;d')"
@@ -225,10 +242,10 @@ echo -e "${A}··${X}  $nrfiles files found"
 						size_after=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 						size=$(($size_after-$size_before))
 						if [[ "$size" -le "1000" ]]; then size=$((size)); 
-echo -e "${A}··${X}  done, $(echo "$size") kB"
+echo -e "${A}  ${X}  done, $(echo "$size") kB"
 						fi 
 						if [[ "$size" -gt "1000" ]]; then size=$((size/1000)); 
-echo -e "${A}··${X}  done, $(echo "$size") MB"
+echo -e "${A}  ${X}  done, $(echo "$size") MB"
 						fi
 							#echo -e "${A}  ${X}        "
 		cp $prefix/extras/launcher.sh $prefix/ 2>/dev/null
@@ -252,7 +269,7 @@ echo
 echo -e "${A}  ${X}"
 echo -e "${A}██${X}  ${A}installing"
 	$prefix/extras/custom.sh 2>/dev/null
-echo -e "${A}··${X}  done "
+echo -e "${A}  ${X}  done "
 	sleep 0.2
 fi
 }
@@ -415,7 +432,7 @@ function add-autostart() {
 #echo -e "${A}  ${X}"
 #echo -e "${A}██${X}  ${A}preparing launchers"
 csh=/userdata/system/custom.sh; dos2unix $csh
-startup="/userdata/system/custom-pro.sh"
+startup="/userdata/system/pro-custom.sh"
 time=$(date +"%y%m%d-%H%M%S")
 temp="/tmp/batocera.pro-autostart"
 rm -rf /tmp/batocera.pro-autostart 2>/dev/null
@@ -467,31 +484,34 @@ chmod a+x $csh
 
 
 
-
-
-cd /userdata/system/fi
-rm $temp/listfi.txt 2>/dev/null
-ls -d */ >> $temp/listfi.txt
-nr=$(cat $temp/listfi.txt | wc -l)
+procustomsh=/userdata/system/pro-custom.sh
+mkdir -p /userdata/system/pro 2>/dev/null
+cd /userdata/system/pro
+rm $temp/listpro.txt 2>/dev/null
+ls -d */ >> $temp/listpro.txt
+nr=$(cat $temp/listpro.txt | wc -l)
 L=1
 while [ "$L" -le "$nr" ]
 do
-	thisL=$(cat $temp/listfi.txt | sed ''$L'q;d')
-	ifstartup=$(echo "$thisL/extras/startup.sh" | sed 's,//,/,g')
-		if [ -e "$ifstartup" ]; then
-		        echo "$ifstartup" >> /userdata/system/fi/autostart.sh
+	thisL=$(cat $temp/listpro.txt | sed ''$L'q;d')
+	oldstartup=$(echo "$thisL/extra/startup.sh" | sed 's,//,/,g')
+	newstartup=$(echo "$thisL/extras/startup.sh" | sed 's,//,/,g')
+		if [[ -e "oldstartup" ]]; then
+		   echo "$oldstartup" >> $procustomsh
+		fi 
+		if [[ -e "newstartup" ]]; then
+		   echo "$newstartup" >> $procustomsh
 		fi
 	L=$(($L + 1))
 done
-dos2unix /userdata/system/fi/autostart.sh
-chmod a+x /userdata/system/fi/autostart.sh
+dos2unix $procustomsh ; chmod a+x $procustomsh
 cd /userdata/system/ 
 
 
 
 
 
-ash=/userdata/system/fi/autostart.sh
+ash=/userdata/system/pro-custom.sh
 dos2unix $ash
 startup="$prefix/extras/startup.sh"
 check="$app/extras/startup.sh"
@@ -510,7 +530,7 @@ if [[ -f $ash ]];
                 else 
                   if [[ "$L" = "1" ]]; then
                         if [[ "$(echo "$Ln" | grep "#" | grep "/bin/" | grep "bash" )" = "" ]]; then :; 
-                     	else echo "$Ln 123" >> "$tmp1"
+                     	else echo "$Ln" >> "$tmp1"
                      	fi
                   fi
                	if [[ "$L" > "1" ]]; then
@@ -590,16 +610,20 @@ mode="$(cat /tmp/batocera.pro-config | grep "mode=" | cut -d "=" -f2)"
 theme="$(cat /tmp/batocera.pro-config | grep "theme=" | cut -d "=" -f2)"
 loader="$(cat /tmp/batocera.pro-config | grep "loader=" | cut -d "=" -f2)"
 # include display output: 
+#
+url_tput=https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/tput
+url_libtinfo=https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/libtinfo.so.6
+	#
    tput=/userdata/system/pro/.dep/tput
    libtinfo=/userdata/system/pro/.dep/libtinfo.so.6
    mkdir -p /userdata/system/pro/.dep 2>/dev/null
       if [[ ( -e "$tput" && "$(wc -c "$tput" | awk '{print $1}')" < "444" ) || ( ! -e "$tput" ) ]]; then
          rm "$tput" 2>/dev/null
-         wget -q -O "$tput" https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.tput
+         wget -q -O "$tput" $url_tput
       fi
       if [[ ( -e "$libtinfo" && "$(wc -c "$libtinfo" | awk '{print $1}')" < "444" ) || ( ! -e "$libtinfo" ) ]]; then
          rm "$libtinfo" 2>/dev/null
-         wget -q -O $libtinfo https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.libtinfo.so.6
+         wget -q -O $libtinfo $url_libtinfo
       fi
    chmod a+x "$tput" 2>/dev/null
    cp "$libtinfo" "/lib/libtinfo.so.6" 2>/dev/null
@@ -660,6 +684,9 @@ export -f get-display
 
 
 function run-xterm() {
+
+get-display 
+
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 mode="$(cat /tmp/batocera.pro-config | grep "mode=" | cut -d "=" -f2)"
 theme="$(cat /tmp/batocera.pro-config | grep "theme=" | cut -d "=" -f2)"
@@ -670,25 +697,27 @@ if [[ "$loader" = "" ]]; then loader=yes; fi
 cd /tmp/ 
 wget -q -O "/tmp/batocera.pro-loader.mp4" "https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/loader.mp4"
 wget -q -O "/tmp/batocera.pro-$app.sh" "https://raw.githubusercontent.com/uureel/batocera.pro/main/$app/$app.sh"
-dos2unix "/tmp/$app.sh" ; chmod a+x "/tmp/$app.sh"
+dos2unix "/tmp/$app.sh" 2>/dev/null ; chmod a+x "/tmp/$app.sh" 2>/dev/null
 
 font="$(cat /tmp/batocera.pro-font | tail -n 1)"
 
 script="$1"
+if [[ "$script" = "" ]]; then script="/tmp/batocera.pro-script"; fi
 
-	sleep 0.1111; DISPLAY=:0.0 unclutter-remote -h & cvlc -f --no-audio --no-video-title-show --no-mouse-events --no-keyboard-events --no-repeat --rate 8 /tmp/loader.mp4 2>/dev/null & sleep 2 && killall -9 vlc &
-   DISPLAY=:0.0 unclutter-remote -h & xterm -fs $font -fullscreen -fg black -bg black -fa Monospace -en UTF-8 -e bash -c "/tmp/$app.sh"
+#	sleep 0.1111; DISPLAY=:0.0 unclutter-remote -h & cvlc -f --no-audio --no-video-title-show --no-mouse-events --no-keyboard-events --no-repeat --rate 4 /tmp/loader.mp4 2>/dev/null & sleep 4 && killall -9 vlc 2>/dev/null &
+#   DISPLAY=:0.0 unclutter-remote -h & xterm -fs $font -fullscreen -fg black -bg black -fa Monospace -en UTF-8 -e bash -c "/tmp/$app.sh"
 
 
             if [[ "$mode" = "screen" ]]; then 
-            if [[ "$loader" = "yes" ]]; then sleep 0.1111; DISPLAY=:0.0 unclutter-remote -h & cvlc -f --no-audio --no-video-title-show --no-mouse-events --no-keyboard-events --no-repeat --rate 3 /userdata/system/fi/l.mp4 2>/dev/null & sleep 5 && killall -9 vlc; fi 
-            DISPLAY=:0.0 unclutter-remote -h & xterm -fs $font -fullscreen -fg white -bg black -fa Monospace -en UTF-8 -e bash -c "$script"
+            if [[ "$loader" = "yes" ]]; then sleep 0; DISPLAY=:0.0 unclutter-remote -h & cvlc -f --no-audio --no-video-title-show --no-mouse-events --no-keyboard-events --no-repeat --rate 10 /userdata/system/fi/l.mp4 2>/dev/null & sleep 2 && killall -9 vlc 2>/dev/null; fi &
+            DISPLAY=:0.0 unclutter-remote -h & xterm -fs $font -fullscreen -fg white -bg black -fa Monospace -en UTF-8 -e bash -c "$script" 2>/dev/null
             fi
             if [[ "$mode" = "text" ]]; then 
-            /tmp/batocera.pro-script $theme
+            bash $script $theme
             fi
 
 }
 export -f run-xterm 
+
 
 
