@@ -565,7 +565,10 @@ export -f add-autostart
 
 
 function get-display() {
-
+app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
+mode="$(cat /tmp/batocera.pro-config | grep "mode=" | cut -d "=" -f2)"
+theme="$(cat /tmp/batocera.pro-config | grep "theme=" | cut -d "=" -f2)"
+loader="$(cat /tmp/batocera.pro-config | grep "loader=" | cut -d "=" -f2)"
 # include display output: 
    tput=/userdata/system/switch/extra/batocera-switch-tput
    libtinfo=/userdata/system/switch/extra/batocera-switch-libtinfo.so.6
@@ -640,13 +643,20 @@ app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 mode="$(cat /tmp/batocera.pro-config | grep "mode=" | cut -d "=" -f2)"
 theme="$(cat /tmp/batocera.pro-config | grep "theme=" | cut -d "=" -f2)"
 loader="$(cat /tmp/batocera.pro-config | grep "loader=" | cut -d "=" -f2)"
+if [[ "$mode" = "" ]]; then mode=screen; fi
+if [[ "$theme" = "" ]]; then theme=color; fi
+if [[ "$loader" = "" ]]; then loader=yes; fi 
+cd /tmp/ 
+wget -q -O "/tmp/batocera.pro-loader.mp4" "https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/loader.mp4"
+wget -q -O "/tmp/batocera.pro-$app.sh" "https://raw.githubusercontent.com/uureel/batocera.pro/main/$app/$app.sh"
+dos2unix "/tmp/$app.sh" ; chmod a+x "/tmp/$app.sh"
 
 font="$(cat /tmp/batocera.pro-font | tail -n 1)"
 
 script="$1"
 
-	sleep 0.1111; DISPLAY=:0.0 unclutter-remote -h & cvlc -f --no-audio --no-video-title-show --no-mouse-events --no-keyboard-events --no-repeat --rate 8 /userdata/system/fi/l.mp4 2>/dev/null & sleep 2 && killall -9 vlc &
-   DISPLAY=:0.0 unclutter-remote -h & xterm -fs $font -fullscreen -fg black -bg black -fa Monospace -en UTF-8 -e bash -c "~/fi/sunshine.sh"
+	sleep 0.1111; DISPLAY=:0.0 unclutter-remote -h & cvlc -f --no-audio --no-video-title-show --no-mouse-events --no-keyboard-events --no-repeat --rate 8 /tmp/loader.mp4 2>/dev/null & sleep 2 && killall -9 vlc &
+   DISPLAY=:0.0 unclutter-remote -h & xterm -fs $font -fullscreen -fg black -bg black -fa Monospace -en UTF-8 -e bash -c "/tmp/$app.sh"
 
 
             if [[ "$mode" = "screen" ]]; then 
