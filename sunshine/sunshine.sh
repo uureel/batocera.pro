@@ -14,15 +14,15 @@ url=$(curl -s https://api.github.com/repos/LizardByte/Sunshine/releases/latest |
 #--------------------------------------------------------------------------------------------------------------------------------
 #################################################################################################################################
 # optional: ---------------------------------------------------------------------------------------------------------------------
-prefix="" 								# install directory, default: /userdata/system/pro/$app
-ext="" 									# default: extras.txt, filelist to download for get-extras
-dep="" 									# get app dependencies/libs  
-repo=""									# specify custom repo/hosting
-mode="" 								# screen / text, default=screen
-theme=""  								# color / bw, default=color
-loader="" 								# loading animation yes/no, default=yes 
-custom="" 								# run app-custom/post/install script, default=/extras/custom.sh  
-port="" 								# add port (name), none = /extras/port.sh (to $app.sh), or /extras/launcher.sh 
+prefix="" 		# install directory, default: /userdata/system/pro/$app
+ext="" 			# default: extras.txt, filelist for download for get-extras
+dep="" 			# get app dependencies (libs)  
+repo=""			# specify custom repo (hosting)
+mode="" 		# screen / text, default=screen
+theme=""  		# color / bw, default=color
+loader="" 		# loading animation yes/no, default=yes 
+custom="" 		# run app-custom/post/install script, default=/extras/custom.sh  
+port="" 		# add port (name), none = /extras/port.sh (to $app.sh), or /extras/launcher.sh 
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
 #################################################################################################################################
@@ -41,7 +41,6 @@ get-appimage $url $prefix
 get-extras
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
-# run app-custom script, default=/extras/custom.sh 
 add-custom
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
