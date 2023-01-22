@@ -28,7 +28,7 @@ A=$BLUE
 H=$WHITE
 #-------------------------------------
 
-
+export DISPLAY=:0.0
 
 #-------------------------------------
 function start-pro-framework() {
