@@ -504,16 +504,16 @@ echo "#!/bin/bash" >> $procustomsh
 		thisL=$(cat /tmp/listpro.txt | sed ''$L'q;d')
 		oldstartup=$(echo "$thisL/extra/startup" | sed 's,//,/,g')
 		newstartup=$(echo "$thisL/extras/startup.sh" | sed 's,//,/,g')
-			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup")" = "" ]]; then
+			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup" 2>/dev/null)" = "" ]]; then
 			   echo "$pro/$oldstartup" >> $procustomsh
 			fi 
-			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup")" != "" ]]; then
+			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup" 2>/dev/null)" != "" ]]; then
 			   echo "#$pro/$oldstartup" >> $procustomsh
 			fi 
-			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup")" = "" ]]; then
+			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup" 2>/dev/null)" = "" ]]; then
 			   echo "$pro/$newstartup" >> $procustomsh
 			fi
-			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup")" = "" ]]; then
+			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup" 2>/dev/null)" = "" ]]; then
 			   echo "#$pro/$newstartup" >> $procustomsh
 			fi
 		L=$(($L + 1))
