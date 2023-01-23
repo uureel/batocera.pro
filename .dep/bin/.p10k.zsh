@@ -883,11 +883,11 @@
   typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
 
   # Context format when running with privileges: bold user@hostname.
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE="%F{green}%B%n @ $(~/.zshrc_host)%f"
+  typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE="%F{red}%B%n @ $(~/.zshrc_host)%f"
   # Context format when in SSH without privileges: user@hostname.
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE="%F{green}%n @ $(~/.zshrc_host)%f"
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE="%F{red}%n @ $(~/.zshrc_host)%f"
   # Default context format (no privileges, no SSH): user@hostname.
-  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{green}%n @ $(~/.zshrc_host)%f"
+  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{red}%n @ $(~/.zshrc_host)%f"
 
   # Don't show context unless running with privileges or in SSH.
   # Tip: Remove the next line to always show context.
