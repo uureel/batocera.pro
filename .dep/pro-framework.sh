@@ -489,6 +489,7 @@ chmod a+x $csh
 
 pro=/userdata/system/pro
 procustomsh=/userdata/system/pro-custom.sh
+rm $procustomsh 2>/dev/null
 mkdir -p /userdata/system/pro 2>/dev/null
 cd /userdata/system/pro
 rm /tmp/listpro.txt 2>/dev/null
