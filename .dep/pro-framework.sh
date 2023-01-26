@@ -561,8 +561,8 @@ dos2unix $csh 2>/dev/null
 chmod a+x $csh 2>/dev/null
 
 
-#procustomsh=/userdata/system/pro-custom.sh
-#tmp=/tmp/procustomsh_tmp
+procustomsh=/userdata/system/pro-custom.sh
+tmp=/tmp/procustomsh_tmp
 #if [[ "$(cat "$procustomsh" | grep "#/userdata/system/pro/$app/extras/startup.sh")" != "" ]]; 
 #	then :; 
 #	else 
