@@ -17,5 +17,5 @@ wget --no-cache -q -O "/tmp/pro-framework.sh" "https://raw.githubusercontent.com
 wget --no-cache -q -O "/tmp/$app.sh" "https://raw.githubusercontent.com/uureel/batocera.pro/main/$app/$app.sh" ; 
 dos2unix /tmp/pro-framework.sh ; dos2unix "/tmp/$app.sh" ;  
 source /tmp/pro-framework.sh  
-run-xterm "/tmp/$app.sh"
+bash "/tmp/$app.sh"
 # batocera.pro // 

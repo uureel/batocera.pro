@@ -1,4 +1,7 @@
 extras.txt
+libbrotlicommon.so.1
+libbrotlidec.so.1
+libidn2.so.0
 apps.json
 boost.sh
 batocera.png
