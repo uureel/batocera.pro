@@ -268,8 +268,8 @@ function add-custom() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 	if [[ -e "$prefix/extras/add" ]]; then 
-	dos2unix "$prefix/extras/custom.sh"
-	chmod a+x "$prefix/extras/custom.sh"
+	dos2unix "$prefix/extras/custom.sh" 2>/dev/null
+	chmod a+x "$prefix/extras/custom.sh" 2>/dev/null
 echo
 echo -e "${A}  ${X}"
 echo -e "${A}██${X}  ${H}installing"
@@ -436,7 +436,7 @@ function add-autostart() {
 #echo -e "${A}  ${X}"
 #echo -e "${A}  ${X}"
 #echo -e "${A}██${X}  ${H}preparing launchers"
-csh=/userdata/system/custom.sh; dos2unix $csh
+csh=/userdata/system/custom.sh; dos2unix $csh 2>/dev/null
 startup="/userdata/system/pro-custom.sh"
 time=$(date +"%y%m%d-%H%M%S")
 temp="/tmp/batocera.pro-autostart"
@@ -504,27 +504,31 @@ echo "#!/bin/bash" >> $procustomsh
 		thisL=$(cat /tmp/listpro.txt | sed ''$L'q;d')
 		oldstartup=$(echo "$thisL/extra/startup" | sed 's,//,/,g')
 		newstartup=$(echo "$thisL/extras/startup.sh" | sed 's,//,/,g')
-			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup" 2>/dev/null)" = "" ]]; then
-			   echo "$pro/$oldstartup" >> $procustomsh
-			fi 
+			
 			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup" 2>/dev/null)" != "" ]]; then
 			   echo "#$pro/$oldstartup" >> $procustomsh
+			else 		
+				if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup" 2>/dev/null)" = "" ]]; then
+				   echo "$pro/$oldstartup" >> $procustomsh
+				fi 
 			fi 
-			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup" 2>/dev/null)" = "" ]]; then
-			   echo "$pro/$newstartup" >> $procustomsh
-			fi
-			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup" 2>/dev/null)" = "" ]]; then
+
+			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup" 2>/dev/null)" != "" ]]; then
 			   echo "#$pro/$newstartup" >> $procustomsh
+			else	
+				if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup" 2>/dev/null)" = "" ]]; then
+				   echo "$pro/$newstartup" >> $procustomsh
+				fi				
 			fi
 		L=$(($L + 1))
-	done
-	dos2unix $procustomsh ; chmod a+x $procustomsh
+	done 
+	dos2unix $procustomsh 2>/dev/null ; chmod a+x $procustomsh  2>/dev/null
 	cd /userdata/system/ 
 fi
 
 
 
-csh=/userdata/system/custom.sh; dos2unix $csh
+csh=/userdata/system/custom.sh; dos2unix $csh 2>/dev/null
 check1="/userdata/system/pro/"
 check2="/extra/startup"
 time=$(date +"%y%m%d-%H%M%S")
@@ -552,20 +556,20 @@ if [[ -f $csh ]]; then
             ((l++))
          done
 fi 
-cp "$tmp1" "$csh"
-dos2unix "$csh"
-chmod a+x "$csh"
+cp $tmp1 $csh
+dos2unix $csh 2>/dev/null
+chmod a+x $csh 2>/dev/null
 
 
-procustomsh=/userdata/system/pro-custom.sh
-tmp=/tmp/procustomsh_tmp
-if [[ "$(cat "$procustomsh" | grep "#/userdata/system/pro/$app/extras/startup.sh")" != "" ]]; 
-	then :; 
-	else 
-		if [[ "$(cat "$procustomsh" | grep "/userdata/system/pro/$app/extras/startup.sh")" = "" ]]; 
-			then echo "/userdata/system/pro/$app/extras/startup.sh" >> $procustomsh
-		fi
-fi
+#procustomsh=/userdata/system/pro-custom.sh
+#tmp=/tmp/procustomsh_tmp
+#if [[ "$(cat "$procustomsh" | grep "#/userdata/system/pro/$app/extras/startup.sh")" != "" ]]; 
+#	then :; 
+#	else 
+#		if [[ "$(cat "$procustomsh" | grep "/userdata/system/pro/$app/extras/startup.sh")" = "" ]]; 
+#			then echo "/userdata/system/pro/$app/extras/startup.sh" >> $procustomsh
+#		fi
+#fi
 cat $procustomsh | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp
 cp $tmp $procustomsh ; dos2unix $procustomsh ; chmod a+x $procustomsh
 
