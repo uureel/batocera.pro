@@ -576,7 +576,7 @@ cat $procustomsh | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp
 cp $tmp $procustomsh ; dos2unix $procustomsh ; chmod a+x $procustomsh
 
 
-sleep 2
+sleep 1
 
 
 } 
