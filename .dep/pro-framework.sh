@@ -495,6 +495,7 @@ cd /userdata/system/pro
 rm /tmp/listpro.txt 2>/dev/null
 ls -d */ >> /tmp/listpro.txt
 cd ~/ 
+if [ ! -e "/tmp/listpro.txt" ]; then touch "/tmp/listpro.txt" 2>/dev/null; fi
 if [[ "$(cat /tmp/listpro.txt | wc -l)" > "0" ]]; then
 cp $procustomsh /tmp/oldprocustom.sh 2>/dev/null
 rm $procustomsh 2>/dev/null
