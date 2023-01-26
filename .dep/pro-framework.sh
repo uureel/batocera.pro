@@ -489,13 +489,10 @@ chmod a+x $csh
 
 pro=/userdata/system/pro
 procustomsh=/userdata/system/pro-custom.sh
-if [ ! -e "$procustomsh" ]; then touch "$procustomsh" 2>/dev/null; fi
 mkdir -p /userdata/system/pro 2>/dev/null
 cd /userdata/system/pro
 rm /tmp/listpro.txt 2>/dev/null
 ls -d */ >> /tmp/listpro.txt
-cd ~/ 
-if [ ! -e "/tmp/listpro.txt" ]; then touch "/tmp/listpro.txt" 2>/dev/null; fi
 if [[ "$(cat /tmp/listpro.txt | wc -l)" > "0" ]]; then
 cp $procustomsh /tmp/oldprocustom.sh 2>/dev/null
 rm $procustomsh 2>/dev/null
@@ -507,23 +504,18 @@ echo "#!/bin/bash" >> $procustomsh
 		thisL=$(cat /tmp/listpro.txt | sed ''$L'q;d')
 		oldstartup=$(echo "$thisL/extra/startup" | sed 's,//,/,g')
 		newstartup=$(echo "$thisL/extras/startup.sh" | sed 's,//,/,g')
-			#####
-			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup")" != "" ]]; then
-			   echo "#$pro/$oldstartup" >> $procustomsh
-			else 
-				if [[ "$(cat /tmp/oldprocustom.sh | grep "$pro/$oldstartup" | grep "#")" = "" ]]; then
+			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup" 2>/dev/null)" = "" ]]; then
 			   echo "$pro/$oldstartup" >> $procustomsh
-				fi 
 			fi 
-			#####
-			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup")" != "" ]]; then
-			   echo "#$pro/$newstartup" >> $procustomsh
-			else 
-				if [[ "$(cat /tmp/oldprocustom.sh | grep "$pro/$newstartup" | grep "#")" = "" ]]; then
+			if [[ -e "$oldstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$oldstartup" 2>/dev/null)" != "" ]]; then
+			   echo "#$pro/$oldstartup" >> $procustomsh
+			fi 
+			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup" 2>/dev/null)" = "" ]]; then
 			   echo "$pro/$newstartup" >> $procustomsh
-				fi
 			fi
-			#####
+			if [[ -e "$newstartup" ]] && [[ "$(cat /tmp/oldprocustom.sh | grep "#$pro/$newstartup" 2>/dev/null)" = "" ]]; then
+			   echo "#$pro/$newstartup" >> $procustomsh
+			fi
 		L=$(($L + 1))
 	done 
 	dos2unix $procustomsh 2>/dev/null ; chmod a+x $procustomsh  2>/dev/null
@@ -573,12 +565,12 @@ if [[ "$(cat "$procustomsh" | grep "#/userdata/system/pro/$app/extras/startup.sh
 		if [[ "$(cat "$procustomsh" | grep "/userdata/system/pro/$app/extras/startup.sh")" = "" ]]; 
 			then echo "/userdata/system/pro/$app/extras/startup.sh" >> $procustomsh
 		fi
-fi 
+fi
 cat $procustomsh | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp
 cp $tmp $procustomsh ; dos2unix $procustomsh ; chmod a+x $procustomsh
 
 
-sleep 1
+sleep 2
 
 
 } 
