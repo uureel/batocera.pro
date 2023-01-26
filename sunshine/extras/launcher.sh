@@ -1,5 +1,13 @@
 #!/bin/bash 
+
 export DISPLAY=:0.0 
+
+cp /userdata/system/pro/sunshine/extras/lib* /lib/ 2>/dev/null
+
+log1=/userdata/system/pro/sunshine/log1.txt
+log2=/userdata/system/pro/sunshine/log2.txt
+rm $log1 2>/dev/null ; rm $log2 2>/dev/null 
+
 if [[ "$(ls /usr/share/applications/ | grep "sunshined.desktop")" != "" ]]; then 
         rm /usr/share/applications/sunshined.desktop 2>/dev/null 
         rm /usr/share/applications/sunshine.desktop 2>/dev/null 
@@ -9,8 +17,9 @@ elif [[ "$(ls /usr/share/applications/ | grep "sunshine.desktop")" != "" ]]; the
         rm /usr/share/applications/sunshine.desktop 2>/dev/null 
         cp /userdata/system/pro/sunshine/extra/sunshined.desktop /usr/share/applications/ 
 fi 
-killall -9 sunshine 1>/dev/null 2>/dev/null & 
-sleep 1 
+
+killall -9 sunshine 1>/dev/null 2>/dev/null & sleep 1 
 /userdata/system/pro/sunshine/extras/boost.sh & 
-DISPLAY=:0.0 /userdata/system/pro/sunshine/sunshine.AppImage 
+DISPLAY=:0.0 /userdata/system/pro/sunshine/sunshine.AppImage 1>$log1 2>$log2 & 
+
  
