@@ -494,6 +494,7 @@ mkdir -p /userdata/system/pro 2>/dev/null
 cd /userdata/system/pro
 rm /tmp/listpro.txt 2>/dev/null
 ls -d */ >> /tmp/listpro.txt
+cd ~/ 
 if [[ "$(cat /tmp/listpro.txt | wc -l)" > "0" ]]; then
 cp $procustomsh /tmp/oldprocustom.sh 2>/dev/null
 rm $procustomsh 2>/dev/null
@@ -571,7 +572,7 @@ if [[ "$(cat "$procustomsh" | grep "#/userdata/system/pro/$app/extras/startup.sh
 		if [[ "$(cat "$procustomsh" | grep "/userdata/system/pro/$app/extras/startup.sh")" = "" ]]; 
 			then echo "/userdata/system/pro/$app/extras/startup.sh" >> $procustomsh
 		fi
-fi
+fi 
 cat $procustomsh | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp
 cp $tmp $procustomsh ; dos2unix $procustomsh ; chmod a+x $procustomsh
 
