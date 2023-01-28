@@ -210,7 +210,7 @@ echo -e "${A}██${X}  ${H}downloading $(echo "$name")"
 				echo -e "${A}  ${X}  to   > ${X}$(echo "$to")/$(echo "$name")${A}"
 					curl --progress-bar --remote-name --location "$from"
 					cp -rL $temp/* "$to/$name"
-					chmod a+x "$to" 1>/dev/null 2>/dev/null  
+					chmod a+x "$to/$name" 2>/dev/null  
 						size_after=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 						size=$(($size_after-$size_before))
 						if [[ "$size" -le "1000" ]]; then size=$((size)); 
