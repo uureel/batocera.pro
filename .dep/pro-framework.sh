@@ -188,17 +188,17 @@ if [[ "$to" != "appdir" ]] && [[ "$to" != "$prefix" ]]; then
 to="$2"
 else 
 	if [[ "$to" = "appdir" ]]; then
-	to="$prefix/$app.AppImage"
+	to="$prefix"
 	fi
 	if [[ "$to" = "$prefix" ]]; then
-	to="$prefix/$app.AppImage"
+	to="$prefix"
 	fi
 fi
 name="$3"
-if [[ "$name" != "" ]]; then name="$name"; else name="$app"; fi
+if [[ "$name" != "" ]]; then name="$name"; else name="$app.AppImage"; fi
 echo
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${H}downloading"
+echo -e "${A}██${X}  ${H}downloading $(echo "$name")"
 	if [[ "$2" = "" ]]; then to="$prefix"; fi
 		time=$(date +"%y%m%d-%H%M%S")
 		temp="/tmp/batocera.pro-$time"
@@ -209,7 +209,7 @@ echo -e "${A}██${X}  ${H}downloading"
 				echo -e "${A}  ${X}  from > ${X}$(echo "$from" | sed 's,https://,,g' | sed 's,http://,,g')${A}"
 				echo -e "${A}  ${X}  to   > ${X}$(echo "$to")/$(echo "$app").AppImage${A}"
 					curl --progress-bar --remote-name --location "$from"
-					cp -rL $temp/* "$to"
+					cp -rL $temp/* "$to/$name"
 					chmod a+x "$to" 1>/dev/null 2>/dev/null  
 						size_after=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 						size=$(($size_after-$size_before))
