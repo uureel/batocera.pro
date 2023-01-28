@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Icon=/userdata/system/pro/ps2plus/extra/icon.png
+Icon=/userdata/system/pro/ps2plus/extras/icon.png
 Exec=/userdata/system/pro/ps2plus/launcher.sh
 Terminal=false
 Type=Application
