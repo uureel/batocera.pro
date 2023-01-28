@@ -24,13 +24,13 @@ BLACK='\033[0;30m'        # black
 ###########################
 #-------------------------------------
 # theme1
-X=$BLUE
 A=$BLUE
+X=$BLUE
 H=$WHITE
 #-------------------------------------
 # theme2
-X=$X
 A=$X
+X=$X
 H=$X
 #-------------------------------------
 
@@ -82,7 +82,7 @@ prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 clear
 echo
 echo
-echo -e "${A}██${X}  ${H}batocera.pro "$app" installer "
+echo -e "${A}██${X}  ${H}batocera.pro "$app" installer ${X}"
 sleep 2
 }
 export -f say-hi
