@@ -286,16 +286,16 @@ export -f get-extras
 function add-custom() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
-	if [[ -e "$prefix/extras/custom.sh" ]]; then 
-	dos2unix "$prefix/extras/custom.sh"
-	chmod a+x "$prefix/extras/custom.sh"
+#if [[ -e "$prefix/extras/custom.sh" ]]; then 
+dos2unix "$prefix/extras/custom.sh"
+chmod a+x "$prefix/extras/custom.sh"
 echo
 echo -e "${A}  ${X}"
 echo -e "${A}██${X}  ${H}installing"
-	bash "/userdata/system/pro/$app/extras/custom.sh" 2>/dev/null
+bash "/userdata/system/pro/$app/extras/custom.sh" 2>/dev/null
 echo -e "${A}  ${X}  done "
-	sleep 0.2
-fi
+sleep 0.2
+#fi
 }
 export -f add-custom
 #-------------------------------------
