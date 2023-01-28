@@ -292,7 +292,7 @@ prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 echo
 echo -e "${A}  ${X}"
 echo -e "${A}██${X}  ${H}installing"
-	$prefix/extras/custom.sh 2>/dev/null
+	bash "/userdata/system/pro/$app/extras/custom.sh" 2>/dev/null
 echo -e "${A}  ${X}  done "
 	sleep 0.2
 fi
