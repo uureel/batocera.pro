@@ -247,7 +247,7 @@ prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 		size_before=$(du -H $temp | tail -n 1 | awk '{print $1}')
 			cd $temp
 					rm "$x" 2>/dev/null
-					wget -q "$x" 
+					wget --no-check-certificate --no-cache --no-cookies -q "$x" 
 					nrfiles=$(cat $temp/extras.txt | wc -l)
 					if [[ "$nrfiles" < "1" ]]; then exit 1; fi
 echo
@@ -257,7 +257,7 @@ echo -e "${A}██${X}  ${H}downloading additional ${A}$nrfiles files "
 					f=1; while [[ "$f" -le "$nrfiles" ]]
 					do 
 						thisfile="$(cat $temp/extras.txt | sed ''$f'q;d')"
-						wget -q "$xurl/$thisfile" 
+						wget --no-check-certificate --no-cache --no-cookies -q "$xurl/$thisfile" 
 						f=$(($f+1))
 					done 	
 					cp -rL $temp/* $prefix/extras/
@@ -345,7 +345,7 @@ echo -e "${A}  ${X}"
 echo -e "${A}██${X}  ${H}preparing config"
 	cfg=/tmp/batocera.pro-config
 	 rm /tmp/batocera.pro-config 2>/dev/null
-	 wget -q -O /tmp/batocera.pro-settings
+	 wget --no-check-certificate --no-cache --no-cookies -q -O /tmp/batocera.pro-settings
 			echo "app=$app" >> $cfg
 	 		echo "repo=$repo" >> $cfg
 			echo "port=$port" >> $cfg 
@@ -393,7 +393,7 @@ echo -e "${A}██${X}  ${H}preparing launcher"
 	time=$(date +"%y%m%d-%H%M%S")
 	temp="/tmp/batocera.pro-$time"
 	cd $temp 
-	wget -q -O "$temp/env.txt" "$url_launcherenv" 
+	wget --no-check-certificate --no-cache --no-cookies -q -O "$temp/env.txt" "$url_launcherenv" 
 sleep 2
 }
 export -f prepare-launcher 
@@ -608,11 +608,11 @@ fi
    mkdir -p /userdata/system/pro/.dep 2>/dev/null
       if [[ ( -e "$tput" && "$(wc -c "$tput" | awk '{print $1}')" < "444" ) || ( ! -e "$tput" ) ]]; then
          rm "$tput" 2>/dev/null
-         wget -q -O "$tput" https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.tput
+         wget --no-check-certificate --no-cache --no-cookies -q -O "$tput" https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.tput
       fi
       if [[ ( -e "$libtinfo" && "$(wc -c "$libtinfo" | awk '{print $1}')" < "444" ) || ( ! -e "$libtinfo" ) ]]; then
          rm "$libtinfo" 2>/dev/null
-         wget -q -O $libtinfo https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.libtinfo.so.6
+         wget --no-check-certificate --no-cache --no-cookies -q -O $libtinfo https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.libtinfo.so.6
       fi
    chmod a+x "$tput" 2>/dev/null
    cp "$libtinfo" "/lib/libtinfo.so.6" 2>/dev/null
@@ -647,11 +647,11 @@ url_libtinfo=https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/lib
    mkdir -p /userdata/system/pro/.dep 2>/dev/null
       if [[ ( -e "$tput" && "$(wc -c "$tput" | awk '{print $1}')" < "444" ) || ( ! -e "$tput" ) ]]; then
          rm "$tput" 2>/dev/null
-         wget -q -O "$tput" $url_tput
+         wget --no-check-certificate --no-cache --no-cookies -q -O "$tput" $url_tput
       fi
       if [[ ( -e "$libtinfo" && "$(wc -c "$libtinfo" | awk '{print $1}')" < "444" ) || ( ! -e "$libtinfo" ) ]]; then
          rm "$libtinfo" 2>/dev/null
-         wget -q -O $libtinfo $url_libtinfo
+         wget --no-check-certificate --no-cache --no-cookies -q -O $libtinfo $url_libtinfo
       fi
    chmod a+x "$tput" 2>/dev/null
    cp "$libtinfo" "/lib/libtinfo.so.6" 2>/dev/null
@@ -723,8 +723,8 @@ if [[ "$mode" = "" ]]; then mode=screen; fi
 if [[ "$theme" = "" ]]; then theme=color; fi
 if [[ "$loader" = "" ]]; then loader=yes; fi 
 cd /tmp/ 
-wget -q -O "/tmp/batocera.pro-loader.mp4" "https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/loader.mp4"
-wget -q -O "/tmp/batocera.pro-$app.sh" "https://raw.githubusercontent.com/uureel/batocera.pro/main/$app/$app.sh"
+wget --no-check-certificate --no-cache --no-cookies -q -O "/tmp/batocera.pro-loader.mp4" "https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/loader.mp4"
+wget --no-check-certificate --no-cache --no-cookies -q -O "/tmp/batocera.pro-$app.sh" "https://raw.githubusercontent.com/uureel/batocera.pro/main/$app/$app.sh"
 dos2unix "/tmp/$app.sh" 2>/dev/null ; chmod a+x "/tmp/$app.sh" 2>/dev/null
 
 font="$(cat /tmp/batocera.pro-font | tail -n 1)"
