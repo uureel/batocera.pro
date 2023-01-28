@@ -55,8 +55,8 @@ say-hi
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
 mkdir -p /userdata/system/pro/ps2plus/pcsx2/ 2>/dev/null
-get-appimage $url1 /userdata/system/pro/ps2plus/pcsx2 pcsx2-SSE4.AppImage
-get-appimage $url2 /userdata/system/pro/ps2plus/pcsx2 pcsx2-AVX2.AppImage
+get-appimage "$url1" "/userdata/system/pro/ps2plus/pcsx2" "pcsx2-SSE4.AppImage"
+get-appimage "$url2" "/userdata/system/pro/ps2plus/pcsx2" "pcsx2-AVX2.AppImage"
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
 get-extras
