@@ -174,7 +174,16 @@ app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 from="$1"
 to="$2"
-if [[ "$to" != "appdir" ]]; then to="$prefix"; fi
+if [[ "$to" != "appdir" ]] && [[ "$to" != "$prefix" ]]; then 
+to="$2"
+else 
+	if [[ "$to" = "appdir" ]]; then
+	to="$prefix/$app.AppImage"
+	fi
+	if [[ "$to" = "$prefix" ]]; then
+	to="$prefix/$app.AppImage"
+	fi
+fi
 name="$3"
 if [[ "$name" != "" ]]; then name="$name"; else name="$app"; fi
 echo
@@ -190,7 +199,7 @@ echo -e "${A}██${X}  ${H}downloading $(echo "$app")"
 				echo -e "${A}  ${X}  from > ${X}$(echo "$from" | sed 's,https://,,g' | sed 's,http://,,g')${A}"
 				echo -e "${A}  ${X}  to   > ${X}$(echo "$to")/$(echo "$app").AppImage${A}"
 					curl --progress-bar --remote-name --location "$from"
-					cp -rL $temp/* $to/$app.AppImage
+					cp -rL $temp/* "$to"
 					chmod a+x $to/$app.AppImage  
 						size_after=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 						size=$(($size_after-$size_before))
