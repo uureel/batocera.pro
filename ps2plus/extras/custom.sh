@@ -46,6 +46,6 @@ rm -rf /userdata/system/.config/PCSX2/bios 2>/dev/null
 ln -s /userdata/bios /userdata/system/.config/PCSX2/bios 2>/dev/null 
 fi
 
-/userdata/system/pro/ps2plus/extra/startup.sh 
+/userdata/system/pro/ps2plus/extras/startup.sh 
 
 curl http://127.0.0.1:1234/reloadgames 
