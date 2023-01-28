@@ -286,7 +286,7 @@ export -f get-extras
 function add-custom() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
-	if [[ -e "$prefix/extras/add" ]]; then 
+	if [[ -e "$prefix/extras/custom.sh" ]]; then 
 	dos2unix "$prefix/extras/custom.sh"
 	chmod a+x "$prefix/extras/custom.sh"
 echo
