@@ -90,8 +90,12 @@ app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 echo
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${H}"$app" installed ${A}to $prefix"
-port=$(cat /tmp/batocera.pro-port | tail -n 1 | grep "added")
+echo -e "${A}██${X}  ${H}$(echo "$app") installed ${A}to $(echo "$prefix")/"
+if [ -e /tmp/batocera.pro-port ]; then
+port=$(cat /tmp/batocera.pro-port | tail -n 1 | grep "added" 2>/dev/null) 2>/dev/null
+else 
+port=""
+fi
 if [[ "$port" != "" ]]; then
 	echo -e "${A}  ${X}  ${A}& available in f1->applications and ports"
 else
@@ -192,15 +196,15 @@ echo -e "${A}██${X}  ${H}downloading $(echo "$app")"
 	if [[ "$2" = "" ]]; then to="$prefix"; fi
 		time=$(date +"%y%m%d-%H%M%S")
 		temp="/tmp/batocera.pro-$time"
-		mkdir -p "$temp"
-		mkdir -p "$to" 
+		mkdir -p "$temp" 2>/dev/null
+		mkdir -p "$prefix" 2>/dev/null 
 		size_before=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 			cd "$temp"
 				echo -e "${A}  ${X}  from > ${X}$(echo "$from" | sed 's,https://,,g' | sed 's,http://,,g')${A}"
 				echo -e "${A}  ${X}  to   > ${X}$(echo "$to")/$(echo "$app").AppImage${A}"
 					curl --progress-bar --remote-name --location "$from"
 					cp -rL $temp/* "$to"
-					chmod a+x $to/$app.AppImage  
+					chmod a+x "$to" 1>/dev/null 2>/dev/null  
 						size_after=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 						size=$(($size_after-$size_before))
 						if [[ "$size" -le "1000" ]]; then size=$((size)); 
