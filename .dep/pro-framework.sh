@@ -195,7 +195,7 @@ else
 	fi
 fi
 name="$3"
-if [[ "$name" != "" ]]; then name="$name"; else name="$app.AppImage"; fi
+if [[ "$name" != "" ]]; then name="$(echo "$name")"; else name="$app.AppImage"; fi
 echo
 echo -e "${A}  ${X}"
 echo -e "${A}██${X}  ${H}downloading $(echo "$name")"
