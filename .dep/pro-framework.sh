@@ -198,7 +198,7 @@ name="$3"
 if [[ "$name" != "" ]]; then name="$name"; else name="$app"; fi
 echo
 echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${H}downloading $(echo "$app")"
+echo -e "${A}██${X}  ${H}downloading"
 	if [[ "$2" = "" ]]; then to="$prefix"; fi
 		time=$(date +"%y%m%d-%H%M%S")
 		temp="/tmp/batocera.pro-$time"
