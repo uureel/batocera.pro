@@ -207,7 +207,7 @@ echo -e "${A}██${X}  ${H}downloading $(echo "$name")"
 		size_before=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
 			cd "$temp"
 				echo -e "${A}  ${X}  from > ${X}$(echo "$from" | sed 's,https://,,g' | sed 's,http://,,g')${A}"
-				echo -e "${A}  ${X}  to   > ${X}$(echo "$to")/$(echo "$app").AppImage${A}"
+				echo -e "${A}  ${X}  to   > ${X}$(echo "$to")/$(echo "$name")${A}"
 					curl --progress-bar --remote-name --location "$from"
 					cp -rL $temp/* "$to/$name"
 					chmod a+x "$to" 1>/dev/null 2>/dev/null  
