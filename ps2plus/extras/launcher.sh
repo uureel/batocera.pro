@@ -16,6 +16,7 @@ chmod a+x /userdata/system/pro/ps2plus/pcsx2/pcsx2-AVX2.AppImage
 chmod a+x /userdata/system/pro/ps2plus/pcsx2/pcsx2-SSE4.AppImage
 
 # get scale/resolution: 
+SCALE=1
 res=$(xrandr | grep " connected" | awk '{print $3}' | cut -d "x" -f1)
 if [[ "$res" -le "3840" ]] && [[ "$res" -ge "2560" ]]; then
 SCALE=1.25
