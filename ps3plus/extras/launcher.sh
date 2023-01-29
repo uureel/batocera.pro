@@ -27,21 +27,6 @@ if [[ "$res" -lt "1280" ]]; then
 SCALE=0.5
 fi 
 
-#!/bin/bash
-###################
-WINDOWSCALE="1.25"
-###################
-unclutter-remote -s
-function rpcs3-config() {
-XDG_CONFIG_HOME=/userdata/system/configs \
-XDG_CACHE_HOME=/userdata/saves \
-XDG_RUNTIME_DIR=/userdata \
-QT_QPA_PLATFORM=xcb \
-SCALE=$1 QT_SCALE_FACTOR=${SCALE} GDK_SCALE=${SCALE} DISPLAY=:0.0 \
-/usr/bin/rpcs3 -platform xcb
-}
-rpcs3-config "$WINDOWSCALE"
-
 # start appimage: 
 if [[ "$(echo "$ROM" | grep "CONFIG")" != "" ]] || [[ "$(echo "$ROM")" = "" ]]; then
 unclutter-remote -s; 
