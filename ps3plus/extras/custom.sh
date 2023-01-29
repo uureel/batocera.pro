@@ -43,31 +43,6 @@ cd ~/
 timestamp=$(date +"%y%m%d-%H%M%S") 
 cp -r /userdata/saves/ps3 /userdata/saves/ps3-backup-$timestamp 2>/dev/null
 
-# link saves 
-fs=$(blkid | grep "LABEL=\"SHARE\"" | sed 's,^.*TYPE=,,g' | sed 's,",,g')
-if [[ "$fs" = "ext4" ]] || [[ "$fs" = "btrfs" ]]; then 
-	
-	mkdir -p /userdata/system/.config/PCSX2/ 2>/dev/null
-	rm -rf /userdata/system/.config/PCSX2/bios 2>/dev/null
-	ln -s /userdata/bios /userdata/system/.config/PCSX2/bios 2>/dev/null 
-
-	if [[ -d "/userdata/system/configs/rpcs3/dev_hdd0/savedata" ]]; then 
-	cp -r /userdata/system/configs/rpcs3/dev_hdd0/savedata /userdata/system/pro/rpcs3/backup/savedata-backup-$timestamp 2>/dev/null
-	fi
-	if [[ -d "/userdata/system/.config/rpcs3/dev_hdd0/savedata" ]]; then 
-	cp -r /userdata/system/.config/rpcs3/dev_hdd0/savedata /userdata/system/pro/rpcs3/backup/savedata-backup-$timestamp 2>/dev/null
-	fi
-	
-		rm -r /userdata/system/.config/rpcs3/dev_hdd0/savedata 2>/dev/null
-		rm -r /userdata/system/configs/rpcs3/dev_hdd0/savedata 2>/dev/null
-		mkdir -p /userdata/system/.config/rpcs3/dev_hdd0 2>/dev/null
-		mkdir -p /userdata/system/configs/rpcs3/dev_hdd0 2>/dev/null
-		ln -s /userdata/saves/ps3 /userdata/system/configs/rpcs3/dev_hdd0/savedata 2>/dev/null
-		ln -s /userdata/saves/ps3 /userdata/system/.config/rpcs3/dev_hdd0/savedata 2>/dev/null
-		rsync -au /userdata/saves/ps3-backup-$timestamp/ /userdata/saves/ps3/ 2>/dev/null
-		sleep 0.1
-fi
-
 /userdata/system/pro/ps3plus/extras/startup.sh 
 
 curl http://127.0.0.1:1234/reloadgames 
