@@ -1,0 +1,14 @@
+extras.txt
+boost.sh
+custom.sh
+configgen.zip
+launcher.sh
+startup.sh
+config.sh
+config.sh.keys
+es_features_ps3plus.cfg
+es_systems_ps3plus.cfg
+ps3plus.keys
+rpcs3plus.desktop
+icon.png
+UNINSTALL.sh
