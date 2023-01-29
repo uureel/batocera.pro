@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#get rom from generator: 
+# get rom from generator: 
 ROM="$1"
 
 # check cpu features: 
