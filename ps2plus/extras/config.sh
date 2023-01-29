@@ -17,7 +17,7 @@ chmod a+x /userdata/system/pro/ps2plus/pcsx2/pcsx2-SSE4.AppImage
 
 # start appimage: 
 if [[ "$(cat /tmp/cpufeatures | grep avx2)" != "" ]]; then 
-	if [[ "$(echo "$ROM" | grep "CONFIG")" != "" ]] || [[ "$(echo "ROM")" = "" ]]; then
+	if [[ "$(echo "$ROM" | grep "CONFIG")" != "" ]] || [[ "$(echo "$ROM")" = "" ]]; then
 	unclutter-remote -s; DISPLAY=:0.0 QT_FONT_DPI=128 QT_SCALE_FACTOR=1 /userdata/system/pro/ps2plus/pcsx2/pcsx2-AVX2.AppImage 1>$log1 2>$log2
 	else 
 	DISPLAY=:0.0 QT_FONT_DPI=128 QT_SCALE_FACTOR=1 /userdata/system/pro/ps2plus/pcsx2/pcsx2-AVX2.AppImage -fullscreen -nogui "$ROM" 1>$log1 2>$log2
