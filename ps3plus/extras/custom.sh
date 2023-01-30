@@ -26,7 +26,7 @@ chmod a+x $x/launcher.sh 2>/dev/null
 chmod a+x $x/rpcs3plus.desktop 2>/dev/null
 chmod a+x $x/startup.sh 2>/dev/null
 
-cp $x/boost.sh $a/ 2>/dev/null
+#cp $x/boost.sh $a/ 2>/dev/null
 cp "$x/config.sh" "$r/■ CONFIG.sh" 2>/dev/null
 cp "$x/config.sh.keys" "$r/■ CONFIG.sh.keys" 2>/dev/null
 cp $x/es_features_ps3plus.cfg $c/emulationstation/ 2>/dev/null
