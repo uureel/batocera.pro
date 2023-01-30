@@ -34,6 +34,7 @@ cp $x/es_systems_ps3plus.cfg $c/emulationstation/ 2>/dev/null
 cp $x/launcher.sh $a/ 2>/dev/null
 cp $x/rpcs3plus.desktop /usr/share/applications/ 2>/dev/null
 cp $x/ps3plus.keys $c/evmapy/ 2>/dev/null
+cp $x/ps3+.keys $c/evmapy/ 2>/dev/null
 
 cd $x/
 yes "A" | unzip -qq $x/configgen.zip -d $x/
