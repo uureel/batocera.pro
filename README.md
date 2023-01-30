@@ -227,11 +227,11 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L prism.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/ps2plus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;PS2PLUS / PCSX2-QT-UPDATER</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/ps2plus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;PS2+ / PCSX2-QT-UPDATER</i></b><br>
 ```curl -L ps2plus.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;PS3PLUS / RPCS3-UPDATER</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;PS3+ / RPCS3-UPDATER</i></b><br>
 ```curl -L ps3plus.batocera.pro | bash```
 <br>
 <br>
