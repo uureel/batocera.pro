@@ -7,7 +7,7 @@
             ],
             "type": "exec",
             "target": [
-                "killall -9 pcsx2-qt 2>/dev/null",
+                "killall -9 rpcs3 2>/dev/null & killall -9 rpcs3.AppImage 2>/dev/null",
                 "unclutter-remote -h"
             ]
         },
