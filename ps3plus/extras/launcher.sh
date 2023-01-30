@@ -46,7 +46,7 @@ XDG_CONFIG_HOME=/userdata/system/configs \
 XDG_CACHE_HOME=/userdata/saves \
 XDG_RUNTIME_DIR=/userdata \
 QT_QPA_PLATFORM=xcb \
-/userdata/system/pro/ps3plus/rpcs3/rpcs3.AppImage -platform xcb --fullscreen --nogui "$ROM" 1>$log1 2>$log2
+/userdata/system/pro/ps3plus/rpcs3/rpcs3.AppImage -platform xcb --no-gui "$ROM" 1>$log1 2>$log2
 fi
 
 sleep 1
