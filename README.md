@@ -1,5 +1,6 @@
 # batocera.pro
 <b><i>Provides unofficial apps for Batocera </i></b><br>
+https://discord.gg/SWBvBkmn9P<br>
 <br>
 <br>
 </b>These apps will be available in F1-Applications <br>
