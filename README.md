@@ -1,5 +1,5 @@
 # batocera.pro
-<b><i>Provides unofficial apps for Batocera </i></b><br>
+<b><i>Unofficial apps for Batocera </i></b><br>
 <i>https://discord.gg/SWBvBkmn9P</i><br>
 <br>
 <br>
