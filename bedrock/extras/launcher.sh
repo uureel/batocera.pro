@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # prepare logs: 
-log1=/userdata/system/pro/ps3plus/log1.txt
-log2=/userdata/system/pro/ps3plus/log2.txt
+log1=/userdata/system/pro/bedrock/log1.txt
+log2=/userdata/system/pro/bedrock/log2.txt
 rm $log1 2>/dev/null; rm $log2 2>/dev/null
 
 # prepare *.ai: 
