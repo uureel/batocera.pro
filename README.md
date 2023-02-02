@@ -176,6 +176,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L minecraft.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/bedrock/extras/icon.png" width=48 height=48 /><b><i>&nbsp;MINECRAFT-BEDROCK</i></b><br>
+```curl -L bedrock.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/moonlight/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MOONLIGHT</i></b><br>
 ```curl -L moonlight.batocera.pro | bash```
 <br>
