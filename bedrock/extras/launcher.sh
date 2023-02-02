@@ -25,7 +25,4 @@ SCALE=0.5
 fi 
 
 # start appimage: 
-DISPLAY=:0.0 \
-QT_FONT_DPI=128 \
-QT_SCALE_FACTOR=$SCALE \
-/userdata/system/pro/bedrock/bedrock.AppImage 1>$log1 2>$log2
+DISPLAY=:0.0 QT_FONT_DPI=128 QT_SCALE_FACTOR=$SCALE /userdata/system/pro/bedrock/bedrock.AppImage 1>$log1 2>$log2
