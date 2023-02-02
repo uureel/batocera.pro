@@ -5,7 +5,7 @@
 
 
 
-app=ps3plus
+app=bedrock
 
 
 
