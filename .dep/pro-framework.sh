@@ -296,6 +296,9 @@ bash "/userdata/system/pro/$app/extras/custom.sh" 2>/dev/null
 echo -e "${A}  ${X}  done "
 sleep 0.2
 #fi
+#
+$prefix/extras/startup.sh 2>/dev/null
+#
 }
 export -f add-custom
 #-------------------------------------
@@ -455,8 +458,13 @@ function add-autostart() {
 #echo -e "${A}  ${X}"
 #echo -e "${A}  ${X}"
 #echo -e "${A}██${X}  ${H}preparing launchers"
+app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
+prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
+port="$(cat /tmp/batocera.pro-config | grep "port=" | cut -d "=" -f2)"
+#
 csh=/userdata/system/custom.sh; dos2unix $csh
 startup="/userdata/system/pro-custom.sh"
+#
 rm /userdata/system/pro-custom.sh 2>/dev/null
 time=$(date +"%y%m%d-%H%M%S")
 temp="/tmp/batocera.pro-autostart"
@@ -543,6 +551,8 @@ cat $pcsh | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp
 cp $tmp $pcsh ; dos2unix $pcsh ; chmod a+x $pcsh
 
 sleep 1
+
+$prefix/extras/startup.sh 2>/dev/null
 
 } 
 export -f add-autostart
