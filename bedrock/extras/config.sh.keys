@@ -1,0 +1,82 @@
+{
+    "actions_player1": [
+        {
+            "trigger": [
+                "hotkey",
+                "start"
+            ],
+            "type": "exec",
+            "target": [
+                "killall -9 rpcs3 2>/dev/null & killall -9 rpcs3.AppImage 2>/dev/null",
+                "unclutter-remote -h"
+            ]
+        },
+        {
+            "trigger": [
+                "hotkey",
+                "r3"
+            ],
+            "type": "key",
+            "target": "KEY_ENTER",
+            "description": "Press enter shortcut 1"
+        },
+        {
+            "trigger": [
+                "hotkey",
+                "l3"
+            ],
+            "type": "key",
+            "target": "KEY_ENTER",
+            "description": "Press enter shortcut 2"
+        },
+        {
+            "trigger": "start",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "r3",
+            "type": "key",
+            "target": "BTN_RIGHT"
+        },
+        {
+            "trigger": "l3",
+            "type": "key",
+            "target": "BTN_LEFT"
+        },
+        {
+            "trigger": "joystick1",
+            "type": "mouse"
+        },
+        {
+            "trigger": "up",
+            "type": "key",
+            "target": "KEY_UP"
+        },
+        {
+            "trigger": "down",
+            "type": "key",
+            "target": "KEY_DOWN"
+        },
+        {
+            "trigger": "left",
+            "type": "key",
+            "target": "KEY_LEFT"
+        },
+        {
+            "trigger": "right",
+            "type": "key",
+            "target": "KEY_RIGHT"
+        },
+        {
+            "trigger": "a",
+            "type": "key",
+            "target": "BTN_RIGHT"
+        },
+        {
+            "trigger": "b",
+            "type": "key",
+            "target": "BTN_LEFT"
+        }
+    ]
+}

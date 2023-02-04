@@ -6,13 +6,7 @@
 
 
 app=ps2plus
-#
-#latest stable
-#url=$(curl -s https://api.github.com/repos/LizardByte/Sunshine/releases/latest | grep 'browser_' | cut -d\" -f4 | grep AppImage)
-#
-#nightly
-url1=$(curl -s https://api.github.com/repos/PCSX2/pcsx2/releases | grep AppImage | grep "browser_download_url" | grep SSE4 | sed 's,^.*https://,https://,g' | cut -d \" -f1 | head -n1)
-url2=$(echo "$url1" | sed 's,SSE4,AVX2,g')
+url=$(curl -s https://api.github.com/repos/PCSX2/pcsx2/releases | grep AppImage | grep "browser_download_url" | sed 's,^.*https://,https://,g' | cut -d \" -f1 | head -n1)
 
 
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -55,8 +49,7 @@ say-hi
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
 mkdir -p /userdata/system/pro/ps2plus/pcsx2/ 2>/dev/null
-get-appimage "$url1" "/userdata/system/pro/ps2plus/pcsx2" "pcsx2-SSE4.AppImage"
-get-appimage "$url2" "/userdata/system/pro/ps2plus/pcsx2" "pcsx2-AVX2.AppImage"
+get-appimage "$url" "/userdata/system/pro/ps2plus/pcsx2" "pcsx2.AppImage"
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
 get-extras
