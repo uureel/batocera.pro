@@ -3,6 +3,14 @@
 # get rom from generator: 
 ROM="$1"
 
+# check if *.psn 
+cp /userdata/system/pro/ps3plus/extras/rev /usr/bin/ 2>/dev/null 
+chmod a+x /usr/bin/rev 2>/dev/null
+if [[ "$(echo "$ROM" | rev | cut -c 1-4 | rev)" = ".psn" ]]; then 
+ID=$(cat "$ROM" | head -n 1 | tr 'a-z' 'A-Z')
+ROM="/userdata/system/configs/rpcs3/dev_hdd0/game/$ID/USRDIR/EBOOT.BIN"
+fi
+
 # prepare logs: 
 log1=/userdata/system/pro/ps3plus/log1.txt
 log2=/userdata/system/pro/ps3plus/log2.txt
