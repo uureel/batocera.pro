@@ -1,0 +1,86 @@
+{
+    "actions_player1": [
+        {
+            "trigger": "up",
+            "type": "key",
+            "target": "KEY_W",
+            "description": "Move Forward"
+        },
+        {
+            "trigger": "down",
+            "type": "key",
+            "target": "KEY_S",
+            "description": "Move Backward"
+        },
+        {
+            "trigger": "left",
+            "type": "key",
+            "target": "KEY_A",
+            "description": "Move Left"
+        },
+        {
+            "trigger": "right",
+            "type": "key",
+            "target": "KEY_D",
+            "description": "Move Right"
+        },
+        {
+            "trigger": "r2",
+            "type": "key",
+            "target": "KEY_LEFTCTRL",
+            "description": "Run"
+        },
+        {
+            "trigger": "pageup",
+            "type": "key",
+            "target": "KEY_SPACE",
+            "description": "Jump"
+        },
+        {
+            "trigger": "l2",
+            "type": "key",
+            "target": "KEY_CAPSLOCK",
+            "description": "Crouch"
+        },
+        {
+            "trigger": "joystick2",
+            "type": "mouse"
+        },
+        {
+            "trigger": "b",
+            "type": "key",
+            "target": "BTN_LEFT",
+            "description": "Fight / Mine"
+        },
+        {
+            "trigger": "x",
+            "type": "key",
+            "target": "BTN_MIDDLE",
+            "description": "Choos Block"
+        },
+        {
+            "trigger": "a",
+            "type": "key",
+            "target": "BTN_RIGHT",
+            "description": "Use Object / Put Block"
+        },
+        {
+            "trigger": "y",
+            "type": "key",
+            "target": "KEY_Q",
+            "description": "Throw Object"
+        },
+        {
+            "trigger": "select",
+            "type": "key",
+            "target": "KEY_E",
+            "description": "Inventory"
+        },
+        {
+            "trigger": "start",
+            "type": "key",
+            "target": "KEY_ESC",
+            "description": "Main Menu"
+        }
+    ]
+}

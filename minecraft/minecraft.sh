@@ -361,6 +361,9 @@ cp $shortcut $f1shortcut 2>/dev/null
 # -- prepare Ports file, 
 rm /userdata/roms/ports/Minecraft.sh 2>/dev/null
 cp $pro/$appname/Launcher /userdata/roms/ports/Minecraft.sh
+rm /userdata/roms/ports/Minecraft.sh.keys 2>/dev/null
+wget -q -O "/userdata/roms/ports/Minecraft.sh.keys" "https://raw.githubusercontent.com/uureel/batocera.pro/main/minecraft/extra/Darknior-Minecraft.sh.keys" 
+dos2unix /userdata/roms/ports/Minecraft.sh.keys 2>/dev/null 
 #
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/minecraft/extra/startup
