@@ -20,7 +20,7 @@ APPLINK=https://pubdl.clonehero.net/clonehero-v1.0.0.4080-final/clonehero-linux.
 APPHOME=clonehero.net/releases
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME' "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
+COMMAND='sysctl -w vm.max_map_count=262144; ulimit -H -n 819200; ulimit -S -n 819200; ulimit -S -n 819200 clonehero; mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME' "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
