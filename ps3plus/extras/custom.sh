@@ -37,13 +37,14 @@ cp $x/rpcs3plus.desktop /usr/share/applications/ 2>/dev/null
 cp $x/ps3plus.keys $c/evmapy/ 2>/dev/null
 cp $x/ps3+.keys $c/evmapy/ 2>/dev/null
 
-cd $x/
-yes "A" | unzip -qq $x/configgen.zip -d $x/
+cd $x/ 
+yes "A" | unzip -qq $x/configgen.zip -d $x/ 
 cd ~/ 
 
-# backup saves
-timestamp=$(date +"%y%m%d-%H%M%S") 
-cp -r /userdata/saves/ps3 /userdata/saves/ps3-backup-$timestamp 2>/dev/null
+# backup saves 
+# timestamp=$(date +"%y%m%d-%H%M%S") 
+mkdir /userdata/saves/ps3-backup 2>/dev/null 
+rsync -au /userdata/saves/ps3/ /userdata/saves/ps3-backup/ 2>/dev/null 
 
 /userdata/system/pro/ps3plus/extras/startup.sh 
 
