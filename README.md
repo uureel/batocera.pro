@@ -240,6 +240,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L ps2plus.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;PS3+ / RPCS3-UPDATER</i></b><br>
+```curl -L ps3plus.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/qbittorrent/extra/icon.png" width=48 height=48 /><b><i>&nbsp;QBITTORRENT</i></b><br>
 ```curl -L qbittorrent.batocera.pro | bash```
 <br>
@@ -250,10 +254,6 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/rats/extra/icon.png" width=48 height=48 /><b><i>&nbsp;RATS-SEARCH</i></b> <br>
 ```curl -L rats.batocera.pro | bash```
-<br>
-<br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/icon.png" width=48 height=48 /><b><i>&nbsp;RPCS3 </b>UPDATER</i></b> <br>
-```curl -L rpcs3.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/sak/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SAK </i></b> <br>
