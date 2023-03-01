@@ -108,6 +108,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L ffnightly.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/fightcade/extra/icong.png" width=48 height=48 /><b><i>&nbsp;FIGHTCADE 2</i></b><br>
+```curl -L fightcade.batocera.pro | bash```
+<br>
+<br>
 <a href=https://github.com/mmtrt/foobar2000_AppImage>
 <img src="https://github.com/uureel/batocera.pro/raw/main/foobar/extra/icon.png" width=48 height=48 /></a>
 <b><i>&nbsp;FOOBAR2000</i></b><br>
@@ -174,10 +178,6 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/minecraft/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MINECRAFT</i></b><br>
 ```curl -L minecraft.batocera.pro | bash```
-<br>
-<br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/bedrock/extras/icon.png" width=48 height=48 /><b><i>&nbsp;MINECRAFT-BEDROCK</i></b><br>
-```curl -L bedrock.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/moonlight/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MOONLIGHT</i></b><br>
@@ -250,10 +250,6 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/rats/extra/icon.png" width=48 height=48 /><b><i>&nbsp;RATS-SEARCH</i></b> <br>
 ```curl -L rats.batocera.pro | bash```
-<br>
-<br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/rpcs3/extra/icon.png" width=48 height=48 /><b><i>&nbsp;RPCS3 </b>UPDATER</i></b> <br>
-```curl -L rpcs3.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/sak/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SAK </i></b> <br>
