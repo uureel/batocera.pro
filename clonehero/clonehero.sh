@@ -51,17 +51,17 @@ echo
 # --------------------------------------------------------------------
 # -- output colors:
 ###########################
-X='\033[0m'               # / resetcolor
-W='\033[0;37m'            # white
+X='\033[0m'               # 
+W='\033[0m'               # 
 #-------------------------#
-RED='\033[1;31m'          # red
-BLUE='\033[1;34m'         # blue
-GREEN='\033[1;32m'        # green
-PURPLE='\033[1;35m'       # purple
-DARKRED='\033[0;31m'      # darkred
-DARKBLUE='\033[0;34m'     # darkblue
-DARKGREEN='\033[0;32m'    # darkgreen
-DARKPURPLE='\033[0;35m'   # darkpurple
+RED='\033[0m'             # 
+BLUE='\033[0m'            # 
+GREEN='\033[0m'           # 
+PURPLE='\033[0m'          # 
+DARKRED='\033[0m'         # 
+DARKBLUE='\033[0m'        # 
+DARKGREEN='\033[0m'       # 
+DARKPURPLE='\033[0m'      # 
 ###########################
 # --------------------------------------------------------------------
 # -- console theme
@@ -171,17 +171,17 @@ ORIGIN="$6"
 # --------------------------------------------------------------------
 # -- colors: 
 ###########################
-X='\033[0m'               # / resetcolor
-W='\033[0;37m'            # white
+X='\033[0m'               # 
+W='\033[0m'               # 
 #-------------------------#
-RED='\033[1;31m'          # red
-BLUE='\033[1;34m'         # blue
-GREEN='\033[1;32m'        # green
-PURPLE='\033[1;35m'       # purple
-DARKRED='\033[0;31m'      # darkred
-DARKBLUE='\033[0;34m'     # darkblue
-DARKGREEN='\033[0;32m'    # darkgreen
-DARKPURPLE='\033[0;35m'   # darkpurple
+RED='\033[0m'             # 
+BLUE='\033[0m'            # 
+GREEN='\033[0m'           # 
+PURPLE='\033[0m'          # 
+DARKRED='\033[0m'         # 
+DARKBLUE='\033[0m'        # 
+DARKGREEN='\033[0m'       # 
+DARKPURPLE='\033[0m'      # 
 ###########################
 # -- display theme:
 L=$W
@@ -397,22 +397,9 @@ curl http://127.0.0.1:1234/reloadgames
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
-function get-xterm-fontsize {
-depurl=https://github.com/uureel/batocera.pro/raw/main/.dep; dep=/userdata/system/pro/.dep; mkdir -p $dep 2>/dev/null;
-wget -q -O $dep/tput $depurl/tput; wget -q -O $dep/libtinfo.so.6 $depurl/libtinfo.so.6; chmod a+x $dep/tput 2>/dev/null; chmod a+x $dep/libtinfo.so.6 2>/dev/null;
-cp $dep/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null & cp $dep/libtinfo.so.6 /lib64/libtinfo.so.6 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null
-DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$dep/tput cols >> $cfg" 2>/dev/null
-cols=$(cat $cfg | tail -n 1) 2>/dev/null; TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
-}
-export -f get-xterm-fontsize 2>/dev/null; get-xterm-fontsize 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg; cols=$(cat $cfg | tail -n 1) 2>/dev/null
-until [[ "$cols" != "80" ]]; do get-xterm-fontsize; cols="$(cat $cfg | tail -n 1)"; done 
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null 
-# --------------------------------------------------------------------
 # RUN:
 # |
-  DISPLAY=:0.0 xterm -fullscreen -bg black -fa 'Monospace' -fs $TEXT_SIZE -e bash -c "batocera-pro-installer '$APPNAME' '$appname' '$AppName' '$APPPATH' '$APPLINK' '$ORIGIN'" 2>/dev/null
+  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER //
 ##########################

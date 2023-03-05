@@ -418,31 +418,8 @@ sleep 0.1
 }
 # --------------------------------------------------------------------
 export -f batocera-pro-rpcs3updater 2>/dev/null
-# --------------------------------------------------------------------
-# -- include display output: 
-function get-xterm-fontsize {
-depurl=https://github.com/uureel/batocera.pro/raw/main/.dep
-dep=/userdata/system/pro/.dep; mkdir -p $dep 2>/dev/null
-wget -q -O $dep/libtinfo.so.6 $depurl/libtinfo.so.6
-wget -q -O $dep/tput $depurl/tput; chmod a+x $dep/tput; 
-cp $dep/tput /usr/bin/tput 2>/dev/null; cp $dep/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null
-DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "/usr/bin/tput cols >> $cfg" 2>/dev/null
-cols=$(cat $cfg | tail -n 1) 2>/dev/null
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
-}
-export -f get-xterm-fontsize 2>/dev/null
-get-xterm-fontsize 2>/dev/null
-cfg=/userdata/system/pro/.dep/display.cfg
-cols=$(cat $cfg | tail -n 1) 2>/dev/null
-until [[ "$cols" != "80" ]] 
-do
-get-xterm-fontsize 2>/dev/null
-cols=$(cat $cfg | tail -n 1) 2>/dev/null
-done 
-TEXT_SIZE=$(bc <<<"scale=0;$cols/16") 2>/dev/null
 # -------------------------------------------------------------------- 
-DISPLAY=:0.0 xterm -fullscreen -bg black -fa "Monospace" -fs $TEXT_SIZE -e bash -c "batocera-pro-rpcs3updater" 2>/dev/null 
+batocera-pro-rpcs3updater 2>/dev/null
 # -------------------------------------------------------------------- 
 if [[ -e "/userdata/system/pro/rpcs3/extra/installation.txt" ]]; then 
 if [[ "$(cat /userdata/system/pro/rpcs3/extra/installation.txt | tail -n 1)" = "done" ]]; then 

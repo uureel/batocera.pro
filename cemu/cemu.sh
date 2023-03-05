@@ -28,17 +28,17 @@ echo
 # --------------------------------------------------------------------
 # -- output colors:
 ###########################
-X='\033[0m'               # / resetcolor
-W='\033[0;37m'            # white
+X='\033[0m'               # 
+W='\033[0m'               # 
 #-------------------------#
-RED='\033[1;31m'          # red
-BLUE='\033[1;34m'         # blue
-GREEN='\033[1;32m'        # green
-PURPLE='\033[1;35m'       # purple
-DARKRED='\033[0;31m'      # darkred
-DARKBLUE='\033[0;34m'     # darkblue
-DARKGREEN='\033[0;32m'    # darkgreen
-DARKPURPLE='\033[0;35m'   # darkpurple
+RED='\033[0m'             # 
+BLUE='\033[0m'            # 
+GREEN='\033[0m'           # 
+PURPLE='\033[0m'          # 
+DARKRED='\033[0m'         # 
+DARKBLUE='\033[0m'        # 
+DARKGREEN='\033[0m'       # 
+DARKPURPLE='\033[0m'      # 
 ###########################
 # console theme
 L=$X
@@ -115,17 +115,17 @@ ORIGIN=$5
 LATEST=$6
 # colors: 
 ###########################
-X='\033[0m'               # / resetcolor
-W='\033[0;37m'            # white
+X='\033[0m'               # 
+W='\033[0m'               # 
 #-------------------------#
-RED='\033[1;31m'          # red
-BLUE='\033[1;34m'         # blue
-GREEN='\033[1;32m'        # green
-PURPLE='\033[1;35m'       # purple
-DARKRED='\033[0;31m'      # darkred
-DARKBLUE='\033[0;34m'     # darkblue
-DARKGREEN='\033[0;32m'    # darkgreen
-DARKPURPLE='\033[0;35m'   # darkpurple
+RED='\033[0m'             # 
+BLUE='\033[0m'            # 
+GREEN='\033[0m'           # 
+PURPLE='\033[0m'          # 
+DARKRED='\033[0m'         # 
+DARKBLUE='\033[0m'        # 
+DARKGREEN='\033[0m'       # 
+DARKPURPLE='\033[0m'      # 
 ###########################
 # display theme:
 L=$W
