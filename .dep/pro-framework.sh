@@ -287,8 +287,8 @@ function add-custom() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 #if [[ -e "$prefix/extras/custom.sh" ]]; then 
-dos2unix "$prefix/extras/custom.sh"
-chmod a+x "$prefix/extras/custom.sh"
+dos2unix "$prefix/extras/custom.sh" 2>/dev/null
+chmod a+x "$prefix/extras/custom.sh" 2>/dev/null
 echo
 echo -e "${A}  ${X}"
 echo -e "${A}██${X}  ${H}installing"
@@ -433,10 +433,10 @@ port="$(cat /tmp/batocera.pro-config | grep "port=" | cut -d "=" -f2)"
 		mkdir -p "$temp"
 			echo -e '#!/bin/bash ' >> "$temp/$name"
 			echo -e "unclutter-remote -s " >> "$temp/$name"
-			echo -e "/userdata/system/pro/$app/launcher.sh " >> "$temp/$name"
+			echo -e "DISPLAY=:0.0 /userdata/system/pro/$app/launcher.sh " >> "$temp/$name"
 			echo -e " " >> "$temp/$name" 
-			dos2unix "$temp/$name"
-			chmod a+x "$temp/$name"
+			dos2unix "$temp/$name" 2>/dev/null
+			chmod a+x "$temp/$name" 2>/dev/null
 			cp "$temp/$name" /userdata/roms/ports/
 				cp -rL "$prefix/extras/*.sh.keys" "/userdata/roms/ports/$name.keys" 2>/dev/null
 		cd /userdata/system/
@@ -462,7 +462,7 @@ app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
 port="$(cat /tmp/batocera.pro-config | grep "port=" | cut -d "=" -f2)"
 #
-csh=/userdata/system/custom.sh; dos2unix $csh
+csh=/userdata/system/custom.sh; dos2unix $csh 2>/dev/null
 startup="/userdata/system/pro-custom.sh"
 #
 rm /userdata/system/pro-custom.sh 2>/dev/null
@@ -501,16 +501,16 @@ if [[ -f $csh ]];
       	if [[ -e "$tmp1" ]] && [[ "$(cat $tmp1 | wc -l)" > "0" ]]; then       
       	cat $tmp1 | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp2
    		fi
-       		cp $tmp2 $csh
-       		dos2unix $csh
-       		chmod a+x $csh  
+       		cp $tmp2 $csh 2>/dev/null
+       		dos2unix $csh 2>/dev/null
+       		chmod a+x $csh 2>/dev/null 
    else  #(!f csh)   
        echo -e '#!/bin/bash' >> $csh
        echo -e "\n$startup & \n" >> $csh  
-       dos2unix $csh; chmod a+x $csh  
+       dos2unix $csh 2>/dev/null; chmod a+x $csh 2>/dev/null  
 fi 
-dos2unix $csh
-chmod a+x $csh
+dos2unix $csh 2>/dev/null
+chmod a+x $csh 2>/dev/null
 
 # ------------ 
 
@@ -541,14 +541,14 @@ echo "#!/bin/bash" >> $pcsh
 
 		L=$(($L + 1))
 	done
-	dos2unix $pcsh ; chmod a+x $pcsh
+	dos2unix $pcsh 2>/dev/null ; chmod a+x $pcsh 2>/dev/null
 fi
 cd ~/  
 
 pcsh=/userdata/system/pro-custom.sh
 tmp=/tmp/pcsh_tmp ; rm $tmp 2>/dev/null 
 cat $pcsh | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp
-cp $tmp $pcsh ; dos2unix $pcsh ; chmod a+x $pcsh
+cp $tmp $pcsh ; dos2unix $pcsh 2>/dev/null ; chmod a+x $pcsh 2>/dev/null
 
 sleep 1
 
@@ -562,7 +562,7 @@ export -f add-autostart
 
 function additionalcheck() {
 
-csh=/userdata/system/custom.sh; dos2unix $csh
+csh=/userdata/system/custom.sh; dos2unix $csh 2>/dev/null
 check1="/userdata/system/pro/"
 check2="/extra/startup"
 time=$(date +"%y%m%d-%H%M%S")
@@ -590,9 +590,9 @@ if [[ -f $csh ]]; then
             ((l++))
          done
 fi 
-cp "$tmp1" "$csh"
-dos2unix "$csh"
-chmod a+x "$csh"
+cp "$tmp1" "$csh" 2>/dev/null
+dos2unix "$csh" 2>/dev/null
+chmod a+x "$csh" 2>/dev/null
 
 
 if [[ "$(cat "$pcsh" | grep "#/userdata/system/pro/$app/extras/startup.sh")" != "" ]]; 
