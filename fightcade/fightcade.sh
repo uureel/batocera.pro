@@ -14,7 +14,7 @@ echo -e "${RED}YOU NEED BATOCERA VERSION 35+"
 sleep 3
 exit 0; exit 1; exit 2
 fi 
-free=$(df -h | grep "userdata" | awk '{print $4}' | sed 's,G,,g' | cut -d "." -f1)
+free="$(df /userdata | awk 'END {print int($4/(1024*1024))}')"
 if [[ "$free" -le "4" ]]; then 
 echo -e "${RED}ERROR: YOU NEED AT LEAST 4GB OF FREE DISK SPACE ON /USERDATA "
 echo -e "${RED}YOU HAVE $free GB"
@@ -46,14 +46,16 @@ spinner()
 cd ~/
 killall fc2-electron 2>/dev/null
 fightcade=/userdata/system/pro/fightcade; mkdir -p $fightcade/extras 2>/dev/null
-tmp=/tmp/batocera-fightcade; rm -rf $tmp 2>/dev/null
+tmp=/tmp/batocera-fightcade; rm -rf $tmp 2>/dev/null; mkdir -p /tmp 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare dependencies for this app and the installer: 
 url=https://raw.githubusercontent.com/uureel/batocera-fightcade/main/installer
 wget -q -O $tmp/installer.sh $url/fightcade.sh 2>/dev/null 
 dos2unix $tmp/installer.sh 2>/dev/null; chmod a+x $tmp/installer.sh 2>/dev/null
-wget -q -O /lib/libselinux.so.1 $url/libselinux.so.1 2>/dev/null 
-wget -q -O /bin/tar $url/tar 2>/dev/null; chmod a+x /bin/tar 2>/dev/null
+wget -q -O /tmp/libselinux.so.1 $url/libselinux.so.1 2>/dev/null 
+wget -q -O /tmp/tar $url/tar 2>/dev/null; chmod a+x /tmp/tar 2>/dev/null
+cp /tmp/libselinux.so.1 /lib/ 2>/dev/null
+cp /tmp/tar /bin/tar 2>/dev/null
 # --------------------------------------------------------------------
 # show console info: 
 clear
@@ -127,17 +129,17 @@ if [[ -f "$p1" ]] && [[ -f "$p2" ]] && [[ -f "$p3" ]] && [[ -f "$p4" ]] && [[ -f
         then 
             #
             size=$(du -h ~/pro/fightcade/extras/downloads | tail -n 1 | awk '{print $1}' | sed 's,G,,g')
-            echo -e "DONE, $size GB"
+            echo -e "DONE, $size "
         else 
             echo
             echo -e "DOWNLOAD WENT BAD! ;( "
             sleep 2
             echo -e "RESTARTING INSTALLER . . ."
-            sleep 3
-            exit 0 & /tmp/batocera-fightcade/installer.sh 
+            sleep 2
+            exit 1 & curl -L fightcade.batocera.pro | bash
     fi
 fi
-#
+# 
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 #
@@ -154,11 +156,11 @@ echo
 echo -e "EXTRACTING. . . ."
 cd /userdata/system/pro/
 mv /userdata/system/pro/fightcade/extras/downloads/fightcade.tar.gz /userdata/system/pro/
-tar -xf /userdata/system/pro/fightcade.tar.gz 2>/dev/null & spinner $!
-wait 
+chmod a+x /bin/tar 2>/dev/null
+/bin/tar -xf /userdata/system/pro/fightcade.tar.gz 
 rm -rf /userdata/system/pro/fightcade/extras/downloads 2>/dev/null
 size=$(du -h ~/pro/fightcade | tail -n 1 | awk '{print $1}' | sed 's,G,,g')
-echo -e "\n\n$size GB"
+echo -e "$size GB"
 echo -e "DONE,"
 #
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
@@ -175,15 +177,15 @@ chmod a+x /userdata/system/pro/fightcade/extras/startup.sh 2>/dev/null
 chmod a+x /userdata/system/pro/fightcade/extras/wine.sh 2>/dev/null
 chmod a+x /userdata/system/pro/fightcade/Fightcade2.sh 2>/dev/null
 /userdata/system/pro/fightcade/extras/startup.sh 2>/dev/null
-#
+# 
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-#
+# 
 # -------------------------------------------------------------------
 # ADD TO BATOCERA AUTOSTART > /USERDATA/SYSTEM/CUSTOM.SH TO ENABLE F1
 # -------------------------------------------------------------------
-#
-csh=/userdata/system/custom.sh; dos2unix $csh
+# 
+csh=/userdata/system/custom.sh; dos2unix $csh 2>/dev/null
 startup="/userdata/system/pro/fightcade/extras/startup.sh"
 if [[ -f $csh ]];
    then
@@ -222,11 +224,39 @@ chmod a+x ~/custom.sh 2>/dev/null
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 # 
-# add Fightcade2 to ports
-cp /userdata/system/pro/fightcade/Fightcade2.sh /userdata/roms/ports/Fightcade2.sh 2>/dev/null
-# add pad2key 
+# get updated files:
+# --- 
+url=https://raw.githubusercontent.com/uureel/batocera-fightcade/main/installer
+# startup 
+wget -q -O /userdata/system/pro/fightcade/extras/startup.sh $url/startup.sh 2>/dev/null 
+dos2unix /userdata/system/pro/fightcade/extras/startup.sh 2>/dev/null
+chmod a+x /userdata/system/pro/fightcade/extras/startup.sh 2>/dev/null
+# launcher 
+wget -q -O /userdata/system/pro/fightcade/Fightcade2.sh $url/Fightcade2.sh 2>/dev/null 
+dos2unix /userdata/system/pro/fightcade/Fightcade2.sh 2>/dev/null
+chmod a+x /userdata/system/pro/fightcade/Fightcade2.sh 2>/dev/null
+# winesync 
+wget -q -O /userdata/system/pro/fightcade/extras/winesync.sh $url/winesync.sh 2>/dev/null 
+dos2unix /userdata/system/pro/fightcade/extras/winesync.sh 2>/dev/null
+chmod a+x /userdata/system/pro/fightcade/extras/winesync.sh 2>/dev/null
+# syncwine 
+wget -q -O /userdata/system/pro/fightcade/extras/syncwine.sh $url/syncwine.sh 2>/dev/null 
+dos2unix /userdata/system/pro/fightcade/extras/syncwine.sh 2>/dev/null
+chmod a+x /userdata/system/pro/fightcade/extras/syncwine.sh 2>/dev/null
+# unwine 
+wget -q -O /userdata/system/pro/fightcade/extras/unwine.sh $url/unwine.sh 2>/dev/null 
+dos2unix /userdata/system/pro/fightcade/extras/unwine.sh 2>/dev/null
+chmod a+x /userdata/system/pro/fightcade/extras/unwine.sh 2>/dev/null
+# wine 
+wget -q -O /userdata/system/pro/fightcade/extras/wine.sh $url/wine.sh 2>/dev/null 
+dos2unix /userdata/system/pro/fightcade/extras/wine.sh 2>/dev/null
+chmod a+x /userdata/system/pro/fightcade/extras/wine.sh 2>/dev/null
+# pad2key 
 url=https://raw.githubusercontent.com/uureel/batocera-fightcade/main/installer
 wget -q -O /userdata/roms/ports/Fightcade2.sh.keys $url/Fightcade2.sh.keys 2>/dev/null 
+# ---
+# add Fightcade2 to ports
+cp /userdata/system/pro/fightcade/Fightcade2.sh /userdata/roms/ports/Fightcade2.sh 2>/dev/null
 # reload gamelists 
 curl http://127.0.0.1:1234/reloadgames 
 echo -e "DONE,"
@@ -234,13 +264,17 @@ echo -e "DONE,"
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 # 
-# set icon for f1 launcher  
-sed -i 's/icon.png/icong.png/g' /userdata/system/pro/fightcade/extras/fightcade.desktop 2>/dev/null
-/userdata/system/pro/fightcade/extras/startup.sh 2>/dev/null 
+# set icon for f1 launcher 
+if [[ -f /userdata/system/pro/fightcade/extras/fightcade.desktop ]]; then 
+    sed -i 's/icon.png/icong.png/g' /userdata/system/pro/fightcade/extras/fightcade.desktop 2>/dev/null
+    /userdata/system/pro/fightcade/extras/startup.sh 2>/dev/null 
+fi
 # add --disable-gpu to fightcade launcher for compatibility  
-if [[ $(cat "/userdata/system/pro/fightcade/fightcade/Fightcade2.sh" | grep "disable-gpu") = "" ]] || [[ $(cat "/userdata/system/pro/fightcade/fightcade/Fightcade2.sh" | grep "no-sandbox") != "" ]]; then
-sed -i 's/--no-sandbox/--no-sandbox --disable-gpu/g' /userdata/system/pro/fightcade/fightcade/Fightcade2.sh 2>/dev/null
-fi 
+if [[ -f /userdata/system/pro/fightcade/fightcade/Fightcade2.sh ]]; then
+    if [[ $(cat "/userdata/system/pro/fightcade/fightcade/Fightcade2.sh" | grep "disable-gpu") = "" ]] || [[ $(cat "/userdata/system/pro/fightcade/fightcade/Fightcade2.sh" | grep "no-sandbox") != "" ]]; then
+    sed -i 's/--no-sandbox/--no-sandbox --disable-gpu/g' /userdata/system/pro/fightcade/fightcade/Fightcade2.sh 2>/dev/null
+    fi 
+fi
 # 
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -251,4 +285,4 @@ echo
 echo -e "FIGHTCADE INSTALLED :) " 
 echo 
 # done
-exit 1 
+exit 0 
