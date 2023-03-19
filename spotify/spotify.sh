@@ -255,7 +255,7 @@ mkdir $temp 2>/dev/null
 echo
 echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
 sleep 1
-echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
+echo -e "${T}$APPLINK${X}" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
