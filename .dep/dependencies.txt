@@ -19,5 +19,6 @@ libselinux.so.1
 libtdb.so.1
 libthai.so.0
 libtinfo.so.6
+libunistring.so.2
 tar
 tput
