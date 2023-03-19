@@ -314,7 +314,7 @@ echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
 echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port 
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox' >> $port
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --disable-gpu' >> $port
 dos2unix $port 
 chmod a+x $port 
 cp $port "/userdata/roms/ports/Spotify.sh" 
