@@ -27,6 +27,9 @@ chmod a+x $x/launcher.sh 2>/dev/null
 chmod a+x $x/3dsplus.desktop 2>/dev/null
 chmod a+x $x/startup.sh 2>/dev/null
 chmod a+x $x/rev 2>/dev/null
+chmod a+x $x/startx 2>/dev/null
+chmod a+x $x/xinitrc 2>/dev/null
+chmod a+x $x/xdotool 2>/dev/null
 
 #cp $x/boost.sh $a/ 2>/dev/null
 cp "$x/config.sh" "$r/■ CONFIG.sh" 2>/dev/null
