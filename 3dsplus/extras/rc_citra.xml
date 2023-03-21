@@ -8,7 +8,10 @@
 	  <application type="normal">
 	    <fullscreen>yes</fullscreen>
 	  </application>
-	  <application type="citra-qt">
+	  <application name="citra-qt">
+	    <fullscreen>no</fullscreen>
+	  </application>
+	  <application name="flatpak-bwrap">
 	    <fullscreen>no</fullscreen>
 	  </application>
 	</applications>
