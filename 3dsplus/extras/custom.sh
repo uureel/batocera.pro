@@ -42,6 +42,8 @@ cd $x/
 yes "A" | unzip -qq $x/configgen.zip -d $x/ 
 cd ~/ 
 
+chmod a+x $x/*.sh 2>/dev/null
+
 # backup saves 
 # timestamp=$(date +"%y%m%d-%H%M%S") 
 #mkdir /userdata/saves/ps3-backup 2>/dev/null 
