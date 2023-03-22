@@ -1,7 +1,7 @@
 #!/bin/bash
 
 p=/userdata/roms/ports
-r=/userdata/roms/3dsplus
+r=/userdata/roms/3ds
 c=/userdata/system/configs
 a=/userdata/system/pro/3dsplus
 x=/userdata/system/pro/3dsplus/extras
