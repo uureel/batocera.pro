@@ -1,5 +1,10 @@
 #!/bin/bash
 
+export DISPLAY=:0.0 
+
+xterm -fullscreen -fg black -bg black -fa Monospace -en UTF-8 -e bash -c "read ENTER && sleep 10" 2>/dev/null
+su -c "su -c "su -c "DISPLAY=:0.0 ~/pro/3dsplus/extras/citra-dual-openbox.sh""" root & 
+
 # get rom from generator: 
 ROM="$@"
 
@@ -17,10 +22,10 @@ rm $log1 2>/dev/null; rm $log2 2>/dev/null
 #ln -sf /userdata/system/pro/3dsplus/citra/citra-room /usr/bin/citra-room 2>/dev/null
 
 # prepare flatpak
-chmod -R a+rwx /userdata/saves/flatpak
-chown -R batocera:batocera /userdata/saves/flatpak/data
-chmod -R a+rX /userdata/saves/flatpak/binaries
-chmod a+rx /userdata /userdata/saves /userdata/saves/flatpak
+#chmod -R a+rwx /userdata/saves/flatpak
+#chown -R batocera:batocera /userdata/saves/flatpak/data
+#chmod -R a+rX /userdata/saves/flatpak/binaries
+#chmod a+rx /userdata /userdata/saves /userdata/saves/flatpak
 
 # get scale/resolution: 
 SCALE=1
@@ -40,55 +45,27 @@ fi
 
 # start: 
 if [[ "$(echo "$ROM" | grep "CONFIG")" != "" ]] || [[ "$(echo "$ROM")" = "" ]]; then
-unclutter-remote -s; 
-DISPLAY=:0.0 \
-QT_FONT_DPI=128 \
-QT_SCALE_FACTOR=$SCALE \
-XDG_CONFIG_HOME=/userdata/system/configs \
-XDG_CACHE_HOME=/userdata/saves \
-XDG_RUNTIME_DIR=/userdata \
-QT_QPA_PLATFORM=xcb \
-flatpak run org.citra_emu.citra 1>$log1 2>$log2
+	unclutter-remote -s; 
+	DISPLAY=:0.0 \
+	QT_FONT_DPI=128 \
+	QT_SCALE_FACTOR=$SCALE \
+	XDG_CONFIG_HOME=/userdata/system/configs \
+	XDG_CACHE_HOME=/userdata/saves \
+	XDG_RUNTIME_DIR=/userdata \
+	QT_QPA_PLATFORM=xcb \
+	flatpak run org.citra_emu.citra 1>$log1 2>$log2 &
 else 
-DISPLAY=:0.0 \
-QT_FONT_DPI=128 \
-QT_SCALE_FACTOR=$SCALE \
-XDG_CONFIG_HOME=/userdata/system/configs \
-XDG_CACHE_HOME=/userdata/saves \
-XDG_RUNTIME_DIR=/userdata \
-QT_QPA_PLATFORM=xcb \
-flatpak run org.citra_emu.citra "$ROM" 1>$log1 2>$log2
+	DISPLAY=:0.0 \
+	QT_FONT_DPI=128 \
+	QT_SCALE_FACTOR=$SCALE \
+	XDG_CONFIG_HOME=/userdata/system/configs \
+	XDG_CACHE_HOME=/userdata/saves \
+	XDG_RUNTIME_DIR=/userdata \
+	QT_QPA_PLATFORM=xcb \
+	flatpak run org.citra_emu.citra "$ROM" 1>$log1 2>$log2 & 
+	~/pro/3dsplus/extras/citra-dual-openbox.sh & 
+
 fi
 
-sleep 1
-
-#-----------------------
-#citra-dual@bato-openbox
-#-----------------------
-#
-#prepare xdotool 
-cp /userdata/system/pro/3dsplus/xdotool /usr/bin/ 
-cp /userdata/system/pro/3dsplus/libxdo.so.3 /lib/
-#
-#get screen size
-res=$(xrandr | grep " connected" | awk '{print $3}' | cut -d "+" -f1)
-w=$(echo "$res" | cut -d "x" -f1)
-h=$(echo "$res" | cut -d "x" -f2)
-#
-#get citra windows ids 
-main=$(xdotool search --classname citra-qt | sort | head -n1)
-aux=$(xdotool search --classname citra-qt | sort | tail -n1) 
-#
-#position windows / main 
-xdotool windowsize "$main" $(($w-550)) $(($h+80))
-xdotool windowmove "$main" 0 -40
-#
-#position windows / aux 
-xdotool windowsize "$aux" 550 $h
-xdotool windowmove "$aux" $(($w-550)) 0
-#
-#(citra top&bottom toolbar height = 40px)
-
-
-/userdata/system/pro/ps3plus/extras/boost.sh 2>/dev/null & 
+/userdata/system/pro/3dsplus/extras/boost.sh 2>/dev/null & 
 

@@ -20,6 +20,6 @@ fi
 
 killall -9 sunshine 1>/dev/null 2>/dev/null & sleep 1 
 /userdata/system/pro/sunshine/extras/boost.sh & 
-DISPLAY=:0.0 /userdata/system/pro/sunshine/sunshine.AppImage 1>$log1 2>$log2 & 
+DISPLAY=:0.0 LD_LIBRARY_PATH=/userdata/system/pro/sunshine/extras /userdata/system/pro/sunshine/sunshine.AppImage 1>$log1 2>$log2 & 
 
- 
+
