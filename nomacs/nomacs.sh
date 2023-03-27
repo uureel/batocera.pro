@@ -14,7 +14,7 @@
 # --------------------------------------------------------------------
 # DEFINE APP INFO: /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ 
 APPNAME=nomacs 
-APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/nomacs/nomacs.AppImage 
+APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/nomacs/nomacs-x86_64.AppImage 
 CREDITS=github.com/uureel/batocera-apps
 # /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 # --------------------------------------------------------------------

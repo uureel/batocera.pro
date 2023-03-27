@@ -6,7 +6,7 @@ APPNAME="GPARTED" # for installer info
 appname=gparted   # directory name in /userdata/system/pro/...
 AppName=Gparted   # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/gparted/gparted.AppImage
+APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/gparted/gparted-x86_64.AppImage
 ORIGIN="github.com/uureel/batocera-apps" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

@@ -16,7 +16,7 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
 APPNAME="filezilla"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
-APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/filezilla/filezilla.AppImage
+APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/filezilla/filezilla-x86_64.AppImage
 APPHOME="github.com/uureel/batocera-apps"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
