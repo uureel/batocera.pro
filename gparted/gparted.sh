@@ -6,8 +6,8 @@ APPNAME="GPARTED" # for installer info
 appname=gparted   # directory name in /userdata/system/pro/...
 AppName=Gparted   # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://github.com/uureel/batocera.pro/raw/main/gparted/extra/Gparted.AppImage
-ORIGIN="ARCHIVED::APPREPO.DE/APPIMAGE/GPARTED" # credit & info
+APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/gparted/gparted.AppImage
+ORIGIN="github.com/uureel/batocera-apps" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # show console/ssh info: 
@@ -309,7 +309,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config GDK_SCALE="2" /userdata/system/pro/'$appname'/'$AppName'.AppImage 2>/dev/null' >> $launcher
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
