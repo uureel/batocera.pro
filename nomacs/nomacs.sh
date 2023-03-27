@@ -14,14 +14,14 @@
 # --------------------------------------------------------------------
 # DEFINE APP INFO: /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ 
 APPNAME=nomacs 
-APPLINK=https://apprepo.de/appimage/download/nomacs 
-CREDITS=apprepo.de/appimage/nomacs 
+APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/nomacs/nomacs.AppImage 
+CREDITS=github.com/uureel/batocera-apps
 # /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 # --------------------------------------------------------------------
                                                                       APPNAME="${APPNAME^^}"; ORIGIN="${CREDITS^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 # --------------------------------------------------------------------
 # DEFINE LAUNCHER COMMAND: /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-COMMAND='mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" /userdata/system/pro/'$appname'/'$AppName'.AppImage 2>/dev/null'
+COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage'
 # \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 # --------------------------------------------------------------------
 ######################################################################
