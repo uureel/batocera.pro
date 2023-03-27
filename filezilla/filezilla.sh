@@ -16,11 +16,11 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
 APPNAME="filezilla"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
-APPLINK=https://apprepo.de/appimage/download/filezilla
-APPHOME="apprepo.de/appimage/filezilla"
+APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/filezilla/filezilla.AppImage
+APPHOME="github.com/uureel/batocera-apps"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null; HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$appname'/home DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
+COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
