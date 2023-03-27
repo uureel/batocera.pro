@@ -9,8 +9,8 @@ APPNAME=GOOGLE-CHROME # for installer info
 appname=chrome # directory name in /userdata/system/pro/...
 AppName=Chrome # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/google-chrome
-ORIGIN=APPREPO.DE/APPIMAGE/GOOGLE-CHROME # credit & info
+APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/nomacs/nomacs.AppImage
+ORIGIN=github.com/uureel/batocera-apps # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -290,7 +290,7 @@ echo 'export DISPLAY=:0.0; unclutter-remote -s' >> $launcher
 ######################################################################
 ######################################################################
 #echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --disable-gpu --test-type "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
-echo '/userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --disable-gpu --test-type "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
