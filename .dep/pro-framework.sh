@@ -673,7 +673,11 @@ fi
          wget --no-check-certificate --no-cache --no-cookies -q -O $libtinfo https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/.libtinfo.so.6
       fi
    chmod a+x "$tput" 2>/dev/null
+   if [[ -e "/lib/libtinfo.so.6" ]] || [[ -e "/usr/lib/libtinfo.so.6" ]]; then 
+   :
+	else 
    cp "$libtinfo" "/lib/libtinfo.so.6" 2>/dev/null
+   fi
    cp "$tput" /usr/bin/tput 2>/dev/null
 
             rm /tmp/cols 2>/dev/null
@@ -712,7 +716,11 @@ url_libtinfo=https://raw.githubusercontent.com/uureel/batocera.pro/main/.dep/lib
          wget --no-check-certificate --no-cache --no-cookies -q -O $libtinfo $url_libtinfo
       fi
    chmod a+x "$tput" 2>/dev/null
+   if [[ -e "/lib/libtinfo.so.6" ]] || [[ -e "/usr/lib/libtinfo.so.6" ]]; then 
+   :
+	else 
    cp "$libtinfo" "/lib/libtinfo.so.6" 2>/dev/null
+   fi
    cp "$tput" /usr/bin/tput 2>/dev/null
 
 get-xterm-fontsize 2>/dev/null
