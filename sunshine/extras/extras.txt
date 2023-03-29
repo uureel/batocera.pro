@@ -6,6 +6,8 @@ libthai.a
 libthai.so
 libthai.so.0
 libthai.so.0.3.1
+libdatrie.so.1
+libunistring.so.2
 apps.json
 boost.sh
 batocera.png

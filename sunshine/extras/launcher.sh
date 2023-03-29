@@ -2,7 +2,11 @@
 
 export DISPLAY=:0.0 
 
-cp /userdata/system/pro/sunshine/extras/lib* /lib/ 2>/dev/null
+if [[ "$(uname -a | awk '{print $3}')" > "6.1" ]]; then 
+/etc/init.d/S50avahi-daemon start
+fi
+
+#cp /userdata/system/pro/sunshine/extras/lib* /lib/ 2>/dev/null
 
 log1=/userdata/system/pro/sunshine/log1.txt
 log2=/userdata/system/pro/sunshine/log2.txt
@@ -19,7 +23,7 @@ elif [[ "$(ls /usr/share/applications/ | grep "sunshine.desktop")" != "" ]]; the
 fi 
 
 killall -9 sunshine 1>/dev/null 2>/dev/null & sleep 1 
-/userdata/system/pro/sunshine/extras/boost.sh & 
-DISPLAY=:0.0 LD_LIBRARY_PATH=/userdata/system/pro/sunshine/extras /userdata/system/pro/sunshine/sunshine.AppImage 1>$log1 2>$log2 & 
+/userdata/system/pro/sunshine/extras/boost.sh 1>/dev/null 2>/dev/null & 
+DISPLAY=:0.0 LD_LIBRARY_PATH="/userdata/system/pro/sunshine/extras:${LD_LIBRARY_PATH}" /userdata/system/pro/sunshine/sunshine.AppImage 1>$log1 2>$log2 & 
 
 
