@@ -12,19 +12,16 @@
 ######################################################################
 ######################################################################
 #--------------------------------------------------------------------- 
-#  -------------------------------------------------------------------
-#  DEFINE APP INFO:
+
 APPNAME=peazip 
-APPLINK=$(curl -s https://api.github.com/repos/ferion11/PeaZip_Appimage/releases | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g' | head -n 1)
-APPHOME="github.com/ferion11/PeaZip_Appimage"
-#--------------------------------------------------------------------- 
-#--------------------------------------------------------------------- 
-        APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-#--------------------------------------------------------------------- 
-#---------------------------------------------------------------------
-#  DEFINE LAUNCHER COMMAND:
-COMMAND='mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" /userdata/system/pro/'$appname'/'$AppName'.AppImage 2>/dev/null'
-#  -------------------------------------------------------------------
+APPLINK=https://github.com/uureel/batocera.pro/raw/main/peazip/extra/peazip.AppImage
+APPHOME="github.com/uureel"
+
+APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
+AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+
+COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage 2>/dev/null'
+
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -314,8 +311,8 @@ shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
-echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
+echo "Icon=/userdata/system/pro/$appname/extra/icon.png " >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/Launcher "$@" " >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
