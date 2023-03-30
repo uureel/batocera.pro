@@ -20,7 +20,7 @@ APPLINK=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGames
 APPHOME="github.com/Heroic-Games-Launcher" 
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -343,10 +343,6 @@ chmod a+x /userdata/system/pro/$appname/extra/heroic-sync.sh 2>/dev/null
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $launcher
 echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $launcher
 echo '/userdata/system/pro/'$appname'/extra/heroic-sync.sh' >> $launcher
@@ -382,10 +378,6 @@ echo '#!/bin/bash ' >> $sl
 echo "#FILE=\$(echo "\"\$\1\"" | sed 's,\s,\ ,g')" >> $sl
 echo '#ID=$(cat $FILE)' >> $sl
 echo 'ID=$(cat "$1" | head -n 1)' >> $sl
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $sl
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $sl
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $sl
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $sl
 echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $sl
 echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $sl
 echo '/userdata/system/pro/'$appname'/extra/heroic-sync.sh' >> $sl
@@ -396,7 +388,7 @@ echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $sl
 echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $sl
 echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $sl
 echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $sl
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --no-gui --disable-gpu "heroic://launch/$ID"' >> $sl
+echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --no-gui --disable-gpu "heroic://launch/$ID"' >> $sl
 dos2unix $sl 
 chmod a+x $sl 
 # --------------------------------------------------------------------
@@ -415,10 +407,6 @@ version=$(echo $APPLINK | sed 's,^.*'$portname'-,,g' | sed 's,.AppImage,,g')
 port=/userdata/system/pro/$appname/$portname.sh
 rm -rf $port 2>/dev/null
 echo '#!/bin/bash ' >> $port
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
 echo " cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $port
 echo " cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $port
 echo '/userdata/system/pro/'$appname'/extra/heroic-sync.sh' >> $port
@@ -430,7 +418,7 @@ echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
 echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --disable-gpu' >> $port
+echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --disable-gpu' >> $port
 dos2unix $port 
 chmod a+x $port 
 ports=/userdata/roms/ports 

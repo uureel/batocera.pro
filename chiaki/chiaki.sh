@@ -20,7 +20,7 @@ APPLINK=https://git.sr.ht/~thestr4ng3r/chiaki/refs/download/v2.1.1/Chiaki-v2.1.1
 APPHOME="git.sr.ht/~thestr4ng3r/chiaki"
 #---------------------------------------------------------------------
 # DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null; HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$appname'/home DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
+COMMAND='mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$appname'/home DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -310,10 +310,6 @@ echo -e "${G}INSTALLING${W}"
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
@@ -344,10 +340,6 @@ version="2.1.1"
 port=/userdata/system/pro/$appname/Chiaki.sh
 rm -rf $port 2>/dev/null 
 echo '#!/bin/bash ' >> $port
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
-echo ' ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
 echo 'unclutter-remote -s' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
 echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
@@ -356,7 +348,7 @@ echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
 echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
 echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage' >> $port
+echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage' >> $port
 dos2unix $port
 chmod a+x $port
 ports=/userdata/roms/ports

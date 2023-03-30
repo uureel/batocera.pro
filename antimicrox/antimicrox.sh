@@ -281,10 +281,6 @@ echo -e "${G}INSTALLING ${W}. . ."
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
@@ -292,7 +288,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_FONT_DPI=128 QT_SCALE_FACTOR=1 GDK_SCALE=1 /userdata/system/pro/'$appname'/'$AppName'.AppImage "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_FONT_DPI=128 QT_SCALE_FACTOR=1 GDK_SCALE=1 /userdata/system/pro/'$appname'/'$AppName'.AppImage "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################

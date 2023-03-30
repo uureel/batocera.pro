@@ -278,10 +278,6 @@ echo -e "${G}INSTALLING ${W}. . ."
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
@@ -289,7 +285,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'batocera-wine lutris play /userdata/system/pro/'$appname'/'$AppName' 2>/dev/null' >> $launcher
+echo 'DISPLAY=:0.0 batocera-wine lutris play /userdata/system/pro/'$appname'/'$AppName' 2>/dev/null' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################

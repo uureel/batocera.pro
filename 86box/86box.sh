@@ -20,7 +20,7 @@ APPLINK=$(curl -s https://api.github.com/repos/86Box/86Box/releases | grep AppIm
 APPHOME="github.com/86Box APPIMAGE AND ROMSET"
 #---------------------------------------------------------------------
 #  DEFINE LAUNCHER COMMAND >
-COMMAND='mkdir /userdata/system/pro/86box/home 2>/dev/null; mkdir /userdata/system/pro/86box/config 2>/dev/null; mkdir /userdata/system/pro/86box/roms 2>/dev/null; HOME=/userdata/system/pro/86box/home XDG_CONFIG_ROMS=/userdata/system/pro/86box/roms XDG_CONFIG_HOME=/userdata/system/pro/86box/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/86box/roms DISPLAY=:0.0 /userdata/system/pro/86box/86box.AppImage --rompath /userdata/system/pro/86box/roms'
+COMMAND='mkdir /userdata/system/pro/86box/home 2>/dev/null; mkdir /userdata/system/pro/86box/config 2>/dev/null; mkdir /userdata/system/pro/86box/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/86box/home XDG_CONFIG_ROMS=/userdata/system/pro/86box/roms XDG_CONFIG_HOME=/userdata/system/pro/86box/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/86box/roms DISPLAY=:0.0 /userdata/system/pro/86box/86box.AppImage --rompath /userdata/system/pro/86box/roms'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -322,10 +322,6 @@ echo -e "${G}INSTALLING${W}"
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################

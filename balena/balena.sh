@@ -22,7 +22,7 @@ APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/balena-etcher/bale
 APPHOME="github.com/uureel/batocera-apps"
 #---------------------------------------------------------------------
 # DEFINE LAUNCHER COMMAND >> 
-COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
+COMMAND='LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
 #---------------------------------------------------------------------
 ######################################################################
 ######################################################################
@@ -303,10 +303,6 @@ echo -e "${G}INSTALLING${W}"
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################

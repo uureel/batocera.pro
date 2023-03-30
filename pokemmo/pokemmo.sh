@@ -10,7 +10,7 @@ INFONAME=POKEMMO
 PORTNAME=PokeMMO.sh
 ######################################################################
 #---------------------------------------------------------------------
-COMMAND='su -c "DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$AppName'" root'
+COMMAND='su -c "LD_LIBRARY_PATH=/userdata/system/pro/.dep:${LD_LIBRARY_PATH} DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$AppName'" root'
 #--------------------------------------------------------------------- 
 ######################################################################
 APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); APPPATH=/userdata/system/pro/$appname/$AppName
@@ -296,11 +296,8 @@ sed -i 's,'Xmx384M','Xmx768M',g' $pro/$appname/$AppName 2>/dev/null
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo 'cd '$pro'/'$appname'/' >> $launcher  
+echo 'export LD_LIBRARY_PATH="/userdata/system/pro/java/lib:${LD_LIBRARY_PATH}"' >> $launcher 
 echo 'export JAVA_HOME=/userdata/system/pro/java/bin' >> $launcher
 echo 'export PATH=/userdata/system/pro/java/bin:$PATH ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher 

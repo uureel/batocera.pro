@@ -219,10 +219,6 @@ echo -e "${G}INSTALLING ${W}. . ."
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
-echo ' cp $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
@@ -231,7 +227,7 @@ echo 'unclutter-remote -s' >> $launcher
 ######################################################################
 ######################################################################
 echo 'if [ "$(pidof Discord)" != "" ]; then killall Discord 2>/dev/null && killall Discord 2>/dev/null && killall Discord 2>/dev/null; fi' >> $launcher
-echo 'mkdir /userdata/system/pro/discord/home 2>/dev/null; mkdir /userdata/system/pro/discord/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/discord/home XDG_CONFIG_HOME=/userdata/system/pro/discord/config /userdata/system/pro/discord/Discord.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
+echo 'mkdir /userdata/system/pro/discord/home 2>/dev/null; mkdir /userdata/system/pro/discord/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/discord/home XDG_CONFIG_HOME=/userdata/system/pro/discord/config LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" /userdata/system/pro/discord/Discord.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
 #echo 'DISPLAY=:0.0 QT_SCALE_FACTOR=1.50 GDK_SCALE=1.50 DISPLAY=:0.0 /userdata/system/pro/discord/Discord.AppImage --no-sandbox &' >> $launcher
 ######################################################################
 ######################################################################
