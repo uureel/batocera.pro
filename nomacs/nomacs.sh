@@ -21,7 +21,7 @@ CREDITS=github.com/uureel
                                                                       APPNAME="${APPNAME^^}"; ORIGIN="${CREDITS^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 # --------------------------------------------------------------------
 # DEFINE LAUNCHER COMMAND: /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-COMMAND='LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage'
+COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage ${@}'
 # \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 # --------------------------------------------------------------------
 ######################################################################
@@ -316,7 +316,7 @@ rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
 echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/Launcher %F" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut

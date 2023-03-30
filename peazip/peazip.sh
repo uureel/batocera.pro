@@ -20,7 +20,7 @@ APPHOME="github.com/uureel"
 APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
 AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 
-COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage 2>/dev/null'
+COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage ${@}'
 
 #--------------------------------------------------------------------- 
 ######################################################################
