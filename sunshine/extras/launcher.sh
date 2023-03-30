@@ -6,7 +6,10 @@ if [[ "$(uname -a | awk '{print $3}')" > "6.1" ]]; then
 /etc/init.d/S50avahi-daemon start
 fi
 
-#cp /userdata/system/pro/sunshine/extras/lib* /lib/ 2>/dev/null
+cp /userdata/system/pro/sunshine/extras/lib* /lib/ 2>/dev/null
+
+mkdir -p /usr/lib/x86_64-linux-gnu 2>/dev/null
+cp -r /userdata/system/pro/sunshine/extras/gdk-pixbuf-2.0 /usr/lib/x86_64-linux-gnu 2>/dev/null
 
 log1=/userdata/system/pro/sunshine/log1.txt
 log2=/userdata/system/pro/sunshine/log2.txt
