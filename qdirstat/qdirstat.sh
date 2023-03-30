@@ -9,7 +9,7 @@ APPNAME=QDIRSTAT # for installer info
 appname=qdirstat # directory name in /userdata/system/pro/...
 AppName=QDirStat # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/qdirstat/qdirstat-x86_64.AppImage
+APPLINK=https://github.com/uureel/batocera.pro/raw/main/qdirstat/extra/qdirstat.AppImage
 ORIGIN=github.com/uureel/batocera-apps # credit / info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
