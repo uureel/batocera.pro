@@ -14,8 +14,8 @@
 # --------------------------------------------------------------------
 # DEFINE APP INFO: /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ 
 APPNAME=nomacs 
-APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/nomacs/nomacs-x86_64.AppImage 
-CREDITS=github.com/uureel/batocera-apps
+APPLINK=https://github.com/uureel/batocera.pro/raw/main/nomacs/extra/nomacs.AppImage 
+CREDITS=github.com/uureel
 # /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 # --------------------------------------------------------------------
                                                                       APPNAME="${APPNAME^^}"; ORIGIN="${CREDITS^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
