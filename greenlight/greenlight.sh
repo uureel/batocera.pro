@@ -16,7 +16,7 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
 APPNAME=greenlight 
-APPLINK=$(curl -s https://api.github.com/repos/unknownskl/xbox-xcloud-client/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
+APPLINK=https://github.com/uureel/batocera.pro/raw/main/greenlight/extra/Greenlight-2.0.0-beta4.AppImage
 APPHOME="github.com/unknownskl/xbox-xcloud-client"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
