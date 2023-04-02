@@ -16,7 +16,7 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
 APPNAME=opera 
-APPLINK=https://apprepo.de/appimage/download/opera
+APPLINK=http://batocera.pro/app/opera.AppImage
 APPHOME="apprepo.de/appimage/opera"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>

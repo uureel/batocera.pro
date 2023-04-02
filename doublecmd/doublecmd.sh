@@ -9,7 +9,7 @@ APPNAME=DOUBLE-COMMANDER # for installer info
 appname=doublecmd # directory name /userdata/system/pro/...
 AppName=DoubleCmd # App.AppImage
 APPPATH=/userdata/system/pro/doublecmd/DoubleCmd.AppImage
-APPLINK=https://apprepo.de/appimage/download/doublecmd
+APPLINK=http://batocera.pro/app/doublecmd.AppImage
 ORIGIN=APPREPO.DE/APPIMAGE # credit & info 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

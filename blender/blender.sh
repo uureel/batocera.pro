@@ -9,7 +9,7 @@ APPNAME="BLENDER" # for installer info
 appname=blender # directory name in /userdata/system/pro/...
 AppName=blender # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/blender
+APPLINK=http://batocera.pro/app/blender.AppImage
 ORIGIN="apprepo.de/appimage/blender" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

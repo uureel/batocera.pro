@@ -9,7 +9,7 @@ APPNAME="WHATSAPP" # for installer info
 appname=whatsapp # directory name in /userdata/system/pro/...
 AppName=Whatsapp # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/whatsapp
+APPLINK=http://batocera.pro/app/whatsapp.AppImage
 ORIGIN="APPREPO.DE/APPIMAGE/WHATSAPP" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

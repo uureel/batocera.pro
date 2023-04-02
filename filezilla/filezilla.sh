@@ -16,8 +16,8 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
 APPNAME="filezilla"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
-APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/filezilla/filezilla-x86_64.AppImage
-APPHOME="github.com/uureel/batocera-apps"
+APPLINK=http://batocera.pro/app/filezilla.AppImage
+APPHOME="batocera.pro/app"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
 COMMAND='LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'

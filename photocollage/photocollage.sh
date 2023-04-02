@@ -14,7 +14,7 @@
 # --------------------------------------------------------------------
 # DEFINE APP INFO: /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ 
 APPNAME=photocollage 
-APPLINK=https://apprepo.de/appimage/download/photocollage 
+APPLINK=http://batocera.pro/app/photocollage.AppImage 
 APPHOME=apprepo.de/appimage/photocollage 
 # /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 # --------------------------------------------------------------------

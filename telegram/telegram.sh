@@ -9,7 +9,7 @@ APPNAME="TELEGRAM" # for installer info
 appname=telegram # directory name in /userdata/system/pro/...
 AppName=Telegram # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/telegram
+APPLINK=http://batocera.pro/app/telegram.AppImage
 ORIGIN="APPREPO.DE/APPIMAGE/TELEGRAM" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

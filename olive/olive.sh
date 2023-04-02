@@ -6,7 +6,7 @@ APPNAME="OLIVE" # for installer info
 appname=olive   # directory name in /userdata/system/pro/...
 AppName=Olive   # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/olive
+APPLINK=http://batocera.pro/app/olive.AppImage
 ORIGIN="APPREPO.DE/APPIMAGE/OLIVE" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

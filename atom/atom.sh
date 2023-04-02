@@ -9,7 +9,7 @@ APPNAME="ATOM" # for installer info
 appname=atom # directory name in /userdata/system/pro/...
 AppName=Atom # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/atom
+APPLINK=http://batocera.pro/app/atom.AppImage
 ORIGIN="APPREPO.DE/APPIMAGE/ATOM" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

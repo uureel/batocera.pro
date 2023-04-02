@@ -6,7 +6,7 @@ APPNAME="ODIO" # for installer info
 appname=odio   # directory name in /userdata/system/pro/...
 AppName=Odio   # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/odio
+APPLINK=http://batocera.pro/app/odio.AppImage
 ORIGIN="APPREPO.DE/APPIMAGE/ODIO" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

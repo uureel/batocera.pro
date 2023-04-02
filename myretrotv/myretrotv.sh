@@ -9,7 +9,7 @@ APPNAME=CHROME # for installer info
 appname=chrome # directory name in /userdata/system/pro/...
 AppName=Chrome # App.AppImage name
 APPPATH="/userdata/system/pro/chrome/Chrome.AppImage"
-APPLINK="https://apprepo.de/appimage/download/google-chrome"
+APPLINK="http://batocera.pro/app/chrome"
 ORIGIN="@JOEYCATO'S MYRETROTV"                          # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

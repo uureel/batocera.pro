@@ -9,7 +9,7 @@ APPNAME="STRAWBERRY" # for installer info
 appname=strawberry # directory name in /userdata/system/pro/...
 AppName=strawberry # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/strawberry
+APPLINK=http://batocera.pro/app/strawberry.AppImage
 ORIGIN="apprepo.de/appimage/strawberry" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

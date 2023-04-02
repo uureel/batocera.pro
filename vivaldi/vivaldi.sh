@@ -16,7 +16,7 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
 APPNAME=vivaldi 
-APPLINK=https://apprepo.de/appimage/download/vivaldi
+APPLINK=http://batocera.pro/app/vivaldi.AppImage
 APPHOME="https://apprepo.de/appimage/vivaldi"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>

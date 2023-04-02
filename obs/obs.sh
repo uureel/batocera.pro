@@ -6,7 +6,7 @@ APPNAME="OBS-STUDIO" # for installer info
 appname=obs   # directory name in /userdata/system/pro/...
 AppName=OBS   # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://apprepo.de/appimage/download/obs-studio
+APPLINK=http://batocera.pro/app/obs.AppImage
 ORIGIN="APPREPO.DE/APPIMAGE/OBS-STUDIO" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

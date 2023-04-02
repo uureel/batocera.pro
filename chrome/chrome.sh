@@ -9,8 +9,8 @@ APPNAME=GOOGLE-CHROME # for installer info
 appname=chrome # directory name in /userdata/system/pro/...
 AppName=Chrome # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/chrome/chrome-x86_64.AppImage
-ORIGIN=github.com/uureel/batocera-apps # credit & info
+APPLINK=http://batocera.pro/app/chrome.AppImage
+ORIGIN=batocera.pro/app # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
