@@ -10,9 +10,9 @@ rm $log1 2>/dev/null ; rm $log2 2>/dev/null
 
 cp /userdata/system/pro/sunshine/extras/sunshine.desktop /usr/share/applications/ 2>/dev/null 
 
-sleep 12
+sleep 33
 
-DISPLAY=:0.0 /userdata/system/pro/sunshine/launcher.sh &
+su -c "nohup /userdata/system/pro/sunshine/launcher.sh &" root &
 
 sleep 3
 
