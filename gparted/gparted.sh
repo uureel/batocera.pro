@@ -305,7 +305,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
+echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
