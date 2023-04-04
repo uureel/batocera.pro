@@ -7,8 +7,8 @@
 # --------------------------------------------------------------------
 APPNAME=GOOGLE-CHROME # for installer info
 appname=chrome # directory name in /userdata/system/pro/...
-AppName=Chrome # App.AppImage name
-APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+AppName=chrome # App.AppImage name
+APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 APPLINK=http://batocera.pro/app/chrome.AppImage
 ORIGIN=batocera.pro/app # credit & info
 # --------------------------------------------------------------------
@@ -286,7 +286,7 @@ echo 'export DISPLAY=:0.0; unclutter-remote -s' >> $launcher
 ######################################################################
 ######################################################################
 #echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --disable-gpu --test-type "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
-echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
+echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
