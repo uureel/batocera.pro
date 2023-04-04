@@ -309,6 +309,7 @@ echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
 ######################################################################
 dos2unix $launcher
 chmod a+x $launcher
+cp $launcher /userdata/roms/ports/Firefox-Browser.sh 2>/dev/null
 rm /userdata/system/pro/$appname/extra/command 2>/dev/null
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop

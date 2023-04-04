@@ -294,6 +294,7 @@ echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.
 ######################################################################
 dos2unix $launcher
 chmod a+x $launcher
+cp $launcher /userdata/roms/ports/Google-Chrome.sh 2>/dev/null
 # //
 # -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/icon.png
