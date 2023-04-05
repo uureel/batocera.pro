@@ -311,6 +311,9 @@ mkdir youtubetv 2>/dev/null
 yes "A" | unzip -qq $temp/*.zip -d $temp/youtubetv
 cd $temp/youtubetv/*/
 mv ./* $pro/$appname/
+chmod a+x $pro/$appname/You* 2>/dev/null
+chmod a+x $pro/$appname/chrome* 2>/dev/null
+chmod a+x $pro/$appname/lib* 2>/dev/null
 cd ~/pro
 rm -rf $temp
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
