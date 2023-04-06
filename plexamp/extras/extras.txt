@@ -1,0 +1,5 @@
+extras.txt
+launcher.sh
+startup.sh
+plexamp.png
+plexamp.desktop
