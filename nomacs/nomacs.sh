@@ -21,7 +21,7 @@ CREDITS=batocera.pro/app
                                                                       APPNAME="${APPNAME^^}"; ORIGIN="${CREDITS^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 # --------------------------------------------------------------------
 # DEFINE LAUNCHER COMMAND: /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage ${@}'
+COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage ${@}'
 # \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 # --------------------------------------------------------------------
 ######################################################################

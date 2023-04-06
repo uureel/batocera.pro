@@ -7,8 +7,8 @@
 # --------------------------------------------------------------------
 APPNAME=DOUBLE-COMMANDER # for installer info
 appname=doublecmd # directory name /userdata/system/pro/...
-AppName=DoubleCmd # App.AppImage
-APPPATH=/userdata/system/pro/doublecmd/DoubleCmd.AppImage
+AppName=doublecmd # App.AppImage
+APPPATH=/userdata/system/pro/doublecmd/doublecmd.AppImage
 APPLINK=http://batocera.pro/app/doublecmd.AppImage
 ORIGIN=APPREPO.DE/APPIMAGE # credit & info 
 # --------------------------------------------------------------------
@@ -284,7 +284,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox 2>/dev/null' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox 2>/dev/null' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################

@@ -4,8 +4,8 @@
 ######################################################################
 APPNAME="OLIVE" # for installer info
 appname=olive   # directory name in /userdata/system/pro/...
-AppName=Olive   # App.AppImage name
-APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+AppName=olie   # App.AppImage name
+APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 APPLINK=http://batocera.pro/app/olive.AppImage
 ORIGIN="APPREPO.DE/APPIMAGE/OLIVE" # credit & info
 # --------------------------------------------------------------------
@@ -273,7 +273,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" /userdata/system/pro/'$appname'/'$AppName'.AppImage 2>/dev/null' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" /userdata/system/pro/'$appname'/'$appname'.AppImage 2>/dev/null' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################

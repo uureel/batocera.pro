@@ -4,8 +4,8 @@
 ######################################################################
 APPNAME="OBS-STUDIO" # for installer info
 appname=obs   # directory name in /userdata/system/pro/...
-AppName=OBS   # App.AppImage name
-APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+AppName=obs   # App.AppImage name
+APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 APPLINK=http://batocera.pro/app/obs.AppImage
 ORIGIN="APPREPO.DE/APPIMAGE/OBS-STUDIO" # credit & info
 # --------------------------------------------------------------------
@@ -273,7 +273,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" /userdata/system/pro/'$appname'/'$AppName'.AppImage 2>/dev/null' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" /userdata/system/pro/'$appname'/'$appname'.AppImage 2>/dev/null' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
