@@ -5,10 +5,10 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME=QDIRSTAT # for installer info
+APPNAME=qdirstat # for installer info
 appname=qdirstat # directory name in /userdata/system/pro/...
-AppName=QDirStat # App.AppImage name
-APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+AppName=qdirstat # App.AppImage name
+APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 APPLINK=http://batocera.pro/app/qdirstat.AppImage
 ORIGIN=batocera.pro/app # credit / info
 # --------------------------------------------------------------------
