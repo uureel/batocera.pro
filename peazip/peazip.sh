@@ -18,9 +18,9 @@ APPLINK=http://batocera.pro/app/peazip.AppImage
 APPHOME="batocera.pro/app"
 
 APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
-AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+AppName=$appname; APPPATH=/userdata/system/pro/$appname/$peazip.AppImage
 
-COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage ${@}'
+COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage ${@}'
 
 #--------------------------------------------------------------------- 
 ######################################################################
