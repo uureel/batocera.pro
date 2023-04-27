@@ -14,8 +14,8 @@
 # --------------------------------------------------------------------
 #      DEFINE APP INFO:
 APPNAME=extract-xiso 
-APPLINK=https://github.com/uureel/batocera.pro/raw/main/xiso/extra/extract-xiso.zip 
-APPHOME="github.com/XboxDev/extract-xiso  (build-202204252159)" 
+APPLINK=https://github.com/uureel/batocera.pro/raw/main/extract-xiso/extra/extract-xiso.zip
+APPHOME="github.com/XboxDev/extract-xiso  (build-202204252159)"
 # --------------------------------------------------------------------
                                                                        APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 # --------------------------------------------------------------------
