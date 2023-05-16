@@ -2,8 +2,6 @@
 
 export DISPLAY=:0.0 
 
-cp /userdata/system/pro/sunshine/extras/lib* /lib/ 2>/dev/null
-
 log1=/userdata/system/pro/sunshine/log1.txt
 log2=/userdata/system/pro/sunshine/log2.txt
 rm $log1 2>/dev/null ; rm $log2 2>/dev/null 
