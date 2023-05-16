@@ -3,10 +3,8 @@
 export DISPLAY=:0.0 
 
 if [[ "$(uname -a | awk '{print $3}')" > "6.1" ]]; then 
-/etc/init.d/S50avahi-daemon start
+/etc/init.d/S50avahi-daemon start 2>/dev/null
 fi
-
-cp /userdata/system/pro/sunshine/extras/lib* /lib/ 2>/dev/null
 
 mkdir -p /usr/lib/x86_64-linux-gnu 2>/dev/null
 cp -r /userdata/system/pro/sunshine/extras/gdk-pixbuf-2.0 /usr/lib/x86_64-linux-gnu 2>/dev/null
