@@ -311,9 +311,9 @@ curl --progress-bar --remote-name --location "$p1"
 curl --progress-bar --remote-name --location "$p2"
 curl --progress-bar --remote-name --location "$p3"
 cat $temp/Proton-GE-Proton7-42.tar.xz.parta* >$temp/Proton-GE-Proton7-42.tar.xz
-mkdir -p /userdata/system/pro/heroic/config/heroic/tools/proton 2>/dev/null
-cp -rL $temp/Proton-GE-Proton7-42.tar.xz /userdata/system/pro/heroic/config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz 2>/dev/null
-SIZE=$(($(wc -c /userdata/system/pro/heroic/config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz | awk '{print $1}')/1048576)) 2>/dev/null
+mkdir -p /userdata/system/.config/heroic/tools/proton 2>/dev/null
+cp -rL $temp/Proton-GE-Proton7-42.tar.xz /userdata/system/.config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz 2>/dev/null
+SIZE=$(($(wc -c /userdata/system/.config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}PROTON-GE-7.42   ${T}$SIZE( )MB   ${G}OK${W}" | sed 's/( )//g'
 #echo -e "${G}> ${W}DONE"
 echo
@@ -329,10 +329,10 @@ cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null
 cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null
 # --------------------------------------------------------------------
 # unpack proton
-cd /userdata/system/pro/heroic/config/heroic/tools/proton
-tar -xf /userdata/system/pro/heroic/config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz
+cd /userdata/system/.config/heroic/tools/proton
+tar -xf /userdata/system/.config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz
 sleep 0.1
-rm -rf /userdata/system/pro/heroic/config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz 2>/dev/null
+rm -rf /userdata/system/.config/heroic/tools/proton/Proton-GE-Proton7-42.tar.xz 2>/dev/null
 rm -rf $temp/* 2>/dev/null
 # --------------------------------------------------------------------
 # get heroic-sync.sh 
