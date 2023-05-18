@@ -327,6 +327,8 @@ cd ~/
 # prepare dependencies
 cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null
 cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null
+chmod a+x /bin/tar 2>/dev/null
+chmod a+x ~/pro/.dep/* 2>/dev/null
 # --------------------------------------------------------------------
 # unpack proton
 cd /userdata/system/.config/heroic/tools/proton
