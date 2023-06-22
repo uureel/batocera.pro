@@ -257,9 +257,6 @@ echo -e "${W}VERSIONS: ${G}19, 17, 15, 13, 11, 8${W}"
 echo
 echo -e "${W}$APPNAME RUNTIMES WILL BE INSTALLED IN:"
 echo -e "${W}/USERDATA/SYSTEM/PRO/$APPNAME"
-echo 
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
 echo; #line $cols '='; echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
