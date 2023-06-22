@@ -1,3 +1,1 @@
 icon.png
-libtinfo.so.6
-tput

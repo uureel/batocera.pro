@@ -364,6 +364,7 @@ cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
 echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $file
   fi
 dos2unix /userdata/system/.profile 2>/dev/null
+source ~/.profile 
 # --------------------------------------------------------------------
 # attach java runtime to ~/.bashrc
 file=/userdata/system/.bashrc
