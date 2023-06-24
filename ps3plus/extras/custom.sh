@@ -41,6 +41,21 @@ cd $x/
 yes "A" | unzip -qq $x/configgen.zip -d $x/ 
 cd ~/ 
 
+# fix compatibility fixes
+echo -e "${A}  ${X}"
+echo -e "${A}██${X}  ${H}preparing batocera compatibility fixes... "
+echo -e "${A}  ${X}"
+	cd ~/pro/ps3plus/rpcs3 
+		wget -q --no-check-certificate --no-cache --no-cookies -O ~/pro/ps3plus/rpcs3/ai.AppImage "https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/ai.AppImage"
+		wget -q --no-check-certificate --no-cache --no-cookies -O ~/pro/ps3plus/rpcs3/file "https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/file"
+			chmod a+x ~/pro/ps3plus/rpcs3/ai.AppImage 2>/dev/null
+			chmod a+x ~/pro/ps3plus/rpcs3/file 2>/dev/null 
+				cp ~/pro/ps3plus/rpcs3/file /usr/bin/file 2>/dev/null 
+		~/pro/ps3plus/rpcs3/rpcs3.AppImage --appimage-extract 1>/dev/null 2>/dev/null 
+			rm -rf ~/pro/ps3plus/rpcs3/squashfs-root/usr/optional/libstdc* 2>/dev/null 
+			rm ~/pro/ps3plus/rpcs3/rpcs3.AppImage
+		~/pro/ps3plus/rpcs3/ai.AppImage ~/pro/ps3plus/rpcs3/squashfs-root rpcs3.AppImage 1>/dev/null 2>/dev/null
+
 # backup saves 
 # timestamp=$(date +"%y%m%d-%H%M%S") 
 mkdir /userdata/saves/ps3-backup 2>/dev/null 
