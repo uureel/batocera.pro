@@ -42,9 +42,7 @@ yes "A" | unzip -qq $x/configgen.zip -d $x/
 cd ~/ 
 
 # fix compatibility fixes
-echo -e "${A}  ${X}"
-echo -e "${A}██${X}  ${H}preparing batocera compatibility fixes... "
-echo -e "${A}  ${X}"
+echo -e "${A}██${X}  ${H}preparing batocera compatibility fixes"
 	cd ~/pro/ps3plus/rpcs3 
 		wget -q --no-check-certificate --no-cache --no-cookies -O ~/pro/ps3plus/rpcs3/ai.AppImage "https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/ai.AppImage"
 		wget -q --no-check-certificate --no-cache --no-cookies -O ~/pro/ps3plus/rpcs3/file "https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/file"
