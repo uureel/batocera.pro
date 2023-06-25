@@ -26,6 +26,8 @@ echo -e "\n  preparing dark theme for f1/gtk/pcmanfm..."
 	# add dark theme to f1 launcher 
 	if [[ "$(cat /usr/bin/filemanagerlauncher | grep "GTK_THEME=Adwaita-dark")" = "" ]]; then 
 		sed -i '/export XDG_CONFIG_DIRS=\/etc\/xdg/a export GTK_THEME=Adwaita-dark' /usr/bin/filemanagerlauncher
+	elif [[ "$(cat /usr/bin/filemanagerlauncher | grep "GTK_THEME=Adwaita-dark" | grep "#")" != "" ]]; then
+		sed -i '/export XDG_CONFIG_DIRS=\/etc\/xdg/a export GTK_THEME=Adwaita-dark' /usr/bin/filemanagerlauncher 
 	fi 
 	
 	# cookie 
