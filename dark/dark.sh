@@ -19,7 +19,7 @@ echo -e "\n  preparing dark theme for f1/gtk/pcmanfm..."
 		fi
 			unzip -oq $f/Adwaita-dark.zip 
 				cp -r $f/Adwaita-dark /usr/share/themes/
-		wget -q -O $f/dark.sh "https://github.com/uureel/batocera.pro/raw/main/dark/dark.sh"
+		wget -q -O $f/dark.sh "https://raw.githubusercontent.com/uureel/batocera.pro/main/dark/dark.sh"
 			dos2unix $f/dark.sh 1>/dev/null 2>/dev/null 
 			chmod a+x $f/dark.sh 2>/dev/null
 
