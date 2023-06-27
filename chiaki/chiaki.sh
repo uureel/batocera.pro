@@ -16,7 +16,9 @@
 #--------------------------------------------------------------------- 
 # DEFINE APP INFO >>
 APPNAME="chiaki"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
-APPLINK=https://git.sr.ht/~thestr4ng3r/chiaki/refs/download/v2.1.1/Chiaki-v2.1.1-Linux-x86_64.AppImage
+#APPLINK=https://git.sr.ht/~thestr4ng3r/chiaki/refs/download/v2.1.1/Chiaki-v2.1.1-Linux-x86_64.AppImage
+#updating appimage to include latest source @ 27062023 
+APPLINK=https://github.com/uureel/batocera.pro/raw/main/chiaki/extra/chiaki.AppImage
 APPHOME="git.sr.ht/~thestr4ng3r/chiaki"
 #---------------------------------------------------------------------
 # DEFINE LAUNCHER COMMAND >>
