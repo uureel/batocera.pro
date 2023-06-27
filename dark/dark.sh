@@ -33,4 +33,4 @@ echo -e "\n  preparing dark theme for f1/gtk/pcmanfm..."
 	# cookie 
 	export GTK_THEME=Adwaita-dark
 
-echo -e "  done 8) \n" 
+echo -e "  done \n" 
