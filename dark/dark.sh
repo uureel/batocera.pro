@@ -10,13 +10,7 @@ echo -e "\n  preparing dark theme for f1/gtk/pcmanfm..."
 
 	# get files 
 	url=https://github.com/uureel/batocera.pro/raw/main/dark/Adwaita-dark.zip
-		if [[ ! -f $f/Adwaita-dark.zip ]]; then 
 		wget -q -O $f/Adwaita-dark.zip "https://github.com/uureel/batocera.pro/raw/main/dark/Adwaita-dark.zip"
-		else 
-			if [[ "$(wc -c "$f/Adwaita-dark.zip" | awk '{print $1}')" < "70000" ]]; then 
-			wget -q -O $f/Adwaita-dark.zip "https://github.com/uureel/batocera.pro/raw/main/dark/Adwaita-dark.zip"
-			fi
-		fi
 			unzip -oq $f/Adwaita-dark.zip 
 				cp -r $f/Adwaita-dark /usr/share/themes/
 		wget -q -O $f/dark.sh "https://raw.githubusercontent.com/uureel/batocera.pro/main/dark/dark.sh"
