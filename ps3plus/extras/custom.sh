@@ -41,8 +41,8 @@ cd $x/
 yes "A" | unzip -qq $x/configgen.zip -d $x/ 
 cd ~/ 
 
-# fix compatibility fixes
-echo -e "${A}██${X}  ${H}preparing batocera compatibility fixes"
+# batocera compatibility fixes
+echo -e "${A}██${X}  ${H}applying batocera compatibility fixes..."
 	cd ~/pro/ps3plus/rpcs3 
 		wget -q --no-check-certificate --no-cache --no-cookies -O ~/pro/ps3plus/rpcs3/ai.AppImage "https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/ai.AppImage"
 		wget -q --no-check-certificate --no-cache --no-cookies -O ~/pro/ps3plus/rpcs3/file "https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/file"
@@ -51,9 +51,20 @@ echo -e "${A}██${X}  ${H}preparing batocera compatibility fixes"
 				cp ~/pro/ps3plus/rpcs3/file /usr/bin/file 2>/dev/null 
 		~/pro/ps3plus/rpcs3/rpcs3.AppImage --appimage-extract 1>/dev/null 2>/dev/null 
 			rm -rf ~/pro/ps3plus/rpcs3/squashfs-root/usr/optional/libstdc* 2>/dev/null 
+				# replace AppRun launch string 
+				old_string='exec "$binary" "$@"'
+				new_string='XDG_CONFIG_HOME=/userdata/system/configs \\\nXDG_CACHE_HOME=/userdata/system/cache \\\nQT_QPA_PLATFORM=xcb \\\nAMD_VULKAN_ICD=RADV \\\nDISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1=1 \\\nexec "$binary" "$@"'
+					sed -i "s|${old_string}|${new_string}|g" ~/pro/ps3plus/rpcs3/squashfs-root/AppRun
+						dos2unix ~/pro/ps3plus/rpcs3/squashfs-root/AppRun 1>/dev/null 2>/dev/null 
+						chmod a+x ~/pro/ps3plus/rpcs3/squashfs-root/AppRun 2>/dev/null
 			rm ~/pro/ps3plus/rpcs3/rpcs3.AppImage
 		~/pro/ps3plus/rpcs3/ai.AppImage ~/pro/ps3plus/rpcs3/squashfs-root rpcs3.AppImage 1>/dev/null 2>/dev/null
-
+echo 
+echo -e "${A}██${X}  ${H}---------------------------------------"
+echo -e "${A}██${X}  ${H}don't update rpcs3 from the app itself,"
+echo -e "${A}██${X}  ${H}update it using this installer instead!"
+echo -e "${A}██${X}  ${H}---------------------------------------"
+echo
 # backup saves 
 # timestamp=$(date +"%y%m%d-%H%M%S") 
 mkdir /userdata/saves/ps3-backup 2>/dev/null 
