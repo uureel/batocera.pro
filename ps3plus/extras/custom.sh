@@ -42,6 +42,7 @@ yes "A" | unzip -qq $x/configgen.zip -d $x/
 cd ~/ 
 
 # batocera compatibility fixes
+echo
 echo -e "${A}██${X}  ${H}applying batocera compatibility fixes..."
 	cd ~/pro/ps3plus/rpcs3 
 		wget -q --no-check-certificate --no-cache --no-cookies -O ~/pro/ps3plus/rpcs3/ai.AppImage "https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/ai.AppImage"
@@ -58,8 +59,7 @@ echo -e "${A}██${X}  ${H}applying batocera compatibility fixes..."
 						dos2unix ~/pro/ps3plus/rpcs3/squashfs-root/AppRun 1>/dev/null 2>/dev/null 
 						chmod a+x ~/pro/ps3plus/rpcs3/squashfs-root/AppRun 2>/dev/null
 			rm ~/pro/ps3plus/rpcs3/rpcs3.AppImage
-		~/pro/ps3plus/rpcs3/ai.AppImage ~/pro/ps3plus/rpcs3/squashfs-root rpcs3.AppImage 1>/dev/null 2>/dev/null
-echo 
+		~/pro/ps3plus/rpcs3/ai.AppImage ~/pro/ps3plus/rpcs3/squashfs-root rpcs3.AppImage 1>/dev/null 2>/dev/null 
 echo -e "${A}██${X}  ${H}---------------------------------------"
 echo -e "${A}██${X}  ${H}don't update rpcs3 from the app itself,"
 echo -e "${A}██${X}  ${H}update it using this installer instead!"
