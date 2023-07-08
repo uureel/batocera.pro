@@ -284,6 +284,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L switch.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/tabby/extra/icon.png" width=48 height=48 /><b><i>&nbsp;TABBY</i></b><br>
+```curl -L tabby.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/telegram/extra/icon.png" width=48 height=48 /><b><i>&nbsp;TELEGRAM</i></b><br>
 ```curl -L telegram.batocera.pro | bash```
 <br>
