@@ -2,19 +2,15 @@
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
 app=sunshine
 #
 #latest stable
 #url=$(curl -s https://api.github.com/repos/LizardByte/Sunshine/releases/latest | grep 'browser_' | cut -d\" -f4 | grep AppImage)
 #
 #nightly
-url=https://github.com/LizardByte/Sunshine/releases/download/nightly-dev/sunshine.AppImage
 #url=https://github.com/LizardByte/Sunshine/releases/download/v0.19.1/sunshine.AppImage
-
-
+#url=https://github.com/LizardByte/Sunshine/releases/download/v0.20.0/sunshine.AppImage
+url=https://github.com/LizardByte/Sunshine/releases/download/nightly-dev/sunshine.AppImage
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #################################################################################################################################
