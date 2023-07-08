@@ -304,7 +304,7 @@ mkdir -p $pro/$appname/config/smplayer
 cp $pro/$appname/extra/smplayer.ini $pro/$appname/config/smplayer/smplayer.ini 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
-launcher=/userdata/system/pro/$appname/Launcher
+launcher=/userdata/system/pro/$appname/$appname
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
@@ -335,7 +335,7 @@ echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $play
 echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $play
 echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $play
 echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $play
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8"' >> $play
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$@"' >> $play
 dos2unix $play
 chmod a+x $play
 # --------------------------------------------------------------------
@@ -345,7 +345,7 @@ rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
 echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/$appname %U" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
