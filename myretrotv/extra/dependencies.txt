@@ -7,5 +7,4 @@ my80stv.png
 my70stv.png
 my60stv.png
 myretrotv.sh.keys
-libtinfo.so.6
 tput

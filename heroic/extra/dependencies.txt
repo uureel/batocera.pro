@@ -1,5 +1,4 @@
 icon.png
-libtinfo.so.6
 libselinux.so.1
 tar
 tput

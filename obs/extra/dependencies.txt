@@ -1,4 +1,3 @@
 icon.png
 libnsl.so.1
-libtinfo.so.6
 tput

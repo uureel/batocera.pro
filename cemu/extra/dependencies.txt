@@ -1,4 +1,3 @@
 icon.png
 libthai.so.0
-libtinfo.so.6
 tput

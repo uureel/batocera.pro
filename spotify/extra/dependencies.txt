@@ -4,5 +4,4 @@ libbrotlidec.so.1
 libcurl-gnutls.so.4
 libidn2.so.0
 libnettle.so.7
-libtinfo.so.6
 tput

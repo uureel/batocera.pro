@@ -1,4 +1,3 @@
 icon.png
 nomacs.png
-libtinfo.so.6
 tput

@@ -1,4 +1,3 @@
 icon.png
 sublime.png
-libtinfo.so.6
 tput

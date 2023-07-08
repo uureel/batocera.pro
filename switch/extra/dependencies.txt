@@ -1,5 +1,3 @@
 icon.png
-batocera-switch-libtinfo.so.6
 batocera-switch-tput
-libtinfo.so.6
 tput
