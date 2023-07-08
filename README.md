@@ -284,6 +284,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L switch.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/tabby/extra/icon.png" width=48 height=48 /><b><i>&nbsp;TABBY</i></b><br>
+```curl -L tabby.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/telegram/extra/icon.png" width=48 height=48 /><b><i>&nbsp;TELEGRAM</i></b><br>
 ```curl -L telegram.batocera.pro | bash```
 <br>
@@ -298,6 +302,10 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/vivaldi/extra/icon.png" width=48 height=48 /><b><i>&nbsp;VIVALDI</i></b><br>
 ```curl -L vivaldi.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/vlc/extra/icon.png" width=48 height=48 /><b><i>&nbsp;VLC</i></b><br>
+```curl -L vlc.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/whatsapp/extra/icon.png" width=48 height=48 /><b><i>&nbsp;WHATSAPP</i></b><br>
