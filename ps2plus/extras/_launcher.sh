@@ -24,16 +24,12 @@ if [[ "$(cat /tmp/cpufeatures | grep avx2)" != "" ]]; then
 			QT_FONT_DPI=128 \
 			QT_QPA_PLATFORM=xcb \
 			XDG_CONFIG_HOME=/userdata/system/configs \
-			XDG_CURRENT_DESKTOP=XFCE \
-			DESKTOP_SESSION=XFCE \
 				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage 1>$log1 2>$log2
 	else 
 			DISPLAY=:0.0 \
 			QT_FONT_DPI=128 \
 			QT_QPA_PLATFORM=xcb \
 			XDG_CONFIG_HOME=/userdata/system/configs \
-			XDG_CURRENT_DESKTOP=XFCE \
-			DESKTOP_SESSION=XFCE \
 				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage -fullscreen -nogui "$ROM" 1>$log1 2>$log2
 	fi
 else 
@@ -43,16 +39,12 @@ else
 			QT_FONT_DPI=128 \
 			QT_QPA_PLATFORM=xcb \
 			XDG_CONFIG_HOME=/userdata/system/configs \
-			XDG_CURRENT_DESKTOP=XFCE \
-			DESKTOP_SESSION=XFCE \
 				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage 1>$log1 2>$log2
 	else 
 			DISPLAY=:0.0 \
 			QT_FONT_DPI=128 \
 			QT_QPA_PLATFORM=xcb \
 			XDG_CONFIG_HOME=/userdata/system/configs \
-			XDG_CURRENT_DESKTOP=XFCE \
-			DESKTOP_SESSION=XFCE \
 				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage -fullscreen -nogui "$ROM" 1>$log1 2>$log2
 	fi 
 fi

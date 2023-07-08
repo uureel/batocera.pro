@@ -36,8 +36,6 @@ if [[ "$(echo "$ROM" | grep "CONFIG")" != "" ]] || [[ "$(echo "$ROM")" = "" ]]; 
 		QT_QPA_PLATFORM=xcb \
 		AMD_VULKAN_ICD=RADV \
 		DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1=1 \
-		XDG_CURRENT_DESKTOP=XFCE \
-		DESKTOP_SESSION=XFCE \
 			/userdata/system/pro/ps3plus/rpcs3/rpcs3.AppImage 
 else 
 		DISPLAY=:0.0 \
@@ -47,8 +45,6 @@ else
 		QT_QPA_PLATFORM=xcb \
 		AMD_VULKAN_ICD=RADV \
 		DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1=1 \
-		XDG_CURRENT_DESKTOP=XFCE \
-		DESKTOP_SESSION=XFCE \
 			/userdata/system/pro/ps3plus/rpcs3/rpcs3.AppImage --no-gui "$ROM"
 fi
 
