@@ -357,4 +357,30 @@ export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER //
 ##########################
+function autostart() {
+  csh="/userdata/system/custom.sh"
+  pcsh="/userdata/system/pro-custom.sh"
+  pro="/userdata/system/pro"
+  rm -f $pcsh
+  temp_file=$(mktemp)
+  find $pro -type f \( -path "*/extra/startup" -o -path "*/extras/startup.sh" \) > $temp_file
+  echo "#!/bin/bash" > $pcsh
+  sort $temp_file >> $pcsh
+  rm $temp_file
+  chmod a+x $pcsh
+  temp_csh=$(mktemp)
+  grep -vxFf $pcsh $csh > $temp_csh
+  mapfile -t lines < $temp_csh
+  if [[ "${lines[0]}" != "#!/bin/bash" ]]; then
+    lines=( "#!/bin/bash" "${lines[@]}" )
+  fi
+  if ! grep -Fxq "$pcsh &" $temp_csh; then
+    lines=( "${lines[0]}" "$pcsh &" "${lines[@]:1}" )
+  fi
+  printf "%s\n" "${lines[@]}" > $csh
+  chmod a+x $csh
+  rm $temp_csh
+}
+export -f autostart
+autostart
 exit 0

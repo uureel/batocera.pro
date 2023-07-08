@@ -7,9 +7,9 @@
 # --------------------------------------------------------------------
 APPNAME="ATOM" # for installer info
 appname=atom # directory name in /userdata/system/pro/...
-AppName=Atom # App.AppImage name
-APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=http://batocera.pro/app/atom.AppImage
+AppName=atom # App.AppImage name
+APPPATH=/userdata/system/pro/$appname/$appname.AppImage
+APPLINK=http://batocera.pro/app/$appname.AppImage
 ORIGIN="APPREPO.DE/APPIMAGE/ATOM" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -67,7 +67,7 @@ wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/r
 #
 # RUN BEFORE INSTALLER: 
 ######################################################################
-killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
+killall wget 2>/dev/null && killall $appname 2>/dev/null && killall $appname 2>/dev/null && killall $appname 2>/dev/null
 ######################################################################
 #
 # --------------------------------------------------------------------
@@ -286,7 +286,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1.25" GDK_SCALE="1.25" /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config QT_SCALE_FACTOR="1.25" GDK_SCALE="1.25" /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -353,8 +353,34 @@ export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
 # |
-  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
+  batocera-pro-installer "$APPNAME" "$appname" "$appname" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
 # BATOCERA.PRO/ATOM INSTALLER //
 ###############################
+function autostart() {
+  csh="/userdata/system/custom.sh"
+  pcsh="/userdata/system/pro-custom.sh"
+  pro="/userdata/system/pro"
+  rm -f $pcsh
+  temp_file=$(mktemp)
+  find $pro -type f \( -path "*/extra/startup" -o -path "*/extras/startup.sh" \) > $temp_file
+  echo "#!/bin/bash" > $pcsh
+  sort $temp_file >> $pcsh
+  rm $temp_file
+  chmod a+x $pcsh
+  temp_csh=$(mktemp)
+  grep -vxFf $pcsh $csh > $temp_csh
+  mapfile -t lines < $temp_csh
+  if [[ "${lines[0]}" != "#!/bin/bash" ]]; then
+    lines=( "#!/bin/bash" "${lines[@]}" )
+  fi
+  if ! grep -Fxq "$pcsh &" $temp_csh; then
+    lines=( "${lines[0]}" "$pcsh &" "${lines[@]:1}" )
+  fi
+  printf "%s\n" "${lines[@]}" > $csh
+  chmod a+x $csh
+  rm $temp_csh
+}
+export -f autostart
+autostart
 exit 0
