@@ -5,12 +5,12 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME="SUBLIME-TEXT" # for installer info
+APPNAME=SUBLIME-TEXT # for installer info
 appname=sublime # directory name in /userdata/system/pro/...
-AppName=sublime_text.exe # App.AppImage name
-APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=https://github.com/uureel/batocera.pro/raw/main/sublime/extra/sublime.zip
-ORIGIN="OFFICIAL SUBLIMETEXT.COM VERSION 3211" # credit & info
+AppName=sublime # App.AppImage name
+APPPATH=/userdata/system/pro/$appname/$appname.AppImage
+APPLINK=http://batocera.pro/app/$appname.AppImage
+ORIGIN=batocera.pro@sublimetext.com # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -64,12 +64,12 @@ if [[ "$(echo $d | grep "lib")" != "" ]]; then ln -s $dep/$d /lib/$d 2>/dev/null
 wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png; chmod a+x $dep/tput; cd ~/
 # --------------------------------------------------------------------
 # // end of dependencies 
-# 
+#
 # RUN BEFORE INSTALLER: 
 ######################################################################
 killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
 ######################################################################
-# 
+#
 # --------------------------------------------------------------------
 # show console/ssh info: 
 clear
@@ -125,8 +125,6 @@ echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
-echo
 echo -e "${X}. . .${X}" 
 echo
 # // end of console info. 
@@ -136,7 +134,6 @@ echo
 #
 # THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
-# --batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
 APPNAME="$1"
 appname="$2"
 AppName="$3"
@@ -231,8 +228,6 @@ echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -249,7 +244,6 @@ exit 0
 fi
 #
 # -- temp for curl download
-pro=/userdata/system/pro
 temp=/userdata/system/pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir $temp 2>/dev/null
@@ -260,14 +254,16 @@ echo
 echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
-cd $pro
+cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
-yes "A" | unzip -qq $pro/$appname.zip 2>/dev/null
-SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
-echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
+cd ~/
+mv $temp/* $APPPATH 2>/dev/null
+chmod a+x $APPPATH 2>/dev/null
+rm -rf $temp/*.AppImage
+SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
+echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE"
 echo
-rm -rf $pro/$appname.zip 2>/dev/null
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 sleep 1.333
 #
@@ -276,17 +272,17 @@ sleep 1.333
 echo
 echo -e "${G}INSTALLING ${W}. . ."
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
-launcher=/userdata/system/pro/$appname/Launcher
+launcher=/userdata/system/pro/$appname/$appname
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo 'unclutter-remote -s' >> $launcher
+echo 'export DISPLAY=:0.0; unclutter-remote -s' >> $launcher
 ## -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 ######################################################################
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'batocera-wine lutris play /userdata/system/pro/'$appname'/'$AppName' 2>/dev/null' >> $launcher
+echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$@"' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -294,24 +290,24 @@ echo 'batocera-wine lutris play /userdata/system/pro/'$appname'/'$AppName' 2>/de
 ######################################################################
 dos2unix $launcher
 chmod a+x $launcher
+cp $launcher /userdata/roms/ports/$appname.sh 2>/dev/null
 # //
 # -- get icon for shortcut,
-icon=/userdata/system/pro/$appname/extra/sublime.png
-wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/sublime.png
+icon=/userdata/system/pro/$appname/extra/icon.png
+wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
-echo "Icon=/userdata/system/pro/$appname/extra/sublime.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
+echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/$appname %U" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
 echo "Name=$appname" >> $shortcut
 f1shortcut=/usr/share/applications/$appname.desktop
-dos2unix $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # //
 #
@@ -325,17 +321,17 @@ chmod a+x $pre
 # // 
 # 
 # -- add prelauncher to custom.sh to run @ reboot
-csh=/userdata/system/custom.sh
-if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
+customsh=/userdata/system/custom.sh
+if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
-if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
+if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
-if [[ -e $csh ]]; then :; else
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
+if [[ -e $customsh ]]; then :; else
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
-dos2unix $csh
+dos2unix $customsh 2>/dev/null
 # //
 #
 # -- done. 
@@ -350,11 +346,9 @@ sleep 4
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
-# RUN ALL:
+# RUN:
   batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# version 1.0.3
-# glhf
 function autostart() {
   csh="/userdata/system/custom.sh"
   pcsh="/userdata/system/pro-custom.sh"
@@ -382,3 +376,5 @@ function autostart() {
 export -f autostart
 autostart
 exit 0
+# BATOCERA.PRO INSTALLER //
+##########################
