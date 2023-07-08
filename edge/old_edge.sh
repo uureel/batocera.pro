@@ -5,12 +5,12 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME=EDGE # for installer info
+APPNAME="MICROSOFT EDGE" # for installer info
 appname=edge # directory name in /userdata/system/pro/...
-AppName=edge # App.AppImage name
-APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=http://batocera.pro/app/$appname.AppImage
-ORIGIN="batocera.pro@github.com/ivan-hc/MS-Edge-appimage" # credit & info
+AppName=Edge # App.AppImage name
+APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/MS-Edge-appimage/releases | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g' | head -n 1)
+ORIGIN="GITHUB.COM/IVAN-HC/MS-EDGE-APPIMAGE" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -125,6 +125,8 @@ echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
+echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
+echo
 echo -e "${X}. . .${X}" 
 echo
 # // end of console info. 
@@ -134,6 +136,7 @@ echo
 #
 # THIS WILL BE SHOWN ON MAIN BATOCERA DISPLAY:   
 function batocera-pro-installer {
+# --batocera-pro-discord-isntaller DISCORD_LINK DISCORD_PATH
 APPNAME="$1"
 appname="$2"
 AppName="$3"
@@ -228,6 +231,8 @@ echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
+echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
+read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -272,17 +277,17 @@ sleep 1.333
 echo
 echo -e "${G}INSTALLING ${W}. . ."
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
-launcher=/userdata/system/pro/$appname/$appname
+launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-echo 'export DISPLAY=:0.0; unclutter-remote -s' >> $launcher
+echo 'unclutter-remote -s' >> $launcher
 ## -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 ######################################################################
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" QT_FONT_DPI=128 QT_DPI_SCALE=1 DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$@"' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -290,11 +295,14 @@ echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" QT_FONT_DPI
 ######################################################################
 dos2unix $launcher
 chmod a+x $launcher
-cp $launcher /userdata/roms/ports/$appname.sh 2>/dev/null
 # //
 # -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/icon.png
+if [[ -e "$icon" ]] && [[ $(wc -c "$icon" | awk '{print $1}') != "0" ]]; then
+:
+else 
 wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
+fi
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
@@ -302,12 +310,13 @@ rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
 echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/$appname %U" >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
 echo "Name=$appname" >> $shortcut
 f1shortcut=/usr/share/applications/$appname.desktop
+dos2unix $shortcut
 cp $shortcut $f1shortcut 2>/dev/null
 # //
 #
@@ -321,17 +330,17 @@ chmod a+x $pre
 # // 
 # 
 # -- add prelauncher to custom.sh to run @ reboot
-customsh=/userdata/system/custom.sh
-if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+csh=/userdata/system/custom.sh
+if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup")" = "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-if [[ -e $customsh ]] && [[ "$(cat $customsh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+if [[ -e $csh ]] && [[ "$(cat $csh | grep "/userdata/system/pro/$appname/extra/startup" | grep "#")" != "" ]]; then
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-if [[ -e $customsh ]]; then :; else
-echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
+if [[ -e $csh ]]; then :; else
+echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
-dos2unix $customsh 2>/dev/null
+dos2unix $csh
 # //
 #
 # -- done. 
@@ -346,9 +355,11 @@ sleep 4
 }
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
-# RUN:
+# RUN ALL:
   batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
+# version 1.0.3
+# glhf
 function autostart() {
   csh="/userdata/system/custom.sh"
   pcsh="/userdata/system/pro-custom.sh"
@@ -376,5 +387,3 @@ function autostart() {
 export -f autostart
 autostart
 exit 0
-# BATOCERA.PRO INSTALLER //
-##########################
