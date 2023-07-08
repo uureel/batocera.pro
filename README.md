@@ -300,6 +300,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L vivaldi.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/vlc/extra/icon.png" width=48 height=48 /><b><i>&nbsp;VLC</i></b><br>
+```curl -L vlc.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/whatsapp/extra/icon.png" width=48 height=48 /><b><i>&nbsp;WHATSAPP</i></b><br>
 ```curl -L whatsapp.batocera.pro | bash```
 <br>
