@@ -124,14 +124,17 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L gparted.batocera.pro | bash```
 <br>
 <br>
-<a href=https://github.com/unknownskl/xbox-xcloud-client>
-<img src="https://github.com/uureel/batocera.pro/raw/main/greenlight/extra/icon.png" width=48 height=48 /></a>
+<img src="https://github.com/uureel/batocera.pro/raw/main/greenlight/extra/icon.png" width=48 height=48 />
 <b><i>&nbsp;GREENLIGHT</i></b><br>
 ```curl -L greenlight.batocera.pro | bash```
 <br>
 <br>
-<a href=https://github.com/Heroic-Games-Launcher>
-<img src="https://github.com/uureel/batocera.pro/raw/main/heroic/extra/icon.png" width=48 height=48 /></a>
+<img src="https://github.com/uureel/batocera.pro/raw/main/gthumb/extra/icon.png" width=48 height=48 />
+<b><i>&nbsp;GTHUMB</i></b><br>
+```curl -L gthumb.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/heroic/extra/icon.png" width=48 height=48 />
 <b><i>&nbsp;HEROIC-LAUNCHER</i></b><br>
 ```curl -L heroic.batocera.pro | bash```
 <br>
