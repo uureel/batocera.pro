@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO/CHROME INSTALLER
+# BATOCERA.PRO INSTALLER
 ######################################################################
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -9,7 +9,7 @@ APPNAME=VLC # for installer info
 appname=vlc # directory name in /userdata/system/pro/...
 AppName=vlc # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=http://batocera.pro/app/vlc.AppImage
+APPLINK=http://batocera.pro/app/$appname.AppImage
 ORIGIN=batocera.pro/app # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -291,7 +291,7 @@ echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.
 ######################################################################
 dos2unix $launcher
 chmod a+x $launcher
-cp $launcher /userdata/roms/ports/Google-Chrome.sh 2>/dev/null
+cp $launcher /userdata/roms/ports/$appname.sh 2>/dev/null
 # //
 # -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/icon.png
@@ -351,7 +351,7 @@ export -f batocera-pro-installer 2>/dev/null
 # |
   batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# BATOCERA.PRO/CHROME INSTALLER //
+# BATOCERA.PRO INSTALLER //
 #################################
 function autostart() {
   csh="/userdata/system/custom.sh"
