@@ -7,10 +7,11 @@
 # --------------------------------------------------------------------
 APPNAME=SPOTIFY # for installer info
 appname=spotify # directory name in /userdata/system/pro/...
-AppName=Spotify # App.AppImage name
+AppName=spotify # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Spotify-appimage/releases | grep AppImage | grep continuous | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g')
-ORIGIN=GITHUB.COM/IVAN-HC/SPOTIFY-APPIMAGE # credit & info 
+#APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Spotify-appimage/releases | grep AppImage | grep continuous | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g')
+APPLINK=http://batocera.pro/app/spotify.AppImage
+ORIGIN="batocera.pro@github.com/ivan-hc/chrome-appimage" # credit & info 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -285,7 +286,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -299,19 +300,12 @@ chmod a+x $launcher
 port=/userdata/system/pro/$appname/Spotify.sh
 rm -rf $port 2>/dev/null
 echo '#!/bin/bash ' >> $port
-echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
-echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
-echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
-echo ' ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
+echo ' #dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
+echo ' #nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
+echo ' #d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
+echo ' #ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
 echo 'unclutter-remote -s' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null' >> $port
-echo 'mkdir /userdata/system/pro/'$appname'/config 2>/dev/null' >> $port
-#echo 'mkdir /userdata/system/pro/'$appname'/roms 2>/dev/null' >> $port
-echo 'HOME=/userdata/system/pro/'$appname'/home \' >> $port
-echo 'XDG_DATA_HOME=/userdata/system/pro/'$appname'/home \' >> $port
-echo 'XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config \' >> $port
-echo 'QT_SCALE_FACTOR="1" GDK_SCALE="1" \' >> $port 
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --disable-gpu' >> $port
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $port
 dos2unix $port 
 chmod a+x $port 
 cp $port "/userdata/roms/ports/Spotify.sh" 
