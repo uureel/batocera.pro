@@ -7,9 +7,9 @@
 # --------------------------------------------------------------------
 APPNAME=GOOGLE-CHROME # for installer info
 appname=chrome # directory name in /userdata/system/pro/...
-AppName=chrome # App.AppImage name
+AppName=$appname # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=http://batocera.pro/app/chrome.AppImage
+APPLINK=http://batocera.pro/app/$appname.AppImage
 ORIGIN=batocera.pro/app # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -276,7 +276,7 @@ sleep 1.333
 echo
 echo -e "${G}INSTALLING ${W}. . ."
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
-launcher=/userdata/system/pro/$appname/Launcher
+launcher=/userdata/system/pro/$appname/$appname
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'export DISPLAY=:0.0; unclutter-remote -s' >> $launcher
@@ -307,7 +307,7 @@ rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
 echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/$appname %U" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
