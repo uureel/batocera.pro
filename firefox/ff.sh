@@ -20,7 +20,7 @@ APPLINK="https://github.com/srevinsaju/Firefox-Appimage/releases/download/firefo
 APPHOME="github.com/srevinsaju/Firefox-Appimage"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage "$@"'
+COMMAND='LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" QT_FONT_DPI=128 QT_SCALE_FACTOR="1" GDK_SCALE="1" DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage "$@"'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
