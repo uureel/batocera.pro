@@ -333,7 +333,7 @@ echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $customsh
 fi
 dos2unix $customsh 2>/dev/null
 # //
-#
+# 
 # -- done. 
 sleep 1
 echo -e "${G}> ${W}DONE"
