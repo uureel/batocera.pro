@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME=GOOGLE-CHROME # for installer info
+APPNAME=CHROME # for installer info
 appname=chrome # directory name in /userdata/system/pro/...
 AppName=$appname # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
@@ -123,7 +123,7 @@ echo -e "${X}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
-echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
+echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$appname"
 echo
 echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
