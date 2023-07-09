@@ -20,7 +20,7 @@ APPHOME="batocera.pro/app"
 APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
 AppName=$appname; APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 
-COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage ${@}'
+COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage $"@"'
 
 #--------------------------------------------------------------------- 
 ######################################################################
@@ -296,7 +296,7 @@ sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
-launcher=/userdata/system/pro/$appname/Launcher
+launcher=/userdata/system/pro/$appname/$appname
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
@@ -313,7 +313,7 @@ rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
 echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/Launcher %F" >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/$appname %F" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
