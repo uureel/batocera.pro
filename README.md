@@ -259,6 +259,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L rats.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/rhythmbox/extra/icon.png" width=48 height=48 /><b><i>&nbsp;RHYTHMBOX</i></b> <br>
+```curl -L rhythmbox.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/sak/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SAK </i></b> <br>
 ```curl -L sak.batocera.pro | bash```
 <br>
