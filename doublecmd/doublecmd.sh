@@ -7,10 +7,10 @@
 # --------------------------------------------------------------------
 APPNAME=DOUBLE-COMMANDER # for installer info
 appname=doublecmd # directory name /userdata/system/pro/...
-AppName=doublecmd # App.AppImage
-APPPATH=/userdata/system/pro/doublecmd/doublecmd.AppImage
-APPLINK=http://batocera.pro/app/doublecmd.AppImage
-ORIGIN=APPREPO.DE/APPIMAGE # credit & info 
+AppName=$appname # App.AppImage
+APPPATH=/userdata/system/pro/$appname/$appname.AppImage
+APPLINK=http://batocera.pro/app/$appname.AppImage
+ORIGIN=batocera.pro # credit & info 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -275,7 +275,7 @@ sleep 1.333
 echo
 echo -e "${G}INSTALLING ${W}. . ."
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
-launcher=/userdata/system/pro/$appname/Launcher
+launcher=/userdata/system/pro/$appname/$appname
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
@@ -285,7 +285,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox 2>/dev/null' >> $launcher
+echo 'mkdir /userdata/system/pro/'$appname'/home 2>/dev/null; mkdir /userdata/system/pro/'$appname'/config 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$appname'.AppImage "$@"' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -304,7 +304,7 @@ rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
 echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/$appname %U" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
