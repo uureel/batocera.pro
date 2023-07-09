@@ -1,3 +1,2 @@
 icon.png
 libkeyutils.so.1
-tput

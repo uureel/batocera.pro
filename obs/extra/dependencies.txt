@@ -1,3 +1,2 @@
 icon.png
 libnsl.so.1
-tput

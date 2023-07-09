@@ -1,3 +1,2 @@
 icon.png
 nomacs.png
-tput

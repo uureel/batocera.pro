@@ -4,4 +4,3 @@ libcanberra.so.0
 libselinux.so.1
 libtdb.so.1
 tar
-tput

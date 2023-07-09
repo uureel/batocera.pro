@@ -1,4 +1,3 @@
 icon.png
 libjack.so.0
 smplayer.ini
-tput

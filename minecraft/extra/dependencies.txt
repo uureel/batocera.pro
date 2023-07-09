@@ -2,4 +2,3 @@ icon.png
 libsecret-1.so.0
 libselinux.so.1
 tar
-tput

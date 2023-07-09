@@ -7,4 +7,3 @@ my80stv.png
 my70stv.png
 my60stv.png
 myretrotv.sh.keys
-tput

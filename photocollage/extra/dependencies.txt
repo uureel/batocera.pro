@@ -1,4 +1,3 @@
 icon.png
 photocollage.png
-tput
 

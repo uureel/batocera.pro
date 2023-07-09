@@ -5,4 +5,3 @@ libatk-bridge-2.0.so.0
 libatspi.so.0
 libcups.so.2
 libdbus-glib-1.so.2
-tput

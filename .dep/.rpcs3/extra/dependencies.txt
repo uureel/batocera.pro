@@ -3,5 +3,4 @@ batocera-config-rpcs3
 icon.png
 rpcs3-use-batocera-version.sh
 rpcs3-use-latest-version.sh
-tput
 
