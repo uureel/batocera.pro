@@ -183,6 +183,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L moonlight.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/mpv/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MPV</i></b><br>
+```curl -L mpv.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/multimc/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MULTIMC-LAUNCHER</i></b><br>
 ```curl -L multimc.batocera.pro | bash```
 <br>
