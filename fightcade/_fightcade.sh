@@ -180,7 +180,6 @@ chmod a+x /userdata/system/pro/fightcade/Fightcade2.sh 2>/dev/null
 # 
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-# 
 # -------------------------------------------------------------------
 # ADD TO BATOCERA AUTOSTART > /USERDATA/SYSTEM/CUSTOM.SH TO ENABLE F1
 # -------------------------------------------------------------------
@@ -254,7 +253,23 @@ chmod a+x /userdata/system/pro/fightcade/extras/wine.sh 2>/dev/null
 # pad2key 
 url=https://raw.githubusercontent.com/uureel/batocera-fightcade/main/installer
 wget -q -O /userdata/roms/ports/Fightcade2.sh.keys $url/Fightcade2.sh.keys 2>/dev/null 
-# ---
+#
+#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+#\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+#
+# + additional updates/fixes for v37: 
+url=https://github.com/uureel/batocera-fightcade/raw/main/installer
+wget -q -O /userdata/system/pro/fightcade/extras/wine.sh $url/wine.sh 2>/dev/null
+  dos2unix /userdata/system/pro/fightcade/extras/wine.sh 1>/dev/null 2>/dev/null 
+  chmod a+x /userdata/system/pro/fightcade/extras/wine.sh 2>/dev/null 
+wget -q -O /userdata/system/pro/fightcade/extras/liblua5.2.so.0 $url/liblua5.2.so.0 2>/dev/null 
+wget -q -O /userdata/system/pro/fightcade/extras/liblua5.3.so.0 $url/liblua5.3.so.0 2>/dev/null 
+wget -q -O /userdata/system/pro/fightcade/extras/libzip.so.4 $url/libzip.so.4 2>/dev/null 
+wget -q -O /userdata/system/pro/fightcade/extras/libzip.so.5 $url/libzip.so.5 2>/dev/null 
+# 
+#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+#\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+#
 # add Fightcade2 to ports
 cp /userdata/system/pro/fightcade/Fightcade2.sh /userdata/roms/ports/Fightcade2.sh 2>/dev/null
 # reload gamelists 
@@ -276,9 +291,6 @@ if [[ -f /userdata/system/pro/fightcade/fightcade/Fightcade2.sh ]]; then
     fi 
 fi
 # 
-#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-#\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-#
 # finished installing // 
 echo 
 echo 
