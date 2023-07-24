@@ -228,6 +228,56 @@ export -f get-appimage
 #-------------------------------------
 
 #-------------------------------------
+function get-another-appimage() {
+app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
+prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"
+from="$1"
+to="$2"
+name="$3"
+if [[ "$to" != "appdir" ]] && [[ "$to" != "$prefix" ]]; then 
+to="$2"
+else 
+	if [[ "$to" = "appdir" ]]; then
+	to="$prefix"
+	fi
+	if [[ "$to" = "$prefix" ]]; then
+	to="$prefix"
+	fi
+fi
+name="$3"
+if [[ "$name" != "" ]]; then name="$(echo "$name")"; else name="$app.AppImage"; fi
+echo
+echo -e "${A}  ${X}"
+echo -e "${A}██${X}  ${H}downloading $(echo "$name")"
+	if [[ "$2" = "" ]]; then to="$prefix"; fi
+		time=$(date +"%y%m%d-%H%M%S")
+		temp="/tmp/batocera.pro-$time"
+		mkdir -p "$temp" 2>/dev/null
+		mkdir -p "$prefix" 2>/dev/null 
+		size_before=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
+			cd "$temp"
+				echo -e "${A}  ${X}  from > ${X}$(echo "$from" | sed 's,https://,,g' | sed 's,http://,,g')${A}"
+				echo -e "${A}  ${X}  to   > ${X}$(echo "$to")/$(echo "$name")${A}"
+					curl --progress-bar --remote-name --location "$from"
+					cp -rL $temp/* "$to/$name"
+					chmod a+x "$to/$name" 2>/dev/null  
+						size_after=$(du -H "$temp" | tail -n 1 | awk '{print $1}')
+						size=$(($size_after-$size_before))
+						if [[ "$size" -le "1000" ]]; then size=$((size)); 
+							echo -e "${A}  ${X}  done, $(echo "$size") kB"
+						fi 
+						if [[ "$size" -gt "1000" ]]; then size=$((size/1000)); 
+							echo -e "${A}  ${X}  done, $(echo "$size") MB"
+						fi
+							#echo -e "${A}  ${X}        "
+			cd /userdata/system/
+			rm -rf $temp
+sleep 2
+}
+export -f get-another-appimage
+#-------------------------------------
+
+#-------------------------------------
 function get-archive-tar() {
 app="$(cat /tmp/batocera.pro-config | grep "app=" | cut -d "=" -f2)"
 prefix="$(cat /tmp/batocera.pro-config | grep "prefix=" | cut -d "=" -f2)"

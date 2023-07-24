@@ -16,6 +16,9 @@ chmod a+x /userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage 2>/dev/null
 chmod a+x /userdata/system/pro/ps2plus/pcsx2/pcsx2-AVX2.AppImage 2>/dev/null
 chmod a+x /userdata/system/pro/ps2plus/pcsx2/pcsx2-SSE4.AppImage 2>/dev/null
 
+# prepare booster:
+/userdata/system/pro/ps2plus/extras/boost.sh 2>/dev/null & 
+
 # start appimage: 
 if [[ "$(cat /tmp/cpufeatures | grep avx2)" != "" ]]; then 
 	if [[ "$(echo "$ROM" | grep "CONFIG")" != "" ]] || [[ "$(echo "$ROM")" = "" ]]; then
@@ -56,7 +59,4 @@ else
 				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage -fullscreen -nogui "$ROM" 1>$log1 2>$log2
 	fi 
 fi
-
-sleep 1
-/userdata/system/pro/ps2plus/extras/boost.sh 2>/dev/null & 
 
