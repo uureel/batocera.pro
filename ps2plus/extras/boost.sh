@@ -1,5 +1,9 @@
 #!/bin/bash
-sleep 7
-for pid in $(pgrep pcsx2-qt); do
-    renice -14 $pid
-done
+sleep 5
+pids=$(ps -eLf | awk '/pcsx2-qt/ { print $2,$4 }')
+	for pid in $pids; do
+		echo "boosting "$pid""
+	    renice -15 $pid 2>/dev/null &
+	done
+wait
+exit 0
