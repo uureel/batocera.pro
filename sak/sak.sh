@@ -20,7 +20,7 @@ APPHOME="github.com/dezem/SAK  (v0.7.14_64bit)"
                                                                        APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 # --------------------------------------------------------------------
 #      DEFINE LAUNCHER COMMAND: 
-COMMAND='DISPLAY=:0.0 batocera-wine lutris play /userdata/system/pro/'$appname'/SAK.exe'
+COMMAND='cp /userdata/bios/switch/*.keys /userdata/system/pro/sak/bin/ 2>/dev/null && DISPLAY=:0.0 batocera-wine lutris play /userdata/system/pro/'$appname'/SAK.exe'
 # --------------------------------------------------------------------
 ######################################################################
 ######################################################################
