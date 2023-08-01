@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf /userdata/system/pro/sunshine/container 2>/dev/null
+
 cd /userdata/system/pro/sunshine/extras
 yes "Y" | unzip -qq gdk-pixbuf-2.0.zip 2>/dev/null
 cd /userdata/system 
