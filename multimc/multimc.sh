@@ -20,7 +20,7 @@ APPLINK=https://files.multimc.org/downloads/mmc-stable-lin64.tar.gz
 APPHOME="multimc.org" 
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/MultiMC'
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" QT_PLUGIN_PATH=/usr/lib/qt/plugins QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/qt/plugins HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/MultiMC'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -413,19 +413,27 @@ echo '#!/bin/bash ' >> $launcher
 echo 'export LD_LIBRARY_PATH="/userdata/system/pro/java/lib:${LD_LIBRARY_PATH}" ' >> $launcher
 echo 'export PATH=/userdata/system/pro/java/bin:$PATH ' >> $launcher
 echo 'export JAVA_HOME=/userdata/system/pro/java ' >> $launcher
+echo ' # ' >> $launcher
 echo ' dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $launcher
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
 echo ' ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 #- add extra dependencies: 
+echo ' # ' >> $launcher
 echo ' dep=/userdata/system/pro/'$appname'/extra; depfile=$dep/dependencies.txt; ' >> $launcher
 echo ' nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $launcher
 echo ' d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $launcher
 echo ' ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $launcher
 #- add qt5libs: 
-echo ' rm /usr/lib/x86_64-linux-gnu 2>/dev/null; ln -s /userdata/system/pro/.dep/.x86_64-linux-gnu /usr/lib/x86_64-linux-gnu 2>/dev/null;' >> $launcher
-echo ' rm /lib/x86_64-linux-gnu 2>/dev/null; ln -s /userdata/system/pro/.dep/.x86_64-linux-gnu /lib/x86_64-linux-gnu 2>/dev/null;' >> $launcher
-echo 'unclutter-remote -s' >> $launcher 
+echo '  # ' >> $launcher
+echo '  mkdir -p /usr/lib/x86_64-linux-gnu 2>/dev/null' >> $launcher
+echo '  ln -s /userdata/system/pro/.dep/.x86_64-linux-gnu/qt5 /usr/lib/x86_64-linux-gnu/qt5 2>/dev/null' >> $launcher
+echo '  ln -s /userdata/system/pro/.dep/.x86_64-linux-gnu/qtchooser /usr/lib/x86_64-linux-gnu/qtchooser 2>/dev/null' >> $launcher
+echo '  ln -s /userdata/system/pro/.dep/.x86_64-linux-gnu/qt5-default /usr/lib/x86_64-linux-gnu/qtdefault 2>/dev/null' >> $launcher
+echo '   ln -s /userdata/system/pro/.dep/.x86_64-linux-gnu /lib/x86_64-linux-gnu 2>/dev/null;' >> $launcher
+echo '   # ' >> $launcher
+echo '   unclutter-remote -s' >> $launcher 
+echo '#### ' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
