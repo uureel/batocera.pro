@@ -9,6 +9,7 @@ config.sh
 config.sh.keys
 es_features_ps2minus.cfg
 es_systems_ps2minus.cfg
+PCSX2_ui.ini
 ps2minus.keys
 pcsx2minus.desktop
 icon.png

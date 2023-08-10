@@ -35,10 +35,22 @@ cp $x/launcher.sh $a/ 2>/dev/null
 cp $x/pcsx2plus.desktop /usr/share/applications/ 2>/dev/null
 cp $x/ps2minus.keys $c/evmapy/ 2>/dev/null
 cp $x/ps2+.keys $c/evmapy/ 2>/dev/null
+cp $x/ps2+.keys $c/evmapy/ 2>/dev/null
 
 cd $x/
 yes "A" | unzip -qq $x/configgen.zip -d $x/
 cd ~/ 
+
+cd $x/
+yes "A" | unzip -qq $x/plugins.zip -d $x/
+mv $x/plugins $a/ 2>/dev/null
+cd ~/ 
+
+# find ps2 bios in /userdata/bios/ and update config file 
+ps2bios=$(ls /userdata/bios/ps2-0* | sort | grep "e-" | grep ".bin" | tail -n1)
+sed -i '/^BIOS=/c\BIOS=$ps2bios' $x/PCSX2_ui.ini 
+mkdir -p /userdata/system/configs/PCSX2/inis 2>/dev/null 
+cp $x/PCSX2_ui.ini /userdata/system/configs/PCSX2/inis/PCSX2_ui.ini 2>/dev/null 
 
 fs=$(blkid | grep "LABEL=\"SHARE\"" | sed 's,^.*TYPE=,,g' | sed 's,",,g')
 if [[ "$fs" = "ext4" ]] || [[ "$fs" = "btrfs" ]]; then 
