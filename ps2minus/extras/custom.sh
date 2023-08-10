@@ -41,10 +41,11 @@ cd $x/
 yes "A" | unzip -qq $x/configgen.zip -d $x/
 cd ~/ 
 
-cd $x/
-yes "A" | unzip -qq $x/plugins.zip -d $x/
-mv $x/plugins $a/ 2>/dev/null
-cd ~/ 
+mkdir -p $a/pcsx2 2>/dev/null
+cd $a/pcsx2
+cp -r $x/plugins.zip $a/pcsx2/
+yes "A" | unzip -qq $a/pcsx2/plugins.zip -d $a/pcsx2/
+cd ~/
 
 # find ps2 bios in /userdata/bios/ and update config file 
 ps2bios=$(ls /userdata/bios/ps2-0* | sort | grep "e-" | grep ".bin" | tail -n1)
