@@ -3,6 +3,7 @@ boost.sh
 quit.sh
 custom.sh
 configgen.zip
+plugins.zip
 launcher.sh
 startup.sh
 config.sh
