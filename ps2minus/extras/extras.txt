@@ -1,0 +1,15 @@
+extras.txt
+boost.sh
+quit.sh
+custom.sh
+configgen.zip
+launcher.sh
+startup.sh
+config.sh
+config.sh.keys
+es_features_ps2minus.cfg
+es_systems_ps2minus.cfg
+ps2minus.keys
+pcsx2minus.desktop
+icon.png
+UNINSTALL.sh
