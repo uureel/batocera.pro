@@ -1,2 +1,0 @@
-#!/bin/bash
-su -c "killall -9 emulationstation; sleep 8; unclutter-remote -s; xdotool key F1" root &
