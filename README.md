@@ -84,10 +84,6 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L xiso.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/f1/extra/icon.png" width=48 height=48 /><b><i>&nbsp;F1 MENU - OPEN REMOTELY OR FROM PORTS</i></b><br>
-```curl -L f1.batocera.pro | bash```
-<br>
-<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/ferdium/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FERDIUM</i></b><br>
 ```curl -L ferdium.batocera.pro | bash```
 <br>
