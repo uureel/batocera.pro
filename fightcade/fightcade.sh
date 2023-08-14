@@ -6,6 +6,7 @@
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 #
 # -- check system before proceeding
+if [[ "$(uname -m)" != *"86_64"* ]]; then echo -e "\n\nFIGHTCADE2 NEEDS X86_64 CPU (INTEL/AMD), SORRY\n\n" && exit 1; fi
 clear; echo
 kernel=$(uname -a | awk '{print $3}' 2>/dev/null)
 if [[ "$kernel" < "5.18" ]]; then 
