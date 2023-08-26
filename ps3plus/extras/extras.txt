@@ -3,6 +3,7 @@ boost.sh
 custom.sh
 configgen.zip
 launcher.sh
+libjack.so.0
 startup.sh
 config.sh
 config.sh.keys

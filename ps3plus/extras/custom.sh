@@ -59,11 +59,21 @@ echo -e "${A}██${X}  ${H}applying batocera compatibility fixes..."
 						dos2unix ~/pro/ps3plus/rpcs3/squashfs-root/AppRun 1>/dev/null 2>/dev/null 
 						chmod a+x ~/pro/ps3plus/rpcs3/squashfs-root/AppRun 2>/dev/null
 			rm ~/pro/ps3plus/rpcs3/rpcs3.AppImage
+			#add missing libjack.so.0 
+			cp $x/libjack.so.0 ~/pro/ps3plus/rpcs3/squashfs-root/usr/lib/ 2>/dev/null 
 		~/pro/ps3plus/rpcs3/ai.AppImage ~/pro/ps3plus/rpcs3/squashfs-root rpcs3.AppImage 1>/dev/null 2>/dev/null 
-echo -e "${A}██${X}  ${H}---------------------------------------"
-echo -e "${A}██${X}  ${H}don't update rpcs3 from the app itself,"
-echo -e "${A}██${X}  ${H}update it using this installer instead!"
-echo -e "${A}██${X}  ${H}---------------------------------------"
+echo -e "${A}██${X}  ${H}----------------------------------------"
+echo -e "${A}██${X}  ${H}########################################"
+echo
+echo -e "${A}██${X}  ${H}NOTE: "
+echo
+echo -e "${A}██${X}  ${H}configure rpcs3plus from f1 before use"
+echo
+echo -e "${A}██${X}  ${H}don't autoupdate rpcs3plus from the app,"
+echo -e "${A}██${X}  ${H}only update it using this installer"
+echo
+echo -e "${A}██${X}  ${H}########################################"
+echo -e "${A}██${X}  ${H}----------------------------------------"
 echo
 # backup saves 
 # timestamp=$(date +"%y%m%d-%H%M%S") 
