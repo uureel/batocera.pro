@@ -45,14 +45,8 @@ APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # show console/ssh info: 
-clear
-echo
-echo
 echo
 echo -e "${X}PREPARING $APPNAME INSTALLER, PLEASE WAIT . . . ${X}"
-echo
-echo
-echo
 echo
 # --------------------------------------------------------------------
 # -- output colors:
@@ -111,55 +105,13 @@ line(){
   local range=$(seq $start $end)
   for i in $range ; do echo -n "${str}"; done
 }
-# -- show console/ssh info: 
-clear
 echo
-echo
-echo
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-echo
-echo
-echo
-echo
-sleep 0.33
-clear
-echo
-echo
-line $cols '-'; echo
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-line $cols '-'; echo
-echo
-echo
-echo
-sleep 0.33
-clear
-echo
-line $cols '-'; echo
-line $cols ' '; echo
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-line $cols ' '; echo
-line $cols '-'; echo
-echo
-echo
-sleep 0.33
-clear
-line $cols '\'; echo
-line $cols '/'; echo
-line $cols ' '; echo
-echo -e "${X}BATOCERA.PRO/$APPNAME INSTALLER${X}"
-line $cols ' '; echo
-line $cols '/'; echo
-line $cols '\'; echo
-echo
-sleep 0.33
 echo -e "${X}THIS WILL INSTALL XBOX-XCLOUD-CLIENT FOR BATOCERA"
 echo -e "${X}USING $ORIGIN"
 echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${X}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
-echo
-echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
 echo
 echo -e "${X}. . .${X}" 
 echo
@@ -207,56 +159,7 @@ line(){
   local range=$(seq $start $end)
   for i in $range ; do echo -n "${str}"; done
 }
-clear
 echo
-echo
-echo
-echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo
-echo
-echo
-echo
-sleep 0.33
-clear
-echo
-echo
-echo
-echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
-echo
-echo
-echo
-echo
-sleep 0.33
-clear
-echo
-echo
-line $cols '-'; echo
-echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-line $cols '-'; echo
-echo
-echo
-echo
-sleep 0.33
-clear
-echo
-line $cols '-'; echo
-echo; #line $cols '-'; echo
-echo -e "${W}BATOCERA.PRO/${W}$APPNAME${W} INSTALLER ${W}"
-echo; #line $cols '-'; echo
-line $cols '-'; echo
-echo
-echo
-sleep 0.33
-clear
-line $cols '='; echo
-echo; #line $cols '-'; echo
-echo; #line $cols '-'; echo
-echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
-echo; #line $cols '-'; echo
-echo; #line $cols '-'; echo
-line $cols '='; echo
-echo
-sleep 0.33
 echo -e "${W}THIS WILL INSTALL XBOX-XCLOUD-CLIENT FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
@@ -264,9 +167,6 @@ echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${R}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
-echo; #line $cols '='; echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
