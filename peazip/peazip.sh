@@ -20,7 +20,7 @@ APPHOME="batocera.pro/app"
 APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); 
 AppName=$appname; APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 
-COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage $"@"'
+COMMAND='DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage ${@}'
 
 #--------------------------------------------------------------------- 
 ######################################################################
