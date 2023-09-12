@@ -282,7 +282,8 @@ echo 'export DISPLAY=:0.0; unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$@"' >> $launcher
+#echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$@"' >> $launcher
+echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "${@}"' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
