@@ -16,8 +16,8 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >> 
 APPNAME=clonehero 
-APPLINK=https://pubdl.clonehero.net/clonehero-v1.0.0.4080-final/clonehero-linux.tar.xz
-APPHOME=clonehero.net/releases
+APPLINK=https://github.com/clonehero-game/releases/releases/download/V1.0.0.4080/CloneHero-linux.tar.xz
+APPHOME=github.com/clonehero-game
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
 COMMAND='sysctl -w vm.max_map_count=262144; ulimit -H -n 819200; ulimit -S -n 819200; ulimit -S -n 819200 clonehero; ulimit -H -l 61634; ulimit -S -l 61634; ulimit -H -s 61634; ulimit -S -s 61634; mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME' ${@}'
