@@ -311,7 +311,7 @@ wget -q -O $pro/.dep/tar $depurl/tar
 wget -q -O $pro/.dep/libselinux.so.1 $depurl/libselinux.so.1
 chmod a+x $pro/.dep/tar; cp $depurl/libselinux.so.1 /lib/ 2>/dev/null
 cd $temp
-$pro/.dep/tar -xf $temp/CloneHero-linux.tar.xz
+$pro/.dep/tar -xf $temp/CloneHero-linux.tar.xz 
 mv $temp/clonehero-linux/* $pro/$appname/
 chmod a+x $pro/$appname/$appname 2>/dev/null
 cd $pro
