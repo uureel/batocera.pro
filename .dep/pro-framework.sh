@@ -113,6 +113,8 @@ echo
 sleep 8
 # rm -rf /tmp/batocera.pro* 2>/dev/null
 curl http://127.0.0.1:1234/reloadgames
+exit 0
+exit 1
 }
 export -f say-bye 
 
