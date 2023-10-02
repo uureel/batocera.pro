@@ -1,8 +1,0 @@
-extras.txt
-custom.sh
-launcher.sh
-port.sh
-startup.sh
-bedrock.desktop
-icon.png
-UNINSTALL.sh
