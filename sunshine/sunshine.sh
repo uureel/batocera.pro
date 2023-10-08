@@ -51,6 +51,9 @@ dos2unix /tmp/pro-framework.sh ; source /tmp/pro-framework.sh
 say-hi
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
+killall -9 sunshine sunshine.AppImage 2>/dev/null && sleep 0.1
+killall -9 sunshine sunshine.AppImage 2>/dev/null && sleep 0.1
+killall -9 sunshine sunshine.AppImage 2>/dev/null && sleep 0.1
 get-appimage $url $prefix
 get-appimage $url2 $prefix batocera-sunshine
 #################################################################################################################################
