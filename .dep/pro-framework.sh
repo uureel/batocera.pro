@@ -397,7 +397,7 @@ echo -e "${A}  ${X}  done "
 sleep 0.2
 #fi
 #
-$prefix/extras/startup.sh 2>/dev/null
+nohup $prefix/extras/startup.sh 2>/dev/null &
 #
 }
 export -f add-custom
