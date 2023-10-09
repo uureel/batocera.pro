@@ -23,6 +23,6 @@ if [[ -f /userdata/system/pro/sunshine/batocera-sunshine.AppImage ]]; then
 mv /userdata/system/pro/sunshine/batocera-sunshine.AppImage /userdata/system/pro/sunshine/batocera-sunshine
 fi
 
-dos2unix /userdata/system/pro/sunshine/extras/startup.sh 
-chmod a+x /userdata/system/pro/sunshine/extras/startup.sh 
+dos2unix /userdata/system/pro/sunshine/extras/startup.sh 2>/dev/null
+chmod a+x /userdata/system/pro/sunshine/extras/startup.sh 2>/dev/null
 
