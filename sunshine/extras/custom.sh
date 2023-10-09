@@ -26,5 +26,3 @@ fi
 dos2unix /userdata/system/pro/sunshine/extras/startup.sh 
 chmod a+x /userdata/system/pro/sunshine/extras/startup.sh 
 
-/userdata/system/pro/sunshine/extras/startup.sh 
-
