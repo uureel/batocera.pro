@@ -1,20 +1,18 @@
 #!/bin/bash 
-
-export DISPLAY=:0.0 
-
-log1=/userdata/system/pro/sunshine/log1.txt
-log2=/userdata/system/pro/sunshine/log2.txt
-rm $log1 2>/dev/null ; rm $log2 2>/dev/null 
-
 cp /userdata/system/pro/sunshine/extras/sunshine.desktop /usr/share/applications/ 2>/dev/null 
-
 sleep 44
-
-su -c "nohup /userdata/system/pro/sunshine/launcher.sh &" root &
-
-sleep 1
-
-if [[ "$(cat /usr/share/applications/sunshine.desktop | grep sunshined.png)" != "" ]]; then 
-cp /userdata/system/pro/sunshine/extras/sunshine.desktop /usr/share/applications/sunshine.desktop 
-fi 
-
+su -c "nohup /userdata/system/pro/sunshine/batocera-sunshine start &" &
+sleep 4
+	while true; do 
+	    pid="$(pidof sunshine)"
+	    port1="$(netstat -tuln | grep 47990)"
+	    port2="$(netstat -tuln | grep 48010)"
+	    
+	    if [[ -z "$pid" ]] || [[ -z "$port1" ]] || [[ -z "$port2" ]]; then 
+	        su -c "nohup /userdata/system/pro/sunshine/batocera-sunshine start &" &
+	        sleep 5
+	    fi
+	    
+	    sleep 10
+	done
+exit 0
