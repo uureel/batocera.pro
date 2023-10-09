@@ -51,9 +51,24 @@ dos2unix /tmp/pro-framework.sh ; source /tmp/pro-framework.sh
 say-hi
 #################################################################################################################################
 #--------------------------------------------------------------------------------------------------------------------------------
-killall -9 sunshine sunshine.AppImage 2>/dev/null && sleep 0.1
-killall -9 sunshine sunshine.AppImage 2>/dev/null && sleep 0.1
-killall -9 sunshine sunshine.AppImage 2>/dev/null && sleep 0.1
+# 
+function stop-sunshine() {
+    # Ensure sunshine isn't running to avoid multispawns 
+    killall -9 sunshine sunshine.AppImage batocera-sunshine startup.sh 2>/dev/null && sleep 0.1
+    killall -9 sunshine sunshine.AppImage batocera-sunshine startup.sh 2>/dev/null && sleep 0.1
+    killall -9 sunshine sunshine.AppImage batocera-sunshine startup.sh 2>/dev/null && sleep 0.1
+    lsof /userdata/system/pro/sunshine/extras/startup.sh 2>/dev/null | awk '{print $2}' | xargs -r kill -9 && sleep 0.1
+    lsof /userdata/system/pro/sunshine/batocera-sunshine 2>/dev/null | awk '{print $2}' | xargs -r kill -9 && sleep 0.1
+    lsof /userdata/system/sunshine/batocera-sunshine 2>/dev/null | awk '{print $2}' | xargs -r kill -9 && sleep 0.1
+    p=47980
+    while [ $p -le 48011 ]; do 
+        lsof -i :$p -t | xargs -r kill -9
+        p=$(($p+1))
+    done
+    sleep 1
+} 
+stop-sunshine
+#
 get-appimage $url $prefix
 get-appimage $url2 $prefix batocera-sunshine
 #################################################################################################################################
