@@ -323,12 +323,18 @@ cp $shortcut $f1shortcut 2>/dev/null
 # -- prepare ports - YARG shortcut, 
 shortcut=/userdata/roms/ports/YARG.sh
 rm -rf $shortcut 2>/dev/null
+echo 'export DISPLAY=:0.0' >> $shortcut
+#echo 'unclutter-remote -s' >> $shortcut
 echo 'DISPLAY=:0.0 /userdata/system/pro/yarg/batocera-yarg start "${@}"' >> $shortcut
+echo 'unclutter-remote -h' >> $shortcut
 chmod 777 $shortcut 2>/dev/null
 # -- prepare ports - YARC Launcher shortcut, 
 shortcut="/userdata/roms/ports/YARC-Launcher.sh"
 rm -rf $shortcut 2>/dev/null
+echo 'export DISPLAY=:0.0' >> $shortcut
+echo 'unclutter-remote -s' >> $shortcut
 echo 'DISPLAY=:0.0 /userdata/system/pro/yarg/batocera-yarg launcher "${@}"' >> $shortcut
+echo 'unclutter-remote -h' >> $shortcut
 chmod 777 $shortcut 2>/dev/null
 # //
 #
