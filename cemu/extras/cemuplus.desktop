@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Icon=/userdata/system/pro/wiiuplus/extras/icon.png
+Exec=/userdata/system/pro/wiiuplus/launcher.sh %F
+Terminal=false
+Type=Application
+Categories=Game;batocera.linux;
+Name=cemu-plus-config
