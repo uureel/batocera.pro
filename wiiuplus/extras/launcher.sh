@@ -3,13 +3,6 @@
 # get rom from generator: 
 	ROM="$(echo "$1")"
 
-# check if *.psn 
-#	chmod a+x /userdata/system/pro/ps3plus/extras/rev 2>/dev/null
-#		if [[ "$(echo "$ROM" | /userdata/system/pro/wiiuplus/extras/rev | cut -c 1-4 | /userdata/system/pro/wiiuplus/extras/rev)" = ".psn" ]]; then 
-#			ID="$(cat "$ROM" | head -n 1 | tr 'a-z' 'A-Z')"
-#			ROM="/userdata/system/configs/rpcs3/dev_hdd0/game/$ID/USRDIR/EBOOT.BIN"
-#		fi
-
 # prepare logs: 
 	logs=/userdata/system/logs
 	log="$logs/wiiuplus.txt"
@@ -40,7 +33,7 @@ if [[ "$(echo "$ROM" | grep "CONFIG")" != "" ]] || [[ "$(echo "$ROM")" = "" ]]; 
 		QT_QPA_PLATFORM=xcb \
 		AMD_VULKAN_ICD=RADV \
 		DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1=1 \
-			/userdata/system/pro/wiiuplus/cemu/cemu.AppImage 
+			/userdata/system/pro/wiiuplus/cemu/cemu.AppImage > >(tee "$log1") 2> >(tee "$log2" >&2)
 else 
 		DISPLAY=:0.0 \
 		QT_FONT_DPI=128 \
@@ -49,7 +42,5 @@ else
 		QT_QPA_PLATFORM=xcb \
 		AMD_VULKAN_ICD=RADV \
 		DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1=1 \
-			/userdata/system/pro/wiiuplus/cemu/cemu.AppImage -f "$ROM"
+			/userdata/system/pro/wiiuplus/cemu/cemu.AppImage -f -g "$ROM" > >(tee "$log1") 2> >(tee "$log2" >&2)
 fi
-
-
