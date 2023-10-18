@@ -60,11 +60,22 @@ echo -e "${A}██${X}  ${H}applying batocera compatibility fixes..."
 						chmod a+x ~/pro/ps3plus/rpcs3/squashfs-root/AppRun 2>/dev/null
 			rm ~/pro/ps3plus/rpcs3/rpcs3.AppImage
 			#add missing libjack.so.0 
-			cp $x/libjack.so.0 ~/pro/ps3plus/rpcs3/squashfs-root/usr/lib/ 2>/dev/null 
-			cp $x/libstdc++.so.6 ~/pro/ps3plus/rpcs3/squashfs-root/usr/lib/ 2>/dev/null 
+			cp $x/libjack.so.0 ~/pro/ps3plus/rpcs3/squashfs-root/usr/lib/ 2>/dev/null
+			#add proper libstdc++.so.6 
+			if [[ -e "/usr/bin/batocera-version" ]]; then 
+				v="$(batocera-version | cut -c1-2)"
+				if [[ "$v" = "38" ]] || [[ "$v" > "38" ]]; then  
+					cp $x/libstdc++.so.6 ~/pro/ps3plus/rpcs3/squashfs-root/usr/lib/ 2>/dev/null 
+				else
+					echo
+					echo " --  warning:  rpcs3 requires some updated system libraries and might,"
+					echo "               or might not, work, with older versions of batocera... "
+					echo 
+				fi
+			fi
 		~/pro/ps3plus/rpcs3/ai.AppImage ~/pro/ps3plus/rpcs3/squashfs-root rpcs3.AppImage 1>/dev/null 2>/dev/null 
-			rm -rf ~/pro/ps3plus/rpcs3/squashfs-root 2>/dev/null
-			rm -rf ~/pro/ps3plus/rpcs3/ai.AppImage 2>/dev/null
+	rm -rf ~/pro/ps3plus/rpcs3/squashfs-root 2>/dev/null
+	rm -rf ~/pro/ps3plus/rpcs3/ai.AppImage 2>/dev/null
 echo -e "${A}██${X}  ${H}"
 echo -e "${A}██${X}  ${H}----------------------------------------"
 echo -e "${A}██${X}  ${H}########################################"
