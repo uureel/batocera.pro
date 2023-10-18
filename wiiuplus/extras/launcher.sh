@@ -19,6 +19,10 @@
 	export QT_QPA_PLATFORM=xcb
 	export AMD_VULKAN_ICD=RADV
 	export DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1=1
+	export XDG_MENU_PREFIX=batocera- 
+	export XDG_CONFIG_DIRS=/etc/xdg 
+	export XDG_CURRENT_DESKTOP=XFCE 
+	export DESKTOP_SESSION=XFCE 
 
 # prepare booster:
 /userdata/system/pro/wiiuplus/extras/boost.sh 2>/dev/null & 
