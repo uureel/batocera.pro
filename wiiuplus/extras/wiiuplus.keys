@@ -1,0 +1,37 @@
+{
+    "actions_player1": [
+        {
+            "trigger": [
+                "hotkey",
+                "start"
+            ],
+            "type": "exec",
+            "target": [
+                "unclutter-remote -h && killall -9 cemu cemu.AppImage 2>/dev/null && sleep 2 && killall -9 cemu cemu.AppImage 2>/dev/null && sleep 1 && killall -9 cemu cemu.AppImage 2>/dev/null"
+            ]
+        },
+        {
+            "trigger": [
+                "hotkey",
+                "r3"
+            ],
+            "type": "key",
+            "target": "KEY_ENTER",
+            "description": "Press enter shortcut 1"
+        },
+        {
+            "trigger": [
+                "hotkey",
+                "l3"
+            ],
+            "type": "key",
+            "target": "KEY_ENTER",
+            "description": "Press enter shortcut 2"
+        },
+        {
+            "trigger": "r3",
+            "type": "key",
+            "target": "BTN_RIGHT"
+        }
+    ]
+}
