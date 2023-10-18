@@ -4,6 +4,7 @@ custom.sh
 configgen.zip
 launcher.sh
 libjack.so.0
+libstdc++.so.6
 startup.sh
 config.sh
 config.sh.keys

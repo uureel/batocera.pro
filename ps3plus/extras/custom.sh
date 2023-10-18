@@ -61,6 +61,7 @@ echo -e "${A}██${X}  ${H}applying batocera compatibility fixes..."
 			rm ~/pro/ps3plus/rpcs3/rpcs3.AppImage
 			#add missing libjack.so.0 
 			cp $x/libjack.so.0 ~/pro/ps3plus/rpcs3/squashfs-root/usr/lib/ 2>/dev/null 
+			cp $x/libstdc++.so.6 ~/pro/ps3plus/rpcs3/squashfs-root/usr/lib/ 2>/dev/null 
 		~/pro/ps3plus/rpcs3/ai.AppImage ~/pro/ps3plus/rpcs3/squashfs-root rpcs3.AppImage 1>/dev/null 2>/dev/null 
 			rm -rf ~/pro/ps3plus/rpcs3/squashfs-root 2>/dev/null
 			rm -rf ~/pro/ps3plus/rpcs3/ai.AppImage 2>/dev/null
