@@ -323,6 +323,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L whatsapp.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/wiiuplus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;WIIU+ / CEMU-UPDATER</i></b><br>
+```curl -L wiiuplus.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/xarchiver/extra/icon.png" width=48 height=48 /><b><i>&nbsp;XARCHIVER</i></b><br>
 ```curl -L xarchiver.batocera.pro | bash```
 <br>
