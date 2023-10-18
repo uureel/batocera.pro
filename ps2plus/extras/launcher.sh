@@ -19,6 +19,12 @@ chmod a+x /userdata/system/pro/ps2plus/pcsx2/pcsx2-SSE4.AppImage 2>/dev/null
 # prepare booster:
 /userdata/system/pro/ps2plus/extras/boost.sh 2>/dev/null & 
 
+# add env
+export XDG_MENU_PREFIX=batocera- 
+export XDG_CONFIG_DIRS=/etc/xdg 
+export XDG_CURRENT_DESKTOP=XFCE 
+export DESKTOP_SESSION=XFCE 
+
 # start appimage: 
 if [[ "$(cat /tmp/cpufeatures | grep avx2)" != "" ]]; then 
 	if [[ "$(echo "$ROM" | grep "CONFIG")" != "" ]] || [[ "$(echo "$ROM")" = "" ]]; then
