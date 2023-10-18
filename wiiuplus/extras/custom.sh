@@ -37,6 +37,9 @@ cp $x/wiiuplus.desktop /usr/share/applications/ 2>/dev/null
 cp $x/wiiuplus.keys $c/evmapy/ 2>/dev/null
 cp $x/wiiu+.keys $c/evmapy/ 2>/dev/null
 
+mkdir -p /userdata/system/.config/Cemu 2>/dev/null
+cp $x/settings.xml /userdata/system/.config/Cemu/ 2>/dev/null 
+
 cd $x/ 
 yes "A" | unzip -qq $x/configgen.zip -d $x/ 
 cd ~/ 

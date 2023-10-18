@@ -15,4 +15,5 @@ wiiu+.keys
 rev
 cemuplus.desktop
 icon.png
+settings.xml
 UNINSTALL.sh
