@@ -9,10 +9,11 @@ sleep 4
 	    port2="$(netstat -tuln | grep 48010)"
 	    
 	    if [[ -z "$pid" ]] || [[ -z "$port1" ]] || [[ -z "$port2" ]]; then 
+			/userdata/system/pro/sunshine/batocera-sunshine stop 1>/dev/null 2>/dev/null
 	        su -c "nohup /userdata/system/pro/sunshine/batocera-sunshine start &" &
 	        sleep 5
 	    fi
 	    
-	    sleep 10
+	    sleep 5
 	done
 exit 0
