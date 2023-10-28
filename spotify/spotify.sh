@@ -10,8 +10,9 @@ appname=spotify # directory name in /userdata/system/pro/...
 AppName=spotify # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 #APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Spotify-appimage/releases | grep AppImage | grep continuous | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g')
-APPLINK=http://batocera.pro/app/spotify.AppImage
-ORIGIN="batocera.pro@github.com/ivan-hc/chrome-appimage" # credit & info 
+#APPLINK=http://batocera.pro/app/spotify.AppImage
+APPLINK="$(curl -s https://api.github.com/repos/ivan-hc/Chrome-appimage/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url" | grep Beta)"
+ORIGIN="github.com/ivan-hc/chrome-appimage" # credit & info 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -233,7 +234,6 @@ echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
 #echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -286,7 +286,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $launcher
+echo 'DISPLAY=:0.0 LD_LIBRARY_PATH=/userdata/system/pro/.dep:$LD_LIBRARY_PATH /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --test-type --disable-gpu --start-fullscreen --force-device-scale-factor=1.5 "play.spotify.com"' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -305,7 +305,8 @@ echo ' #nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' 
 echo ' #d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
 echo ' #ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
 echo 'unclutter-remote -s' >> $port
-echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $port
+#echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $port
+echo 'DISPLAY=:0.0 LD_LIBRARY_PATH=/userdata/system/pro/.dep:$LD_LIBRARY_PATH /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --test-type --disable-gpu --start-fullscreen --force-device-scale-factor=1.5 "play.spotify.com"' >> $port
 dos2unix $port 
 chmod a+x $port 
 cp $port "/userdata/roms/ports/Spotify.sh" 
@@ -396,3 +397,4 @@ function autostart() {
 export -f autostart
 autostart
 exit 0
+
