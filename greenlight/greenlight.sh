@@ -19,7 +19,7 @@ APPNAME=greenlight
 APPLINK=https://github.com/uureel/batocera.pro/raw/main/greenlight/extra/Greenlight-2.0.0-beta4.AppImage
   if [[ -e "/usr/bin/batocera-version" ]]; then 
     if [[ "$(batocera-version | cut -c1-2)" > "36" ]]; then
-      APPLINK=https://github.com/unknownskl/greenlight/releases/download/v2.0.0-beta14/Greenlight-2.0.0-beta14.AppImage
+      APPLINK=https://github.com/unknownskl/greenlight/releases/download/v2.0.0-beta12/Greenlight-2.0.0-beta12.AppImage
     fi
   fi
 APPHOME="github.com/unknownskl/xbox-xcloud-client"
