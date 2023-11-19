@@ -247,13 +247,13 @@ echo
 echo
 sleep 0.33
 clear
-line $cols '='; echo
+
 echo; #line $cols '-'; echo
 echo; #line $cols '-'; echo
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo; #line $cols '-'; echo
 echo; #line $cols '-'; echo
-line $cols '='; echo
+
 echo
 sleep 0.33
 echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
@@ -266,9 +266,7 @@ echo
 echo -e "${R}CHECK CHIAKI PROJECT FOR INSTRUCTIONS"
 echo -e "${R}ON HOW TO USE THIS APP"
 echo
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
-echo; #line $cols '='; echo
+echo; #
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -304,7 +302,7 @@ SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 #echo -e "${G}> ${W}DONE"
 echo
-echo; #line $cols '='; echo
+echo; #
 sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
@@ -381,9 +379,9 @@ sleep 1
 echo -e "${G}> ${W}DONE${W}"
 echo
 sleep 1
-echo; #line $cols '='; echo
+echo; #
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
-line $cols '='; echo
+
 echo "1" >> /userdata/system/pro/$appname/extra/status 2>/dev/null
 sleep 3
 # reaload for ports file
