@@ -634,9 +634,9 @@ echo "#!/bin/bash" >> $pcsh
 		newstartup=$(echo "$thisL/extras/startup.sh" | sed 's,//,/,g')
 
 			if [[ -e "$oldstartup" ]]; then 
-				   echo "$pro/$oldstartup" >> $pcsh
+				   echo "bash $pro/$oldstartup &" >> $pcsh
 			elif [[ -e "$newstartup" ]]; then 
-				   echo "$pro/$newstartup" >> $pcsh
+				   echo "bash $pro/$newstartup &" >> $pcsh
 			fi 
 
 		L=$(($L + 1))
