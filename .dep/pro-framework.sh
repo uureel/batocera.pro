@@ -597,7 +597,7 @@ if [[ -f $csh ]];
          done
          # 
        echo -e '#!/bin/bash' >> $tmp2
-       echo -e "\n$startup & \n" >> $tmp2          
+       echo -e "\nbash $startup &\n" >> $tmp2          
       	if [[ -e "$tmp1" ]] && [[ "$(cat $tmp1 | wc -l)" > "0" ]]; then       
       	cat $tmp1 | sed -e '/./b' -e :n -e 'N;s/\n$//;tn' >> $tmp2
    		fi
@@ -606,7 +606,7 @@ if [[ -f $csh ]];
        		chmod a+x $csh 2>/dev/null 
    else  #(!f csh)   
        echo -e '#!/bin/bash' >> $csh
-       echo -e "\n$startup & \n" >> $csh  
+       echo -e "\nbash $startup &\n" >> $csh  
        dos2unix $csh 2>/dev/null; chmod a+x $csh 2>/dev/null  
 fi 
 dos2unix $csh 2>/dev/null
