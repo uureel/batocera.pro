@@ -18,7 +18,7 @@
 APPNAME="BALENA-ETCHER"
 appname=balena
 # 
-APPLINK=https://github.com/uureel/batocera-apps/raw/main/apps/balena-etcher/balena-etcher.AppImage
+APPLINK=https://github.com/balena-io/etcher/releases/download/v1.18.13/balenaEtcher-1.18.13-x64.AppImage
 APPHOME="github.com/uureel/batocera-apps"
 #---------------------------------------------------------------------
 # DEFINE LAUNCHER COMMAND >> 
