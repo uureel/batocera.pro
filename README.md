@@ -48,6 +48,10 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L blender.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/brave/extra/icon.png" width=48 height=48 /><b><i>&nbsp;BRAVE </font></b></i><br>
+```curl -L brave.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/chiaki/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CHIAKI </font></b></i><br>
 ```curl -L chiaki.batocera.pro | bash```
 <br>
