@@ -250,14 +250,18 @@ temp=$extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir $temp 2>/dev/null
 cd $temp
-c=cockatrice.tar.gz
-c1=cockatrice.tar.bz2.partaa
-c2=cockatrice.tar.bz2.partab
-curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$c1"
-curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$c2"
+##c=cockatrice.tar.gz
+##c1=cockatrice.tar.bz2.partaa
+##c2=cockatrice.tar.bz2.partab
+##curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$c1"
+##curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$c2"
 # --- join
-cat $temp/cockatrice.tar.bz2.parta* >$temp/cockatrice.tar.gz
-pro=/userdata/system/pro; chmod a+x $pro/.dep/tar; $pro/.dep/tar -xf $temp/cockatrice.tar.gz -C $pro/$appname/
+##cat $temp/cockatrice.tar.bz2.parta* >$temp/cockatrice.tar.gz
+##pro=/userdata/system/pro; chmod a+x $pro/.dep/tar; $pro/.dep/tar -xf $temp/cockatrice.tar.gz -C $pro/$appname/
+curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/cockatrice.zip"
+yes "y" | unzip -oq $PWD/cockatrice.zip 
+mkdir -p /userdata/system/pro/ 2>/dev/null
+cp -r $PWD/cockatrice /userdata/system/pro/
 cd ~/
 rm -rf $temp 2>/dev/null
 #
@@ -281,7 +285,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'DISPLAY=:0.0 QT_SCALE_FACTOR="1.25" GDK_SCALE="1.25" batocera-wine lutris play /userdata/system/pro/cockatrice/cockatrice.exe 2>/dev/null' >> $launcher
+echo 'DISPLAY=:0.0 QT_SCALE_FACTOR="1.25" GDK_SCALE="1.25" batocera-wine windows play /userdata/system/pro/cockatrice/cockatrice.exe' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
