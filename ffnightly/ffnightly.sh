@@ -299,14 +299,14 @@ dos2unix $launcher
 chmod a+x $launcher
 # //
 # -- get icon for shortcut,
-icon=/userdata/system/pro/$appname/extra/nightly.png
+icon=/userdata/system/pro/$appname/extra/icon.png
 # //
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
-echo "Icon=/userdata/system/pro/$appname/extra/nightly.png" >> $shortcut
+echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
 echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
