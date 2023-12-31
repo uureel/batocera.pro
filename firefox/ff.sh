@@ -20,7 +20,7 @@ APPLINK="https://github.com/srevinsaju/Firefox-Appimage/releases/download/firefo
 APPHOME="github.com/srevinsaju/Firefox-Appimage"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='chown -R root:root /var/run && XAUTHORITY=~/.Xauthority HOME=~/ LD_LIBRARY_PATH=/userdata/system/pro/.dep:${LD_LIBRARY_PATH} QT_FONT_DPI=128 QT_SCALE_FACTOR=1 GDK_SCALE=1 DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage ${@}'
+COMMAND='LD_LIBRARY_PATH=/userdata/system/pro/.dep:${LD_LIBRARY_PATH} QT_FONT_DPI=128 QT_SCALE_FACTOR=1 GDK_SCALE=1 DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage ${@}'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -304,6 +304,7 @@ launcher=/userdata/system/pro/$appname/$appname
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
+echo 'chown -R root:root /var/run ' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher

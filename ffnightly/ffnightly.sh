@@ -282,13 +282,14 @@ launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
+echo 'chown -R root:root /var/run ' >> $launcher
 ## -- APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 ######################################################################
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'chown -R root:root /var/run && XAUTHORITY=~/.Xauthority HOME=~/ LD_LIBRARY_PATH=/userdata/system/pro/.dep:${LD_LIBRARY_PATH} DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage ${@}' >> $launcher
+echo 'LD_LIBRARY_PATH=/userdata/system/pro/.dep:${LD_LIBRARY_PATH} DISPLAY=:0.0 HOME=/userdata/system/pro/'$appname'/home XDG_CONFIG_HOME=/userdata/system/pro/'$appname'/config /userdata/system/pro/'$appname'/'$AppName'.AppImage ${@}' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
