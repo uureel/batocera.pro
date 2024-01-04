@@ -135,8 +135,13 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/heroic/extra/icon.png" width=48 height=48 />
-<b><i>&nbsp;HEROIC-LAUNCHER</i></b><br>
+<b><i>&nbsp;HEROIC-LAUNCHER </b>(AppImage)</i></b><br>
 ```curl -L heroic.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/heroic-container/icon.png" width=48 height=48 />
+<b><i>&nbsp;HEROIC-LAUNCHER </b>(Container)</i></b><br>
+```curl -L heroic2.batocera.pro | bash```
 <br>
 <br>
 <a href=https://github.com/vercel/hyper>
@@ -169,6 +174,10 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/logs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;LOGS</i></b><br>
 ```curl -L logs.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/lutris/icon.png" width=48 height=48 /><b><i>&nbsp;LUTRIS </b>(Container)</i></b><br>
+```curl -L lutris.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/mediaelch/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MEDIAELCH</i></b><br>
@@ -281,6 +290,10 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/spotify/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SPOTIFY</i></b> <br>
 ```curl -L spotify.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/icon.png" width=48 height=48 /><b><i>&nbsp;STEAM </b>(Container)</i></b> <br>
+```curl -L steam.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/strawberry/extra/icon.png" width=48 height=48 /><b><i>&nbsp;STRAWBERRY</i></b> <br>
