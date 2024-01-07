@@ -3,7 +3,7 @@
 # Define variables
 BASE_DIR="/userdata/system/pro/steam"
 HOME_DIR="$BASE_DIR/home"
-DOWNLOAD_URL="https://github.com/Kron4ek/Conty/releases/download/1.24.7/conty.sh"
+DOWNLOAD_URL="https://docs.google.com/uc?export=download&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt"
 DOWNLOAD_FILE="$BASE_DIR/conty.sh"
 ROMS_DIR="/userdata/roms/ports"
 
@@ -19,7 +19,9 @@ fi
 if [ ! -d "$HOME_DIR" ]; then
   mkdir -p "$HOME_DIR"
 fi
-
+# Step 2a: make Desktop directory
+   mkdir ~/pro/steam/home/Desktop
+   
 # Step 3: Download conty.sh with download percentage indicator
 wget --no-check-certificate --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt" -O ~/pro/steam/conty.sh && rm -rf /tmp/cookies.txt
 
@@ -29,71 +31,56 @@ chmod +x "$DOWNLOAD_FILE"
 # Step 5: Change ownership of home folder to user "batocera"
 chown -R batocera:batocera "$HOME_DIR"
 
-# Step 6: Create scripts in ROMS_DIR
-cat <<EOL > "$ROMS_DIR/Steam (Container).sh"
-#!/bin/bash
-chown -R batocera:audio /var/run/pulse 2>/dev/null
-chown -R batocera:audio /var/run 2>/dev/null
-chown -R batocera:audio /var 2>/dev/null
+# Step 6: Download scripts to new /userdata/roms/conty folder
 
-su - batocera -c "HOME_DIR=\"$HOME_DIR\" DISPLAY=:0.0 ~/pro/steam/conty.sh steam"
-EOL
+# Define URLs and paths
+download_url="https://github.com/trashbus99/batocera-addon-scripts/raw/main/contyapps/conty.tar.gz"
+download_location="$HOME/pro/steam/conty.tar.gz"
+extract_location="/userdata/roms/"
 
-cat <<EOL > "$ROMS_DIR/Lutris (Container).sh"
-#!/bin/bash
-chown -R batocera:audio /var/run/pulse 2>/dev/null
-chown -R batocera:audio /var/run 2>/dev/null
-chown -R batocera:audio /var 2>/dev/null
+# Create directories if they don't exist
+mkdir -p "$HOME/pro/steam"
+mkdir -p "$extract_location"
 
-su - batocera -c "HOME_DIR=\"$HOME_DIR\" DISPLAY=:0.0 ~/pro/steam/conty.sh lutris"
-EOL
+# Download the compressed file
+curl -L -o "$download_location" "$download_url"
 
-cat <<EOL > "$ROMS_DIR/Minigalaxy (Container).sh"
-#!/bin/bash
-chown -R batocera:audio /var/run/pulse 2>/dev/null
-chown -R batocera:audio /var/run 2>/dev/null
-chown -R batocera:audio /var 2>/dev/null
+# Extract the contents to the desired location
+tar -xzvf "$download_location" -C "$extract_location"
 
-su - batocera -c "HOME_DIR=\"$HOME_DIR\" DISPLAY=:0.0 ~/pro/steam/conty.sh minigalaxy"
-EOL
+# Make all .sh files executable
+find "$extract_location" -type f -name "*.sh" -exec chmod +x {} \;
 
-cat <<EOL > "$ROMS_DIR/PCManFM (Container).sh"
-#!/bin/bash
-chown -R batocera:audio /var/run/pulse 2>/dev/null
-chown -R batocera:audio /var/run 2>/dev/null
-chown -R batocera:audio /var 2>/dev/null
+# Clean up: remove the downloaded file
+rm "$download_location"
 
-su - batocera -c "HOME_DIR=\"$HOME_DIR\" DISPLAY=:0.0 ~/pro/steam/conty.sh pcmanfm"
-EOL
-
-cat <<EOL > "$ROMS_DIR/GameHub (Container).sh"
-#!/bin/bash
-chown -R batocera:audio /var/run/pulse 2>/dev/null
-chown -R batocera:audio /var/run 2>/dev/null
-chown -R batocera:audio /var 2>/dev/null
-
-su - batocera -c "HOME_DIR=\"$HOME_DIR\" DISPLAY=:0.0 ~/pro/steam/conty.sh gamehub"
-EOL
-
-cat <<EOL > "$ROMS_DIR/Heroic Game Launcher (Container).sh"
-#!/bin/bash
-chown -R batocera:audio /var/run/pulse 2>/dev/null
-chown -R batocera:audio /var/run 2>/dev/null
-chown -R batocera:audio /var 2>/dev/null
-
-su - batocera -c "HOME_DIR=\"$HOME_DIR\" DISPLAY=:0.0 ~/pro/steam/conty.sh /opt//Heroic/heroic %U"
-EOL
+echo "Conty files have been downloaded and extracted to $extract_location"
+echo "Executable permission set for all .sh files"
 
 
+# Step 7: Make /userdata/roms/steam2 folder if it doesn't exist and download parser
 
-# Make ROMS_DIR scripts executable
-chmod +x "$ROMS_DIR/Steam (Container).sh"
-chmod +x "$ROMS_DIR/Lutris (Container).sh"
-chmod +x "$ROMS_DIR/Minigalaxy (Container).sh"
-chmod +x "$ROMS_DIR/PCManFM (Container).sh"
-chmod +x "$ROMS_DIR/GameHub (Container).sh"
-chmod +x "$ROMS_DIR/Heroic Game Launcher (Container).sh"
+# Define variables
+FILE_URL="https://github.com/trashbus99/batocera-addon-scripts/raw/main/__REFRESH_ES_STEAM_GAMES__.sh"
+DOWNLOAD_DIR="/userdata/roms/steam2"
+SCRIPT_NAME="__REFRESH_ES_STEAM_GAMES__.sh"
+
+# Create directory if it doesn't exist
+mkdir -p "$DOWNLOAD_DIR"
+
+# Download the file
+wget "$FILE_URL" -P "$DOWNLOAD_DIR"
+
+# Make the script executable
+chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
+
+# Step 8: Download ES custom Steam2 & conty/Arch system .cfgs to ~/configs/emulationstation
+
+wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_arch.cfg -P ~/configs/emulationstation
+wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
 
 
-echo "Install Done.  Refresh ES to see Apps in ports"
+killall -9 emulationstation
 
+
+echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
