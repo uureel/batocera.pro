@@ -55,7 +55,7 @@ wget -q -O $tmp/installer.sh $url/fightcade.sh 2>/dev/null
 dos2unix $tmp/installer.sh 2>/dev/null; chmod a+x $tmp/installer.sh 2>/dev/null
 wget -q -O /tmp/libselinux.so.1 $url/libselinux.so.1 2>/dev/null 
 wget -q -O /tmp/tar $url/tar 2>/dev/null; chmod a+x /tmp/tar 2>/dev/null
-cp /tmp/libselinux.so.1 /lib/ 2>/dev/null
+ln -s /tmp/libselinux.so.1 /usr/lib/ 2>/dev/null
 cp /tmp/tar /bin/tar 2>/dev/null
 # --------------------------------------------------------------------
 # show console info: 
