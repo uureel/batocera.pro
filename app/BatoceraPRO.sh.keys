@@ -1,0 +1,80 @@
+{
+    "actions_player1": [
+        {
+            "trigger": "up",
+            "type": "key",
+            "target": "KEY_UP"
+        },
+        {
+            "trigger": "down",
+            "type": "key",
+            "target": "KEY_DOWN"
+        },
+        {
+            "trigger": "left",
+            "type": "key",
+            "target": "KEY_LEFT"
+        },
+        {
+            "trigger": "right",
+            "type": "key",
+            "target": "KEY_RIGHT"
+        },
+        {
+            "trigger": [
+                "hotkey",
+                "start"
+            ],
+            "type": "key",
+            "target": [
+                "KEY_RIGHTALT",
+                "KEY_F4"
+            ]
+        },
+        {
+            "trigger": "start",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "joystick1up",
+            "type": "key",
+            "target": "KEY_UP"
+        },
+        {
+            "trigger": "joystick1down",
+            "type": "key",
+            "target": "KEY_DOWN"
+        },
+        {
+            "trigger": "joystick1left",
+            "type": "key",
+            "target": "KEY_LEFT"
+        },
+        {
+            "trigger": "joystick1right",
+            "type": "key",
+            "target": "KEY_RIGHT"
+        },
+        {
+            "trigger": "y",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "a",
+            "type": "key",
+            "target": "KEY_SPACE"
+        },
+        {
+            "trigger": "b",
+            "type": "key",
+            "target": "KEY_SPACE"
+        },
+        {
+            "trigger": "x",
+            "type": "key",
+            "target": "KEY_ENTER"
+        }
+    ]
+}
