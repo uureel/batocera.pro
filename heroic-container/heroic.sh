@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Function to display animated title
 animate_title() {
     local text="Steam/Heroic/Lutris container installer"
@@ -16,10 +17,10 @@ animate_title() {
 # Function to display controls
 display_controls() {
     echo 
-    echo "  This Will install Steam, Heroic-Games Launcher, Lutris
-    echo "  and more apps in an Arch container with"
-    echo "  a new system appearing in ES called Arch Container or 
-    echo "  Linux depending on your theme in ~/pro/steam"   
+    echo "This Will install Steam, Heroic-Games Launcher, Lutris,"
+    echo "and more apps in an Arch container with"
+    echo "a new system appearing in ES called Arch Container or"
+    echo "Linux depending on your theme in ~/pro/steam"
     sleep 5  # Delay for 5 seconds
 }
 
