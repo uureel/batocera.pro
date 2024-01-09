@@ -123,7 +123,7 @@ for app in "${!apps[@]}"; do
 done
 
 # Show dialog checklist
-cmd=(dialog --separate-output --checklist "Select applications to install:" 22 76 16)
+cmd=(dialog --separate-output --checklist "Select applications to install or update:" 22 76 16)
 choices=$("${cmd[@]}" "${app_list[@]}" 2>&1 >/dev/tty)
 
 # Check if Cancel was pressed
