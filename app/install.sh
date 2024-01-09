@@ -14,7 +14,7 @@ animate_title() {
 
 # Function to display controls
 display_controls() {
-    echo "Controls:"
+    echo 
     echo "  This Will install Batocera Pro app Installer to Ports"
     echo    
     sleep 5  # Delay for 5 seconds
