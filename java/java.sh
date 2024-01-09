@@ -100,11 +100,7 @@ wget -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/r
 cols=$($dep/tput cols) 2>/dev/null; rm -rf /userdata/system/pro/$appname/extra/cols 2>/dev/null
 echo $cols >> /userdata/system/pro/$appname/extra/cols 2>/dev/null
 line(){
-  local start=1
-  local end=${1:-80}
-  local str="${2:-=}"
-  local range=$(seq $start $end)
-  for i in $range ; do echo -n "${str}"; done
+echo 1>/dev/null
 }
 # -- show console/ssh info: 
 clear
@@ -153,10 +149,6 @@ echo -e "${X}VERSIONS: 19, 17, 15, 13, 11, 8"
 echo
 echo -e "${X}$APPNAME RUNTIMES WILL BE INSTALLED IN:"
 echo -e "${X}/USERDATA/SYSTEM/PRO/$APPNAME" 
-echo
-echo -e "${X}FOLLOW THE BATOCERA DISPLAY" 
-echo
-echo -e "${X}. . .${X}" 
 echo
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 # --------------------------------------------------------------------
@@ -308,12 +300,11 @@ mv $temp/java19 $pro/$appname/ 2>/dev/null
 # --------------------------------------------------------------------
 # java17
 $pro/.dep/tar -xf $temp/java17.tar.gz 2>/dev/null
+    # --------------------------------------------------------------------
+    # -- make this version the default system java version: 
+    cp -r $temp/java17/* $pro/$appname/ 2>/dev/null
+    # --------------------------------------------------------------------
 mv $temp/java17 $pro/$appname/ 2>/dev/null
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
-# -- make this version the default system java version: 
-cp -rL $temp/java17/* $pro/$appname/ 2>/dev/null
-# --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # java15
 $pro/.dep/tar -xf $temp/java15.tar.gz 2>/dev/null
@@ -466,9 +457,10 @@ pre=/userdata/system/pro/$appname/extra/startup
 rm -rf $pre 2>/dev/null
 echo "#!/usr/bin/env bash" >> $pre
 echo "cp /userdata/system/pro/$appname/extra/$appname.desktop /usr/share/applications/ 2>/dev/null" >> $pre
-echo "cp /userdata/system/pro/$appname/bin/java /usr/bin/java 2>/dev/null" >> $pre
-echo "cp /userdata/system/pro/.dep/libselinux.so.1 /lib/libselinux.so.1 2>/dev/null" >> $pre
-echo "cp /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $pre
+#echo "cp /userdata/system/pro/$appname/bin/java /usr/bin/java 2>/dev/null" >> $pre
+echo "ln -sf /userdata/system/pro/$appname/bin/java /usr/bin/java 2>/dev/null" >> $pre
+echo "ln -s /userdata/system/pro/.dep/libselinux.so.1 /usr/lib/libselinux.so.1 2>/dev/null" >> $pre
+echo "ln -s /userdata/system/pro/.dep/tar /bin/tar 2>/dev/null" >> $pre
 dos2unix $pre 2>/dev/null
 chmod a+x $pre 2>/dev/null
 # -- add prelauncher to custom.sh to run @ reboot
