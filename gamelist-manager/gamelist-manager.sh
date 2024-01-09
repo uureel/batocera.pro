@@ -2,12 +2,11 @@
 ######################################################################
 # BATOCERA.PRO/COCKATRICE INSTALLER
 ######################################################################
-APPNAME=gamelist-manager     # for installer info
-appname=gamelist-manager       # directory inside /userdata/system/pro/...
-AppName=gamelist-manager   # app binary file name
+APPNAME="gamelist-manager"     # for installer info
+appname="gamelist-manager"       # directory inside /userdata/system/pro/...
+AppName="gamelist-manager"   # app binary file name
 APPPATH=/userdata/system/pro/$appname
-APPLINK=$(curl -s https://api.github.com/repos/RobG66/Gamelist-Manager/releases | grep "browser_download_url" | sed 's,^.*ht
-tps://,https://,g' | cut -d \" -f1 | grep ".zip" | head -n1)
+APPLINK=$(curl -s https://api.github.com/repos/RobG66/Gamelist-Manager/releases | grep "browser_download_url" | sed 's,^.*https://,https://,g' | cut -d \" -f1 | grep ".zip" | head -n1)
 ORIGIN="github.com/RobG66/Gamelist-Manager" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -219,8 +218,6 @@ echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
 line $cols '='; echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
@@ -238,7 +235,7 @@ exit 0
 fi
 # --------------------------------------------------------------------
 echo
-echo -e "${G}DOWNLOADING${W} [2/2]"
+echo -e "${G}DOWNLOADING...${W}"
 sleep 1
 #echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 pro=/userdata/system/pro
@@ -334,8 +331,6 @@ export -f batocera-pro-installer 2>/dev/null
 # |
   batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
 # --------------------------------------------------------------------
-# BATOCERA.PRO/COCKATRICE INSTALLER //
-#####################################
 function autostart() {
   csh="/userdata/system/custom.sh"
   pcsh="/userdata/system/pro-custom.sh"
