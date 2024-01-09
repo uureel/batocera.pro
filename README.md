@@ -15,7 +15,7 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
-DOWNLOAD THE INSTALLER APP INSTALLER: ```curl -L app.batocera.pro | bash```<br>
+DOWNLOAD THE INSTALLER APP: ```curl -L app.batocera.pro | bash```<br>
 <br>
 <br>
 OR<BR>
