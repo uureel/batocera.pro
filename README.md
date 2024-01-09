@@ -176,7 +176,7 @@ Some unofficial AppImages, some official binaries <br>
 ```curl -L logs.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/ludusavi/icon.png" width=48 height=48 /><b><i>&nbsp;LUDUSAVI </i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/ludusavi/extra/icon.png" width=48 height=48 /><b><i>&nbsp;LUDUSAVI </i></b><br>
 ```curl -L ludusavi.batocera.pro | bash```
 <br>
 <br>
