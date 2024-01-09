@@ -354,7 +354,8 @@ cp $temp $file 2>/dev/null; rm $temp 2>/dev/null
 echo -e '\nexport PATH=/userdata/system/pro/java/bin:$PATH && export JAVA_HOME=/userdata/system/pro/java' >> $file
   fi
 dos2unix /userdata/system/.profile 2>/dev/null
-source ~/.profile 
+#source ~/.profile 
+export PATH="/userdata/system/pro/java/bin:${PATH}" && export JAVA_HOME=/userdata/system/pro/java
 # --------------------------------------------------------------------
 # attach java runtime to ~/.bashrc
 file=/userdata/system/.bashrc
@@ -387,25 +388,25 @@ echo 'W="\033[0;37m" ' >> $launcher
 echo 'G="\033[1;32m" ' >> $launcher
 # 
 echo 'java=/userdata/system/pro/java/bin/java' >> $launcher
-echo 'if [[ -e "$java" ]]; then echo -e "${G}> DEFAULT JAVA RUNTIME${W}"; $java -version; sleep 0.33; echo; echo' >> $launcher
+echo 'if [[ -e "$java" ]]; then echo -e "${G}> DEFAULT JAVA RUNTIME${W}"; $java --version | grep openjdk; sleep 0.33; echo; echo' >> $launcher
 echo 'else echo -e "${W}DEFAULT JAVA RUNTIME NOT FOUND"; sleep 0.33; echo; echo; fi' >> $launcher
 echo 'java19=/userdata/system/pro/java/java19/bin/java' >> $launcher
-echo 'if [[ -e "$java19" ]]; then echo -e "${G}~/pro/java/java19${W}"; $java19 -version; sleep 0.33; echo' >> $launcher
+echo 'if [[ -e "$java19" ]]; then echo -e "${G}~/pro/java/java19${W}"; $java19 --version | grep openjdk; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 19 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
 echo 'java17=/userdata/system/pro/java/java17/bin/java' >> $launcher
-echo 'if [[ -e "$java17" ]]; then echo -e "${G}~/pro/java/java17${W}"; $java17 -version; sleep 0.33; echo' >> $launcher
+echo 'if [[ -e "$java17" ]]; then echo -e "${G}~/pro/java/java17${W}"; $java17 --version | grep openjdk; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 17 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
 echo 'java15=/userdata/system/pro/java/java15/bin/java' >> $launcher
-echo 'if [[ -e "$java15" ]]; then echo -e "${G}~/pro/java/java15${W}"; $java15 -version; sleep 0.33; echo' >> $launcher
+echo 'if [[ -e "$java15" ]]; then echo -e "${G}~/pro/java/java15${W}"; $java15 --version | grep openjdk; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 15 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
 echo 'java13=/userdata/system/pro/java/java13/bin/java' >> $launcher
-echo 'if [[ -e "$java13" ]]; then echo -e "${G}~/pro/java/java13${W}"; ~/pro/java/java13/bin/java -version; sleep 0.33; echo' >> $launcher
+echo 'if [[ -e "$java13" ]]; then echo -e "${G}~/pro/java/java13${W}"; $java13 --version | grep openjdk; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 13 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
 echo 'java11=/userdata/system/pro/java/java11/bin/java' >> $launcher
-echo 'if [[ -e "$java11" ]]; then echo -e "${G}~/pro/java/java11${W}"; $java11 -version; sleep 0.33; echo' >> $launcher
+echo 'if [[ -e "$java11" ]]; then echo -e "${G}~/pro/java/java11${W}"; $java11 --version | grep openjdk; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 11 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
 echo 'java8=/userdata/system/pro/java/java8/bin/java' >> $launcher
-echo 'if [[ -e "$java8" ]]; then echo -e "${G}~/pro/java/java8${W}"; $java8 -version; sleep 0.33; echo' >> $launcher
+echo 'if [[ -e "$java8" ]]; then echo -e "${G}~/pro/java/java8${W}"; $java8 --version | grep openjdk; sleep 0.33; echo' >> $launcher
 echo 'else echo -e "${W}JAVA 8 NOT FOUND"; echo; sleep 0.33; echo; fi' >> $launcher
 echo 'echo ' >> $launcher
 echo 'echo "will close after 10 seconds"' >> $launcher
@@ -415,7 +416,7 @@ echo '}' >> $launcher
 echo 'export -f get-java-version 2>/dev/null' >> $launcher
 echo 'function get-xterm-fontsize {' >> $launcher
 echo 'tput=/userdata/system/pro/.dep/tput; chmod a+x $tput;' >> $launcher 
-echo 'cp /userdata/system/pro/.dep/libtinfo.so.6 /lib/libtinfo.so.6 2>/dev/null' >> $launcher
+echo 'ln -s /userdata/system/pro/.dep/libtinfo.so.6 /usr/lib/libtinfo.so.6 2>/dev/null' >> $launcher
 echo 'cfg=/userdata/system/pro/.dep/display.cfg; rm $cfg 2>/dev/null' >> $launcher
 echo 'DISPLAY=:0.0 xterm -fullscreen -bg "black" -fa "Monospace" -e bash -c "$tput cols >> $cfg" 2>/dev/null' >> $launcher
 echo 'cols=$(cat $cfg | tail -n 1) 2>/dev/null' >> $launcher
