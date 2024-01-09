@@ -257,7 +257,7 @@ echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo; #echo -e "${W}- - -"
 echo; #echo -e "${W}- - -"
 echo;
-echo -e "${W}THIS WILL INSTALL YOUTUBETV FOR BATOCERA"
+echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
@@ -300,8 +300,8 @@ sleep 1.333
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}" 
 # --------------------------------------------------------------------
-yes "A" | unzip -oq $temp/*.zip -d $temp/ludusavi
-cd $temp/ludusavi/*/
+yes "A" | unzip -oq $temp/*.zip -d $temp/
+cd $temp/ludusavi/
 chmod 777 ./*
 mv ./* $pro/$appname/
 cd ~/pro
