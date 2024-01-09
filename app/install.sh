@@ -45,6 +45,7 @@ wget  https://github.com/uureel/batocera.pro/raw/main/app/bkeys.txt -P /userdata
 # Set execute permissions for the downloaded scripts
 chmod +x /userdata/system/pro/pro.sh
 chmod +x /userdata/roms/ports/BatoceraPRO.sh
+mv /userdata/roms/ports/bkeys.txt /userdata/roms/ports/BatoceraPRO.sh.keys
 
 killall -9 emulationstation
 
