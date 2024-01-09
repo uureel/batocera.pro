@@ -137,10 +137,9 @@ fi
 
 # Install selected apps
 for choice in $choices; do
-    echo "Installing $choice..."
+    # echo "Installing $choice..."
     
     # Download and execute the installation script
-    # clear
     # applink="$(echo "${apps[$choice]}" | sed 's,curl -Ls ,,g' | sed 's, | bash,,g')"
     applink="$(echo "${apps[$choice]}" | awk '{print $3}')"
     rm /tmp/.app 2>/dev/null
