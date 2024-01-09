@@ -40,12 +40,18 @@ curl -L https://github.com/uureel/batocera.pro/raw/main/app/pro.sh -o /userdata/
 curl -L https://github.com/uureel/batocera.pro/raw/main/app/BatoceraPRO.sh -o /userdata/roms/ports/BatoceraPRO.sh
 
 # Download BatoceraPRO.sh.keys to /userdata/roms/ports
-wget  https://github.com/uureel/batocera.pro/raw/main/app/BatoceraPRO.sh.k -P /userdata/roms/ports/
+wget  https://github.com/uureel/batocera.pro/raw/main/app/bkeys.txt -P /userdata/roms/ports/
 
 # Set execute permissions for the downloaded scripts
 chmod +x /userdata/system/pro/pro.sh
 chmod +x /userdata/roms/ports/BatoceraPRO.sh
 
+
 killall -9 emulationstation
+
+sleep 1
+
+mv /userdata/roms/ports/bkeys.txt /userdata/roms/ports/BatoceraPRO.sh.keys
+
 
 echo "Finished"

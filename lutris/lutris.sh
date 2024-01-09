@@ -1,5 +1,42 @@
 #!/bin/bash
 
+# Function to display animated title
+animate_title() {
+    local text="Steam/Heroic/Lutris container installer"
+    local delay=0.1
+    local length=${#text}
+
+    for (( i=0; i<length; i++ )); do
+        echo -n "${text:i:1}"
+        sleep $delay
+    done
+    echo
+}
+
+# Function to display controls
+display_controls() {
+    echo 
+    echo "This Will install Steam, Heroic-Games Launcher, Lutris,"
+    echo "and more apps in an Arch container with"
+    echo "a new system appearing in ES called Arch Container or"
+    echo "Linux depending on your theme in ~/pro/steam"
+    sleep 5  # Delay for 5 seconds
+}
+
+
+clear
+
+# Main script execution
+clear
+animate_title
+display_controls
+# Define variables
+BASE_DIR="/userdata/system/pro/steam"
+HOME_DIR="$BASE_DIR/home"
+DOWNLOAD_URL="https://docs.google.com/uc?export=download&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt"
+DOWNLOAD_FILE="$BASE_DIR/conty.sh"
+ROMS_DIR="/userdata/roms/ports"
+
 # Define variables
 BASE_DIR="/userdata/system/pro/steam"
 HOME_DIR="$BASE_DIR/home"

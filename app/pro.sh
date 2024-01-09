@@ -106,12 +106,13 @@ apps=(
     ["TELEGRAM"]="curl -L telegram.batocera.pro | bash"
     ["TOTAL-COMMANDER"]="curl -L totalcmd.batocera.pro | bash"
     ["TRANSMISSION"]="curl -L transmission.batocera.pro | bash"
-    ["UPDATE THIS SCRIPT"]="curl -L app.batocera.pro | bash"
+    ["UPDATE-THIS-SCRIPT"]="curl -L app.batocera.pro | bash"
     ["VIVALDI"]="curl -L vivaldi.batocera.pro | bash"
     ["VLC"]="curl -L vlc.batocera.pro | bash"
     ["WHATSAPP"]="curl -L whatsapp.batocera.pro | bash"
     ["WIIU-PLUS"]="curl -L wiiuplus.batocera.pro | bash"
     ["XARCHIVER"]="curl -L xarchiver.batocera.pro | bash"
+    ["YARG & YARC-Launcher"]="curl -L yarg.batocera.pro | bash"
     ["YOUTUBE-TV"]="curl -L yttv.batocera.pro | bash"
 )
 
@@ -122,7 +123,7 @@ for app in "${!apps[@]}"; do
 done
 
 # Show dialog checklist
-cmd=(dialog --separate-output --checklist "Select applications to install:" 22 76 16)
+cmd=(dialog --separate-output --checklist "Select applications to install or update:" 22 76 16)
 choices=$("${cmd[@]}" "${app_list[@]}" 2>&1 >/dev/tty)
 
 # Check if Cancel was pressed
@@ -139,4 +140,4 @@ for choice in $choices; do
 done
 
 echo "Installation process completed."
-'
+
