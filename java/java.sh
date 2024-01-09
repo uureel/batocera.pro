@@ -304,15 +304,16 @@ chmod a+x $pro/.dep/tar
 # --------------------------------------------------------------------
 # java19
 $pro/.dep/tar -xf $temp/java19.tar.gz 2>/dev/null
-# --------------------------------------------------------------------
-# -- make this version the default system java version: 
-cp -rL $temp/java19/* $pro/$appname/ 2>/dev/null
-# -- and move to version folder
 mv $temp/java19 $pro/$appname/ 2>/dev/null
 # --------------------------------------------------------------------
 # java17
 $pro/.dep/tar -xf $temp/java17.tar.gz 2>/dev/null
 mv $temp/java17 $pro/$appname/ 2>/dev/null
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# -- make this version the default system java version: 
+cp -rL $temp/java17/* $pro/$appname/ 2>/dev/null
+# --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # java15
 $pro/.dep/tar -xf $temp/java15.tar.gz 2>/dev/null
