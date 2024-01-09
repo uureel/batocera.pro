@@ -141,10 +141,9 @@ for choice in $choices; do
     
     # Download and execute the installation script
     # clear
-    rm /tmp/.app 2>/dev/null
-    applink="$(echo "${apps[$choice]}" | sed 's,curl -Ls ,,g' | sed 's, | bash,,g')"
+    # applink="$(echo "${apps[$choice]}" | sed 's,curl -Ls ,,g' | sed 's, | bash,,g')"
     applink="$(echo "${apps[$choice]}" | awk '{print $3}')"
-    echo "applink=$applink"
+    rm /tmp/.app 2>/dev/null
     wget --tries=10 --no-check-certificate --no-cache --no-cookies -q -O "/tmp/.app" "$applink"
     if [[ -s "/tmp/.app" ]]; then 
         dos2unix /tmp/.app 2>/dev/null
