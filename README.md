@@ -16,7 +16,8 @@ Some unofficial AppImages, some official binaries <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
 DOWNLOAD THE INSTALLER APP INSTALLER<br>
-```curl -L 7app.batocera.pro | bash```
+```curl -L app.batocera.pro | bash```
+<br>
 OR<BR>
 <br>
 `  JUST RUN THESE COMMANDS IN XTERM OR SSH  `
