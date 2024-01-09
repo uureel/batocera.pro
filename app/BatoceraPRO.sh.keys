@@ -21,18 +21,27 @@
             "target": "KEY_RIGHT"
         },
         {
-            "trigger": [
-                "hotkey",
-                "start"
-            ],
+            "trigger": "start",
             "type": "key",
-            "target": [
-                "KEY_RIGHTALT",
-                "KEY_F4"
-            ]
+            "target": "KEY_ENTER"
         },
         {
-            "trigger": "start",
+            "trigger": "a",
+            "type": "key",
+            "target": "KEY_SPACE"
+        },
+        {
+            "trigger": "b",
+            "type": "key",
+            "target": "KEY_SPACE"
+        },
+        {
+            "trigger": "x",
+            "type": "key",
+            "target": "KEY_ENTER"
+        },
+        {
+            "trigger": "y",
             "type": "key",
             "target": "KEY_ENTER"
         },
@@ -57,24 +66,15 @@
             "target": "KEY_RIGHT"
         },
         {
-            "trigger": "y",
+            "trigger": [
+                "hotkey",
+                "start"
+            ],
             "type": "key",
-            "target": "KEY_ENTER"
-        },
-        {
-            "trigger": "a",
-            "type": "key",
-            "target": "KEY_SPACE"
-        },
-        {
-            "trigger": "b",
-            "type": "key",
-            "target": "KEY_SPACE"
-        },
-        {
-            "trigger": "x",
-            "type": "key",
-            "target": "KEY_ENTER"
+            "target": [
+                "KEY_RIGHTALT",
+                "KEY_F4"
+            ]
         }
     ]
 }
