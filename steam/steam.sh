@@ -18,7 +18,7 @@ fi
 # Step 2: Create home folder if not exists
 if [ ! -d "$HOME_DIR" ]; then
   mkdir -p "$HOME_DIR"
-fiop
+fi
    
 # Step 3: Download conty.sh with download percentage indicator
 wget --no-check-certificate --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt" -O ~/pro/steam/conty.sh && rm -rf /tmp/cookies.txt
