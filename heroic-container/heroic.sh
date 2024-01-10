@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Function to display animated title
 animate_title() {
     local text="Steam/Heroic/Lutris container installer"
@@ -14,15 +13,16 @@ animate_title() {
     echo
 }
 
-# Function to display controls
 display_controls() {
     echo 
     echo "This Will install Steam, Heroic-Games Launcher, Lutris,"
     echo "and more apps in an Arch container with"
     echo "a new system appearing in ES called Arch Container or"
-    echo "Linux depending on your theme in ~/pro/steam"
+    echo "Linux depending on your theme in ~/pro/steam"  
+    echo "PLEASE NOTE NVIDIA users and SLOW STORAGE DEVICES CAN TAKE A WHILE TO START UP FIRST TIME"
     sleep 5  # Delay for 5 seconds
 }
+
 
 clear
 
@@ -30,14 +30,6 @@ clear
 clear
 animate_title
 display_controls
-# Define variables
-BASE_DIR="/userdata/system/pro/steam"
-HOME_DIR="$BASE_DIR/home"
-DOWNLOAD_URL="https://docs.google.com/uc?export=download&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt"
-DOWNLOAD_FILE="$BASE_DIR/conty.sh"
-ROMS_DIR="/userdata/roms/ports"
-
-
 # Define variables
 BASE_DIR="/userdata/system/pro/steam"
 HOME_DIR="$BASE_DIR/home"
@@ -59,7 +51,7 @@ if [ ! -d "$HOME_DIR" ]; then
 fi
    
 # Step 3: Download conty.sh with download percentage indicator
-wget --no-check-certificate --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt" -O ~/pro/steam/conty.sh && rm -rf /tmp/cookies.txt
+wget batocera.pro/app/conty.sh -O ~/pro/steam/conty.sh 
 
 # Step 4: Make conty.sh executable
 chmod +x "$DOWNLOAD_FILE"
