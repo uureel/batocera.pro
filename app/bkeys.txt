@@ -1,5 +1,5 @@
 {
-    "actions_player1":  [
+    "actions_player1": [
          {
             "trigger": "pageup",
             "type": "key",
