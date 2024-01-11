@@ -107,6 +107,7 @@ apps=(
     ["SUBLIME-TEXT"]="curl -Ls sublime.batocera.pro | bash"
     ["SUNSHINE"]="curl -Ls sunshine.batocera.pro | bash"
     ["SWITCH-EMULATION"]="curl -Ls switch.batocera.pro | bash"
+    ["SYSTEM-MONITORING-CENTER"]="curl -Ls smc.batocera.pro | bash"
     ["TABBY"]="curl -Ls tabby.batocera.pro | bash"
     ["TELEGRAM"]="curl -Ls telegram.batocera.pro | bash"
     ["TOTAL-COMMANDER"]="curl -Ls totalcmd.batocera.pro | bash"
