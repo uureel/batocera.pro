@@ -115,6 +115,7 @@ apps=(
     ["WHATSAPP"]="curl -Ls whatsapp.batocera.pro | bash"
     ["WIIU-PLUS"]="curl -Ls wiiuplus.batocera.pro | bash"
     ["XARCHIVER"]="curl -Ls xarchiver.batocera.pro | bash"
+    ["XCLOUD"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/xcloud/xcloud.sh | bash"
     ["YARG/YARC-LAUNCHER"]="curl -Ls yarg.batocera.pro | bash"
     ["YOUTUBE-TV"]="curl -Ls yttv.batocera.pro | bash"
 )

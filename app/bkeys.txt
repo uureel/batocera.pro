@@ -1,5 +1,15 @@
 {
     "actions_player1": [
+         {
+            "trigger": "pageup",
+            "type": "key",
+            "target": "KEY_PAGEUP"
+        },
+        {
+            "trigger": "pagedown",
+            "type": "key",
+            "target": "KEY_PAGEDOWN"
+        },
         {
             "trigger": "up",
             "type": "key",

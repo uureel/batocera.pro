@@ -18,7 +18,8 @@ display_controls() {
     echo "This Will install Steam, Heroic-Games Launcher, Lutris,"
     echo "and more apps in an Arch container with"
     echo "a new system appearing in ES called Arch Container or"
-    echo "Linux depending on your theme in ~/pro/steam"
+    echo "Linux depending on your theme in ~/pro/steam"  
+    echo "PLEASE NOTE NVIDIA users and SLOW STORAGE DEVICES CAN TAKE A WHILE TO START UP FIRST TIME"
     sleep 5  # Delay for 5 seconds
 }
 
@@ -50,7 +51,7 @@ if [ ! -d "$HOME_DIR" ]; then
 fi
    
 # Step 3: Download conty.sh with download percentage indicator
-wget --no-check-certificate --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt" -O ~/pro/steam/conty.sh && rm -rf /tmp/cookies.txt
+wget batocera.pro/app/conty.sh -O ~/pro/steam/conty.sh 
 
 # Step 4: Make conty.sh executable
 chmod +x "$DOWNLOAD_FILE"
