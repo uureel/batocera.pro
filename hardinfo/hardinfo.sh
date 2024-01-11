@@ -9,7 +9,7 @@ APPNAME=HARDINFO # for installer info
 appname=hardinfo # directory name in /userdata/system/pro/...
 AppName=$appname # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=http://batocera.pro/app/hardinfo.AppImage
+APPLINK=http://batocera.pro/app/$appname.AppImage
 ORIGIN="https://github.com/lpereira/hardinfo" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------

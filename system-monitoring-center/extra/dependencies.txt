@@ -1,0 +1,4 @@
+icon.png
+libselinux.so.1
+system-monitoring-center.sh.keys
+tar
