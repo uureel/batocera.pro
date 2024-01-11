@@ -149,6 +149,11 @@ OR<BR>
 ```curl -L gthumb.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/hardinfo/extra/icon.png" width=48 height=48 />
+<b><i>&nbsp;HARDINFO</i></b><br>
+```curl -L hardinfo.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/heroic/extra/icon.png" width=48 height=48 />
 <b><i>&nbsp;HEROIC-LAUNCHER </b>(AppImage)</i></b><br>
 ```curl -L heroic.batocera.pro | bash```
