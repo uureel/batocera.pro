@@ -337,7 +337,7 @@ OR<BR>
 ```curl -L switch.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/smc/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SYSTEM-MONITORING-CENTER</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/system-monitoring-center/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SYSTEM-MONITORING-CENTER</i></b><br>
 ```curl -L smc.batocera.pro | bash```
 <br>
 <br>
