@@ -363,6 +363,10 @@ OR<BR>
 ```curl -L xarchiver.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/xcloud/extra/icon.png" width=48 height=48 /><b><i>&nbsp;XCLOUD</i></b><br>
+```curl -L xcloud.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/yarg/extra/icon.png" width=48 height=48 /><b><i>&nbsp;YARG & YARC-Launcher</i></b><br>
 ```curl -L yarg.batocera.pro | bash```
 <br>
