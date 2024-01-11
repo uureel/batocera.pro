@@ -147,11 +147,7 @@ cols=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
-  local start=1
-  local end=${1:-80}
-  local str="${2:-=}"
-  local range=$(seq $start $end)
-  for i in $range ; do echo -n "${str}"; done
+echo 1>/dev/null
 }
 clear
 echo
@@ -209,9 +205,6 @@ echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
-line $cols '='; echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -228,7 +221,7 @@ exit 0
 fi
 # --------------------------------------------------------------------
 echo
-echo -e "${G}DOWNLOADING${W} [2/2]"
+echo -e "${G}DOWNLOADING${W}"
 sleep 1
 #echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 pro=/userdata/system/pro
@@ -260,7 +253,7 @@ rm -rf $launcher
 # --------------------------------------------------------------------
 echo '#!/bin/bash ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
-echo 'DISPLAY=:0.0 /userdata/system/pro/system-monitoring-center/Launcher' >> $launcher
+echo 'DISPLAY=:0.0 /userdata/system/pro/system-monitoring-center/system-monitoring-center' >> $launcher
 echo 'unclutter-remote -h' >> $launcher
 # --------------------------------------------------------------------
 dos2unix $launcher
