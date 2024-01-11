@@ -17,7 +17,7 @@ Some unofficial AppImages, some official binaries <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
 DOWNLOAD THE INSTALLER APP IN SSH/Terminal: ```curl -L app.batocera.pro | bash```<br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/app/pro.PNG"/>
+<img src="https://github.com/uureel/batocera.pro/raw/main/app/pro.PNG" style="width:62%;height:auto;"/>
 <br>
 <br>
 OR<BR>
@@ -334,6 +334,10 @@ OR<BR>
 <br> 
 <img src="https://github.com/uureel/batocera.pro/raw/main/switch/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SWITCH-EMULATION</i></b><br>
 ```curl -L switch.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/smc/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SYSTEM-MONITORING-CENTER</i></b><br>
+```curl -L smc.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/tabby/extra/icon.png" width=48 height=48 /><b><i>&nbsp;TABBY</i></b><br>
