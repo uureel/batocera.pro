@@ -79,6 +79,10 @@ OR<BR>
 ```curl -L cockatrice.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/cpux/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CPU-X</i></b> <br>
+```curl -L cpux.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/discord/extra/icon.png" width=48 height=48 /><b><i>&nbsp;DISCORD</i></b> <br>
 ```curl -L discord.batocera.pro | bash```
 <br>
