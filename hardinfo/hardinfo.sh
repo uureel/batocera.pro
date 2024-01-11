@@ -5,12 +5,12 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME=CPUX # for installer info
-appname=cpux # directory name in /userdata/system/pro/...
+APPNAME=HARDINFO # for installer info
+appname=hardinfo # directory name in /userdata/system/pro/...
 AppName=$appname # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=http://batocera.pro/app/cpux.AppImage
-ORIGIN="github.com/TheTumultuousUnicornOfDarkness/CPU-X" # credit & info
+APPLINK=http://batocera.pro/app/hardinfo.AppImage
+ORIGIN="https://github.com/lpereira/hardinfo" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
