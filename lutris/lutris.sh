@@ -62,7 +62,8 @@ chown -R batocera:batocera "$HOME_DIR"
 # Step 6: Download scripts to new /userdata/roms/conty folder
 
 # Define URLs and paths
-download_url="https://github.com/trashbus99/batocera-addon-scripts/raw/main/contyapps/conty.tar.gz"
+# download_url="https://github.com/trashbus99/batocera-addon-scripts/raw/main/contyapps/conty.tar.gz"
+download_url="https://github.com/trashbus99/Conty/raw/master/conty.tar.gz"
 download_location="$HOME/pro/steam/conty.tar.gz"
 extract_location="/userdata/roms/"
 
