@@ -339,11 +339,11 @@ line $cols '='; echo
 echo "1" >> /userdata/system/pro/$appname/extra/status 2>/dev/null
 sleep 3
 }
-export -f batocera-pro-installer 2>/dev/null
+export -f batocera-pro-installer
 # --------------------------------------------------------------------
 # RUN:
 # |
-  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
+  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER //
 ##########################
