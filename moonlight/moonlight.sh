@@ -95,11 +95,7 @@ killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/
 cols=$($dep/tput cols); rm -rf /userdata/system/pro/$appname/extra/cols
 echo $cols >> /userdata/system/pro/$appname/extra/cols
 line(){
-  local start=1
-  local end=${1:-80}
-  local str="${2:-=}"
-  local range=$(seq $start $end)
-  for i in $range ; do echo -n "${str}"; done
+echo 1>/dev/null
 }
 # -- show console/ssh info: 
 clear
@@ -191,11 +187,7 @@ cols=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
-  local start=1
-  local end=${1:-80}
-  local str="${2:-=}"
-  local range=$(seq $start $end)
-  for i in $range ; do echo -n "${str}"; done
+echo 1>/dev/null
 }
 clear
 echo
@@ -254,9 +246,6 @@ echo -e "${W}$APPNAME WILL BE AVAILABLE IN PORTS"
 echo -e "${W}AND ALSO IN THE F1->APPLICATIONS MENU"
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${R}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
-echo; #line $cols '='; echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -283,7 +272,7 @@ echo -e "${G}DOWNLOADING${W}"
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
-curl --progress-bar --remote-name --location "$APPLINK"
+script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
 cd ~/
 mv $temp/* $APPPATH 2>/dev/null
 chmod a+x $APPPATH 2>/dev/null

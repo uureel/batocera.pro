@@ -226,8 +226,6 @@ echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -256,7 +254,7 @@ echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $pro
-curl --progress-bar --remote-name --location "$APPLINK"
+script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
 yes "A" | unzip -qq $pro/$appname.zip 2>/dev/null
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'

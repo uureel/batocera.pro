@@ -238,9 +238,6 @@ echo -e "${W}AND INSTALLED INTO /USERDATA/SYSTEM/PRO/$APPNAME"
 echo 
 echo -e "${W}PAD2KEY PROFILES ARE INCLUDED"
 echo 
-#echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-#read -p ""
-sleep 4
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -268,7 +265,7 @@ echo -e "${G}DOWNLOADING${W} GOOGLE-CHROME . . ."
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
-curl --progress-bar --remote-name --location "$APPLINK"
+script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
 cd ~/
 mv $temp/* $APPPATH 2>/dev/null
 chmod a+x $APPPATH 2>/dev/null

@@ -151,11 +151,7 @@ cols=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
-  local start=1
-  local end=${1:-80}
-  local str="${2:-=}"
-  local range=$(seq $start $end)
-  for i in $range ; do echo -n "${str}"; done
+echo 1>/dev/null
 }
 clear
 echo
@@ -239,7 +235,7 @@ temp=$extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir $temp 2>/dev/null
 cd $temp
-curl --progress-bar --remote-name --location "$APPLINK"
+script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
 yes "y" | unzip -oq $PWD/*.zip 
 mkdir -p /userdata/system/pro/ 2>/dev/null
 cp -r $PWD/Release /userdata/system/pro/gamelist-manager/

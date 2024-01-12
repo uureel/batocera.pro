@@ -227,8 +227,6 @@ echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -260,9 +258,9 @@ d1=liblauncher.so
  p1=liblauncher.tar.bz2.partaa
  p2=liblauncher.tar.bz2.partab
  p3=liblauncher.tar.bz2.partac
-curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p1"
-curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p2"
-curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p3"
+script -q -c "curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p1"" /dev/null
+script -q -c "curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p2"" /dev/null
+script -q -c "curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p3"" /dev/null
 # libselinux.so.1
 d2=libselinux.so.1
 wget -q -O /userdata/system/pro/minecraft/extra/$d2 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d2

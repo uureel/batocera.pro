@@ -183,11 +183,7 @@ cols=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1) 2>/dev/null
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
-  local start=1
-  local end=${1:-80}
-  local str="${2:-=}"
-  local range=$(seq $start $end)
-  for i in $range ; do echo -n "${str}"; done
+echo 1>/dev/null
 }
 clear
 echo
@@ -271,12 +267,12 @@ echo
 echo -e "${G}DOWNLOADING${W} [6] JAVA RUNTIME PACKAGES . . ."
 url=https://github.com/uureel/batocera.pro/raw/main/
 cd $temp
-curl --progress-bar --remote-name --location "$url/$appname/extra/java19.tar.gz"
-curl --progress-bar --remote-name --location "$url/$appname/extra/java17.tar.gz"
-curl --progress-bar --remote-name --location "$url/$appname/extra/java15.tar.gz"
-curl --progress-bar --remote-name --location "$url/$appname/extra/java13.tar.gz"
-curl --progress-bar --remote-name --location "$url/$appname/extra/java11.tar.gz"
-curl --progress-bar --remote-name --location "$url/$appname/extra/java8.tar.gz"
+script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java19.tar.gz"" /dev/null
+script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java17.tar.gz"" /dev/null
+script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java15.tar.gz"" /dev/null
+script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java13.tar.gz"" /dev/null
+script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java11.tar.gz"" /dev/null
+script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java8.tar.gz"" /dev/null
 SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
 echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g' 2>/dev/null
 echo

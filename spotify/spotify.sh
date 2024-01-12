@@ -122,10 +122,6 @@ echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
-echo
-echo -e "${X}. . .${X}" 
-echo
 # // end of console info. 
 #
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
@@ -228,7 +224,6 @@ echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-#echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -254,7 +249,7 @@ echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
 sleep 1
 echo -e "${T}$APPLINK${X}" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
-curl --progress-bar --remote-name --location "$APPLINK"
+script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
 cd ~/
 mv $temp/* $APPPATH 2>/dev/null
 chmod a+x $APPPATH 2>/dev/null
