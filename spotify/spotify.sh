@@ -356,7 +356,7 @@ sleep 4
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
-  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
+  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
 # --------------------------------------------------------------------
 # version 1.0.3
 # glhf

@@ -386,7 +386,7 @@ cp $pro/$appname/es_systems_heroic.cfg /userdata/system/configs/emulationstation
 # -- create example rom, 
 mkdir -p /userdata/roms/heroic 2>/dev/null
 wget -q -O "/userdata/roms/heroic/Fall Guys.txt" "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/FallGuys.txt"
-dos2unix "/userdata/roms/heroic/Fall Guys.txt" 2>/dev/null
+dos2unix "/userdata/roms/heroic/Fall Guys.txt"
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
 portname=Heroic
@@ -459,7 +459,7 @@ export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # RUN:
 # |
-  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
+  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER //
 ##########################

@@ -339,7 +339,7 @@ cp $shortcut $f1shortcut 2>/dev/null
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
 port="/userdata/roms/ports/CloneHero.sh" 
-rm "$port" 2>/dev/null
+rm "$port"
 echo '#!/bin/bash ' >> $port
 echo 'killall -9 clonehero' >> $port
 echo '/userdata/system/pro/'$appname'/Launcher' >> $port
@@ -381,7 +381,7 @@ export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # RUN:
 # |
-  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
+  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER //
 ##########################

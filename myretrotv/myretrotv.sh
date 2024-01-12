@@ -465,21 +465,21 @@ f1shortcut=/usr/share/applications/$appname.desktop
 cp $shortcut $f1shortcut 2>/dev/null
 # //
 # --------------------------------------------------------------------
-cp /userdata/system/pro/$appname/Launcher "/userdata/roms/ports/Google Chrome.sh" 2>/dev/null
-dos2unix "/userdata/roms/ports/Google Chrome.sh" 2>/dev/null
-chmod a+x "/userdata/roms/ports/Google Chrome.sh" 2>/dev/null
-cp /userdata/system/pro/$appname/myretrotv.sh.keys "/userdata/roms/ports/Google Chrome.sh.keys" 2>/dev/null
-dos2unix "/userdata/roms/ports/Google Chrome.sh.keys" 2>/dev/null 
+cp /userdata/system/pro/$appname/Launcher "/userdata/roms/ports/Google Chrome.sh"
+dos2unix "/userdata/roms/ports/Google Chrome.sh"
+chmod a+x "/userdata/roms/ports/Google Chrome.sh"
+cp /userdata/system/pro/$appname/myretrotv.sh.keys "/userdata/roms/ports/Google Chrome.sh.keys"
+dos2unix "/userdata/roms/ports/Google Chrome.sh.keys" 
 # --------------------------------------------------------------------
 # -- add pad2keys:
 if [[ -e "/userdata/system/pro/chrome/myretrotv.sh.keys" ]]; then 
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/Google Chrome.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/MyRetroTVs.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My00sTV.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My90sTV.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My80sTV.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My70sTV.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My60sTV.sh.keys" 2>/dev/null
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/Google Chrome.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/MyRetroTVs.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My00sTV.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My90sTV.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My80sTV.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My70sTV.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My60sTV.sh.keys"
 dos2unix /userdata/roms/ports/MyRetroTVs.sh.keys 2>/dev/null
 dos2unix /userdata/roms/ports/My00sTV.sh.keys 2>/dev/null
 dos2unix /userdata/roms/ports/My90sTV.sh.keys 2>/dev/null
@@ -488,12 +488,12 @@ dos2unix /userdata/roms/ports/My70sTV.sh.keys 2>/dev/null
 dos2unix /userdata/roms/ports/My60sTV.sh.keys 2>/dev/null
 else 
 wget -q -O "/userdata/system/pro/chrome/myretrotv.sh.keys" https://raw.githubusercontent.com/uureel/batocera.pro/main/myretrotv/extra/myretrotv.sh.keys
-#cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/MyRetroTVs.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My00sTV.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My90sTV.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My80sTV.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My70sTV.sh.keys" 2>/dev/null
-cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My60sTV.sh.keys" 2>/dev/null
+#cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/MyRetroTVs.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My00sTV.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My90sTV.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My80sTV.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My70sTV.sh.keys"
+cp "/userdata/system/pro/chrome/myretrotv.sh.keys" "/userdata/roms/ports/My60sTV.sh.keys"
 #dos2unix /userdata/roms/ports/MyRetroTVs.sh.keys 2>/dev/null
 dos2unix /userdata/roms/ports/My00sTV.sh.keys 2>/dev/null
 dos2unix /userdata/roms/ports/My90sTV.sh.keys 2>/dev/null

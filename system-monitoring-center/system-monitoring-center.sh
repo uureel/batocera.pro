@@ -285,7 +285,7 @@ dos2unix $port
 chmod a+x $port 
 # --------------------------------------------------------------------
 # -- get padtokey profile
-rm "/userdata/roms/ports/system-monitoring-center.sh.keys" 2>/dev/null 
+rm "/userdata/roms/ports/system-monitoring-center.sh.keys" 
 wget -q -O "/userdata/roms/ports/system-monitoring-center.sh.keys" "https://raw.githubusercontent.com/uureel/batocera.pro/main/system-monitoring-center/extra/system-monitoring-center.sh.keys"
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
@@ -322,7 +322,7 @@ export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # RUN:
 # |
-  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
+  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
 # --------------------------------------------------------------------
 # BATOCERA.PRO/COCKATRICE INSTALLER //
 #####################################

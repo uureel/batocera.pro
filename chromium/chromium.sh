@@ -252,8 +252,8 @@ echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g'
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
-mv $temp/* "$APPPATH" 2>/dev/null
-chmod a+x "$APPPATH" 2>/dev/null
+mv $temp/* "$APPPATH"
+chmod a+x "$APPPATH"
 rm -rf $temp/*.AppImage
 SIZE=$(($(wc -c "$APPPATH" | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
@@ -344,7 +344,7 @@ export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
 # |
-  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
+  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
 # --------------------------------------------------------------------
 # BATOCERA.PRO/CHROMIUM INSTALLER //
 ###################################

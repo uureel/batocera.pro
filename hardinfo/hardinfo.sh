@@ -279,7 +279,7 @@ cp $launcher /userdata/roms/ports/$appname.sh 2>/dev/null
 cp $launcher /userdata/system/pro/$appname/Launcher 2>/dev/null
 # --------------------------------------------------------------------
 # -- get padtokey profile
-rm "/userdata/roms/ports/$appname.sh.keys" 2>/dev/null 
+rm "/userdata/roms/ports/$appname.sh.keys" 
 wget --tries=10 -q -O "/userdata/roms/ports/$appname.sh.keys" "https://raw.githubusercontent.com/uureel/batocera.pro/main/$appname/extra/$appname.sh.keys"
 # --------------------------------------------------------------------
 # //
@@ -339,7 +339,7 @@ export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # RUN ALL:
 # |
-  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN" 2>/dev/null
+  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
 # --------------------------------------------------------------------
 # BATOCERA.PRO/CHROME INSTALLER //
 #################################
