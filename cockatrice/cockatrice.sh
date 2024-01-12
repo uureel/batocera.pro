@@ -252,11 +252,14 @@ cd $temp
 ##curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$c2"
 # --- join
 ##cat $temp/cockatrice.tar.bz2.parta* >$temp/cockatrice.tar.gz
-##pro=/userdata/system/pro; chmod a+x $pro/.dep/tar; $pro/.dep/tar -xf $temp/cockatrice.tar.gz -C $pro/$appname/
-curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/cockatrice.zip"
-yes "y" | unzip -oq $PWD/cockatrice.zip 
-mkdir -p /userdata/system/pro/ 2>/dev/null
-cp -r $PWD/cockatrice /userdata/system/pro/
+###curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/cockatrice.zip"
+###yes "y" | unzip -oq $PWD/cockatrice.zip 
+curl --progress-bar --remote-name --location "https://batocera.pro/app/cockatrice.tar.gz"
+pro=/userdata/system/pro
+mkdir -p /userdata/system/pro/cockatrice 2>/dev/null
+chmod a+x $pro/.dep/tar
+$pro/.dep/tar -xf $temp/cockatrice.tar.gz
+cp -r $temp/cockatrice/* $pro/cockatrice/
 cd ~/
 rm -rf $temp 2>/dev/null
 #
@@ -267,27 +270,20 @@ echo
 line $cols '='; echo
 sleep 1.333
 echo
+
 # --------------------------------------------------------------------
 echo -e "${G}INSTALLING${W}"
-# -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
+# --------------------------------------------------------------------
 echo '#!/bin/bash ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
-## -- APP SPECIFIC LAUNCHER COMMAND: 
-######################################################################
-######################################################################
-###################################################################### 
-######################################################################
-######################################################################
-echo 'DISPLAY=:0.0 batocera-wine windows play /userdata/system/pro/cockatrice/cockatrice.exe' >> $launcher
-######################################################################
-######################################################################
-######################################################################
-######################################################################
-######################################################################
+echo 'DISPLAY=:0.0 /userdata/system/pro/cockatrice/cockatrice' >> $launcher
+echo 'unclutter-remote -h' >> $launcher
+# --------------------------------------------------------------------
 dos2unix $launcher
 chmod a+x $launcher
+# --------------------------------------------------------------------
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null
