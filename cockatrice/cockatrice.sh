@@ -4,10 +4,10 @@
 ######################################################################
 APPNAME="COCKATRICE"     # for installer info
 appname=cockatrice       # directory inside /userdata/system/pro/...
-AppName=cockatrice.exe   # app binary file name
+AppName=cockatrice       # app binary file name
 APPPATH=/userdata/system/pro/$appname
-APPLINK=https://github.com/uureel/batocera.pro/raw/main/cockatrice/extra/dependencies.txt
-ORIGIN="COCKATRICE.GITHUB.IO" # credit & info
+APPLINK=http://batocera.pro/app/cockatrice.tar.gz
+ORIGIN="COCKATRICE.GITHUB.IO V2.9" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # show console/ssh info: 
@@ -23,8 +23,8 @@ echo
 # --------------------------------------------------------------------
 # -- output colors:
 ###########################
-X='\033[0m'               # 
-W='\033[0m'               # 
+X=''               # 
+W=''               # 
 #-------------------------#
 RED='\033[0m'             # 
 BLUE='\033[0m'            # 
@@ -60,11 +60,7 @@ killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/
 cols=$($dep/tput cols); rm -rf /userdata/system/pro/$appname/extra/cols
 echo $cols >> /userdata/system/pro/$appname/extra/cols
 line(){
-  local start=1
-  local end=${1:-80}
-  local str="${2:-=}"
-  local range=$(seq $start $end)
-  for i in $range ; do echo -n "${str}"; done
+echo 1>/dev/null
 }
 # -- show console/ssh info: 
 clear
@@ -113,10 +109,6 @@ echo
 echo -e "${X}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS "
 echo -e "${X}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
 echo
-echo -e "${X}FOLLOW THE BATOCERA DISPLAY"
-echo
-echo -e "${X}. . .${X}" 
-echo
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 # --------------------------------------------------------------------
 #\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -131,8 +123,8 @@ ORIGIN="$6"
 # --------------------------------------------------------------------
 # -- colors: 
 ###########################
-X='\033[0m'               # 
-W='\033[0m'               # 
+X=''               # 
+W=''               # 
 #-------------------------#
 RED='\033[0m'             # 
 BLUE='\033[0m'            # 
@@ -155,11 +147,7 @@ cols=$(cat /userdata/system/pro/.dep/display.cfg | tail -n 1)
 cols=$(bc <<<"scale=0;$cols/1.3") 2>/dev/null
 #cols=$(cat /userdata/system/pro/$appname/extra/cols | tail -n 1)
 line(){
-  local start=1
-  local end=${1:-80}
-  local str="${2:-=}"
-  local range=$(seq $start $end)
-  for i in $range ; do echo -n "${str}"; done
+echo 1>/dev/null
 }
 clear
 echo
@@ -215,11 +203,8 @@ echo -e "${W}THIS WILL INSTALL $APPNAME FOR BATOCERA"
 echo -e "${W}USING $ORIGIN"
 echo
 echo -e "${W}$APPNAME WILL BE AVAILABLE IN F1->APPLICATIONS"
-echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME"
+echo -e "${W}AND INSTALLED IN /USERDATA/SYSTEM/PRO/$APPNAME${X}"
 echo
-echo -e "${G}> > > ${W}PRESS ENTER TO CONTINUE"
-read -p ""
-line $cols '='; echo
 # --------------------------------------------------------------------
 # -- check system before proceeding
 if [[ "$(uname -a | grep "x86_64")" != "" ]]; then 
@@ -236,7 +221,7 @@ exit 0
 fi
 # --------------------------------------------------------------------
 echo
-echo -e "${G}DOWNLOADING${W} [2/2]"
+echo -e "${G}DOWNLOADING${W}"
 sleep 1
 #echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 pro=/userdata/system/pro
@@ -254,7 +239,11 @@ cd $temp
 ##cat $temp/cockatrice.tar.bz2.parta* >$temp/cockatrice.tar.gz
 ###curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/cockatrice.zip"
 ###yes "y" | unzip -oq $PWD/cockatrice.zip 
-curl --progress-bar --remote-name --location "https://batocera.pro/app/cockatrice.tar.gz"
+#curl --progress-bar --remote-name --location "https://batocera.pro/app/cockatrice.tar.gz"
+#wget --progress=bar:force --tries=10 --no-check-certificate --no-cache --no-cookies -O $temp/cockatrice.tar.gz http://batocera.pro/app/cockatrice.tar.gz
+script -q -c "wget --progress=bar:force --tries=10 --no-check-certificate --no-cache --no-cookies -O $temp/cockatrice.tar.gz http://batocera.pro/app/cockatrice.tar.gz" /dev/null
+
+echo -e "${X}EXTRACTING${X}"
 pro=/userdata/system/pro
 mkdir -p /userdata/system/pro/cockatrice 2>/dev/null
 chmod a+x $pro/.dep/tar
@@ -268,11 +257,14 @@ echo -e "${T}$pro/$appname   [${T}$SIZE]   ${G}OK${W}"
 #echo -e "${G}> ${W}DONE"
 echo
 line $cols '='; echo
-sleep 1.333
-echo
+
+wget --tries=10 --no-check-certificate --no-cache --no-cookies -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
+wget --tries=10 --no-check-certificate --no-cache --no-cookies -q -O $pro/$appname/.batocera https://github.com/uureel/batocera.pro/raw/main/$appname/extra/batocera.sh
+dos2unix $pro/$appname/.batocera $pro/$appname/cockatrice 2>/dev/null
+chmod 777 $pro/$appname/.batocera $pro/$appname/cockatrice 2>/dev/null
 
 # --------------------------------------------------------------------
-echo -e "${G}INSTALLING${W}"
+echo -e "${X}INSTALLING${X}"
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 # --------------------------------------------------------------------
@@ -318,11 +310,7 @@ if [[ -e $csh ]]; then :; else
 echo -e "\n/userdata/system/pro/$appname/extra/startup" >> $csh
 fi
 dos2unix $csh
-# -- done. 
-sleep 1
-echo -e "${G}> ${W}DONE${W}"
 echo
-sleep 1
 line $cols '='; echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
 line $cols '='; echo
