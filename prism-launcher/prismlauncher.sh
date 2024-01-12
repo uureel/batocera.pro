@@ -301,7 +301,7 @@ echo -e "${G}DOWNLOADING${W} $APPNAME"
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
-script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
+curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
 cp -rL $temp/*.AppImage $pro/$appname/$appname.AppImage
 chmod a+x $pro/$appname/$appname.AppImage

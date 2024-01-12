@@ -269,7 +269,7 @@ temp=/userdata/system/pro/$appname/extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir $temp 2>/dev/null
 cd $temp
-script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
+curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
 mv $temp/* $APPPATH 2>/dev/null
 chmod a+x $APPPATH 2>/dev/null

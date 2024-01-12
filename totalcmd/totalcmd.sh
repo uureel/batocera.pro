@@ -254,7 +254,7 @@ echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $pro
-script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
+curl --progress-bar --remote-name --location "$APPLINK"
 yes "A" | unzip -qq $pro/$appname.zip 2>/dev/null
 SIZE=$(du -sh $pro/$appname | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'

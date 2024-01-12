@@ -241,7 +241,7 @@ cd $temp
 ###yes "y" | unzip -oq $PWD/cockatrice.zip 
 #curl --progress-bar --remote-name --location "https://batocera.pro/app/cockatrice.tar.gz"
 #wget --progress=bar:force --tries=10 --no-check-certificate --no-cache --no-cookies -O $temp/cockatrice.tar.gz http://batocera.pro/app/cockatrice.tar.gz
-script -q -c "wget --progress=bar:force --tries=10 --no-check-certificate --no-cache --no-cookies -O $temp/cockatrice.tar.gz http://batocera.pro/app/cockatrice.tar.gz" /dev/null
+wget --progress=bar:force --tries=10 --no-check-certificate --no-cache --no-cookies -O $temp/cockatrice.tar.gz http://batocera.pro/app/cockatrice.tar.gz
 
 echo -e "${X}EXTRACTING${X}"
 pro=/userdata/system/pro

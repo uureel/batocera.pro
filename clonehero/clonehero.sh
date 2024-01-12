@@ -280,7 +280,7 @@ echo
 echo -e "${G}DOWNLOADING${W}" 
 cd $temp 
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null 
-script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
+curl --progress-bar --remote-name --location "$APPLINK"
 SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null 
 echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g' 
 echo 

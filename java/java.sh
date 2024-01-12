@@ -267,12 +267,12 @@ echo
 echo -e "${G}DOWNLOADING${W} [6] JAVA RUNTIME PACKAGES . . ."
 url=https://github.com/uureel/batocera.pro/raw/main/
 cd $temp
-script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java19.tar.gz"" /dev/null
-script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java17.tar.gz"" /dev/null
-script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java15.tar.gz"" /dev/null
-script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java13.tar.gz"" /dev/null
-script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java11.tar.gz"" /dev/null
-script -q -c "curl --progress-bar --remote-name --location "$url/$appname/extra/java8.tar.gz"" /dev/null
+curl --progress-bar --remote-name --location "$url/$appname/extra/java19.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java17.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java15.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java13.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java11.tar.gz"
+curl --progress-bar --remote-name --location "$url/$appname/extra/java8.tar.gz"
 SIZE=$(du -sh $temp | awk '{print $1}') 2>/dev/null
 echo -e "${T}$temp  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g' 2>/dev/null
 echo

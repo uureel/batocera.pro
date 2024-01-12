@@ -336,7 +336,7 @@ echo
 echo; #line $cols '='; echo
 echo -e "${W}> $APPNAME INSTALLED ${G}OK${W}"
 line $cols '='; echo
-echo "1" >> /userdata/system/pro/$appname/extra/status 2>/dev/null
+echo "1" >> /userdata/system/pro/$appname/extra/status
 sleep 3
 }
 export -f batocera-pro-installer

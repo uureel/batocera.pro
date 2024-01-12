@@ -232,7 +232,7 @@ temp=$extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir $temp 2>/dev/null
 cd $temp
-script -q -c "curl --progress-bar --remote-name --location "http://batocera.pro/app/system-monitoring-center.tar.gz"" /dev/null
+curl --progress-bar --remote-name --location "http://batocera.pro/app/system-monitoring-center.tar.gz"
 $pro/.dep/tar -xf $temp/system-monitoring-center.tar.gz
 cp -r $PWD/system-monitoring-center /userdata/system/pro/
 cd ~/

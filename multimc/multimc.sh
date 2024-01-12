@@ -301,7 +301,7 @@ echo -e "${G}DOWNLOADING${W} MULTIMC-LAUNCHER"
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
-script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
+curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
 SIZE=$(($(wc -c $temp/mmc-stable-lin64.tar.gz | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}mmc-stable-lin64.tar.gz   ${T}$SIZE( )MB   ${G}OK${W}  " | sed 's/( )//g'

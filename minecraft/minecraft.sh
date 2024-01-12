@@ -258,9 +258,9 @@ d1=liblauncher.so
  p1=liblauncher.tar.bz2.partaa
  p2=liblauncher.tar.bz2.partab
  p3=liblauncher.tar.bz2.partac
-script -q -c "curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p1"" /dev/null
-script -q -c "curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p2"" /dev/null
-script -q -c "curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p3"" /dev/null
+curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p1"
+curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p2"
+curl --progress-bar --remote-name --location "https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$p3"
 # libselinux.so.1
 d2=libselinux.so.1
 wget -q -O /userdata/system/pro/minecraft/extra/$d2 https://github.com/uureel/batocera.pro/raw/main/$appname/extra/$d2

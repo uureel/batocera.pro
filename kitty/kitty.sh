@@ -267,7 +267,7 @@ temp=$extra/downloads
 rm -rf $temp 2>/dev/null
 mkdir $temp 2>/dev/null
 cd $temp
-script -q -c "curl --progress-bar --remote-name --location "$APPLINK"" /dev/null
+curl --progress-bar --remote-name --location "$APPLINK"
 pro=/userdata/system/pro; chmod a+x $pro/.dep/tar; $pro/.dep/tar -xf kitty-0.26.5-x86_64.txz -C $pro/$appname
 mkdir -p ~/.config/kitty/
 cp $extra/kitty.conf ~/.config/kitty/ 2>/dev/null

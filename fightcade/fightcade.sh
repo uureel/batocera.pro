@@ -87,23 +87,23 @@ dl=/userdata/system/pro/fightcade/extras/downloads
 rm -rf $dl 2>/dev/null; mkdir $dl 2>/dev/null; cd $dl 
 echo
 echo -e "DOWNLOADING FIGHTCADE [1/9] . . ."
-script -q -c "curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partaa" /dev/null
+curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partaa
 echo -e "DOWNLOADING FIGHTCADE [2/9] . . ."
-script -q -c "curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partab" /dev/null
+curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partab
 echo -e "DOWNLOADING FIGHTCADE [3/9] . . ."
-script -q -c "curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partac" /dev/null
+curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partac
 echo -e "DOWNLOADING FIGHTCADE [4/9] . . ."
-script -q -c "curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partad" /dev/null
+curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partad
 echo -e "DOWNLOADING FIGHTCADE [5/9] . . ."
-script -q -c "curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partae" /dev/null
+curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partae
 echo -e "DOWNLOADING FIGHTCADE [6/9] . . ."
-script -q -c "curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partaf" /dev/null
+curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partaf
 echo -e "DOWNLOADING FIGHTCADE [7/9] . . ."
-script -q -c "curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partag" /dev/null
+curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partag
 echo -e "DOWNLOADING FIGHTCADE [8/9] . . ."
-script -q -c "curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partah" /dev/null
+curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partah
 echo -e "DOWNLOADING FIGHTCADE [9/9] . . ."
-script -q -c "curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partai" /dev/null
+curl --progress-bar --remote-name --location https://github.com/uureel/batocera-fightcade/raw/main/package/fightcade.tar.gz.partai
 #
 # check downloads integrity 
 p1=$dl/fightcade.tar.gz.partaa
