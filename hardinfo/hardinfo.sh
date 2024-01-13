@@ -271,7 +271,6 @@ rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'export DISPLAY=:0.0; unclutter-remote -s' >> $launcher
 echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$@"' >> $launcher
-echo 'unclutter-remote -h' >> $launcher
 # --------------------------------------------------------------------
 dos2unix $launcher
 chmod a+x $launcher

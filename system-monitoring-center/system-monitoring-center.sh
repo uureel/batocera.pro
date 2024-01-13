@@ -254,10 +254,14 @@ rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 echo 'DISPLAY=:0.0 /userdata/system/pro/system-monitoring-center/system-monitoring-center' >> $launcher
-echo 'unclutter-remote -h' >> $launcher
 # --------------------------------------------------------------------
 dos2unix $launcher
 chmod a+x $launcher
+# --------------------------------------------------------------------
+# add to ports
+mkdir -p /userdata/roms/ports 2>/dev/null
+cp "$launcher" "/userdata/roms/ports/$appname.sh" 2>/dev/null
+# --------------------------------------------------------------------
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
 rm -rf $shortcut 2>/dev/null

@@ -271,10 +271,17 @@ rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 echo 'DISPLAY=:0.0 /userdata/system/pro/cockatrice/cockatrice' >> $launcher
-echo 'unclutter-remote -h' >> $launcher
 # --------------------------------------------------------------------
 dos2unix $launcher
 chmod a+x $launcher
+# --------------------------------------------------------------------
+# add to ports
+mkdir -p /userdata/roms/ports 2>/dev/null
+cp "$launcher" "/userdata/roms/ports/$appname.sh" 2>/dev/null
+# --------------------------------------------------------------------
+# -- get padtokey profile
+rm "/userdata/roms/ports/$appname.sh.keys" 2>/dev/null 
+wget --tries=10 -q -O "/userdata/roms/ports/$appname.sh.keys" "https://raw.githubusercontent.com/uureel/batocera.pro/main/$appname/extra/$appname.sh.keys"
 # --------------------------------------------------------------------
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
