@@ -13,7 +13,7 @@ container has a separate Arch Container Emulationstation system menu<br>
 <br>
 Most of these apps are official AppImages <br>
 Some unofficial AppImages, some official binaries <br>
-& a few are wine versions plus  there also is the arch<br>
+& a few are wine versions plus  there also is the immutable arch<br>
 container containing Steam/Lutris/Heroic and other apps<br>
 <br>
 <br>
