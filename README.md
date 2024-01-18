@@ -6,12 +6,16 @@
 </b>These apps will be available in F1-Applications <br>
 where they work as normal desktop apps, stay running <br>
 in the background & you can Alt+Tab between them, <br>
-& also use EmulationStation with them running <br>
+& also use EmulationStation with them running.  Some will <br>
+be availbable in ports in emulationstation too, and the steam/lutris/heroic<br> 
+container has it's own Arch Container Emulationstation system menu<br>
 <br>
 <br>
 Most of these apps are official AppImages <br>
 Some unofficial AppImages, some official binaries <br>
-& a few are wine versions <br>
+& a few are wine versions plus the container containing Steam/Lutris/Heroic<br?
+and other apps<br>
+<br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
