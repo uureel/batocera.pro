@@ -8,7 +8,7 @@ where they work as normal desktop apps, stay running <br>
 in the background & you can Alt+Tab between them, <br>
 & also use EmulationStation with them running.  Some will <br>
 be available in ports in emulationstation too, and the steam/lutris/heroic<br> 
-container version has it's own Arch Container Emulationstation system menu<br>
+container has a separate Arch Container Emulationstation system menu<br>
 <br>
 <br>
 Most of these apps are official AppImages <br>
