@@ -64,4 +64,4 @@ sleep 1
 mv /userdata/roms/ports/bkeys.txt /userdata/roms/ports/BatoceraPRO.sh.keys
 
 
-echo "Finished"
+echo "Finished.  You should see BatoceraPRO in Ports"
