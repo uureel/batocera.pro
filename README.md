@@ -213,7 +213,7 @@ OR<BR>
 ```curl -L mediaelch.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/minecraft/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MINECRAFT</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/minecraft/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MINECRAFT (Java Edition)</i></b><br>
 ```curl -L minecraft.batocera.pro | bash```
 <br>
 <br>
