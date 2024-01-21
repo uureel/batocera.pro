@@ -294,7 +294,7 @@ depurl=https://github.com/uureel/batocera.pro/raw/main/.dep
 #wget -q -O $pro/.dep/libselinux.so.1 $depurl/libselinux.so.1
 #chmod a+x $pro/.dep/tar; cp $depurl/libselinux.so.1 /lib/ 2>/dev/null
 cd $temp
-LD_LIBRARY_PATH="$pro/.dep:${LD_LIBRARY_PATH}" $pro/.dep/tar -xf $temp/CloneHero-linux.tar.xz 
+LD_LIBRARY_PATH="$pro/.dep:${LD_LIBRARY_PATH}" $pro/.dep/tar -xf $temp/CloneHero-linux.tar.xz
 chmod 777 $temp/clonehero-linux/clonehero 2>/dev/null
 chmod 777 $temp/clonehero-linux/*.so 2>/dev/null
 mv $temp/clonehero-linux/* $pro/$appname/
@@ -319,7 +319,7 @@ rm /userdata/system/pro/$appname/extra/command 2>/dev/null
 # --------------------------------------------------------------------
 # get icon
 extra=https://github.com/uureel/batocera.pro/raw/main/$appname/extra
-wget -q -O $pro/$appname/extra/icon.png $extra/icon.png
+wget --tries=10 --no-check-certificate --no-cache --no-cookies -q -O $pro/$appname/extra/icon.png $extra/icon.png
 # --------------------------------------------------------------------
 # -- prepare f1 - applications - app shortcut, 
 shortcut=/userdata/system/pro/$appname/extra/$appname.desktop
