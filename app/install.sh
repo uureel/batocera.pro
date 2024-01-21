@@ -1,4 +1,14 @@
 #!/bin/bash
+
+# Get the machine hardware name
+architecture=$(uname -m)
+
+# Check if the architecture is x86_64 (AMD/Intel)
+if [ "$architecture" != "x86_64" ]; then
+    echo "This script only runs on AMD or Intel (x86_64) CPUs, not on $architecture."
+    exit 1
+fi
+
 # Function to display animated title
 animate_title() {
     local text="BATOCERA PRO APP INSTALLER"
@@ -54,4 +64,4 @@ sleep 1
 mv /userdata/roms/ports/bkeys.txt /userdata/roms/ports/BatoceraPRO.sh.keys
 
 
-echo "Finished"
+echo "Finished.  You should see BatoceraPRO in Ports"

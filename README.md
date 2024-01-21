@@ -6,16 +6,20 @@
 </b>These apps will be available in F1-Applications <br>
 where they work as normal desktop apps, stay running <br>
 in the background & you can Alt+Tab between them, <br>
-& also use EmulationStation with them running <br>
+& also use EmulationStation with them running.  Some will <br>
+be available in ports in emulationstation too, and the steam/lutris/heroic<br> 
+container has a separate Arch Container Emulationstation system menu<br>
 <br>
 <br>
 Most of these apps are official AppImages <br>
 Some unofficial AppImages, some official binaries <br>
-& a few are wine versions <br>
+& a few are wine versions plus  there also is the immutable arch<br>
+container containing Steam/Lutris/Heroic and other apps<br>
+<br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
-DOWNLOAD THE INSTALLER APP IN SSH/XTERM: ```   curl -L app.batocera.pro | bash   ```<br>
+DOWNLOAD THE INSTALLER APP IN SSH/XTERM: ``` curl -L app.batocera.pro | bash ```<br>
 AND RUN IT FROM PORTS<br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/app/pro.PNG" style="width:62%;height:auto;"/>
@@ -23,7 +27,7 @@ AND RUN IT FROM PORTS<br>
 <br>
 OR<BR>
 <br>
-`   RUN THE FOLLOWING COMMANDS IN SSH/XTERM:   `
+`  RUN THE FOLLOWING COMMANDS IN SSH/XTERM:  `
 <br>
 <br>
 <br>
@@ -209,7 +213,7 @@ OR<BR>
 ```curl -L mediaelch.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/minecraft/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MINECRAFT</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/minecraft/extra/icon.png" width=48 height=48 /><b><i>&nbsp;MINECRAFT (Java Edition)</i></b><br>
 ```curl -L minecraft.batocera.pro | bash```
 <br>
 <br>

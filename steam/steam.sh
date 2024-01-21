@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Get the machine hardware name
+architecture=$(uname -m)
+
+# Check if the architecture is x86_64 (AMD/Intel)
+if [ "$architecture" != "x86_64" ]; then
+    echo "This script only runs on AMD or Intel (x86_64) CPUs, not on $architecture."
+    exit 1
+fi
+
 # Function to display animated title
 animate_title() {
     local text="Steam/Heroic/Lutris container installer"
@@ -33,7 +42,7 @@ display_controls
 # Define variables
 BASE_DIR="/userdata/system/pro/steam"
 HOME_DIR="$BASE_DIR/home"
-DOWNLOAD_URL="https://docs.google.com/uc?export=download&id=1Y03VO-VVMdZM8rEAZJhXxNNm9IcAt7tt"
+DOWNLOAD_URL="batocera.pro/app/conty.sh"
 DOWNLOAD_FILE="$BASE_DIR/conty.sh"
 ROMS_DIR="/userdata/roms/ports"
 
