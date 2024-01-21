@@ -292,7 +292,7 @@ echo -e "${G}INSTALLING${W}"
 depurl=https://github.com/uureel/batocera.pro/raw/main/.dep
 #wget -q -O $pro/.dep/tar $depurl/tar
 #wget -q -O $pro/.dep/libselinux.so.1 $depurl/libselinux.so.1
-#chmod a+x $pro/.dep/tar; cp $depurl/libselinux.so.1 /lib/ 2>/dev/null
+#chmod a+x $pro/.dep/tar; cp $depurl/libselinux.so.1 /lib/ 2>/dev/null 
 cd $temp
 tar -xf $temp/CloneHero-linux.tar.xz
 chmod 777 $temp/clonehero-linux/clonehero 2>/dev/null
