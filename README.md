@@ -389,7 +389,7 @@ OR<BR>
 ```curl -L yarg.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/youtubetv/extra/icon.png" width=48 height=48 /><b><i>&nbsp;YOUTUBE-TV</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/youtubetv/extra/icon.png" width=48 height=48 /><b><i>&nbsp;YOUTUBE (TV UI)</i></b><br>
 ```curl -L yttv.batocera.pro | bash```
 <br>
 <br>
