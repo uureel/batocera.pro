@@ -49,6 +49,8 @@ DOWNLOAD_URL="batocera.pro/app/conty.sh"
 DOWNLOAD_FILE="$BASE_DIR/conty.sh"
 ROMS_DIR="/userdata/roms/ports"
 
+cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/wait.mp3 --repeat
+
 # Step 1: Create base folder if not exists
 mkdir -p "$BASE_DIR"
 if [ ! -d "$BASE_DIR" ]; then
@@ -120,7 +122,7 @@ chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_arch.cfg -P ~/configs/emulationstation
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
 
-
+killall -9 vlc
 killall -9 emulationstation
 
 
