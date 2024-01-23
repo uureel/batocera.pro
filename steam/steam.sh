@@ -126,7 +126,6 @@ chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_arch.cfg -P ~/configs/emulationstation
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
 
-killall -9 emulationstation 
 killall -9 vlc
 
 clear
@@ -171,3 +170,5 @@ echo "Steam is now starting"
 
 
 echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
+sleep 3
+killall -9 emulationstation
