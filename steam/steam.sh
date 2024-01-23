@@ -125,11 +125,24 @@ chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_arch.cfg -P ~/configs/emulationstation
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
 
+
+echo "Starting Steam"
+
+# 5-second countdown
+for i in {5..1}
+do
+   echo "$i..."
+   sleep 1
+done
+
+echo "Steam is now starting!"
+
 killall -9 vlc
+killall -9 emulationstation
 
 /userdata/roms/conty/"Steam Big Picture Mode.sh"
 
-killall -9 emulationstation
+
 
 
 echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
