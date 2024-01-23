@@ -49,7 +49,7 @@ DOWNLOAD_URL="batocera.pro/app/conty.sh"
 DOWNLOAD_FILE="$BASE_DIR/conty.sh"
 ROMS_DIR="/userdata/roms/ports"
 
-cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/wait.mp3 --repeat
+
 
 # Step 1: Create base folder if not exists
 mkdir -p "$BASE_DIR"
