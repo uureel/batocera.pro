@@ -126,19 +126,40 @@ wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_ar
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
 
 
-echo "Starting Steam"
+clear
 
-# 5-second countdown
+echo "Preparing to launch Steam..."
+sleep 2
+
+# 5-second countdown with simple animation
 for i in {5..1}
 do
-   echo "$i..."
-   sleep 1
+   clear
+   echo "Launching Steam in... $i seconds"
+   echo -ne '##########\r'
+   sleep 0.2
+   echo -ne '######### \r'
+   sleep 0.2
+   echo -ne '########  \r'
+   sleep 0.2
+   echo -ne '#######   \r'
+   sleep 0.2
+   echo -ne '######    \r'
+   sleep 0.2
+   echo -ne '#####     \r'
+   sleep 0.2
+   echo -ne '####      \r'
+   sleep 0.2
+   echo -ne '###       \r'
+   sleep 0.2
+   echo -ne '##        \r'
+   sleep 0.2
+   echo -ne '#         \r'
+   sleep 0.2
+   echo -ne '          \r'
 done
 
-echo "Steam is now starting!"
-
-killall -9 vlc
-killall -9 emulationstation
+echo "Steam is now starting"
 
 /userdata/roms/conty/"Steam Big Picture Mode.sh"
 
