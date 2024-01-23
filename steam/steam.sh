@@ -33,7 +33,7 @@ display_controls() {
     echo "PLEASE NOTE NVIDIA users and SLOW STORAGE DEVICES CAN TAKE A WHILE TO START UP FIRST TIME"
     echo ""
     echo "ATTENTION - NVIDIA USERS - START STEAM IN BIG PICTURE MODE FIRST TIME LAUNCH OR IT CAN HANG AFTER NVIDIA DRIVERS DOWNLOAD"
-    sleep 5  # Delay for 5 seconds
+    sleep 10  # Delay for 5 seconds
 }
 
 
