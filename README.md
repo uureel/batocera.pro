@@ -205,6 +205,10 @@ OR<BR>
 ```curl -L ludusavi.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/luna/extra/icon.png" width=48 height=48 /><b><i>&nbsp;LUNA </i></b><br>
+```curl -L luna.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/lutris/icon.png" width=48 height=48 /><b><i>&nbsp;LUTRIS </b>(Container)</i></b><br>
 ```curl -L lutris.batocera.pro | bash```
 <br>
