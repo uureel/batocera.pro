@@ -340,7 +340,7 @@ port="/userdata/roms/ports/AmazonLuna.sh"
 rm "$port" 2>/dev/null
 echo '#!/bin/bash ' >> $port
 echo 'killall -9 AmazonLuna' >> $port
-echo '/userdata/system/pro/'$appname'/Launcher' >> $port
+echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" /userdata/system/pro/'$appname'/Launcher' >> $port
 dos2unix "$port"
 chmod a+x "$port" 
 # --------------------------------------------------------------------
