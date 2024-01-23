@@ -9,6 +9,7 @@ if [ "$architecture" != "x86_64" ]; then
     exit 1
 fi
 
+
 # Function to display animated title
 animate_title() {
     local text="Steam/Heroic/Lutris container installer"
@@ -28,8 +29,12 @@ display_controls() {
     echo "and more apps in an Arch container with"
     echo "a new system appearing in ES called Arch Container or"
     echo "Linux depending on your theme in ~/pro/steam"  
+    echo "" 
     echo "PLEASE NOTE NVIDIA users and SLOW STORAGE DEVICES CAN TAKE A WHILE TO START UP FIRST TIME"
-    sleep 5  # Delay for 5 seconds
+    echo ""
+    echo "ATTENTION - NVIDIA USERS - STEAM MUST BE STARTED IN BIG PICTURE MODE FIRST TIME LAUNCH OR" 
+    echo "IT CAN HANG AFTER NVIDIA DRIVERS DOWNLOAD"
+    sleep 10  # Delay for 10 seconds
 }
 
 
@@ -46,6 +51,9 @@ DOWNLOAD_URL="batocera.pro/app/conty.sh"
 DOWNLOAD_FILE="$BASE_DIR/conty.sh"
 ROMS_DIR="/userdata/roms/ports"
 
+cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/wait.mp3 --repeat >/dev/null 2>&1 &
+
+
 # Step 1: Create base folder if not exists
 mkdir -p "$BASE_DIR"
 if [ ! -d "$BASE_DIR" ]; then
@@ -61,6 +69,7 @@ fi
    
 # Step 3: Download conty.sh with download percentage indicator
 wget batocera.pro/app/conty.sh -O ~/pro/steam/conty.sh 
+
 
 # Step 4: Make conty.sh executable
 chmod +x "$DOWNLOAD_FILE"
@@ -117,8 +126,49 @@ chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_arch.cfg -P ~/configs/emulationstation
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
 
+killall -9 vlc
 
-killall -9 emulationstation
+clear
+
+
+echo "Preparing to launch Steam..."
+sleep 2
+
+# 5-second countdown with simple animation
+for i in {5..1}
+do
+   clear
+   echo "Launching Steam in... $i seconds"
+   echo -ne '##########\r'
+   sleep 0.2
+   echo -ne '######### \r'
+   sleep 0.2
+   echo -ne '########  \r'
+   sleep 0.2
+   echo -ne '#######   \r'
+   sleep 0.2
+   echo -ne '######    \r'
+   sleep 0.2
+   echo -ne '#####     \r'
+   sleep 0.2
+   echo -ne '####      \r'
+   sleep 0.2
+   echo -ne '###       \r'
+   sleep 0.2
+   echo -ne '##        \r'
+   sleep 0.2
+   echo -ne '#         \r'
+   sleep 0.2
+   echo -ne '          \r'
+done
+
+echo "Steam is now starting"
+
+/userdata/roms/conty/"Steam Big Picture Mode.sh"
+
+
 
 
 echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
+sleep 3
+killall -9 emulationstation
