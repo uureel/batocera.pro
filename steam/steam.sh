@@ -126,6 +126,9 @@ wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_ar
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
 
 killall -9 vlc
+
+/userdata/roms/conty/"Steam Big Picture Mode.sh"
+
 killall -9 emulationstation
 
 
