@@ -8,7 +8,7 @@ if [ "$architecture" != "x86_64" ]; then
     echo "This script only runs on AMD or Intel (x86_64) CPUs, not on $architecture."
     exit 1
 fi
-cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/wait.mp3 --repeat &
+
 
 # Function to display animated title
 animate_title() {
@@ -50,7 +50,8 @@ DOWNLOAD_URL="batocera.pro/app/conty.sh"
 DOWNLOAD_FILE="$BASE_DIR/conty.sh"
 ROMS_DIR="/userdata/roms/ports"
 
-
+cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/wait.mp3 --repeat &
+sleep 10
 
 # Step 1: Create base folder if not exists
 mkdir -p "$BASE_DIR"
@@ -67,6 +68,7 @@ fi
    
 # Step 3: Download conty.sh with download percentage indicator
 wget batocera.pro/app/conty.sh -O ~/pro/steam/conty.sh 
+
 
 # Step 4: Make conty.sh executable
 chmod +x "$DOWNLOAD_FILE"
