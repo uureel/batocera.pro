@@ -36,6 +36,7 @@ apps=(
     ["7ZIP"]="curl -Ls 7zip.batocera.pro | bash"
     ["86BOX"]="curl -Ls 86box.batocera.pro | bash"
     ["ALTUS"]="curl -Ls altus.batocera.pro | bash"
+    ["AMAZON-LUNA"]="curl -Ls amazonluna.batocera.pro | bash"
     ["ANTIMICROX"]="curl -Ls antimicrox.batocera.pro | bash"
     ["ATOM"]="curl -Ls atom.batocera.pro | bash"
     ["BALENA-ETCHER"]="curl -Ls balena.batocera.pro | bash"
