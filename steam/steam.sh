@@ -8,6 +8,7 @@ if [ "$architecture" != "x86_64" ]; then
     echo "This script only runs on AMD or Intel (x86_64) CPUs, not on $architecture."
     exit 1
 fi
+cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/wait.mp3 --repeat &
 
 # Function to display animated title
 animate_title() {
