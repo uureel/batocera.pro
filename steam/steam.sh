@@ -126,8 +126,11 @@ chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_arch.cfg -P ~/configs/emulationstation
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
 
+killall -9 emulationstation 
+killall -9 vlc
 
 clear
+
 
 echo "Preparing to launch Steam..."
 sleep 2
