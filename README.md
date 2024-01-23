@@ -44,6 +44,10 @@ OR<BR>
 ```curl -L altus.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/amazonluna/extra/icon.png" width=48 height=48 /><b><i>&nbsp;AMAZON LUNA </i></b><br>
+```curl -L amazonluna.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/antimicrox/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ANTIMICROX </font></b></i><br>
 ```curl -L antimicrox.batocera.pro | bash```
 <br>
@@ -203,10 +207,6 @@ OR<BR>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/ludusavi/extra/icon.png" width=48 height=48 /><b><i>&nbsp;LUDUSAVI </i></b><br>
 ```curl -L ludusavi.batocera.pro | bash```
-<br>
-<br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/luna/extra/icon.png" width=48 height=48 /><b><i>&nbsp;LUNA </i></b><br>
-```curl -L luna.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/lutris/icon.png" width=48 height=48 /><b><i>&nbsp;LUTRIS </b>(Container)</i></b><br>
