@@ -28,7 +28,10 @@ display_controls() {
     echo "and more apps in an Arch container with"
     echo "a new system appearing in ES called Arch Container or"
     echo "Linux depending on your theme in ~/pro/steam"  
+    echo "" 
     echo "PLEASE NOTE NVIDIA users and SLOW STORAGE DEVICES CAN TAKE A WHILE TO START UP FIRST TIME"
+    echo ""
+    echo "ATTENTION - NVIDIA USERS - START STEAM IN BIG PICTURE MODE FIRST TIME OR IT CAN HANG AFTER NVIDIA DRIVERS DOWNLOAD"
     sleep 5  # Delay for 5 seconds
 }
 
