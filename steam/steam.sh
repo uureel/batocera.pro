@@ -9,7 +9,9 @@ if [ "$architecture" != "x86_64" ]; then
     exit 1
 fi
 
-cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4
+echo..Preparing Steam Installer....
+
+cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4 >/dev/null 2>&1 &
 
 # Function to display animated title
 animate_title() {
