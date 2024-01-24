@@ -11,7 +11,7 @@ fi
 
 echo "Batocera PRO - Preparing Steam Installer"
 
-cvlc --play-and-exit --no-osd https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4 >/dev/null 
+cvlc --play-and-exit --no-osd https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4 >/dev/null 2>&1 &
 
 killall -9 vlc
 
