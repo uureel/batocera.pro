@@ -177,8 +177,8 @@ echo "Steam is now starting"
 /userdata/roms/conty/"Steam Big Picture Mode.sh"
 
 
-
+clear
 
 echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
-sleep 3
+sleep 5
 killall -9 emulationstation
