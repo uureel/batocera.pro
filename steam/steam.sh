@@ -10,7 +10,7 @@ if [ "$architecture" != "x86_64" ]; then
 fi
 
 
-cvlc --play-and-exit --no-osd https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4 >/dev/null 2>&1 &
+cvlc --quite --play-and-exit --no-osd https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4 >/dev/null 2>&1 &
 
 # Wait for cvlc to finish
 wait $!
