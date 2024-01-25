@@ -29,13 +29,22 @@ display_controls() {
     echo 
     echo "This Will install Steam, & Heroic-Games-Launcher"
     echo "and more apps in an immutable Arch container with"
-    echo "the apps appearing in Ports"
-    echo "Many apps require mouse/keyboard and desktop mode is recommended for some of them"  
+    echo "the apps appearing in Ports"  
     echo "NOTE: NVIDIA USERS and SLOW STORAGE DEVICES CAN TAKE A WHILE TO START UP FIRST TIME"
     echo "NVIDIA USERS SHOULD LAUNCH STEAM IN BIG PICTURE MODE FIRST TIME TO PREVENT HANG AFTER DRIVER INSTALL"
     echo ""
     echo ""
+    echo "Isso irá instalar o Steam e o Heroic-Games-Launcher"
+    echo "e mais aplicativos em um contêiner Arch imutável com"
+    echo "os aplicativos aparecendo nas PORTS"
+    echo "NOTA: USUÁRIOS DA NVIDIA E DISPOSITIVOS DE ARMAZENAMENTO LENTOS PODEM DEMORAR UM POUCO PARA INICIAR PELA PRIMEIRA VEZ"
+    echo "USUÁRIOS DA NVIDIA DEVEM INICIAR O STEAM NO MODO BIG PICTURE PELA PRIMEIRA VEZ PARA EVITAR TRAVAMENTOS APÓS A INSTALAÇÃO DO DRIVER"
     echo ""
+    echo ""
+    echo ""
+    echo ""
+    echo ""
+    
     sleep 5  # Delay for 5 seconds
 }
 
