@@ -31,7 +31,7 @@ display_controls() {
     echo "and more apps in an immutable Arch container with"
     echo "the apps appearing in Ports"
     echo "Many apps require mouse/keyboard and desktop mode is recommended for some of them"  
-    echo "NOTE: NVIDIA USERS andSLOW STORAGE DEVICES CAN TAKE A WHILE TO START UP FIRST TIME"
+    echo "NOTE: NVIDIA USERS and SLOW STORAGE DEVICES CAN TAKE A WHILE TO START UP FIRST TIME"
     echo "NVIDIA USERS SHOULD LAUNCH STEAM IN BIG PICTURE MODE FIRST TIME TO PREVENT HANG AFTER DRIVER INSTALL"
     echo ""
     echo ""
