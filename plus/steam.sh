@@ -123,3 +123,7 @@ echo "Downloaded and made executable the specified .sh files in $target_director
 
 echo "Install Done.  Restart/Refresh Emulationstation to see new Apps in PORTS"
 echo "More apps can be found in the container's PCMANFM"
+
+echo "Instalação concluída. Reinicie/Atualize o Emulationstation para ver novos aplicativos em PORTS"
+echo "Mais aplicativos podem ser encontrados no PCMANFM do contêiner"
+
