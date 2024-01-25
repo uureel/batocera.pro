@@ -87,7 +87,6 @@ sh_files=(
   "Greenlight.sh"
   "Heroic-Game-Launcher.sh"
   "Libreoffice.sh"
-  "Lutris.sh"
   "Microsoft-Edge.sh"
   "Minigalaxy.sh"
   "Moonlight.sh"
