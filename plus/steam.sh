@@ -14,7 +14,7 @@ fi
 
 # Function to display animated title
 animate_title() {
-    local text="Batocera PLUS Steam/Heroic/Lutris container installer"
+    local text="Batocera PLUS Steam/Heroic container installer"
     local delay=0.1
     local length=${#text}
 
