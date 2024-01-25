@@ -27,7 +27,7 @@ animate_title() {
 
 display_controls() {
     echo 
-    echo "This Will install Steam, Heroic-Games Launcher, Lutris,"
+    echo "This Will install Steam, & Heroic-Games-Launcher"
     echo "and more apps in an immutable Arch container with"
     echo "the apps appearing in Ports"
     echo "Many apps require mouse/keyboard and desktop mode is recommended for some of them"  
