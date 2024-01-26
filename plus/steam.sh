@@ -98,6 +98,7 @@ sh_files=(
   "Kodi.sh"
   "Libreoffice.sh"
   "Microsoft-Edge.sh"
+  "Minecraft-Bedrock.sh"
   "Minigalaxy.sh"
   "Moonlight.sh"
   "PCManFM-(File-Manager).sh"
