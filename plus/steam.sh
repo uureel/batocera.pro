@@ -56,10 +56,10 @@ clear
 animate_title
 display_controls
 # Define variables
-BASE_DIR="~pro/steam/"
-DOWNLOAD_URL="batocera.pro/app/conty.sh"
-DOWNLOAD_FILE="$BASE_DIR/conty.sh"
-ROMS_DIR="/userdata/roms/ports"
+#BASE_DIR="~pro/steam/"
+#DOWNLOAD_URL="batocera.pro/app/conty.sh"
+#DOWNLOAD_FILE="$BASE_DIR/conty.sh"
+#ROMS_DIR="/userdata/roms/ports"
 
 # Step 1: Create base folder if not exists
 #mkdir -p "$BASE_DIR"
