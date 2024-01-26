@@ -9,6 +9,16 @@ if [ "$architecture" != "x86_64" ]; then
     exit 1
 fi
 
+echo "Preparing Steam Installer...Please Wait"
+
+cvlc --quiet --play-and-exit --no-osd https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4 >/dev/null 2>&1 &
+
+# Wait for cvlc to finish
+wait $!
+
+killall -9 vlc
+
+Clear 
 
 # Function to display animated title
 animate_title() {
@@ -170,5 +180,5 @@ echo "Steam is now starting"
 
 
 echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
-sleep 3
+sleep 5
 killall -9 emulationstation

@@ -405,8 +405,7 @@ shape or form affiliated with Batocera </i><br>
 <br>
 <br>
 <br>
-<br><b><i>QUESTIONS, SUGGESTIONS<br>
-or ISSUES, contact me here: </font></b></i><br>
+<br><b><i>QUESTIONS & SUGGESTIONS: </font></b></i><br>
 <a href=https://discord.gg/SWBvBkmn9P>https://discord.gg/SWBvBkmn9P</a>
 <br>
 <br>
