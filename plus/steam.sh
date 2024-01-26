@@ -62,12 +62,12 @@ DOWNLOAD_FILE="$BASE_DIR/conty.sh"
 ROMS_DIR="/userdata/roms/ports"
 
 # Step 1: Create base folder if not exists
-mkdir -p "$BASE_DIR"
-if [ ! -d "$BASE_DIR" ]; then
+#mkdir -p "$BASE_DIR"
+#if [ ! -d "$BASE_DIR" ]; then
   # Handle error or exit if necessary
-  echo "Error creating BASE_DIR."
-  exit 1
-fi
+ # echo "Error creating BASE_DIR."
+  #exit 1
+#fi
 
 # Step 1b create ports folder and pro folders on Batocera+ 
 mkdir -p /userdata/roms/ports
