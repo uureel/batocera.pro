@@ -289,7 +289,7 @@ OR<BR>
 ```curl -L ps2plus.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;PS3+ / RPCS3-UPDATER</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/ps3plus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;PS3+ / RPCS3-UPDATER (V38+) </i></b><br>
 ```curl -L ps3plus.batocera.pro | bash```
 <br>
 <br>
