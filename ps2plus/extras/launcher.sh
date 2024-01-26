@@ -7,8 +7,8 @@ ROM="$1"
 rm /tmp/cpufeatures 2>/dev/null; cat /proc/cpuinfo | grep flags | head -n 1 | grep avx2 >> /tmp/cpufeatures
 
 # prepare logs: 
-log1=/userdata/system/pro/ps2plus/log1.txt
-log2=/userdata/system/pro/ps2plus/log2.txt
+log1=/userdata/system/logs/ps2plus-out.txt
+log2=/userdata/system/logs/ps2plus-err.txt
 rm $log1 2>/dev/null; rm $log2 2>/dev/null
 
 # prepare *.ai: 
@@ -35,7 +35,7 @@ if [[ "$(cat /tmp/cpufeatures | grep avx2)" != "" ]]; then
 			XDG_CONFIG_HOME=/userdata/system/configs \
 			XDG_CURRENT_DESKTOP=XFCE \
 			DESKTOP_SESSION=XFCE \
-				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage 1>$log1 2>$log2
+				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage > >(tee "$log1") 2> >(tee "$log2" >&2)
 	else 
 			DISPLAY=:0.0 \
 			QT_FONT_DPI=128 \
@@ -43,7 +43,7 @@ if [[ "$(cat /tmp/cpufeatures | grep avx2)" != "" ]]; then
 			XDG_CONFIG_HOME=/userdata/system/configs \
 			XDG_CURRENT_DESKTOP=XFCE \
 			DESKTOP_SESSION=XFCE \
-				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage -fullscreen -nogui "$ROM" 1>$log1 2>$log2
+				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage -fullscreen -nogui "$ROM" > >(tee "$log1") 2> >(tee "$log2" >&2)
 	fi
 else 
 	if [[ "$(echo "$ROM" | grep "CONFIG")" != "" ]] || [[ "$(echo "$ROM")" = "" ]]; then
@@ -54,7 +54,7 @@ else
 			XDG_CONFIG_HOME=/userdata/system/configs \
 			XDG_CURRENT_DESKTOP=XFCE \
 			DESKTOP_SESSION=XFCE \
-				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage 1>$log1 2>$log2
+				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage > >(tee "$log1") 2> >(tee "$log2" >&2)
 	else 
 			DISPLAY=:0.0 \
 			QT_FONT_DPI=128 \
@@ -62,7 +62,7 @@ else
 			XDG_CONFIG_HOME=/userdata/system/configs \
 			XDG_CURRENT_DESKTOP=XFCE \
 			DESKTOP_SESSION=XFCE \
-				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage -fullscreen -nogui "$ROM" 1>$log1 2>$log2
+				/userdata/system/pro/ps2plus/pcsx2/pcsx2.AppImage -fullscreen -nogui "$ROM" > >(tee "$log1") 2> >(tee "$log2" >&2)
 	fi 
 fi
 
