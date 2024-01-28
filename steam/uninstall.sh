@@ -4,7 +4,7 @@
 dialog --title "Warning" --msgbox "This script will uninstall the arch container and delete data in the following:\n\n1. ~/.local/share/Conty \n2. ~/pro/steam \n\nThere may be saves.  You can back those up first if you desire." 15 60
 
 # Confirmation dialog
-if dialog --title "Confirm" --yesno "Do you want to proceed the uninstall and delete the folders? The containers data will be delete!!! Select 'yes' to continue." 10 60; then
+if dialog --title "Confirm" --yesno "Do you want to proceed the uninstall and delete the folders? The containers data will be deleted!!! Select 'yes' to continue." 10 60; then
     rm -rf ~/pro/steam   
     rm -rf ~/.local/share/Conty
     rm -rf ~/userdata/roms/conty
