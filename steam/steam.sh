@@ -2,8 +2,8 @@
 
 # Define the options
 OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
-         "2" "Uninstall Steam/Lutris/Heroic Game Launcher Container"
-         "3" "Run Nvidia Container Driver Reset Tool")
+         "2" "Uninstall Steam/Lutris/Heroic Game Launcher Container")
+        
 
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic and Nvidia driver Container Management" \
@@ -23,10 +23,6 @@ case $CHOICE in
     2)
         echo "Loading Uninstall script..."
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/uninstall.sh | bash
-        ;;
-    3)
-        echo "Running Nvidia Container Driver Reset Tool script..."
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/nv_reset.sh | bash
         ;;
     *)
         echo "No valid option selected or cancelled. Exiting."
