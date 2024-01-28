@@ -10,8 +10,8 @@ if dialog --title "Confirm" --yesno "Do you want to proceed and delete the folde
     echo "Folders deleted."
     echo ""
     echo "" 
-    echo "Attempting to start Steam"
-    /userdata/roms/conty/"Steam Big Picture Mode.sh"
+    echo "Attempting to start Steam and get drivers as root"
+    ALLOW_ROOT=1 DISPLAY=:0.0 HOME_DIR="~/pro/steam/home" ~/pro/steam/conty.sh steam -gamepadui
 else
     echo "Operation canceled. No folders were deleted."
 fi
