@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define the options
-OPTIONS=("1" "Install Steam Container"
-         "2" "Uninstall Steam Container"
+OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
+         "2" "Uninstall Steam/Lutris/Heroic Game Launcher Container"
          "3" "Run Nvidia Container Driver Reset Tool")
 
 # Display the dialog and get the user choice
