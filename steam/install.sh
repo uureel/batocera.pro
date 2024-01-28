@@ -89,31 +89,84 @@ chown -R batocera:batocera "$HOME_DIR"
 
 # Step 6: Download scripts to new /userdata/roms/conty folder
 
+
+github_url="https://github.com/uureel/batocera.pro/tree/main/steam/shortcuts/"
+target_directory="/userdata/roms/conty/"
+
+# List of .sh files to download
+sh_files=(
+  "Antimicrox.sh"
+  "Balena-Etcher.sh"
+  "Boilr.sh"
+  "Chiaki.sh"
+  "Firefox.sh"0
+  "GameHub.sh"
+  "Geforce-Now.sh"
+  "Google-Chrome.sh"
+  "Gparted.sh"
+  "Greenlight.sh"
+  "Heroic-Game-Launcher.sh"
+  "Kodi.sh"
+  "Libreoffice.sh"
+  "Microsoft-Edge.sh"
+  "Minecraft-Bedrock.sh"
+  "Minigalaxy.sh"
+  "Moonlight.sh"
+  "OBS Studio.sh"
+  "PCManFM-(File-Manager).sh"
+  "Plan on Linux 4.sh"
+  "Protonup-Qt.sh"
+  "Qbittorrent.sh"
+  "Spotify.sh"
+  "Qdirstat.sh"
+  "Spotify.sh"
+  "Steam-Big-Picture-Mode.sh"
+  "Steam.sh"
+  "SteamTinker Launch (settings).sh"
+  "Terminal-Root.sh"
+  "Terminal.sh"
+  "VLC.sh"
+)
+
+# Create the target directory if it doesn't exist
+mkdir -p "$target_directory"
+
+# Download the specified .sh files and make them executable
+for file in "${sh_files[@]}"; do
+  echo "Downloading $file..."
+  curl -sSL "${github_url}$file" -o "$target_directory$file"
+  chmod +x "$target_directory$file"
+done
+
+
+######OLD SHORTCUT ROUTINE######
 # Define URLs and paths
 # download_url="https://github.com/trashbus99/batocera-addon-scripts/raw/main/contyapps/conty.tar.gz"
-download_url="https://github.com/trashbus99/batocera-addon-scripts/raw/main/contyapps/conty.tar.gz"
-download_location="$HOME/pro/steam/conty.tar.gz"
-extract_location="/userdata/roms/"
+#download_url="https://github.com/trashbus99/batocera-addon-scripts/raw/main/contyapps/conty.tar.gz"
+#download_location="$HOME/pro/steam/conty.tar.gz"
+#extract_location="/userdata/roms/"
 
 # Create directories if they don't exist
-mkdir -p "$HOME/pro/steam"
-mkdir -p "$extract_location"
+#mkdir -p "$HOME/pro/steam"
+#mkdir -p "$extract_location"
 
 # Download the compressed file
-curl -L -o "$download_location" "$download_url"
+#curl -L -o "$download_location" "$download_url"
 
 # Extract the contents to the desired location
-tar -xzvf "$download_location" -C "$extract_location"
+#tar -xzvf "$download_location" -C "$extract_location"
 
 # Make all .sh files executable
-find "$extract_location" -type f -name "*.sh" -exec chmod +x {} \;
+#find "$extract_location" -type f -name "*.sh" -exec chmod +x {} \;
 
 # Clean up: remove the downloaded file
-rm "$download_location"
+#rm "$download_location"
+###############
 
-echo "Conty files have been downloaded and extracted to $extract_location"
+echo "Conty files have been downloaded a to $target_directory"
 echo "Executable permission set for all .sh files"
 
+sleep 3
 
 # Step 7: Make /userdata/roms/steam2 folder if it doesn't exist and download parser
 
