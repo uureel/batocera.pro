@@ -97,7 +97,6 @@ sh_files=(
   "Antimicrox.sh"
   "Balena-Etcher.sh"
   "Boilr.sh"
-  "Chiaki.sh"
   "Firefox.sh"
   "GameHub.sh"
   "Geforce Now.sh"
