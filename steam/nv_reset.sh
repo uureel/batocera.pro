@@ -7,8 +7,6 @@ dialog --title "Warning" --msgbox "This is a brute force that script will delete
 if dialog --title "Confirm" --yesno "Do you want to proceed and delete the folders? Type 'yes' to continue." 10 60; then
     rm -rf ~/pro/steam/home
     rm -rf ~/.local/share/Conty
-    rm -rf ~/.local/share/applications
-    rm -rf ~/.local/share
     echo "Folders deleted."
     echo ""
     echo "" 
