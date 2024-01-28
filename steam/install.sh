@@ -88,8 +88,6 @@ chmod +x "$DOWNLOAD_FILE"
 chown -R batocera:batocera "$HOME_DIR"
 
 # Step 6: Download scripts to new /userdata/roms/conty folder
-
-
 github_url="https://github.com/uureel/batocera.pro/tree/main/steam/shortcuts/"
 target_directory="/userdata/roms/conty/"
 
@@ -101,26 +99,27 @@ sh_files=(
   "Chiaki.sh"
   "Firefox.sh"
   "GameHub.sh"
-  "Geforce-Now.sh"
+  "Geforce Now.sh"
   "Google-Chrome.sh"
   "Gparted.sh"
   "Greenlight.sh"
-  "Heroic-Game-Launcher.sh"
+  "Heroic Game Launcher.sh"
   "Kodi.sh"
   "Libreoffice.sh"
+  "Lutris.sh"
   "Microsoft-Edge.sh"
-  "Minecraft-Bedrock.sh"
   "Minigalaxy.sh"
   "Moonlight.sh"
   "OBS Studio.sh"
-  "PCManFM-(File-Manager).sh"
-  "Plan on Linux 4.sh"
+  "PCManFM (File Manager).sh"
+  "Peazip.sh"
+  "Play on Linux 4.sh"
   "Protonup-Qt.sh"
   "Qbittorrent.sh"
-  "Spotify.sh"
   "Qdirstat.sh"
+  "Smplayer.sh"
   "Spotify.sh"
-  "Steam-Big-Picture-Mode.sh"
+  "Steam Big Picture Mode.sh"
   "Steam.sh"
   "SteamTinker Launch (settings).sh"
   "Terminal-Root.sh"
@@ -133,10 +132,13 @@ mkdir -p "$target_directory"
 
 # Download the specified .sh files and make them executable
 for file in "${sh_files[@]}"; do
+  # Replace spaces with '%20' for URL encoding
+  encoded_file=$(echo "$file" | sed 's/ /%20/g')
   echo "Downloading $file..."
-  curl -sSL "${github_url}$file" -o "$target_directory$file"
-  chmod +x "$target_directory$file"
+  curl -sSL "${github_url}${encoded_file}" -o "${target_directory}${file}"
+  chmod +x "${target_directory}${file}"
 done
+
 
 
 ######OLD SHORTCUT ROUTINE######
