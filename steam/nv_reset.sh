@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 echo "WARNING: This script will delete data in the following folders to reset nvidia container driver install"
 echo "1. ~/.local"
 echo "2. ~/pro/steam/home"
@@ -8,7 +7,9 @@ echo "There may be saves from other AppImages, apps in ~/.local You can back tho
 echo ""
 echo "Do you want to proceed? Type 'yes' to continue."
 
+echo "Waiting for user input..."
 read -t 30 -p "Type 'yes' to confirm: " confirmation
+echo "User input received: $confirmation"
 
 if [ "$confirmation" = "yes" ]; then
     rm -rf ~/pro/steam/home
