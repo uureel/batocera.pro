@@ -6,7 +6,7 @@ OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
         
 
 # Display the dialog and get the user choice
-CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic and Nvidia driver Container Management" \
+CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
                 --title "Main Menu" \
                 --menu "Choose an option:" 15 50 3 \
                 "${OPTIONS[@]}" \
