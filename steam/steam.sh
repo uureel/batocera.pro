@@ -128,6 +128,8 @@ mkdir -p "$DOWNLOAD_DIR"
 # Download the file
 wget "$FILE_URL" -P "$DOWNLOAD_DIR"
 
+
+
 # Make the script executable
 chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
 
@@ -135,6 +137,13 @@ chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
 
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_arch.cfg -P ~/configs/emulationstation
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
+
+# Step 9 Make folders and Set permissions for nvidia users in case their permissions are not set for nvidia handler
+mkdir -p ~/.local/share/Conty
+mkdir -p ~/.cache
+chmod -R a+rw ~/.local
+chmor -R a+rw ~/.cache
+
 
 killall -9 vlc
 
