@@ -5,13 +5,9 @@ echo "1. ~/.local"
 echo "2. ~/pro/steam/home"
 echo "There may be saves from other AppImages, apps in ~/.local You can back those up first if you desire"
 echo ""
-echo "Do you want to proceed? Type 'yes' to continue."
 
-echo "Waiting for user input..."
-read -t 30 -p "Type 'yes' to confirm: " confirmation
-echo "User input received: $confirmation"
-
-if [ "$confirmation" = "yes" ]; then
+# Using dialog to confirm user's action
+if dialog --title "Confirm" --yesno "Do you want to proceed and delete the folders? Type 'yes' to continue." 10 60; then
     rm -rf ~/pro/steam/home
     rm -rf ~/.local    
     echo "Folders deleted."
