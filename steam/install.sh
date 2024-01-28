@@ -119,7 +119,6 @@ sh_files=(
   "Qbittorrent.sh"
   "Qdirstat.sh"
   "Smplayer.sh"
-  "Spotify.sh"
   "Steam Big Picture Mode.sh"
   "Steam.sh"
   "SteamTinker Launch (settings).sh"
