@@ -11,10 +11,11 @@ if dialog --title "Confirm" --yesno "Do you want to proceed the uninstall and de
     rm -rf ~/userdata/roms/steam2
     rm ~/configs/emulationstation/es_systems_arch.cfg*
     rm ~/configs/emulationstation/es_systems_steam2.cfg*
+    clear   
     echo "Files/Folders deleted."
     echo ""
     echo "" 
-    Wait 5
+    sleep 5
     killall -9 emulationstation
 else
     echo "Operation canceled. No folders were deleted."
