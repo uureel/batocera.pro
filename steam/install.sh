@@ -99,7 +99,7 @@ sh_files=(
   "Balena-Etcher.sh"
   "Boilr.sh"
   "Chiaki.sh"
-  "Firefox.sh"0
+  "Firefox.sh"
   "GameHub.sh"
   "Geforce-Now.sh"
   "Google-Chrome.sh"
