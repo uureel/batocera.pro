@@ -33,6 +33,7 @@ display_controls
 declare -A apps
 apps=(
     # ... (populate with your apps as shown before)
+    ["##UPDATE-THIS-SCRIPT##"]="curl -Ls app.batocera.pro | bash"
     ["7ZIP"]="curl -Ls 7zip.batocera.pro | bash"
     ["86BOX"]="curl -Ls 86box.batocera.pro | bash"
     ["ALTUS"]="curl -Ls altus.batocera.pro | bash"
@@ -113,7 +114,6 @@ apps=(
     ["TELEGRAM"]="curl -Ls telegram.batocera.pro | bash"
     ["TOTAL-COMMANDER"]="curl -Ls totalcmd.batocera.pro | bash"
     ["TRANSMISSION"]="curl -Ls transmission.batocera.pro | bash"
-    ["**UPDATE-THIS-SCRIPT**"]="curl -Ls app.batocera.pro | bash"
     ["VIVALDI"]="curl -Ls vivaldi.batocera.pro | bash"
     ["VLC"]="curl -Ls vlc.batocera.pro | bash"
     ["WHATSAPP"]="curl -Ls whatsapp.batocera.pro | bash"
