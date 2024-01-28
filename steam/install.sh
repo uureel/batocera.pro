@@ -91,7 +91,7 @@ chmod +x "$DOWNLOAD_FILE"
 chown -R batocera:batocera "$HOME_DIR"
 
 # Step 6: Download scripts to new /userdata/roms/conty folder
-github_url="https://github.com/uureel/batocera.pro/tree/main/steam/shortcuts/"
+github_url="https://github.com/uureel/batocera.pro/raw/tree/main/steam/shortcuts/"
 target_directory="/userdata/roms/conty/"
 
 # List of .sh files to download
