@@ -142,7 +142,7 @@ wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_st
 mkdir -p ~/.local/share/Conty
 mkdir -p ~/.cache
 chmod -R a+rw ~/.local
-chmor -R a+rw ~/.cache
+chmod -R a+rw ~/.cache
 
 
 killall -9 vlc
