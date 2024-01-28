@@ -7,6 +7,10 @@ dialog --title "Warning" --msgbox "This script will delete data in the following
 if dialog --title "Confirm" --yesno "Do you want to proceed and delete the folders? Select 'yes' to continue." 10 60; then
     rm -rf ~/pro/steam/home
     rm -rf ~/.local    
+    rm -rf ~/.local/share/applications
+    rm -rf ~/.local/share/Conty
+    rm -rf ~/.local/share
+    rm -rf ~/local
     echo "Folders deleted."
     echo ""
     echo "" 
