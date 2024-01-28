@@ -10,9 +10,7 @@ if [ "$architecture" != "x86_64" ]; then
 fi
 
 echo "Preparing Steam Installer...Please Wait"
-echo "Temporarily offline - Try later"
-sleep 5
-exit 1
+
 
 cvlc --quiet --play-and-exit --no-osd https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4 >/dev/null 2>&1 &
 
@@ -91,7 +89,7 @@ chmod +x "$DOWNLOAD_FILE"
 chown -R batocera:batocera "$HOME_DIR"
 
 # Step 6: Download scripts to new /userdata/roms/conty folder
-github_url="https://github.com/uureel/batocera.pro/raw/tree/main/steam/shortcuts/"
+github_url="https://github.com/uureel/batocera.pro/raw//main/steam/shortcuts/"
 target_directory="/userdata/roms/conty/"
 
 # List of .sh files to download
