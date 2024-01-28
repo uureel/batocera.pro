@@ -161,5 +161,5 @@ for choice in $choices; do
 
 done
 
-echo "Installation process completed."
+echo "Exiting."
 
