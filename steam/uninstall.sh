@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Introductory message using dialog
-dialog --title "Warning" --msgbox "This script will uninstall the arch container and delete data in the following:\n\n1. ~/.local/share/Conty /\n2. ~/pro/steam \n\nThere may be saves.  You can back those up first if you desire." 15 60
+dialog --title "Warning" --msgbox "This script will uninstall the arch container and delete data in the following:\n\n1. ~/.local/share/Conty \n2. ~/pro/steam \n\nThere may be saves.  You can back those up first if you desire." 15 60
 
 # Confirmation dialog
 if dialog --title "Confirm" --yesno "Do you want to proceed the uninstall and delete the folders? Select 'yes' to continue." 10 60; then
