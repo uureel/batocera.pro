@@ -135,7 +135,8 @@ for file in "${sh_files[@]}"; do
   # Replace spaces with '%20' for URL encoding
   encoded_file=$(echo "$file" | sed 's/ /%20/g')
   echo "Downloading $file..."
-  curl -sSL "${github_url}${encoded_file}" -o "${target_directory}${file}"
+  #curl -sSL "${github_url}${encoded_file}" -o "${target_directory}${file}"
+  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
   chmod +x "${target_directory}${file}"
 done
 
