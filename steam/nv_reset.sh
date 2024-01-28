@@ -11,6 +11,8 @@ if dialog --title "Confirm" --yesno "Do you want to proceed and delete the folde
     echo "Folders deleted."
     echo ""
     echo "" 
+    sleep 5
+    clear
     echo "Attempting to start Steam.."
     /userdata/roms/conty/"Steam Big Picture Mode.sh"
 else
