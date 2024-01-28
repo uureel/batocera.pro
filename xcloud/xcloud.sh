@@ -16,8 +16,8 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >> 
 APPNAME=xcloud 
-APPLINK="https://github.com/AAGaming00/xcloud-desktop/releases/download/v1.0.9/XCloud-1.0.9.AppImage"
-APPHOME="github.com/AAGaming00/xcloud-desktop"  
+APPLINK="https://github.com/marzeq/xbox-cloud-gaming-electron/releases/download/1.0.20/xbox-cloud-gaming-electron_1.0.20.AppImage"
+APPHOME="github.com/marzeq/xbox-cloud-gaming-electron"  
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
 COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
