@@ -154,7 +154,7 @@ for choice in $choices; do
         chmod 777 /tmp/.app 2>/dev/null
         clear
         bash /tmp/.app 
-        echo -e "\n\n$choice installed successfully.\n\n"
+        echo -e "\n\n$choice DONE.\n\n"
     else 
         echo "Error: couldn't download installer for ${apps[$choice]}"
     fi
