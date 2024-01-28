@@ -10,6 +10,8 @@ if [ "$architecture" != "x86_64" ]; then
 fi
 
 echo "Preparing Steam Installer...Please Wait"
+echo "Temporarily offline - Try later"
+exit 1
 
 cvlc --quiet --play-and-exit --no-osd https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4 >/dev/null 2>&1 &
 
