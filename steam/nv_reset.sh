@@ -7,6 +7,7 @@ dialog --title "Warning" --msgbox "This is will delete data in the following fol
 if dialog --title "Confirm" --yesno "Do you want to proceed and delete the folders? Type 'yes' to continue." 10 60; then
     rm -rf ~/pro/steam/home
     rm -rf ~/.local/share/Conty
+    clear
     echo "Folders deleted."
     echo ""
     echo "" 
