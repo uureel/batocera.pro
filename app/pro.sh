@@ -52,6 +52,7 @@ apps=(
     ["DISCORD"]="curl -Ls discord.batocera.pro | bash"
     ["DOUBLE-COMMANDER"]="curl -Ls doublecmd.batocera.pro | bash"
     ["EDGE"]="curl -Ls edge.batocera.pro | bash"
+    ["EKA2L1"]="curl -Ls eka.batocera.pro | bash"
     ["EXTRACT-XISO-GUI"]="curl -Ls xiso.batocera.pro | bash"
     ["FERDIUM"]="curl -Ls ferdium.batocera.pro | bash"
     ["FILEZILLA"]="curl -Ls filezilla.batocera.pro | bash"
