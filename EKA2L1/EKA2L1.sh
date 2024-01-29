@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 ######################################################################
-# BATOCERA.PRO/GPARTED INSTALLER
+# BATOCERA.PRO/EKA2L1 INSTALLER
 ######################################################################
 APPNAME="EKA2L1" # for installer info
 appname=EKA2L1   # directory name in /userdata/system/pro/...
