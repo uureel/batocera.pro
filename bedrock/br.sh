@@ -377,4 +377,10 @@ function autostart() {
 }
 export -f autostart
 autostart
+#SHORTCUT DOWNLOAD ADDED BY TRASHBUS99
+echo "DOWNLOADING SHORTCUT FOR PORTS"
+wget https://github.com/uureel/batocera.pro/raw/main/bedrock/shortcut/Minecraft-Bedrock.sh -O /userdata/roms/ports/Minecraft-Bedrock.sh > /dev/null 2>&1 && chmod +x /userdata/roms/ports/Minecraft-Bedrock.sh > /dev/null 2>&1
+echo "DONE"
+sleep 3
+killall -9 emulationstation
 exit 0
