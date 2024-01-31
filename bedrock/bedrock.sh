@@ -15,7 +15,7 @@ response=$?
 case $response in
    0) echo "Agreed. Executing curl command..."
       # Execute the curl command and handle any errors
-     curl -L raw.githubusercontent.com/uureel/batocera.pro/main/bedrock/br.sh | bash || echo "Failed to execute curl command."
+     curl -L https://raw.githubusercontent.com/uureel/batocera.pro/main/bedrock/br.sh | bash || { echo "Failed to execute curl command or the script encountered an error."; exit 1; }
       ;;
    1) echo "Declined."
       ;;
