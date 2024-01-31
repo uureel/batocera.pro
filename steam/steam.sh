@@ -3,7 +3,7 @@
 # Define the options
 OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
          "2" "Uninstall Steam/Lutris/Heroic Game Launcher Container"
-         "3" "Update Launcher shortcuts for emulationemulation Arch container")
+         "3" "Update Launcher shortcuts for emulationestation Arch container")
 
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
