@@ -13,5 +13,4 @@ dir3=/userdata/system/.cache
 mkdir -p $dir1 $dir2 $dir3 2>/dev/null
 chown -R batocera:batocera $dir1 $dir2 $dir3 2>/dev/null
 
-
-su - batocera -c "HOME_DIR=\"/userdata/system/pro/steam/home\" DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session steam -gamepadui"
+su - batocera -c "dbus-launch --sh-syntax & DISPLAY=:0.0 HOME_DIR=/userdata/system/pro/steam/home ~/pro/steam/conty.sh dbus-run-session steam -gamepadui"
