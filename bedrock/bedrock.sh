@@ -2,8 +2,8 @@
 
 # Define the dialog box with increased dimensions
 dialog --title "WARNING!" \
-       --yesno "1. This game is unstable in Batocera. Using the Keyboard in the game world causes crashes.\
-                \n  Limited testing with a gamepad seems to work. The Keyboard unctions ok in the menus.\
+       --yesno "1. This game is unstable in Batocera. Using the Keyboard in the game world may cause crashes.\
+                \n  Limited testing with a gamepad seems to work. The Keyboard functions for menus.\
                 \n2. This game requires you to own Minecraft Bedrock Edition for Android on your Google account.\
                 \n\nCONTINUE INSTALLING?" 15 70
 
@@ -23,8 +23,10 @@ case $response in
           echo "Failed to download the script."
       fi
       ;;
-   1) echo "Declined."
+   1) echo "Declined. Exiting..."
+      exit 0
       ;;
-   255) echo "[ESC] key pressed."
+   255) echo "[ESC] key pressed. Exiting..."
+      exit 0
       ;;
 esac
