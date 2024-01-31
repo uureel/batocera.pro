@@ -377,4 +377,9 @@ function autostart() {
 }
 export -f autostart
 autostart
+#SHORTCUT DOWNLOAD ADDED BY TRASBUS99
+echo "DOWNLOADING SHORTCUT FOR PORTS"
+wget https://github.com/uureel/batocera.pro/raw/main/EKA2L1/shortcut/EKA2L1.sh  -O /userdata/roms/ports
+chmod +x /userdata/roms/ports/EKA2L1.sh
+echo "DONE"
 exit 0
