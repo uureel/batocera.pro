@@ -14,4 +14,4 @@ mkdir -p $dir1 $dir2 $dir3 2>/dev/null
 chown -R batocera:batocera $dir1 $dir2 $dir3 2>/dev/null
 
 eval $(dbus-launch --sh-syntax)
-su - batocera -c "HOME_DIR=\"/userdata/system/pro/steam/home\" DISPLAY=:0.0 ~/pro/steam/conty.sh lutris"
+su - batocera -c "HOME_DIR=\"/userdata/system/pro/steam/home\" DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session lutris"
