@@ -13,9 +13,15 @@ clear
 # Check the exit status
 response=$?
 case $response in
-   0) echo "Agreed. Executing curl command..."
-      # Execute the curl command and handle any errors
-     curl -L https://raw.githubusercontent.com/uureel/batocera.pro/main/bedrock/br.sh | bash || { echo "Failed to execute curl command or the script encountered an error."; exit 1; }
+   0) echo "Agreed. Downloading and executing script..."
+      # Download the script
+      curl -L -o br.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/bedrock/br.sh
+      if [ $? -eq 0 ]; then
+          # Execute the script if download is successful
+          bash br.sh || echo "Failed to execute the script."
+      else
+          echo "Failed to download the script."
+      fi
       ;;
    1) echo "Declined."
       ;;
