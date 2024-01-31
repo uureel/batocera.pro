@@ -25,7 +25,7 @@ case $CHOICE in
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/uninstall.sh | bash
         ;;
     3)
-        echo "Update Emulation Station Shortcuts..."
+        echo "Update EmulationStation Arch Container Launcher Shortcuts..."
         rm *.sh /userdata/roms/conty
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/update_shortcuts.sh | bash
         ;;    
