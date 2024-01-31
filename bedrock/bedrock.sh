@@ -1,10 +1,12 @@
+
 #!/bin/bash
 
-# Define the dialog box
+# Define the dialog box with increased dimensions
 dialog --title "WARNING!" \
-       --yesno "1. This game is unstable in batocera. Using the Keyboard in the game world causes it to crash. 
-                Limited testing using only the gamepad seems to work OK. The Keyboard works ok for menus.
-                \n2. This game requires Minecraft Bedrock Edition for Android." 10 50
+       --yesno "1. This game is unstable in Batocera. Using the Keyboard in the game world causes it to crash.\
+                \n  Limited testing using only the gamepad seems to work OK. The Keyboard works ok for menus.\
+                \n2.This game requires you own  Minecraft Bedrock Edition for Android on your google account.
+                \n CONTINUE INSTALLING?" 15 70
 
 # Check the exit status
 response=$?
@@ -18,3 +20,5 @@ esac
 
 # Clear the dialog
 clear
+
+
