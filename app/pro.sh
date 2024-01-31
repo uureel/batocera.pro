@@ -78,6 +78,7 @@ apps=(
     ["LUDUSAVI"]="curl -Ls ludusavi.batocera.pro | bash"
     ["LUTRIS/CONTAINER"]="curl -Ls lutris.batocera.pro | bash"
     ["MEDIAELCH"]="curl -Ls mediaelch.batocera.pro | bash"
+    ["MINECRAFT-BEDROCK-EDITION"]="curL -Ls https://raw.githubusercontent.com/uureel/batocera.pro/main/bedrock/bedrock.sh"
     ["MINECRAFT-JAVA-EDITION"]="curl -Ls minecraft.batocera.pro | bash"
     ["MOONLIGHT"]="curl -Ls moonlight.batocera.pro | bash"
     ["MPV"]="curl -Ls mpv.batocera.pro | bash"
