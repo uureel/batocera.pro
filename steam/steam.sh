@@ -26,7 +26,7 @@ case $CHOICE in
         ;;
     3)
         echo "Update EmulationStation Arch Container Launcher Shortcuts..."
-        rm *.sh /userdata/roms/conty
+        rm /userdata/roms/conty/*.sh
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/update_shortcuts.sh | bash
         ;;    
     *)
