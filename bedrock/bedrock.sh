@@ -13,7 +13,7 @@ response=$?
 case $response in
    0) echo "Agreed. Executing curl command...";
       # Replace the following line with your actual curl command
-      curl [YOUR-CURL-COMMAND-HERE];;
+      curl https://github.com/uureel/batocera.pro/raw/main/bedrock/br.sh;;
    1) echo "Declined.";;
    255) echo "[ESC] key pressed.";;
 esac
