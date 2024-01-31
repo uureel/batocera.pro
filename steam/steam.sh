@@ -24,6 +24,11 @@ case $CHOICE in
         echo "Loading Uninstall script..."
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/uninstall.sh | bash
         ;;
+    3)
+        echo "Update Emulation Station Shortcuts..."
+        rm *.sh /userdata/roms/conty
+        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/update_shortcuts.sh | bash
+        ;;    
     *)
         echo "No valid option selected or cancelled. Exiting."
         ;;
