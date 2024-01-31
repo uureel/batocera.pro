@@ -2,8 +2,8 @@
 
 # Define the dialog box with increased dimensions
 dialog --title "WARNING!" \
-       --yesno "1. This game is unstable in Batocera. Using the Keyboard in the game world may cause crashes.\
-                \n  Limited testing with a gamepad seems to work. The Keyboard functions for menus.\
+       --yesno "1. This game is unstable in Batocera. Using the Keyboard except to sign in causes grashs.\
+                \n  Limited Testing with a gamepad seems to work. \
                 \n2. This game requires you to own Minecraft Bedrock Edition for Android on your Google account.\
                 \n\nCONTINUE INSTALLING?" 15 70
 
