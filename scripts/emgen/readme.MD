@@ -1,1 +1,1 @@
-Creates ES menu with emulators menu for batocera
+Creates ES menu with emulators gui config access for batocera
