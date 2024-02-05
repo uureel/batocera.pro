@@ -252,6 +252,8 @@ launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 # --------------------------------------------------------------------
 echo '#!/bin/bash ' >> $launcher
+echo 'here="$(readlink -f "$(dirname "$0")")"' >> $launcher
+echo 'cp -r "$here/lib/udev/hwdb.d" /lib/udev/' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 echo 'DISPLAY=:0.0 /userdata/system/pro/system-monitoring-center/system-monitoring-center' >> $launcher
 # --------------------------------------------------------------------
