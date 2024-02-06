@@ -134,6 +134,8 @@ for file in "${sh_files[@]}"; do
 
 animate_text "Cleaning up"
 rm -rf ~/pro/steam/build
+echo "DONE"
+sleep 5
 done
 
 
