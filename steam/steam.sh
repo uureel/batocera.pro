@@ -4,7 +4,8 @@
 OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
          "2" "Uninstall Steam/Lutris/Heroic Game Launcher Container"
          "3" "Update Launcher shortcuts for emulationstation Arch container"
-         "4" "Update/Re-download container")
+         "4" "Re-download container"
+         "5" "Update apps on container (experimental)")
          
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
@@ -32,6 +33,9 @@ case $CHOICE in
         ;;    
     4)  echo "Update/Re-download Container..."
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/redownload.sh  | bash
+        ;;
+    5)  echo "Update Conty Container..."
+        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/update.sh  | bash
         ;;
     *)
         echo "No valid option selected or cancelled. Exiting."
