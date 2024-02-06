@@ -131,12 +131,12 @@ for file in "${sh_files[@]}"; do
   #curl -sSL "${github_url}${encoded_file}" -o "${target_directory}${file}"
   wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
   chmod +x "${target_directory}${file}"
-
+done
 animate_text "Cleaning up"
 rm -rf ~/pro/steam/build
 echo "DONE"
 sleep 5
-done
+
 
 
 else
