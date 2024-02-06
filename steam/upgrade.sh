@@ -15,7 +15,8 @@ animate_text() {
 clear
 animate_text "Container Updater -- This can take a while depending on CPU, Storage, and Download speeds"
 
-# Step 1: Create the target directory if it doesn't exist
+# Step 1: (Re)Create the target directory if it doesn't exist
+rm -rf ~/pro/steam/build
 mkdir -p ~/pro/steam/build
 
 # Step 2: Navigate to the directory
