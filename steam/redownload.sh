@@ -35,16 +35,12 @@ display_controls
 cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/wait.mp3 --repeat >/dev/null 2>&1 &
 
 
-# Step 1: Create base folder if not exists
-mkdir -p "$BASE_DIR"
-
    
-# Step 3: Download conty.sh with download percentage indicator
 wget batocera.pro/app/conty.sh -O ~/pro/steam/conty.sh 
 
 
 # Step 4: Make conty.sh executable
-chmod +x "$DOWNLOAD_FILE"
+chmod +x ~/pro/steam/conty.sh
 
 killall -9 vlc
 echo "DONE"
