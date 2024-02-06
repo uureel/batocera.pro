@@ -39,15 +39,15 @@ export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
         htop qbittorrent speedcrunch lib32-libpulse lib32-alsa-plugins file-roller xorg-xwayland \
         steam-native-runtime gamemode lib32-gamemode jre-openjdk lxterminal \
         steamtinkerlaunch mangohud lib32-mangohud kodi\
-        qt5-wayland xorg-server-xephyr openbox \
+        qt5-wayland xorg-server-xephyr openbox lutris \
         obs-studio gamehub minigalaxy legendary gamescope yt-dlp \
         playonlinux minizip flatpak libreoffice xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet"
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="lutris bottles heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
+export aur_packagelist="bottles heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
 protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui  \
 winegui-bin  protontricks greenlight-beta-appimage zoom \
-etcher-bin microsoft-edge-stable-bin qdirstat peazip-qt5-bin 7-zip-bin antimicrox"
+etcher-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
