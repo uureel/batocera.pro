@@ -13,13 +13,23 @@ animate_text() {
 
 # Clear the screen and display animated title
 clear
-animate_text "Container Updater: Depending on CPU, Storage, and Download speed, this can take a while"
+animate_text "Container Updater"
 
 # Step 0: Clean the ~/pro/steam/build directory first
 animate_text "Cleaning build directory..."
 rm -rf ~/pro/steam/build/*
 
-# Step 1: Create the target directory if it doesn't exist
+# Check if the directory is empty
+if [ "$(ls -A ~/pro/steam/build)" ]; then
+    echo "Failed to clean the build directory. Please reboot your system and try again."
+    sleep 5
+    exit 1 # Exit the script with an error status
+else
+    animate_text "Build directory cleaned successfully."
+    sleep2
+fi
+
+# Step 1: Create the target directory if it doesn't exist (it should already exist but just in case)
 mkdir -p ~/pro/steam/build
 
 # Step 2: Navigate to the directory
@@ -49,5 +59,3 @@ if [ -f "conty.sh" ]; then
 else
     echo "conty.sh was not created."
 fi
-echo "Done"
-sleep 6
