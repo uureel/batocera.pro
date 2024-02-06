@@ -48,7 +48,7 @@ export aur_packagelist="lutris bottles heroic-games-launcher-bin geforcenow-elec
 protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui  \
 winegui-bin  protontricks greenlight-beta-appimage zoom \
 etcher-bin microsoft-edge-stable-bin qdirstat peazip-qt5-bin 7-zip-bin antimicrox"
-70
+
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
 # better performance
