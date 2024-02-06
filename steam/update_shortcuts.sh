@@ -35,7 +35,7 @@ sh_files=(
   "Terminal-Root.sh"
   "Terminal.sh"
   "VLC.sh"
-  "Zoom.sh"
+ 
 )
 
 # Create the target directory if it doesn't exist
