@@ -11,12 +11,15 @@ animate_text() {
     echo # Move to a new line
 }
 
-# Animated title
+# Clear the screen and display animated title
 clear
-animate_text "Container Updater -- This can take a while depending on CPU, Storage, and Download speeds"
+animate_text "Container Updater"
 
-# Step 1: (Re)Create the target directory if it doesn't exist
-rm -rf ~/pro/steam/build
+# Step 0: Clean the ~/pro/steam/build directory first
+animate_text "Cleaning build directory..."
+rm -rf ~/pro/steam/build/*
+
+# Step 1: Create the target directory if it doesn't exist
 mkdir -p ~/pro/steam/build
 
 # Step 2: Navigate to the directory
@@ -30,14 +33,11 @@ wget https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/crea
 # Step 4: Make the scripts executable
 chmod +x compress.sh conty-start.sh create.sh
 
-# Animated message indicating the start of create.sh
+# Display animated messages and run scripts
 animate_text "Running create.sh..."
-# Step 5: Run create.sh
 ./create.sh
 
-# Animated message indicating the start of compress.sh
 animate_text "Running compress.sh..."
-# Step 6: After create.sh completes, run compress.sh
 ./compress.sh
 
 # Step 7: Check if conty.sh is successfully created and make it executable
@@ -49,3 +49,5 @@ if [ -f "conty.sh" ]; then
 else
     echo "conty.sh was not created."
 fi
+echo "Done"
+sleep 6
