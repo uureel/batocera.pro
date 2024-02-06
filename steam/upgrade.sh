@@ -11,6 +11,91 @@ animate_text() {
     echo # Move to a new line
 }
 
+# Animated countdown function
+animated_countdown() {
+    local time_left=10
+    while [ $time_left -gt 0 ]; do
+        echo -ne "Starting in $time_left seconds... Press any key to exit.\r"
+        sleep 1
+        ((time_left--))
+    done
+    echo # Ensure the next message is on a new line
+}
+
+# Clear the screen and display animated title with warning
+clear
+animate_text "Container Updater - This process may take a long time. You have an option to exit or wait."
+echo "Press any key to exit or wait for the countdown."
+
+# Start countdown and wait for key press
+read -t 10 -n 1 -s -r -p "Press any key to exit or wait for the countdown to complete. " key_press
+if [ $? -eq 0 ]; then
+    echo -e "\nOperation aborted by the user."
+    exit 1
+else
+    animated_countdown
+fi
+
+# Proceed with the operation
+animate_text "Proceeding with the operation..."
+
+# Step 0: Remove the ~/pro/steam/build directory
+animate_text "Cleaning build directory by removing it..."
+rm -rf ~/pro/steam/build
+
+# Verify the directory doesn't exist
+if [ -d "~/pro/steam/build" ]; then
+    echo "The directory still exists. Please reboot your system and try again."
+    exit 1 # Exit the script with an error status
+else
+    animate_text "The directory has been successfully removed."
+fi
+
+# Step 1: Recreate the target directory
+mkdir -p ~/pro/steam/build
+animate_text "Recreated the build directory."
+
+# Step 2: Navigate to the directory
+cd ~/pro/steam/build
+
+# Step 3: Download the scripts from the GitHub repository using curl
+animate_text "Downloading scripts..."
+curl -L https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/compress.sh -o compress.sh
+curl -L https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/conty-start.sh -o conty-start.sh
+curl -L https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/create.sh -o create.sh
+
+# Step 4: Make the scripts executable
+chmod +x compress.sh conty-start.sh create.sh
+
+# Display animated messages and run scripts
+animate_text "Running create.sh..."
+./create.sh
+
+animate_text "Running compress.sh..."
+./compress.sh
+
+# Step 7: Check if conty.sh is successfully created and make it executable
+if [ -f "conty.sh" ]; then
+    chmod +x conty.sh
+    # Step 8: Move conty.sh to ~/pro/steam
+    mv conty.sh ~/pro/steam/
+    animate_text "conty.sh creation and move successful!"
+else
+    echo "conty.sh was not created."
+fi
+#!/bin/bash
+
+# Function to simulate animated text
+animate_text() {
+    local message="$1"
+    local delay=0.1
+    for (( i=0; i<${#message}; i++ )); do
+        echo -n "${message:$i:1}"
+        sleep $delay
+    done
+    echo # Move to a new line
+}
+
 # Clear the screen and display animated title
 clear
 animate_text "Container Updater"
@@ -56,6 +141,8 @@ if [ -f "conty.sh" ]; then
     # Step 8: Move conty.sh to ~/pro/steam
     mv conty.sh ~/pro/steam/
     animate_text "conty.sh creation and move successful!"
+    sleep 3
 else
     echo "conty.sh was not created."
+    sleep 3
 fi
