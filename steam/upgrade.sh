@@ -74,6 +74,7 @@ animate_text "Running compress.sh..."
 if [ -f "conty.sh" ]; then
     chmod +x conty.sh
     # Move conty.sh to ~/pro/steam
+    animate_text "moving: please wait"
     mv conty.sh ~/pro/steam/
     animate_text "conty.sh creation and move successful!"
 else
