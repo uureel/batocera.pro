@@ -13,7 +13,7 @@ animate_text() {
 
 # Animated title
 clear
-animate_text "Container Updater"
+animate_text "Container Updater -- This can take a while depending on CPU, Storage, and Download speeds"
 
 # Step 1: Create the target directory if it doesn't exist
 mkdir -p ~/pro/steam/build
