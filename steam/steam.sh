@@ -30,7 +30,7 @@ case $CHOICE in
         rm /userdata/roms/conty/*.sh
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/update_shortcuts.sh | bash
         ;;    
-    4)  echo "Update/Redownload Container..."
+    4)  echo "Update/Re-download Container..."
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/redownload.sh  | bash
         ;;
     *)
