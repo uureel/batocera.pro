@@ -13,7 +13,7 @@ animate_text() {
 
 # Clear the screen and display animated title
 clear
-animate_text "Container Updater"
+animate_text "Container Updater: Depending on CPU, Storage, and Download speed, this can take a while"
 
 # Step 0: Clean the ~/pro/steam/build directory first
 animate_text "Cleaning build directory..."
