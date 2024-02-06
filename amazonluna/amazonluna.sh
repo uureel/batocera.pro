@@ -16,8 +16,8 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >> 
 APPNAME=amazonluna 
-#APPLINK=https://github.com/zencodes1/amazonluna-linux/releases/download/release/amazonluna-electron-client.tar.xz
-APPLINK="$(curl -s https://api.github.com/repos/zencodes1/amazonluna-client/releases/latest | jq -r ".assets[] | select(.name | endswith(\".tar.xz\")) | .browser_download_url")"
+APPLINK=https://github.com/zencodes1/amazonluna-client/releases/download/release/amazonluna-electron-client.tar.xz
+#APPLINK="$(curl -s https://api.github.com/repos/zencodes1/amazonluna-client/releases/latest | jq -r ".assets[] | select(.name | endswith(\".tar.xz\")) | .browser_download_url")"
 APPHOME=github.com/zencodes1/amazonluna-linux
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
