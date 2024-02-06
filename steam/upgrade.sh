@@ -136,7 +136,7 @@ animate_text "Cleaning up"
 rm -rf ~/pro/steam/build
 echo "DONE"
 sleep 5
-
+killall -9 emulationstation
 
 
 else
