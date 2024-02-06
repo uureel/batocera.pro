@@ -37,16 +37,7 @@ cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/wait.mp
 
 # Step 1: Create base folder if not exists
 mkdir -p "$BASE_DIR"
-if [ ! -d "$BASE_DIR" ]; then
-  # Handle error or exit if necessary
-  echo "Error creating BASE_DIR."
-  exit 1
-fi
 
-# Step 2: Create home folder if not exists
-if [ ! -d "$HOME_DIR" ]; then
-  mkdir -p "$HOME_DIR"
-fi
    
 # Step 3: Download conty.sh with download percentage indicator
 wget batocera.pro/app/conty.sh -O ~/pro/steam/conty.sh 
