@@ -49,3 +49,35 @@ for file in "${sh_files[@]}"; do
   wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
   chmod +x "${target_directory}${file}"
 done
+
+
+# Target directory
+DIRECTORY="/userdata/roms/steam2"
+
+# Find and delete all .sh files within the specified directory
+find "$DIRECTORY" -type f -name "*.sh" -exec rm -f {} +
+
+echo "All .sh files in $DIRECTORY have been deleted."
+
+# URL of the .sh file to download
+FILE_URL="https://github.com/trashbus99/batocera-addon-scripts/raw/main/__REFRESH_ES_STEAM_GAMES__.sh"
+# Target file path
+TARGET_FILE="$DIRECTORY/__REFRESH_ES_STEAM_GAMES__.sh"
+
+# Download the file
+curl -L "$FILE_URL" -o "$TARGET_FILE"
+
+# Make the downloaded file executable
+chmod +x "$TARGET_FILE"
+
+echo "Downloaded and made executable: $TARGET_FILE"
+sleep2
+
+echo "refreshing steam list"
+/userdata/roms/steam2/__REFRESH_ES_STEAM_GAMES__.sh
+echo "done"
+sleep 2
+echo " Done. Reloading Emulationstation"
+killall -9 emulationstation
+sleep 2
+echo "Done"
