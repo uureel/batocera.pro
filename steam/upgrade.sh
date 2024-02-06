@@ -11,33 +11,30 @@ animate_text() {
     echo # Move to a new line
 }
 
-# Animated countdown function
-animated_countdown() {
+# Function for countdown with option to exit
+countdown() {
     local time_left=10
+    echo "You have $time_left seconds to press any key to exit. Waiting..."
     while [ $time_left -gt 0 ]; do
-        echo -ne "Starting in $time_left seconds... Press any key to exit.\r"
-        sleep 1
+        if read -t 1 -n 1; then
+            echo -e "\nOperation aborted by the user."
+            exit 1
+        fi
         ((time_left--))
+        echo -ne "Starting in $time_left seconds...\r"
     done
     echo # Ensure the next message is on a new line
 }
 
-# Clear the screen and display animated title with warning
+# Initial message
 clear
 animate_text "Container Updater - This process may take a long time. You have an option to exit or wait."
-echo "Press any key to exit or wait for the countdown."
+# Start countdown and provide an option to exit
+countdown
 
-# Start countdown and wait for key press
-read -t 10 -n 1 -s -r -p "Press any key to exit or wait for the countdown to complete. " key_press
-if [ $? -eq 0 ]; then
-    echo -e "\nOperation aborted by the user."
-    exit 1
-else
-    animated_countdown
-fi
-
-# Proceed with the operation
+# Proceed with the script operations
 animate_text "Proceeding with the operation..."
+
 
 # Step 0: Remove the ~/pro/steam/build directory
 animate_text "Cleaning build directory by removing it..."
