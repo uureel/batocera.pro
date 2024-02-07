@@ -100,6 +100,7 @@ sh_files=(
   "Gparted.sh"
   "Greenlight.sh"
   "Heroic Game Launcher.sh"
+  "Inkscape.sh" 
   "Kdenlive.sh"
   "Kodi.sh"
   "Libreoffice.sh"
