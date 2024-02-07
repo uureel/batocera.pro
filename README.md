@@ -65,7 +65,7 @@ OR<BR>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/plus/extra/icon.png" width=48 height=48 /><b><i>&nbsp;STEAM/HEROIC CONTAINER FOR BATOCERA PLUS</font></b></i><br>
-```curl -L plus.batocera.pro | bash`
+```curl -L plus.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/blender/extra/blender.png" width=48 height=48 /><b><i>&nbsp;BLENDER </font></b></i><br>
