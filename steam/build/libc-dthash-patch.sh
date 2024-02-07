@@ -44,5 +44,19 @@ dos2unix $f 2>/dev/null
 chmod 777 $f 2>/dev/null
 
 /tmp/fixlibc
+
+h=/tmp/hash && rm $h 2>/dev/null
+readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
+	if [[ "$(cat $h | grep '(HASH)')" != "" ]] && [[ "$(cat $h | grep '(GNU_HASH)')" != "" ]]; then
+		echo
+		echo "PATCHED OK!"
+		echo
+	else
+		echo
+		echo "LOOKS LIKE PATCH FAILED..."
+		echo	
+	fi
 rm $f 2>/dev/null
+rm $h 2>/dev/null
+
 #exit

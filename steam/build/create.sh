@@ -403,55 +403,6 @@ find "${bootstrap}"/var/lib/flatpak/app -type f -name 'bin_steam.sh' -exec sed -
 sed -i 's,os.geteuid() == 0,os.geteuid() == 888,g' "${bootstrap}"/usr/lib/python3.11/site-packages/lutris/gui/application.py 2>/dev/null
 sed -i 's/geteuid/getppid/' "${bootstrap}"/usr/sbin/vlc 2>/dev/null
 
-# Fix GCC GNU_HASH
-ver=$(ldd --version | head -n1 | rev | awk '{print $1}' | rev)
-echo -e "\n\nPREPARING LIBC $ver DT_HASH FIX FOR STEAM...\n\n"
-
-f=/tmp/fixlibc
-rm $f 2>/dev/null
-
-echo '#!/bin/bash' >> $f
-echo "ver=$ver" >> $f
-echo 'mkdir ~/build 2>/dev/null && rm -rf ~/build/glibc && cd ~/build' >> $f
-echo 'git clone https://sourceware.org/git/glibc.git ~/build/glibc' >> $f
-echo 'cd ~/build/glibc' >> $f
-echo "git checkout glibc-$ver" >> $f
-echo 'mkdir ~/build/glibc/build && cd ~/build/glibc/build' >> $f
-echo 'echo -e "\n\nCONFIGURING...\n\n"' >> $f
-echo 'export CFLAGS="$CFLAGS -O3 -fno-stack-protector -fno-PIC -D_FORTIFY_SOURCE=0"' >> $f
-echo 'export LDFLAGS="$LDFLAGS -Wl,--hash-style=both -Wl,-z,norelro"' >> $f
-echo 'export LDFLAGS.so="-Wl,--hash-style=both -Wl,-z,norelro"' >> $f
-echo 'export LDFLAGS-rtld="-Wl,--hash-style=both -Wl,-z,norelro"' >> $f
-echo '../configure \' >> $f
-echo '    --prefix=/usr \' >> $f
-echo '    --with-headers=/usr/include \' >> $f
-echo '    --with-bugurl=https://bugs.archlinux.org/ \' >> $f
-echo '    --enable-bind-now \' >> $f
-echo '    --enable-cet \' >> $f
-echo '    --enable-kernel=4.4 \' >> $f
-echo '    --enable-multi-arch \' >> $f
-echo '    --disable-stack-protector \' >> $f
-echo '    --enable-systemtap \' >> $f
-echo '    --disable-crypt \' >> $f
-echo '    --disable-profile \' >> $f
-echo '    --disable-werror \' >> $f
-echo '    --libdir=/usr/lib \' >> $f
-echo '    --libexecdir=/usr/lib' >> $f
-echo 'echo -e "\n\nCOMPILING...\n\n"' >> $f
-echo "make -j$(nproc)" >> $f
-echo 'echo -e "\n\nINSTALLING...\n\n"' >> $f
-echo 'sudo make install' >> $f
-echo 'cd ~/' >> $f
-echo 'rm -rf ~/build/glibc' >> $f
-
-dos2unix $f 2>/dev/null
-chmod 777 $f 2>/dev/null
-
-/tmp/fixlibc
-rm $f 2>/dev/null
-#exit
-
-
 # Fix steam ctrl+click openbox bug
 # --
 # Include steamfixer.sh as /usr/bin/steamfixer
@@ -466,6 +417,17 @@ steamfixer="${bootstrap}"/usr/bin/steamfixer
 steamfix="${bootstrap}"/usr/bin/steamfix
 	rm "$steamfix" 2>/dev/null
 	wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$steamfix" "https://raw.githubusercontent.com/trashbus99/Conty/master/steamfix.sh"
+		dos2unix "$steamfix" 2>/dev/null
+		chmod 777 "$steamfix" 2>/dev/null
+		chown -R batocera:batocera "$steamfix" 2>/dev/null
+# --
+# Include steamlauncher as /usr/bin/steamlauncher
+f="${bootstrap}"/usr/bin/steamlauncher
+	rm "$f" 2>/dev/null
+	echo '#!/bin/bash' >> $f
+	echo 'killall -9 steam steamfix steamfixer 2>/dev/null' >> $f
+	echo 'nohup /usr/bin/steamfixer 1>/dev/null 2>/dev/null & disown &' >> $f
+	echo '/usr/bin/steam' >> $f
 		dos2unix "$steamfix" 2>/dev/null
 		chmod 777 "$steamfix" 2>/dev/null
 		chown -R batocera:batocera "$steamfix" 2>/dev/null
@@ -514,3 +476,63 @@ if [ -f "${bootstrap}"/opt/bad_aur_pkglist.txt ]; then
 	cat "${bootstrap}"/opt/bad_aur_pkglist.txt
 	rm "${bootstrap}"/opt/bad_aur_pkglist.txt
 fi
+
+######################
+######################
+##                  ##
+##   ENTER CHROOT   ##
+##                  ##
+######################
+######################
+
+# Root rights are required
+
+if [ $EUID != 0 ]; then
+    echo "Root rights are required!"
+
+    exit 1
+fi
+
+script_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+bootstrap="${script_dir}"/root.x86_64
+
+if [ ! -d "${bootstrap}" ]; then
+    echo "Bootstrap is missing"
+    exit 1
+fi
+
+# First unmount just in case
+umount -Rl "${bootstrap}"
+
+mount --bind "${bootstrap}" "${bootstrap}"
+mount -t proc /proc "${bootstrap}"/proc
+mount --bind /sys "${bootstrap}"/sys
+mount --make-rslave "${bootstrap}"/sys
+mount --bind /dev "${bootstrap}"/dev
+mount --bind /dev/pts "${bootstrap}"/dev/pts
+mount --bind /dev/shm "${bootstrap}"/dev/shm
+mount --make-rslave "${bootstrap}"/dev
+
+rm -f "${bootstrap}"/etc/resolv.conf
+cp /etc/resolv.conf "${bootstrap}"/etc/resolv.conf
+
+mkdir -p "${bootstrap}"/run/shm
+
+echo "Entering chroot"
+
+# ------------------------------------------------------------------------------------------
+# REBUILD LIBC WITH DT_HASH PATCH
+chroot "${bootstrap}" \
+/usr/bin/env LANG=en_US.UTF-8 TERM=xterm PATH="/bin:/sbin:/usr/bin:/usr/sbin" /bin/bash -c \
+"curl -Ls https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/libc-dthash-patch.sh | bash && exit"
+# ------------------------------------------------------------------------------------------
+
+echo "Exiting chroot"
+
+umount -l "${bootstrap}"
+umount "${bootstrap}"/proc
+umount "${bootstrap}"/sys
+umount "${bootstrap}"/dev/pts
+umount "${bootstrap}"/dev/shm
+umount "${bootstrap}"/dev
