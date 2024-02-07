@@ -428,9 +428,9 @@ f="${bootstrap}"/usr/bin/steamlauncher
 	echo 'killall -9 steam steamfix steamfixer 2>/dev/null' >> $f
 	echo 'nohup /usr/bin/steamfixer 1>/dev/null 2>/dev/null & disown &' >> $f
 	echo '/usr/bin/steam' >> $f
-		dos2unix "$steamfix" 2>/dev/null
-		chmod 777 "$steamfix" 2>/dev/null
-		chown -R batocera:batocera "$steamfix" 2>/dev/null
+		chown -R batocera:batocera "$f" 2>/dev/null
+		dos2unix "$f" 2>/dev/null
+		chmod 777 "$f" 2>/dev/null
 # --
 # Include xbindkeys profile
 home="${HOME}"
