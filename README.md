@@ -64,7 +64,7 @@ OR<BR>
 ```curl -L balena.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/icon.png" width=48 height=48 /><img src="https://github.com/uureel/batocera.pro/raw/main/heroic/icon.png" width=48 height=48 />--><img src="https://github.com/uureel/batocera.pro/raw/main/plus/extra/icon.png" width=48 height=48 /><b><i>&nbsp;STEAM/HEROIC CONTAINER FOR BATOCERA PLUS ONLY</font></b></i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/icon.png" width=48 height=32 /><img src="https://github.com/uureel/batocera.pro/raw/main/heroic-container/icon.png" width=48 height=32 /> --> <img src="https://github.com/uureel/batocera.pro/raw/main/plus/extra/icon.png" width=48 height=48 /><b><i>&nbsp;STEAM/HEROIC CONTAINER FOR BATOCERA PLUS ONLY</font></b></i><br>
 ```curl -L plus.batocera.pro | bash```
 <br>
 <br>
