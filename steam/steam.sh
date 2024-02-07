@@ -3,12 +3,14 @@
 # Define the options
 OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
          "2" "Uninstall Steam/Lutris/Heroic Game Launcher Container"
-         "3" "Update Launcher shortcuts for emulationstation Arch container")
-
+         "3" "Update Launcher shortcuts for emulationstation Arch container"
+         "4" "Re-download container"
+         "5" "Rebuild and Update apps on container (experimental)")
+         
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
                 --title "Main Menu" \
-                --menu "Choose an option:" 15 50 3 \
+                --menu "Choose an option:" 15 75 3 \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
@@ -29,6 +31,12 @@ case $CHOICE in
         rm /userdata/roms/conty/*.sh
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/update_shortcuts.sh | bash
         ;;    
+    4)  echo "Update/Re-download Container..."
+        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/redownload.sh  | bash
+        ;;
+    5)  echo "Update Conty Container..."
+        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/upgrade.sh  | bash
+        ;;
     *)
         echo "No valid option selected or cancelled. Exiting."
         ;;

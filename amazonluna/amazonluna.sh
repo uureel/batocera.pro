@@ -16,9 +16,9 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >> 
 APPNAME=amazonluna 
-#APPLINK=https://github.com/zencodes1/amazonluna-linux/releases/download/release/amazonluna-electron-client.tar.xz
-APPLINK="$(curl -s https://api.github.com/repos/zencodes1/amazonluna-linux/releases/latest | jq -r ".assets[] | select(.name | endswith(\".tar.xz\")) | .browser_download_url")"
-APPHOME=github.com/zencodes1/amazonluna-linux
+APPLINK=https://github.com/zencodes1/amazonluna-client/releases/download/release/amazonluna-electron-client.tar.xz
+#APPLINK="$(curl -s https://api.github.com/repos/zencodes1/amazonluna-client/releases/latest | jq -r ".assets[] | select(.name | endswith(\".tar.xz\")) | .browser_download_url")"
+APPHOME=github.com/zencodes1/amazonluna-client
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
 COMMAND='sysctl -w vm.max_map_count=2097152; ulimit -H -n 819200; ulimit -S -n 819200; ulimit -S -n 819200 AmazonLuna; ulimit -H -l 61634; ulimit -S -l 61634; ulimit -H -s 61634; ulimit -S -s 61634; mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home XDG_CURRENT_DESKTOP=XFCE DESKTOP_SESSION=XFCE DISPLAY=:0.0 LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" /userdata/system/pro/amazonluna/AmazonLuna --no-sandbox --test-type ${@}'
