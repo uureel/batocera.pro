@@ -322,8 +322,12 @@ dos2unix $port
 chmod a+x $port 
 cp $port "/userdata/roms/ports/$appname.sh" 
 # --------------------------------------------------------------------
-# -- get padtokey profile 
-#
+# -- get padtokey profile
+keys="/userdata/roms/ports/$appname.sh.keys"
+if [[ ! -s "$keys" ]]; then
+  wget --tries=10 --no-check-certificate --no-cache --no-cookies -q -O "$keys" "https://raw.githubusercontent.com/uureel/batocera.pro/main/xcloud/extra/xcloud.sh.keys"
+  dos2unix "$keys" 2>/dev/null
+fi
 # --------------------------------------------------------------------
 # -- prepare prelauncher to avoid overlay,
 pre=/userdata/system/pro/$appname/extra/startup
