@@ -35,18 +35,18 @@ devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
 # Apart from packages from the official Arch repos, you can also specify
 # packages from the Chaotic-AUR repo
 export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
-	nano ttf-dejavu ttf-liberation steam firefox mpv geany pcmanfm \
-        htop qbittorrent speedcrunch lib32-libpulse lib32-alsa-plugins file-roller xorg-xwayland \
+	nano ttf-dejavu ttf-liberation steam firefox mpv pcmanfm \
+        htop qbittorrent  neofetch xorg-xwayland kdenlive \
         steam-native-runtime gamemode lib32-gamemode jre-openjdk lxterminal \
-        steamtinkerlaunch mangohud lib32-mangohud kodi\
-        qt5-wayland xorg-server-xephyr openbox lutris \
+        steamtinkerlaunch mangohud shotcut thunderbird npm gimp audacity thunderbird lib32-mangohud kodi\
+        qt5-wayland xorg-server-xephyr inkscape openbox lutris virtualbox \
         obs-studio gamehub minigalaxy legendary gamescope yt-dlp \
         playonlinux minizip flatpak libreoffice xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="bottles heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
 protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui  \
-winegui-bin  protontricks greenlight-beta-appimage zoom \
+winegui-bin  protontricks greenlight-beta-appimage ytdownloader-gui-bin zoom visual-studio-code-bin\
 etcher-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
 
 # ALHP is a repository containing packages from the official Arch Linux
