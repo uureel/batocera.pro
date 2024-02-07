@@ -28,6 +28,7 @@ xbind=/userdata/system/.xbindkeysrc
 
 unclutter-remote -s
 
-su - batocera -c "DISPLAY=:0.0 /userdata/system/pro/steam/conty.sh steamfix & DISPLAY=:0.0 HOME_DIR=/userdata/system/pro/steam/home /userdata/system/pro/steam/conty.sh dbus-run-session steam"
+#su - batocera -c "DISPLAY=:0.0 /userdata/system/pro/steam/conty.sh steamfix & DISPLAY=:0.0 HOME_DIR=/userdata/system/pro/steam/home /userdata/system/pro/steam/conty.sh dbus-run-session steam"
+ALLOW_ROOT=1 DISPLAY=:0.0 /userdata/system/pro/steam/conty.sh --bind /userdata ~/userdata dbus-run-session steamlauncher
 
 unclutter-remote -h
