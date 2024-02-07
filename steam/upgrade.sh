@@ -44,7 +44,7 @@ if [ -d "~/pro/steam/build" ]; then
     echo "The directory still exists. Please reboot your system and try again."
     exit 1
 else
-    animate_text "The directory has been successfully removed."
+    animate_text "..."
 fi
 
 # Recreate the target directory
