@@ -88,6 +88,5 @@ echo "refreshing steam list"
 echo "done"
 sleep 2
 echo " Done. Reloading Emulationstation"
-killall -9 emulationstation
 sleep 2
 echo "Done"
