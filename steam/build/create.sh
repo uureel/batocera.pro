@@ -426,7 +426,7 @@ f="${bootstrap}"/usr/bin/steamlauncher
 	rm "$f" 2>/dev/null
 	echo '#!/bin/bash' >> $f
 	echo 'killall -9 steam steamfix steamfixer 2>/dev/null' >> $f
-	echo 'nohup /usr/bin/steamfixer 1>/dev/null 2>/dev/null & disown &' >> $f
+	echo 'nohup /usr/bin/steamfixer 1>/dev/null 2>/dev/null &' >> $f
 	echo '/usr/bin/steam' >> $f
 		chown -R batocera:batocera "$f" 2>/dev/null
 		dos2unix "$f" 2>/dev/null
