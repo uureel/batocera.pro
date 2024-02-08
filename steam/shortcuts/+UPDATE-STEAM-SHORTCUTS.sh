@@ -43,4 +43,4 @@ ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh steam $steam_url_part -gamepadui"
     echo "Script created: $script_path"
 done < "$steam_list_file"
 echo "Script execution completed. Check $output_file for the result."
-killall -9 emulationation 
+killall -9 emulationstation
