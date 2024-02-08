@@ -82,11 +82,9 @@ chmod +x "$TARGET_FILE"
 
 echo "Downloaded and made executable: $TARGET_FILE"
 sleep2
+echo "Downloading Parser"
+wget https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/--UPDATE-STEAM-SHORTCUTS--.sh -P /userdata/roms/steam2/
+ 
 
-echo "refreshing steam list"
-/userdata/roms/steam2/__REFRESH_ES_STEAM_GAMES__.sh
-echo "done"
-sleep 2
-echo " Done. Reloading Emulationstation"
 sleep 2
 echo "Done"
