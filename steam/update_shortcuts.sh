@@ -78,6 +78,8 @@ chmod +x "$TARGET_FILE"
 
 echo "Downloaded and made executable: $TARGET_FILE"
 sleep2
+
+rm -rf /userdata/roms/steam2/*.sh
 echo "Downloading Parser"
 wget https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh -P /userdata/roms/steam2/
 chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
