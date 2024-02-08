@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Specify the directory to scan and the output file
-directory_to_scan="/userdata/system/pro/steam/home/.local/share/applications"
+directory_to_scan="~/.local/share/applications"
 output_file="/userdata/system/pro/steam/steam_list.txt"
 
 # Check if the directory exists
