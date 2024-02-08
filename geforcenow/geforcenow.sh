@@ -16,7 +16,8 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >> 
 APPNAME=geforcenow 
-APPLINK=$(curl -s https://api.github.com/repos/hmlendea/gfn-electron/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
+#APPLINK=$(curl -s https://api.github.com/repos/hmlendea/gfn-electron/releases | grep AppImage | grep "browser_download_url" | head -n 1 | sed 's,^.*https://,https://,g' | cut -d \" -f1)
+APPLINK=http://batocera.pro/app/geforcenow.AppImage
 APPHOME="github.com/hmlendea/gfn-electron" 
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
