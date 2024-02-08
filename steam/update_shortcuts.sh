@@ -69,10 +69,6 @@ find "$DIRECTORY" -type f -name "*.sh" -exec rm -f {} +
 
 echo "All .sh files in $DIRECTORY have been deleted."
 
-# URL of the .sh file to download
-FILE_URL="https://github.com/trashbus99/batocera-addon-scripts/raw/main/__REFRESH_ES_STEAM_GAMES__.sh"
-# Target file path
-TARGET_FILE="$DIRECTORY/__REFRESH_ES_STEAM_GAMES__.sh"
 
 # Download the file
 curl -L "$FILE_URL" -o "$TARGET_FILE"
@@ -87,3 +83,5 @@ wget https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/
 chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
 sleep 2
 echo "Done"
+# Reload ES after installations
+curl http://127.0.0.1:1234/reloadgames
