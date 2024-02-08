@@ -35,9 +35,9 @@ while IFS= read -r line; do
     # Create the script content
     script_content="#!/bin/bash
     unclutter-remote -s
-ALLOW_ROOT=1  DISPLAY=:0.0 ~/pro/steam/conty.sh steam $steam_url_part -gamepadui\
+ALLOW_ROOT=1  DISPLAY=:0.0 ~/pro/steam/conty.sh steam $steam_url_part -gamepadui\ &&
 
-echo "starting""
+echo "exiting""
 
     # Create the script file
     script_path="/userdata/roms/steam2/$game_name.sh"
