@@ -27,6 +27,7 @@ xbind=/userdata/system/.xbindkeysrc
   chown -R batocera:batocera "$xbind" 2>/dev/null
 
 eval $(dbus-launch --sh-syntax)
+sysctl -w vm.max_map_count=2147483642
 ulimit -H -n 819200
 ulimit -S -n 819200
 
