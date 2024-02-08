@@ -13,5 +13,8 @@ dir3=/userdata/system/.cache
 mkdir -p $dir1 $dir2 $dir3 2>/dev/null
 chown -R batocera:batocera $dir1 $dir2 $dir3 2>/dev/null
 
-#su - batocera -c "dbus-launch --sh-syntax & DISPLAY=:0.0 HOME_DIR=/userdata/system/pro/steam/home ~/pro/steam/conty.sh dbus-run-session steam -gamepadui"
+eval $(dbus-launch --sh-syntax)
+ulimit -H -n 819200
+ulimit -S -n 819200
+
 ALLOW_ROOT=1 DISPLAY=:0.0 /userdata/system/pro/steam/conty.sh dbus-run-session steam -gamepadui "${@}"

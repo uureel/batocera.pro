@@ -26,9 +26,12 @@ xbind=/userdata/system/.xbindkeysrc
   echo '  b:1 + Release' >> $xbind
   chown -R batocera:batocera "$xbind" 2>/dev/null
 
+eval $(dbus-launch --sh-syntax)
+ulimit -H -n 819200
+ulimit -S -n 819200
+
 unclutter-remote -s
 
-#su - batocera -c "DISPLAY=:0.0 /userdata/system/pro/steam/conty.sh steamfix & DISPLAY=:0.0 HOME_DIR=/userdata/system/pro/steam/home /userdata/system/pro/steam/conty.sh dbus-run-session steam"
 ALLOW_ROOT=1 DISPLAY=:0.0 /userdata/system/pro/steam/conty.sh dbus-run-session steamlauncher "${@}"
 
 unclutter-remote -h

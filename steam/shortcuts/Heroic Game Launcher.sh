@@ -11,6 +11,10 @@ dir3=/userdata/system/.cache
 mkdir -p $dir1 $dir2 $dir3 2>/dev/null
 chown -R batocera:batocera $dir1 $dir2 $dir3 2>/dev/null
 
+eval $(dbus-launch --sh-syntax)
+ulimit -H -n 819200
+ulimit -S -n 819200
+
 unclutter-remote -s
 
 ALLOW_ROOT=1 DISPLAY=:0.0 HOME_DIR=/userdata/system/pro/steam/home ~/pro/steam/conty.sh heroic --no-sandbox "${@}"
