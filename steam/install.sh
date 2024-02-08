@@ -182,9 +182,9 @@ sleep 3
 # Step 7: Make /userdata/roms/steam2 folder if it doesn't exist and download parser
 
 # Define variables
-FILE_URL="https://github.com/trashbus99/batocera-addon-scripts/raw/main/__REFRESH_ES_STEAM_GAMES__.sh"
+FILE_URL="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/%23%23UPDATE-STEAM-SHORTCUTS%23%23"
 DOWNLOAD_DIR="/userdata/roms/steam2"
-SCRIPT_NAME="__REFRESH_ES_STEAM_GAMES__.sh"
+SCRIPT_NAME="##UPDATE-STEAM-SHORTCUTS##"
 
 # Create directory if it doesn't exist
 mkdir -p "$DOWNLOAD_DIR"
