@@ -144,10 +144,6 @@ fi
 
 # Install selected apps
 for choice in $choices; do
-    # echo "Installing $choice..."
-    
-    # Download and execute the installation script
-    # applink="$(echo "${apps[$choice]}" | sed 's,curl -Ls ,,g' | sed 's, | bash,,g')"
     applink="$(echo "${apps[$choice]}" | awk '{print $3}')"
     rm /tmp/.app 2>/dev/null
     wget --tries=10 --no-check-certificate --no-cache --no-cookies -q -O "/tmp/.app" "$applink"
@@ -155,13 +151,15 @@ for choice in $choices; do
         dos2unix /tmp/.app 2>/dev/null
         chmod 777 /tmp/.app 2>/dev/null
         clear
-        bash /tmp/.app 
+        # Run installer w/o refreshing ES
+        sed 's,:1234,,g' /tmp/.app | bash
         echo -e "\n\n$choice DONE.\n\n"
     else 
         echo "Error: couldn't download installer for ${apps[$choice]}"
     fi
-
 done
 
-echo "Exiting."
+# Reload ES after installations
+curl http://127.0.0.1:1234/reloadgames
 
+echo "Exiting."
