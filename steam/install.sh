@@ -190,7 +190,10 @@ SCRIPT_NAME="##UPDATE-STEAM-SHORTCUTS##"
 mkdir -p "$DOWNLOAD_DIR"
 
 # Download the file
-wget "$FILE_URL" -P "$DOWNLOAD_DIR"
+clear
+echo "Downloading Parser"
+wget https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh -P /userdata/roms/steam2/
+chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
 
 
 
@@ -198,7 +201,8 @@ wget "$FILE_URL" -P "$DOWNLOAD_DIR"
 chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
 
 # Step 8: Download ES custom Steam2 & conty/Arch system .cfgs to ~/configs/emulationstation
-
+clear
+echo "Downloading ES Systems"
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_arch.cfg -P ~/configs/emulationstation
 wget https://github.com/trashbus99/batocera-addon-scripts/raw/main/es_systems_steam2.cfg -P ~/configs/emulationstation
 
