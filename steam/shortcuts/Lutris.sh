@@ -16,4 +16,4 @@ eval $(dbus-launch --sh-syntax)
 unclutter-remote -s
 
 #su - batocera -c "HOME_DIR=\"/userdata/system/pro/steam/home\" DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session lutris"
-ALLOW_ROOT=1 HOME_DIR=/userdata/system/pro/steam/home DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session lutris "${@}"
+ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session lutris "${@}"
