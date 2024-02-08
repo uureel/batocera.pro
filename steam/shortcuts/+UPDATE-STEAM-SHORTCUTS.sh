@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # Specify the directory to scan and the output file
 directory_to_scan="/userdata/system/.local/share/applications"
@@ -32,25 +31,16 @@ while IFS= read -r line; do
     game_name=$(echo "$line" | awk -F ' steam ' '{print $1}')
     steam_url_part=$(echo "$line" | awk -F ' steam ' '{print $2}')
 
-    # Create the script content
+    # Create the script content without an undesired trailing quote
     script_content="#!/bin/bash
-    unclutter-remote -s
-ALLOW_ROOT=1  DISPLAY=:0.0 ~/pro/steam/conty.sh steam $steam_url_part -gamepadui\ &&
-
-echo "exiting""
+unclutter-remote -s
+ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh steam $steam_url_part -gamepadui"
 
     # Create the script file
     script_path="/userdata/roms/steam2/$game_name.sh"
     echo "$script_content" > "$script_path"
     chmod +x "$script_path"
     echo "Script created: $script_path"
-echo "Script execution completed. Check $output_file for the result."
 done < "$steam_list_file"
-
-# Reload ES after installations
-killall -9 emulationstation
-
-
-
-
-
+echo "Script execution completed. Check $output_file for the result."
+killall emulationation -9
