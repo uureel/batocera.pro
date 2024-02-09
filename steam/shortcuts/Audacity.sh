@@ -1,9 +1,10 @@
 #!/bin/bash
-mkdir -p ~/.local
-chmod 777 ~/.local
+home=/userdata/system/pro/steam/home
+mkdir -p ~/.local /home $home 2>/dev/null
+ln -s /userdata/system /home/root 2>/dev/null
+chmod -R 777 /var/run/pulse
 chmod 777 ~/.local/*
-chown -R root:audio /var/run/pulse
-chmod -R g+rwX /var/run/pulse
+chmod 777 ~/.local
 
 unclutter-remote -s
 
@@ -14,4 +15,5 @@ mkdir -p $dir1 $dir2 $dir3 2>/dev/null
 chown -R batocera:batocera $dir1 $dir2 $dir3 2>/dev/null
 
 eval $(dbus-launch --sh-syntax)
-su - batocera -c "HOME_DIR=\"/userdata/system/pro/steam/home\" DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session audacity"
+
+ALLOW_ROOT=1 HOME_DIR=$home DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session audacity
