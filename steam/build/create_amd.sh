@@ -403,6 +403,9 @@ touch "${bootstrap}"/etc/asound.conf
 touch "${bootstrap}"/etc/localtime
 chmod 755 "${bootstrap}"/root
 
+# Enable full font hinting
+rm -f "${bootstrap}"/etc/fonts/conf.d/10-hinting-slight.conf
+ln -s /usr/share/fontconfig/conf.avail/10-hinting-full.conf "${bootstrap}"/etc/fonts/conf.d
 
 clear
 
@@ -412,7 +415,62 @@ find "${bootstrap}"/var/lib/flatpak/app -type f -name 'bin_steam.sh' -exec sed -
 sed -i 's,os.geteuid() == 0,os.geteuid() == 888,g' "${bootstrap}"/usr/lib/python3.11/site-packages/lutris/gui/application.py 2>/dev/null
 sed -i 's/geteuid/getppid/' "${bootstrap}"/usr/sbin/vlc 2>/dev/null
 
-
+# Fix steam ctrl+click openbox bug
+# --
+# Include steamfixer.sh as /usr/bin/steamfixer
+steamfixer="${bootstrap}"/usr/bin/steamfixer
+	rm "$steamfixer" 2>/dev/null
+	wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$steamfixer" "https://raw.githubusercontent.com/trashbus99/Conty/master/steamfixer.sh"
+		dos2unix "$steamfixer" 2>/dev/null
+		chmod 777 "$steamfixer" 2>/dev/null
+		chown -R batocera:batocera "$steamfixer" 2>/dev/null
+# --
+# Include steamfix.sh as /usr/bin/steamfix
+steamfix="${bootstrap}"/usr/bin/steamfix
+	rm "$steamfix" 2>/dev/null
+	wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$steamfix" "https://raw.githubusercontent.com/trashbus99/Conty/master/steamfix.sh"
+		dos2unix "$steamfix" 2>/dev/null
+		chmod 777 "$steamfix" 2>/dev/null
+		chown -R batocera:batocera "$steamfix" 2>/dev/null
+# --
+# Include steamlauncher as /usr/bin/steamlauncher
+f="${bootstrap}"/usr/bin/steamlauncher
+	rm "$f" 2>/dev/null
+	echo '#!/bin/bash' >> $f
+	echo 'killall -9 steam steamfix steamfixer 2>/dev/null' >> $f
+	echo 'nohup /usr/bin/steamfixer 1>/dev/null 2>/dev/null &' >> $f
+	echo '/usr/bin/steam' >> $f
+		chown -R batocera:batocera "$f" 2>/dev/null
+		dos2unix "$f" 2>/dev/null
+		chmod 777 "$f" 2>/dev/null
+# --
+# Include xbindkeys profile
+home="${HOME}"
+xbind="${HOME}/.xbindkeysrc"
+	rm "$xbind" 2>/dev/null
+	mkdir -p "$home" 2>/dev/null
+		echo '# .xbindkeysrc' >> "$xbind"
+		echo '"xdotool keydown ctrl click 1 keyup ctrl"' >> "$xbind"
+		echo '  b:1 + Release' >> "$xbind"
+		chown -R batocera:batocera "$xbind" 2>/dev/null
+# --
+home="${bootstrap}/home/batocera"
+xbind="${bootstrap}/home/batocera/.xbindkeysrc"
+	rm "$xbind" 2>/dev/null
+	mkdir -p "$home" 2>/dev/null
+		echo '# .xbindkeysrc' >> "$xbind"
+		echo '"xdotool keydown ctrl click 1 keyup ctrl"' >> "$xbind"
+		echo '  b:1 + Release' >> "$xbind"
+		chown -R batocera:batocera "$xbind" 2>/dev/null
+		chown -R batocera:batocera "${bootstrap}/home/batocera" 2>/dev/null
+# --
+# Include dbus fix (dbus session)
+dbus="${bootstrap}/usr/bin/dbus"
+	rm "$dbus" 2>/dev/null
+		echo '#!/bin/bash' >> "$dbus"
+		echo 'eval "$(dbus-launch --sh-syntax)' >> "$dbus"
+		dos2unix "$dbus" 2>/dev/null && chmod 777 "$dbus" 2>/dev/null
+		chown -R batocera:batocera "$dbus" 2>/dev/null
 
 echo "Done"
 
@@ -431,7 +489,58 @@ if [ -f "${bootstrap}"/opt/bad_aur_pkglist.txt ]; then
 	rm "${bootstrap}"/opt/bad_aur_pkglist.txt
 fi
 
+######################
+######################
+##                  ##
+##   ENTER CHROOT   ##
+##                  ##
+######################
+######################
 
+# Root rights are required
+
+if [ $EUID != 0 ]; then
+    echo "Root rights are required!"
+
+    exit 1
+fi
+
+script_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+bootstrap="${script_dir}"/root.x86_64
+
+if [ ! -d "${bootstrap}" ]; then
+    echo "Bootstrap is missing"
+    exit 1
+fi
+
+# First unmount just in case
+umount -Rl "${bootstrap}"
+
+mount --bind "${bootstrap}" "${bootstrap}"
+mount -t proc /proc "${bootstrap}"/proc
+mount --bind /sys "${bootstrap}"/sys
+mount --make-rslave "${bootstrap}"/sys
+mount --bind /dev "${bootstrap}"/dev
+mount --bind /dev/pts "${bootstrap}"/dev/pts
+mount --bind /dev/shm "${bootstrap}"/dev/shm
+mount --make-rslave "${bootstrap}"/dev
+
+rm -f "${bootstrap}"/etc/resolv.conf
+cp /etc/resolv.conf "${bootstrap}"/etc/resolv.conf
+
+mkdir -p "${bootstrap}"/run/shm
+
+echo "Entering chroot"
+
+# ------------------------------------------------------------------------------------------
+# REBUILD LIBC WITH DT_HASH PATCH
+chroot "${bootstrap}" \
+/usr/bin/env LANG=en_US.UTF-8 TERM=xterm PATH="/bin:/sbin:/usr/bin:/usr/sbin" /bin/bash -c \
+"curl -Ls https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/libc-dthash-patch.sh | bash && exit"
+# ------------------------------------------------------------------------------------------
+
+echo "Exiting chroot"
 
 umount -l "${bootstrap}"
 umount "${bootstrap}"/proc
