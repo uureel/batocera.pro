@@ -5,6 +5,10 @@ ln -s /userdata/system /home/root 2>/dev/null
 chmod -R 777 /var/run/pulse
 chmod 777 ~/.local/*
 chmod 777 ~/.local
+chown root:root $home 2>/dev/null
+chown root:root /home 2>/dev/null
+chown root:root /home/root 2>/dev/null
+chown root:root /home/root/.config 2>/dev/null
 
 unclutter-remote -s
 
@@ -16,4 +20,4 @@ chown -R batocera:batocera $dir1 $dir2 $dir3 2>/dev/null
 
 eval $(dbus-launch --sh-syntax)
 
-ALLOW_ROOT=1 HOME_DIR=$home DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session thunderbird
+ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session thunderbird "${@}"

@@ -19,4 +19,4 @@ ulimit -S -n 819200
 
 unclutter-remote -s
 
-ALLOW_ROOT=1 DISPLAY=:0.0 HOME_DIR=$home ~/pro/steam/conty.sh heroic --no-sandbox "${@}"
+ALLOW_ROOT=1 DISPLAY=:0.0 HOME_DIR=$home ~/pro/steam/conty.sh dbus-run-session heroic --no-sandbox --test-type "${@}"
