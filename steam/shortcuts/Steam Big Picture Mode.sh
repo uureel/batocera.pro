@@ -1,17 +1,29 @@
 #!/bin/bash
-mkdir -p ~/.local
-chmod 777 ~/.local
+mkdir -p ~/.local/share/Conty
 chmod 777 ~/.local/*
-chown -R root:audio /var/run/pulse
-chmod -R g+rwX /var/run/pulse
+chmod 777 ~/.local
 
-unclutter-remote -s
+echo -e "\nstarting steam...\n"
+export DISPLAY=:0.0
+killall -9 steam steamfix steamfixer 2>/dev/null
+sleep 0.5
 
+# Fix audio permissions
+chmod -R 777 /var/run/pulse 2>/dev/null
+
+# Fix directories permissions
 dir1=/userdata/system/pro/steam/home
 dir2=/userdata/system/.local/share/Conty
-dir3=/userdata/system/.cache
-mkdir -p $dir1 $dir2 $dir3 2>/dev/null
-chown -R batocera:batocera $dir1 $dir2 $dir3 2>/dev/null
+  mkdir -p $dir1 $dir2 2>/dev/null
+  chmod 777 $dir1 $dir2 2>/dev/null
+
+# Fix ctrl+click bug in openbox
+f=/userdata/system/.xbindkeysrc
+  rm $f 2>/dev/null
+  echo '# .xbindkeysrc' >> $f
+  echo '"xdotool keydown ctrl click 1 keyup ctrl"' >> $f
+  echo '  b:1 + Release' >> $f
+  chmod 777 $f 2>/dev/null
 
 eval $(dbus-launch --sh-syntax)
 sysctl -w vm.max_map_count=2147483642
