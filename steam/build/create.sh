@@ -399,6 +399,7 @@ clear
 
 # Fix apps (steam/lutris/vlc) to run as root
 find "${bootstrap}"/var/lib/flatpak/app -type f -name 'bin_steam.sh' -exec sed -i 's,id -u)" == "0",id -u)" == "888",g' {} + 2>/dev/null
+sed -i 's/os.popen("id -u").read() == "0\\n"/os.popen("id -u").read() == "888\\n"/g; s/os.popen("id -u").read() == "0"/os.popen("id -u").read() == "888"/g' "${bootstrap}"/usr/share/playonlinux4/python/mainwindow.py 2>/dev/null
 sed -i 's,os.geteuid() == 0,os.geteuid() == 888,g' "${bootstrap}"/usr/lib/python3.11/site-packages/lutris/gui/application.py 2>/dev/null
 sed -i 's,id -u)" == "0",id -u)" == "888",g' "${bootstrap}"/usr/lib/steam/bin_steam.sh 2>/dev/null
 sed -i 's,id -u)" = "0",id -u)" = "888",g' "${bootstrap}"/usr/share/playonlinux4/lib/sources 2>/dev/null
