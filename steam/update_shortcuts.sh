@@ -88,5 +88,5 @@ chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
 sleep 2
 echo "Done"
 
-# Reload ES after installations
-curl http://127.0.0.1:1234/reloadgames
+# Refresh Steam list and Reload ES after installations
+/userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
