@@ -121,7 +121,6 @@ sh_files=(
   "Steam Big Picture Mode.sh"
   "Steam.sh"
   "SteamTinker Launch (settings).sh"
-  "Terminal-Root.sh"
   "Terminal.sh"
   "Thunderbird.sh"
   "VLC.sh"
