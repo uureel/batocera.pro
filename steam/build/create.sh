@@ -37,7 +37,7 @@ devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
 export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
 	nano ttf-dejavu ttf-liberation steam firefox mpv pcmanfm \
         htop qbittorrent  aria2 neofetch xorg-xwayland kdenlive gedit \
-        steam-native-runtime gamemode opera brave lib32-gamemode jre-openjdk lxterminal \
+        steam-native-runtime gamemode brave lib32-gamemode jre-openjdk lxterminal \
         mangohud shotcut thunderbird  gimp audacity thunderbird lib32-mangohud kodi \
         qt5-wayland xorg-server-xephyr inkscape openbox lutris obs-studio gamehub \
         minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
@@ -45,7 +45,7 @@ export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="bottles heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
-protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
+protonup-qt-bin steam-rom-manager-bin opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
 winegui-bin  protontricks steamtinkerlaunch greenlight-beta-appimage zoom transmission-gtk3 \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
 
