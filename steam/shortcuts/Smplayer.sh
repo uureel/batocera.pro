@@ -9,4 +9,4 @@ chmod 777 ~/.local
 unclutter-remote -s
 
 #su - batocera -c "HOME_DIR=\"/userdata/system/pro/steam/home\" DISPLAY=:0.0 ~/pro/steam/conty.sh smplayer &u"
-ALLOW_ROOT=1 DISPLAY=:0.0 HOME_DIR=$home ~/pro/steam/conty.sh dbus-run-session smplayer "${@}"
+ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session smplayer "${@}"

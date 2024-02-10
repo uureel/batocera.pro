@@ -16,4 +16,4 @@ chown -R batocera:batocera $dir1 $dir2 $dir3 2>/dev/null
 
 eval $(dbus-launch --sh-syntax)
 
-ALLOW_ROOT=1 HOME_DIR=$home DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session inkscape
+ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session inkscape

@@ -12,4 +12,4 @@ chown root:root /home/root/.config 2>/dev/null
 
 unclutter-remote -s
 
-ALLOW_ROOT=1 DISPLAY=:0.0 HOME_DIR=$home ~/pro/steam/conty.sh dbus-run-session /usr/lib/firefox/firefox "${@}"
+ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh dbus-run-session /usr/lib/firefox/firefox "${@}"

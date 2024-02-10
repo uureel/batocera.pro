@@ -32,6 +32,6 @@ ulimit -S -n 819200
 
 unclutter-remote -s
 
-ALLOW_ROOT=1 DISPLAY=:0.0 HOME_DIR=$home /userdata/system/pro/steam/conty.sh dbus-run-session steamlauncher "${@}"
+ALLOW_ROOT=1 DISPLAY=:0.0 /userdata/system/pro/steam/conty.sh dbus-run-session steamlauncher "${@}"
 
 unclutter-remote -h

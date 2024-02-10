@@ -8,4 +8,4 @@ chmod 777 ~/.local
 
 unclutter-remote -s
 
-ALLOW_ROOT=1 HOME_DIR=$home DISPLAY=:0.0 ~/pro/steam/conty.sh qbittorrent "${@}"
+ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh qbittorrent "${@}"
