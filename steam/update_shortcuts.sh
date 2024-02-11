@@ -78,7 +78,7 @@ chmod +x "$TARGET_FILE"
 echo "Downloaded and made executable: $TARGET_FILE"
 sleep2
 
-rm -rf /userdata/roms/steam2/*.shn
+rm -rf /userdata/roms/steam2/*.sh
 wget https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg -P ~/configs/emulationstation
 echo "Downloading Parser and es_systems"
 
@@ -87,5 +87,5 @@ chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
 sleep 2
 echo "Done"
 
-# Refresh Steam list and Reload ES after installations
-/userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
+# Reload ES after installations
+killall -9 emulationstation
