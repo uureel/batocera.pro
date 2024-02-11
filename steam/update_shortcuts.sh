@@ -79,6 +79,7 @@ echo "Downloaded and made executable: $TARGET_FILE"
 sleep2
 
 rm -rf /userdata/roms/steam2/*.sh
+rm -rf ~/configs/emulationstation/es_configs/es_features_steam2.cfg
 wget https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg -P ~/configs/emulationstation
 echo "Downloading Parser and es_systems"
 
