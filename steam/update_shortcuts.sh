@@ -83,7 +83,8 @@ rm -rf ~/configs/emulationstation/es_configs/es_features_steam2.cfg
 wget https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg -P ~/configs/emulationstation
 echo "Downloading Parser and es_systems"
 
-wget https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh -P /userdata/roms/steam2/
+wget https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh -O /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
+/
 chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
 sleep 2
 echo "Done"
