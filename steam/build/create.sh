@@ -46,7 +46,7 @@ export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
 protonup-qt-bin steam-rom-manager-bin opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
-winegui-bin  protontricks steamtinkerlaunch greenlight-beta-appimage zoom transmission-gtk3 \
+winegui-bin  protontricks steamtinkerlaunch greenlight-beta-appimage zoom  \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
 
 # ALHP is a repository containing packages from the official Arch Linux
