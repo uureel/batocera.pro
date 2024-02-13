@@ -430,7 +430,7 @@ f="${bootstrap}"/usr/bin/steamlauncher
 	echo '#!/bin/bash' >> $f
 	echo 'killall -9 steam steamfix steamfixer 2>/dev/null' >> $f
 	echo 'nohup /usr/bin/steamfixer 1>/dev/null 2>/dev/null &' >> $f
-	echo '/usr/bin/steam' >> $f
+	echo 'DISPLAY=:0.0 dbus-run-session /usr/bin/steam "${@}"' >> $f
 		chown -R batocera:batocera "$f" 2>/dev/null
 		dos2unix "$f" 2>/dev/null
 		chmod 777 "$f" 2>/dev/null
