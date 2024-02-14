@@ -73,6 +73,24 @@ unclutter-remote -h
     echo "Script created: $script_path"
 done < "$lutris_list_file"
 echo "Script execution completed. Check $output_file for the result."
+
+# Clean up file names
+# Directory containing the files
+dir="/userdata/roms/lutris"
+
+# Navigate to the directory
+cd "$dir"
+
+# Loop through each .sh file in the directory
+for file in *.sh; do
+    # Strip the 'net.lutris.' prefix and the '-[number].' suffix before the file extension, and replace hyphens with spaces
+    new_name=$(echo "$file" | sed -E 's/net\.lutris\.//;s/-(1|2|3|4|5|6|7|8|9)\.sh$/.sh/;s/-/ /g')
+
+    # Rename the file
+    mv "$file" "$new_name"
+done
+
+
 killall -9 emulationstation
 
 
