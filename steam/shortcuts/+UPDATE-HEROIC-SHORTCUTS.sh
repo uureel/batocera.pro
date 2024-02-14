@@ -63,5 +63,6 @@ for file in *.sh; do
   fi
 done
 
+killall -9 emulationstation
 echo "Script execution completed."
 
