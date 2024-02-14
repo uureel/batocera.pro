@@ -40,7 +40,7 @@ while IFS= read -r line; do
     script_content="#!/bin/bash
  
 unclutter-remote -s
-ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/lutris/conty.sh env LUTRIS_SKIP_INIT=1 lutris lutris:$lutris_url_part"
+ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh env LUTRIS_SKIP_INIT=1 lutris lutris:$lutris_url_part"
 unclutter-remote h
 
     # Create the script file
