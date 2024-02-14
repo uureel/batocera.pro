@@ -36,6 +36,13 @@ while IFS= read -r line; do
     game_name=$(echo "$line" | awk -F ' lutris:' '{print $1}')
     lutris_url_part=$(echo "$line" | awk -F ' lutris:' '{print $2}')
 
+    # Remove unwanted parts from game_name (e.g., net.lutris., numbers, and hyphens)
+    # This simplifies the name to a more common form
+    common_name=$(echo "$game_name" | sed -E 's/net\.lutris\.//g' | sed -E 's/[-.][0-9]+//g' | sed 's/[^a-zA-Z0-9 ]//g' | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g')
+
+    # Append .sh to form the script filename
+    script_filename="${common_name}.sh"
+
     # Create the script content without an undesired trailing quote
     script_content="#!/bin/bash
 home=/userdata/system/pro/steam/home
@@ -67,3 +74,11 @@ unclutter-remote -h
 done < "$lutris_list_file"
 echo "Script execution completed. Check $output_file for the result."
 killall -9 emulationstation
+
+
+
+
+   
+
+
+
