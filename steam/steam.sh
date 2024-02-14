@@ -6,7 +6,8 @@ OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
          "3" "Update Launcher shortcuts for emulationstation Arch container"
          "4" "Re-download container"
          "5" "Rebuild and Update apps on container (experimental)"
-         "6" "Addon: Add Lutris System & Shortcuts to Emulationstation")
+         "6" "Addon: Add Lutris System & Shortcuts to Emulationstation"
+         "7" "Addon: Add Heroic System & Shortcuts to Emulationstation")
          
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
@@ -40,6 +41,9 @@ case $CHOICE in
         ;;
     6) echo "Add Lutris shortcuts to emulationstation..."
        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_lutris.sh | bash
+       ;;
+    7) echo "Add Heroic shortcuts to emulationstation..."
+       curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_heroic.sh | bash
        ;;
     *)
         echo "No valid option selected or cancelled. Exiting."
