@@ -1,27 +1,27 @@
 #!/bin/bash
 
 # Display the dialog message box
-dialog --title "Lutris Installation Notice" --msgbox "This will install a Lutris system and parser in EmulationStation.\n\nNote: You must create desktop shortcuts in Lutris for the \"+UPDATE SHORTCUTS\" parser to work." 10 50
+dialog --title "Heroic Installation Notice" --msgbox "This will install a Heroic system and parser in EmulationStation.\n\nNote: You must Select 'add shortcut' for each game in Heroic for the \"+UPDATE SHORTCUTS\" parser to work. Set WINE-GE as default runner for best results" 10 60
 
 # User pressed OK, proceed with the script
 # Define variables for file paths and URLs
-lutris_dir="/userdata/roms/lutris"
-update_script_url="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/%2BUPDATE-LUTRIS-SHORTCUTS.sh"
-update_script_path="${lutris_dir}/+UPDATE-LUTRIS-SHORTCUTS.sh"
+heroic_dir="/userdata/roms/heroic2"
+update_script_url="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/%2BUPDATE-HEROIC-SHORTCUTS.sh"
+update_script_path="${heroic_dir}/+UPDATE-HEROIC-SHORTCUTS.sh"
 es_config_dir="$HOME/configs/emulationstation"
-es_config_url="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_lutris.cfg"
-es_config_path="${es_config_dir}/es_systems_lutris.cfg"
+es_config_url="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_heroic2.cfg"
+es_config_path="${es_config_dir}/es_systems_heroic2.cfg"
 
-# Create lutris directory if it doesn't exist
-if [ ! -d "$lutris_dir" ]; then
-    mkdir -p "$lutris_dir"
+# Create heroic directory if it doesn't exist
+if [ ! -d "$heroic_dir" ]; then
+    mkdir -p "$heroic_dir"
 fi
 
-# Download +UPDATE-LUTRIS-SHORTCUTS.sh and make it executable
+# Download +UPDATE-HEROIC-SHORTCUTS.sh and make it executable
 curl -L "$update_script_url" -o "$update_script_path"
 chmod +x "$update_script_path"
 
-# Download es_systems_lutris.cfg
+# Download es_systems_heroic2.cfg
 if [ ! -d "$es_config_dir" ]; then
     mkdir -p "$es_config_dir"
 fi
