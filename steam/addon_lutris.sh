@@ -30,3 +30,4 @@ curl -L "$es_config_url" -o "$es_config_path"
 killall -9 emulationstation
 # Clear dialog (necessary for some terminal environments)
 clear
+echo "Done"
