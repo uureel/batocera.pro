@@ -22,7 +22,7 @@ APPLINK=https://github.com/uureel/batocera.pro/raw/main/youtubetv/extra/YouTubeo
 APPHOME=github.com/uureel/batocera.pro
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/YouTubeonTV --no-sandbox --disable-gpu --test-type "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
+COMMAND='sed -i "s,!appArgs.disableOldBuildWarning,1 == 0,g" /userdata/system/pro/youtubetv/resources/app/lib/main.js 2>/dev/null && mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/YouTubeonTV --no-sandbox --test-type "${@}"'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
