@@ -29,4 +29,6 @@ sysctl -w vm.max_map_count=2147483642
 ulimit -H -n 819200
 ulimit -S -n 819200
 
+unclutter-remote -s
 ALLOW_ROOT=1 DISPLAY=:0.0 /userdata/system/pro/steam/conty.sh dbus-run-session steam -gamepadui "${@}"
+unclutter-remote -h
