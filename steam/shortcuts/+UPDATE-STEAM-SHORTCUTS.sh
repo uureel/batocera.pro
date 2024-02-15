@@ -36,7 +36,7 @@ while IFS= read -r line; do
 
 unclutter-remote -s
 ALLOW_ROOT=1 DISPLAY=:0.0 ~/pro/steam/conty.sh steam $steam_url_part -gamepadui"
-unclutter-remote h
+unclutter-remote -h
 
 
     # Create the script file
