@@ -8,18 +8,16 @@ unset LD_PRELOAD LD_LIBRARY_PATH
 LC_ALL_ORIG="${LC_ALL}"
 export LC_ALL=C
 
-msg_root="
-Do not run this script as root!
-
-If you really need to run it as root and know what you are doing, set
-the ALLOW_ROOT environment variable.
-"
-
-# Refuse to run as root unless environment variable is set
+### ---------------------------------------------
+### BATOCERA FIX
+### ---------------------------------------------
 if (( EUID == 0 )) && [ -z "$ALLOW_ROOT" ]; then
-    echo "${msg_root}"
-    exit 1
+    DISPLAY=:0.0
+    ALLOW_ROOT=1
+    USE_OVERLAYFS=1
+    NVIDIA_HANDLER=0
 fi
+### ---------------------------------------------
 
 # Conty version
 script_version="1.24.3"
@@ -31,9 +29,9 @@ script_version="1.24.3"
 # size to 0
 init_size=50000
 bash_size=1715976
-script_size=37667
+script_size=38809
 busybox_size=1161112
-utils_size=10817797
+utils_size=11937716
 
 # Full path to the script
 if [ -n "${BASH_SOURCE[0]}" ]; then
@@ -50,7 +48,45 @@ script="$(readlink -f "${script_literal}")"
 
 # MD5 of the first 4 MB and the last 1 MB of the script
 script_md5="$(head -c 4000000 "${script}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${script}" | md5sum | head -c 7)"
+md5="${script_md5}"
 script_id="$$"
+
+# ---------------------------------------------
+# ---------------------------------------------
+# ---------------------------------------------
+# BATOCERA FIXES 
+
+# fix limits
+  sysctl -w vm.max_map_count=2147483642 1>/dev/null 2>/dev/null
+  eval $(dbus-launch --sh-syntax)
+  ulimit -H -n 819200
+  ulimit -S -n 819200
+  echo "md5 = $script_md5"
+
+# check dirs and permissions, symlink /home 
+  ln -s /userdata/system /home/root 2>/dev/null
+  mkdir -p ~/.local /home $home 2>/dev/null
+  chmod -R 777 /var/run/pulse
+  chmod 777 ~/.local/*
+  chmod 777 ~/.local
+
+# fix directories permissions
+  dir1=/userdata/system/.local/share/Conty
+  dir2=/userdata/system/pro/steam/home
+  mkdir -p $dir1 $dir2 2>/dev/null
+  chmod 777 $dir1 $dir2 $dir1/* $dir2/* 2>/dev/null
+
+nvpatcher=/userdata/system/pro/steam/.nvidia.sh
+  if [[ -s "$nvpatcher" ]]; then
+  	echo "preparing nvidia..."
+	  	dos2unix "$nvpatcher" 2>/dev/null
+	  	chmod 777 "$nvpatcher" 2>/dev/null
+	  		bash "$nvpatcher"
+  fi
+
+# ---------------------------------------------
+# ---------------------------------------------
+# ---------------------------------------------
 
 # Working directory where the utils will be extracted
 # And where the image will be mounted
