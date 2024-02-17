@@ -35,19 +35,19 @@ devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
 # Apart from packages from the official Arch repos, you can also specify
 # packages from the Chaotic-AUR repo
 export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
-	nano ttf-dejavu ttf-liberation steam firefox mpv pcmanfm \
-        htop qbittorrent  aria2 neofetch xorg-xwayland kdenlive gedit \
-        steam-native-runtime gamemode brave lib32-gamemode jre-openjdk lxterminal \
-        mangohud shotcut thunderbird  gimp audacity thunderbird lib32-mangohud kodi \
-        qt5-wayland xorg-server-xephyr inkscape openbox lutris obs-studio gamehub \
-        minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
-        xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet"
+	nano ttf-dejavu ttf-liberation filezilla steam firefox mpv pcmanfm \
+        htop qbittorrent dos2unix blender nix aria2 neofetch xorg-xwayland kdenlive gedit \
+        steam-native-runtime handbrake gamemode brave lib32-gamemode jre-openjdk lxterminal \
+        mangohud shotcut thunderbird tigervnc gimp audacity thunderbird lib32-mangohud kodi \
+        qt5-wayland xorg-server-xephyr remmina inkscape openbox lutris obs-studio gamehub \
+        minigalaxy legendary gamescope code playonlinux minizip flatpak libreoffice \
+        xdotool xbindkeys gparted vlc smplayer mpv fish zsh cheese xmlstarlet"
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
-protonup-qt-bin steam-rom-manager-bin opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
-winegui-bin  protontricks steamtinkerlaunch greenlight-beta-appimage zoom  \
-etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
+export aur_packagelist="heroic-games-launcher-bin insync jdownloader2 geforcenow-electron moonlight-qt-bin \
+protonup-qt-bin steam-rom-manager-bin megasync onlyoffice-bin brew-git opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
+winegui-bin protonplus protontricks visual-studio-code-bin dropbox tts-ms-fonts steamtinkerlaunch greenlight-beta-appimage zoom  \
+etcher-bin ventoy-bin woeusb-ng franz teamviewer foxitreader microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
