@@ -45,7 +45,7 @@ export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin insync jdownloader2 geforcenow-electron moonlight-qt-bin \
-protonup-qt-bin steam-rom-manager-bin megasync onlyoffice-bin brew-git opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
+protonup-qt-bin steam-rom-manager-bin megasync-bin onlyoffice-bin brew-git opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
 winegui-bin protonplus protontricks visual-studio-code-bin dropbox tts-ms-fonts steamtinkerlaunch greenlight-beta-appimage zoom  \
 etcher-bin ventoy-bin woeusb-ng franz-bin teamviewer foxitreader microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
 
