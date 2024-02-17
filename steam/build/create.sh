@@ -47,7 +47,7 @@ export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
 export aur_packagelist="heroic-games-launcher-bin insync jdownloader2 geforcenow-electron moonlight-qt-bin \
 protonup-qt-bin steam-rom-manager-bin megasync onlyoffice-bin brew-git opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
 winegui-bin protonplus protontricks visual-studio-code-bin dropbox tts-ms-fonts steamtinkerlaunch greenlight-beta-appimage zoom  \
-etcher-bin ventoy-bin woeusb-ng franz teamviewer foxitreader microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
+etcher-bin ventoy-bin woeusb-ng franz-bin teamviewer foxitreader microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
