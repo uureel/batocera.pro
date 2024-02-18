@@ -43,7 +43,7 @@ echo 'rm -rf ~/build/glibc' >> $f
 dos2unix $f 2>/dev/null
 chmod 777 $f 2>/dev/null
 
-/tmp/fixlibc
+#/tmp/fixlibc
 
 sed -i '/<description>.*<\/description>/d' /etc/fonts/fonts.conf 2>/dev/null
 sed -i '/<description>.*<\/description>/d' /etc/fonts/conf.d/* 2>/dev/null
