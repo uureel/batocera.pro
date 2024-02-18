@@ -6,7 +6,7 @@ APPNAME="MINECRAFT BEDROCK EDITION" # for installer info
 appname=bedrock   # directory name in /userdata/system/pro/...
 AppName=bedrock   # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=https://github.com/minecraft-linux/appimage-builder/releases/download/v0.12.1-763/Minecraft_Bedrock_Launcher-x86_64-v0.12.1.763.AppImage
+APPLINK=https://github.com/minecraft-linux/appimage-builder/releases/download/v0.13.0-786/Minecraft_Bedrock_Launcher-bookworm-x86_64-v0.13.0.786.AppImage
 ORIGIN="github.com/minecraft-linux/appimage-builder" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
