@@ -45,6 +45,12 @@ chmod 777 $f 2>/dev/null
 
 /tmp/fixlibc
 
+sed -i '/<description>.*<\/description>/d' /etc/fonts/fonts.conf 2>/dev/null
+sed -i '/<description>.*<\/description>/d' /etc/fonts/conf.d/* 2>/dev/null
+rm /usr/bin/samba* 2>/dev/null
+rm /usr/bin/smb* 2>/dev/null
+rm -rf ~/build 2>/dev/null
+
 h=/tmp/hash && rm $h 2>/dev/null
 readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
 	if [[ "$(cat $h | grep '(HASH)')" != "" ]] && [[ "$(cat $h | grep '(GNU_HASH)')" != "" ]]; then
