@@ -40,14 +40,14 @@ export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
         steam-native-runtime handbrake gamemode brave lib32-gamemode jre-openjdk lxterminal \
         mangohud shotcut thunderbird tigervnc gimp audacity thunderbird lib32-mangohud kodi \
         qt5-wayland xorg-server-xephyr remmina inkscape openbox lutris obs-studio gamehub \
-        minigalaxy legendary gamescope code playonlinux minizip flatpak libreoffice \
+        minigalaxy legendary gamescope playonlinux minizip flatpak libreoffice \
         xdotool xbindkeys gparted vlc smplayer mpv fish zsh cheese xmlstarlet"
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="heroic-games-launcher-bin insync jdownloader2 geforcenow-electron moonlight-qt-bin \
-protonup-qt-bin steam-rom-manager-bin megasync-bin onlyoffice-bin brew-git opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
-winegui-bin protonplus protontricks  dropbox tts-ms-fonts steamtinkerlaunch greenlight-beta-appimage zoom  \
-etcher-bin ventoy-bin  franz-bin teamviewer foxitreader microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
+export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
+protonup-qt-bin steam-rom-manager-bin megasync-bin brew-git opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
+winegui-bin protonplus protontricks tts-ms-fonts steamtinkerlaunch greenlight-beta-appimage zoom  \
+etcher-bin ventoy-bin foxitreader microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
