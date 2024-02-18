@@ -1,1 +1,1 @@
-build conty for conty
+build scripts for conty
