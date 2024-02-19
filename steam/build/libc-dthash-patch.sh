@@ -59,6 +59,7 @@ cd ~/
 # fix lutris on nvidia
 cd /opt
 git clone https://github.com/lutris/lutris
+sed -i 's,os.geteuid() == 0,os.geteuid() == 888,g' /opt/lutris/lutris/gui/application.py 2>/dev/null
 f=/bin/lutris
 cp $f /bin/lutris-git 2>/dev/null
 rm $f 2>/dev/null
