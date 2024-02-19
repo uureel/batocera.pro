@@ -19,7 +19,7 @@ confirm_start() {
         exit 1
     fi
 
-    dialog --title "Confirm Operation" --yesno "WARNING: NVIDIA GPU support is broken. Do you want to proceed?" 7 60
+    dialog --title "Confirm Operation" --yesno "WARNING: NVIDIA GPU support is broken. Only AMD/INTEL GPUs work. Do you want to proceed?" 7 60
     local status=$?
     clear # Clear dialog remnants from the screen
     return $status
