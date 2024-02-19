@@ -70,13 +70,14 @@ chmod 777 $f 2>/dev/null
 # run additional fixes
 sed -i '/<description>.*<\/description>/d' /etc/fonts/fonts.conf 2>/dev/null
 sed -i '/<description>.*<\/description>/d' /etc/fonts/conf.d/* 2>/dev/null
+cd /usr/lib
+  #rm $(find /usr/lib | grep nvidia) 2>/dev/null
+  find . -path ./python\* -prune -o -type f -name \*nvidia\* -exec rm {} +
+cd /usr/lib32 
+  rm $(find /usr/lib32 | grep nvidia) 2>/dev/null
 rm /usr/bin/samba* 2>/dev/null
 rm /usr/bin/smb* 2>/dev/null
 rm -rf ~/build 2>/dev/null
-cd /usr/lib
-rm $(find /usr/lib | grep nvidia) 2>/dev/null
-cd /usr/lib32 
-rm $(find /usr/lib32 | grep nvidia) 2>/dev/null
 
 h=/tmp/hash && rm $h 2>/dev/null
 readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
