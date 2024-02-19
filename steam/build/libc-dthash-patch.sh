@@ -60,7 +60,8 @@ cd ~/
 cd /opt
 git clone https://github.com/lutris/lutris
 f=/bin/lutris
-mv $f /bin/lutris-git 2>/dev/null
+cp $f /bin/lutris-git 2>/dev/null
+rm $f 2>/dev/null
 echo '#!/bin/bash' >> $f
 echo '/opt/lutris/bin/lutris "${@}"' >> $f
 dos2unix $f 2>/dev/null
