@@ -210,44 +210,44 @@ killall -9 vlc
 clear
 
 
-echo "Preparing to launch Steam..."
-sleep 2
+#echo "Preparing to launch Steam..."
+#sleep 2
 
 # 5-second countdown with simple animation
-for i in {5..1}
-do
-   clear
-   echo "Launching Steam in... $i seconds"
-   echo -ne '##########\r'
-   sleep 0.2
-   echo -ne '######### \r'
-   sleep 0.2
-   echo -ne '########  \r'
-   sleep 0.2
-   echo -ne '#######   \r'
-   sleep 0.2
-   echo -ne '######    \r'
-   sleep 0.2
-   echo -ne '#####     \r'
-   sleep 0.2
-   echo -ne '####      \r'
-   sleep 0.2
-   echo -ne '###       \r'
-   sleep 0.2
-   echo -ne '##        \r'
-   sleep 0.2
-   echo -ne '#         \r'
-   sleep 0.2
-   echo -ne '          \r'
-done
+#for i in {5..1}
+#do
+#   clear
+#   echo "Launching Steam in... $i seconds"
+#   echo -ne '##########\r'
+#   sleep 0.2
+#   echo -ne '######### \r'
+#   sleep 0.2
+#   echo -ne '########  \r'
+#   sleep 0.2
+#   echo -ne '#######   \r'
+#   sleep 0.2
+#   echo -ne '######    \r'
+#   sleep 0.2
+#   echo -ne '#####     \r'
+#   sleep 0.2
+#   echo -ne '####      \r'
+#   sleep 0.2
+#   echo -ne '###       \r'
+#   sleep 0.2
+#   echo -ne '##        \r'
+#   sleep 0.2
+#   echo -ne '#         \r'
+#   sleep 0.2
+#   echo -ne '          \r'
+#done
 
-echo "Steam is now starting"
+#echo "Steam is now starting"
 
-/userdata/roms/conty/"Steam Big Picture Mode.sh"
+#/userdata/roms/conty/"Steam Big Picture Mode.sh"
 
 
 
 
 echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
-sleep 5
+sleep 8
 killall -9 emulationstation
