@@ -56,6 +56,16 @@ yes "Y" | pacman -U "$f"
 rm "$f"
 cd ~/
 
+# fix lutris on nvidia
+cd /opt
+git clone https://github.com/lutris/lutris
+f=/bin/lutris
+rm $f 2>/dev/null
+echo '#!/bin/bash' >> $f
+echo '/opt/lutris/bin/lutris "${@}"' >> $f
+dos2unix $f 2>/dev/null
+chmod 777 $f 2>/dev/null
+
 # run additional fixes
 sed -i '/<description>.*<\/description>/d' /etc/fonts/fonts.conf 2>/dev/null
 sed -i '/<description>.*<\/description>/d' /etc/fonts/conf.d/* 2>/dev/null
