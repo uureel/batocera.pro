@@ -49,9 +49,11 @@ chmod 777 $f 2>/dev/null
 yes "Y" | pacman -S gstreamer
 yes "Y" | pacman -S faudio
 cd /tmp/
-lib32faudio=https://builds.garudalinux.org/repos/chaotic-aur/x86_64/lib32-faudio-tkg-git-24.02.r0.g38e9da7-1-x86_64.pkg.tar.zst
-wget -O "/tmp/lib32faudio.pkg.tar.zst" "$lib32faudio"
-yes "Y" | pacman -U "/tmp/lib32faudio.pkg.tar.zst"
+f=/tmp/lib32faudio.pkg.tar.zst
+link=https://builds.garudalinux.org/repos/chaotic-aur/x86_64/lib32-faudio-tkg-git-24.02.r0.g38e9da7-1-x86_64.pkg.tar.zst
+wget -O "$f" "$link"
+yes "Y" | pacman -U "$f"
+rm "$f"
 cd ~/
 
 # run additional fixes
