@@ -1,6 +1,6 @@
 #!/bin/bash
 
-}
+
 
 # Get the machine hardware name
 architecture=$(uname -m)
