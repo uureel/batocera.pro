@@ -6,7 +6,7 @@ OPTIONS=("1" "Install Steam/Lutris Container"
          
          
 # Display the dialog and get the user choice
-CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
+CHOICE=$(dialog --clear --backtitle "NVIDIA Steam/Lutris/ Container Management" \
                 --title "Main Menu" \
                 --menu "Choose an option:" 15 75 3 \
                 "${OPTIONS[@]}" \
