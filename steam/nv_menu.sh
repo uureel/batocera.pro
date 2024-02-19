@@ -2,7 +2,7 @@
 
 # Define the options
 OPTIONS=("1" "Install Steam/Lutris Container"
-         "2" "Uninstall Steam/Lutris/container"
+         "2" "Uninstall Steam/Lutris/container")
          
          
 # Display the dialog and get the user choice
@@ -18,7 +18,7 @@ clear
 case $CHOICE in
     1)
         echo "Installing Steam Container..."
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/nv_warning.sh | bash
+        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/nv_install.sh | bash
         ;;
     2)
         echo "Loading Uninstall script..."
