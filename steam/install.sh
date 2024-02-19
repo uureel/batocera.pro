@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Get the machine hardware name
-architecture=$(uname -m)
-
 # Function to show dialog confirmation box
 confirm_start() {
     # Ensure dialog is installed
@@ -17,6 +14,9 @@ confirm_start() {
     clear # Clear dialog remnants from the screen
     return $status
 }
+
+# Get the machine hardware name
+architecture=$(uname -m)
 
 # Check if the architecture is x86_64 (AMD/Intel)
 if [ "$architecture" != "x86_64" ]; then
