@@ -34,9 +34,9 @@ echo '    --disable-werror \' >> $f
 echo '    --libdir=/usr/lib \' >> $f
 echo '    --libexecdir=/usr/lib' >> $f
 echo 'echo -e "\n\nCOMPILING...\n\n"' >> $f
-echo "make -j$(nproc)" >> $f
+echo "make -j$(nproc) 1>/dev/null 2>/dev/null" >> $f
 echo 'echo -e "\n\nINSTALLING...\n\n"' >> $f
-echo 'sudo make install' >> $f
+echo 'sudo make install 1>/dev/null 2>/dev/null' >> $f
 echo 'cd ~/' >> $f
 echo 'rm -rf ~/build/glibc' >> $f
 
@@ -44,6 +44,20 @@ echo 'rm -rf ~/build/glibc' >> $f
 dos2unix $f 2>/dev/null
 chmod 777 $f 2>/dev/null
 /tmp/fixlibc
+
+h=/tmp/hash && rm $h 2>/dev/null
+readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
+	if [[ "$(cat $h | grep '(HASH)')" != "" ]] && [[ "$(cat $h | grep '(GNU_HASH)')" != "" ]]; then
+		echo
+		echo "LIBC DT_HASH PATCHED OK!"
+		echo
+	else
+		echo
+		echo "LIBC DT_HASH PATCH FAILED..."
+		echo	
+	fi
+rm $f 2>/dev/null
+rm $h 2>/dev/null
 
 # fix borked faudio 
 yes "Y" | pacman -S gstreamer
@@ -80,18 +94,5 @@ rm /usr/bin/samba* 2>/dev/null
 rm /usr/bin/smb* 2>/dev/null
 rm -rf ~/build 2>/dev/null
 
-h=/tmp/hash && rm $h 2>/dev/null
-readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
-	if [[ "$(cat $h | grep '(HASH)')" != "" ]] && [[ "$(cat $h | grep '(GNU_HASH)')" != "" ]]; then
-		echo
-		echo "PATCHED OK!"
-		echo
-	else
-		echo
-		echo "LOOKS LIKE PATCH FAILED..."
-		echo	
-	fi
-rm $f 2>/dev/null
-rm $h 2>/dev/null
-
+exit 0
 #exit
