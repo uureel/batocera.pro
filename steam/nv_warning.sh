@@ -35,4 +35,4 @@ if ! confirm_start; then
     exit 1
 fi
 
-curl -L https://github.com/uureel/batocera.pro/raw/main/steam/install2.sh | bash
+
