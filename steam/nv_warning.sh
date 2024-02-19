@@ -19,7 +19,7 @@ confirm_start() {
         exit 1
     fi
 
-    dialog --title "Confirm Operation" --yesno "Warning: NVIDIA container support  is broken. Only AMD/INTEL GPUs work.  Do you want to proceed?" 7 60
+    dialog --title "Confirm Operation" --yesno "WARNING: NVIDIA GPU support is broken. Do you want to proceed?" 7 60
     local status=$?
     clear # Clear dialog remnants from the screen
     return $status
@@ -27,7 +27,7 @@ confirm_start() {
 
 # Initial message
 clear
-animate_text "Container Installer"
+animate_text "Container Updater"
 
 # Show confirmation dialog box
 if ! confirm_start; then
