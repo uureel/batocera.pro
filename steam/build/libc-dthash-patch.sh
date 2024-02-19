@@ -3,9 +3,9 @@
 ver=$(ldd --version | head -n1 | rev | awk '{print $1}' | rev)
 echo -e "\n\nPREPARING LIBC $ver DT_HASH FIX FOR STEAM...\n\n"
 
+# prepare libc patcher
 f=/tmp/fixlibc
 rm $f 2>/dev/null
-
 echo '#!/bin/bash' >> $f
 echo "ver=$ver" >> $f
 echo 'mkdir ~/build 2>/dev/null && rm -rf ~/build/glibc && cd ~/build' >> $f
@@ -40,11 +40,21 @@ echo 'sudo make install' >> $f
 echo 'cd ~/' >> $f
 echo 'rm -rf ~/build/glibc' >> $f
 
+# run libc patcher
 dos2unix $f 2>/dev/null
 chmod 777 $f 2>/dev/null
-
 /tmp/fixlibc
 
+# fix borked faudio 
+yes "Y" | pacman -S gstreamer
+yes "Y" | pacman -S faudio
+cd /tmp/
+lib32faudio=https://builds.garudalinux.org/repos/chaotic-aur/x86_64/lib32-faudio-tkg-git-24.02.r0.g38e9da7-1-x86_64.pkg.tar.zst
+wget -O "/tmp/lib32faudio.pkg.tar.zst" "$lib32faudio"
+yes "Y" | pacman -U "/tmp/lib32faudio.pkg.tar.zst"
+cd ~/
+
+# run additional fixes
 sed -i '/<description>.*<\/description>/d' /etc/fonts/fonts.conf 2>/dev/null
 sed -i '/<description>.*<\/description>/d' /etc/fonts/conf.d/* 2>/dev/null
 rm /usr/bin/samba* 2>/dev/null
