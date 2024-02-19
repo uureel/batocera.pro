@@ -34,3 +34,5 @@ if ! confirm_start; then
     echo "Operation aborted by the user."
     exit 1
 fi
+
+curl -L https://github.com/uureel/batocera.pro/raw/main/steam/install2.sh
