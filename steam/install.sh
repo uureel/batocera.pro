@@ -3,6 +3,21 @@
 # Get the machine hardware name
 architecture=$(uname -m)
 
+# Function to show dialog confirmation box
+confirm_start() {
+    # Ensure dialog is installed
+    if ! command -v dialog &> /dev/null; then
+        echo "The 'dialog' utility is not installed. Please install it to continue."
+        exit 1
+    fi
+
+    dialog --title "Confirm Operation" --yesno "Warning: Container use with NVIDIA is currently broken. Only AMD/Intel GPU users
+    should Proceed.  Do you wish to proceed?" 7 60
+    local status=$?
+    clear # Clear dialog remnants from the screen
+    return $status
+}
+
 # Check if the architecture is x86_64 (AMD/Intel)
 if [ "$architecture" != "x86_64" ]; then
     echo "This script only runs on AMD or Intel (x86_64) CPUs, not on $architecture."
