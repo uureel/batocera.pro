@@ -1,18 +1,5 @@
 #!/bin/bash
 
-# Function to show dialog confirmation box
-confirm_start() {
-    # Ensure dialog is installed
-    if ! command -v dialog &> /dev/null; then
-        echo "The 'dialog' utility is not installed. Please install it to continue."
-        exit 1
-    fi
-
-    dialog --title "Confirm Operation" --yesno "Warning: Container use with NVIDIA is currently broken. Only AMD/Intel GPU users
-    should Proceed.  Do you wish to proceed?" 7 60
-    local status=$?
-    clear # Clear dialog remnants from the screen
-    return $status
 }
 
 # Get the machine hardware name
