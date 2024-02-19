@@ -18,7 +18,7 @@ clear
 case $CHOICE in
     1)
         echo "Loading AMD/INTEL SCRIPT"
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/nv_warning.sh | bash
+        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/amd_menu.sh | bash
         ;;
     2)
         echo "Loading NVIDIA script..."
