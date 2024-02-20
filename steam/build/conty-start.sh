@@ -1,5 +1,50 @@
 #!/usr/bin/env bash
-## Dependencies: bash gzip fuse2 (or fuse3) tar coreutils
+# BATOCERA-CONTY
+# ---------------------------------------------
+# root patched
+if (( EUID == 0 )) && [[ -z "$ALLOW_ROOT" ]]; then
+    NVIDIA_HANDLER=0
+    USE_OVERLAYFS=1
+    ALLOW_ROOT=1
+    DISPLAY=:0.0
+fi
+# ---------------------------------------------
+# prerun batocera-conty-patcher
+patcher=/userdata/system/pro/steam/batocera-conty-patcher.sh
+  if [[ -s "$patcher" ]]; then
+  	dos2unix "$patcher" 2>/dev/null
+  	chmod 777 "$patcher" 2>/dev/null
+	  	bash "$patcher"
+  fi
+# ---------------------------------------------
+# check prime env
+p=/userdata/system/.local/share/Conty/.conty-prime
+	if [[ -s "$p" ]]; then
+		dos2unix "$p" 2>/dev/null
+			__NV_PRIME_RENDER_OFFLOAD_="$(cat "$p" | grep '__NV_PRIME_RENDER_OFFLOAD' | cut -d "=" -f2)"
+			__VK_LAYER_NV_optimus_="$(cat "$p" | grep '__VK_LAYER_NV_optimus' | cut -d "=" -f2)"
+			__GLX_VENDOR_LIBRARY_NAME_="$(cat "$p" | grep '__GLX_VENDOR_LIBRARY_NAME' | cut -d "=" -f2)"
+			DRI_PRIME_="$(cat "$p" | grep 'DRI_PRIME' | cut -d "=" -f2)"
+			debug_="$(cat "$p" | grep 'debug' | cut -d "=" -f2)"
+	fi
+		if [[ "$__NV_PRIME_RENDER_OFFLOAD_" != "" ]]; then
+			export __NV_PRIME_RENDER_OFFLOAD="$__NV_PRIME_RENDER_OFFLOAD_"
+		fi
+		if [[ "$__VK_LAYER_NV_optimus_" != "" ]]; then
+			export __VK_LAYER_NV_optimus="$__VK_LAYER_NV_optimus_"
+		fi
+		if [[ "$__GLX_VENDOR_LIBRARY_NAME_" != "" ]]; then
+			export __GLX_VENDOR_LIBRARY_NAME="$__GLX_VENDOR_LIBRARY_NAME_"
+		fi
+		if [[ "$DRI_PRIME_" != "" ]]; then
+			export DRI_PRIME="$DRI_PRIME_"
+		fi
+		if [[ "$debug_" != "" ]]; then
+			export debug="$debug_"
+		fi
+# ---------------------------------------------
+
+export DISPLAY=:0.0
 
 LD_PRELOAD_ORIG="${LD_PRELOAD}"
 LD_LIBRARY_PATH_ORIG="${LD_LIBRARY_PATH}"
@@ -7,17 +52,6 @@ unset LD_PRELOAD LD_LIBRARY_PATH
 
 LC_ALL_ORIG="${LC_ALL}"
 export LC_ALL=C
-
-### ---------------------------------------------
-### BATOCERA FIX
-### ---------------------------------------------
-if (( EUID == 0 )) && [ -z "$ALLOW_ROOT" ]; then
-    DISPLAY=:0.0
-    ALLOW_ROOT=1
-    USE_OVERLAYFS=1
-    NVIDIA_HANDLER=0
-fi
-### ---------------------------------------------
 
 # Conty version
 script_version="1.24.3"
@@ -29,9 +63,9 @@ script_version="1.24.3"
 # size to 0
 init_size=50000
 bash_size=1715976
-script_size=38809
+script_size=38968
 busybox_size=1161112
-utils_size=11937716
+utils_size=12696330
 
 # Full path to the script
 if [ -n "${BASH_SOURCE[0]}" ]; then
@@ -48,45 +82,7 @@ script="$(readlink -f "${script_literal}")"
 
 # MD5 of the first 4 MB and the last 1 MB of the script
 script_md5="$(head -c 4000000 "${script}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${script}" | md5sum | head -c 7)"
-md5="${script_md5}"
 script_id="$$"
-
-# ---------------------------------------------
-# ---------------------------------------------
-# ---------------------------------------------
-# BATOCERA FIXES 
-
-# fix limits
-  sysctl -w vm.max_map_count=2147483642 1>/dev/null 2>/dev/null
-  eval $(dbus-launch --sh-syntax)
-  ulimit -H -n 819200
-  ulimit -S -n 819200
-  echo "md5 = $script_md5"
-
-# check dirs and permissions, symlink /home 
-  ln -s /userdata/system /home/root 2>/dev/null
-  mkdir -p ~/.local /home $home 2>/dev/null
-  chmod -R 777 /var/run/pulse
-  chmod 777 ~/.local/*
-  chmod 777 ~/.local
-
-# fix directories permissions
-  dir1=/userdata/system/.local/share/Conty
-  dir2=/userdata/system/pro/steam/home
-  mkdir -p $dir1 $dir2 2>/dev/null
-  chmod 777 $dir1 $dir2 $dir1/* $dir2/* 2>/dev/null
-
-nvpatcher=/userdata/system/pro/steam/.nvidia.sh
-  if [[ -s "$nvpatcher" ]]; then
-  	echo "preparing nvidia..."
-	  	dos2unix "$nvpatcher" 2>/dev/null
-	  	chmod 777 "$nvpatcher" 2>/dev/null
-	  		bash "$nvpatcher"
-  fi
-
-# ---------------------------------------------
-# ---------------------------------------------
-# ---------------------------------------------
 
 # Working directory where the utils will be extracted
 # And where the image will be mounted
@@ -611,7 +607,7 @@ else
 		extraction_tool=unsquashfs
 	fi
 
-	show_msg "Using system-wide ${mount_tool} and bwrap"
+	show_msg "using system-wide ${mount_tool} and bwrap"
 fi
 
 if [ "$1" = "-e" ] && [ -z "${script_is_symlink}" ]; then
@@ -708,17 +704,17 @@ run_bwrap () {
 			DISABLE_NET=1
 		fi
 
-		show_msg "Sandbox is enabled ${sandbox_level_msg}"
+		show_msg "sandbox is enabled ${sandbox_level_msg}"
 	fi
 
 	if [ "${DISABLE_NET}" = 1 ]; then
-		show_msg "Network is disabled"
+		show_msg "network is disabled"
 
 		unshare_net=(--unshare-net)
 	fi
 
 	if [ -n "${HOME_DIR}" ]; then
-		show_msg "Home directory is set to ${HOME_DIR}"
+		show_msg "home directory = ${HOME_DIR}"
 
 		if [ -n "${non_standard_home[*]}" ]; then
 			custom_home+=(--bind "${HOME_DIR}" "${NEW_HOME}")
@@ -756,7 +752,7 @@ run_bwrap () {
 			fi
 		fi
 	else
-		show_msg "Access to X server is disabled"
+		show_msg "access to X server is disabled"
 
 		# Unset the DISPLAY and XAUTHORITY env variables and mount an
 		# empty file to XAUTHORITY to invalidate it
@@ -985,8 +981,9 @@ if [ "$(ls "${mount_point}" 2>/dev/null)" ] || launch_wrapper "${mount_command[@
 
 	echo 1 > "${working_dir}"/running_"${script_id}"
 
-	show_msg "Running Conty"
-
+	show_msg "starting batocera-conty"
+	show_msg "version = ${script_md5}"
+	
 	export CUSTOM_PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/lib/jvm/default/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
 
 	if [ "$1" = "-l" ] && [ -z "${script_is_symlink}" ]; then
@@ -1113,10 +1110,10 @@ if [ "$(ls "${mount_point}" 2>/dev/null)" ] || launch_wrapper "${mount_command[@
 
 	if [ "${USE_OVERLAYFS}" = 1 ]; then
 		if mount_overlayfs; then
-			show_msg "Using unionfs"
+			#show_msg "Using unionfs"
 			RW_ROOT=1
 		else
-			echo "Failed to mount unionfs"
+			echo "failed to mount unionfs"
 			unset USE_OVERLAYFS
 		fi
 	fi
@@ -1130,7 +1127,7 @@ if [ "$(ls "${mount_point}" 2>/dev/null)" ] || launch_wrapper "${mount_command[@
 			fi
 
 			if mount_overlayfs; then
-				show_msg "Nvidia driver handler is enabled"
+				show_msg "nvidia driver handler is enabled"
 
 				unset nvidia_skip_install
 				unset nvidia_driver_version
@@ -1240,7 +1237,7 @@ if [ "$(ls "${mount_point}" 2>/dev/null)" ] || launch_wrapper "${mount_command[@
 	if [ -n "${script_is_symlink}" ] && [ -f "${mount_point}"/usr/bin/"${script_name}" ]; then
 		export CUSTOM_PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/lib/jvm/default/bin"
 
-		show_msg "Autostarting ${script_name}"
+		show_msg "autostarting ${script_name}"
 		run_bwrap "${script_name}" "$@"
 	elif [ "$1" = "-g" ] || ([ ! -t 0 ] && [ -z "${1}" ] && [ -z "${script_is_symlink}" ]); then
 		export -f gui

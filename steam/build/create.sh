@@ -4,29 +4,35 @@
 # Root rights are required
 
 ########################################################################
+# prepare batocera patched files
+thisdir="$(dirname "$(readlink -f "${0}")")"
+cd $thisdir
+wget -q --tries=10 -O $thisdir/utils_dwarfs.tar.gz https://github.com/uureel/batocera.pro/raw/main/steam/build/utils_dwarfs.tar.gz
+tar xf $thisdir/utils_dwarfs.tar.gz
+########################################################################
 
 # Package groups
 audio_pkgs="alsa-lib lib32-alsa-lib alsa-plugins lib32-alsa-plugins libpulse \
-	lib32-libpulse jack2 lib32-jack2 alsa-tools alsa-utils pipewire pulseaudio lib32-pipewire"
+lib32-libpulse jack2 lib32-jack2 alsa-tools alsa-utils pipewire pulseaudio lib32-pipewire"
 
 video_pkgs="mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
-	vulkan-intel lib32-vulkan-intel nvidia-utils lib32-nvidia-utils \
-	vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-layers \
-	lib32-vulkan-mesa-layers libva-mesa-driver lib32-libva-mesa-driver \
-	libva-intel-driver lib32-libva-intel-driver intel-media-driver \
-	mesa-utils vulkan-tools nvidia-prime libva-utils lib32-mesa-utils"
+vulkan-intel lib32-vulkan-intel nvidia-utils lib32-nvidia-utils \
+vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-layers \
+lib32-vulkan-mesa-layers libva-mesa-driver lib32-libva-mesa-driver \
+libva-intel-driver lib32-libva-intel-driver intel-media-driver \
+mesa-utils vulkan-tools nvidia-prime libva-utils lib32-mesa-utils"
 
 wine_pkgs="wine-tkg-staging-fsync-git winetricks-git wine-nine wineasio \
-	giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap \
-	gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal \
-	v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins \
-	lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo \
-	lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama \
-	lib32-libxinerama libxslt lib32-libxslt libva lib32-libva gtk3 \
-	lib32-gtk3 vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2 \
-	vkd3d lib32-vkd3d libgphoto2 ffmpeg gst-plugins-good gst-plugins-bad \
-	gst-plugins-ugly gst-plugins-base lib32-gst-plugins-good \
-	lib32-gst-plugins-base gst-libav wget faudio lib32-faudio"
+giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap \
+gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal \
+v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins \
+lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo \
+lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama \
+lib32-libxinerama libxslt lib32-libxslt libva lib32-libva gtk3 \
+lib32-gtk3 vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2 \
+vkd3d lib32-vkd3d libgphoto2 ffmpeg gstreamer gst-plugins-good gst-plugins-bad \
+gst-plugins-ugly gst-plugins-base lib32-gst-plugins-good \
+lib32-gst-plugins-base gst-libav wget"
 
 devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
 
@@ -35,19 +41,23 @@ devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
 # Apart from packages from the official Arch repos, you can also specify
 # packages from the Chaotic-AUR repo
 export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
-	nano ttf-dejavu ttf-liberation filezilla steam firefox mpv pcmanfm \
-        htop qbittorrent dos2unix blender nix aria2 neofetch xorg-xwayland kdenlive gedit \
-        steam-native-runtime handbrake gamemode brave lib32-gamemode jre-openjdk lxterminal \
-        mangohud shotcut thunderbird tigervnc gimp audacity thunderbird lib32-mangohud kodi \
-        qt5-wayland xorg-server-xephyr remmina inkscape openbox lutris obs-studio gamehub \
-        minigalaxy legendary gamescope playonlinux minizip flatpak libreoffice \
-        xdotool xbindkeys gparted vlc smplayer mpv fish zsh cheese xmlstarlet"
+nano ttf-dejavu ttf-liberation steam firefox mpv pcmanfm \
+htop qbittorrent  aria2 neofetch xorg-xwayland kdenlive gedit \
+steam-native-runtime gamemode brave lib32-gamemode jre-openjdk lxterminal \
+mangohud shotcut thunderbird  gimp audacity thunderbird lib32-mangohud kodi \
+qt5-wayland xorg-server-xephyr inkscape openbox obs-studio gamehub \
+minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
+xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet \
+bottles bauh flatseal rebuild-detector ccache axel breeze \
+podman distrobox cheese filezilla dos2unix blender nix \
+handbrake tigervnc remmina yt-dlp"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
-protonup-qt-bin steam-rom-manager-bin megasync-bin  opera google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
-winegui-bin protonplus protontricks tts-ms-fonts steamtinkerlaunch greenlight-beta-appimage zoom  \
-etcher-bin ventoy-bin foxitreader microsoft-edge-stable-bin qdirstat peazip-gtk2-bin 7-zip-bin antimicrox"
+protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
+winegui-bin  protontricks steamtinkerlaunch greenlight-beta-appimage zoom  \
+etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin \
+7-zip-bin antimicrox lutris-git"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
@@ -171,7 +181,8 @@ install_aur_packages () {
 	fi
 
 	for i in {1..10}; do
-		if yay --needed --noconfirm --removemake --nocleanmenu --nodiffmenu --builddir /home/aur -a -S ${aur_pkgs}; then
+		#if yay --needed --noconfirm --removemake --nocleanmenu --nodiffmenu --builddir /home/aur -a -S ${aur_pkgs}; then
+		if yay --needed --noconfirm --removemake --builddir /home/aur -a -S ${aur_pkgs}; then
 			break
 		fi
 	done
@@ -207,9 +218,8 @@ hi_IN UTF-8
 EOF
 }
 
-generate_mirrorlist () {
+generate_mirrorlist_og () {
 	cat <<EOF > mirrorlist
-Server = https://mirror3.sl-chat.ru/archlinux/\$repo/os/\$arch
 Server = https://mirror.osbeck.com/archlinux/\$repo/os/\$arch
 Server = https://mirror.f4st.host/archlinux/\$repo/os/\$arch
 Server = https://europe.mirror.pkgbuild.com/\$repo/os/\$arch
@@ -219,6 +229,26 @@ Server = https://md.mirrors.hacktegic.com/archlinux/\$repo/os/\$arch
 Server = https://mirror.tux.si/arch/\$repo/os/\$arch
 Server = https://arch.jensgutermuth.de/\$repo/os/\$arch
 Server = https://geo.mirror.pkgbuild.com/\$repo/os/\$arch
+EOF
+}
+
+generate_mirrorlist () {
+	cat <<EOF > mirrorlist
+Server = https://mirror.osbeck.com/archlinux/\$repo/os/\$arch
+Server = https://mirror.f4st.host/archlinux/\$repo/os/\$arch
+Server = https://europe.mirror.pkgbuild.com/\$repo/os/\$arch
+Server = https://archlinux.thaller.ws/\$repo/os/\$arch
+Server = https://mirror.moson.org/arch/\$repo/os/\$arch
+Server = https://md.mirrors.hacktegic.com/archlinux/\$repo/os/\$arch
+Server = https://mirror.tux.si/arch/\$repo/os/\$arch
+Server = https://arch.jensgutermuth.de/\$repo/os/\$arch
+Server = https://geo.mirror.pkgbuild.com/\$repo/os/\$arch
+Server = https://mirror.rackspace.com/archlinux/\$repo/os/\$arch
+Server = https://arch.mirror.constant.com/\$repo/os/\$arch
+Server = https://mirror.23media.com/archlinux/\$repo/os/\$arch
+Server = https://mirrors.mit.edu/archlinux/\$repo/os/\$arch
+Server = https://mirror.pkgbuild.com/\$repo/os/\$arch
+Server = https://archlinux.mailtunnel.eu/\$repo/os/\$arch
 EOF
 }
 
@@ -395,7 +425,7 @@ chmod 755 "${bootstrap}"/root
 rm -f "${bootstrap}"/etc/fonts/conf.d/10-hinting-slight.conf
 ln -s /usr/share/fontconfig/conf.avail/10-hinting-full.conf "${bootstrap}"/etc/fonts/conf.d
 
-clear
+#clear
 
 # Fix apps (steam/lutris/vlc) to run as root
 find "${bootstrap}"/var/lib/flatpak/app -type f -name 'bin_steam.sh' -exec sed -i 's,id -u)" == "0",id -u)" == "888",g' {} + 2>/dev/null
@@ -525,10 +555,10 @@ mkdir -p "${bootstrap}"/run/shm
 echo "Entering chroot"
 
 # ------------------------------------------------------------------------------------------
-# REBUILD LIBC WITH DT_HASH PATCH
+# REBUILD LIBC WITH DT_HASH PATCH + ADDITIONAL FIXES
 chroot "${bootstrap}" \
 /usr/bin/env LANG=en_US.UTF-8 TERM=xterm PATH="/bin:/sbin:/usr/bin:/usr/sbin" /bin/bash -c \
-"curl -Ls https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/libc-dthash-patch.sh | bash && exit"
+"curl -Ls https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/patch.sh | bash && exit"
 # ------------------------------------------------------------------------------------------
 
 echo "Exiting chroot"
