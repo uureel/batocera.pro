@@ -1,6 +1,11 @@
 #!/bin/bash
 
 ##
+# check conty version md5
+conty="/userdata/system/pro/steam/conty.sh"
+md5="$(head -c 4000000 "${conty}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${conty}" | md5sum | head -c 7)"
+
+##
 # reload ld
 if [[ -s /tmp/.conty-nvidia ]]; then
   if [[ ! -d /tmp/.conty-ld ]]; then
