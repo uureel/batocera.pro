@@ -36,7 +36,25 @@ mkdir -p $c/usr/lib32/dri 2>/dev/null &
 mkdir -p $c/usr/lib32/vdpau 2>/dev/null &
 mkdir -p /var/run/nvidia 2>/dev/null &
 mkdir -p /var/tmp 2>/dev/null &
+mkdir -p /userdata/system/flatpak 2>/dev/null &
+mkdir -p /userdata/system/containers/storage 2>/dev/null &
     wait
+# -------------------------------------------------------------------------------
+# mount cgroup for podman/distrobox
+function cgroups() {
+set -e
+mkdir -p /sys/fs/cgroup 2>/dev/null
+if ! grep -qs '/sys/fs/cgroup ' /proc/mounts; then
+    mount -t tmpfs -o mode=0755 cgroup /sys/fs/cgroup
+fi
+CGROUPS="blkio cpu cpuacct cpuset devices freezer hugetlb memory net_cls net_prio perf_event pids systemd"
+for CGROUP in $CGROUPS; do
+    mkdir -p /sys/fs/cgroup/$CGROUP 2>/dev/null
+    if ! grep -qs "/sys/fs/cgroup/$CGROUP " /proc/mounts; then
+        mount -t cgroup -o $CGROUP cgroup /sys/fs/cgroup/$CGROUP 2>/dev/null
+    fi
+done
+}
 # -------------------------------------------------------------------------------
 # merge ld preload
 if [[ -s /tmp/.conty-ld/ld.so.cache ]]; then
@@ -118,7 +136,9 @@ fi
 # -------------------------------------------------------------------------------
 echo "debug=test" >> "$p"
 # -------------------------------------------------------------------------------
+nv=0
 if [[ "$(glxinfo | grep "vendor string" | grep NVIDIA)" = "" ]]; then
+    cgroups
     exit 0
 else
     if [[ -s /tmp/.conty-nvidia-$v-$md5 ]]; then
@@ -127,14 +147,16 @@ else
     echo
     shown=1
         if [[ ! -e /tmp/.conty-nvidia-started ]] && [[ -e /userdata/system/.local/share/Conty/nvidia/nvidia-$v ]] && [[ -s /userdata/system/.local/share/Conty/nvidia/nvidia-$v.run ]]; then
+            cgroups
             exit 0
         else
             nv=1
         fi
     else
         rm /tmp/.conty-nvidia-$v-$md5 2>/dev/null
-        ver=$(glxinfo | grep "OpenGL version string" | sed 's,^.*NVIDIA ,,g')
-        if [[ "$(echo "$v" | grep ".")" != "" ]]; then
+        ren="$(glxinfo | grep "OpenGL version string")"
+        if [[ "$(echo "$ren" | grep "NVIDIA")" != "" ]]; then
+            nv=1
             if [[ -e /userdata/system/logs/nvidia.log ]]; then
                 if [[ "$(cat /userdata/system/logs/nvidia.log | grep "$v")" != "" ]]; then
                     nv=1
@@ -150,6 +172,7 @@ if [[ -e $nvlog ]]; then
     fi
 fi
 if [[ "$nv" != "1" ]]; then
+    cgroups
     exit 0
 else
   if [[ "$shown" != "1" ]]; then
@@ -181,6 +204,7 @@ fi
 # -------------------------------------------------------------------------------
 if [ ! -f nvidia-$v.run ]; then
     echo "failed to download nvidia $v :( try again?"
+    cgroups
     exit 1
 fi
 # -------------------------------------------------------------------------------
@@ -196,6 +220,7 @@ if [[ ! -f "${nvdir}/.nvidia-$v-$md5" ]]; then
 fi
 if [ ! -d nvidia-$v ]; then
     echo "failed to extract nvidia $v installer"
+    cgroups
     exit 1
 fi
 # -------------------------------------------------------------------------------
@@ -357,4 +382,5 @@ echo "OK" >> /tmp/.conty-nvidia-$v-$md5
 # -------------------------------------------------------------------------------
 echo "ready"
 echo
+cgroups
 exit 0

@@ -7,6 +7,8 @@ conty=/userdata/system/pro/steam/conty.sh
 #------------------------------------------------
 # run
 "$conty" \
+--bind /userdata/system/containers/storage /var/lib/containers/storage \
+--bind /userdata/system/flatpak /var/lib/flatpak \
 --bind /userdata/system/etc/passwd /etc/passwd \
 --bind /userdata/system/etc/group /etc/group \
 --bind /var/run/nvidia /var/run/nvidia \
