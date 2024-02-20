@@ -7,26 +7,18 @@ md5="$(head -c 4000000 "${conty}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${c
 
 ##
 # reload ld
-if [[ -s /tmp/.conty-nvidia ]]; then
-  if [[ ! -d /tmp/.conty-ld ]]; then
-    ldconfig 1>/dev/null 2>/dev/null
-      mkdir -p /tmp/.conty-ld 2>/dev/null
-      mkdir -p /userdata/system/.local/share/Conty/ld/ 2>/dev/null
-      mkdir -p /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/ 2>/dev/null
-        cp -r /etc/ld.so* /tmp/.conty-ld/ 2>/dev/null &
-        cp -r /etc/ld.so* /userdata/system/.local/share/Conty/ld/ 2>/dev/null &
-         wait
-          rm /tmp/.conty-ld/.ready 2>/dev/null
-          echo "OK" >> /tmp/.conty-ld/.ready 2>/dev/null
-  else
-    if [[ ! -s /tmp/.conty-ld/.ready ]]; then
-      cp -r /etc/ld.so* /tmp/.conty-ld/ 2>/dev/null &
-      cp -r /etc/ld.so* /userdata/system/.local/share/Conty/ld/ 2>/dev/null &
-       wait
-        rm /tmp/.conty-ld/.ready 2>/dev/null
-        echo "OK" >> /tmp/.conty-ld/.ready 2>/dev/null
-    fi
-  fi
+if [[ -s /userdata/system/.local/share/Conty/nvidia/.active ]]; then
+  v="$(cat /userdata/system/.local/share/Conty/nvidia/.active | head -n1)"
+	if [[ -s /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 ]]; then
+		cp -r /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/ld.so.cache &
+	else
+		ldconfig 1>/dev/null 2>/dev/null
+			mkdir -p /userdata/system/.local/share/Conty/nvidia 2>/dev/null
+			mkdir -p /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc 2>/dev/null
+			  cp -r /etc/ld.so.cache /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 &
+			  cp -r /etc/ld.so.cache /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/ld.so.cache &
+			  	wait
+	fi
 fi
 
 ##
