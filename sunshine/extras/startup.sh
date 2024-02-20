@@ -6,6 +6,13 @@ export DISPLAY=:0.0
 
 #####################################################################################
 
+if [[ -e /userdata/system/pro/sunshine/batocera-sunshine ]]; then
+  ln -sf /userdata/system/pro/sunshine/batocera-sunshine /usr/bin/batocera-sunshine
+  chmod 777 /usr/bin/batocera-sunshine 2>/dev/null
+fi
+
+#####################################################################################
+
 display_available() {
     DISPLAY=:0.0 xset q >/dev/null 2>&1
     return $?
