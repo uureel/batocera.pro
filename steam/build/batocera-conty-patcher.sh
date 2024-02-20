@@ -38,7 +38,16 @@ mkdir -p /var/run/nvidia 2>/dev/null &
 mkdir -p /var/tmp 2>/dev/null &
     wait
 # -------------------------------------------------------------------------------
-# CHECK PRIME
+# merge ld preload
+if [[ -s /tmp/.conty-ld/ld.so.cache ]]; then
+  if [[ ! -f /tmp/.conty-ld/.ready ]]; then
+    cp -r /tmp/.conty-ld/ld* $c/etc/ 2>/dev/null
+      rm /tmp/.conty-ld/.ready 2>/dev/null
+      echo "OK" >> /tmp/.conty-ld/.ready 2>/dev/null
+  fi
+fi
+# -------------------------------------------------------------------------------
+# check prime
 export DISPLAY=:0.0
 p=/userdata/system/.local/share/Conty/.conty-prime
 rm "$p" 2>/dev/null
@@ -74,7 +83,7 @@ rm /var/tmp/amd.prime 2>/dev/null
     :
     fi
 # -------------------------------------------------------------------------------
-# SET ENV FOR NVIDIA
+# set prime for nvidia
 if [[ -f "/var/tmp/nvidia.prime" ]]; then
     provider_count="$(DISPLAY=:0.0 xrandr --listproviders | grep 'Providers:' | awk '{print $4}')"
     if [[ "$provider_count" -ge 2 ]]; then
@@ -95,7 +104,7 @@ if [[ -f "/var/tmp/nvidia.prime" ]]; then
     fi
 fi
 # -------------------------------------------------------------------------------
-# SET ENV FOR AMD
+# set prime for amd
 if [[ -f "/var/tmp/amd.prime" ]]; then
     amd_prime_value=$(<"/var/tmp/amd.prime")
     if [[ -z "$amd_prime_value" ]]; then
