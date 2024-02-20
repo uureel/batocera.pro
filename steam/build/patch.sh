@@ -45,11 +45,13 @@ dos2unix $f 2>/dev/null
 chmod 777 $f 2>/dev/null
 /tmp/fixlibc
 
-# prepare preload
+# prepare/preload
+rm /usr/bin/prepare 2>/dev/null
 rm /usr/bin/preload 2>/dev/null
-wget -q --tries=10 -O /usr/bin/preload "https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/preload.sh"
-dos2unix /usr/bin/preload 2>/dev/null 
-chmod 777 /usr/bin/preload 2>/dev/null
+wget -q --tries=10 -O /usr/bin/prepare "https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/prepare.sh"
+dos2unix /usr/bin/prepare 2>/dev/null 
+chmod 777 /usr/bin/prepare 2>/dev/null
+cp /usr/bin/prepare /usr/bin/preload 2>/dev/null
 
 # fix borked faudio 
 yes "Y" | pacman -S gstreamer

@@ -2,9 +2,23 @@
 
 ##
 # reload ld
-ldconfig 1>/dev/null 2>/dev/null
-  mkdir -p /userdata/system/.local/share/Conty/ld/ 2>/dev/null
-    cp -r /etc/ld.so* /userdata/system/.local/share/Conty/ld/ 2>/dev/null
+if [[ -s /tmp/.conty-nvidia ]]; then
+  if [[ ! -d /tmp/.conty-ld ]]; then
+    ldconfig 1>/dev/null 2>/dev/null
+      mkdir -p /tmp/.conty-ld 2>/dev/null
+      mkdir -p /userdata/system/.local/share/Conty/ld/ 2>/dev/null
+      mkdir -p /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/ 2>/dev/null
+        cp -r /etc/ld.so* /tmp/.conty-ld/ 2>/dev/null
+        cp -r /etc/ld.so* /userdata/system/.local/share/Conty/ld/ 2>/dev/null
+        cp -r /etc/ld.so* /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/
+          rm /tmp/.conty-ld/.ready 2>/dev/null
+          echo "OK" >> /tmp/.conty-ld/.ready 2>/dev/null
+  else
+    if [[ ! -s /tmp/.conty-ld/.ready ]]; then
+      cp -r /etc/ld.so* /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/
+    fi
+  fi
+fi
 
 ##
 # check prime env
@@ -28,6 +42,8 @@ p=/userdata/system/.local/share/Conty/.conty-prime
 		fi
 		if [[ "$DRI_PRIME_" != "" ]]; then
 			export DRI_PRIME="$DRI_PRIME_"
+			#export AMD_VULKAN_ICD=RADV
+			#export DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1=1
 		fi
 		if [[ "$debug_" != "" ]]; then
 			export debug="$debug_"
@@ -35,5 +51,12 @@ p=/userdata/system/.local/share/Conty/.conty-prime
 
 ##
 # remaining env
+export XDG_CURRENT_DESKTOP=XFCE
+export DESKTOP_SESSION=XFCE
+export QT_SCALE_FACTOR=1 
+export QT_FONT_DPI=96
+export GDK_SCALE=1
 export DISPLAY=:0.0
-eval $(dbus-launch --sh-syntax)
+export GTK_A11Y=none
+export NO_AT_BRIDGE=1
+eval "$(dbus-launch --sh-syntax --exit-with-session)"
