@@ -38,7 +38,11 @@ mkdir -p /var/run/nvidia 2>/dev/null &
 mkdir -p /var/tmp 2>/dev/null &
 mkdir -p /userdata/system/flatpak 2>/dev/null &
 mkdir -p /userdata/system/containers/storage 2>/dev/null &
+mkdir -p /userdata/system/.local/share/Conty/nvidia/ 2>/dev/null &
     wait
+rm /userdata/system/.local/share/Conty/nvidia/.current 2>/dev/null
+  echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.current 2>/dev/null
+rm /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
 # -------------------------------------------------------------------------------
 # mount cgroup for podman/distrobox
 function cgroups() {
@@ -57,12 +61,8 @@ done
 }
 # -------------------------------------------------------------------------------
 # merge ld preload
-if [[ -s /tmp/.conty-ld/ld.so.cache ]]; then
-  if [[ ! -f /tmp/.conty-ld/.ready ]]; then
-    cp -r /tmp/.conty-ld/ld* $c/etc/ 2>/dev/null
-      rm /tmp/.conty-ld/.ready 2>/dev/null
-      echo "OK" >> /tmp/.conty-ld/.ready 2>/dev/null
-  fi
+if [[ -s /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 ]]; then
+  cp -r /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 $c/etc/ld.so.cache 2>/dev/null
 fi
 # -------------------------------------------------------------------------------
 # check prime
@@ -141,6 +141,7 @@ if [[ "$(glxinfo | grep "vendor string" | grep NVIDIA)" = "" ]]; then
     cgroups
     exit 0
 else
+  echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
     if [[ -s /tmp/.conty-nvidia-$v-$md5 ]]; then
     echo "preparing batocera-conty"
     echo "nvidia = $v"
@@ -168,6 +169,7 @@ fi
 nvlog=/userdata/system/logs/nvidia.log
 if [[ -e $nvlog ]]; then
     if [[ "$(cat $nvlog | grep "Detected a NVIDIA")" != "" ]] || [[ "$(cat $nvlog | grep "Using NVIDIA")" != "" ]]; then
+        echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
         nv=1
     fi
 fi
@@ -176,6 +178,7 @@ if [[ "$nv" != "1" ]]; then
     exit 0
 else
   if [[ "$shown" != "1" ]]; then
+    echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
     echo "preparing batocera-conty"
     echo "nvidia = $v"
   fi
@@ -379,6 +382,7 @@ NV4 "$v" "$c" &
 rm /tmp/.conty-nvidia-started 2>/dev/null
 rm /tmp/.conty-nvidia-$v-$md5 2>/dev/null
 echo "OK" >> /tmp/.conty-nvidia-$v-$md5
+echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
 # -------------------------------------------------------------------------------
 echo "ready"
 echo
