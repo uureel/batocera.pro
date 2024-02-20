@@ -1,11 +1,6 @@
 #!/bin/bash
 
 ##
-# check conty version md5
-conty="/userdata/system/pro/steam/conty.sh"
-md5="$(head -c 4000000 "${conty}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${conty}" | md5sum | head -c 7)"
-
-##
 # reload ld
 if [[ -s /tmp/.conty-nvidia ]]; then
   if [[ ! -d /tmp/.conty-ld ]]; then
@@ -15,13 +10,8 @@ if [[ -s /tmp/.conty-nvidia ]]; then
       mkdir -p /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/ 2>/dev/null
         cp -r /etc/ld.so* /tmp/.conty-ld/ 2>/dev/null
         cp -r /etc/ld.so* /userdata/system/.local/share/Conty/ld/ 2>/dev/null
-        cp -r /etc/ld.so* /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/
           rm /tmp/.conty-ld/.ready 2>/dev/null
           echo "OK" >> /tmp/.conty-ld/.ready 2>/dev/null
-  else
-    if [[ ! -s /tmp/.conty-ld/.ready ]]; then
-      cp -r /etc/ld.so* /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/
-    fi
   fi
 fi
 
