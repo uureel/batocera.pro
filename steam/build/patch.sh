@@ -45,19 +45,11 @@ dos2unix $f 2>/dev/null
 chmod 777 $f 2>/dev/null
 /tmp/fixlibc
 
-h=/tmp/hash && rm $h 2>/dev/null
-readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
-	if [[ "$(cat $h | grep '(HASH)')" != "" ]] && [[ "$(cat $h | grep '(GNU_HASH)')" != "" ]]; then
-		echo
-		echo "LIBC DT_HASH PATCHED OK!"
-		echo
-	else
-		echo
-		echo "LIBC DT_HASH PATCH FAILED..."
-		echo	
-	fi
-rm $f 2>/dev/null
-rm $h 2>/dev/null
+# prepare preload
+rm /usr/bin/preload 2>/dev/null
+wget -q --tries=10 -O /usr/bin/preload "https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/preload.sh"
+dos2unix /usr/bin/preload 2>/dev/null 
+chmod 777 /usr/bin/preload 2>/dev/null
 
 # fix borked faudio 
 yes "Y" | pacman -S gstreamer
@@ -93,6 +85,25 @@ cd /usr/lib32
 rm /usr/bin/samba* 2>/dev/null
 rm /usr/bin/smb* 2>/dev/null
 rm -rf ~/build 2>/dev/null
+
+# confirm libc patch status
+h=/tmp/hash && rm $h 2>/dev/null
+readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
+	if [[ "$(cat $h | grep '(HASH)')" != "" ]] && [[ "$(cat $h | grep '(GNU_HASH)')" != "" ]]; then
+		echo
+		echo "LIBC DT_HASH PATCHED OK!"
+		echo
+	else
+		echo
+		echo "LIBC DT_HASH PATCH FAILED..."
+		echo	
+	fi
+rm $f 2>/dev/null
+rm $h 2>/dev/null
+
+echo
+echo "patch.sh done."
+echo
 
 exit 0
 #exit
