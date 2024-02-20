@@ -12,10 +12,7 @@ p=/userdata/system/.local/share/Conty/.conty-prime
 	if [[ -s "$p" ]]; then
 		dos2unix "$p" 2>/dev/null
 			while IFS= read -r "$p"; do
-			    # Export if line matches the pattern var=value
-			    if [[ "$line" =~ ^[a-zA-Z_]+[a-zA-Z0-9_]*=.*$ ]]; then
-			        export "$line"
-			    fi
+				export "$line"
 			done < "$file"
 
 ##
