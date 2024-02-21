@@ -253,7 +253,7 @@ mkdir -p "$DOWNLOAD_DIR"
 clear
 echo "Downloading Parser"
 rm /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.* 2>/dev/null
-wget -q --tries=10 -O "/userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh
 chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
 
 # Make the script executable
@@ -265,14 +265,13 @@ echo "Downloading ES Systems"
 rm /userdata/system/configs/emulationstation/es_systems_arch.* 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_systems_steam2.* 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_features_steam2.* 2>/dev/null
-wget -q --tries=10 -O /userdata/system/configs/emulationstation/es_systems_arch.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_arch.cfg
-wget -q --tries=10 -O /userdata/system/configs/emulationstation/es_systems_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_steam2.cfg
-wget -q --tries=10 -O /userdata/system/configs/emulationstation/es_features_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_systems_arch.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_arch.cfg
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_systems_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_steam2.cfg
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_features_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg
 
 killall -9 vlc
 
 clear
-
 
 #echo "Preparing to launch Steam..."
 #sleep 2
@@ -307,11 +306,12 @@ clear
 
 echo "Steam is now starting"
 
-/userdata/roms/conty/"Steam Big Picture Mode.sh"
-
-
-
+dos2unix "/userdata/roms/conty/Steam Big Picture Mode.sh" 2>/dev/null
+chmod 777 "/userdata/roms/conty/Steam Big Picture Mode.sh" 2>/dev/null
+bash "/userdata/roms/conty/Steam Big Picture Mode.sh"
 
 echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
 sleep 8
-killall -9 emulationstation
+
+#killall -9 emulationstation
+curl http://127.0.0.1:1234/reloadgames
