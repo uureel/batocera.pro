@@ -8,6 +8,7 @@ sh_files=(
   "Antimicrox.sh"
   "Audacity.sh"
   "Balena-Etcher.sh"
+  "Blender.sh"
   "Boilr.sh"
   "Bottles.sh"
   "Brave.sh"
