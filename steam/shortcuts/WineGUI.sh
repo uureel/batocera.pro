@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c "prepare && NO_AT_BRIDGE=1 GTK_A11Y=none dbus-run-session winegui ${@}"
+  bash -c 'prepare && NO_AT_BRIDGE=1 GTK_A11Y=none dbus-run-session winegui '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------

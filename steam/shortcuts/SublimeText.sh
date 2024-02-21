@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c "prepare && dbus-run-session subl ${@}"
+  bash -c 'prepare && dbus-run-session subl '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------

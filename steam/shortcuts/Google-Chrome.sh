@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c "prepare && dbus-run-session google-chrome-stable --no-sandbox --test-type ${@}"
+  bash -c 'prepare && dbus-run-session google-chrome-stable --no-sandbox --test-type '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------

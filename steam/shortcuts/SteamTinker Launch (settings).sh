@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c "prepare && dbus-run-session steamtinkerlaunch settings ${@}"
+  bash -c 'prepare && dbus-run-session steamtinkerlaunch settings '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------

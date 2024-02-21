@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c "prepare && obs ${@}"
+  bash -c 'prepare && obs '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------

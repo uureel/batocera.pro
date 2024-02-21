@@ -18,7 +18,7 @@ killall -9 steam steamfix steamfixer 2>/dev/null
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c "prepare && dbus-run-session steam -gamepadui ${@}"
+  bash -c 'prepare && dbus-run-session steam -gamepadui '"${@}"''
 #------------------------------------------------
 batocera-mouse hide
 #------------------------------------------------
