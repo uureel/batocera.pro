@@ -22,7 +22,7 @@ clear
 case $CHOICE in
     1)
         echo "Installing Steam Container..."
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/install2.sh | bash
+        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/install.sh | bash
         ;;
     2)
         echo "Loading Uninstall script..."
@@ -42,9 +42,9 @@ case $CHOICE in
     6) echo "Add Lutris shortcuts to emulationstation..."
        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_lutris.sh | bash
        ;;
-       echo "Add Heroic shortcuts to emulationstation..."
+    7) echo "Add Heroic shortcuts to emulationstation..."
        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_heroic.sh | bash
-      ;;
+       ;;
     *)
         echo "No valid option selected or cancelled. Exiting."
         ;;
