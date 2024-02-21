@@ -303,9 +303,9 @@ clear
 #   echo -ne '          \r'
 #done
 
-#echo "Steam is now starting"
+echo "Steam is now starting"
 
-#/userdata/roms/conty/"Steam Big Picture Mode.sh"
+/userdata/roms/conty/"Steam Big Picture Mode.sh"
 
 
 
