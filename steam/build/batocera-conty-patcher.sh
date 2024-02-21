@@ -8,6 +8,8 @@ c="/userdata/system/.local/share/Conty/overlayfs_$md5/up"
 # -------------------------------------------------------------------------------
 echo
 mkdir -p "$c/etc/" 2>/dev/null
+chown -R root:root /var/run/pulse 2>/dev/null
+chmod -R 777 /var/run/pulse 2>/dev/null
 sysctl -w fs.inotify.max_user_watches=8192000 1>/dev/null 2>/dev/null
 sysctl -w vm.max_map_count=2147483642 1>/dev/null 2>/dev/null
 sysctl -w fs.file-max=8192000 1>/dev/null 2>/dev/null
