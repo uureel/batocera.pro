@@ -130,15 +130,15 @@ find "$DIRECTORY" -type f -name "*.sh" -exec rm -f {} +
 
 echo "All .sh files in $DIRECTORY have been deleted."
 
-
 # Download the file
-curl -L "$FILE_URL" -o "$TARGET_FILE"
+wget -q --tries=10 -O "$TARGET_FILE" "$FILE_URL"
 
 # Make the downloaded file executable
-chmod +x "$TARGET_FILE"
+dos2unix "$TARGET_FILE" 2>/dev/null 
+chmod +x "$TARGET_FILE" 2>/dev/null
 
 echo "Downloaded and made executable: $TARGET_FILE"
-sleep2
+sleep 2
 
 rm /userdata/roms/steam2/*.sh 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_configs/es_features_steam2.cfg 2>/dev/null
