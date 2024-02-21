@@ -133,7 +133,6 @@ sh_files=(
 "Qdirstat.sh"
 "Shotcut.sh"
 "Smplayer.sh"
-"Spotify.sh"
 "Steam Big Picture Mode.sh"
 "Steam.sh"
 "SteamTinker Launch (settings).sh"
