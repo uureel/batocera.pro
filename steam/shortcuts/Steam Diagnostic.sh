@@ -18,7 +18,7 @@ killall -9 steam steamfix steamfixer 2>/dev/null
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  xterm -fs 12 -maximized -fg white -bg black -fa "DejaVuSansMono" -en UTF-8 -e bash -c 'prepare && DISPLAY=:0.0 dbus-run-session steam'
+  xterm -fs 12 -maximized -fg white -bg black -fa "DejaVuSansMono" -en UTF-8 -e bash -c 'prepare && ulimit -H -n 819200 && ulimit -S -n 819200 && DISPLAY=:0.0 dbus-run-session steam'
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------

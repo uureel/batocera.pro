@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && NO_AT_BRIDGE=1 GTK_A11Y=none dbus-run-session bauh '"${@}"''
+  bash -c 'prepare && ulimit -H -n 819200 && ulimit -S -n 819200 && NO_AT_BRIDGE=1 GTK_A11Y=none dbus-run-session bauh '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------

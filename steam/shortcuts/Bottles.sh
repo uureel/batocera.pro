@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && dbus-run-session bottles '"${@}"''
+  bash -c 'prepare && ulimit -H -n 819200 && ulimit -S -n 819200 && dbus-run-session bottles '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
