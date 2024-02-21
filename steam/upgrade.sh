@@ -53,41 +53,41 @@ animate_text "Recreated the build directory."
 
 # Navigate to the directory
 cd ~/pro/steam/build
+rm compress.sh conty-start.sh create.sh 2>/dev/null
 
 # Download the scripts using curl
 animate_text "Downloading scripts..."
-curl -L https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/compress.sh -o compress.sh
-curl -L https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/conty-start.sh -o conty-start.sh
-curl -L https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/create.sh -o create.sh
+curl -Ls https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/compress.sh -o compress.sh
+curl -Ls https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/conty-start.sh -o conty-start.sh
+curl -Ls https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/create.sh -o create.sh
 
 # Make the scripts executable
-chmod +x compress.sh conty-start.sh create.sh
+chmod 777 compress.sh conty-start.sh create.sh 2>/dev/null
 
 # Run scripts with animated messages
 animate_text "Running create.sh..."
-./create.sh
+bash ./create.sh
 
 animate_text "Running compress.sh..."
-./compress.sh
+bash ./compress.sh
 
 # Check if conty.sh is successfully created and make it executable
 if [ -f "conty.sh" ]; then
     chmod +x conty.sh
     # Move conty.sh to ~/pro/steam
     animate_text "moving: please wait"
-    mv conty.sh ~/pro/steam/
+    mv conty.sh /userdata/system/pro/steam/
     animate_text "conty.sh creation and move successful!"
     sleep 3
     clear
     animate_text "Downloading Shortcuts"
     
-
 github_url="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/"
 target_directory="/userdata/roms/conty/"
 
 # List of .sh files to download
 sh_files=(
-  "Antimicrox.sh"
+"Antimicrox.sh"
 "Audacity.sh"
 "Balena-Etcher.sh"
 "Blender.sh"
