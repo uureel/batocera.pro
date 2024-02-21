@@ -129,6 +129,7 @@ sh_files=(
 "Shotcut.sh"
 "Smplayer.sh"
 "Steam Big Picture Mode.sh"
+"Steam Diagnostic.sh"
 "Steam.sh"
 "SteamTinker Launch (settings).sh"
 "SublimeText.sh"
