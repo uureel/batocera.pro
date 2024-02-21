@@ -22,7 +22,7 @@ clear
 case $CHOICE in
     1)
         echo "Installing Steam Container..."
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/nv_warning.sh | bash
+        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/install2.sh | bash
         ;;
     2)
         echo "Loading Uninstall script..."
