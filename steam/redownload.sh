@@ -9,8 +9,7 @@ if [ "$architecture" != "x86_64" ]; then
     exit 1
 fi
 
-
-Clear 
+clear 
 
 # Function to display animated title
 animate_title() {
@@ -24,8 +23,6 @@ animate_title() {
     done
     echo
 }
-
-
 
 # Main script execution
 clear
