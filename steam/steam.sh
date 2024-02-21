@@ -39,12 +39,12 @@ case $CHOICE in
     5)  echo "Update Conty Container..."
         curl -L https://github.com/uureel/batocera.pro/raw/main/steam/upgrade.sh  | bash
         ;;
-    6) echo "Add Lutris shortcuts to emulationstation..."
-       curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_lutris.sh | bash
-       ;;
-    7) echo "Add Heroic shortcuts to emulationstation..."
-       curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_heroic.sh | bash
-       ;;
+   # 6) echo "Add Lutris shortcuts to emulationstation..."
+   #    curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_lutris.sh | bash
+   #    ;;
+   #7) echo "Add Heroic shortcuts to emulationstation..."
+   #    curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_heroic.sh | bash
+   #    ;;
     *)
         echo "No valid option selected or cancelled. Exiting."
         ;;
