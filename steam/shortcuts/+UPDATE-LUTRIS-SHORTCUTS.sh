@@ -61,7 +61,7 @@ batocera-mouse show
 --bind /userdata /userdata \\
 --bind /newroot /newroot \\
 --bind / /batocera \\
-bash -c 'prepare && LUTRIS_SKIP_INIT=1 dbus-run-session lutris lutris:$lutris_url_part'
+bash -c 'prepare && LUTRIS_SKIP_INIT=1 dbus-run-session /opt/lutris/bin/lutris lutris:$lutris_url_part'
 #------------------------------------------------
 batocera-mouse hide
 #------------------------------------------------
