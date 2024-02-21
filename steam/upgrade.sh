@@ -154,12 +154,17 @@ for file in "${sh_files[@]}"; do
   wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
   chmod +x "${target_directory}${file}"
 done
+
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
+dos2unix /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
+chmod 777 /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
+
 animate_text "Cleaning up"
 rm -rf ~/pro/steam/build
 echo "DONE"
 sleep 5
-killall -9 emulationstation
 
+curl http://127.0.0.1:1234/reloadgames
 
 else
     echo "conty.sh was not created."
