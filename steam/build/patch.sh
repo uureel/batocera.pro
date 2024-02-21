@@ -68,13 +68,12 @@ cd ~/
 cd /opt
 git clone https://github.com/lutris/lutris
 sed -i 's,os.geteuid() == 0,os.geteuid() == 888,g' /opt/lutris/lutris/gui/application.py 2>/dev/null
-f=/bin/lutris
-cp $f /bin/lutris-git 2>/dev/null
-rm $f 2>/dev/null
-echo '#!/bin/bash' >> $f
-echo '/opt/lutris/bin/lutris "${@}"' >> $f
-dos2unix $f 2>/dev/null
-chmod 777 $f 2>/dev/null
+cp /usr/bin/lutris /usr/bin/lutris-git 2>/dev/null
+rm /usr/bin/lutris 2>/dev/null
+echo '#!/bin/bash' >> /usr/bin/lutris
+echo '/opt/lutris/bin/lutris "${@}"' >> /usr/bin/lutris
+dos2unix /usr/bin/lutris 2>/dev/null
+chmod 777 /usr/bin/lutris 2>/dev/null
 
 # run additional fixes
 sed -i '/<description>.*<\/description>/d' /etc/fonts/fonts.conf 2>/dev/null
