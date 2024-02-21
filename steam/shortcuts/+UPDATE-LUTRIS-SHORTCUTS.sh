@@ -48,23 +48,24 @@ while IFS= read -r line; do
 #------------------------------------------------
 batocera-mouse show
 #------------------------------------------------
-/userdata/system/pro/steam/conty.sh \
---bind /userdata/system/containers/storage /var/lib/containers/storage \
---bind /userdata/system/flatpak /var/lib/flatpak \
---bind /userdata/system/etc/passwd /etc/passwd \
---bind /userdata/system/etc/group /etc/group \
---bind /var/run/nvidia /var/run/nvidia \
---bind /userdata/system /home/batocera \
---bind /sys/fs/cgroup /sys/fs/cgroup \
---bind /userdata/system /home/root \
---bind /etc/fonts /etc/fonts \
---bind /userdata /userdata \
---bind /newroot /newroot \
---bind / /batocera \
-bash -c 'prepare && dbus-run-session env LUTRIS_SKIP_INIT=1 lutris lutris:$lutris_url_part '"\${@}"''
+/userdata/system/pro/steam/conty.sh \\
+--bind /userdata/system/containers/storage /var/lib/containers/storage \\
+--bind /userdata/system/flatpak /var/lib/flatpak \\
+--bind /userdata/system/etc/passwd /etc/passwd \\
+--bind /userdata/system/etc/group /etc/group \\
+--bind /var/run/nvidia /var/run/nvidia \\
+--bind /userdata/system /home/batocera \\
+--bind /sys/fs/cgroup /sys/fs/cgroup \\
+--bind /userdata/system /home/root \\
+--bind /etc/fonts /etc/fonts \\
+--bind /userdata /userdata \\
+--bind /newroot /newroot \\
+--bind / /batocera \\
+bash -c 'prepare && LUTRIS_SKIP_INIT=1 dbus-run-session /opt/lutris/bin/lutris lutris:$lutris_url_part'
 #------------------------------------------------
 batocera-mouse hide
 #------------------------------------------------
+
 "
  
    #  LUTRIS COMMAND env LUTRIS_SKIP_INIT=1 lutris lutris:$lutris_url_part
