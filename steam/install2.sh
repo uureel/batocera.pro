@@ -74,7 +74,7 @@ fi
    
 # Step 3: Download conty.sh with download percentage indicator
 rm /userdata/system/pro/steam/conty.s* 2>/dev/null
-wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/conty.sh http://batocera.pro/app/conty.sh
+wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/conty.sh http://batocera.pro/app/conty.sh
 chmod 777 /userdata/system/pro/steam/conty.sh 2>/dev/null
 
 # Step 4: Make conty.sh executable
