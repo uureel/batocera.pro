@@ -33,7 +33,7 @@ batocera-mouse show
 --bind /userdata/system /home/root \
 --bind /etc/fonts /etc/fonts \
 --bind /userdata /userdata \
---bind /newroot /newroot \        
+--bind /newroot /newroot \
 --bind / /batocera \
 bash -c 'prepare && dbus-run-session heroic $launch_command --no-gui --no-sandbox '"\${@}"''
 #------------------------------------------------
