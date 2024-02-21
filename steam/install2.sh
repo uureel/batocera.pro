@@ -77,8 +77,8 @@ if [ ! -d "$HOME_DIR" ]; then
 fi
    
 # Step 3: Download conty.sh with download percentage indicator
-wget batocera.pro/app/conty.sh -O ~/pro/steam/conty.sh 
-
+rm /userdata/system/pro/steam/conty.s* 2>/dev/null
+wget -q --show-progress --tries=10 -O /userdata/system/pro/steam/conty.sh http://batocera.pro/app/conty.sh
 
 # Step 4: Make conty.sh executable
 chmod +x "$DOWNLOAD_FILE"
@@ -251,10 +251,9 @@ mkdir -p "$DOWNLOAD_DIR"
 # Download the file
 clear
 echo "Downloading Parser"
-wget https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh -P /userdata/roms/steam2/
+rm /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.* 2>/dev/null
+wget -q --tries=10 -O "/userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh
 chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
-
-
 
 # Make the script executable
 chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
