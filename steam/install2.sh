@@ -265,6 +265,10 @@ wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/s
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_systems_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_steam2.cfg
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_features_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg
 
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
+dos2unix /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
+chmod 777 /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
+
 killall -9 vlc
 
 clear
