@@ -5,7 +5,7 @@ OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
          "2" "Uninstall Steam/Lutris/Heroic Game Launcher Container"
          "3" "Update Launcher shortcuts for emulationstation Arch container"
          "4" "Re-download container"
-         "5" "Rebuild and Update apps on container (experimental)"
+         "5" "Rebuild and Update apps on container (experimental)")
        #  "6" "Addon: Add Lutris & Shortcuts to Emulationstation"
        #  "7" "Addon: Add Heroic & Shortcuts to Emulationstation")
          
