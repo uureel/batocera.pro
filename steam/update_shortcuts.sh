@@ -140,13 +140,14 @@ chmod +x "$TARGET_FILE"
 echo "Downloaded and made executable: $TARGET_FILE"
 sleep2
 
-rm -rf /userdata/roms/steam2/*.sh
-rm -rf ~/configs/emulationstation/es_configs/es_features_steam2.cfg
-wget https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg -P ~/configs/emulationstation
+rm /userdata/roms/steam2/*.sh 2>/dev/null
+rm /userdata/system/configs/emulationstation/es_configs/es_features_steam2.cfg 2>/dev/null
+
 echo "Downloading Parser and es_systems"
-
-wget https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh -O /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
-
+wget -q --tries=10 -O /userdata/system/configs/emulationstation/es_configs/es_features_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg
+wget -q --tries=10 -O /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh
+dos2unix /userdata/system/configs/emulationstation/es_configs/es_features_steam2.cfg 2>/dev/null
+dos2unix /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh 2>/dev/null
 chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
 sleep 2
 echo "Done"
