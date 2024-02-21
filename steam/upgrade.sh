@@ -151,11 +151,11 @@ for file in "${sh_files[@]}"; do
   encoded_file=$(echo "$file" | sed 's/ /%20/g')
   echo "Downloading $file..."
   #curl -sSL "${github_url}${encoded_file}" -o "${target_directory}${file}"
-  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
+  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
   chmod +x "${target_directory}${file}"
 done
 
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
+wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
 dos2unix /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
 chmod 777 /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
 

@@ -201,7 +201,7 @@ for file in "${sh_files[@]}"; do
   encoded_file=$(echo "$file" | sed 's/ /%20/g')
   echo "Downloading $file..."
   #curl -sSL "${github_url}${encoded_file}" -o "${target_directory}${file}"
-  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
+  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
   dos2unix "${target_directory}${file}" 2>/dev/null
   chmod +x "${target_directory}${file}" 2>/dev/null
 done
@@ -249,7 +249,7 @@ mkdir -p "$DOWNLOAD_DIR"
 clear
 echo "Downloading Parser"
 rm /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.* 2>/dev/null
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh
+wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "/userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh
 chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
 
 # Make the script executable
@@ -261,11 +261,11 @@ echo "Downloading ES Systems"
 rm /userdata/system/configs/emulationstation/es_systems_arch.* 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_systems_steam2.* 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_features_steam2.* 2>/dev/null
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_systems_arch.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_arch.cfg
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_systems_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_steam2.cfg
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_features_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg
+wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_systems_arch.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_arch.cfg
+wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_systems_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_steam2.cfg
+wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_features_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg
 
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
+wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
 dos2unix /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
 chmod 777 /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
 

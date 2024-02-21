@@ -32,10 +32,10 @@ display_controls
 cvlc https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/wait.mp3 --repeat >/dev/null 2>&1 &
 
 rm /userdata/system/pro/steam/conty.sh 2>/dev/null
-wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/conty.sh http://batocera.pro/app/conty.sh 
+wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/conty.sh http://batocera.pro/app/conty.sh 
 chmod 777 /userdata/system/pro/steam/conty.sh 2>/dev/null
 
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
+wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
 dos2unix /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
 chmod 777 /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
 
