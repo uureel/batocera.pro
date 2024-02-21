@@ -131,7 +131,7 @@ find "$DIRECTORY" -type f -name "*.sh" -exec rm -f {} +
 echo "All .sh files in $DIRECTORY have been deleted."
 
 # Download the file
-wget -q --tries=10 -O "$TARGET_FILE" "$FILE_URL"
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$TARGET_FILE" "$FILE_URL"
 
 # Make the downloaded file executable
 dos2unix "$TARGET_FILE" 2>/dev/null 
@@ -144,12 +144,18 @@ rm /userdata/roms/steam2/*.sh 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_configs/es_features_steam2.cfg 2>/dev/null
 
 echo "Downloading Parser and es_systems"
-wget -q --tries=10 -O /userdata/system/configs/emulationstation/es_configs/es_features_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg
-wget -q --tries=10 -O /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_configs/es_features_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh
 dos2unix /userdata/system/configs/emulationstation/es_configs/es_features_steam2.cfg 2>/dev/null
 dos2unix /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh 2>/dev/null
 chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
+
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
+dos2unix /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
+chmod 777 /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
+
 sleep 2
+
 echo "Done"
 
 # Reload ES after installations
