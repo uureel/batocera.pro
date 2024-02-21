@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # Get the machine hardware name
 architecture=$(uname -m)
 
@@ -13,7 +11,6 @@ fi
 
 echo "Starting Steam Installer Script..."
 
-
 cvlc --quiet --play-and-exit --no-osd https://github.com/trashbus99/batocera-addon-scripts/raw/main/media/steam.mp4 >/dev/null 2>&1 &
 
 # Wait for cvlc to finish
@@ -21,7 +18,7 @@ wait $!
 
 killall -9 vlc
 
-Clear 
+clear 
 
 # Function to display animated title
 animate_title() {
@@ -45,7 +42,6 @@ display_controls() {
     echo 
     sleep 10  # Delay for 10 seconds
 }
-
 
 clear
 
@@ -78,7 +74,7 @@ fi
    
 # Step 3: Download conty.sh with download percentage indicator
 rm /userdata/system/pro/steam/conty.s* 2>/dev/null
-wget -q --show-progress --tries=10 -O /userdata/system/pro/steam/conty.sh http://batocera.pro/app/conty.sh
+wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/conty.sh http://batocera.pro/app/conty.sh
 chmod 777 /userdata/system/pro/steam/conty.sh 2>/dev/null
 
 # Step 4: Make conty.sh executable
