@@ -9,6 +9,58 @@ sh_files=(
   "Audacity.sh"
   "Balena-Etcher.sh"
   "Boilr.sh"
+  "Bottles.sh"
+  "Brave.sh"
+  "Chiaki.sh"
+  "FIleManager-Dolphin.sh"
+  "FIleManager-DoubleCmd.sh"
+  "FileManager-PCManFM.sh"
+  "Firefox.sh"
+  "Flatpak-Config.sh"
+  "GameHub.sh"
+  "Geforce Now.sh"
+  "Gimp.sh"
+  "Google-Chrome.sh"
+  "Gparted.sh"
+  "Greenlight.sh"
+  "Gthumb.sh"
+  "Heroic Game Launcher.sh"
+  "Inkscape.sh"
+  "Kdenlive.sh"
+  "Kodi.sh"
+  "Libreoffice.sh"
+  "Lutris.sh"
+  "Microsoft-Edge.sh"
+  "Minigalaxy.sh"
+  "Moonlight.sh"
+  "OBS Studio.sh"
+  "Peazip.sh"
+  "Play on Linux 4.sh"
+  "Protonup-Qt.sh"
+  "Qbittorrent.sh"
+  "Qdirstat.sh"
+  "Shotcut.sh"
+  "Smplayer.sh"
+  "Spotify.sh"
+  "Steam Big Picture Mode.sh"
+  "Steam.sh"
+  "SteamTinker Launch (settings).sh"
+  "SublimeText.sh"
+  "Terminal-Kitty.sh"
+  "Terminal-Lxterminal.sh"
+  "Terminal-Terminator.sh"
+  "Thunderbird.sh"
+  "VLC.sh"
+  "WineGUI.sh"
+  "Zoom.sh"
+)
+
+# List of .sh files to remove
+old_sh_files=(
+  "Antimicrox.sh"
+  "Audacity.sh"
+  "Balena-Etcher.sh"
+  "Boilr.sh"
   "Brave.sh"
   "Firefox.sh"
   "GameHub.sh"
@@ -43,11 +95,15 @@ sh_files=(
   "Thunderbird.sh"
   "VLC.sh"
   "Zoom.sh"
- 
 )
 
 # Create the target directory if it doesn't exist
 mkdir -p "$target_directory"
+
+# Remove old .sh files
+for file in "${old_sh_files[@]}"; do
+  rm "${target_directory}${file}" 2>/dev/null
+done
 
 # Download the specified .sh files and make them executable
 for file in "${sh_files[@]}"; do
@@ -56,9 +112,9 @@ for file in "${sh_files[@]}"; do
   echo "Downloading $file..."
   #curl -sSL "${github_url}${encoded_file}" -o "${target_directory}${file}"
   wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
-  chmod +x "${target_directory}${file}"
+  dos2unix "${target_directory}${file}" 2>/dev/null
+  chmod +x "${target_directory}${file}" 2>/dev/null
 done
-
 
 # Target directory
 DIRECTORY="/userdata/roms/steam2"
