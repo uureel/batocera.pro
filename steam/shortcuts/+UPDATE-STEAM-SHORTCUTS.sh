@@ -56,7 +56,7 @@ killall -9 steam steamfix steamfixer 2>/dev/null
 --bind /userdata/system /home/root \
 --bind /etc/fonts /etc/fonts \
 --bind /userdata /userdata \
---bind /newroot /newroot \        
+--bind /newroot /newroot \
 --bind / /batocera \
 bash -c 'prepare && dbus-run-session steam $steam_url_part -gamepadui '"\${@}"''
 #------------------------------------------------
