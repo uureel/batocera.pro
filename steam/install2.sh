@@ -79,12 +79,13 @@ fi
 # Step 3: Download conty.sh with download percentage indicator
 rm /userdata/system/pro/steam/conty.s* 2>/dev/null
 wget -q --show-progress --tries=10 -O /userdata/system/pro/steam/conty.sh http://batocera.pro/app/conty.sh
+chmod 777 /userdata/system/pro/steam/conty.sh 2>/dev/null
 
 # Step 4: Make conty.sh executable
 chmod +x "$DOWNLOAD_FILE"
 
 # Step 5: Change ownership of home folder to user "batocera"
-chown -R batocera:batocera "$HOME_DIR"
+# chown -R batocera:batocera "$HOME_DIR"
 
 # Step 6: Download scripts to new /userdata/roms/conty folder
 github_url="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/"
