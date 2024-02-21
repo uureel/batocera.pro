@@ -262,10 +262,12 @@ chmod +x "$DOWNLOAD_DIR/$SCRIPT_NAME"
 # Step 8: Download ES custom Steam2 & conty/Arch system .cfgs to ~/configs/emulationstation
 clear
 echo "Downloading ES Systems"
-wget https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_arch.cfg -P ~/configs/emulationstation
-wget https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_steam2.cfg -P ~/configs/emulationstation
-wget https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg -P ~/configs/emulationstation
-
+rm /userdata/system/configs/emulationstation/es_systems_arch.* 2>/dev/null
+rm /userdata/system/configs/emulationstation/es_systems_steam2.* 2>/dev/null
+rm /userdata/system/configs/emulationstation/es_features_steam2.* 2>/dev/null
+wget -q --tries=10 -O /userdata/system/configs/emulationstation/es_systems_arch.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_arch.cfg
+wget -q --tries=10 -O /userdata/system/configs/emulationstation/es_systems_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_steam2.cfg
+wget -q --tries=10 -O /userdata/system/configs/emulationstation/es_features_steam2.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_features_steam2.cfg
 
 killall -9 vlc
 
