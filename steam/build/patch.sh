@@ -76,6 +76,8 @@ dos2unix /usr/bin/lutris 2>/dev/null
 chmod 777 /usr/bin/lutris 2>/dev/null
 
 # run additional fixes
+sed -i 's,/opt/google/chrome/google-chrome,/opt/google/chrome/google-chrome --no-sandbox --test-type,g' /usr/bin/google-chrome-stable 2>/dev/null
+sed -i 's,/opt/spotify/spotify,/opt/spotify/spotify --no-sandbox --test-type,g' /usr/bin/spotify 2>/dev/null
 sed -i '/<description>.*<\/description>/d' /etc/fonts/fonts.conf 2>/dev/null
 sed -i '/<description>.*<\/description>/d' /etc/fonts/conf.d/* 2>/dev/null
 cd /usr/lib
