@@ -51,7 +51,7 @@ xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet doublecmd-qt6 \
 bottles bauh flatseal rebuild-detector ccache axel breeze docker \
 podman distrobox cheese filezilla dos2unix blender nix gthumb \
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace \
-docker gthumb doublecmd-qt6 dolphin konsole"
+docker gthumb doublecmd-qt6 dolphin thunar nemo konsole"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
