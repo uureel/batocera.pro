@@ -22,29 +22,61 @@ clear
 case $CHOICE in
     1)
         echo "Installing Steam Container..."
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/install2.sh | bash
+        rm /tmp/runner 2>/dev/null
+        wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/install2.sh
+        dos2unix /tmp/runner 2>/dev/null 
+        chmod 777 /tmp/runner 2>/dev/null
+        bash /tmp/runner
         ;;
     2)
         echo "Loading Uninstall script..."
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/uninstall.sh | bash
+        rm /tmp/runner 2>/dev/null
+        wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/uninstall.sh
+        dos2unix /tmp/runner 2>/dev/null 
+        chmod 777 /tmp/runner 2>/dev/null
+        bash /tmp/runner
         ;;
-    3)
+    3)  
         echo "Update EmulationStation Arch Container Launcher Shortcuts..."
         rm /userdata/roms/conty/*.sh
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/update_shortcuts.sh | bash
+        rm /tmp/runner 2>/dev/null
+        wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/update_shortcuts.sh
+        dos2unix /tmp/runner 2>/dev/null 
+        chmod 777 /tmp/runner 2>/dev/null
+        bash /tmp/runner
         ;;    
-    4)  echo "Update/Re-download Container..."
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/redownload.sh  | bash
+    4)  
+        echo "Update/Re-download Container..."
+        rm /tmp/runner 2>/dev/null
+        wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/redownload.sh
+        dos2unix /tmp/runner 2>/dev/null 
+        chmod 777 /tmp/runner 2>/dev/null
+        bash /tmp/runner
         ;;
-    5)  echo "Update Conty Container..."
-        curl -L https://github.com/uureel/batocera.pro/raw/main/steam/upgrade.sh  | bash
+    5)  
+        echo "Update Conty Container..."
+        rm /tmp/runner 2>/dev/null
+        wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/upgrade.sh
+        dos2unix /tmp/runner 2>/dev/null 
+        chmod 777 /tmp/runner 2>/dev/null
+        bash /tmp/runner
         ;;
-    6) echo "Add/Update Lutris shortcuts to emulationstation..."
-       curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_lutris.sh | bash
-       ;;
-    7) echo "Add/update Heroic shortcuts to emulationstation..."
-       curl -L https://github.com/uureel/batocera.pro/raw/main/steam/addon_heroic.sh | bash
-       ;;
+    6)  
+        echo "Add/Update Lutris shortcuts to emulationstation..."
+        rm /tmp/runner 2>/dev/null
+        wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/addon_lutris.sh
+        dos2unix /tmp/runner 2>/dev/null 
+        chmod 777 /tmp/runner 2>/dev/null
+        bash /tmp/runner
+        ;;
+    7)  
+        echo "Add/update Heroic shortcuts to emulationstation..."
+        rm /tmp/runner 2>/dev/null
+        wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/addon_heroic.sh
+        dos2unix /tmp/runner 2>/dev/null 
+        chmod 777 /tmp/runner 2>/dev/null
+        bash /tmp/runner
+        ;;
     *)
         echo "No valid option selected or cancelled. Exiting."
         ;;
