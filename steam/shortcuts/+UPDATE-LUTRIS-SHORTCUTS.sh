@@ -1,6 +1,7 @@
 #!/bin/bash
 # Specify the directory to scan and the output file
-directory_to_scan="/userdata/system/Desktop"
+# directory_to_scan="/userdata/system/Desktop"
+directory_to_scan="/userdata/system/.local/share/applications/"
 output_file="/userdata/system/pro/steam/lutris_list.txt"
 
 # Check if the directory exists
