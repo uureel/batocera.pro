@@ -53,7 +53,7 @@ bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli 
 podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc \
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace file glances \
 docker gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
-gdk-pixbuf-xlib gdk-pixbuf2 xarchiver gnome-boxes mc vifm nnn krusader krename kate \
+gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm nnn krusader krename kate \
 imagemagick dnsmasq dmidecode"
 
 # If you want to install AUR packages, specify them in this variable
@@ -61,7 +61,7 @@ export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-
 protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui \
 winegui-bin  protontricks steamtinkerlaunch greenlight-beta-appimage zoom  \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin \
-7-zip-bin antimicrox lutris-git sublime-text-4 atoms-git chiaki"
+7-zip-bin antimicrox lutris-git sublime-text-4 chiaki"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
