@@ -205,6 +205,10 @@ OR<BR>
 ```curl -L krita.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/livecaptions/extra/icon.png" width=48 height=48 /><b><i>&nbsp;LIVECAPTIONS (SYSTEM-SETTINGS SERVICE)</i></b><br>
+```curl -L livecaptions.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/logs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;LOGS</i></b><br>
 ```curl -L logs.batocera.pro | bash```
 <br>
