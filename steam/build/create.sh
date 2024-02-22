@@ -48,19 +48,20 @@ mangohud shotcut thunderbird gimp audacity thunderbird lib32-mangohud kodi \
 qt5-wayland xorg-server-xephyr inkscape openbox obs-studio gamehub binutils \
 xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet nvtop duf exa \
 minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
+ripgrep i7z sd bandwhich tre zoxide p7zip atop iftop sysstat totem feh krename \
 bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli \
 podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc \
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace file glances \
 docker gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
-ripgrep i7z sd bandwhich tre zoxide p7zip atop iftop sysstat totem feh imagemagick \
-gdk-pixbuf-xlib gdk-pixbuf2 xarchiver gnome-boxes mc"
+gdk-pixbuf-xlib gdk-pixbuf2 xarchiver gnome-boxes mc vifm nnn krusader krename kate \
+imagemagick"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
-protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui chiaki \
+protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui \
 winegui-bin  protontricks steamtinkerlaunch greenlight-beta-appimage zoom  \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin \
-7-zip-bin antimicrox lutris-git sublime-text-4"
+7-zip-bin antimicrox lutris-git sublime-text-4 atoms-git chiaki atoms-git"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
