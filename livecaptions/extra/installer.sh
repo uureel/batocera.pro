@@ -42,6 +42,9 @@ dos2unix "$f" 2>/dev/null
 f=$d/README.txt
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/README.txt
 dos2unix "$f" 2>/dev/null
+f=$d/extra/xdotool
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/xdotool
+chmod 777 "$f" 2>/dev/null
 f=$d/extra/service.sh
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/service.sh
 dos2unix "$f" 2>/dev/null
