@@ -24,8 +24,6 @@ sysctl -w fs.file-max=8192000 1>/dev/null 2>/dev/null
           mount -t proc /proc /newroot/proc 2>/dev/null
 # -------------------------------------------------------------------------------
 mkdir -p $c/etc 2>/dev/null &
-mkdir -p $c/lib32 2>/dev/null &
-mkdir -p $c/lib64 2>/dev/null &
 mkdir -p $c/usr/bin 2>/dev/null &
 mkdir -p $c/usr/lib 2>/dev/null &
 mkdir -p $c/usr/lib/dri 2>/dev/null &
