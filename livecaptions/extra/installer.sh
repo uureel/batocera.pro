@@ -8,6 +8,9 @@ fi
 echo -e "\ninstalling batocera-livecaptions...\n" 
 
 killall -9 livecaptions 2>/dev/null
+if [[ "$(batocera-services list | grep 'livecaptions')" != "" ]]; then
+  batocera-services disable livecaptions 2>/dev/null
+fi
 
 if [[ "$(flatpak list | grep 'net.sapples.LiveCaptions')" = "" ]]; then
   echo -e "\ninstalling livecaptions flatpak...\n" 
@@ -68,10 +71,7 @@ f=$d/extra/service.sh
   cp "$f" /userdata/system/services/livecaptions 2>/dev/null
 
 if [[ "$(batocera-services list | grep 'livecaptions')" != "" ]]; then
-  batocera-services stop livecaptions 2>/dev/null
   batocera-services disable livecaptions 2>/dev/null
-  batocera-services enable livecaptions 2>/dev/null
-#  batocera-services start livecaptions 2>/dev/null
 fi
 
 echo 
