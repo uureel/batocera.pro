@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <desktops>
+        <number>1</number>
+        <firstdesk>1</firstdesk>
+    </desktops>
+    <applications>
+        <application type="*">
+            <layer>normal</layer>
+            <fullscreen>no</fullscreen>
+            <maximized>yes</maximized>
+            <decor>no</decor>
+        </application>
+        <application type="normal">
+            <layer>normal</layer>
+            <fullscreen>no</fullscreen>
+            <maximized>yes</maximized>
+            <decor>no</decor>
+        </application>
+        <application class="flatpak-bwrap">
+            <fullscreen>no</fullscreen>
+            <maximized>no</maximized>
+        </application>
+        <application class="Lutris">
+            <maximized>no</maximized>
+            <fullscreen>no</fullscreen>
+        </application>
+        <application name="livecaptions">
+            <type>dock</type>
+            <layer>above</layer>
+            <fullscreen>no</fullscreen>
+            <maximized>no</maximized>
+        </application>
+        <application name="Live Captions">
+            <type>dock</type>
+            <layer>above</layer>
+            <fullscreen>no</fullscreen>
+            <maximized>no</maximized>
+        </application>
+        <application class="livecaptions">
+            <type>dock</type>
+            <layer>above</layer>
+            <fullscreen>no</fullscreen>
+            <maximized>no</maximized>
+        </application>
+        <application class="Live Captions">
+            <type>dock</type>
+            <layer>above</layer>
+            <fullscreen>no</fullscreen>
+            <maximized>no</maximized>
+        </application>
+    </applications>
+</openbox_config>
