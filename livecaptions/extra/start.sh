@@ -21,7 +21,8 @@ nohup infowindow -fs 14 -maximized -fg white -bg black -fa "DejaVuSansMono" -en 
 killall -9 livecaptions 2>/dev/null
 killall -9 emulationstation 2>/dev/null
 killall -9 batocera-compositor 2>/dev/null
-DISPLAY=:0.0 nohup /userdata/system/pro/livecaptions/batocera-compositor 1>/logs/livecaptions.log 2>/logs/livecaptions.log &
-DISPLAY=:0.0 nohup dbus-run-session flatpak run net.sapples.LiveCaptions 1>/logs/livecaptions.log 2>/logs/livecaptions.log &
+DISPLAY=:0.0 su -c "/userdata/system/pro/livecaptions/batocera-compositor 1>/dev/null 2>/dev/null &" &
+DISPLAY=:0.0 su -c "dbus-run-session flatpak run net.sapples.LiveCaptions  1>/dev/null 2>/dev/null &" &
+echo 1>/dev/null &
 
 exit 0
