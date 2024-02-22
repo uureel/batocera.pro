@@ -1,0 +1,33 @@
+#!/bin/sh
+
+
+start() {
+
+if [[ "$(pidof dockerd)" = "" ]]; then
+  if [[ -e "$(which dockerd)" ]]; then
+    nohup dockerd 1>/dev/null 2>/dev/null &
+  else
+    ~/cli/run
+  fi
+else
+  docker unpause $(docker ps -q)
+fi
+
+}
+
+stop() {
+    docker pause $(docker ps -q)
+    
+}  
+
+case "$1" in
+        start)
+                start &
+                ;;
+        stop)
+                stop
+                ;;
+        *)
+                echo "Usage: $0 {start|stop}"
+                exit 1
+esac
