@@ -47,7 +47,7 @@ FREE_SPACE_KB=$FREE_SPACE
 # Check if free space is less than the minimum required
 if [ $FREE_SPACE_KB -lt $MIN_FREE_SPACE ]; then
     # Warning message using dialog, asking if they want to proceed
-    dialog --title "Warning" --yesno "Not enough disk space to continue. At least 30GB of free space is required. Do you want to proceed anyway?" 10 50
+    dialog --title "Warning" --yesno ". At least 30GB of free space is recommended. Proceed?" 10 50
     
     response=$?
     clear # Clear dialog artifacts from terminal
