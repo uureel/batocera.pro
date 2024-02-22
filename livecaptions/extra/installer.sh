@@ -43,7 +43,7 @@ f=$d/README.txt
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/README.txt
 dos2unix "$f" 2>/dev/null
 f=$d/extra/service.sh
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/livecaptions-rc.xml
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/service.sh
 dos2unix "$f" 2>/dev/null
 chmod 777 "$f" 2>/dev/null
 cp "$f" /userdata/system/services/livecaptions 2>/dev/null
