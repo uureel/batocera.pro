@@ -73,4 +73,26 @@ done
 watcher "0.1"
 watcher "1"
 
+# keep livecaptions re-running (in case it gets closed), until the service is disabled via system settings
+keeper() {
+wait="${1}"
+while true; do
+    serviceon="$(batocera-services list | grep livecaptions | grep '*')"
+    lcon="$(pidof livecaptions)"
+        if [ "$lcon" = "" ]; then
+            if [ "$serviceon" != "" ]; then
+                killall -9 livecaptions 2>/dev/null
+                killall -9 batocera-compositor 2>/dev/null
+                    DISPLAY=:0.0 su -c "/userdata/system/pro/livecaptions/extra/move.sh & DISPLAY=:0.0 dbus-run-session flatpak run net.sapples.LiveCaptions 1>/dev/null 2>/dev/null & DISPLAY=:0.0 /userdata/system/pro/livecaptions/extra/batocera-compositor start &" &
+                            sleep 3
+            else
+                exit 0
+            fi
+        fi
+    sleep 3
+done
+}
+
+keeper
+
 exit 0

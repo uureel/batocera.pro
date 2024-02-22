@@ -36,7 +36,8 @@ move() {
      cx=$(echo "$c" | awk '{print $3}')
      cy=$(echo "$c" | awk '{print $4}')
      nx=$(( ($sw - $cw) / 2 ))
-     ny=$(( 0 + ($sh * 5 / 100) ))
+     #ny=$(( 0 + ($sh * 3 / 100) ))
+     ny=0
 
     id=$(xdotool search --name "Live Captions" | head -n1)
 
@@ -46,7 +47,7 @@ move() {
 # focus back on emulationstation
 focus() {
     local window_name="${1}"
-    local window_id=$(xdotool search --name "$window_name" | head -1)
+    local window_id=$(xdotool search --pid "$(pidof emulationstation)")
     if [ -n "$window_id" ]; then
         xdotool windowactivate $window_id
     fi
@@ -69,65 +70,6 @@ while true; do
 done
 }
 
-watcher "0.1"
 watcher "1"
-
-exit 0
-
-
-
-
-
-
-
-
-
-
-
-
-# doublecheck
-while true; do
-    check "emulationstation"
-    emulationStationActive=$?
-    check "livecaptions"
-    liveCaptionsActive=$?
-    if [ $emulationStationActive -eq 0 ] && [ $liveCaptionsActive -eq 0 ]; then
-        move
-        focus "emulationstation"
-        break
-    fi
-    sleep 0.5
-done
-
-
-
-exit 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"$d/extra/livecaptions-rc.xml" /etc/openbox/rc.xml 2>/dev/null
-openbox --config-file /etc/openbox/rc.xml --reconfigure
-
-cp /usr/bin/xterm /usr/bin/infowindow
-nohup infowindow -fs 14 -maximized -fg white -bg black -fa "DejaVuSansMono" -en UTF-8 -e bash -c 'sleep 1 && echo "RELOADING EMULATIONSTATION..." && sleep 3 && killall -9 infowindow & exit 0' 1>/dev/null 2>/dev/null &
-
-killall -9 livecaptions 2>/dev/null
-killall -9 emulationstation 2>/dev/null
-killall -9 batocera-compositor 2>/dev/null
-DISPLAY=:0.0 su -c "dbus-run-session flatpak run net.sapples.LiveCaptions 1>/dev/null 2>/dev/null & DISPLAY=:0.0 /userdata/system/pro/livecaptions/batocera-compositor start &" &
-echo 1>/dev/null &
 
 exit 0
