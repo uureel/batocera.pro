@@ -28,44 +28,41 @@ d=/userdata/system/pro/livecaptions
   mkdir -p $d/extra 2>/dev/null
 
 f=$d/extra/batocera-compositor
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://github.com/uureel/batocera.pro/raw/main/livecaptions/extra/batocera-compositor
-  chmod 777 $f 2>/dev/null
-f=$d/extra/batocera-compositor
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://github.com/uureel/batocera.pro/raw/main/livecaptions/extra/batocera-compositor
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://github.com/uureel/batocera.pro/raw/main/livecaptions/extra/batocera-compositor
   chmod 777 $f 2>/dev/null
 f=$d/extra/batocera-rc.xml
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/batocera-rc.xml
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/batocera-rc.xml
   dos2unix "$f" 2>/dev/null
 f=$d/extra/livecaptions-rc.xml
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/livecaptions-rc.xml
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/livecaptions-rc.xml
   dos2unix "$f" 2>/dev/null
 f=$d/README.txt
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/README.txt
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/README.txt
   dos2unix "$f" 2>/dev/null
 f=$d/extra/xdotool
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/xdotool
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/xdotool
   chmod 777 "$f" 2>/dev/null
 f=$d/extra/wmctrl
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/wmctrl
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/wmctrl
   chmod 777 "$f" 2>/dev/null
 f=$d/extra/start.sh
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/start.sh
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/start.sh
   dos2unix "$f" 2>/dev/null
   chmod 777 "$f" 2>/dev/null
 f=$d/extra/stop.sh
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/stop.sh
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/stop.sh
   dos2unix "$f" 2>/dev/null
   chmod 777 "$f" 2>/dev/null
 f=$d/extra/move.sh
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/move.sh
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/move.sh
   dos2unix "$f" 2>/dev/null
   chmod 777 "$f" 2>/dev/null
 f=$d/extra/watcher.sh
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/watcher.sh
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/watcher.sh
   dos2unix "$f" 2>/dev/null
   chmod 777 "$f" 2>/dev/null
 f=$d/extra/service.sh
-  wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/service.sh
+  wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/service.sh
   dos2unix "$f" 2>/dev/null
   chmod 777 "$f" 2>/dev/null
   cp "$f" /userdata/system/services/livecaptions 2>/dev/null
@@ -74,7 +71,7 @@ if [[ "$(batocera-services list | grep 'livecaptions')" != "" ]]; then
   batocera-services stop livecaptions 2>/dev/null
   batocera-services disable livecaptions 2>/dev/null
   batocera-services enable livecaptions 2>/dev/null
-  batocera-services start livecaptions 2>/dev/null
+#  batocera-services start livecaptions 2>/dev/null
 fi
 
 echo 
