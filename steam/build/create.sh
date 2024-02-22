@@ -32,7 +32,7 @@ lib32-libxinerama libxslt lib32-libxslt libva lib32-libva gtk3 \
 lib32-gtk3 vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2 \
 vkd3d lib32-vkd3d libgphoto2 ffmpeg gstreamer gst-plugins-good gst-plugins-bad \
 gst-plugins-ugly gst-plugins-base lib32-gst-plugins-good \
-lib32-gst-plugins-base gst-libav wget"
+lib32-gst-plugins-base gst-libav wget wine-mono wine-gecko"
 
 devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
 
@@ -51,9 +51,9 @@ minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
 bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli \
 podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc \
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace file glances \
-docker gthumb doublecmd-qt6 dolphin wine thunar nemo konsole screenfetch procs tre \
-ripgrep i7z sd bandwhich tre zoxide nmon atop iftop sysstat totem feh imagemagick \
-gdk-pixbuf-xlib gdk-pixbuf2 p7zip xarchiver"
+docker gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
+ripgrep i7z sd bandwhich tre zoxide p7zip atop iftop sysstat totem feh imagemagick \
+gdk-pixbuf-xlib gdk-pixbuf2 xarchiver"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
