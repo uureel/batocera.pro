@@ -64,16 +64,28 @@ yes "Y" | pacman -U "$f"
 rm "$f"
 cd ~/
 
-# fix lutris on nvidia
+# fix for nvidia lutris
 cd /opt
-git clone https://github.com/lutris/lutris
-sed -i 's,os.geteuid() == 0,os.geteuid() == 888,g' /opt/lutris/lutris/gui/application.py 2>/dev/null
-cp /usr/bin/lutris /usr/bin/lutris-git 2>/dev/null
-rm /usr/bin/lutris 2>/dev/null
-echo '#!/bin/bash' >> /usr/bin/lutris
-echo '/opt/lutris/bin/lutris "${@}"' >> /usr/bin/lutris
-dos2unix /usr/bin/lutris 2>/dev/null
-chmod 777 /usr/bin/lutris 2>/dev/null
+	git clone https://github.com/lutris/lutris
+	sed -i 's,os.geteuid() == 0,os.geteuid() == 888,g' /opt/lutris/lutris/gui/application.py 2>/dev/null
+	cp /usr/bin/lutris /usr/bin/lutris-git 2>/dev/null
+	rm /usr/bin/lutris 2>/dev/null
+	  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /usr/bin/lutris https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
+	  dos2unix /usr/bin/lutris 2>/dev/null
+	  chmod 777 /usr/bin/lutris
+
+# add ~/.bashrc&profile env
+rm ~/.bashrc
+	echo '#!/bin/bash' >> ~/.bashrc
+	echo 'ulimit -H -n 819200 && ulimit -S -n 819200 && sysctl -w fs.inotify.max_user_watches=8192000 vm.max_map_count=2147483642 fs.file-max=8192000 >/dev/null 2>&1' >> ~/.bashrc
+	echo 'export XDG_CURRENT_DESKTOP=XFCE' >> ~/.bashrc
+	echo 'export DESKTOP_SESSION=XFCE' >> ~/.bashrc
+	echo 'export DISPLAY=:0.0' >> ~/.bashrc
+	echo 'export GDK_SCALE=1' >> ~/.bashrc
+	echo 'export USER=root' >> ~/.bashrc
+dos2unix ~/.bashrc
+chmod 777 ~/.bashrc
+cp ~/.bashrc ~/.profile
 
 # run additional fixes
 sed -i 's,/opt/google/chrome/google-chrome,/opt/google/chrome/google-chrome --no-sandbox --test-type,g' /usr/bin/google-chrome-stable 2>/dev/null
