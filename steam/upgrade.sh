@@ -35,6 +35,34 @@ if ! confirm_start; then
     exit 1
 fi
 
+# Minimum required free space in KB (30GB)
+MIN_FREE_SPACE=$((30*1024*1024))
+
+# Check free space on the root partition
+FREE_SPACE=$(df / | grep / | awk '{ print $4 }')
+
+# Convert to KB
+FREE_SPACE_KB=$((FREE_SPACE))
+
+# Check if free space is less than the minimum required
+if [ $FREE_SPACE_KB -lt $MIN_FREE_SPACE ]; then
+    # Warning message using dialog, asking if they want to proceed
+    dialog --title "Warning" --yesno "Not enough disk space to continue. At least 30GB of free space is recommended. Do you want to proceed anyway?" 10 50
+    
+    response=$?
+    clear # Clear dialog artifacts from terminal
+    if [ $response -eq 0 ]; then
+        echo "User chose to proceed."
+        # Place the rest of your script here that should run if the user chooses to proceed.
+    else
+        echo "User chose not to proceed. Exiting."
+        exit 1
+    fi
+else
+    echo "Sufficient disk space available. Continuing..."
+    # Place the rest of your script here that should run if there is enough space.
+fi
+
 # Step 0: Clean the directory
 animate_text "Cleaning build directory by removing it..."
 rm -rf ~/pro/steam/build
