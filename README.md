@@ -253,6 +253,10 @@ OR<BR>
 ```curl -L nomacs.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/nvtop/extra/gpu.png" width=48 height=48 /><b><i>&nbsp;NVTOP</i></b><br>
+```curl -L nvtop.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/obs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;OBS-STUDIO</i></b><br>
 ```curl -L obs.batocera.pro | bash```
 <br>
