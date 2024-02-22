@@ -39,14 +39,8 @@ dos2unix "$f" 2>/dev/null
 f=$d/extra/livecaptions-rc.xml
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/livecaptions-rc.xml
 dos2unix "$f" 2>/dev/null
-f=$d/README.txt
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/README.txt
-dos2unix "$f" 2>/dev/null
-f=$d/extra/xdotool
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/xdotool
-chmod 777 "$f" 2>/dev/null
 f=$d/extra/service.sh
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/service.sh
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O $f https://raw.githubusercontent.com/uureel/batocera.pro/main/livecaptions/extra/livecaptions-rc.xml
 dos2unix "$f" 2>/dev/null
 chmod 777 "$f" 2>/dev/null
 cp "$f" /userdata/system/services/livecaptions 2>/dev/null
@@ -56,23 +50,3 @@ if [[ "$(batocera-services list | grep 'livecaptions')" != "" ]]; then
   batocera-services enable livecaptions 2>/dev/null
   batocera-services start livecaptions 2>/dev/null
 fi
-
-echo 
-echo "installed ok."
-echo
-echo "|||||||||||||||||||||||||||||||||||||||||||||||||||"
-echo "|                                                 |"
-echo "|                                                 |"
-echo "|    livecaptions is a batocera SERVICE add-on    |"
-echo "|                                                 |"
-echo "|                                                 |"
-echo "|    to start it, or stop it, use                 |"
-echo "|    SYSTEM SETTINGS > SERVICES > LIVECAPTIONS    |"
-echo "|                                                 |"
-echo "|                                                 |"
-echo "|||||||||||||||||||||||||||||||||||||||||||||||||||"
-echo
-echo
-sleep 5
-
-exit 0

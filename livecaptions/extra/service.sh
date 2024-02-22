@@ -1,12 +1,14 @@
 #!/bin/sh
 
 start() {
-  /userdata/system/pro/livecaptions/extra/start.sh
+  DISPLAY=:0.0 nohup /userdata/system/pro/livecaptions/extra/start.sh 1>/dev/null 2>/dev/null &
+  echo 1>/dev/null
   return 0
 }
 
 stop() {
-  /userdata/system/pro/livecaptions/extra/stop.sh
+  DISPLAY=:0.0 nohup /userdata/system/pro/livecaptions/extra/stop.sh 1>/dev/null 2>/dev/null &
+  echo 1>/dev/null
   return 0
 }
 
