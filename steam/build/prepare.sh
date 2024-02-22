@@ -15,12 +15,14 @@ C=/userdata/system/.local/share/Conty
 # reload group & passwd
 if [[ -s $C/group ]]; then
 	dos2unix $C/group 2>/dev/null
+	chmod 777 $C/group 2>/dev/null
   mkdir -p $C/overlayfs_$md5/up/etc 2>/dev/null
   cp -r $C/group $C/overlayfs_$md5/up/etc/ 2>/dev/null
   cp -r $C/group /etc/ 2>/dev/null
 fi
 if [[ -s $C/passwd ]]; then
 	dos2unix $C/passwd 2>/dev/null
+	chmod 777 $C/passwd 2>/dev/null
   mkdir -p $C/overlayfs_$md5/up/etc 2>/dev/null
   cp -r $C/passwd $C/overlayfs_$md5/up/etc/ 2>/dev/null
   cp -r $C/passwd /etc/ 2>/dev/null
