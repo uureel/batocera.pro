@@ -51,3 +51,5 @@ echo "nvtop setup is complete."
 echo "DONE"
 sleep 5 
 
+curl http://127.0.0.1:1234/reloadgames
+
