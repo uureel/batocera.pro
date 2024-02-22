@@ -46,7 +46,31 @@ rm /userdata/system/.local/share/Conty/nvidia/.current 2>/dev/null
   echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.current 2>/dev/null
 rm /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
 # -------------------------------------------------------------------------------
-# mount cgroup for podman/distrobox
+# merge ld preload
+if [[ -s /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 ]]; then
+  cp -r /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 $c/etc/ld.so.cache 2>/dev/null
+fi
+# -------------------------------------------------------------------------------
+# patch lutris 
+if [[ ! -s "$c/usr/bin/lutris" ]]; then
+  mkdir -p "$c/usr/bin/" 2>/dev/null
+  mkdir -p "$c/bin/" 2>/dev/null
+  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
+  dos2unix "$c/usr/bin/lutris" 2>/dev/null
+  chmod 777 "$c/usr/bin/lutris"
+  cp "$c/usr/bin/lutris" "$c/bin/lutris"
+else
+  if [[ "$(cat "$c/usr/bin/lutris" | grep 'ulimit')" = "" ]]; then
+  mkdir -p "$c/usr/bin/" 2>/dev/null
+  mkdir -p "$c/bin/" 2>/dev/null
+  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
+  dos2unix "$c/usr/bin/lutris" 2>/dev/null
+  chmod 777 "$c/usr/bin/lutris"
+  cp "$c/usr/bin/lutris" "$c/bin/lutris"
+  fi
+fi
+# -------------------------------------------------------------------------------
+# mount cgroups for podman/docker/distrobox
 function cgroups() {
 set -e
 mkdir -p /sys/fs/cgroup 2>/dev/null
@@ -61,11 +85,6 @@ for CGROUP in $CGROUPS; do
     fi
 done
 }
-# -------------------------------------------------------------------------------
-# merge ld preload
-if [[ -s /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 ]]; then
-  cp -r /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 $c/etc/ld.so.cache 2>/dev/null
-fi
 # -------------------------------------------------------------------------------
 # check prime
 export DISPLAY=:0.0
@@ -201,7 +220,7 @@ if [[ ! -s "${nvdir}"/.nvidia-$v-downloaded ]]; then
         rm /tmp/.conty-nvidia-downloading 2>/dev/null
         touch /tmp/.conty-nvidia-downloading 2>/dev/null
           echo "downloading..."
-            wget -q --show-progress -O nvidia-$v.run https://us.download.nvidia.com/XFree86/Linux-x86_64/$v/NVIDIA-Linux-x86_64-$v.run
+            wget -q --tries=30 --no-check-certificate --no-cache --no-cookies --show-progress -O nvidia-$v.run https://us.download.nvidia.com/XFree86/Linux-x86_64/$v/NVIDIA-Linux-x86_64-$v.run
             chmod +x nvidia-$v.run 2>/dev/null
         rm /tmp/.conty-nvidia-downloading 2>/dev/null
       echo "OK" >> "${nvdir}/.nvidia-$v-downloaded"

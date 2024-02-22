@@ -8,5 +8,6 @@ export NO_AT_BRIDGE=1
 export GTK_A11Y=none
 export DISPLAY=:0.0
 export GDK_SCALE=1
+export USER=root
 
 dbus-run-session /opt/lutris/bin/lutris "${@}"
