@@ -85,8 +85,8 @@ cp ~/.bashrc ~/.profile
 
 # fix for winestaging bork
 echo "fixing paths for wine staging"
-rm /lib32 2>/dev/null
-rm /share 2>/dev/null
+rm -rf /lib32 2>/dev/null
+rm -rf /share 2>/dev/null
 ln -sf /usr/lib32 /lib32
 ln -sf /usr/share /share
 
