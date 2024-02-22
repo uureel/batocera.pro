@@ -39,6 +39,7 @@ mkdir -p $c/usr/lib32/vdpau 2>/dev/null &
 mkdir -p /var/run/nvidia 2>/dev/null &
 mkdir -p /var/tmp 2>/dev/null &
 mkdir -p /userdata/system/flatpak 2>/dev/null &
+mkdir -p /userdata/system/Desktop 2>/dev/null &
 mkdir -p /userdata/system/containers/storage 2>/dev/null &
 mkdir -p /userdata/system/.local/share/Conty/nvidia/ 2>/dev/null &
     wait
