@@ -5,12 +5,12 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME=VLC # for installer info
-appname=vlc # directory name in /userdata/system/pro/...
-AppName=vlc # App.AppImage name
+APPNAME=nvtop # for installer info
+appname=nvop # directory name in /userdata/system/pro/...
+AppName=nv # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=http://batocera.pro/app/$appname.AppImage
-ORIGIN=batocera.pro/app # credit & info
+APPLINK=https://github.com/Syllo/nvtop/releases/download/3.0.2/nvtop-x86_64.AppImage
+ORIGIN=https://github.com/Syllo/nvtop # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
