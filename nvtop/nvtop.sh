@@ -5,9 +5,9 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME=nvtop # for installer info
+APPNAME=NVTOP # for installer info
 appname=nvop # directory name in /userdata/system/pro/...
-AppName=nv # App.AppImage name
+AppName=nvtop.AppImage # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 APPLINK=https://github.com/Syllo/nvtop/releases/download/3.0.2/nvtop-x86_64.AppImage
 ORIGIN=https://github.com/Syllo/nvtop # credit & info
