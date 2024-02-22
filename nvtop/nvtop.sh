@@ -48,3 +48,6 @@ EOF
 chmod +x "$script_path"
 
 echo "nvtop setup is complete."
+echo "DONE"
+sleep 5 
+
