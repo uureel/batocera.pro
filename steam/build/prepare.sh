@@ -1,27 +1,48 @@
 #!/bin/bash
 
+## don't run inside batocera
+if [[ -s /usr/bin/batocera-version ]]; then
+  exit 0
+fi
+
 ##
 # check conty version md5
 conty="/userdata/system/pro/steam/conty.sh"
 md5="$(head -c 4000000 "${conty}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${conty}" | md5sum | head -c 7)"
+C=/userdata/system/.local/share/Conty
+
+##
+# reload group & passwd
+if [[ -s $C/group ]]; then
+	dos2unix $C/group 2>/dev/null
+  mkdir -p $C/overlayfs_$md5/up/etc 2>/dev/null
+  cp -r $C/group $C/overlayfs_$md5/up/etc/ 2>/dev/null
+  cp -r $C/group /etc/ 2>/dev/null
+fi
+if [[ -s $C/passwd ]]; then
+	dos2unix $C/passwd 2>/dev/null
+  mkdir -p $C/overlayfs_$md5/up/etc 2>/dev/null
+  cp -r $C/passwd $C/overlayfs_$md5/up/etc/ 2>/dev/null
+  cp -r $C/passwd /etc/ 2>/dev/null
+fi
 
 ##
 # reload ld
-if [[ -s /userdata/system/.local/share/Conty/nvidia/.active ]]; then
-  v="$(cat /userdata/system/.local/share/Conty/nvidia/.active | head -n1)"
-  if [[ -s /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 ]]; then
-    cp -r /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc/ld.so.cache
+if [[ -s $C/nvidia/.active ]]; then
+  v="$(cat $C/nvidia/.active | head -n1)"
+  if [[ -s $C/nvidia/ld.so.cache-$v-$md5 ]]; then
+    cp -r $C/nvidia/ld.so.cache-$v-$md5 $C/overlayfs_$md5/up/etc/ld.so.cache 2>/dev/null
   else
     ldconfig 1>/dev/null 2>/dev/null
-      mkdir -p /userdata/system/.local/share/Conty/nvidia 2>/dev/null
-      mkdir -p /userdata/system/.local/share/Conty/overlayfs_$md5/up/etc 2>/dev/null
-        cp -r /etc/ld.so.cache /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5
+      mkdir -p $C/nvidia 2>/dev/null
+      mkdir -p $C/overlayfs_$md5/up/etc 2>/dev/null
+        cp -r /etc/ld.so.cache $C/nvidia/ld.so.cache-$v-$md5 2>/dev/null
   fi
 fi
 
 ##
 # check prime env
-p=/userdata/system/.local/share/Conty/.conty-prime
+p=$C/.conty-prime
 	if [[ -s "$p" ]]; then
 		dos2unix "$p" 2>/dev/null
 			__NV_PRIME_RENDER_OFFLOAD_="$(cat "$p" | grep '__NV_PRIME_RENDER_OFFLOAD' | cut -d "=" -f2)"
@@ -56,6 +77,4 @@ export QT_SCALE_FACTOR=1
 export QT_FONT_DPI=96
 export GDK_SCALE=1
 export DISPLAY=:0.0
-export GTK_A11Y=none
-export NO_AT_BRIDGE=1
 eval "$(dbus-launch --sh-syntax)"
