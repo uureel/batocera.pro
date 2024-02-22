@@ -38,16 +38,16 @@ fi
 # Minimum required free space in KB (30GB)
 MIN_FREE_SPACE=$((30*1024*1024))
 
-# Check free space on the root partition
-FREE_SPACE=$(df / | grep / | awk '{ print $4 }')
+# Check free space on the root partition, ensuring we're getting just the available space in 1K blocks
+FREE_SPACE=$(df --output=avail / | tail -n 1)
 
-# Convert to KB
-FREE_SPACE_KB=$((FREE_SPACE))
+# Convert to KB (Note: `df` output in 1K blocks is already in KB, so no conversion is necessary)
+FREE_SPACE_KB=$FREE_SPACE
 
 # Check if free space is less than the minimum required
 if [ $FREE_SPACE_KB -lt $MIN_FREE_SPACE ]; then
     # Warning message using dialog, asking if they want to proceed
-    dialog --title "Warning" --yesno "At least 30GB of free space is recommended. Proceed?" 10 50
+    dialog --title "Warning" --yesno "Not enough disk space to continue. At least 30GB of free space is required. Do you want to proceed anyway?" 10 50
     
     response=$?
     clear # Clear dialog artifacts from terminal
