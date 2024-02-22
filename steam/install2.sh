@@ -98,6 +98,7 @@ sh_files=(
 "Chiaki.sh"
 "FileManager-Dolphin.sh"
 "FileManager-DoubleCmd.sh"
+"FileManager-Krusader.sh"
 "FileManager-Nemo.sh"
 "FileManager-PCManFM.sh"
 "FileManager-Thunar.sh"
