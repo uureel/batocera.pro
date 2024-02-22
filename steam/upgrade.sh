@@ -19,7 +19,7 @@ confirm_start() {
         exit 1
     fi
 
-    dialog --title "Confirm Operation" --yesno "This process may take a long time. Do you want to proceed?" 7 60
+    dialog --title "Confirm Operation" --yesno "This process may take a long time. 1-3 hrs is typical depending on cpu and drive speed.  Do you want to proceed?" 7 60
     local status=$?
     clear # Clear dialog remnants from the screen
     return $status
@@ -47,7 +47,7 @@ FREE_SPACE_KB=$FREE_SPACE
 # Check if free space is less than the minimum required
 if [ $FREE_SPACE_KB -lt $MIN_FREE_SPACE ]; then
     # Warning message using dialog, asking if they want to proceed
-    dialog --title "Warning" --yesno ". At least 30GB of free space is recommended. Proceed?" 10 50
+    dialog --title "Warning" --yesno "At least 30GB of free space is recommended. Proceed?" 10 50
     
     response=$?
     clear # Clear dialog artifacts from terminal
