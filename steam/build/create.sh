@@ -41,24 +41,26 @@ devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
 # Apart from packages from the official Arch repos, you can also specify
 # packages from the Chaotic-AUR repo
 export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
-nano ttf-dejavu ttf-liberation steam firefox mpv pcmanfm \
-htop qbittorrent  aria2 neofetch xorg-xwayland kdenlive gedit \
+nano ttf-dejavu ttf-liberation steam firefox mpv pcmanfm strace bat fd \
+htop qbittorrent aria2 neofetch xorg-xwayland kdenlive gedit btop ranger \
 steam-native-runtime gamemode brave lib32-gamemode jre-openjdk lxterminal \
 mangohud shotcut thunderbird gimp audacity thunderbird lib32-mangohud kodi \
-qt5-wayland xorg-server-xephyr inkscape openbox obs-studio gamehub \
+qt5-wayland xorg-server-xephyr inkscape openbox obs-studio gamehub binutils \
+xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet nvtop duf exa \
 minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
-xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet doublecmd-qt6 \
-bottles bauh flatseal rebuild-detector ccache axel breeze docker \
-podman distrobox cheese filezilla dos2unix nix gthumb blender \
-handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace \
-docker gthumb doublecmd-qt6 dolphin thunar nemo konsole"
+bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli \
+podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc \
+handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace file glances \
+docker gthumb doublecmd-qt6 dolphin wine thunar nemo konsole screenfetch procs tre \
+ripgrep i7z sd bandwhich tre zoxide nmon atop iftop sysstat totem feh imagemagick \
+gdk-pixbuf-xlib gdk-pixbuf2 p7zip xarchiver"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
-protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui sublime-text-4 \
-winegui-bin protontricks steamtinkerlaunch greenlight-beta-appimage zoom \
+protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui chiaki \
+winegui-bin  protontricks steamtinkerlaunch greenlight-beta-appimage zoom  \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin \
-7-zip-bin antimicrox lutris-git chiaki sublime-text-4"
+7-zip-bin antimicrox lutris-git sublime-text-4"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
