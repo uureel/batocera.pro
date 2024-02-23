@@ -11,7 +11,6 @@ sh_files=(
 "Blender.sh"
 "Boilr.sh"
 "Bottles.sh"
-"Boxes.sh"
 "Brave.sh"
 "Chiaki.sh"
 "FileManager-Dolphin.sh"
