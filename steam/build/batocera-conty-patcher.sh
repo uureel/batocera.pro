@@ -36,6 +36,7 @@ mkdir -p $c/usr/lib32/dri 2>/dev/null &
 mkdir -p $c/usr/lib32/vdpau 2>/dev/null &
 mkdir -p /var/run/nvidia 2>/dev/null &
 mkdir -p /var/tmp 2>/dev/null &
+mkdir -p /userdata/system/libvirt 2>/dev/null &
 mkdir -p /userdata/system/flatpak 2>/dev/null &
 mkdir -p /userdata/system/containers/storage 2>/dev/null &
 mkdir -p /userdata/system/.local/share/Conty/nvidia/ 2>/dev/null &
@@ -58,22 +59,53 @@ if [[ -s /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 ]]; then
   cp -r /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 $c/etc/ld.so.cache 2>/dev/null
 fi
 # -------------------------------------------------------------------------------
+# patch prepare script 
+ubp="$c/usr/bin/prepare"
+bp="$c/bin/prepare"
+if [[ ! -s "$ubp" ]] || [[ ! -s "$bp" ]] || [[ ! -s "/userdata/system/pro/steam/prepare.sh" ]]; then
+  mkdir -p "$c/bin" 2>/dev/null
+  mkdir -p "$c/usr/bin" 2>/dev/null
+  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$ubp" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/prepare.sh
+  dos2unix "$ubp" 2>/dev/null
+  chmod 777 "$ubp" 2>/dev/null
+  cp "$ubp" "$bp" 2>/dev/null
+  cp "$ubp" "/userdata/system/pro/steam/prepare.sh" 2>/dev/null
+fi
+# -------------------------------------------------------------------------------
+# patch group&passwd 
+f="$c/etc/passwd"
+if [[ ! -s "$f" ]] || [[ ! -s "/userdata/system/.local/share/Conty/passwd" ]]; then
+  mkdir -p "$c/etc" 2>/dev/null
+  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$f" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/passwd.sh
+  dos2unix "$f" 2>/dev/null
+  chmod 777 "$f" 2>/dev/null
+  cp "$f" "/userdata/system/.local/share/Conty/passwd" 2>/dev/null
+fi
+f="$c/etc/group"
+if [[ ! -s "$c/etc/group" ]] || [[ ! -s "/userdata/system/.local/share/Conty/group" ]]; then
+  mkdir -p "$c/etc" 2>/dev/null
+  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$f" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/group.sh
+  dos2unix "$f" 2>/dev/null
+  chmod 777 "$f" 2>/dev/null
+  cp "$f" "/userdata/system/.local/share/Conty/group" 2>/dev/null
+fi
+# -------------------------------------------------------------------------------
 # patch lutris 
 if [[ ! -s "$c/usr/bin/lutris" ]]; then
   mkdir -p "$c/usr/bin/" 2>/dev/null
   mkdir -p "$c/bin/" 2>/dev/null
-  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
+  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
   dos2unix "$c/usr/bin/lutris" 2>/dev/null
-  chmod 777 "$c/usr/bin/lutris"
-  cp "$c/usr/bin/lutris" "$c/bin/lutris"
+  chmod 777 "$c/usr/bin/lutris" 2>/dev/null
+  cp "$c/usr/bin/lutris" "$c/bin/lutris" 2>/dev/null
 else
   if [[ "$(cat "$c/usr/bin/lutris" | grep 'ulimit')" = "" ]]; then
   mkdir -p "$c/usr/bin/" 2>/dev/null
   mkdir -p "$c/bin/" 2>/dev/null
-  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
+  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
   dos2unix "$c/usr/bin/lutris" 2>/dev/null
-  chmod 777 "$c/usr/bin/lutris"
-  cp "$c/usr/bin/lutris" "$c/bin/lutris"
+  chmod 777 "$c/usr/bin/lutris" 2>/dev/null
+  cp "$c/usr/bin/lutris" "$c/bin/lutris" 2>/dev/null
   fi
 fi
 # -------------------------------------------------------------------------------
