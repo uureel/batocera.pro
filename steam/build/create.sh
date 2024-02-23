@@ -41,7 +41,7 @@ devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
 # Apart from packages from the official Arch repos, you can also specify
 # packages from the Chaotic-AUR repo
 export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
-nano ttf-dejavu ttf-liberation steam firefox mpv pcmanfm strace bat fd \
+nano ttf-dejavu ttf-liberation steam firefox mpv pcmanfm strace nnn bat \
 htop qbittorrent aria2 neofetch xorg-xwayland kdenlive gedit btop ranger \
 steam-native-runtime gamemode brave lib32-gamemode jre-openjdk lxterminal \
 mangohud shotcut thunderbird gimp audacity thunderbird lib32-mangohud kodi \
@@ -53,8 +53,7 @@ bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli 
 podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc \
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace file glances \
 docker gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
-gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm nnn krusader krename kate \
-imagemagick"
+gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader krename kate imagemagick"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
