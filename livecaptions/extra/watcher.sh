@@ -70,8 +70,9 @@ while true; do
 done
 }
 
-watcher "0.1"
-watcher "1"
+watcher 1
+watcher 2
+watcher 3
 
 # keep livecaptions re-running (in case it gets closed), until the service is disabled via system settings
 keeper() {
