@@ -60,7 +60,7 @@ export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-
 protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui \
 winegui-bin protontricks steamtinkerlaunch greenlight-beta-appimage zoom  \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin \
-7-zip-bin antimicrox lutris-git sublime-text-4 chiaki"
+7-zip-bin antimicrox lutris-git sublime-text-4 chiaki portproton"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
