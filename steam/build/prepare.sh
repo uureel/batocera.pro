@@ -73,7 +73,7 @@ p=$C/.conty-prime
 
 ##
 # patch portproton
-sed -i 's,(id -u),(fakeid -u),g' "$(which portproton)" 2>/dev/null
+sed -i 's,(id -u),(fakeid -u),g' /usr/bin/properportproton 2>/dev/null
 sed -i 's,(id -u),(fakeid -u),g' "$(cat ~/.config/PortProton.conf | grep "/" | head -n1)/data/scripts/runlib" 2>/dev/null
 
 ##
