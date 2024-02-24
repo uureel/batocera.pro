@@ -5,12 +5,10 @@
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
-APPNAME=SPOTIFY # for installer info
-appname=spotify # directory name in /userdata/system/pro/...
-AppName=spotify # App.AppImage name
+APPNAME=HULU # for installer info
+appname=hulu # directory name in /userdata/system/pro/...
+AppName=hulu # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-#APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Spotify-appimage/releases | grep AppImage | grep continuous | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g')
-#APPLINK=http://batocera.pro/app/spotify.AppImage
 APPLINK="$(curl -s https://api.github.com/repos/ivan-hc/Chrome-appimage/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url" | grep Beta)"
 ORIGIN="github.com/ivan-hc/chrome-appimage" # credit & info 
 # --------------------------------------------------------------------
@@ -276,7 +274,7 @@ echo 'unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'DISPLAY=:0.0 LD_LIBRARY_PATH=/userdata/system/pro/.dep:$LD_LIBRARY_PATH /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --test-type --disable-gpu --start-fullscreen --force-device-scale-factor=1.5 "play.spotify.com"' >> $launcher
+echo 'DISPLAY=:0.0 LD_LIBRARY_PATH=/userdata/system/pro/.dep:$LD_LIBRARY_PATH /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --test-type --start-fullscreen --force-device-scale-factor=1.6 "hulu.com"' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -287,29 +285,24 @@ chmod a+x $launcher
 # //
 # --------------------------------------------------------------------
 # -- prepare Ports file, 
-port=/userdata/system/pro/$appname/Spotify.sh
+port=/userdata/system/pro/$appname/Hulu.sh
 rm -rf $port 2>/dev/null
 echo '#!/bin/bash ' >> $port
-echo ' #dep=/userdata/system/pro/.dep; depfile=$dep/dependencies.txt; ' >> $port
-echo ' #nl=$(cat $depfile | wc -l); l=1; while [[ "$l" -le "$((nl+2))" ]]; do ' >> $port
-echo ' #d=$(cat $depfile | sed ""$l"q;d"); if [[ "$(echo $d | grep "lib")" != "" ]]; then ' >> $port
-echo ' #ln -s $dep/$d /lib/$d 2>/dev/null; fi; ((l++)); done ' >> $port
 echo 'unclutter-remote -s' >> $port
-#echo 'DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$AppName'.AppImage' >> $port
-echo 'DISPLAY=:0.0 LD_LIBRARY_PATH=/userdata/system/pro/.dep:$LD_LIBRARY_PATH /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --test-type --disable-gpu --start-fullscreen --force-device-scale-factor=1.5 "play.spotify.com"' >> $port
+echo 'DISPLAY=:0.0 LD_LIBRARY_PATH=/userdata/system/pro/.dep:$LD_LIBRARY_PATH /userdata/system/pro/'$appname'/'$AppName'.AppImage --no-sandbox --test-type --start-fullscreen --force-device-scale-factor=1.6 "hulu.com"' >> $port
 dos2unix $port 
 chmod a+x $port 
-cp $port "/userdata/roms/ports/Spotify.sh" 
+cp $port "/userdata/roms/ports/Hulu.sh" 
 # --------------------------------------------------------------------
 # -- get icon for shortcut,
 icon=/userdata/system/pro/$appname/extra/icon.png
 wget -q -O $icon https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png
 # //
 # -- get padtokey profile
-if [[ ! -e "/userdata/roms/ports/Spotify.sh.keys" ]]; then
-  rm "/userdata/roms/ports/Spotify.sh.keys" 2>/dev/null
-  wget -q -O "/userdata/roms/ports/Spotify.sh.keys" "https://raw.githubusercontent.com/uureel/batocera.pro/main/spotify/extra/Spotify.sh.keys"
-  dos2unix "/userdata/roms/ports/Spotify.sh.keys" 2>/dev/null
+if [[ ! -e "/userdata/roms/ports/Hulu.sh.keys" ]]; then
+  rm "/userdata/roms/ports/Hulu.sh.keys" 2>/dev/null
+  wget -q -O "/userdata/roms/ports/Hulu.sh.keys" "https://raw.githubusercontent.com/uureel/batocera.pro/main/hulu/extra/Hulu.sh.keys"
+  dos2unix "/userdata/roms/ports/Hulu.sh.keys" 2>/dev/null
 fi
 # //
 # -- prepare f1 - applications - app shortcut, 
