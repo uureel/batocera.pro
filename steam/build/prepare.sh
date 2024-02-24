@@ -72,6 +72,14 @@ p=$C/.conty-prime
 		fi
 
 ##
+# patch portproton
+sed -i 's,id -u)" == "0",id -u)" == "888",g' "$(which portproton)" 2>/dev/null
+if [[ -e ~/.config/PortProton.conf ]]; then
+	pppath="$(cat ~/.config/PortProton.conf | grep "/" | head -n1)"
+	sed -i 's,id -u) = 0,id -u) = 888,g' "$pppath/data/scripts/runlib" 2>/dev/null
+fi
+
+##
 # remaining env
 export XDG_CURRENT_DESKTOP=XFCE
 export DESKTOP_SESSION=XFCE
