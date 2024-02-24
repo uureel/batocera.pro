@@ -27,6 +27,8 @@ if [[ "$(flatpak list | grep 'net.sapples.LiveCaptions')" = "" ]]; then
     fi  	
 fi
 
+d=/userdata/system/services
+  mkdir -p $d 2>/dev/null
 d=/userdata/system/pro/livecaptions
   mkdir -p $d/extra 2>/dev/null
 
