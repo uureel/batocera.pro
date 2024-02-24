@@ -177,6 +177,11 @@ OR<BR>
 ```curl -L heroic2.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/hulu/extra/icon.png" width=48 height=48 />
+<b><i>&nbsp;HULU</i></b><br>
+```curl -L hulu.batocera.pro | bash```
+<br>
+<br>
 <a href=https://github.com/vercel/hyper>
 <img src="https://github.com/uureel/batocera.pro/raw/main/hyper/extra/icon.png" width=48 height=48 /></a>
 <b><i>&nbsp;HYPER</i></b><br>
@@ -247,6 +252,10 @@ OR<BR>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/myretrotv/extra/myretrotv2.png" width=48 height=48 /><b><i>&nbsp;MYRETROTV</i></b><br>
 ```curl -L myretrotv.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/netflix/extra/icon.png" width=48 height=48 /><b><i>&nbsp;NETFLIX</i></b><br>
+```curl -L netflix.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/nomacs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;NOMACS</i></b><br>
