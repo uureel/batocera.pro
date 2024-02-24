@@ -254,6 +254,10 @@ OR<BR>
 ```curl -L myretrotv.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/netflix/extra/icon.png" width=48 height=48 /><b><i>&nbsp;NETFLIX</i></b><br>
+```curl -L netflix.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/nomacs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;NOMACS</i></b><br>
 ```curl -L nomacs.batocera.pro | bash```
 <br>
