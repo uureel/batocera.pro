@@ -27,7 +27,7 @@ animate_title() {
 # Main script execution
 clear
 animate_title
-display_controls
+
 
 
 rm /userdata/system/pro/steam/conty.sh 2>/dev/null
