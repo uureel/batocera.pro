@@ -53,7 +53,7 @@ chmod 777 $f 2>/dev/null
 echo "fixing nvidia ld.so.cache"
 rm /usr/bin/prepare 2>/dev/null
 rm /usr/bin/preload 2>/dev/null
-wget -q --tries=10 -O /usr/bin/prepare "https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/prepare.sh"
+wget -q --tries=30 -O /usr/bin/prepare "https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/prepare.sh"
 dos2unix /usr/bin/prepare 2>/dev/null 
 chmod 777 /usr/bin/prepare 2>/dev/null
 cp /usr/bin/prepare /usr/bin/preload 2>/dev/null
@@ -65,7 +65,7 @@ cd /opt
 	sed -i 's,os.geteuid() == 0,os.geteuid() == 888,g' /opt/lutris/lutris/gui/application.py 2>/dev/null
 	cp /usr/bin/lutris /usr/bin/lutris-git 2>/dev/null
 	rm /usr/bin/lutris 2>/dev/null
-	  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O /usr/bin/lutris https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
+	  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /usr/bin/lutris https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
 	  dos2unix /usr/bin/lutris 2>/dev/null
 	  chmod 777 /usr/bin/lutris
 
@@ -105,6 +105,12 @@ wget -O "$f" "$link"
 yes "Y" | pacman -U "$f"
 rm "$f"
 cd ~/
+
+# patch for portproton 
+cp /usr/bin/portproton /usr/bin/properportproton 
+wget -q --tries=30 -O /usr/bin/portproton "https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/portproton.sh"
+dos2unix /usr/bin/portproton 2>/dev/null
+chmod 777 /usr/bin/portproton 2>/dev/null
 
 # run additional fixes
 echo "fixing root apps"
