@@ -79,9 +79,13 @@ rm ~/.bashrc
 	echo 'export DISPLAY=:0.0' >> ~/.bashrc
 	echo 'export GDK_SCALE=1' >> ~/.bashrc
 	echo 'export USER=root' >> ~/.bashrc
-dos2unix ~/.bashrc
-chmod 777 ~/.bashrc
-cp ~/.bashrc ~/.profile
+
+# add fakeid
+f=/usr/bin/fakeid
+echo '#!/bin/bash' >> "$f"
+echo 'echo 888888' >> "$f"
+dos2unix "$f" 2>/dev/null
+chmod 777 "$f" 2>/dev/null
 
 # fix for winestaging bork
 echo "fixing paths for wine staging"
