@@ -1,6 +1,8 @@
 #!/bin/bash
 # batocera.pro mousemove.sh = show mouse but move to corner
 ###########################################################
+# show mouse
+  unclutter-remote -s
 # get screen resolution 
   r=$(xrandr | grep "+" | awk '{print $1}' | tail -n1)
   w=$(echo "$r" | cut -d "x" -f1)
