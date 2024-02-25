@@ -16,7 +16,8 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >> 
 APPNAME=clonehero 
-APPLINK=https://github.com/clonehero-game/releases/releases/download/V1.0.0.4080/CloneHero-linux.tar.xz
+#APPLINK=https://github.com/clonehero-game/releases/releases/download/V1.0.0.4080/CloneHero-linux.tar.xz
+APPLINK=https://github.com/clonehero-game/releases/releases/download/v1.1.0.4261-PTB/clonehero-linux.tar.xz
 APPHOME=github.com/clonehero-game
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
@@ -84,7 +85,7 @@ echo "$COMMAND" >> $command 2>/dev/null
 # -- prepare dependencies for this app and the installer: 
 mkdir -p ~/pro/.dep 2>/dev/null && cd ~/pro/.dep && wget --tries=10 --no-check-certificate --no-cache --no-cookies -q -O ~/pro/.dep/dep.zip https://github.com/uureel/batocera.pro/raw/main/.dep/dep.zip && yes "y" | unzip -oq ~/pro/.dep/dep.zip && cd ~/
 wget --tries=10 --no-check-certificate --no-cache --no-cookies -q -O $pro/$appname/extra/icon.png https://github.com/uureel/batocera.pro/raw/main/$appname/extra/icon.png; chmod a+x $dep/* 2>/dev/null; cd ~/
-for file in /userdata/system/pro/.dep/lib*; do sudo ln -s "$file" "/usr/lib/$(basename $file)"; done
+chmod 777 ~/pro/.dep/*.sh && for file in /userdata/system/pro/.dep/lib*; do sudo ln -s "$file" "/usr/lib/$(basename $file)"; done
 # --------------------------------------------------------------------
 # // end of dependencies 
 #
@@ -294,10 +295,12 @@ depurl=https://github.com/uureel/batocera.pro/raw/main/.dep
 #wget -q -O $pro/.dep/libselinux.so.1 $depurl/libselinux.so.1
 #chmod a+x $pro/.dep/tar; cp $depurl/libselinux.so.1 /lib/ 2>/dev/null 
 cd $temp
-tar -xf $temp/CloneHero-linux.tar.xz
-chmod 777 $temp/clonehero-linux/clonehero 2>/dev/null
-chmod 777 $temp/clonehero-linux/*.so 2>/dev/null
-mv $temp/clonehero-linux/* $pro/$appname/
+tar -xf $temp/*.tar.xz
+cd $(ls -d */)
+chmod 777 ./clonehero 2>/dev/null
+chmod 777 ./Clonehero 2>/dev/null
+chmod 777 ./*.so 2>/dev/null
+mv ./* $pro/$appname/
 chmod a+x $pro/$appname/$appname 2>/dev/null
 cd $pro
 rm -rf $temp
@@ -308,7 +311,7 @@ echo -e "${T}$pro/$appname  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
-#echo 'unclutter-remote -s' >> $launcher 
+echo '~/pro/.dep/mousemove.sh 2>/dev/null' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
 echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
