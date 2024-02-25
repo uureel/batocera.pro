@@ -63,6 +63,7 @@ done
 echo "Download complete."
 sleep 3
 echo "Starting Emudeck -- Check your main display -- Please install Emudeck, then close out Emudeck to continue installation"
+sleeo 10
 /userdata/roms/conty/Emudeck.sh
 
 echo "Continuing install"
