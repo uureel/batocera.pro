@@ -33,3 +33,30 @@ wget -O emudeck.AppImage "$APPIMAGE_URL"
 chmod +x emudeck.AppImage
 
 echo "Download and setup complete. The AppImage is ready to use in $TARGET_DIR."
+
+sleep 5
+
+# Define the directory where you want to save the files
+DESTINATION_DIR="/userdata/roms/conty"
+
+# Create the destination directory if it doesn't exist
+mkdir -p "$DESTINATION_DIR"
+
+# Base URL for downloading
+BASE_URL="https://raw.githubusercontent.com/uureel/batocera.pro/main/emudeck/shortcuts"
+
+# Declare an array of file names to download
+FILES=(
+  "Emudeck-EmulationStation-DE.sh"
+  "Emudeck-Steam-Rom-Manager.sh"
+  "Emudeck.sh"
+)
+
+# Loop through the array and download each file
+for FILE in "${FILES[@]}"; do
+  echo "Downloading $FILE..."
+  curl -L "${BASE_URL}/${FILE}" -o "${DESTINATION_DIR}/${FILE}"
+done
+
+echo "Download complete."
+
