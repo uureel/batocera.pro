@@ -32,7 +32,7 @@ wget -O emudeck.AppImage "$APPIMAGE_URL"
 # Make the AppImage executable
 chmod +x emudeck.AppImage
 
-echo "Download and setup complete. The AppImage is ready to use in $TARGET_DIR."
+echo "Download. The AppImage is ready to use in $TARGET_DIR."
 
 sleep 5
 
@@ -63,7 +63,7 @@ done
 echo "Download complete."
 sleep 3
 echo "Starting Emudeck -- Check your main display -- Please install Emudeck, then close out Emudeck to continue installation"
-/userdata/roms/Emudeck.sh
+/userdata/roms/conty/Emudeck.sh
 
 echo "Continuing install"
 echo "Downloading Steam ROM Manager parser fix"
