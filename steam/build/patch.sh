@@ -20,8 +20,8 @@ echo 'mkdir ~/build/glibc/build && cd ~/build/glibc/build' >> $f
 echo 'echo -e "\n\nCONFIGURING...\n\n"' >> $f
 echo 'export CFLAGS="$CFLAGS -O3 -fno-stack-protector -fno-PIC -D_FORTIFY_SOURCE=0"' >> $f
 echo 'export LDFLAGS="$LDFLAGS -Wl,--hash-style=both -Wl,-z,norelro"' >> $f
-echo 'export LDFLAGS.so="-Wl,--hash-style=both -Wl,-z,norelro"' >> $f
-echo 'export LDFLAGS-rtld="-Wl,--hash-style=both -Wl,-z,norelro"' >> $f
+echo 'export LDFLAGS_so="-Wl,--hash-style=both -Wl,-z,norelro"' >> $f
+echo 'export LDFLAGS_rtld="-Wl,--hash-style=both -Wl,-z,norelro"' >> $f
 echo '../configure \' >> $f
 echo '    --prefix=/usr \' >> $f
 echo '    --with-headers=/usr/include \' >> $f
