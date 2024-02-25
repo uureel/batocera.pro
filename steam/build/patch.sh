@@ -107,7 +107,7 @@ rm "$f"
 cd ~/
 
 # patch for portproton 
-cp /usr/bin/portproton /usr/bin/properportproton 
+cp "$(which portproton)" /usr/bin/properportproton 
 wget -q --tries=30 -O /usr/bin/portproton "https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/portproton.sh"
 dos2unix /usr/bin/portproton 2>/dev/null
 chmod 777 /usr/bin/portproton 2>/dev/null
