@@ -208,8 +208,10 @@ else
     echo
     shown=1
         if [[ ! -e /tmp/.conty-nvidia-started ]] && [[ -e /userdata/system/.local/share/Conty/nvidia/nvidia-$v ]] && [[ -s /userdata/system/.local/share/Conty/nvidia/nvidia-$v.run ]]; then
-            cgroups
-            exit 0
+            if [[ -s "$c/.conty-nvidia-$v-$md5" ]]; then
+                cgroups
+                exit 0
+            fi
         else
             nv=1
         fi
@@ -230,6 +232,13 @@ nvlog=/userdata/system/logs/nvidia.log
 if [[ -e $nvlog ]]; then
     if [[ "$(cat $nvlog | grep "Detected a NVIDIA")" != "" ]] || [[ "$(cat $nvlog | grep "Using NVIDIA")" != "" ]]; then
         echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
+        nv=1
+    fi
+fi
+if [[ ! -e "$c/.conty-nvidia-$v-$md5" ]]; then
+    nv=1
+else
+    if [[ "$(cat "$c/.conty-nvidia-$v-$md5" | tail -n1)" != "$v" ]]; then
         nv=1
     fi
 fi
@@ -271,15 +280,18 @@ if [ ! -f nvidia-$v.run ]; then
     exit 1
 fi
 # -------------------------------------------------------------------------------
-if [[ ! -f "${nvdir}/.nvidia-$v-$md5" ]]; then
-  cd "${nvdir}"
-    rm -rf "nvidia-$v" 2>/dev/null
-    chmod +x nvidia-$v.run 2>/dev/null
-    echo "extracting..."
-      ./nvidia-$v.run -x 1>/dev/null 2>/dev/null
-        mv "NVIDIA-Linux-x86_64-$v" "nvidia-$v"
-        rm "${nvdir}"/.nvidia-$v-$md5 2>/dev/null
-          echo "OK" >> "${nvdir}"/.nvidia-$v-$md5
+if [[ ! -f "${nvdir}/.nvidia-$v-$md5" ]] || [[ "$nv" = "1" ]]; then
+    if [[ ! -s "${nvdir}/nvidia-$v/.nvidia-$v-$md5" ]]; then
+      cd "${nvdir}"
+        rm -rf "nvidia-$v" 2>/dev/null
+        chmod +x nvidia-$v.run 2>/dev/null
+        echo "extracting..."
+          ./nvidia-$v.run -x 1>/dev/null 2>/dev/null
+            mv "NVIDIA-Linux-x86_64-$v" "nvidia-$v"
+            rm "${nvdir}"/.nvidia-$v-$md5 2>/dev/null
+              echo "OK" >> "${nvdir}"/.nvidia-$v-$md5
+              echo "$v" >> "${nvdir}/nvidia-$v/.nvidia-$v-$md5"
+    fi
 fi
 if [ ! -d nvidia-$v ]; then
     echo "failed to extract nvidia $v installer"
@@ -443,6 +455,9 @@ rm /tmp/.conty-nvidia-started 2>/dev/null
 rm /tmp/.conty-nvidia-$v-$md5 2>/dev/null
 echo "OK" >> /tmp/.conty-nvidia-$v-$md5
 echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
+# -------------------------------------------------------------------------------
+rm "$c/.conty-nvidia-$v-$md5" 2>/dev/null
+echo "$v" >> "$c/.conty-nvidia-$v-$md5"
 # -------------------------------------------------------------------------------
 echo "ready"
 echo
