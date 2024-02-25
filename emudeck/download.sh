@@ -8,7 +8,10 @@ cat > "$tempfile" <<- EOF
 EmuDeck Installer Notes:
 1. When EmuDeck installs, it will open on the main display. 
 Please install and close out to continue installing parsers.
-2. You must launch Steam ROM Manager through EmulationStation, not through the EmuDeck UI.
+
+2. You must launch Steam ROM Manager through EmulationStation, 
+not through the EmuDeck UI.
+
 3. If there are no parsers, use the parser fix option to redownload them.
 EOF
 
