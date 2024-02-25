@@ -94,13 +94,14 @@ rm -rf /share 2>/dev/null
 ln -sf /usr/lib32 /lib32
 ln -sf /usr/share /share
 
-# fix borked faudio 
+# fix borked faudio repo
 echo "fixing faudio staging"
 yes "Y" | pacman -S gstreamer
 yes "Y" | pacman -S faudio
 cd /tmp/
 f=/tmp/lib32faudio.pkg.tar.zst
-link=https://builds.garudalinux.org/repos/chaotic-aur/x86_64/lib32-faudio-tkg-git-24.02.r0.g38e9da7-1-x86_64.pkg.tar.zst
+#link=https://builds.garudalinux.org/repos/chaotic-aur/x86_64/lib32-faudio-tkg-git-24.02.r0.g38e9da7-1-x86_64.pkg.tar.zst
+link=https://github.com/uureel/batocera.pro/raw/main/steam/build/lib32-faudio-tkg-git.pkg.tar.zst
 wget -O "$f" "$link"
 yes "Y" | pacman -U "$f"
 rm "$f"
