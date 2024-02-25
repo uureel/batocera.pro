@@ -144,6 +144,7 @@ readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
 		echo "LIBC DT_HASH PATCH FAILED..."
 		echo	
 	fi
+
 rm $f 2>/dev/null
 rm $h 2>/dev/null
 
@@ -153,5 +154,10 @@ echo "______________"
 echo
 echo 
 
+ldconfig
+
+# DONE
+
 exit 0
+
 #exit
