@@ -1,0 +1,34 @@
+{
+	"fuzzyMatcher": {
+		"timestamps": {
+			"check": 1708868966611,
+			"download": 1708868966611
+		},
+		"verbose": false,
+		"filterProviders": true
+	},
+	"environmentVariables": {
+		"steamDirectory": "/home/akaplan/.steam/steam",
+		"romsDirectory": "/home/akaplan/Emulation/roms",
+		"retroarchPath": "/usr/bin/flatpak",
+		"raCoresDirectory": "",
+		"localImagesDirectory": "",
+		"userAccounts": ""
+	},
+	"previewSettings": {
+		"retrieveCurrentSteamImages": true,
+		"deleteDisabledShortcuts": false,
+		"imageZoomPercentage": 40,
+		"preload": false
+	},
+	"enabledProviders": [
+		"SteamGridDB"
+	],
+	"language": "en-US",
+	"offlineMode": false,
+	"navigationWidth": 256,
+	"clearLogOnTest": false,
+	"version": 6,
+	"theme": "EmuDeck",
+	"batchDownloadSize": 50
+}
