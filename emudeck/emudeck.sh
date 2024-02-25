@@ -24,7 +24,7 @@ case $CHOICE in
         bash /tmp/runner
         ;;
     2)
-        echo Parser Fix..."
+        echo "Parser Fix..."
         rm /tmp/runner 2>/dev/null
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://github.com/uureel/batocera.pro/raw/main/emudeck/srmparser.sh
         dos2unix /tmp/runner 2>/dev/null 
