@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# Define a temporary file
+tempfile=$(mktemp)
+
+# Write the message to the temporary file
+cat > "$tempfile" <<- EOF
+EmuDeck Installer Notes:
+1. When EmuDeck installs, it will open on the main display. Please install and close out to continue installing parsers.
+2. You must launch Steam ROM Manager through EmulationStation, not through the EmuDeck UI.
+3. If there are no parsers, use the parser fix option to redownload them.
+EOF
+
+# Display the message in a dialog box
+dialog --title "EmuDeck Installer" --textbox "$tempfile" 20 70
+
+# Clear the screen after dialog exits and remove the temporary file
+clear
+rm -f "$tempfile"
+
 # Set the target directory
 TARGET_DIR="$HOME/pro/steam/emudeck"
 
