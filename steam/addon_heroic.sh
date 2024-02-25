@@ -1,4 +1,16 @@
 #!/bin/bash
+# Define the file path
+filePath="$HOME/pro/steam/conty.sh"
+
+# Check if the file exists
+if [ -f "$filePath" ]; then
+    echo "conty.sh exists, continuing the script..."
+   
+else
+    echo "It appears the container is not installed. Please install the steam/lutris/heroic container first, then retry."
+    sleep 10
+    exit 1
+fi
 
 # Display the dialog message box
 dialog --title "Heroic Installation Notice" --msgbox "This will install a Heroic system and parser in EmulationStation.\n\nNote: You must Select 'add shortcut' for each game in Heroic for the \"+UPDATE SHORTCUTS\" parser to work. Set WINE-GE as default runner for best results" 10 60
