@@ -108,11 +108,11 @@ if [ -d "$target_dir" ]; then
   echo "JSON files downloaded successfully."
   echo "Install complete"
   sleep 5
-  
+  curl http://127.0.0.1:1234/reloadgames
 else
     # The directory does not exist, display message
     echo "Please install EmuDeck and redownload parser fix after it is installed."
-    curl http://127.0.0.1:1234/reloadgames
+  
 fi
 
 
