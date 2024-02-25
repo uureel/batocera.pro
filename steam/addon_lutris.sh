@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Define the file path
+filePath="$HOME/pro/steam/conty.sh"
+
+# Check if the file exists
+if [ -f "$filePath" ]; then
+    echo "conty.sh exists, continuing the script..."
+   
+else
+    echo "It appears the container is not installed. Please install the steam/lutris/heroic container first, then retry."
+    sleep 10
+    exit 1
+fi
+
+
 # Display the dialog message box
 dialog --title "Lutris Installation Notice" --msgbox "This will install a Lutris system and parser in EmulationStation.\n\nNote: You must create desktop shortcuts in Lutris for the \"+UPDATE SHORTCUTS\" parser to work." 10 50
 
