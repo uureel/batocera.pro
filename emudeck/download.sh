@@ -57,6 +57,40 @@ for FILE in "${FILES[@]}"; do
   echo "Downloading $FILE..."
   curl -L "${BASE_URL}/${FILE}" -o "${DESTINATION_DIR}/${FILE}"
 done
+  # Make the file executable
+    chmod +x "$DEST_DIR/$file"
 
 echo "Download complete."
+sleep 3
+echo "Starting Emudeck -- Check your main display -- Please install Emudeck, then close out Emudeck to continue installation"
+/userdata/roms/Emudeck.sh
+
+echo "Continuing install"
+echo "Downloading Steam ROM Manager parser fix"
+
+##!/bin/bash
+
+# Define the target directory
+target_dir="$HOME/.config/steam-rom-manager/userData"
+
+# Define base URL for the fix_parser files
+base_url_fix_parser="https://raw.githubusercontent.com/uureel/batocera.pro/main/emudeck/fix_parser"
+
+# Check if the target directory exists
+if [ -d "$target_dir" ]; then
+    # The directory exists, proceed with download
+    echo "Downloading JSON files..."
+    curl -L "${base_url_fix_parser}/userConfigurations.json" -o "${target_dir}/userConfigurations.json"
+    curl -L "${base_url_fix_parser}/userSettings.json" -o "${target_dir}/userSettings.json"
+  echo "JSON files downloaded successfully."
+  echo "Install complete"
+  sleep 5
+  
+else
+    # The directory does not exist, display message
+    echo "Please install EmuDeck and redownload parser fix after it is installed."
+    curl http://127.0.0.1:1234/reloadgames
+fi
+
+
 
