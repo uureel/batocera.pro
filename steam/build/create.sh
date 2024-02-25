@@ -54,14 +54,15 @@ podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace file glances \
 docker gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader krename imagemagick xfce4 \
-xfce4-goodies kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine"
+kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs \
+xfce4-goodies"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
 protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui \
-winegui-bin protontricks steamtinkerlaunch greenlight-beta-appimage zoom  \
+winegui-bin protontricks steamtinkerlaunch greenlight-beta-appimage zoom chiaki \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin \
-7-zip-bin antimicrox lutris-git sublime-text-4 chiaki portproton"
+7-zip-bin antimicrox lutris-git sublime-text-4 portproton btrfs-assistant"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
