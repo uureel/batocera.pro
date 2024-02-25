@@ -16,7 +16,7 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >> 
 APPNAME=clonehero 
-APPLINK=https://github.com/clonehero-game/releases/releases/download/V1.0.0.4080/CloneHero-linux.tar.xz
+APPLINK=https://github.com/clonehero-game/releases/releases/download/v1.1.0.4261-PTB/clonehero-linux.tar.xz
 APPHOME=github.com/clonehero-game
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
