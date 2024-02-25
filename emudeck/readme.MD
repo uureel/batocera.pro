@@ -1,1 +1,1 @@
-EMUDECK for Arch container.  Install via Steam container -> curl -L steam.batocera.pro | bash
+EMUDECK for Arch container.  Install via Steam installer -> curl -L steam.batocera.pro | bash
