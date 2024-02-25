@@ -12,7 +12,9 @@ if [ -d "$target_dir" ]; then
     echo "Downloading JSON files..."
     curl -L "${base_url_fix_parser}/userConfigurations.json" -o "${target_dir}/userConfigurations.json"
     curl -L "${base_url_fix_parser}/userSettings.json" -o "${target_dir}/userSettings.json"
-  echo "JSON files downloaded successfully."
-  echo "Install complete"
-  sleep 5
-  
+    echo "JSON files downloaded successfully."
+    echo "Install complete"
+    sleep 5
+else
+    echo "Target directory does not exist."
+fi 
