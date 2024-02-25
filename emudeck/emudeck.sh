@@ -1,5 +1,23 @@
 #!/bin/bash
 
+
+# Define the file path
+filePath="$HOME/pro/steam/conty.sh"
+
+# Check if the file exists
+if [ -f "$filePath" ]; then
+    echo "File exists, continuing the script..."
+   
+else
+    echo "It appears the container is not installed. Please install the steam/lutris/heroic container first, then retry."
+    sleep 10
+    exit 1
+fi
+
+e
+
+
+
 # Define the options
 OPTIONS=("1" "Install Emudeck"
          "2" "(Re)Download Steam Rom Manager Parser fix")

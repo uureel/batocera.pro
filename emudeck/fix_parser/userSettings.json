@@ -8,8 +8,8 @@
 		"filterProviders": true
 	},
 	"environmentVariables": {
-		"steamDirectory": "/home/akaplan/.steam/steam",
-		"romsDirectory": "/home/akaplan/Emulation/roms",
+		"steamDirectory": "/userdata/system/.steam/steam",
+		"romsDirectory": "/userdata/system/Emulation/roms",
 		"retroarchPath": "/usr/bin/flatpak",
 		"raCoresDirectory": "",
 		"localImagesDirectory": "",
@@ -29,6 +29,6 @@
 	"navigationWidth": 256,
 	"clearLogOnTest": false,
 	"version": 6,
-	"theme": "EmuDeck",
+	"theme": "Classic",
 	"batchDownloadSize": 50
 }

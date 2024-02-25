@@ -7,7 +7,8 @@ OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
          "4" "Re-download container"
          "5" "Rebuild and Update apps on container (experimental)"
          "6" "Addon: Add/Update Lutris & Shortcuts to Emulationstation"
-         "7" "Addon: Add/Update Heroic & Shortcuts to Emulationstation")
+         "7" "Addon: Add/Update Heroic & Shortcuts to Emulationstation"
+         "8" "Addon: Emudeck (experimental)")
          
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
@@ -73,6 +74,14 @@ case $CHOICE in
         echo "Add/update Heroic shortcuts to emulationstation..."
         rm /tmp/runner 2>/dev/null
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/addon_heroic.sh
+        dos2unix /tmp/runner 2>/dev/null 
+        chmod 777 /tmp/runner 2>/dev/null
+        bash /tmp/runner
+        ;;
+    8)  
+        echo "Emuedeck Menu..."
+        rm /tmp/runner 2>/dev/null
+        wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://github.com/uureel/batocera.pro/raw/main/emudeck/emudeck.sh
         dos2unix /tmp/runner 2>/dev/null 
         chmod 777 /tmp/runner 2>/dev/null
         bash /tmp/runner

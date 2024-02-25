@@ -5,7 +5,7 @@
         "steamCategory": "${Emulation}",
         "executableArgs": "",
         "executableModifier": "\"${exePath}\"",
-        "romDirectory": "/home/akaplan/Emulation/tools/",
+        "romDirectory": "/userdata/system/Emulation/tools/",
         "steamDirectory": "${steamdirglobal}",
         "startInDirectory": "",
         "imageProviders": [
@@ -16,7 +16,7 @@
         "imagePool": "${fuzzyTitle}",
         "disabled": false,
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/EmulationStation-DE-x64_SteamDeck.AppImage",
+            "path": "/userdata/system/Emulation/tools/EmulationStation-DE-x64_SteamDeck.AppImage",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": true
         },
@@ -71,7 +71,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -87,7 +87,7 @@
         "steamCategory": "${Emulation}",
         "executableArgs": "",
         "executableModifier": "\"${exePath}\"",
-        "romDirectory": "/home/akaplan/Emulation/tools/launchers",
+        "romDirectory": "/userdata/system/Emulation/tools/launchers",
         "steamDirectory": "${steamdirglobal}",
         "startInDirectory": "",
         "imageProviders": [
@@ -152,11 +152,11 @@
             "icon": ""
         },
         "localImages": {
-            "tall": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_portrait.@(png|jpg)",
-            "long": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_banner.@(png|jpg)",
-            "hero": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_portrait.@(png|jpg)",
-            "logo": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_logo.@(png|jpg)",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_icon.@(png|jpg)"
+            "tall": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_portrait.@(png|jpg)",
+            "long": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_banner.@(png|jpg)",
+            "hero": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_portrait.@(png|jpg)",
+            "logo": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_logo.@(png|jpg)",
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/emus/rmg/${title}_icon.@(png|jpg)"
         }
     },
     {
@@ -174,7 +174,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -227,7 +227,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -252,7 +252,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -305,7 +305,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -330,7 +330,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -383,7 +383,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -408,7 +408,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -461,7 +461,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -486,7 +486,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -539,7 +539,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -616,7 +616,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -624,7 +624,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -641,7 +642,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -694,7 +695,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -719,7 +720,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -772,7 +773,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -797,7 +798,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -850,7 +851,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -875,7 +876,7 @@
         "titleModifier": "${fuzzyTitle}",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
             "path": "${retroarchpath}",
             "shortcutPassthrough": false,
@@ -928,7 +929,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -953,7 +954,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -1006,7 +1007,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1031,7 +1032,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -1084,7 +1085,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1109,7 +1110,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -1162,7 +1163,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1243,7 +1244,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1251,7 +1252,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": false
     },
     {
         "parserType": "Glob",
@@ -1320,7 +1322,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1328,7 +1330,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -1345,7 +1348,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -1398,7 +1401,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1423,7 +1426,7 @@
         "titleModifier": "${fuzzyTitle}",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
             "path": "${retroarchpath}",
             "shortcutPassthrough": false,
@@ -1476,7 +1479,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1501,7 +1504,7 @@
         "titleModifier": "${fuzzyTitle}",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
             "path": "/usr/bin/flatpak",
             "shortcutPassthrough": false,
@@ -1554,7 +1557,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1581,7 +1584,7 @@
         "imagePool": "${fuzzyTitle}",
         "disabled": true,
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/xenia.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/xenia.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": true
         },
@@ -1632,7 +1635,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1661,7 +1664,7 @@
             "specifiedAccounts": ""
         },
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/xenia.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/xenia.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": true
         },
@@ -1710,7 +1713,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1718,7 +1721,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -1735,7 +1739,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -1792,7 +1796,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1817,7 +1821,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -1870,7 +1874,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -1895,7 +1899,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -1948,7 +1952,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2026,7 +2030,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2070,7 +2074,7 @@
             "removeBrackets": true
         },
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/mgba.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/mgba.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": false
         },
@@ -2108,7 +2112,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2133,7 +2137,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -2186,7 +2190,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2230,7 +2234,7 @@
             "removeBrackets": true
         },
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/mgba.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/mgba.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": false
         },
@@ -2268,7 +2272,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2293,7 +2297,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -2346,7 +2350,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2390,7 +2394,7 @@
             "removeBrackets": true
         },
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/mgba.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/mgba.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": false
         },
@@ -2428,7 +2432,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2453,7 +2457,7 @@
         "titleModifier": "${fuzzyTitle}",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
             "path": "/usr/bin/flatpak",
             "shortcutPassthrough": false,
@@ -2506,7 +2510,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2531,7 +2535,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -2584,7 +2588,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2609,7 +2613,7 @@
         "titleModifier": "${fuzzyTitle}",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
             "path": "${retroarchpath}",
             "shortcutPassthrough": false,
@@ -2662,7 +2666,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2744,7 +2748,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2769,7 +2773,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -2822,7 +2826,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2900,7 +2904,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -2944,7 +2948,7 @@
             "removeBrackets": true
         },
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/yuzu.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/yuzu.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": false
         },
@@ -2978,7 +2982,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3003,7 +3007,7 @@
         "titleModifier": "${fuzzyTitle}",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
             "path": "/usr/bin/flatpak",
             "shortcutPassthrough": false,
@@ -3056,7 +3060,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3081,9 +3085,9 @@
         "titleModifier": "${fuzzyTitle} (Proton)",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/cemu.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/cemu.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": false
         },
@@ -3138,7 +3142,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3163,9 +3167,9 @@
         "titleModifier": "${fuzzyTitle} (Proton)",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/cemu.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/cemu.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": false
         },
@@ -3220,7 +3224,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3237,7 +3241,7 @@
         "executableArgs": "vblank_mode=0 %command% -f -g \"${filePath}\"",
         "executableModifier": "\"${exePath}\"",
         "romDirectory": "${romsdirglobal}/wiiu/roms/",
-        "steamDirectory": "/home/akaplan/.steam/steam",
+        "steamDirectory": "/userdata/system/.steam/steam",
         "startInDirectory": "",
         "imageProviders": [
             "SteamGridDB"
@@ -3247,7 +3251,7 @@
         "imagePool": "${fuzzyTitle}",
         "disabled": true,
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/cemu.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/cemu.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": false
         },
@@ -3294,11 +3298,11 @@
             "neptune": null
         },
         "defaultImage": {
-            "long": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/systems/grid/wiiu.jpg",
+            "long": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/systems/grid/wiiu.jpg",
             "tall": "",
-            "hero": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/hero.png",
-            "logo": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/logo.png",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "hero": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/hero.png",
+            "logo": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/logo.png",
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3315,7 +3319,7 @@
         "executableArgs": "vblank_mode=0 %command% -f -g \"${filePath}\"",
         "executableModifier": "\"${exePath}\"",
         "romDirectory": "${romsdirglobal}/wiiu/roms/",
-        "steamDirectory": "/home/akaplan/.steam/steam",
+        "steamDirectory": "/userdata/system/.steam/steam",
         "startInDirectory": "",
         "imageProviders": [
             "SteamGridDB"
@@ -3325,7 +3329,7 @@
         "imagePool": "${fuzzyTitle}",
         "disabled": true,
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/cemu.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/cemu.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": false
         },
@@ -3372,11 +3376,11 @@
             "neptune": null
         },
         "defaultImage": {
-            "long": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/systems/grid/wiiu.jpg",
+            "long": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/systems/grid/wiiu.jpg",
             "tall": "",
-            "hero": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/hero.png",
-            "logo": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/logo.png",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "hero": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/hero.png",
+            "logo": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/logo.png",
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3453,7 +3457,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3461,7 +3465,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -3530,7 +3535,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3538,7 +3543,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -3555,7 +3561,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -3608,7 +3614,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3633,7 +3639,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -3686,7 +3692,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3711,7 +3717,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -3764,7 +3770,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3789,7 +3795,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -3842,7 +3848,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3867,7 +3873,7 @@
         "titleModifier": "${fuzzyTitle}",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
             "path": "${retroarchpath}",
             "shortcutPassthrough": false,
@@ -3920,7 +3926,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -3945,7 +3951,7 @@
         "titleModifier": "${fuzzyTitle}",
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "executable": {
             "path": "${retroarchpath}",
             "shortcutPassthrough": false,
@@ -3998,7 +4004,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4023,7 +4029,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -4076,7 +4082,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4154,7 +4160,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4179,7 +4185,7 @@
         ],
         "onlineImageQueries": "${${fuzzyTitle}}",
         "imagePool": "${fuzzyTitle}",
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -4232,7 +4238,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4257,7 +4263,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -4310,7 +4316,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4335,7 +4341,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -4392,7 +4398,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4470,7 +4476,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4548,7 +4554,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4577,7 +4583,7 @@
             "specifiedAccounts": ""
         },
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/pcsx2-qt.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/pcsx2-qt.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": false
         },
@@ -4625,7 +4631,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4633,7 +4639,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -4650,7 +4657,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -4703,7 +4710,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4718,7 +4725,7 @@
         "configTitle": "Sony PlayStation 3 - RPCS3 (Installed PKG)",
         "steamCategory": "${PlayStation 3}",
         "steamDirectory": "${steamdirglobal}",
-        "romDirectory": "/home/akaplan/Emulation/storage/rpcs3/dev_hdd0/game",
+        "romDirectory": "/userdata/system/Emulation/storage/rpcs3/dev_hdd0/game",
         "executableArgs": "run net.rpcs3.RPCS3 --no-gui \"${filePath}\"",
         "executableModifier": "\"${exePath}\"",
         "startInDirectory": "",
@@ -4780,7 +4787,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4788,7 +4795,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -4858,7 +4866,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -4883,7 +4891,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -4940,7 +4948,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5017,7 +5025,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5025,7 +5033,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -5047,7 +5056,7 @@
         },
         "disabled": true,
         "executable": {
-            "path": "/home/akaplan/Emulation/tools/launchers/ryujinx.sh",
+            "path": "/userdata/system/Emulation/tools/launchers/ryujinx.sh",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": true
         },
@@ -5095,7 +5104,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5172,7 +5181,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5180,7 +5189,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -5249,7 +5259,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5257,7 +5267,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -5311,7 +5322,7 @@
         },
         "parserId": "164785583010740300",
         "version": 15,
-        "disabled": false,
+        "disabled": true,
         "controllers": {
             "ps4": null,
             "ps5": null,
@@ -5327,7 +5338,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5412,7 +5423,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -5433,7 +5445,7 @@
             "specifiedAccounts": ""
         },
         "executable": {
-            "path": "/home/akaplan/Applications/Vita3K/Vita3K",
+            "path": "/userdata/system/Applications/Vita3K/Vita3K",
             "shortcutPassthrough": false,
             "appendArgsToExecutable": true
         },
@@ -5466,7 +5478,7 @@
         },
         "parserId": "166409089761171238",
         "version": 15,
-        "disabled": false,
+        "disabled": true,
         "controllers": {
             "ps4": null,
             "ps5": null,
@@ -5567,7 +5579,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -5584,7 +5597,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -5637,7 +5650,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5662,7 +5675,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -5715,7 +5728,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5740,7 +5753,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -5793,7 +5806,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5870,7 +5883,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5878,7 +5891,8 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     },
     {
         "parserType": "Glob",
@@ -5895,7 +5909,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -5948,7 +5962,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -5973,7 +5987,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": false,
+        "disabled": true,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -6026,7 +6040,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -6088,7 +6102,7 @@
         },
         "parserId": "167174183584229566",
         "version": 15,
-        "disabled": false,
+        "disabled": true,
         "controllers": {
             "ps4": null,
             "ps5": null,
@@ -6104,7 +6118,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -6185,7 +6199,7 @@
             "tall": "",
             "hero": "",
             "logo": "",
-            "icon": "/home/akaplan/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
+            "icon": "/userdata/system/.config/EmuDeck/backend/configs/steam-rom-manager/userData/img/default/icon.png"
         },
         "localImages": {
             "long": "",
@@ -6193,6 +6207,7 @@
             "hero": "",
             "logo": "",
             "icon": ""
-        }
+        },
+        "disabled": true
     }
 ]
