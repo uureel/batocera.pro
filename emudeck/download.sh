@@ -12,7 +12,7 @@ EmuDeck Installer Notes:
 EOF
 
 # Display the message in a dialog box
-dialog --title "EmuDeck Installer" --textbox "$tempfile" 20 70
+dialog --title "EmuDeck Installer" --textbox "$tempfile" 20 150
 
 # Clear the screen after dialog exits and remove the temporary file
 clear
