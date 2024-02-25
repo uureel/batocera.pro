@@ -88,7 +88,7 @@ case $CHOICE in
         bash /tmp/runner
         ;;
     8)  
-        echo "Emuedeck Menu..."
+        echo "Emudeck Menu..."
         rm /tmp/runner 2>/dev/null
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://github.com/uureel/batocera.pro/raw/main/emudeck/emudeck.sh
         dos2unix /tmp/runner 2>/dev/null 
