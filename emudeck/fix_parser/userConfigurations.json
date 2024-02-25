@@ -1253,7 +1253,7 @@
             "logo": "",
             "icon": ""
         },
-        "disabled": true
+        "disabled": false
     },
     {
         "parserType": "Glob",
@@ -2929,7 +2929,7 @@
         "imageProviders": [
             "SteamGridDB"
         ],
-        "disabled": true,
+        "disabled": false,
         "userAccounts": {
             "specifiedAccounts": ""
         },
@@ -3544,7 +3544,7 @@
             "logo": "",
             "icon": ""
         },
-        "disabled": false
+        "disabled": true
     },
     {
         "parserType": "Glob",

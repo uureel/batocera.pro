@@ -9,7 +9,7 @@
 	},
 	"environmentVariables": {
 		"steamDirectory": "/userdata/system/.steam/steam",
-		"romsDirectory": "/userdata/systems/Emulation/roms",
+		"romsDirectory": "/userdata/system/Emulation/roms",
 		"retroarchPath": "/usr/bin/flatpak",
 		"raCoresDirectory": "",
 		"localImagesDirectory": "",
@@ -29,6 +29,6 @@
 	"navigationWidth": 256,
 	"clearLogOnTest": false,
 	"version": 6,
-	"theme": "EmuDeck",
+	"theme": "Classic",
 	"batchDownloadSize": 50
 }
