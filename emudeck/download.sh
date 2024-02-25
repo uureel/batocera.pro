@@ -32,7 +32,7 @@ wget -O emudeck.AppImage "$APPIMAGE_URL"
 # Make the AppImage executable
 chmod +x emudeck.AppImage
 
-echo "Download. The AppImage is ready to use in $TARGET_DIR."
+echo "Download Complete. The AppImage is ready to use in $TARGET_DIR."
 
 sleep 5
 
