@@ -102,8 +102,17 @@ cd /tmp/
 f=/tmp/lib32faudio.pkg.tar.zst
 #link=https://builds.garudalinux.org/repos/chaotic-aur/x86_64/lib32-faudio-tkg-git-24.02.r0.g38e9da7-1-x86_64.pkg.tar.zst
 link=https://github.com/uureel/batocera.pro/raw/main/steam/build/lib32-faudio-tkg-git.pkg.tar.zst
-wget -O "$f" "$link"
-yes "Y" | pacman -U "$f"
+wget -q --show-progress --tries=30 -O "$f" "$link"
+yes "Y" | pacman -U "$f" --overwrite='*'
+rm "$f"
+cd ~/
+
+# add tabby 
+cd /tmp/ 
+f=/tmp/tabby.pacman
+link=https://github.com/Eugeny/tabby/releases/download/v1.0.205/tabby-1.0.205-linux-x64.pacman
+wget -q --show-progress --tries=30 -O "$f" "$link" 
+yes "Y" | pacman -U "$f" --overwrite='*'
 rm "$f"
 cd ~/
 
