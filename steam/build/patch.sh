@@ -109,6 +109,7 @@ rm "$f"
 cd ~/
 
 # add tabby 
+echo "adding tabby"
 cd /tmp/ 
 f=/tmp/tabby.pacman
 link=https://github.com/Eugeny/tabby/releases/download/v1.0.205/tabby-1.0.205-linux-x64.pacman
