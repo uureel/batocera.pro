@@ -18,6 +18,7 @@ echo 'cd ~/build/glibc' >> $f
 echo "git checkout glibc-$ver" >> $f
 echo 'mkdir ~/build/glibc/build && cd ~/build/glibc/build' >> $f
 echo 'echo -e "\n\nCONFIGURING...\n\n"' >> $f
+echo 'unset LD_LIBRARY_PATH' >> $f
 echo 'export CFLAGS="$CFLAGS -O3 -fno-stack-protector -fno-PIC -D_FORTIFY_SOURCE=0"' >> $f
 echo 'export LDFLAGS="$LDFLAGS -Wl,--hash-style=both -Wl,-z,norelro"' >> $f
 echo 'export LDFLAGS_so="-Wl,--hash-style=both -Wl,-z,norelro"' >> $f
