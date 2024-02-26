@@ -64,11 +64,11 @@ echo "fixing lutris"
 cd /opt
 	git clone https://github.com/lutris/lutris
 	sed -i 's,os.geteuid() == 0,os.geteuid() == 888,g' /opt/lutris/lutris/gui/application.py 2>/dev/null
-	cp /usr/bin/lutris /usr/bin/lutris-git 2>/dev/null
-	rm /usr/bin/lutris 2>/dev/null
+	cp $(which lutris) /usr/bin/lutris-git 2>/dev/null
+	rm $(which lutris) 2>/dev/null
 	  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /usr/bin/lutris https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
 	  dos2unix /usr/bin/lutris 2>/dev/null
-	  chmod 777 /usr/bin/lutris
+	  chmod 777 /usr/bin/lutris 2>/dev/null
 
 # add ~/.bashrc&profile env
 echo "fixing .bashrc and .profile"
