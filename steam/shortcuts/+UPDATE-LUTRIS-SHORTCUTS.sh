@@ -1,7 +1,14 @@
 #!/bin/bash
+
+# merge ~/.local/share/applications/* and ~/Desktop/* for scanning
+scan=/tmp/.conty-scandir
+rm -rf "$scan" 2>/dev/null
+mkdir -p "$scan" 2>/dev/null
+cp -r ~/.local/share/applications/*.desktop "$scan"/ 2>/dev/null
+cp -r ~/Desktop/*.desktop "$scan"/ 2>/dev/null
+
 # Specify the directory to scan and the output file
-# directory_to_scan="/userdata/system/Desktop"
-directory_to_scan="/userdata/system/.local/share/applications/"
+directory_to_scan="$scan"
 output_file="/userdata/system/pro/steam/lutris_list.txt"
 
 # Check if the directory exists
@@ -96,6 +103,7 @@ for file in *.sh; do
     mv "$file" "$new_name"
 done
 
+rm -rf "$scan" 2>/dev/null
 
 killall -9 emulationstation
 

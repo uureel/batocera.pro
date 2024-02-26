@@ -1,6 +1,14 @@
 #!/bin/bash
+
+# merge ~/.local/share/applications/* and ~/Desktop/* for scanning
+scan=/tmp/.conty-scandir
+rm -rf "$scan" 2>/dev/null
+mkdir -p "$scan" 2>/dev/null
+cp -r ~/.local/share/applications/*.desktop "$scan"/ 2>/dev/null
+cp -r ~/Desktop/*.desktop "$scan"/ 2>/dev/null
+
 # Specify the directory to scan and the output file
-directory_to_scan="/userdata/system/.local/share/applications"
+directory_to_scan="$scan"
 output_file="/userdata/system/pro/steam/steam_list.txt"
 
 # Check if the directory exists
@@ -69,6 +77,8 @@ batocera-mouse hide
     chmod +x "$script_path"
     echo "Script created: $script_path"
 done < "$steam_list_file"
+
+rm -rf "$scan" 2>/dev/null
 
 echo "Script execution completed. Check $output_file for the result."
 killall -9 emulationstation

@@ -1,6 +1,14 @@
 #!/bin/bash
-# Specify the directory to scan
-directory_to_scan="$HOME/Desktop"
+
+# merge ~/.local/share/applications/* and ~/Desktop/* for scanning
+scan=/tmp/.conty-scandir
+rm -rf "$scan" 2>/dev/null
+mkdir -p "$scan" 2>/dev/null
+cp -r ~/.local/share/applications/*.desktop "$scan"/ 2>/dev/null
+cp -r ~/Desktop/*.desktop "$scan"/ 2>/dev/null
+
+# Specify the directory to scan and the output file
+directory_to_scan="$scan"
 
 # Iterate through .desktop files in the specified directory
 for file_path in "$directory_to_scan"/*.desktop; do
@@ -65,6 +73,8 @@ for file in *.sh; do
     echo "Renamed $file to $new_name"
   fi
 done
+
+rm -rf "$scan" 2>/dev/null
 
 killall -9 emulationstation
 echo "Script execution completed."
