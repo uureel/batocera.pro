@@ -55,7 +55,7 @@ handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace file glance
 docker gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader krename imagemagick xfce4 \
 kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs \
-btrfs-heatmap xfce4-goodies xorg xorg-server-xvfb"
+btrfs-heatmap xfce4-goodies xorg xorg-server-xvfb btrfs-progs meld"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
