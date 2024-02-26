@@ -58,6 +58,7 @@ sh_files=(
 "SublimeText.sh"
 "Terminal-Kitty.sh"
 "Terminal-Lxterminal.sh"
+"Terminal-Tabby.sh"
 "Terminal-Terminator.sh"
 "Thunderbird.sh"
 "TigerVNC.sh"
