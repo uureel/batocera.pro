@@ -42,17 +42,12 @@ mkdir -p /userdata/system/containers/storage 2>/dev/null &
 mkdir -p /userdata/system/.local/share/Conty/nvidia/ 2>/dev/null &
 mkdir -p /userdata/system/.local/share/applications/ 2>/dev/null &
     wait
-if [[ -d /userdata/system/Desktop ]]; then
-  cp -r /userdata/system/Desktop/* /userdata/system/.local/share/applications/ 2>/dev/null
-  rm -rf /userdata/system/Desktop 2>/dev/null
-  ln -sf /userdata/system/.local/share/applications /userdata/system/Desktop 2>/dev/null
-else
-  rm -rf /userdata/system/Desktop 2>/dev/null
-  ln -sf /userdata/system/.local/share/applications /userdata/system/Desktop 2>/dev/null
-fi
 rm /userdata/system/.local/share/Conty/nvidia/.current 2>/dev/null
   echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.current 2>/dev/null
 rm /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
+# -------------------------------------------------------------------------------
+rm /userdata/system/Desktop 2>dev/null
+mkdir -p /userdata/system/Desktop 2>/dev/null
 # -------------------------------------------------------------------------------
 # merge ld preload
 if [[ -s /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 ]]; then
