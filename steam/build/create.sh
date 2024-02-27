@@ -174,6 +174,9 @@ install_packages () {
 install_aur_packages () {
 	cd /home/aur
 
+	echo "Patching aur makepkg to multithread..."
+	sed -i 's,#MAKEFLAGS="-j2",MAKEFLAGS="-j$(nproc)",g' /etc/makepkg.conf 2>/dev/null
+	
 	echo "Checking if packages are present in the AUR, please wait..."
 	for p in ${aur_pkgs}; do
 		if ! yay -a -G "${p}" &>/dev/null; then
