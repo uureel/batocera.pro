@@ -167,6 +167,10 @@ readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
 rm $f 2>/dev/null
 rm $h 2>/dev/null
 
+# ditch baloo
+rm $(which baloo_file_extractor) 2>/dev/null
+rm /usr/lib/baloo* 2>/dev/null
+
 echo
 echo "patch.sh done."
 echo "______________"
