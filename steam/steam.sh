@@ -15,8 +15,8 @@ OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
          "3" "Update Launcher shortcuts for emulationstation Arch container"
          "4" "Re-download container"
          "5" "Rebuild and Update apps on container (experimental)"
-         "6" "Addon: Add/Update Lutris & Shortcuts to Emulationstation"
-         "7" "Addon: Add/Update Heroic & Shortcuts to Emulationstation"
+         "6" "Addon: Add/Update Lutris Menu & Shortcuts to Emulationstation"
+         "7" "Addon: Add/Update Heroic Menu & Shortcuts to Emulationstation"
          "8" "Addon: Emudeck (experimental)")
          
 # Display the dialog and get the user choice
