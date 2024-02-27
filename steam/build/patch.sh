@@ -127,6 +127,7 @@ fi
 # remove baloo*
 rm $(which baloo_file_extractor) 2>/dev/null
 rm /usr/lib/baloo* 2>/dev/null
+rm /usr/bin/baloo* 2>/dev/null
 rm /bin/baloo* 2>/dev/null
 
 # patch for portproton 
