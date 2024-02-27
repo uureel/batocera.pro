@@ -59,10 +59,10 @@ btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
-protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui \
-winegui-bin protontricks steamtinkerlaunch greenlight-beta-appimage zoom chiaki \
-etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin \
-7-zip-bin antimicrox lutris-git sublime-text-4 portproton btrfs-assistant"
+etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin appimagetool-bin \
+protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui zoom chiaki \
+winegui-bin protontricks steamtinkerlaunch greenlight-beta-appimage portproton btrfs-assistant \
+7-zip-bin antimicrox lutris-git sublime-text-4"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
