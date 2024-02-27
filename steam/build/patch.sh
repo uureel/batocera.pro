@@ -118,7 +118,14 @@ yes "Y" | pacman -U "$f" --overwrite='*'
 rm "$f"
 cd ~/
 
+# add nativefier
+echo "adding nativefier"
+if [[ "$(which node)" != "" ]] && [[ "$(which npm)" != "" ]]; then
+npm install -g nativefier
+fi
+
 # patch for portproton 
+echo "patching portproton"
 cp "$(which portproton)" /usr/bin/properportproton 
 wget -q --tries=30 -O /usr/bin/portproton "https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/portproton.sh"
 dos2unix /usr/bin/portproton 2>/dev/null
