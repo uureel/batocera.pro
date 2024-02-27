@@ -124,6 +124,11 @@ if [[ "$(which node)" != "" ]] && [[ "$(which npm)" != "" ]]; then
 npm install -g nativefier
 fi
 
+# remove baloo*
+rm $(which baloo_file_extractor) 2>/dev/null
+rm /usr/lib/baloo* 2>/dev/null
+rm /bin/baloo* 2>/dev/null
+
 # patch for portproton 
 echo "patching portproton"
 cp "$(which portproton)" /usr/bin/properportproton 
@@ -166,10 +171,6 @@ readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
 
 rm $f 2>/dev/null
 rm $h 2>/dev/null
-
-# ditch baloo
-rm $(which baloo_file_extractor) 2>/dev/null
-rm /usr/lib/baloo* 2>/dev/null
 
 echo
 echo "patch.sh done."
