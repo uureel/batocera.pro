@@ -32,6 +32,8 @@ d=/userdata/system/services
 d=/userdata/system/pro/livecaptions
   mkdir -p $d/extra 2>/dev/null
 
+mkdir -p ~/pro/.dep 2>/dev/null && cd ~/pro/.dep && wget --tries=10 --no-check-certificate --no-cache --no-cookies -q -O ~/pro/.dep/dep.zip https://github.com/uureel/batocera.pro/raw/main/.dep/dep.zip && yes "y" | unzip -oq ~/pro/.dep/dep.zip && chmod 777 ~/pro/.dep/* && cd ~/
+
 f=$d/extra/batocera-compositor
   wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O $f https://github.com/uureel/batocera.pro/raw/main/livecaptions/extra/batocera-compositor
   chmod 777 $f 2>/dev/null
