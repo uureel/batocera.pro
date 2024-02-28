@@ -1,7 +1,21 @@
 #!/bin/bash
 
+# Define the file path
+filePath="$HOME/pro/steam/conty.sh"
+
+# Check if the file exists
+if [ -f "$filePath" ]; then
+    echo "File exists, continuing the script..."
+   
+else
+    echo "It appears the container is not installed. Please install the Arch Steam/lutris/heroic container first, then retry."
+    sleep 10
+    exit 1
+fi
+
+
 # Display a dialog message box
-dialog --title "Webapps Installer" --msgbox "This script will install a New system called webapps and ES Menu in Batocera that lets you create Google Shortcuts and Electron." 10 50
+dialog --title "Webapps Installer" --msgbox "This script will install a New system called webapps and ES Menu in Batocera that lets you create Google Shortcuts and Electron WebApps." 10 50
 
 # Proceed with the rest of the script
 
