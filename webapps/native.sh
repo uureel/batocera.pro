@@ -22,7 +22,7 @@ while [ $attempt -lt $max_attempts ]; do
     ((attempt++))
     
     # Prompt for URL
-    url=$(dialog --title "Enter URL (Attempt $attempt of $max_attempts)" --inputbox "Enter a URL including https/s:" 8 40 3>&1 1>&2 2>&3 3>&-)
+    url=$(dialog --title "Enter URL (Attempt $attempt of $max_attempts)" --inputbox "Enter a URL including http/s:" 8 40 3>&1 1>&2 2>&3 3>&-)
     
     # Check if the website is reachable
     if isWebsiteReachable "$url"; then
