@@ -97,7 +97,7 @@ case $CHOICE in
         bash /tmp/runner
         ;;
     9)  
-        echo "Webapps Menu..."
+        echo "Webapps Installer..."
         rm /tmp/runner 2>/dev/null
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://github.com/uureel/batocera.pro/raw/main/webapps/install.sh
         dos2unix /tmp/runner 2>/dev/null 
