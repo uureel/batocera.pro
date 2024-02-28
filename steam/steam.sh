@@ -21,7 +21,7 @@ OPTIONS=("1" "Install Arch Container with Steam, Lutris, Heroic and more Apps"
          "9" "Addon: Add/Update Webapps Web/Internet Menu to Emulationstation")
 
 # Display the dialog and get the user choice
-CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
+CHOICE=$(dialog --clear --backtitle "Arch Container Management" \
                 --title "Main Menu" \
                 --menu "Choose an option:" 20 75 3 \
                 "${OPTIONS[@]}" \
