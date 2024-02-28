@@ -37,3 +37,5 @@ mkdir -p ~/configs/emulationstation
 wget -P ~/configs/emulationstation $BASE_URL/es_systems_webapps.cfg
 
 echo "All files have been downloaded and placed in their respective directories. Scripts have been made executable."
+sleep 5
+curl http://127.0.0.1:1234/reloadgames
