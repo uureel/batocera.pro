@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Display a dialog message box
-dialog --title "Webapps Installer" --msgbox "This script will install a New system called webapps and ES Menu in Batocera that lets you create Google Shortcuts and Electron apps to Batocera." 10 50
+dialog --title "Webapps Installer" --msgbox "This script will install a New system called webapps and ES Menu in Batocera that lets you create Google Shortcuts and Electron." 10 50
 
 # Proceed with the rest of the script
 
