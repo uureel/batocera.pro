@@ -34,6 +34,7 @@ declare -A apps
 apps=(
     # ... (populate with your apps as shown before)
     ["7ZIP"]="curl -Ls 7zip.batocera.pro | bash"
+    ["ARCH CONTAINER (STEAM/HEROIC/LUTRIS/+MORE-APPS)"]="curl -Ls steam.batocera.pro | bash"
     ["86BOX"]="curl -Ls 86box.batocera.pro | bash"
     ["ALTUS"]="curl -Ls altus.batocera.pro | bash"
     ["AMAZON-LUNA"]="curl -Ls amazonluna.batocera.pro | bash"
