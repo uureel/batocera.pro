@@ -12,9 +12,10 @@ BASE_URL="https://github.com/uureel/batocera.pro/raw/main/webapps"
 mkdir -p ~/webapps
 
 # Download the specified scripts into ~/webapps
-wget -P ~/webapps $BASE_URL/native.sh
-wget -P ~/webapps $BASE_URL/nlaunch.sh
-wget -P ~/webapps $BASE_URL/chrome.sh
+curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/native.sh -o ~/webapps/native.sh
+curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/native.sh -o ~/webapps/nlaunch.sh
+curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/native.sh -o ~/webapps/chrome.sh
+
 
 # Make downloaded scripts executable
 chmod +x ~/webapps/native.sh
@@ -25,7 +26,7 @@ chmod +x ~/webapps/chrome.sh
 mkdir -p /userdata/roms/webapps
 
 # Download the Add-WebApp.sh script into /userdata/roms/webapps
-wget https://github.com/uureel/batocera.pro/raw/main/webapps/%2BAdd-WebbApp.sh /userdata/roms/webapps
+curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/%2BAdd-WebbApp.sh -o ~/userdata/roms/webapps/%2BAdd-WebbApp.sh
 
 # Make the downloaded Add-WebApp.sh script executable
 chmod +x /userdata/roms/webapps/+Add-WebApp.sh
@@ -34,7 +35,7 @@ chmod +x /userdata/roms/webapps/+Add-WebApp.sh
 mkdir -p ~/configs/emulationstation
 
 # Download the es_systems_webapps.cfg file into ~/configs/emulationstation
-wget -P ~/configs/emulationstation $BASE_URL/es_systems_webapps.cfg
+curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/es_systems_webapps.cfg -o ~/configs/emulationstation/es_systems_webapps.cfg
 
 echo "All files have been downloaded and placed in their respective directories. Scripts have been made executable."
 sleep 5
