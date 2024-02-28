@@ -10,8 +10,8 @@ if [ "$architecture" != "x86_64" ]; then
 fi
 
 # Define the options
-OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
-         "2" "Uninstall Steam/Lutris/Heroic Game Launcher Container"
+OPTIONS=("1" "Install Arch Container with Steam, Lutris, Heroic and more Apps"
+         "2" "Uninstall Arch Container"
          "3" "Update Launcher shortcuts for emulationstation Arch container"
          "4" "Re-download container"
          "5" "Rebuild and Update apps on container (experimental)"
