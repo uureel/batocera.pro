@@ -26,7 +26,7 @@ chmod +x ~/webapps/chrome.sh
 mkdir -p /userdata/roms/webapps
 
 # Download the Add-WebApp.sh script into /userdata/roms/webapps
-curl https://github.com/uureel/batocera.pro/raw/main/webapps/%2BAdd-WebbApp.sh -o /userdata/roms/webapps/+Add-WebApp.sh
+curl https://github.com/uureel/batocera.pro/raw/main/webapps/%2BAdd-WebApp.sh -o /userdata/roms/webapps/+Add-WebApp.sh
 
 
 # Make the downloaded Add-WebApp.sh script executable
