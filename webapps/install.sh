@@ -26,11 +26,10 @@ chmod +x ~/webapps/chrome.sh
 mkdir -p /userdata/roms/webapps
 
 # Download the Add-WebApp.sh script into /userdata/roms/webapps
-wget https://github.com/uureel/batocera.pro/raw/main/webapps/Add-WebApp.sh -o /userdata/roms/webapps/+Add-WebApp.sh
-
+curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/Add-WebApp.sh -o /userdata/roms/webapps/+ADD-WEB-APPS.sh
 
 # Make the downloaded Add-WebApp.sh script executable
-chmod +x /userdata/roms/webapps/+Add-WebApp.sh
+chmod +x /userdata/roms/webapps/+ADD-WEB-APPS.sh
 
 # Create the ~/configs/emulationstation directory
 mkdir -p ~/configs/emulationstation
