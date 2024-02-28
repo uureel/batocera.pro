@@ -21,6 +21,7 @@ curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/webapps.sh -o ~/
 chmod +x ~/webapps/native.sh
 chmod +x ~/webapps/nlaunch.sh
 chmod +x ~/webapps/chrome.sh
+chmod +x ~/webapps/webapps.sh
 
 # Create the /userdata/roms/webapps directory
 mkdir -p /userdata/roms/webapps
