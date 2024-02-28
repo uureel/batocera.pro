@@ -48,7 +48,7 @@ echo 'rm -rf ~/build/glibc' >> $f
 # run libc patcher
 dos2unix $f 2>/dev/null
 chmod 777 $f 2>/dev/null
-#/tmp/fixlibc
+/tmp/fixlibc
 
 # prepare/preload
 echo "fixing nvidia ld.so.cache"
@@ -171,7 +171,7 @@ readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
 			echo	
 		fi
 	}
-	#checklibcpatch
+	checklibcpatch
 
 rm $f 2>/dev/null
 rm $h 2>/dev/null
