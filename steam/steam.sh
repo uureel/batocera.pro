@@ -103,9 +103,7 @@ case $CHOICE in
         dos2unix /tmp/runner 2>/dev/null 
         chmod 777 /tmp/runner 2>/dev/null
         bash /tmp/runner
-        ;;
-   
-    https://github.com/uureel/batocera.pro/raw/main/webapps/install.sh
+        ;;   
     *)
         echo "No valid option selected or cancelled. Exiting."
         ;;
