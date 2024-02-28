@@ -17,8 +17,8 @@ OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
          "5" "Rebuild and Update apps on container (experimental)"
          "6" "Addon: Add/Update Lutris Menu & Shortcuts to Emulationstation"
          "7" "Addon: Add/Update Heroic Menu & Shortcuts to Emulationstation"
-         "8" "Addon: Emudeck (experimental)")
-         "9" "Addon: Add/Update Webapps Web/Internet Menu to Emulationsation")
+         "8" "Addon: Emudeck (experimental)"
+         "9" "Addon: Add/Update Webapps Web/Internet Menu to Emulationstation")
 
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
