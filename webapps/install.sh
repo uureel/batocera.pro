@@ -13,8 +13,8 @@ mkdir -p ~/webapps
 
 # Download the specified scripts into ~/webapps
 curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/native.sh -o ~/webapps/native.sh
-curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/native.sh -o ~/webapps/nlaunch.sh
-curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/native.sh -o ~/webapps/chrome.sh
+curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/nlaunch.sh -o ~/webapps/nlaunch.sh
+curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/chrome.sh -o ~/webapps/chrome.sh
 curl -L https://github.com/uureel/batocera.pro/raw/main/webapps/webapps.sh -o ~/webapps/webapps.sh
 
 # Make downloaded scripts executable
