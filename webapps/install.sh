@@ -30,7 +30,7 @@ curl https://github.com/uureel/batocera.pro/raw/main/webapps/%2BAdd-WebbApp.sh -
 
 
 # Make the downloaded Add-WebApp.sh script executable
-chmod +x /userdata/roms/webapps/+Add-WebApp.sh
+chmod +x /userdata/roms/webapps/+Add-WebbApp.sh
 
 # Create the ~/configs/emulationstation directory
 mkdir -p ~/configs/emulationstation
