@@ -23,7 +23,7 @@ OPTIONS=("1" "Install Steam/Lutris/Heroic Game Launcher Container"
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Steam/Lutris/Heroic Container Management" \
                 --title "Main Menu" \
-                --menu "Choose an option:" 15 75 3 \
+                --menu "Choose an option:" 20 75 3 \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
