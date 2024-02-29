@@ -22,7 +22,7 @@ while [ $attempt -lt $max_attempts ]; do
     ((attempt++))
     
     # Prompt for URL
-    url=$(dialog --title "Enter URL (Attempt $attempt of $max_attempts)" --inputbox "Enter a URL:" 8 40 3>&1 1>&2 2>&3 3>&-)
+    url=$(dialog --title "Enter URL (Attempt $attempt of $max_attempts)" --inputbox "Enter a URL including http/s:" 8 40 3>&1 1>&2 2>&3 3>&-)
     
     # Check if the website is reachable
     if isWebsiteReachable "$url"; then
@@ -74,7 +74,7 @@ nativefier "$url" -n "$appName" --user-agent "$userAgent" --electron-version $(n
 
 # Choose where to save the launcher script
 choice=$(dialog --title "Save Location" --menu "Choose where to save the launcher script:" 15 50 4 \
-1 "Ports" \
+1 "Ports (PAD2KEY Available" \
 2 "Webapps" 3>&1 1>&2 2>&3 3>&-)
 
 saveDir=""
