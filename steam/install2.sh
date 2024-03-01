@@ -106,6 +106,7 @@ sh_files=(
 "Filezilla.sh"
 "Firefox.sh"
 "Flatpak-Config.sh"
+"FreeFileSync.sh"
 "GameHub.sh"
 "Geforce Now.sh"
 "Gimp.sh"

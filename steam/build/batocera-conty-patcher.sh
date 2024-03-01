@@ -46,7 +46,7 @@ rm /userdata/system/.local/share/Conty/nvidia/.current 2>/dev/null
   echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.current 2>/dev/null
 rm /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
 # -------------------------------------------------------------------------------
-rm /userdata/system/Desktop 2>dev/null
+rm /userdata/system/Desktop 2>/dev/null
 mkdir -p /userdata/system/Desktop 2>/dev/null
 # -------------------------------------------------------------------------------
 # merge ld preload
