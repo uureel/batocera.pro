@@ -23,8 +23,6 @@ sysctl -w fs.file-max=8192000 1>/dev/null 2>/dev/null
         mkdir -p /newroot/proc 2>/dev/null
           mount -t proc /proc /newroot/proc 2>/dev/null
 # -------------------------------------------------------------------------------
-eval $(dbus-launch --sh-syntax)
-# -------------------------------------------------------------------------------
 mkdir -p $c/etc 2>/dev/null &
 mkdir -p $c/usr/bin 2>/dev/null &
 mkdir -p $c/usr/lib 2>/dev/null &
@@ -315,15 +313,16 @@ for file in *; do
                 rm $c/usr/lib32/$nover.1 2>/dev/null &
                 rm $c/usr/lib32/$nover.2 2>/dev/null &
                     wait
-                ln -sf "$PWD/$name" "$c/usr/lib32/$name" 2>/dev/null &
-                ln -sf "$PWD/$name" "$c/usr/lib32/$nover" 2>/dev/null &
-                ln -sf "$PWD/$name" "$c/usr/lib32/$nover.0" 2>/dev/null &
-                ln -sf "$PWD/$name" "$c/usr/lib32/$nover.1" 2>/dev/null &
-                ln -sf "$PWD/$name" "$c/usr/lib32/$nover.2" 2>/dev/null &
-                    wait
+                cp "$nvdir/$n/32/$name" "$c/usr/lib32/$name" 2>/dev/null
+                    cd "$c/usr/lib32"
+                        ln -sf "$name" "$nover" 2>/dev/null &
+                        ln -sf "$name" "$nover.0" 2>/dev/null &
+                        ln -sf "$name" "$nover.1" 2>/dev/null &
+                        ln -sf "$name" "$nover.2" 2>/dev/null &
+                            wait
         else 
             rm $c/usr/lib32/$name 2>/dev/null
-            ln -sf "$PWD/$name" "$c/usr/lib32/$name" 2>/dev/null   
+            cp "$nvdir/$n/32/$name" "$c/usr/lib32/$name" 2>/dev/null   
         fi
 done
 }
@@ -342,7 +341,7 @@ for file in *; do
     rm $c/lib/$name 2>/dev/null
     if [[ "$(echo "$name" | cut -c1-7)" == *"nvidia-"* ]] && [[ -x "$name" ]]; then
             rm $c/usr/bin/$name 2>/dev/null
-            ln -sf "$PWD/$name" "$c/usr/bin/$name" 2>/dev/null
+            cp "$nvdir/$n/$name" "$c/usr/bin/$name"
     fi
     if [[ "$(echo "$name" | grep "$v")" != "" ]]; then
         nover=$(echo "$name" | sed "s,.$v,,g")
@@ -352,12 +351,13 @@ for file in *; do
             rm $c/usr/lib/$nover.1 2>/dev/null &
             rm $c/usr/lib/$nover.2 2>/dev/null &
                 wait
-            ln -sf "$PWD/$name" "$c/usr/lib/$name" &
-            ln -sf "$PWD/$name" "$c/usr/lib/$nover" &
-            ln -sf "$PWD/$name" "$c/usr/lib/$nover.0" &
-            ln -sf "$PWD/$name" "$c/usr/lib/$nover.1" &
-            ln -sf "$PWD/$name" "$c/usr/lib/$nover.2" &
-                wait
+            cp "$nvdir/$n/$name" "$c/usr/lib/$name"
+                cd "$c/usr/lib"
+                    ln -sf "$name" "$nover" &
+                    ln -sf "$name" "$nover.0" &
+                    ln -sf "$name" "$nover.1" &
+                    ln -sf "$name" "$nover.2" &
+                        wait
     else 
         if [[ "$(echo "$name" | cut -c1-3)" = "lib" ]]; then
             clean=$(echo "$name" | rev | sed 's,^.*os.,,g' | rev)
@@ -367,15 +367,16 @@ for file in *; do
                 rm $c/usr/lib/$clean.1 2>/dev/null &
                 rm $c/usr/lib/$clean.2 2>/dev/null &
                     wait
-                ln -sf "$PWD/$name" "$c/usr/lib/$name" 2>/dev/null &
-                ln -sf "$PWD/$name" "$c/usr/lib/$clean.so" 2>/dev/null &
-                ln -sf "$PWD/$name" "$c/usr/lib/$clean.so.0" 2>/dev/null &
-                ln -sf "$PWD/$name" "$c/usr/lib/$clean.so.1" 2>/dev/null &
-                ln -sf "$PWD/$name" "$c/usr/lib/$clean.so.2" 2>/dev/null &
-                    wait
+                cp "$nvdir/$n/$name" "$c/usr/lib/$name" 2>/dev/null
+                    cd "$c/usr/lib"
+                        ln -sf "$name" "$clean.so" 2>/dev/null &
+                        ln -sf "$name" "$clean.so.0" 2>/dev/null &
+                        ln -sf "$name" "$clean.so.1" 2>/dev/null &
+                        ln -sf "$name" "$clean.so.2" 2>/dev/null &
+                            wait
         else
                 rm $c/usr/lib/$name 2>/dev/null
-                ln -sf "$PWD/$name" "$c/usr/lib/$name" 2>/dev/null        
+                cp "$nvdir/$n/$name" "$c/usr/lib/$name" 2>/dev/null        
         fi
     fi
 done
@@ -404,19 +405,28 @@ cd "$nvdir/$n"
     rm "$c/usr/lib/nvidia/wine/_nvgx.dll" 2>/dev/null &
     rm "$c/usr/lib/nvidia/wine/nvgx.dll" 2>/dev/null &
         wait
-    ln -sf "$PWD/libglxserver_nvidia.so.$v" "$c/usr/lib/nvidia/xorg/libglxserver_nvidia.so.$v" 2>/dev/null &
-    ln -sf "$PWD/libglxserver_nvidia.so.$v" "$c/usr/lib/nvidia/xorg/libglxserver_nvidia.so.1" 2>/dev/null &
-    ln -sf "$PWD/libglxserver_nvidia.so.$v" "$c/usr/lib/nvidia/xorg/libglxserver_nvidia.so.0" 2>/dev/null &
-    ln -sf "$PWD/libglxserver_nvidia.so.$v" "$c/usr/lib/nvidia/xorg/libglxserver_nvidia.so" 2>/dev/null &
-    ln -sf "$PWD/libvdpau_nvidia.so.$v" "$c/usr/lib/vdpau/libvdpau_nvidia.so.$v" 2>/dev/null &
-    ln -sf "$PWD/libvdpau_nvidia.so.$v" "$c/usr/lib/vdpau/libvdpau_nvidia.so.1" 2>/dev/null &
-    ln -sf "$PWD/libvdpau_nvidia.so.$v" "$c/usr/lib/vdpau/libvdpau_nvidia.so.0" 2>/dev/null &
-    ln -sf "$PWD/libvdpau_nvidia.so.$v" "$c/usr/lib/vdpau/libvdpau_nvidia.so" 2>/dev/null &
-    ln -sf "$PWD/nvidia_drv.so" "$c/usr/lib/xorg/modules/drivers/nvidia_drv.so.1" 2>/dev/null &
-    ln -sf "$PWD/nvidia_drv.so" "$c/usr/lib/xorg/modules/drivers/nvidia_drv.so.0" 2>/dev/null &
-    ln -sf "$PWD/nvidia_drv.so" "$c/usr/lib/xorg/modules/drivers/nvidia_drv.so" 2>/dev/null &
-    ln -sf "$PWD/_nvngx.dll" "$c/usr/lib/nvidia/wine/_nvngx.dll" 2>/dev/null &
-    ln -sf "$PWD/nvngx.dll" "$c/usr/lib/nvidia/wine/nvngx.dll" 2>/dev/null &
+    cp "$nvdir/$n/libglxserver_nvidia.so.$v" "$c/usr/lib/nvidia/xorg/libglxserver_nvidia.so.$v"
+        cd "$c/usr/lib/nvidia/xorg"
+            ln -sf "libglxserver_nvidia.so.$v" "libglxserver_nvidia.so" 2>/dev/null &
+            ln -sf "libglxserver_nvidia.so.$v" "libglxserver_nvidia.so.0" 2>/dev/null &
+            ln -sf "libglxserver_nvidia.so.$v" "libglxserver_nvidia.so.1" 2>/dev/null &
+            ln -sf "libglxserver_nvidia.so.$v" "libglxserver_nvidia.so.2" 2>/dev/null &
+                wait
+    cp "$nvdir/$n/libvdpau_nvidia.so.$v" "$c/usr/lib/vdpau/libvdpau_nvidia.so.$v"
+        cd "$c/usr/lib/vdpau"
+            ln -sf "libvdpau_nvidia.so.$v" "libvdpau_nvidia.so" 2>/dev/null &
+            ln -sf "libvdpau_nvidia.so.$v" "libvdpau_nvidia.so.0" 2>/dev/null &
+            ln -sf "libvdpau_nvidia.so.$v" "libvdpau_nvidia.so.1" 2>/dev/null &
+            ln -sf "libvdpau_nvidia.so.$v" "libvdpau_nvidia.so.2" 2>/dev/null &
+                wait
+    cp "$nvdir/$n/nvidia_drv.so" "$c/usr/lib/xorg/modules/drivers/nvidia_drv.so"
+        cd "$c/usr/lib/xorg/modules/drivers"
+            ln -sf "nvidia_drv.so" "nvidia_drv.so.0" 2>/dev/null &
+            ln -sf "nvidia_drv.so" "nvidia_drv.so.1" 2>/dev/null &
+            ln -sf "nvidia_drv.so" "nvidia_drv.so.2" 2>/dev/null &
+                wait
+    cp "$nvdir/$n/_nvngx.dll" "$c/usr/lib/nvidia/wine/_nvngx.dll" &
+    cp "$nvdir/$n/nvngx.dll" "$c/usr/lib/nvidia/wine/nvngx.dll" &
         wait
     rm "$c"/lib/libglvnd_install_checker.* 2>/dev/null &
     rm "$c"/usr/lib/libglvnd_install_checker.* 2>/dev/null &
@@ -435,11 +445,13 @@ cd "$nvdir/$n/32"
     rm "$c/usr/lib32/vdpau/libvdpau_nvidia.so.0" 2>/dev/null &
     rm "$c/usr/lib32/vdpau/libvdpau_nvidia.so" 2>/dev/null &
         wait
-    ln -sf "$PWD/libvdpau_nvidia.so.$v" "$c/usr/lib32/vdpau/libvdpau_nvidia.so.$v" 2>/dev/null &
-    ln -sf "$PWD/libvdpau_nvidia.so.$v" "$c/usr/lib32/vdpau/libvdpau_nvidia.so.1" 2>/dev/null &
-    ln -sf "$PWD/libvdpau_nvidia.so.$v" "$c/usr/lib32/vdpau/libvdpau_nvidia.so.0" 2>/dev/null &
-    ln -sf "$PWD/libvdpau_nvidia.so.$v" "$c/usr/lib32/vdpau/libvdpau_nvidia.so" 2>/dev/null &
-        wait
+    cp "$nvdir/$n/32/libvdpau_nvidia.so.$v" "$c/usr/lib32/vdpau/libvdpau_nvidia.so.$v" 2>/dev/null
+        cd "$c/usr/lib32/vdpau/"
+            ln -sf "libvdpau_nvidia.so.$v" "libvdpau_nvidia.so" 2>/dev/null &
+            ln -sf "libvdpau_nvidia.so.$v" "libvdpau_nvidia.so.0" 2>/dev/null &
+            ln -sf "libvdpau_nvidia.so.$v" "libvdpau_nvidia.so.1" 2>/dev/null &
+            ln -sf "libvdpau_nvidia.so.$v" "libvdpau_nvidia.so.2" 2>/dev/null &
+                wait
 }
 # -------------------------------------------------------------------------------
 NV1 "$v" "$c" & 
