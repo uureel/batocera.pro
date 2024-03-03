@@ -132,10 +132,9 @@ done
 # Target directory
 DIRECTORY="/userdata/roms/steam2"
 
-# Find and delete all .sh files within the specified directory
-find "$DIRECTORY" -type f -name "*.sh" -exec rm -f {} +
-
-echo "All .sh files in $DIRECTORY have been deleted."
+#nope# Find and delete all .sh files within the specified directory
+#nope# find "$DIRECTORY" -type f -name "*.sh" -exec rm -f {} +
+#nope# echo "All .sh files in $DIRECTORY have been deleted."
 
 # Download the file
 wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$TARGET_FILE" "$FILE_URL"
@@ -147,7 +146,7 @@ chmod +x "$TARGET_FILE" 2>/dev/null
 echo "Downloaded and made executable: $TARGET_FILE"
 sleep 2
 
-rm /userdata/roms/steam2/*.sh 2>/dev/null
+#hmm,why?# rm /userdata/roms/steam2/*.sh 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_features_steam2.cfg 2>/dev/null
 
 echo "Downloading Parser and es_systems"
