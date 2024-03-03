@@ -14,11 +14,13 @@ killall -9 steam steamfix steamfixer 2>/dev/null
           --bind /userdata/system /home/batocera \
           --bind /sys/fs/cgroup /sys/fs/cgroup \
           --bind /userdata/system /home/root \
-          --bind /dev/input /dev/input \
           --bind /etc/fonts /etc/fonts \
+          --bind /dev/input /dev/input \
           --bind /userdata /userdata \
+          --bind /dev/dri /dev/dri \
           --bind /newroot /newroot \
           --bind / /batocera \
+          --bind /sys /sys \
   bash -c 'prepare && ulimit -H -n 819200 && ulimit -S -n 819200 && sysctl -w fs.inotify.max_user_watches=8192000 vm.max_map_count=2147483642 fs.file-max=8192000 >/dev/null 2>&1 && dbus-run-session steam -gamepadui '"${@}"''
 #------------------------------------------------
 batocera-mouse hide
