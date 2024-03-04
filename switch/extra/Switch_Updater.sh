@@ -462,7 +462,7 @@ link_ryujinxavalonia="$8"
 #link_ryujinxavalonia=https://github.com/uureel/batocera.pro/raw/main/switch/extra/test-ava-ryujinx-1.1.382-linux_x64.tar.gz
 # ---------------------------------------------------------------------------------- 
 # TEMPORARILY FREEZING UPDATES FOR YUZU: 
-link_yuzu=https://archive.org/download/yuzu-windows-msvc-20240304-537296095_202403/yuzu-mainline-20240304-537296095.AppImage
+#link_yuzu=https://archive.org/download/yuzu-windows-msvc-20240304-537296095_202403/yuzu-mainline-20240304-537296095.AppImage
 #link_yuzuea=https://github.com/uureel/batocera.pro/raw/main/switch/extra/Linux-Yuzu-EA-3180.AppImage
 # ----------------------------------------------------------------------------------
 # PATHS: 
