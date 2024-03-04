@@ -61,7 +61,6 @@ killall -9 steam steamfix steamfixer 2>/dev/null
 --bind /sys/fs/cgroup /sys/fs/cgroup \\
 --bind /userdata/system /home/root \\
 --bind /etc/fonts /etc/fonts \\
---bind /dev/input /dev/input \\
 --bind /userdata /userdata \\
 --bind /newroot /newroot \\
 --bind / /batocera \\
