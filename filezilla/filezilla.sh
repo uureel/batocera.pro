@@ -288,6 +288,15 @@ echo -e "${G}INSTALLING${W}"
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
+echo ' ' >> $launcher
+echo 'export XDG_DATA_DIRS=/userdata/saves/flatpak/data/.local/share/flatpak/exports/share:/userdata/saves/flatpak/binaries/exports/share/applications/:/userdata/system/.local/share/flatpak/exports/share:/userdata/saves/flatpak/binaries/exports/share:/usr/local/share:/usr/share' >> $launcher
+echo 'export PATH=/userdata/system/.local/bin:/userdata/system/bin:/bin:/sbin:/usr/bin:/usr/sbin' >> $launcher
+echo 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket' >> $launcher
+echo 'export XDG_MENU_PREFIX=batocera-' >> $launcher
+echo 'export XDG_CONFIG_DIRS=/etc/xdg' >> $launcher
+echo 'export XDG_CURRENT_DESKTOP=XFCE' >> $launcher
+echo 'export DESKTOP_SESSION=XFCE' >> $launcher
+echo ' ' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
