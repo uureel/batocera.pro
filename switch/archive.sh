@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Display yes/no dialog
-dialog --title "Archive Builds" --yesno "Do you need to pull the archive builds?" 7 60
+dialog --title "Yuzu" --yesno "Do you need to pull yuzu from archive.org?" 7 60
 
 # Check the user's decision based on dialog's exit status
 if [ $? -eq 0 ]; then
