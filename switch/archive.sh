@@ -7,7 +7,8 @@ dialog --title "Yuzu" --yesno "Do you need to pull yuzu from archive.org (archiv
 if [ $? -eq 0 ]; then
     # Ensure the target directory exists, suppress output
     mkdir -p /userdata/system/switch &> /dev/null
-
+    clear
+    
     # Download the first file with suppressed background commands but showing wget progress
     echo "Downloading yuzu mainline build..."
     wget --tries=10 --show-progress -O /userdata/system/switch/yuzu.AppImage "https://archive.org/download/yuzu-windows-msvc-20240304-537296095_20240305_1340/Linux/yuzu-mainline-20240304-537296095.AppImage" &> /dev/null
