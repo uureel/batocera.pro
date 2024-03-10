@@ -288,6 +288,7 @@ X='\033[0m' # / resetcolor
 if [[ -e /userdata/system/switch/extra/installation ]]; then
 rm /userdata/system/switch/extra/installation 2>/dev/null
 clear
+curl -L https://github.com/garbagescow/batocera.pro/raw/main/switch/archive.sh | bash
 echo 
 echo 
 echo -e "   ${X}$APPNAME INSTALLED${X}" 
