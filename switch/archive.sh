@@ -11,14 +11,14 @@ if [ $? -eq 0 ]; then
     
     # Download the first file with suppressed background commands but showing wget progress
     echo "Downloading yuzu mainline build..."
-    wget --tries=10 --show-progress -O /userdata/system/switch/yuzu.AppImage "https://archive.org/download/yuzu-windows-msvc-20240304-537296095_20240305_1340/Linux/yuzu-mainline-20240304-537296095.AppImage" &> /dev/null
+    wget --tries=10 --show-progress -O /userdata/system/switch/yuzu.AppImage "https://archive.org/download/yuzu-windows-msvc-20240304-537296095_20240305_1340/Linux/yuzu-mainline-20240304-537296095.AppImage"
     
     # Make it executable, suppress output
     chmod +x /userdata/system/switch/yuzu.AppImage &> /dev/null
 
     # Download the second file with suppressed background commands but showing wget progress
     echo "Downloading yuzu EA build..."
-    wget --tries=10 --show-progress -O /userdata/system/switch/yuzuEA.AppImage "https://archive.org/download/yuzu-windows-msvc-20240304-537296095_20240305_1340/Linux/Linux-Yuzu-EA-4176.AppImage" &> /dev/null
+    wget --tries=10 --show-progress -O /userdata/system/switch/yuzuEA.AppImage "https://archive.org/download/yuzu-windows-msvc-20240304-537296095_20240305_1340/Linux/Linux-Yuzu-EA-4176.AppImage" 
     
     # Make it executable, suppress output
     chmod +x /userdata/system/switch/yuzuEA.AppImage &> /dev/null
