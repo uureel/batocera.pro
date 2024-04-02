@@ -12,10 +12,6 @@ fi
 echo "Starting Steam Installer Script..."
 
 
-# Wait for cvlc to finish
-wait $!
-
-killall -9 vlc
 
 clear 
 
