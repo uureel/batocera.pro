@@ -124,6 +124,7 @@ apps=(
     ["WIIU-PLUS"]="curl -Ls wiiuplus.batocera.pro | bash"
     ["XARCHIVER"]="curl -Ls xarchiver.batocera.pro | bash"
     ["XCLOUD"]="curl -Ls xcloud.batocera.pro | bash"
+    ["WINE-MANAGER"]="curl -Ls winemanager.batocera.pro | bash"
     ["YARG/YARC-LAUNCHER"]="curl -Ls yarg.batocera.pro | bash"
     ["YOUTUBE-TV"]="curl -Ls yttv.batocera.pro | bash"
 )
