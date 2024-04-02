@@ -410,7 +410,7 @@ OR<BR>
 ```curl -L wiiuplus.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/winemanager/extras/icon.png" width=48 height=48 /><b><i>&nbsp;<a href=https://github.com/Gr3gorywolf/batocera_wine_manager>WINE-MANAGER by Gr3gorywolf</a></i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/winemanager/extra/icon.png" width=48 height=48 /><b><i>&nbsp;<a href=https://github.com/Gr3gorywolf/batocera_wine_manager>WINE-MANAGER by Gr3gorywolf</a></i></b><br>
 ```curl -L winemanager.batocera.pro | bash```
 <br>
 <br>
