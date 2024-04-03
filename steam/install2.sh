@@ -11,7 +11,7 @@ fi
 
 echo "Starting Steam Installer Script..."
 
-
+sleep 2
 
 clear 
 
@@ -271,7 +271,6 @@ wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/s
 dos2unix /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
 chmod 777 /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
 
-killall -9 vlc
 
 clear
 
@@ -306,7 +305,7 @@ clear
 #   echo -ne '          \r'
 #done
 
-echo "Steam is now starting"
+echo "Launching Steam"
 
 dos2unix "/userdata/roms/conty/Steam Big Picture Mode.sh" 2>/dev/null
 chmod 777 "/userdata/roms/conty/Steam Big Picture Mode.sh" 2>/dev/null
