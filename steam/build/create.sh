@@ -63,7 +63,7 @@ tint2 plank lxde mate mate-extra dialog xterm compsize"
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin appimagetool-bin \
 protonup-qt-bin steam-rom-manager-appimage google-chrome sgdboop-bin steam-boilr-gui zoom chiaki \
-winegui-bin protontricks steamtinkerlaunch portproton btrfs-assistant \
+winegui-bin protontricks steamtinkerlaunch portproton btrfs-assistant freefilesync-bin \
 7-zip-bin antimicrox lutris-git sublime-text-4 sdl12-compat-git lib32-sdl12-compat-git"
 
 # ALHP is a repository containing packages from the official Arch Linux
