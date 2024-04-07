@@ -158,21 +158,21 @@ rm /usr/bin/smb* 2>/dev/null
 rm -rf ~/build 2>/dev/null
 
 # confirm libc patch status
-echo "checking libc patch"
-h=/tmp/hash && rm $h 2>/dev/null
-readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
-	function checklibcpatch() {
-		if [[ "$(cat $h | grep '(HASH)')" != "" ]] && [[ "$(cat $h | grep '(GNU_HASH)')" != "" ]]; then
-			echo
-			echo "LIBC DT_HASH PATCHED OK!"
-			echo
-		else
-			echo
-			echo "LIBC DT_HASH PATCH FAILED..."
-			echo	
-		fi
-	}
-	checklibcpatch
+#echo "checking libc patch"
+#h=/tmp/hash && rm $h 2>/dev/null
+#readelf -d /usr/lib/libc.so.6 | grep 'HASH' >> $h
+#	function checklibcpatch() {
+#		if [[ "$(cat $h | grep '(HASH)')" != "" ]] && [[ "$(cat $h | grep '(GNU_HASH)')" != "" ]]; then
+#			echo
+#			echo "LIBC DT_HASH PATCHED OK!"
+#			echo
+#		else
+#			echo
+#			echo "LIBC DT_HASH PATCH FAILED..."
+#			echo	
+#		fi
+#	}
+#	checklibcpatch
 
 rm $f 2>/dev/null
 rm $h 2>/dev/null
