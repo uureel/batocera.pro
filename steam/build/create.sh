@@ -55,9 +55,9 @@ handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace file glance
 docker gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader krename imagemagick xfce4 \
 kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs \
-btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock  \
-tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki \
-freefilesync-bin steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat \
+btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock   \
+tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki glibc-eac \
+freefilesync-bin steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat lib32-glibc-eac \
 protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zoom balena-etcher ventoy-bin 7-zip \
 microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch "
 
