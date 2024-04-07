@@ -6,12 +6,11 @@ architecture=$(uname -m)
 DEFAULT_PORT=3389
 
 # Check system architecture
-if [ "$architecture" != "x86_64" ] && [ "$architecture" != "aarch64" ]; then
-    dialog --title "Architecture Error" --msgbox "This script only runs on x86_64 or arm64 architectures, not on $architecture." 10 50
+if [ "$architecture" != "x86_64" ]; then
+    dialog --title "Architecture Error" --msgbox "This script only runs on AMD or Intel (x86_64) CPUs, not on $architecture." 10 50
     clear
     exit 1
 fi
-
 # Check for Docker
 if ! command -v docker &> /dev/null; then
     dialog --title "Docker Installation" --infobox "Docker could not be found. Installing Docker..." 10 50
