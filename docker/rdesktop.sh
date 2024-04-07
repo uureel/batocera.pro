@@ -86,7 +86,7 @@ MSG="Your Rdesktop docker container has been started with the following configur
 - RDP Access Port: $VM_PORT\n
 \nRemember, the default USERNAME and PASSWORD is: abc/abc\n
 - Access the VM via any RDP client using port $VM_PORT.\n
-\nThe Container can be manaaged via cli or portainer webgui."
+\nThe Container can be managed via cli or portainer webgui."
 
 # Use dialog to display the message
 dialog --title "VM Setup Complete" --msgbox "$MSG" 20 70
