@@ -51,9 +51,9 @@ minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
 ripgrep i7z sd bandwhich tre zoxide p7zip atop iftop sysstat totem feh krename \
 bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli \
 podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc \
-handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill strace file glances \
+handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader strace file glances \
 docker docker-compose portainer-bin gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
-gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader krename imagemagick xfce4 \
+gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename imagemagick xfce4 \
 kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs \
 btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock   \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki  \
