@@ -171,3 +171,6 @@ echo "-Windows files are stored in $windows_dir"
 echo "-Adjust other settings in your clients as needed."
 echo "-You can manage the container settings in portainer after installation"
 echo "-Default rdp username is docker.  Password is blank."
+
+Sleep 20
+exit
