@@ -163,14 +163,19 @@ fi
 
 # Final message to the user, reminding how to access both RDP and VNC
 
-echo "To access your Windows environment:"
-echo "- Via RDP: Connect to localhost:$RDP_PORT with your RDP client."
-echo "- Via VNC: Connect to localhost:$VNC_PORT with your brower."
-echo "-Remember, inital setup must be done via VNC via web browser - http://batoceraipaddress>:$VNC_PORT"
-echo "-Windows files are stored in $windows_dir"
-echo "-Adjust other settings in your clients as needed."
-echo "-You can manage the container settings in portainer after installation"
-echo "-Default rdp username is docker.  Password is blank."
+# Compile message content
+MSG="To access your Windows environment:\n
+- Via RDP: Connect to localhost:$RDP_PORT with your RDP client.\n
+- Via VNC: Connect to localhost:$VNC_PORT with your browser.\n
+- Remember, initial setup must be done via VNC via web browser - http://<batocera_ip_address>:$VNC_PORT\n
+- Windows files are stored in $windows_dir\n
+- Adjust other settings in your clients as needed.\n
+- You can manage the container settings in Portainer after installation.\n
+- Default RDP username is docker. Password is blank."
 
-Sleep 20
+# Use dialog to display the message
+dialog --title "Access and Configuration Information" --msgbox "$MSG" 20 70
+
+# Clear the screen after displaying the message
+clear
 exit
