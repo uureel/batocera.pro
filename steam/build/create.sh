@@ -56,15 +56,17 @@ docker gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs t
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader krename imagemagick xfce4 \
 kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs \
 btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock  \
-tint2 plank lxde mate mate-extra dialog xterm compsize"
+tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki \
+freefilesync-bin steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat \
+protontricks-git chiaki sublime-text-4"
 #lib32-vulkan-radeon
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin appimagetool-bin \
-protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui zoom chiaki \
-winegui-bin protontricks steamtinkerlaunch  portproton btrfs-assistant 7-zip-bin antimicrox  \
-lutris-git sublime-text-4 freefilesync sdl12-compat-git lib32-sdl12-compat-git"
+protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin zoom  \
+winegui-bin steamtinkerlaunch  portproton  7-zip-bin"
+
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
