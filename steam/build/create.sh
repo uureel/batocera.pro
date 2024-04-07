@@ -34,7 +34,7 @@ vkd3d lib32-vkd3d libgphoto2 ffmpeg gstreamer gst-plugins-good gst-plugins-bad \
 gst-plugins-ugly gst-plugins-base lib32-gst-plugins-good \
 lib32-gst-plugins-base gst-libav wget wine-mono wine-gecko"
 
-devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
+devel_pkgs="glibc-eac base-devel git meson  cmake"
 
 # Packages to install
 # You can add packages that you want and remove packages that you don't need
