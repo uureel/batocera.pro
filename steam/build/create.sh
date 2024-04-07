@@ -62,9 +62,9 @@ tint2 plank lxde mate mate-extra dialog xterm compsize"
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
 etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin appimagetool-bin \
-protonup-qt-bin steam-rom-manager-appimage google-chrome sgdboop-bin steam-boilr-gui zoom chiaki \
-winegui-bin protontricks steamtinkerlaunch portproton btrfs-assistant greenlight-git\
-7-zip-bin antimicrox sublime-text-4 sdl12-compat-git lib32-sdl12-compat-git"
+protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin steam-boilr-gui zoom chiaki \
+winegui-bin protontricks steamtinkerlaunch  portproton btrfs-assistant 7-zip-bin antimicrox  \
+lutris-git sublime-text-4 freefilesync sdl12-compat-git lib32-sdl12-compat-git"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
