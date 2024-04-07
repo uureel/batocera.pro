@@ -62,7 +62,7 @@ fi
 
 # Dialogs for configuration
 # Select Windows version
-VERSION=$(dialog --stdout --backtitle "$BACKTITLE" --title "Windows Version" --menu "Choose a version:" 30 50 4 \
+VERSION=$(dialog --stdout --backtitle "$BACKTITLE" --title "Windows Version" --menu "Choose a version:" 40 70 4 \
 "win11" "Windows 11 Pro" \
 "win10" "Windows 10 Pro" \
 "ltsc10" "Windows 10 LTSC" \
