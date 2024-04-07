@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#!/bin/bash
+
 # Function to check if a port is in use
 is_port_in_use() {
     netstat -an | grep ":$1 " > /dev/null
@@ -15,8 +17,32 @@ find_next_available_port() {
     echo $port
 }
 
-# Ensure the ~/windows directory exists
-mkdir -p ~/windows
+# Function to find the next available directory for windows
+find_next_available_directory() {
+    local base_dir="$HOME/windows"
+    if [[ ! -d $base_dir ]] || [[ -z "$(ls -A $base_dir)" ]]; then
+        # If the directory doesn't exist or is empty
+        echo $base_dir
+    else
+        # Find the next available directory by incrementing a suffix
+        local i=2
+        while [[ -d $base_dir$i ]] && [[ ! -z "$(ls -A $base_dir$i)" ]]; do
+            i=$((i + 1))
+        done
+        echo $base_dir$i
+    fi
+}
+
+# Determine the directory to use
+windows_dir=$(find_next_available_directory)
+
+# Ensure the directory exists
+mkdir -p "$windows_dir"
+
+echo "Using directory: $windows_dir"
+
+# Initial setup for dialog
+BACKTITLE="Docker Windows Container Setup"
 
 # Check and set RDP port
 RDP_PORT=3389
@@ -34,9 +60,7 @@ if is_port_in_use $VNC_PORT; then
     clear
 fi
 
-# Initial setup for dialog
-BACKTITLE="Docker Windows Container Setup"
-
+# Dialogs for configuration
 # Select Windows version
 VERSION=$(dialog --stdout --backtitle "$BACKTITLE" --title "Windows Version" --menu "Choose a version:" 15 50 4 \
 "win11" "Windows 11 Pro" \
@@ -71,7 +95,7 @@ DISK_SIZE=$(dialog --stdout --backtitle "$BACKTITLE" --title "Disk Size" --menu 
 "128G" "128 GB" \
 "256G" "256 GB" \
 "512G" "512 GB" \
-"1T" "1 TB")
+"1024G" "1 TB")
 clear
 
 # CPU Cores
@@ -82,13 +106,13 @@ CPU_CORES=$(dialog --stdout --backtitle "$BACKTITLE" --title "CPU Cores" --menu 
 "8" "8 Cores")
 clear
 
-# Summary and confirmation, including VNC_PORT in the message
-dialog --stdout --backtitle "$BACKTITLE" --yesno "You have configured the Docker container with the following settings:\n\nWindows Version: $VERSION\nRAM Size: $RAM_SIZE\nDisk Size: $DISK_SIZE\nCPU Cores: $CPU_CORES\nRDP Port: $RDP_PORT\nVNC Port: $VNC_PORT\n\nDo you want to proceed?" 22 76
+# Summary and confirmation, including ports in the message
+dialog --stdout --backtitle "$BACKTITLE" --yesno "You have configured the Docker container with the following settings:\n\nDirectory: $windows_dir\nWindows Version: $VERSION\nRAM Size: $RAM_SIZE\nDisk Size: $DISK_SIZE\nCPU Cores: $CPU_CORES\nRDP Port: $RDP_PORT\nVNC Port: $VNC_PORT\n\nDo you want to proceed?" 22 76
 response=$?
 
 if [ $response -eq 0 ]; then
     echo "Setting up your Docker Windows container..."
-    # Docker run command, include -p $VNC_PORT:8006 mapping
+    # Docker run command, including port mappings and volume
     docker run -d \
       --name windows_$VERSION \
       -e VERSION="$VERSION" \
@@ -102,9 +126,8 @@ if [ $response -eq 0 ]; then
       -p $VNC_PORT:8006/tcp \
       --stop-timeout 120 \
       --restart on-failure \
-      -v ~/windows:/storage \
+      -v "$windows_dir:/storage" \
       dockurr/windows
-
 clear
     # Success message for both RDP and VNC
     if [ $? -eq 0 ]; then
@@ -126,6 +149,7 @@ echo "To access your Windows environment:"
 echo "- Via RDP: Connect to localhost:$RDP_PORT with your RDP client."
 echo "- Via VNC: Connect to localhost:$VNC_PORT with your brower."
 echo "-Remember, inital setup must be done via VNC - http://batoceraipaddress>:VNC_PORT"
-echo "Windows files are stored in /userdata/system/windows
-echo "Adjust other settings in your clients as needed."
-echo You can manager the container settings in portainer if installed"
+echo "-Windows files are stored in /userdata/system/windows"
+echo "-Adjust other settings in your clients as needed."
+echo" -You can manager the container settings in portainer if installed"
+echo "-Default rdp username is docker.  Password is blank."
