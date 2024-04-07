@@ -3,7 +3,7 @@
 echo
 echo "RUNNING ADDITIONAL BATOCERA CONTY PATCHES"
 echo
-pacman -S glibc-eac lib32-glibc-eac glibc-eac-locales
+pacman -S glibc-eac 
 #echo "fixing libc dthash"
 #ver=$(ldd --version | head -n1 | rev | awk '{print $1}' | rev)
 #echo -e "\n\nPREPARING LIBC $ver DT_HASH FIX FOR STEAM...\n\n"
