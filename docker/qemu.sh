@@ -97,7 +97,8 @@ MSG="Your QEMU Virtual Machine has been started with the following configuration
 - RAM Size: $RAM_SIZE\n
 - CPU Cores: $CPU_CORES\n
 - Disk Size: $DISK_SIZE\n
-- Access the VM via your web browser on port $VM_PORT.\n
+- Access the VM via your web browser via http:// on batoceras ip port $VM_PORT.\n
+- The container can be manageed via cli or Portainer
 \nVM files are stored in: $vm_dir\n\nRemember, initial setup and interactions with the VM should be done through the web browser interface."
 
 # Use dialog to display the message
