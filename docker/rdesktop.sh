@@ -82,7 +82,7 @@ docker run -d \
   lscr.io/linuxserver/rdesktop:$DESKTOP_ENVIRONMENT
 
 # Final message to the user
-MSG="Your Rdesktop Virtual Machine has been started with the following configurations:\n
+MSG="Your Rdesktop docker container has been started with the following configurations:\n
 - Desktop Environment: $DESKTOP_ENVIRONMENT\n
 - RDP Access Port: $VM_PORT\n
 \nRemember, the default USERNAME and PASSWORD is: abc/abc\n
