@@ -77,6 +77,7 @@ apps=(
     ["KRITA"]="curl -Ls krita.batocera.pro | bash"
     ["LIVECAPTIONS/SERVICE"]="curl -Ls livecaptions.batocera.pro | bash"
     ["LOGS"]="curl -Ls logs.batocera.pro | bash"
+    ["LINUX-VMs-ON-QEMU/DOCKER"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/qemu.sh | bash"
     ["LUDUSAVI"]="curl -Ls ludusavi.batocera.pro | bash"
     ["LUTRIS/CONTAINER"]="curl -Ls lutris.batocera.pro | bash"
     ["MEDIAELCH"]="curl -Ls mediaelch.batocera.pro | bash"
