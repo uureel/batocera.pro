@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Initial setup
-BACKTITLE="Docker Rdesktop Virtual Machine Setup"
+BACKTITLE="Docker Remote Linux Desktop Container Setup"
 architecture=$(uname -m)
 DEFAULT_PORT=3389
 
