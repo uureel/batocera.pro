@@ -58,14 +58,13 @@ kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-p
 btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock  \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki \
 freefilesync-bin steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat \
-protontricks-git chiaki sublime-text-4"
+protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zoom balena-etcher ventoy-bin 7-zip \
+microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch "
+
 #lib32-vulkan-radeon
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="heroic-games-launcher-bin geforcenow-electron moonlight-qt-bin \
-etcher-bin ventoy-bin microsoft-edge-stable-bin qdirstat peazip-gtk2-bin appimagetool-bin \
-protonup-qt-bin steam-rom-manager-bin google-chrome sgdboop-bin zoom  \
-winegui-bin steamtinkerlaunch  portproton  7-zip-bin"
+export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bi  portproton"
 
 
 # ALHP is a repository containing packages from the official Arch Linux
