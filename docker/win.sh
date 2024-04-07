@@ -75,9 +75,9 @@ VERSION=$(dialog --stdout --backtitle "$BACKTITLE" --title "Windows Version" --m
 "2016" "Windows Server 2016" \
 "2012" "Windows Server 2012 R2" \
 "2008" "Windows Server 2008 R2" \
-"core11" "Tiny 11 Core" \
-"tiny11" "Tiny 11" \
-"tiny10" "Tiny 10")
+"core11" "Tiny 11 Core -- archive.org = slow download" \
+"tiny11" "Tiny 11 -- archive.org = slow download" \
+"tiny10" "Tiny 10 -- archive.org = slow download")
 clear
 
 # RAM size
