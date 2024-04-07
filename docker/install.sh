@@ -54,4 +54,4 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /va
 echo "Done." 
 echo "Access portainer gui via https://<batoceraipaddress>:9443"
 sleep 10
-curl http://127.0.0.1:1234/reloadgames
+exit
