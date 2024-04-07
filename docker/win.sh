@@ -1,6 +1,24 @@
 #!/bin/bash
 
-#!/bin/bash
+# Get the machine hardware name
+architecture=$(uname -m)
+
+# Check if the architecture is x86_64 (AMD/Intel)
+if [ "$architecture" != "x86_64" ]; then
+    echo "This script only runs on AMD or Intel (x86_64) CPUs, not on $architecture."
+    exit 1
+fi
+
+
+if ! command -v docker &> /dev/null; then
+    echo "Docker could not be found, installing Docker..."
+    curl -L https://github.com/uureel/batocera.pro/raw/main/docker/install.sh | bash
+    # Check if Docker was successfully installed
+    if ! command -v docker &> /dev/null; then
+        echo "Docker installation failed. Please install Docker manually."
+        exit 1
+    fi
+fi
 
 # Function to check if a port is in use
 is_port_in_use() {
