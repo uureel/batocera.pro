@@ -320,7 +320,7 @@ OR<BR>
 ```curl -L plexamp.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/portainer.png" width=48 height=48 /><b><i>&nbsp;PORTAINER (docker)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/portainer.png" width=48 height=48 /><b><i>&nbsp;PORTAINER (Docker)</i></b><br>
 ```curl -L docker.batocera.pro | bash```
 <br>
 <br>
