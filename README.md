@@ -117,10 +117,6 @@ OR<BR>
 ```curl -L emby.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/extract-xiso/extra/icon.png" width=48 height=48 /><b><i>&nbsp;EXTRACT-XISO-GUI</i></b><br>
-```curl -L xiso.batocera.pro | bash```
-<br>
-<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/ferdium/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FERDIUM</i></b><br>
 ```curl -L ferdium.batocera.pro | bash```
 <br>
