@@ -435,7 +435,7 @@ OR<BR>
 ```curl -L wiiuplus.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/windows.png" width=48 height=48 /><b><i>&nbsp;WINDOWS (RDP/QEMU/Docker)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/windows.png" width=48 height=48 /><b><i>&nbsp;WINDOWS VMs (RDP/QEMU/Docker)</i></b><br>
 ```curl -L windows.batocera.pro | bash```
 <br>
 <br>
