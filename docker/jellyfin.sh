@@ -12,7 +12,7 @@ is_port_in_use() {
 
 # Check if port 8096 is in use
 if is_port_in_use 8096; then
-    dialog --title "Port Conflict" --msgbox "Port 8096 is already in use. Please ensure it is available before installing Emby." 10 50
+    dialog --title "Port Conflict" --msgbox "Port 8096 is already in use. Please ensure it is available before installing Jellyfin." 10 50
     clear
     exit 1
 fi
