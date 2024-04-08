@@ -72,6 +72,7 @@ apps=(
     ["HYPER"]="curl -Ls hyper.batocera.pro | bash"
     ["ITCH"]="curl -Ls itch.batocera.pro | bash"
     ["JAVA-RUNTIME"]="curl -Ls java.batocera.pro | bash"
+    ["JELLYFIN/DOCKER"]"curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/jellyfin.sh | bash"
     ["KDENLIVE"]="curl -Ls kdenlive.batocera.pro | bash"
     ["KITTY"]="curl -Ls kitty.batocera.pro | bash"
     ["KRITA"]="curl -Ls krita.batocera.pro | bash"
