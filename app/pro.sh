@@ -91,6 +91,7 @@ apps=(
     ["MULTIMC-LAUNCHER"]="curl -Ls multimc.batocera.pro | bash"
     ["MUSEEKS"]="curl -Ls museeks.batocera.pro | bash"
     ["MYRETROTV"]="curl -Ls myretrotv.batocera.pro | bash"
+    ["NEXTCLOUD/DOCKER"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/nextcloud.sh | bash" 
     ["NVTOP"]="curl -Ls nvtop.batocera.pro | bash"   
     ["NOMACS"]="curl -Ls nomacs.batocera.pro | bash"
     ["OBS-STUDIO"]="curl -Ls obs.batocera.pro | bash"
