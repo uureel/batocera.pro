@@ -100,7 +100,7 @@ OR<BR>
 ```curl -L discord.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/docker.jpg" width=48 height=48 /><b><i>&nbsp;Docker</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/docker.jpg" width=48 height=48 /><b><i>&nbsp;DOCKER</i></b> <br>
 ```curl -L docker.batocera.pro | bash```
 <br>
 <br>
