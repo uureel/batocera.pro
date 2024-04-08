@@ -16,7 +16,7 @@ Some unofficial AppImages, some official binaries <br>
 & a few are wine versions plus  there also is the immutable arch<br>
 container containing Steam/Lutris/Heroic and other apps<br>
 <br>
-Docker and Docker APPS also now availble<br>
+Docker and Docker APPS also now available<br>
 <br>
 <br>
 <b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
