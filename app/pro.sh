@@ -98,6 +98,7 @@ apps=(
     ["OPERA"]="curl -Ls opera.batocera.pro | bash"
     ["PEAZIP"]="curl -Ls peazip.batocera.pro | bash"
     ["PHOTOCOLLAGE"]="curl -Ls photocollage.batocera.pro | bash"
+    ["PLEX"]="curl -L https://github.com/uureel/batocera.pro/raw/main/docker/plex.sh | bash"
     ["PLEXAMP"]="curl -Ls plexamp.batocera.pro | bash"
     ["POKEMMO"]="curl -Ls pokemmo.batocera.pro | bash"
     ["PORTAINER/DOCKER"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/install.sh | bash"
