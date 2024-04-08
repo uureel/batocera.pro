@@ -100,12 +100,20 @@ OR<BR>
 ```curl -L discord.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/docker.jpg" width=48 height=48 /><b><i>&nbsp;Docker</i></b> <br>
+```curl -L docker.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/doublecmd/extra/icon.png" width=48 height=48 /><b><i>&nbsp;DOUBLE-COMMANDER</i></b> <br>
 ```curl -L doublecmd.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/edge/extra/icon.png" width=48 height=48 /><b><i>&nbsp;EDGE</i></b><br>
 ```curl -L edge.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/emby.png" width=48 height=48 /><b><i>&nbsp;EMBY (Docker)</i></b><br>
+```curl -L emby.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/extract-xiso/extra/icon.png" width=48 height=48 /><b><i>&nbsp;EXTRACT-XISO-GUI</i></b><br>
@@ -198,6 +206,11 @@ OR<BR>
 ```curl -L java.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/jellyfin.png" width=48 height=48 /></a>
+<b><i>&nbsp;JELLYFIN (Docker)</i></b><br>
+```curl -L jellyfin.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/kdenlive/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KDENLIVE</i></b><br>
 ```curl -L kdenlive.batocera.pro | bash```
 <br>
@@ -208,6 +221,14 @@ OR<BR>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/krita/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KRITA</i></b><br>
 ```curl -L krita.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX DESKTOPS (RDP/DOCKER)</i></b><br>
+```curl -L rdp.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX VMs (QEMU/DOCKER)</i></b><br>
+```curl -L qemu.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/livecaptions/extra/icon.png" width=48 height=48 /><b><i>&nbsp;LIVECAPTIONS (SYSTEM-SETTINGS SERVICE)</i></b><br>
@@ -290,8 +311,16 @@ OR<BR>
 ```curl -L photocollage.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/plex.jpg" width=48 height=48 /><b><i>&nbsp;PLEX (Docker)</i></b><br>
+```curl -L plex.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/plexamp/extras/plexamp.png" width=48 height=48 /><b><i>&nbsp;PLEXAMP</i></b><br>
 ```curl -L plexamp.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/portainer.png" width=48 height=48 /><b><i>&nbsp;PORTAINER (docker)</i></b><br>
+```curl -L docker.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/pokemmo/extra/icon.png" width=48 height=48 /><b><i>&nbsp;POKEMMO</i></b><br>
@@ -328,6 +357,10 @@ OR<BR>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/rhythmbox/extra/icon.png" width=48 height=48 /><b><i>&nbsp;RHYTHMBOX</i></b> <br>
 ```curl -L rhythmbox.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/sabnzbd.png" width=48 height=48 /><b><i>&nbsp;SABNZBD (Docker) </i></b> <br>
+```curl -L sabnzbd.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/sak/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SAK </i></b> <br>
@@ -400,6 +433,10 @@ OR<BR>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/wiiuplus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;WIIU+ / CEMU-UPDATER</i></b><br>
 ```curl -L wiiuplus.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/windows.png" width=48 height=48 /><b><i>&nbsp;WINDOWS (RDP/QEMU/Docker)</i></b><br>
+```curl -L windows.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/winemanager/extra/icon.png" width=48 height=48 /><b><i>&nbsp;<a href=https://github.com/Gr3gorywolf/batocera_wine_manager>WINE-MANAGER by Gr3gorywolf</a></i></b><br>
