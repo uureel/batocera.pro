@@ -39,7 +39,7 @@ mkdir -p "$nextcloud_base_dir/config" "$nextcloud_base_dir/data"
 # Run the Nextcloud Docker container
 if [[ "$(docker ps | grep nextcloud)" != "" ]]; then docker stop nextcloud 1>/dev/null 2>/dev/null; fi
 docker run --privileged -d \
--p 8080:80 \
+-p 8888:80 \
 -v "$nextcloud_base_dir/config:/config" \
 -v "$nextcloud_base_dir/data:/data" \
 --restart unless-stopped \
@@ -57,7 +57,7 @@ nextcloud
     }
 
 # Final message with dialog
-MSG="Nextcloud Docker container has been set up.\n\nAccess Nextcloud Web UI at https://<your-ip>:$NEXTCLOUD_PORT\nNextcloud data stored in: $nextcloud_base_dir\nThe Container can be managed via portainer webui on port 9443"
+MSG="Nextcloud Docker container has been set up.\n\nAccess Nextcloud Web UI at https://<your-ip>:8888\nNextcloud data stored in: $nextcloud_base_dir\n"
 dialog --title "Nextcloud Setup Complete" --msgbox "$MSG" 15 70
 
 clear
