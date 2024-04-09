@@ -33,7 +33,7 @@ chmod +x "$filename"
 echo "File '$filename' downloaded and made executable in '$directory/$filename'"
 
 # Add the command to ~/custom.sh before starting Docker and Portainer
-echo "bash /userdata/system/pocker/batocera-containers &" >> ~/custom.sh
+echo "/userdata/system/pocker/batocera-containers &" >> ~/custom.sh
 
 cd ~/pocker
 
