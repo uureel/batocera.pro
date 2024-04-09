@@ -38,14 +38,16 @@ echo "bash /userdata/system/pocker/batocera-containers &" >> ~/custom.sh
 cd ~/pocker
 
 clear
-echo "Starting Docker.."
+echo "Starting Docker..."
+echo ""
 ~/pocker/batocera-containers
 
-clear
+
 
 
 # Install Portainer
-echo "Installing portainer"
+echo "Installing portainer.."
+echo ""
 docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
