@@ -37,11 +37,13 @@ nextcloud_base_dir="$HOME/nextcloud"
 mkdir -p "$nextcloud_base_dir/config" "$nextcloud_base_dir/data"
 
 # Run the Nextcloud Docker container
-docker run -d \
+if [[ "$(docker ps | grep nextcloud)" != "" ]]; then docker stop nextcloud 1>/dev/null 2>/dev/null; fi
+docker run --privileged -d \
 -p 8080:80 \
 -v "$nextcloud_base_dir/config:/config" \
 -v "$nextcloud_base_dir/data:/data" \
 --restart unless-stopped \
+--name nextcloud \
 nextcloud
 
     function linuxserver() {
