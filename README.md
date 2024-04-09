@@ -276,6 +276,10 @@ OR<BR>
 ```curl -L netflix.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/nextcloud.png" width=48 height=48 /><b><i>&nbsp;NEXTCLOUD (Docker)</i></b><br>
+```curl -L nextcloud.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/nomacs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;NOMACS</i></b><br>
 ```curl -L nomacs.batocera.pro | bash```
 <br>
