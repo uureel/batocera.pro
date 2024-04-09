@@ -46,7 +46,7 @@ docker run -d \
   -v "$nextcloud_base_dir/config:/config" \
   -v "$nextcloud_base_dir/data:/data" \
   --restart unless-stopped \
-  lscr.io/linuxserver/nextcloud:latest
+  linuxserver/nextcloud:latest
 
 # Final message with dialog
 MSG="Nextcloud Docker container has been set up.\n\nAccess Nextcloud Web UI at https://<your-ip>:$NEXTCLOUD_PORT\nNextcloud data stored in: $nextcloud_base_dir\nThe Container can be managed via portainer webui on port 9443"
