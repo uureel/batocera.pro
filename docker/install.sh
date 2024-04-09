@@ -8,8 +8,6 @@ if [ "$architecture" != "x86_64" ]; then
     exit 1
 fi
 
-
-
 echo "Preparing & Downloading Docker & Podman..."
 echo ""
 
@@ -75,9 +73,6 @@ clear
 echo "Starting Docker..."
 echo ""
 ~/batocera-containers/batocera-containers
-
-
-
 
 # Install Portainer
 echo "Installing portainer.."
