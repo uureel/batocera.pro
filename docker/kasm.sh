@@ -35,7 +35,9 @@ mkdir -p "$kasm_base_dir/data" "$kasm_base_dir/profiles"
 docker run -d \
   --name=kasm \
   --privileged \
-  -e KASM_PORT=$WEB_PORT \
+  -e KASM_PORT=$-e DOCKER_HUB_USERNAME=batocera `#optional` \
+  -e DOCKER_HUB_PASSWORD=linux `#optional` \
+  -e DOCKER_MTU=1500 `#optional` \WEB_PORT \ 
   -p 3000:3000 \
   -p $WEB_PORT:$WEB_PORT \
   -v "$kasm_base_dir/data:/opt" \
