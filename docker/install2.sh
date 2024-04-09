@@ -10,7 +10,7 @@ fi
 
 
 
-echo "Downloading Docker & Podman"
+echo "Preparing & Downloading Docker & Podman..."
 echo ""
 
 # Define the directory and the URL for the file
