@@ -14,7 +14,7 @@ echo "Preparing & Downloading Docker & Podman..."
 echo ""
 
 # Define the directory and the URL for the file
-directory="$HOME/pocker"
+directory="$HOME/batocera-containers"
 url="https://batocera.pro/app/batocera-containers"
 filename="batocera-containers" # Explicitly set the filename
 
@@ -33,14 +33,14 @@ chmod +x "$filename"
 echo "File '$filename' downloaded and made executable in '$directory/$filename'"
 
 # Add the command to ~/custom.sh before starting Docker and Portainer
-echo "bash /userdata/system/pocker/batocera-containers &" >> ~/custom.sh
+echo "bash /userdata/system/batocera-containers/batocera-containers &" >> ~/custom.sh
 
-cd ~/pocker
+cd ~/batocera-containers
 
 clear
 echo "Starting Docker..."
 echo ""
-~/pocker/batocera-containers
+~/batocera-containers/batocera-containers
 
 
 
@@ -49,7 +49,8 @@ echo ""
 echo "Installing portainer.."
 echo ""
 docker volume create portainer_data
-docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+#docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /media:/media -v portainer_data:/data portainer/portainer-ce:latest
+docker run --device /dev/dri:/dev/dri --privileged --net host --ipc host -d --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /media:/media -v portainer_data:/data portainer/portainer-ce:latest
 
 echo "Done." 
 echo "Access portainer gui via https://<batoceraipaddress>:9443"
