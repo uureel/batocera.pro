@@ -38,15 +38,21 @@ mkdir -p "$nextcloud_base_dir/config" "$nextcloud_base_dir/data"
 
 # Run the Nextcloud Docker container
 docker run -d \
-  --name=nextcloud \
-  -e PUID=$(id -u) \
-  -e PGID=$(id -g) \
-  -e TZ=$(cat /etc/timezone) \
-  -p $NEXTCLOUD_PORT:443 \
-  -v "$nextcloud_base_dir/config:/config" \
-  -v "$nextcloud_base_dir/data:/data" \
-  --restart unless-stopped \
-  linuxserver/nextcloud:latest
+-p 8080:80 \
+-v "$nextcloud_base_dir/config:/config" \
+-v "$nextcloud_base_dir/data:/data" \
+--restart unless-stopped \
+nextcloud
+
+    function linuxserver() {
+    docker run -d \
+      --name=nextcloud \
+      -e PUID=$(id -u) \
+      -e PGID=$(id -g) \
+      -e TZ=$(cat /etc/timezone) \
+      -p $NEXTCLOUD_PORT:443 \
+      linuxserver/nextcloud:latest
+    }
 
 # Final message with dialog
 MSG="Nextcloud Docker container has been set up.\n\nAccess Nextcloud Web UI at https://<your-ip>:$NEXTCLOUD_PORT\nNextcloud data stored in: $nextcloud_base_dir\nThe Container can be managed via portainer webui on port 9443"
