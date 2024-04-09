@@ -38,7 +38,7 @@ echo "/userdata/system/pocker/batocera-containers &" >> ~/custom.sh
 cd ~/pocker
 
 clear
-echo "Starting Docker..."
+echo "Starting Docker & Podman services..."
 echo ""
 ~/pocker/batocera-containers
 
