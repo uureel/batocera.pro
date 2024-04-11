@@ -74,22 +74,22 @@ apps=(
 )
 
 # Use dialog to display the list in a message box
-dialog --title Container Apps Available via EmulationStation" --msgbox "$(printf '%s\n' "${apps[@]}")" 30 55
+dialog --title "Container Apps Available via EmulationStation" --msgbox "$(printf '%s\n' "${apps[@]}")" 30 55
 
 # Ensure the terminal window is cleared after dialog closes
 clear
 
 
 # Define the options
-OPTIONS=("1" "New Install: Download Arch Container--Older build"
-         "2" "New Install: Build Arch container from scratch--up to date apps"
+OPTIONS=("1" "New Install: Download Arch Container (Older build)"
+         "2" "New Install: Build Arch container from scratch (up to date)"
          "3" "Uninstall Arch Container"
          "4" "Update Launcher shortcuts for emulationstation Arch container"
          "5" "Re-download container"
          "6" "Update apps and rebuild container"
          "7" "Addon: Add/Update Lutris Menu & Shortcuts to Emulationstation"
          "8" "Addon: Add/Update Heroic Menu & Shortcuts to Emulationstation"
-         "9" "Addon: Emudeck--experimental"
+         "9" "Addon: Emudeck (experimental)"
          "10" "Addon: Add/Update Webapps Web/Internet Menu to Emulationstation")
 
 # Display the dialog and get the user choice
