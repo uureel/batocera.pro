@@ -11,57 +11,7 @@ animate_text() {
     echo # Move to a new line
 }
 
-# Function to show dialog confirmation box
-confirm_start() {
-    # Ensure dialog is installed
-    if ! command -v dialog &> /dev/null; then
-        echo "The 'dialog' utility is not installed. Please install it to continue."
-        exit 1
-    fi
 
-    dialog --title "Confirm Operation" --yesno "This process may take a long time. 30-60 minutes is typical depending on internet, cpu and drive speed.  Do you want to proceed?" 7 60
-    local status=$?
-    clear # Clear dialog remnants from the screen
-    return $status
-}
-
-# Initial message
-clear
-animate_text "Container Updater"
-
-# Show confirmation dialog box
-if ! confirm_start; then
-    echo "Operation aborted by the user."
-    exit 1
-fi
-
-# Minimum required free space in KB (30GB)
-MIN_FREE_SPACE=$((30*1024*1024))
-
-# Check free space on the root partition, ensuring we're getting just the available space in 1K blocks
-FREE_SPACE=$(df --output=avail / | tail -n 1)
-
-# Convert to KB (Note: `df` output in 1K blocks is already in KB, so no conversion is necessary)
-FREE_SPACE_KB=$FREE_SPACE
-
-# Check if free space is less than the minimum required
-if [ $FREE_SPACE_KB -lt $MIN_FREE_SPACE ]; then
-    # Warning message using dialog, asking if they want to proceed
-    dialog --title "Warning" --yesno "At least 30GB of free space is recommended. Proceed?" 10 50
-    
-    response=$?
-    clear # Clear dialog artifacts from terminal
-    if [ $response -eq 0 ]; then
-        echo "User chose to proceed."
-        # Place the rest of your script here that should run if the user chooses to proceed.
-    else
-        echo "User chose not to proceed. Exiting."
-        exit 1
-    fi
-else
-    echo "Sufficient disk space available. Continuing..."
-    # Place the rest of your script here that should run if there is enough space.
-fi
 
 # Step 0: Clean the directory
 animate_text "Cleaning build directory by removing it..."
