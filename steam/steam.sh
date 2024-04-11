@@ -8,6 +8,78 @@ if [ "$architecture" != "x86_64" ]; then
     echo "This script only runs on AMD or Intel (x86_64) CPUs, not on $architecture."
     exit 1
 fi
+#!/bin/bash
+
+# Create the list of apps in a string, each app as an option
+apps=(
+"Antimicrox"
+"Audacity"
+"Balena-Etcher"
+"Blender"
+"Boilr"
+"Bottles"
+"Brave"
+"Chiaki"
+"FileManager-Dolphin"
+"FileManager-DoubleCmd"
+"FileManager-Krusader"
+"FileManager-Nemo"
+"FileManager-PCManFM"
+"FileManager-Thunar"
+"Filezilla"
+"Firefox"
+"Flatpak-Config"
+"FreeFileSync"
+"GameHub"
+"Geforce Now"
+"Gimp"
+"Google-Chrome"
+"Gparted"
+"Gthumb"
+"Handbrake"
+"Heroic Game Launcher"
+"Hulu"
+"Inkscape"
+"Kdenlive"
+"Kodi"
+"Libreoffice"
+"Lutris"
+"Microsoft-Edge"
+"Minigalaxy"
+"Moonlight"
+"Netflix"
+"OBS Studio"
+"Peazip"
+"Play on Linux 4"
+"PortProton"
+"Protonup-Qt"
+"Qbittorrent"
+"Qdirstat"
+"Shotcut"
+"Smplayer"
+"Spotify"
+"Steam Big Picture Mode"
+"Steam Diagnostic"
+"Steam"
+"SteamTinker Launch (settings)"
+"SublimeText"
+"Terminal-Kitty"
+"Terminal-Lxterminal"
+"Terminal-Tabby"
+"Terminal-Terminator"
+"Thunderbird"
+"TigerVNC"
+"VLC"
+"WineGUI"
+"Zoom"
+)
+
+# Use dialog to display the list in a message box
+dialog --title "Curernt List of Apps Available via EmulationStation" --msgbox "$(printf '%s\n' "${apps[@]}")" 30 50
+
+# Ensure the terminal window is cleared after dialog closes
+clear
+
 
 # Define the options
 OPTIONS=("1" "New Install: Download Arch Container with Steam, Lutris, Heroic and more Apps "
