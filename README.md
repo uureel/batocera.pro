@@ -58,7 +58,7 @@ OR<BR>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/steam/arch.png" width=48 height=48 /><b><i>&nbsp;ARCH CONTAINER (Conty/Immutable) </font></b></i><br>
-```curl -L stean.batocera.pro | bash```
+```curl -L steam.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/atom/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ATOM </font></b></i><br>
