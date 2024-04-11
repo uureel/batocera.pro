@@ -11,7 +11,7 @@ fi
 
 # Define the options
 OPTIONS=("1" "Install via Download Arch Container with Steam, Lutris, Heroic and more Apps"
-         "2" "Install Arch container from scratch (most up up to date apps)"
+         "2" "Install Arch container from scratch (most up to date apps)"
          "3" "Uninstall Arch Container"
          "4" "Update Launcher shortcuts for emulationstation Arch container"
          "5" "Re-download container"
