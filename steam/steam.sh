@@ -82,8 +82,8 @@ clear
 
 
 # Define the options
-OPTIONS=("1" "New Install: Download Arch Container (older build)"
-         "2" "New Install: Build Arch container from scratch (up to date apps)"
+OPTIONS=("1" "New Install: Download Arch Container--Older build"
+         "2" "New Install: Build Arch container from scratch--up to date apps"
          "3" "Uninstall Arch Container"
          "4" "Update Launcher shortcuts for emulationstation Arch container"
          "5" "Re-download container"
