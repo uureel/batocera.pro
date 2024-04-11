@@ -8,7 +8,6 @@ if [ "$architecture" != "x86_64" ]; then
     echo "This script only runs on AMD or Intel (x86_64) CPUs, not on $architecture."
     exit 1
 fi
-#!/bin/bash
 
 # Create the list of apps in a string, each app as an option
 apps=(
