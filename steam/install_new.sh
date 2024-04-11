@@ -193,7 +193,7 @@ clear
 echo "Launching container builder script -- This will take a while"
 sleep 5
 
-curl -Ls https://github.com/uureel/batocera.pro/raw/main/steam/build.sh | bash
+curl -Ls https://github.com/uureel/batocera.pro/raw/main/steam/upgrade.sh | bash
 
 
 
