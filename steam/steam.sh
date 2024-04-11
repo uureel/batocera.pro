@@ -90,7 +90,7 @@ OPTIONS=("1" "New Install: Download Arch Container--Older build"
          "6" "Update apps and rebuild container"
          "7" "Addon: Add/Update Lutris Menu & Shortcuts to Emulationstation"
          "8" "Addon: Add/Update Heroic Menu & Shortcuts to Emulationstation"
-         "9" "Addon: Emudeck (experimental)"
+         "9" "Addon: Emudeck--experimental"
          "10" "Addon: Add/Update Webapps Web/Internet Menu to Emulationstation")
 
 # Display the dialog and get the user choice
