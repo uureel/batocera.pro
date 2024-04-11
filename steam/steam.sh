@@ -75,7 +75,7 @@ apps=(
 )
 
 # Use dialog to display the list in a message box
-dialog --title "Curernt List of Apps Available via EmulationStation" --msgbox "$(printf '%s\n' "${apps[@]}")" 30 50
+dialog --title Container Apps Available via EmulationStation" --msgbox "$(printf '%s\n' "${apps[@]}")" 30 55
 
 # Ensure the terminal window is cleared after dialog closes
 clear
