@@ -24,7 +24,7 @@ OPTIONS=("1" "New Install: Download Arch Container with Steam, Lutris, Heroic an
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Arch Container Management" \
                 --title "Main Menu" \
-                --menu "Choose an option:" 30 90 3 \
+                --menu "Choose an option:" 15 90 3 \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
