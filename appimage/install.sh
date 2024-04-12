@@ -3,7 +3,7 @@
 clear
 # Display a welcome message explaining the script's actions
 echo "This script will create the /userdata/roms/AppImage directory."
-echo "You can place your AppImages there and use the included tools to generate launch scripts for them."
+echo "You can place your AppImages there and use the included tools to generate launch scripts in ports for them."
 sleep 10
 
 # Create /userdata/roms/AppImage if it does not exist
