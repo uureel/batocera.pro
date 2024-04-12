@@ -55,6 +55,7 @@ for appimage in "$appimage_dir"/*.AppImage; do
     fi
 done
 
+
 # Close any open dialog boxes
 dialog --clear
 
@@ -63,3 +64,4 @@ if [[ "$new_scripts_count" -eq 0 ]]; then
     echo "No AppImages with missing scripts found."
 fi
 
+curl http://127.0.0.1:1234/reloadgames
