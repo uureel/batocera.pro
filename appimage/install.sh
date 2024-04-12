@@ -1,8 +1,10 @@
 #!/bin/bash
 
+clear
 # Display a welcome message explaining the script's actions
 echo "This script will create the /userdata/roms/AppImage directory."
 echo "You can place your AppImages there and use the included tools to generate launch scripts for them."
+sleep 10
 
 # Create /userdata/roms/AppImage if it does not exist
 if [ ! -d "/userdata/roms/AppImage" ]; then
@@ -32,4 +34,9 @@ done
 wget -O "/userdata/roms/ports/AppImage Parser.sh" "https://github.com/uureel/batocera.pro/raw/main/appimage/AppImage%20Parser.sh"
 chmod +x "/userdata/roms/ports/AppImage Parser.sh"
 
-echo "Setup is complete. You can now Launch the parser from ports or use the tools in /userdata/system/AppImage."
+clear 
+echo "Setup is complete." 
+echo "put your AppImages in /userdata/roms/AppImage"
+echo "You can now Launch the parser from ports or use the tools in /userdata/system/AppImage."
+sleep 10
+echo "Done"
