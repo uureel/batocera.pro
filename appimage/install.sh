@@ -36,7 +36,7 @@ chmod +x "/userdata/roms/ports/AppImage Parser.sh"
 
 clear 
 echo "Setup is complete." 
-echo "put your AppImages in /userdata/roms/AppImage"
+echo "Put your AppImage files in /userdata/roms/AppImage"
 echo "You can now Launch the parser from ports or use the tools in /userdata/system/AppImage."
 sleep 10
 echo "Done"
