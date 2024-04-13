@@ -39,6 +39,7 @@ apps=(
     ["ALTUS"]="curl -Ls altus.batocera.pro | bash"
     ["AMAZON-LUNA"]="curl -Ls amazonluna.batocera.pro | bash"
     ["ANTIMICROX"]="curl -Ls antimicrox.batocera.pro | bash"
+    ["APPIMAGE PARSER"]="curl -Ls appimage.batocera.pro | bash"
     ["ATOM"]="curl -Ls atom.batocera.pro | bash"
     ["BALENA-ETCHER"]="curl -Ls balena.batocera.pro | bash"
     ["BLENDER"]="curl -Ls blender.batocera.pro | bash"
