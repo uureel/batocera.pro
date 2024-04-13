@@ -55,17 +55,16 @@ handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader s
 docker docker-compose portainer-bin gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename imagemagick xfce4 \
 kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs \
-btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock   \
-tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki  \
-freefilesync-bin steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat  \
+btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock \
+tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki \
+freefilesync-bin steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat \
 protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zoom balena-etcher ventoy-bin 7-zip \
-microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch "
+microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch"
 
 #lib32-vulkan-radeon
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bin  portproton "
-
+export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bin portproton umu-launcher"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
