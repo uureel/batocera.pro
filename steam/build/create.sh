@@ -64,7 +64,7 @@ microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager
 #lib32-vulkan-radeon
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bin portproton umu-launcher"
+export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bin umu-launcher"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
