@@ -50,7 +50,7 @@ fi
 
 
 # Add casa to custom.sh for autostart
-echo "/userdata/system/pocker/batocera-casaos &" >> ~/custom.sh
+echo "/userdata/system/casaos/batocera-casaos &" >> ~/custom.sh
 
 # Run the executable
 echo "Running the executable..."
