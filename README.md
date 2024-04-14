@@ -81,6 +81,10 @@ OR<BR>
 ```curl -L brave.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/casa.png" width=48 height=48 /><b><i>&nbsp;CASAOS (Container)</font></b></i><br>
+```curl -L casaos.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/chiaki/extra/icon.png" width=48 height=48 /><b><i>&nbsp;CHIAKI </font></b></i><br>
 ```curl -L chiaki.batocera.pro | bash```
 <br>
@@ -320,7 +324,7 @@ OR<BR>
 ```curl -L photocollage.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/plex.jpg" width=48 height=48 /><b><i>&nbsp;PLEX (Docker)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/plex.png" width=48 height=48 /><b><i>&nbsp;PLEX (Docker)</i></b><br>
 ```curl -L plex.batocera.pro | bash```
 <br>
 <br>
