@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "Batocera CasaOS installer.."
+echo "This can take a while...please wait"
+
+sleep 5
+
 # Define the home directory
 HOME_DIR=/userdata/system
 
