@@ -66,7 +66,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Final dialog message with casaos management info
-MSG="Casaos container has been set up.\n\nAccess casa Web UI at http://<your-batocera-ip>:80 \n\Casaos data stored in: ~/casaos\n\nDefault username/password is batocera/batoceralinux.."
+MSG="Casaos container has been set up.\n\nAccess casa Web UI at http://<your-batocera-ip>:80 \n\Casaos data stored in: ~/casaos\n\nDefault username/password is batocera/batoceralinux"
 dialog --title "Casaos Setup Complete" --msgbox "$MSG" 20 70
  
 
