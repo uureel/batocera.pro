@@ -45,7 +45,6 @@ sh_files=(
 "OBS Studio.sh"
 "Peazip.sh"
 "Play on Linux 4.sh"
-"PortProton.sh"
 "Protonup-Qt.sh"
 "Qbittorrent.sh"
 "Qdirstat.sh"
