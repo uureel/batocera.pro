@@ -44,6 +44,7 @@ apps=(
     ["BALENA-ETCHER"]="curl -Ls balena.batocera.pro | bash"
     ["BLENDER"]="curl -Ls blender.batocera.pro | bash"
     ["BRAVE"]="curl -Ls brave.batocera.pro | bash"
+    ["CASAOS"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/casa.sh | bash"
     ["CHIAKI"]="curl -Ls chiaki.batocera.pro | bash"
     ["CHROME"]="curl -Ls chrome.batocera.pro | bash"
     ["CHROMIUM"]="curl -Ls chromium.batocera.pro | bash"
