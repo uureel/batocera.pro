@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Batocera CasaOS installer.."
+echo "Batocera.PRO CasaOS installer.."
 echo "This can take a while...please wait"
 
 sleep 5
