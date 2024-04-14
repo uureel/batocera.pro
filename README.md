@@ -81,7 +81,7 @@ OR<BR>
 ```curl -L brave.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/casa.png" width=48 height=48 /><b><i>&nbsp;CASAOS (Container)</font></b></i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/casaos.png" width=48 height=48 /><b><i>&nbsp;CASAOS (Container)</font></b></i><br>
 ```curl -L casaos.batocera.pro | bash```
 <br>
 <br>
