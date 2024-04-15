@@ -11,6 +11,22 @@ fi
 
 clear 
 
+MESSAGE="Since Version 39 of Batocera, apparently due to SDL changes, xinput over bluetooth does not work on steam in the Arch container. Xbox One/S/X controllers are verified working via wired USB or Xbox wireless adapter only. 8bitDO controller users can switch their input mode to d-input or switch input.  Continue?"
+
+# Use dialog to create a yes/no box
+if dialog --title "Compatibility Warning" --yesno "$MESSAGE" 10 70; then
+    # If the user chooses 'Yes', continue the installation
+    echo "Continuing installation..."
+    # Add your installation commands here
+else
+    # If the user chooses 'No', exit the script
+    echo "Installation aborted by user."
+    exit 1
+fi
+
+# Clear the screen after the dialog is closed
+clear
+
 # Function to show dialog confirmation box
 confirm_start() {
     # Ensure dialog is installed
