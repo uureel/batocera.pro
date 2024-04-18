@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <applications>
+    <application type="normal">
+      <fullscreen>no</fullscreen>
+    </application>
+    <application name="thunar">
+      <fullscreen>no</fullscreen>
+    </application>
+    <application name="dolphin">
+      <fullscreen>no</fullscreen>
+    </application>
+    <application name="pcmanfm">
+      <fullscreen>no</fullscreen>
+    </application>
+    <application name="flatpak-bwrap">
+      <fullscreen>no</fullscreen>
+    </application>
+    <application name="Lutris">
+      <fullscreen>no</fullscreen>
+    </application>
+    <application name="kodi">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="kodi-bin">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="Kodi">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="emulationstation">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="emulationstation-standalone">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="mpv-wallpaper">
+      <fullscreen>yes</fullscreen>
+      <stacking>below</stacking>
+    </application>
+    <application name="yuzu">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="yuzuea">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="yuzu.AppImage">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="yuzuEA.AppImage">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="Ryujinx.AppImage">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="Ryujinx-Avalonia.AppImage">
+      <fullscreen>yes</fullscreen>
+    </application>
+    <application name="Ryujinx-LDN.AppImage">
+      <fullscreen>yes</fullscreen>
+    </application>
+  </applications>
+  <theme>
+    <name>Clearlooks</name>
+    <titleLayout>NLIMC</titleLayout>
+    <keepBorder>yes</keepBorder>
+    <animateIconify>yes</animateIconify>
+    <border>Active</border>
+    <handleWidth>10</handleWidth>
+    <font place="ActiveWindow">
+      <name>sans</name>
+      <size>12</size>
+      <weight>bold</weight>
+      <slant>normal</slant>
+    </font>
+    <font place="InactiveWindow">
+      <name>sans</name>
+      <size>12</size>
+      <weight>bold</weight>
+      <slant>normal</slant>
+    </font>
+    <font place="MenuHeader">
+      <name>sans</name>
+      <size>12</size>
+      <weight>normal</weight>
+      <slant>normal</slant>
+    </font>
+    <font place="MenuItem">
+      <name>sans</name>
+      <size>12</size>
+      <weight>normal</weight>
+      <slant>normal</slant>
+    </font>
+    <font place="OnScreenDisplay">
+      <name>sans</name>
+      <size>12</size>
+      <weight>bold</weight>
+      <slant>normal</slant>
+    </font>
+    <font place="ActiveOnScreenDisplay">
+      <name>Sans</name>
+      <size>10</size>
+    </font>
+    <font place="InactiveOnScreenDisplay">
+      <name>Sans</name>
+      <size>10</size>
+    </font>
+  </theme>
+  <desktops>
+    <number>1</number>
+    <firstdesk>1</firstdesk>
+    <popupTime>777</popupTime>
+  </desktops>
+</openbox_config>
+
