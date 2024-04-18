@@ -36,5 +36,5 @@ chmod +x /userdata/desktop/MATE.sh
 #chmod +x /userdata/desktop/XFCE.sh
 
 # Display completion message
-dialog --title "Installation Complete" --msgbox " To access desktop mode:\n1. In Emulationstation, Go to Main Menu-->System Settings-->services and toggle on the windowed service. Make sure to select back to save service \n2. Reboot Batocera.\n3. Press F1. You should see a windowed pcmanFM file manager.\n4. In /userdata/desktop, launch one of the desktop environment scripts. \n5. To revert back to regular mode, simply deactivate windowed service and reboot" 12 80
+dialog --title "Installation Complete" --msgbox " To access desktop mode:\n1. In Emulationstation, Go to Main Menu-->System Settings-->services and toggle on the windowed service. Make sure to select back to save service \n2. Reboot Batocera.\n3. Press F1. You should see a windowed pcmanFM file manager.\n4. In /userdata/desktop, launch one of the desktop environment scripts. (can take a while) \n5. To revert back to regular mode, simply deactivate windowed service and reboot" 12 80
 
