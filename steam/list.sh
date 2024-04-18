@@ -48,7 +48,7 @@ protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zo
 microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch "
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bin  portproton "
+export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bin umu-launcher"
 
 # Concatenate all packages and sort them alphabetically
 all_packages=$(echo "$audio_pkgs $video_pkgs $wine_pkgs $devel_pkgs $packagelist $aur_packagelist" | tr ' ' '\n' | sort | tr '\n' ' ')
