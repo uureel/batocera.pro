@@ -48,7 +48,7 @@ protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zo
 microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch "
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bin  portproton "
+export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bin umu-launcher"
 
 # Concatenate all packages and sort them alphabetically
 all_packages=$(echo "$audio_pkgs $video_pkgs $wine_pkgs $devel_pkgs $packagelist $aur_packagelist" | tr ' ' '\n' | sort | tr '\n' ' ')
@@ -56,7 +56,7 @@ all_packages=$(echo "$audio_pkgs $video_pkgs $wine_pkgs $devel_pkgs $packagelist
 # Function to display packages using dialog
 show_packages() {
     dialog --backtitle "Package List as of Apr. 11, 2024" \
-    --title "All Packages--Apr. 11, 2024" \
+    --title "All Packages--Apr. 18, 2024" \
     --msgbox "$all_packages" 20 70
 }
 
@@ -104,7 +104,6 @@ apps=(
 "OBS Studio"
 "Peazip"
 "Play on Linux 4"
-"PortProton"
 "Protonup-Qt"
 "Qbittorrent"
 "Qdirstat"

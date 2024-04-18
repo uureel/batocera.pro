@@ -70,6 +70,7 @@ BASE_URL="https://raw.githubusercontent.com/uureel/batocera.pro/main/emudeck/sho
 # Declare an array of file names to download
 FILES=(
   "Emudeck-EmulationStation-DE.sh"
+  "Emudeck-Pegasus-Front-end.sh"
   "Emudeck-Steam-Rom-Manager.sh"
   "Emudeck.sh"
 )
@@ -80,9 +81,12 @@ for FILE in "${FILES[@]}"; do
   curl -L "${BASE_URL}/${FILE}" -o "${DESTINATION_DIR}/${FILE}"
 done
   # Make the file executable
-    chmod +x "$DEST_DIR/$file"
+  #  chmod +x "$DEST_DIR/$file"
+    chmod 777 /userdata/roms/conty/Emudeck.sh
+    chmod 777 /userdata/roms/conty/Emudeck-Steam-Rom-Manager.sh
+    chmod 777 /userdata/roms/conty/Emudeck-EmulationStation-DE.sh
 
-echo "Download complete."
+
 sleep 3
 echo "Starting Emudeck -- Check your main display -- Please install Emudeck, then close out Emudeck (ALT-F4) to continue installation"
 sleep 10

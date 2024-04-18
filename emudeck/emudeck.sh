@@ -11,10 +11,10 @@ if [ -f "$filePath" ]; then
 else
     echo "It appears the container is not installed. Please install the steam/lutris/heroic container first, then retry."
     sleep 10
-    exit 1
+   curl -L arch.batocera.pro | bash
 fi
 
-e
+
 
 
 

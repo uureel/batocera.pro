@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# Define the source directories and files
+SOURCE_DIR="$HOME/service/dir_ob"
+FULL_XML="${SOURCE_DIR}/full.xml"
+WIN_XML="${SOURCE_DIR}/window.xml"
+COMPOSITOR_SCRIPT="${SOURCE_DIR}/batocera-compositor"
+
+# Define the target file
+TARGET_FILE="/etc/openbox/rc.xml"
+
+# Function to handle the stop process
+stop() {
+    echo "Stopping: copying full.xml to $TARGET_FILE"
+    cp "$FULL_XML" "$TARGET_FILE"
+    echo "Stopping compositor..."
+    "$COMPOSITOR_SCRIPT" stop
+    echo "Waiting 3 seconds before saving overlay..."
+    sleep 3
+    batocera-save-overlay
+    echo "Stop actions completed."
+}
+
+# Function to handle the start process
+start() {
+    echo "Starting: copying win.xml to $TARGET_FILE"
+    cp "$WIN_XML" "$TARGET_FILE"
+    echo "Starting compositor..."
+    "$COMPOSITOR_SCRIPT" start
+    echo "Waiting 3 seconds before saving overlay..."
+    sleep 3
+    batocera-save-overlay
+    echo "Start actions completed."
+}
+
+# Check for command line argument and call the appropriate function
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+esac
+
