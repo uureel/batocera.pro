@@ -1,0 +1,26 @@
+#!/bin/sh
+
+
+start() {
+
+/userdata/system/service/dir_compositor/batocera-compositor start
+
+}
+
+stop() {
+
+/userdata/system/service/dir_compositor/batocera-compositor stop
+    
+}  
+
+case "$1" in
+        start)
+                start &
+                ;;
+        stop)
+                stop
+                ;;
+        *)
+                echo "Usage: $0 {start|stop}"
+                exit 1
+esac
