@@ -83,7 +83,8 @@ done
   #  chmod +x "$DEST_DIR/$file"
     chmod 777 /userdata/roms/conty/Emudeck.sh
     chmod 777 /userdata/roms/conty/Emudeck-Steam-Rom-Manager.sh
-    chmod 777 /userdata/roms/conty/Emudeck-EumulationStation-DE.sh
+    chmod 777 /userdata/roms/conty/Emudeck-EmulationStation-DE.sh
+
 
 sleep 3
 echo "Starting Emudeck -- Check your main display -- Please install Emudeck, then close out Emudeck (ALT-F4) to continue installation"
