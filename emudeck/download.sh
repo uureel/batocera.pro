@@ -81,8 +81,10 @@ for FILE in "${FILES[@]}"; do
 done
   # Make the file executable
     chmod +x "$DEST_DIR/$file"
+    chmod +x /userdata/roms/conty/Emudeck.sh
+    chmod +x /userdata/roms/conty/Emudeck-Steam-Rom-Manager.sh
+    chmod +x /userdata/roms/conty/Emudeck-EumulationStation-DE.sh
 
-echo "Download complete."
 sleep 3
 echo "Starting Emudeck -- Check your main display -- Please install Emudeck, then close out Emudeck (ALT-F4) to continue installation"
 sleep 10
