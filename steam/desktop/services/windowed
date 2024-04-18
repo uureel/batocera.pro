@@ -3,7 +3,7 @@
 # Define the source directories and files
 SOURCE_DIR="$HOME/service/dir_ob"
 FULL_XML="${SOURCE_DIR}/full.xml"
-WIN_XML="${SOURCE_DIR}/windows.xml"
+WIN_XML="${SOURCE_DIR}/window.xml"
 COMPOSITOR_SCRIPT="${SOURCE_DIR}/batocera-compositor"
 
 # Define the target file
