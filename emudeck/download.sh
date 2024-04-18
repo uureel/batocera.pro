@@ -70,6 +70,7 @@ BASE_URL="https://raw.githubusercontent.com/uureel/batocera.pro/main/emudeck/sho
 # Declare an array of file names to download
 FILES=(
   "Emudeck-EmulationStation-DE.sh"
+  "Emudeck-Pegasus-Front-end.sh"
   "Emudeck-Steam-Rom-Manager.sh"
   "Emudeck.sh"
 )
