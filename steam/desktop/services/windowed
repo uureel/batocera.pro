@@ -5,7 +5,6 @@ SOURCE_DIR="$HOME/service/dir_ob"
 FULL_XML="${SOURCE_DIR}/full.xml"
 WIN_XML="${SOURCE_DIR}/window.xml"
 COMPOSITOR_SCRIPT="${SOURCE_DIR}/batocera-compositor"
-MATE_SCRIPT="${SOURCE_DIR}/MATE.sh"
 
 # Define the target file
 TARGET_FILE="/etc/openbox/rc.xml"
