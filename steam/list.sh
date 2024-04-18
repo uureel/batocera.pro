@@ -56,7 +56,7 @@ all_packages=$(echo "$audio_pkgs $video_pkgs $wine_pkgs $devel_pkgs $packagelist
 # Function to display packages using dialog
 show_packages() {
     dialog --backtitle "Package List as of Apr. 11, 2024" \
-    --title "All Packages--Apr. 11, 2024" \
+    --title "All Packages--Apr. 18, 2024" \
     --msgbox "$all_packages" 20 70
 }
 
@@ -104,7 +104,6 @@ apps=(
 "OBS Studio"
 "Peazip"
 "Play on Linux 4"
-"PortProton"
 "Protonup-Qt"
 "Qbittorrent"
 "Qdirstat"
