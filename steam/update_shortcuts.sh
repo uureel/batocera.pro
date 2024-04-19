@@ -118,8 +118,9 @@ mkdir -p "$target_directory"
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}" &
       sleep 0.05
     done
-      dos2unix "${target_directory}"/*.sh 2>/dev/null
-        chmod 777 "${target_directory}"/*.sh 2>/dev/null
+      wait
+        dos2unix "${target_directory}"/*.sh 2>/dev/null
+          chmod 777 "${target_directory}"/*.sh 2>/dev/null
 
 echo "Downloaded shortcuts."
 sleep 1

@@ -119,8 +119,9 @@ mkdir -p "$target_directory"
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}" &
       sleep 0.05
     done
-      dos2unix "${target_directory}"/*.sh 2>/dev/null
-        chmod 777 "${target_directory}"/*.sh 2>/dev/null
+        wait
+          dos2unix "${target_directory}"/*.sh 2>/dev/null
+            chmod 777 "${target_directory}"/*.sh 2>/dev/null
 # update apps/systems:
     wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh &
     wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/configs/emulationstation/es_systems_arch.cfg https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/es_configs/es_systems_arch.cfg &
