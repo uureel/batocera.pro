@@ -2,7 +2,6 @@
 
 github_url="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/"
 target_directory="/userdata/roms/conty/"
-
 # List of .sh files to download
 sh_files=(
 "Antimicrox.sh"
@@ -66,7 +65,6 @@ sh_files=(
 "WineGUI.sh"
 "Zoom.sh"
 )
-
 # List of .sh files to remove
 old_sh_files=(
   "Antimicrox.sh"
@@ -108,26 +106,20 @@ old_sh_files=(
   "VLC.sh"
   "Zoom.sh"
 )
-
-# Create the target directory if it doesn't exist
 mkdir -p "$target_directory"
-
-# Remove old .sh files
-for file in "${old_sh_files[@]}"; do
-  rm "${target_directory}${file}" 2>/dev/null
-done
-
-# Download the specified .sh files and make them executable
-for file in "${sh_files[@]}"; do
-  # Replace spaces with '%20' for URL encoding
-  encoded_file=$(echo "$file" | sed 's/ /%20/g')
-  echo "Downloading $file..."
-    #curl -sSL "${github_url}${encoded_file}" -o "${target_directory}${file}"
-    wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}" &
-  sleep 0.1
-done
-  dos2unix "${target_directory}"/*.sh 2>/dev/null
-    chmod 777 "${target_directory}"/*.sh 2>/dev/null
+  # Remove old version .sh files
+  for file in "${old_sh_files[@]}"; do
+    rm "${target_directory}${file}" 2>/dev/null
+  done
+    for file in "${sh_files[@]}"; do
+      # Replace spaces with '%20' for URL encoding
+      encoded_file=$(echo "$file" | sed 's/ /%20/g')
+      echo "Downloading $file..."
+        wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}" &
+      sleep 0.05
+    done
+      dos2unix "${target_directory}"/*.sh 2>/dev/null
+        chmod 777 "${target_directory}"/*.sh 2>/dev/null
 
 echo "Downloaded shortcuts."
 sleep 1
