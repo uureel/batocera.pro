@@ -76,6 +76,6 @@ done
 
 rm -rf "$scan" 2>/dev/null
 
-killall -9 emulationstation
+curl http://127.0.0.1:1234/reloadgames
 echo "Script execution completed."
 

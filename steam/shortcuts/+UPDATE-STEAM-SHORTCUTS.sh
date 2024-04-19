@@ -81,5 +81,5 @@ done < "$steam_list_file"
 rm -rf "$scan" 2>/dev/null
 
 echo "Script execution completed. Check $output_file for the result."
-killall -9 emulationstation
+curl http://127.0.0.1:1234/reloadgames
 

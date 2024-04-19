@@ -57,7 +57,7 @@ if [[ -e /userdata/system/configs/emulationstation/es_systems_heroic2.cfg ]]; th
             dos2unix /userdata/system/configs/evmapy/*.keys 2>/dev/null
 fi 
 
-killall -9 emulationstation
+curl http://127.0.0.1:1234/reloadgames
 # Clear dialog (necessary for some terminal environments)
 clear
 echo "Done"

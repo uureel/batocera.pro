@@ -69,4 +69,4 @@ su - batocera -c \"HOME_DIR=\\\"/userdata/system/pro/steam/home\\\" DISPLAY=:0.0
 echo "Script execution completed. Check $output_file for the result."
 done < "$steam_list_file"
 
-killall -9 emulationstation
+curl http://127.0.0.1:1234/reloadgames

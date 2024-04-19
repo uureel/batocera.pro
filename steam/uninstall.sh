@@ -23,7 +23,7 @@ if dialog --title "Confirm" --yesno "Do you want to proceed the uninstall and de
     echo ""
     echo "" 
     sleep 5
-    killall -9 emulationstation
+    curl http://127.0.0.1:1234/reloadgames
 else
     echo "Operation canceled. No folders were deleted."
 fi

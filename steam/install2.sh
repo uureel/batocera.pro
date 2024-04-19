@@ -355,5 +355,5 @@ bash "/userdata/roms/conty/Steam Big Picture Mode.sh"
 echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
 sleep 8
 
-#killall -9 emulationstation
+#curl http://127.0.0.1:1234/reloadgames
 curl http://127.0.0.1:1234/reloadgames

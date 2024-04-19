@@ -205,4 +205,4 @@ echo "Steam is now starting"
 
 echo "Install Done. Shortcuts are in ports."
 sleep 5
-killall -9 emulationstation
+curl http://127.0.0.1:1234/reloadgames
