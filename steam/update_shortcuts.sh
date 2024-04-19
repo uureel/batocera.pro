@@ -129,27 +129,13 @@ done
   dos2unix "${target_directory}"/*.sh 2>/dev/null
     chmod 777 "${target_directory}"/*.sh 2>/dev/null
 
-# Target directory
-DIRECTORY="/userdata/roms/steam2"
-
-#nope# Find and delete all .sh files within the specified directory
-#nope# find "$DIRECTORY" -type f -name "*.sh" -exec rm -f {} +
-#nope# echo "All .sh files in $DIRECTORY have been deleted."
-
-# Download the file
-wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$TARGET_FILE" "$FILE_URL"
-
-# Make the downloaded file executable
-dos2unix "$TARGET_FILE" 2>/dev/null 
-chmod +x "$TARGET_FILE" 2>/dev/null
-
-echo "Downloaded and made executable: $TARGET_FILE"
-sleep 2
+echo "Downloaded shortcuts."
+sleep 1
 
 #hmm,why?# rm /userdata/roms/steam2/*.sh 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_features_steam2.cfg 2>/dev/null
 
-echo "Downloading Parser and es_systems"
+echo "Downloading parsers and custom systems..."
   wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/shortcuts/%2BUPDATE-STEAM-SHORTCUTS.sh
   dos2unix /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh 2>/dev/null
   chmod +x /userdata/roms/steam2/+UPDATE-STEAM-SHORTCUTS.sh
@@ -197,7 +183,7 @@ rm /userdata/system/pro/steam/prepare.sh 2>/dev/null
 
 sleep 2
 
-echo "Done"
+echo "Done."
 
-# Reload ES after installations
-killall -9 emulationstation
+# Reload emulationstation
+curl http://127.0.0.1:1234/reloadgames
