@@ -25,6 +25,8 @@ AND RUN IT FROM PORTS<br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/app/pro.PNG" style="width:62%;height:auto;"/>
 <br>
+Arch Container App list can be viewed via ```curl -L arch.batocera.pro | bash``` Option 3<br>
+<br>
 <br>
 OR<BR>
 <br>
