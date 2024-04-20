@@ -192,7 +192,7 @@ Note: Full, Separate Arch Container App list can be viewed via ```curl -L arch.b
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/heroic-container/icon.png" width=48 height=48 />
-<b><i>&nbsp;HEROIC-LAUNCHER </b>(Arch Container)</i></b><br>
+<b><i>&nbsp;HEROIC-LAUNCHER </b>(via Arch Container)</i></b><br>
 ```curl -L heroic2.batocera.pro | bash```
 <br>
 <br>
@@ -254,7 +254,7 @@ Note: Full, Separate Arch Container App list can be viewed via ```curl -L arch.b
 ```curl -L ludusavi.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/lutris/icon.png" width=48 height=48 /><b><i>&nbsp;LUTRIS </b>(Arch Container)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/lutris/icon.png" width=48 height=48 /><b><i>&nbsp;LUTRIS </b>(via Arch Container)</i></b><br>
 ```curl -L lutris.batocera.pro | bash```
 <br>
 <br>
@@ -394,7 +394,7 @@ Note: Full, Separate Arch Container App list can be viewed via ```curl -L arch.b
 ```curl -L spotify.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/icon.png" width=48 height=48 /><b><i>&nbsp;STEAM </b>(Arch Container)</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/icon.png" width=48 height=48 /><b><i>&nbsp;STEAM </b>(via Arch Container)</i></b> <br>
 ```curl -L steam.batocera.pro | bash```
 <br>
 <br>
