@@ -33,7 +33,7 @@ OR<BR>
 <br>
 <br>
 <br>
-Note: Full Arch Container App list can be viewed via ```curl -L arch.batocera.pro | bash``` Option 3<br>
+Note: Full, Separate Arch Container App list can be viewed via ```curl -L arch.batocera.pro | bash``` Option 3<br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/7zip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;7ZIP </font></b></i><br>
 ```curl -L 7zip.batocera.pro | bash```
