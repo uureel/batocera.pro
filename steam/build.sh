@@ -53,7 +53,7 @@ bash ./compress.sh
 if [ -f "conty.sh" ]; then
     chmod +x conty.sh
     # Move conty.sh to ~/pro/steam
-    animate_text "moving: please wait"
+    animate_text "moving: please wait..."
     mv conty.sh /userdata/system/pro/steam/
     animate_text "conty.sh creation and move successful!"
     sleep 3
@@ -105,7 +105,6 @@ sh_files=(
 "OBS Studio.sh"
 "Peazip.sh"
 "Play on Linux 4.sh"
-"PortProton.sh"
 "Protonup-Qt.sh"
 "Qbittorrent.sh"
 "Qdirstat.sh"
