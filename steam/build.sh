@@ -67,7 +67,6 @@ target_directory="/userdata/roms/conty/"
 sh_files=(
 "Antimicrox.sh"
 "Audacity.sh"
-"Balena-Etcher.sh"
 "Blender.sh"
 "Boilr.sh"
 "Bottles.sh"
