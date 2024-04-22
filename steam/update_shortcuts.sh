@@ -7,7 +7,6 @@ sh_files=(
 "Antimicrox.sh"
 "AppImage-Pool.sh"
 "Audacity.sh"
-"Balena-Etcher.sh"
 "Blender.sh"
 "Boilr.sh"
 "Bottles.sh"
@@ -70,7 +69,6 @@ sh_files=(
 old_sh_files=(
   "Antimicrox.sh"
   "Audacity.sh"
-  "Balena-Etcher.sh"
   "Boilr.sh"
   "Brave.sh"
   "Firefox.sh"
