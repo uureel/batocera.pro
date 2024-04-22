@@ -5,6 +5,7 @@ target_directory="/userdata/roms/conty/"
 # List of .sh files to download
 sh_files=(
 "Antimicrox.sh"
+"AppImage-Pool.sh"
 "Audacity.sh"
 "Balena-Etcher.sh"
 "Blender.sh"
