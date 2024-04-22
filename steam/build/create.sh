@@ -53,7 +53,7 @@ bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli 
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader file \
 docker docker-compose portainer-bin gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole discord \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename glances \
-steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat freerdp appimagepool-appimage \
+steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat freerdp  \
 kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs tre screenfetch \
 podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc xorg-server-xwayland \
 btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace \
@@ -62,7 +62,7 @@ protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zo
 microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch"
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="geforcenow-electron freefilesync-bin appimagetool-bin sgdboop-bin winegui-bin umu-launcher"
+export aur_packagelist="geforcenow-electron freefilesync-bin appimagetool-bin appimagepool-bin sgdboop-bin winegui-bin umu-launcher"
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
