@@ -11,8 +11,7 @@ APPPATH=/userdata/system/pro/discord/Discord.AppImage
 APPLINK=$(curl -s https://api.github.com/repos/srevinsaju/discord-appimage/releases | grep "download/ptb" | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g' | head -n1)
 ORIGIN=GITHUB.COM/SREVINSAJU/DISCORD-APPIMAGE # credit & info 
 # --------------------------------------------------------------------
-# --------------------------------------------------------------------
-# --------------------------------------------------------------------
+killall -9 discord Discord discord.AppImage Discord.AppImage DiscordPTB 2>/dev/null
 # --------------------------------------------------------------------
 # show console/ssh info: 
 clear
@@ -196,12 +195,36 @@ sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
-cd ~/
-mv $temp/* $APPPATH 2>/dev/null
-chmod a+x $APPPATH 2>/dev/null
-rm -rf $temp/*.AppImage
-SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
-echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
+chmod 777 $temp/*.AppImage 2>/dev/null
+$temp/*.AppImage --appimage-extract 1>/dev/null 2>/dev/null
+rm $temp/*.AppImage 2>/dev/null
+mv $temp/squashfs-root $temp/discord
+a=$temp/discord/AppRun
+f=$temp/discord/discord
+rm $f 2>/dev/null
+nr=$(cat "$a" | wc -l) && n=1
+while [[ "$n" -le "$nr" ]]; do
+  l=$(cat "$a" | sed ''$n'q;d')
+    if [[ "$(echo "$l" | grep 'set -e')" != "" ]]; then
+      echo 'set -e' >> "$f"
+      echo 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket' >> "$f"
+      echo 'export XDG_MENU_PREFIX=batocera-' >> "$f"
+      echo 'export XDG_CONFIG_DIRS=/etc/xdg' >> "$f"
+      echo 'export XDG_CURRENT_DESKTOP=XFCE' >> "$f"
+      echo 'export DESKTOP_SESSION=XFCE' >> "$f"
+    else
+      echo "$l" >> "$f"
+    fi
+  n=$(($n+1))
+done
+dos2unix "$f" 2>/dev/null
+chmod 777 "$f" 2>/dev/null
+cp -r $temp/discord ~/pro/$appname/ 2>/dev/null
+rm -rf $temp/* 2>/dev/null
+cd $HOME
+#SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
+SIZE=$(du -h ~/pro/$appname | tail -n1 | awk '{print $1}')
+echo -e "${T}$APPPATH ${T}$SIZE( ) ${G}OK${W}" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE"
 echo
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
@@ -223,7 +246,7 @@ echo 'unclutter-remote -s' >> $launcher
 ######################################################################
 ######################################################################
 echo 'if [ "$(pidof Discord)" != "" ]; then killall Discord 2>/dev/null && killall Discord 2>/dev/null && killall Discord 2>/dev/null; fi' >> $launcher
-echo 'mkdir /userdata/system/pro/discord/home 2>/dev/null; mkdir /userdata/system/pro/discord/config 2>/dev/null; DISPLAY=:0.0 HOME=/userdata/system/pro/discord/home XDG_CONFIG_HOME=/userdata/system/pro/discord/config LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" /userdata/system/pro/discord/Discord.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"' >> $launcher
+echo 'DISPLAY=:0.0 LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" /userdata/system/pro/discord/discord/discord --no-sandbox --test-type "${@}"' >> $launcher
 #echo 'DISPLAY=:0.0 QT_SCALE_FACTOR=1.50 GDK_SCALE=1.50 DISPLAY=:0.0 /userdata/system/pro/discord/Discord.AppImage --no-sandbox &' >> $launcher
 ######################################################################
 ######################################################################
@@ -239,7 +262,7 @@ rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
 echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/Launcher" >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/Launcher %U" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
