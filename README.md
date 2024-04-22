@@ -234,6 +234,10 @@ Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch
 ```curl -L krita.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/ksnip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;KSNIP</i></b><br>
+```curl -L ksnip.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX DESKTOPS (RDP/DOCKER)</i></b><br>
 ```curl -L rdp.batocera.pro | bash```
 <br>
