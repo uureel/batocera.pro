@@ -56,8 +56,8 @@ gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git
 steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat  appimagepool-appimage \
 kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs tre screenfetch \
 podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc  \
-btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace \
-tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki xfce4 procs \
+btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace \
+tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs \
 protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zoom  ventoy-bin 7-zip \
 microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch"
 
