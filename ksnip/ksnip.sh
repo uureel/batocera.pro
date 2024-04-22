@@ -6,7 +6,7 @@ appname=ksnip # directory name in /userdata/system/pro/...
 AppName=ksnip # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 APPLINK=https://github.com/ksnip/ksnip/releases/download/v1.10.1/ksnip-1.10.1-x86_64.AppImage
-ORIGIN="github.com/ksnip" # credit & info
+ORIGIN="GITHUB.COM/KSNIP" # credit & info
 # --------------------------------------------------------------------
 # show console/ssh info: 
 clear
