@@ -1,20 +1,6 @@
 #!/bin/bash
 
 
-# Define the file path
-filePath="$HOME/pro/steam/conty.sh"
-
-# Check if the file exists
-if [ -f "$filePath" ]; then
-    echo "File exists, continuing the script..."
-   
-else
-    echo "It appears the container is not installed. Please install the steam/lutris/heroic container first, then retry."
-    sleep 10
-   curl -L arch.batocera.pro | bash
-fi
-
-
 
 
 

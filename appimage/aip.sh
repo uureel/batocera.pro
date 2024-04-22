@@ -23,7 +23,7 @@ for appimage in "$appimage_dir"/*.AppImage; do
         # Check if script already exists
         if [[ ! -f "$script_path" ]]; then
             # Ask for no-sandbox option
-            sandbox_option=$(dialog --title "Sandbox Option for $appimage_base" --menu "Add --no-sandbox flag to $appimage_base? (Useful for some apps running as root)" 15 60 2 1 "Yes" 2 "No" 3>&1 1>&2 2>&3)
+            sandbox_option=$(dialog --title "Sandbox Option for $appimage_base" --menu "Add --no-sandbox flag to $appimage_base? (Useful for chromium/electron based apps running as root)" 15 60 2 1 "Yes" 2 "No" 3>&1 1>&2 2>&3)
 
             # Determine sandbox command
             sandbox_cmd=""
@@ -63,5 +63,7 @@ dialog --clear
 if [[ "$new_scripts_count" -eq 0 ]]; then
     echo "No AppImages with missing scripts found."
 fi
+
+sleep 5
 
 curl http://127.0.0.1:1234/reloadgames

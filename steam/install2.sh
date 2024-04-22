@@ -346,14 +346,14 @@ clear
 #   echo -ne '          \r'
 #done
 
-echo "Launching Steam"
+#echo "Launching Steam"
 
-dos2unix "/userdata/roms/conty/Steam Big Picture Mode.sh" 2>/dev/null
-chmod 777 "/userdata/roms/conty/Steam Big Picture Mode.sh" 2>/dev/null
-bash "/userdata/roms/conty/Steam Big Picture Mode.sh"
+#dos2unix "/userdata/roms/conty/Steam Big Picture Mode.sh" 2>/dev/null
+#chmod 777 "/userdata/roms/conty/Steam Big Picture Mode.sh" 2>/dev/null
+#bash "/userdata/roms/conty/Steam Big Picture Mode.sh"
 
-echo "Install Done.  You should see a new system called Linux or Arch Container depending on theme"
-sleep 8
+MSG="Install Done.  You should see a new system  in EmulatiationStation called Linux or Arch Container depending on theme\nNVIDIA Users: Drivers will download on First app start-up & can take a while."
+dialog --title "Arch Container Setup Complete" --msgbox "$MSG" 20 70
 
-#curl http://127.0.0.1:1234/reloadgames
+
 curl http://127.0.0.1:1234/reloadgames

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Define the path to conty.sh
 conty_path="/userdata/system/pro/steam/conty.sh"
 
@@ -34,7 +33,6 @@ fi
 appimage_dir="/userdata/roms/AppImage"
 script_dir="/userdata/roms/ports"
 
-
 # Ask user if they want to process all AppImages or only new ones
 process_option=$(dialog --title "Processing Options" --menu "Choose how to process AppImages:" 15 60 2 1 "All AppImages" 2 "Only new AppImages" 3>&1 1>&2 2>&3)
 
@@ -57,7 +55,11 @@ for appimage in "$appimage_dir"/*.AppImage; do
         appimage_name=$(basename "$appimage")
 
         # Ask for no-sandbox option
-        sandbox_option=$(dialog --title "Sandbox Option for $appimage_name" --menu "Add --no-sandbox flag to $appimage_name?" 15 60 2 1 "Yes" 2 "No" 3>&1 1>&2 2>&3)
+        sandbox_option=$(dialog --title "Sandbox Option for $appimage_name" --menu "Add --no-sandbox flag to $appimage_name? Needed for Chromium/Electron apps running as root" 15 60 2 1 "Yes" 2 "No" 3>&1 1>&2 2>&3)
+        sandbox_cmd=""
+        if [[ "$sandbox_option" -eq 1 ]]; then
+            sandbox_cmd="--no-sandbox"
+        fi
 
         # Write the new script file
         echo "#!/bin/bash" > "$script_path"
@@ -91,3 +93,4 @@ done
 dialog --clear
 
 curl http://127.0.0.1:1234/reloadgames
+

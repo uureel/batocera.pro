@@ -26,12 +26,14 @@ AND RUN IT FROM PORTS<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/app/pro.PNG" style="width:62%;height:auto;"/>
 <br>
 <br>
+<br>
 OR<BR>
 <br>
 `  RUN THE FOLLOWING COMMANDS IN SSH/XTERM:  `
 <br>
 <br>
 <br>
+Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch.batocera.pro | bash``` Option 3<br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/7zip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;7ZIP </font></b></i><br>
 ```curl -L 7zip.batocera.pro | bash```
@@ -57,7 +59,7 @@ OR<BR>
 ```curl -L antimicrox.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/appimage/extra/appimage.jpg" width=48 height=48 /><b><i>&nbsp;APPIMAGE PARSER </font></b></i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/appimage/extra/appimage.jpg" width=48 height=48 /><b><i>&nbsp;APPIMAGE PARSER (easily add AppImages to Ports) </font></b></i><br>
 ```curl -L appimage.batocera.pro | bash```
 <br>
 <br>
@@ -190,7 +192,7 @@ OR<BR>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/heroic-container/icon.png" width=48 height=48 />
-<b><i>&nbsp;HEROIC-LAUNCHER </b>(Container)</i></b><br>
+<b><i>&nbsp;HEROIC-LAUNCHER </b>(via Arch Container)</i></b><br>
 ```curl -L heroic2.batocera.pro | bash```
 <br>
 <br>
@@ -252,7 +254,7 @@ OR<BR>
 ```curl -L ludusavi.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/lutris/icon.png" width=48 height=48 /><b><i>&nbsp;LUTRIS </b>(Container)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/lutris/icon.png" width=48 height=48 /><b><i>&nbsp;LUTRIS </b>(via Arch Container)</i></b><br>
 ```curl -L lutris.batocera.pro | bash```
 <br>
 <br>
@@ -392,7 +394,7 @@ OR<BR>
 ```curl -L spotify.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/icon.png" width=48 height=48 /><b><i>&nbsp;STEAM </b>(Container)</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/icon.png" width=48 height=48 /><b><i>&nbsp;STEAM </b>(via Arch Container)</i></b> <br>
 ```curl -L steam.batocera.pro | bash```
 <br>
 <br>
