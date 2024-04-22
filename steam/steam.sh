@@ -13,12 +13,12 @@ fi
 
 # Define the options
 OPTIONS=("1" "New Install: Download Arch Container (Older build)"
-         "2" "New Install: Build Arch container from scratch (up to date)"
+        # "2" "New Install: Build Arch container from scratch (up to date)"
          "3" "List all Packages in Container"
          "4" "Uninstall Arch Container"
          "5" "Update Launcher shortcuts for emulationstation Arch container"
          "6" "Re-download container"
-         "7" "Update apps/rebuild container (~30-60min/30GB free space needed)"
+         #"7" "Update apps/rebuild container (~30-60min/30GB free space needed)"
          "8" "Addon: DESKTOP/WINDOWED Mode (Experimental)"
          "9" "Addon: Add/Update Lutris Menu & Shortcuts to Emulationstation"
          "10" "Addon: Add/Update Heroic Menu & Shortcuts to Emulationstation"
