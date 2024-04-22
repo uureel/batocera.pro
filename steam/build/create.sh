@@ -51,7 +51,7 @@ minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
 ripgrep i7z sd bandwhich tre zoxide p7zip atop iftop sysstat totem feh krename \
 bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli \
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader file \
-docker docker-compose portainer-bin gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole discord \
+docker docker-compose portainer-bin gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename glances \
 steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat freerdp appimagepool-appimage \
 kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs tre screenfetch \
