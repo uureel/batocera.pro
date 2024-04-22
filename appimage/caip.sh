@@ -55,7 +55,7 @@ for appimage in "$appimage_dir"/*.AppImage; do
         appimage_name=$(basename "$appimage")
 
         # Ask for no-sandbox option
-        sandbox_option=$(dialog --title "Sandbox Option for $appimage_name" --menu "Add --no-sandbox flag to $appimage_name?" 15 60 2 1 "Yes" 2 "No" 3>&1 1>&2 2>&3)
+        sandbox_option=$(dialog --title "Sandbox Option for $appimage_name" --menu "Add --no-sandbox flag to $appimage_name? Needed for Chromium/Electron apps running as root" 15 60 2 1 "Yes" 2 "No" 3>&1 1>&2 2>&3)
         sandbox_cmd=""
         if [[ "$sandbox_option" -eq 1 ]]; then
             sandbox_cmd="--no-sandbox"
