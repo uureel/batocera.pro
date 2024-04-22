@@ -77,6 +77,7 @@ apps=(
     ["JELLYFIN/DOCKER"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/jellyfin.sh | bash"
     ["KDENLIVE"]="curl -Ls kdenlive.batocera.pro | bash"
     ["KITTY"]="curl -Ls kitty.batocera.pro | bash"
+    ["K-SNIP"]="curl -Ls knsnip.batocera.pro | bash"
     ["KRITA"]="curl -Ls krita.batocera.pro | bash"
     ["LIVECAPTIONS/SERVICE"]="curl -Ls livecaptions.batocera.pro | bash"
     ["LOGS"]="curl -Ls logs.batocera.pro | bash"
