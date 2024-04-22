@@ -226,11 +226,11 @@ hi_IN UTF-8
 EOF
 }
 
+#Server = https://europe.mirror.pkgbuild.com/\$repo/os/\$arch
 generate_mirrorlist_og () {
 	cat <<EOF > mirrorlist
 Server = https://mirror.osbeck.com/archlinux/\$repo/os/\$arch
 Server = https://mirror.f4st.host/archlinux/\$repo/os/\$arch
-Server = https://europe.mirror.pkgbuild.com/\$repo/os/\$arch
 Server = https://archlinux.thaller.ws/\$repo/os/\$arch
 Server = https://mirror.moson.org/arch/\$repo/os/\$arch
 Server = https://md.mirrors.hacktegic.com/archlinux/\$repo/os/\$arch
@@ -240,11 +240,11 @@ Server = https://geo.mirror.pkgbuild.com/\$repo/os/\$arch
 EOF
 }
 
+#Server = https://europe.mirror.pkgbuild.com/\$repo/os/\$arch
 generate_mirrorlist () {
 	cat <<EOF > mirrorlist
 Server = https://mirror.osbeck.com/archlinux/\$repo/os/\$arch
 Server = https://mirror.f4st.host/archlinux/\$repo/os/\$arch
-Server = https://europe.mirror.pkgbuild.com/\$repo/os/\$arch
 Server = https://archlinux.thaller.ws/\$repo/os/\$arch
 Server = https://mirror.moson.org/arch/\$repo/os/\$arch
 Server = https://md.mirrors.hacktegic.com/archlinux/\$repo/os/\$arch
@@ -257,6 +257,25 @@ Server = https://mirror.23media.com/archlinux/\$repo/os/\$arch
 Server = https://mirrors.mit.edu/archlinux/\$repo/os/\$arch
 Server = https://mirror.pkgbuild.com/\$repo/os/\$arch
 Server = https://archlinux.mailtunnel.eu/\$repo/os/\$arch
+Server = https://mirror.onet.pl/pub/mirrors/archlinux/\$repo/os/\$arch
+Server = https://mirror.rackspace.com/archlinux/\$repo/os/\$arch
+Server = https://archlinux.uk.mirror.allworldit.com/archlinux/\$repo/os/\$arch
+Server = https://mirror.bytemark.co.uk/archlinux/\$repo/os/\$arch
+Server = https://london.mirror.pkgbuild.com/\$repo/os/\$arch
+Server = http://mirrors.acm.wpi.edu/archlinux/\$repo/os/\$arch
+Server = https://mirror.adectra.com/archlinux/\$repo/os/\$arch
+Server = https://mirror.kirbee.tech/archlinux/\$repo/os/\$arch
+Server = https://mirrors.nguyenhoang.cloud/archlinux/\$repo/os/\$arch
+Server = http://mirror.bizflycloud.vn/archlinux/\$repo/os/\$arch
+Server = http://mirror.kirbee.tech/archlinux/\$repo/os/\$arch
+Server = https://asia.mirror.pkgbuild.com/\$repo/os/\$arch
+Server = http://mirror-hk.koddos.net/archlinux/\$repo/os/\$arch
+Server = https://mirror-hk.koddos.net/archlinux/\$repo/os/\$arch
+Server = http://hkg.mirror.rackspace.com/archlinux/\$repo/os/\$arch
+Server = https://hkg.mirror.rackspace.com/archlinux/\$repo/os/\$arch
+Server = https://arch-mirror.wtako.net/\$repo/os/\$arch
+Server = http://mirror.xtom.com.hk/archlinux/\$repo/os/\$arch
+Server = https://mirror.xtom.com.hk/archlinux/\$repo/os/\$arch
 EOF
 }
 
@@ -577,3 +596,4 @@ umount "${bootstrap}"/sys
 umount "${bootstrap}"/dev/pts
 umount "${bootstrap}"/dev/shm
 umount "${bootstrap}"/dev
+
