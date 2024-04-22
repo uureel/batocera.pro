@@ -1,5 +1,5 @@
 # batocera.pro
-<b><i>Unofficial apps for Batocera </i></b><br>
+<b><i>Unofficial AMD/Intel (x86_64) apps for Batocera (Sorry ARM/Raspberry PI users) </i></b><br>
 <i>https://discord.gg/SWBvBkmn9P</i><br>
 <br>
 <br>
