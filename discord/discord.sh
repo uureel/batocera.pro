@@ -189,6 +189,7 @@ mkdir $temp 2>/dev/null
 #
 # --------------------------------------------------------------------
 #
+# get latest appimage version:
 echo
 echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
 sleep 1
@@ -222,13 +223,43 @@ chmod 777 "$f" 2>/dev/null
 cp -r $temp/discord ~/pro/$appname/ 2>/dev/null
 rm -rf $temp/* 2>/dev/null
 cd $HOME
-#SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
+#
+# get latest official version
+rm -rf $temp/* 2>/dev/null
+mkdir -p $temp 2>/dev/null
+n=81
+f=0
+while [[ "$f" = "0" ]]; 
+do
+  APPLINK="https://dl-ptb.discordapp.net/apps/linux/0.0.$n/discord-ptb-0.0.$n.tar.gz"
+  r=$(curl -sI "$APPLINK")
+  if [[ "$(echo "$r" | grep 'HTTP/2 200')" != "" ]]; then
+    n=$(($n + 1))
+  fi
+    if [[ "$(echo "$r" | grep 'HTTP/2 403')" != "" ]]; then
+      n=$(($n - 1))
+      APPLINK="https://dl-ptb.discordapp.net/apps/linux/0.0.$n/discord-ptb-0.0.$n.tar.gz"
+      echo "> $APPLINK"
+      f=1
+      break
+    fi
+if [[ "$f" = "1" ]]; then break; fi
+done
+cd $temp
+curl --progress-bar --remote-name --location "$APPLINK"
+LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" /userdata/system/pro/.dep/tar -xf $temp/*.tar.gz
+rm -rf $temp/*.tar.gz
+mv $temp/* $temp/discordapp
+cp -r $temp/discordapp/* ~/pro/$appname/discord/
+rm -rf $temp/*
+cd $HOME
+#
+#
 SIZE=$(du -h ~/pro/$appname | tail -n1 | awk '{print $1}')
-echo -e "${T}$APPPATH ${T}$SIZE( ) ${G}OK${W}" | sed 's/( )//g'
+echo -e "${T}  /userdata/system/pro/$appname  ${T}$SIZE( )" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE"
 echo
 echo -e "${L}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-sleep 1.333
 #
 # --------------------------------------------------------------------
 #
@@ -334,14 +365,11 @@ mv $temp $file 2>/dev/null
 fi
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # -- done. 
-sleep 1
 echo -e "${G}> ${W}DONE"
 echo
-sleep 1
 echo -e "${L}-----------------------------------------------------------------------"
 echo -e "${W}> $APPNAME INSTALLED ${G}OK"
 echo -e "${L}-----------------------------------------------------------------------"
-sleep 4
 }
 export -f batocera-pro-installer
 # --------------------------------------------------------------------
