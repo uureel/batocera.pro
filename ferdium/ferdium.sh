@@ -20,7 +20,7 @@ APPLINK=$(curl -s https://api.github.com/repos/ferdium/ferdium-app/releases | gr
 APPHOME="ferdium.org appimage"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1.25" GDK_SCALE="1.25" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
+COMMAND='LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" QT_SCALE_FACTOR="1.25" GDK_SCALE="1.25" DISPLAY=:0.0 /userdata/system/pro/ferdium/ferdium.AppImage --no-sandbox --test-type "${@}"'
 #--------------------------------------------------------------------- 
 ######################################################################
 ######################################################################
@@ -286,11 +286,17 @@ echo -e "${G}INSTALLING${W}"
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
 launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
-echo '#!/bin/bash ' >> $launcher
+echo '#!/bin/bash' >> $launcher
 echo 'unclutter-remote -s' >> $launcher
+echo 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket' >> $launcher
+echo 'export XDG_MENU_PREFIX=batocera-' >> $launcher
+echo 'export XDG_CONFIG_DIRS=/etc/xdg' >> $launcher
+echo 'export XDG_CURRENT_DESKTOP=XFCE' >> $launcher
+echo 'export DESKTOP_SESSION=XFCE' >> $launcher
+echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" QT_SCALE_FACTOR="1.25" GDK_SCALE="1.25" DISPLAY=:0.0 /userdata/system/pro/ferdium/ferdium.AppImage --no-sandbox --test-type "${@}"' >> $launcher
 ## -- GET APP SPECIFIC LAUNCHER COMMAND: 
 ######################################################################
-echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
+#echo "$(cat /userdata/system/pro/$appname/extra/command)" >> $launcher
 ######################################################################
 dos2unix $launcher
 chmod a+x $launcher
