@@ -83,7 +83,7 @@ Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch
 ```curl -L brave.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/casaos.png" width=48 height=48 /><b><i>&nbsp;<a href="https://casaos.io" target="_blank">CASAOS</a> (Home Cloud/ Debian Container/XFCE Desktop via RDP)</font></b></i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/casaos.png" width=48 height=48 /><b><i>&nbsp;<a href="https://casaos.io" target="_blank">CASAOS</a> (Home Cloud/Debian Container/XFCE Desktop via RDP)</font></b></i><br>
 ```curl -L casaos.batocera.pro | bash```
 <br>
 <br>
