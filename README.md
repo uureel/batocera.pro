@@ -242,7 +242,7 @@ Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch
 ```curl -L rdp.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX VMs (QEMU/DOCKER)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX Virtual Machines (via QEMU/DOCKER)</i></b><br>
 ```curl -L qemu.batocera.pro | bash```
 <br>
 <br>
@@ -454,7 +454,7 @@ Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch
 ```curl -L wiiuplus.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/windows.png" width=48 height=48 /><b><i>&nbsp;WINDOWS VMs (RDP/QEMU/Docker)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/windows.png" width=48 height=48 /><b><i>&nbsp;WINDOWS XP-11 Virtaul Machines (via RDP/QEMU/Docker)</i></b><br>
 ```curl -L windows.batocera.pro | bash```
 <br>
 <br>
