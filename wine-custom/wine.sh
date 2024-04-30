@@ -49,7 +49,7 @@ do
 
     # Download the selected version
     echo "Downloading Wine ${version}..."
-    curl -L --progress-bar $url -o "wine-${version}.tar.xz"
+    curl -L --progress-bar --output $url -o "wine-${version}.tar.xz"
 
     # Check if the download was successful
     if [ -f "wine-${version}.tar.xz" ]; then
