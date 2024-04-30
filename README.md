@@ -458,7 +458,7 @@ Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch
 ```curl -L windows.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/wine-custom/icon/wine.png" width=48 height=48 /><b><i>&nbsp;Wine-Custom & Proton Build Downloader (Vanilla/Kron4ek builds for v40+)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/wine-custom/icon/wine.png" width=48 height=48 /><b><i>&nbsp;WINE-CUSTOM & PROTON BUILD DOWNLOADER (Vanilla/Kron4ek builds for v40+)</i></b><br>
 ```curl -L wine.batocera.pro | bash```
 <br>
 <br>
