@@ -136,6 +136,7 @@ apps=(
     ["XARCHIVER"]="curl -Ls xarchiver.batocera.pro | bash"
     ["XCLOUD"]="curl -Ls xcloud.batocera.pro | bash"
     ["WINDOWS-VMS/DOCKER"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/win.sh | bash"
+    ["WINE-CUSTOM-DOWNLOADER/v40+"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/wine-custom/wine.sh | bash"
     ["WINE-MANAGER"]="curl -Ls winemanager.batocera.pro | bash"
     ["YARG/YARC-LAUNCHER"]="curl -Ls yarg.batocera.pro | bash"
     ["YOUTUBE-TV"]="curl -Ls yttv.batocera.pro | bash"
