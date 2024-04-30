@@ -83,7 +83,7 @@ Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch
 ```curl -L brave.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/casaos.png" width=48 height=48 /><b><i>&nbsp;<a href="https://casaos.io" target="_blank">CASAOS</a> (Container/Debian/XFCE Desktop via RDP)</font></b></i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/casaos.png" width=48 height=48 /><b><i>&nbsp;<a href="https://casaos.io" target="_blank">CASAOS</a> (Home Cloud/Debian Container/XFCE Desktop via RDP)</font></b></i><br>
 ```curl -L casaos.batocera.pro | bash```
 <br>
 <br>
@@ -238,11 +238,11 @@ Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch
 ```curl -L ksnip.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX DESKTOPS (RDP/DOCKER)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX XFCE/I3/MATE/KDE DESKTOPS (UBUNTU/FEDORA/ARCH/ALPINE distros via RDP/DOCKER)</i></b><br>
 ```curl -L rdp.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX VMs (QEMU/DOCKER)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX VIRTUAL MACHINES (via QEMU/DOCKER)</i></b><br>
 ```curl -L qemu.batocera.pro | bash```
 <br>
 <br>
@@ -454,8 +454,12 @@ Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch
 ```curl -L wiiuplus.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/windows.png" width=48 height=48 /><b><i>&nbsp;WINDOWS VMs (RDP/QEMU/Docker)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/windows.png" width=48 height=48 /><b><i>&nbsp;WINDOWS XP, VISTA, 7, 8.1, 10, 11, SERVER VIRTUAL MACHINES (via HTTP-VNC/RDP/QEMU/Docker)</i></b><br>
 ```curl -L windows.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/wine-custom/icon/wine.png" width=48 height=48 /><b><i>&nbsp;WINE-CUSTOM & PROTON BUILD DOWNLOADER (Vanilla/Kron4ek builds for v40+)</i></b><br>
+```curl -L wine.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/winemanager/extra/icon.png" width=48 height=48 /><b><i>&nbsp;<a href=https://github.com/Gr3gorywolf/batocera_wine_manager>WINE-MANAGER by Gr3gorywolf</a></i></b><br>

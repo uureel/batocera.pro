@@ -33,7 +33,7 @@ echo "File '$filename' downloaded and made executable in '$directory/$filename'"
 # Add the command to ~/custom.sh before starting Docker and Portainer
 # echo "/userdata/system/pocker/batocera-containers &" >> ~/custom.sh
 csh=/userdata/system/custom.sh; dos2unix $csh 2>/dev/null
-startup="/userdata/system/pocker/batocera-containers &"
+startup="/userdata/system/batocera-containers/batocera-containers &"
 if [[ -f $csh ]];
    then
       tmp1=/tmp/tcsh1

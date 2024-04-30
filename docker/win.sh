@@ -9,6 +9,24 @@ if [ "$architecture" != "x86_64" ]; then
     exit 1
 fi
 
+#!/bin/bash
+
+# Function to check if a port is in use
+is_port_in_use() {
+    if lsof -i:$1 > /dev/null; then
+        return 0 # True, port is in use
+    else
+        return 1 # False, port is not in use
+    fi
+}
+
+
+# Check if port 8096 is in use
+if is_port_in_use 8086; then
+    dialog --title "Port Conflict" --msgbox "Port 8086 is already in use. Please ensure it is available before installing Windows VMs." 10 50
+    clear
+    exit 1
+fi
 
 if ! command -v docker &> /dev/null; then
     echo "Docker could not be found, installing Docker..."
