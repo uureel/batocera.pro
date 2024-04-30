@@ -454,7 +454,7 @@ Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch
 ```curl -L wiiuplus.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/windows.png" width=48 height=48 /><b><i>&nbsp;WINDOWS XP-11 Virtual Machines (via HTTP-VNC /RDP/QEMU/Docker)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/windows.png" width=48 height=48 /><b><i>&nbsp;WINDOWS XP, Vista,7, 10, 11, Server Virtual Machines (via HTTP-VNC /RDP/QEMU/Docker)</i></b><br>
 ```curl -L windows.batocera.pro | bash```
 <br>
 <br>
