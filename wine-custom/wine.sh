@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # API endpoint for GitHub releases
@@ -6,6 +5,7 @@ REPO_URL="https://api.github.com/repos/Kron4ek/Wine-Builds/releases"
 
 # Directory to store custom Wine versions
 INSTALL_DIR="/userdata/system/wine/custom/"
+mkdir -p "$INSTALL_DIR"
 
 # Fetch release data from GitHub
 echo "Fetching release information..."
@@ -41,20 +41,21 @@ clear
 for choice in $choices
 do
     version=$(echo "$release_data" | jq -r ".[$choice-1].tag_name")
-    url=$(echo "$release_data" | jq -r ".[$choice-1].assets[] | select(.name | endswith(\"amd64.tar.xz\")).browser_download_url")
+    url=$(echo "$release_data" | jq -r ".[$choice-1].assets[] | select(.name | endswith(\"amd64.tar.xz\")).browser_download_url" | head -n1)
 
     # Create directory for the selected version
-    mkdir -p "${INSTALL_DIR}Wine-${version}"
-    cd "${INSTALL_DIR}Wine-${version}"
+    mkdir -p "${INSTALL_DIR}wine-${version}"
+    cd "${INSTALL_DIR}wine-${version}"
 
     # Download the selected version
-    echo "Downloading Wine ${version}..."
-    curl -L --progress-bar  $url -O "wine-${version}.tar.xz"
+    echo "Downloading wine ${version} from $url"
+    wget -q --tries=10 --no-check-certificate --no-cache --no-cookies --show-progress -O "${INSTALL_DIR}wine-${version}/wine-${version}.tar.xz" "$url"
 
     # Check if the download was successful
-    if [ -f "wine-${version}.tar.xz" ]; then
+    if [ -f "${INSTALL_DIR}wine-${version}/wine-${version}.tar.xz" ]; then
         echo "Unpacking Wine ${version}..."
-        tar --strip-components=1 -xf "wine-${version}.tar.xz"
+        cd ${INSTALL_DIR}wine-${version}
+        tar --strip-components=1 -xf "${INSTALL_DIR}wine-${version}/wine-${version}.tar.xz"
         rm "wine-${version}.tar.xz"
         echo "Installation of Wine ${version} complete."
     else
