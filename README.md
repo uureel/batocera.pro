@@ -1,30 +1,23 @@
 # batocera.pro
-<b><i>Unofficial AMD/Intel (x86_64) apps for Batocera (Sorry ARM/Raspberry PI users) </i></b><br>
-<i>https://discord.gg/SWBvBkmn9P</i><br>
+<b><i>Unofficial Apps for Batocera x86_64 (AMD/Intel)</i></b><br>
+<br>
+<i>Support: <a href=https://discord.gg/SWBvBkmn9P>Batocera Nation Discord</a></i><br>
 <br>
 <br>
-</b>These apps will be available in F1-Applications <br>
-where they work as normal desktop apps, stay running <br>
-in the background & you can Alt+Tab between them, <br>
-& also use EmulationStation with them running.  Some will <br>
-be available in ports in emulationstation too, and the steam/lutris/heroic<br> 
-container has a separate Arch Container Emulationstation system menu<br>
+</b>Most of these apps will be available in <i>F1-Applications</i> <br>
+as normal desktop apps that stay running in background so that <br>
+you can Alt+Tab between them & use EmulationStation with them running. <br>
+Some will be available in <i>Ports</i> in EmulationStation too. <br>
+There's a few custom systems (with updated emulators), and also <br>
+a full Arch Linux container with <i>Steam/Lutris/Heroic</i> and more.<br>
+Docker/Podman, and Docker Apps are also available.<br>
 <br>
 <br>
-Most of these apps are official AppImages <br>
-Some unofficial AppImages, some official binaries <br>
-& a few are wine versions plus  there also is the immutable arch<br>
-container containing Steam/Lutris/Heroic and other apps<br>
-<br>
-Docker and Docker APPS also now available<br>
-<br>
-<br>
-<b><i>&nbsp;HOW TO INSTALL : </font></b></i><br>
+<b><i>HOW TO INSTALL: </font></b></i><br>
 DOWNLOAD THE INSTALLER APP IN SSH/XTERM: ``` curl -L app.batocera.pro | bash ```<br>
-AND RUN IT FROM PORTS<br>
+AND THEN RUN IT FROM PORTS<br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/app/pro.PNG" style="width:62%;height:auto;"/>
-<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/app/pro.PNG" style="width:50%;height:auto;"/>
 <br>
 <br>
 OR<BR>
