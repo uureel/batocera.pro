@@ -6,15 +6,15 @@
 <br>
 </b>Most of these apps will be available in <i>F1-Applications</i> <br>
 as normal desktop apps that stay running in background, so that <br>
-you can Alt+Tab between them & use EmulationStation with them running. <br><br>
+you can Alt+Tab between them & use EmulationStation with them running. <br>
 Some will also be available in <i>Ports</i> in EmulationStation. <br>
-There's a few custom systems available (with updated emulators), and <br>
-a full Arch Container with <i>Steam/Lutris/Heroic</i> and more apps.<br>
-The Arch Container applist can be viewed via ```curl -L arch.batocera.pro | bash``` option 3 <br>
 Docker/Podman, and Docker Apps are also available.<br>
+There's also a few custom systems available, and a full Arch Container <br>
+with Steam/Lutris/Heroic and more, full Arch Container applist can be viewed via:<br>
+```curl -L arch.batocera.pro | bash``` option 3 <br>
 <br>
 <br>
-<b><i>HOW TO INSTALL: </font></b></i><br>
+<b></i>HOW TO INSTALL: </font></b></i><br>
 DOWNLOAD THE INSTALLER APP IN SSH/XTERM: ``` curl -L app.batocera.pro | bash ```<br>
 AND THEN RUN IT FROM PORTS<br>
 <br>
