@@ -35,7 +35,7 @@ confirm_start() {
         exit 1
     fi
 
-    dialog --title "Confirm Operation" --yesno "This process may take a long time. 30-60 minutes is typical depending on Internet, cpu and drive speed.  Do you want to proceed?" 7 60
+    dialog --title "Confirm Operation" --yesno "This process may take a long time. 45-90 minutes is typical depending on Internet, cpu and drive speed.  Do you want to proceed?" 7 60
     local status=$?
     clear # Clear dialog remnants from the screen
     return $status
