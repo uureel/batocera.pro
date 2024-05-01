@@ -10,7 +10,8 @@ you can Alt+Tab between them & use EmulationStation with them running. <br>
 Some will also be available in <i>Ports</i> in EmulationStation. <br>
 Docker/Podman, and Docker Apps are also available.<br>
 There's also a few custom systems available, and a full Arch Container <br>
-with Steam/Lutris/Heroic and more, full Arch Container applist can be viewed via:<br>
+with Steam/Lutris/Heroic and more, <br>
+full Arch Container applist can be viewed via:<br>
 ```curl -L arch.batocera.pro | bash``` option 3 <br>
 <br>
 <br>
