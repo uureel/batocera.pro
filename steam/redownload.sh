@@ -32,7 +32,7 @@ animate_title
 rm /userdata/system/pro/steam/prepare.sh 2>/dev/null
 
 rm /userdata/system/pro/steam/conty.sh 2>/dev/null
-wget -q --show-progress --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/conty.sh http://batocera.pro/app/conty.sh 
+curl -L aria2c.batocera.pro | bash && ./aria2c -x 5 -d  /userdata/system/pro/steam http://batocera.pro/app/conty.sh 
 chmod 777 /userdata/system/pro/steam/conty.sh 2>/dev/null
 
 wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
