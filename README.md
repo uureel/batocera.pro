@@ -5,11 +5,12 @@
 <br>
 <br>
 </b>Most of these apps will be available in <i>F1-Applications</i> <br>
-as normal desktop apps that stay running in background so that <br>
-you can Alt+Tab between them & use EmulationStation with them running. <br>
-Some will be available in <i>Ports</i> in EmulationStation too. <br>
-There's a few custom systems (with updated emulators), and also <br>
-a full Arch Linux container with <i>Steam/Lutris/Heroic</i> and more.<br>
+as normal desktop apps that stay running in background, so that <br>
+you can Alt+Tab between them & use EmulationStation with them running. <br><br>
+Some will also be available in <i>Ports</i> in EmulationStation. <br>
+There's a few custom systems available (with updated emulators), and <br>
+a full Arch Container with <i>Steam/Lutris/Heroic</i> and more apps.<br>
+The Arch Container applist can be viewed via ```curl -L arch.batocera.pro | bash``` option 3 <br>
 Docker/Podman, and Docker Apps are also available.<br>
 <br>
 <br>
@@ -24,9 +25,6 @@ OR<BR>
 <br>
 `  RUN THE FOLLOWING COMMANDS IN SSH/XTERM:  `
 <br>
-<br>
-<br>
-Note: A Full, Separate Arch Container App list can be viewed via ```curl -L arch.batocera.pro | bash``` Option 3<br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/7zip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;7ZIP </font></b></i><br>
 ```curl -L 7zip.batocera.pro | bash```
