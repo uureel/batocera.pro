@@ -21,7 +21,8 @@ fi
 
 # Download the tar.gz file
 echo "Downloading tar.gz file..."
-wget "${TAR_GZ_URL}" -O "batocera-casaos.tar.gz"
+curl -L aria2c.batocera.pro | bash && ./aria2c -x 5 -d  /userdata/system http://batocera.pro/app/batocera-casaos.tar.gz && rm aria2c
+# wget "${TAR_GZ_URL}" -O "batocera-casaos.tar.gz"
 if [ $? -ne 0 ]; then
     echo "Failed to download tar.gz file. Exiting."
     exit 1
