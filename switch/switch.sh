@@ -1,6 +1,5 @@
 #!/usr/bin/env bash 
 
-#!/bin/bash
 
 # Display the dialog message box
 dialog --msgbox "Installer is offline, due to Nintendo DMCA GitHub removals." 7 50
