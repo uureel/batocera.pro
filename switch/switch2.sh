@@ -176,7 +176,7 @@ wget -q -O "$path/batocera-switch-libtinfo.so.6" "$url/batocera-switch-libtinfo.
 wget -q -O "$path/batocera-switch-sshupdater.sh" "$url/batocera-switch-sshupdater.sh"
 wget -q -O "$path/batocera-switch-tar" "$url/batocera-switch-tar"
 wget -q -O "$path/batocera-switch-tput" "$url/batocera-switch-tput"
-wget -q -O "$path/batocera-switch-updater.sh" "$url/batocera-switch-updater.sh"
+wget -q -O "https://github.com/uureel/batocera.pro/raw/main/switch/batocera-switch-updater.sh"
 wget -q -O "$path/icon_ryujinx.png" "$url/icon_ryujinx.png"
 wget -q -O "$path/icon_yuzu.png" "$url/icon_yuzu.png"
 wget -q -O "$path/libthai.so.0.3.1" "$url/libthai.so.0.3.1"
@@ -271,7 +271,7 @@ echo -e "${X} "
 rm -rf /userdata/system/switch/extra/installation 2>/dev/null
 rm /tmp/batocera-switch-updater.sh 2>/dev/null 
 mkdir -p /tmp 2>/dev/null
-wget -q -O "/tmp/batocera-switch-updater.sh" "https://raw.githubusercontent.com/ordovice/batocera-switch/main/system/switch/extra/batocera-switch-updater.sh" 
+wget -q -O "/tmp/batocera-switch-updater.sh" "https://github.com/uureel/batocera.pro/raw/main/switch/batocera-switch-updater.sh" 
 sed -i 's,MODE=DISPLAY,MODE=CONSOLE,g' /tmp/batocera-switch-updater.sh 2>/dev/null
 dos2unix /tmp/batocera-switch-updater.sh 2>/dev/null 
 chmod a+x /tmp/batocera-switch-updater.sh 2>/dev/null 
