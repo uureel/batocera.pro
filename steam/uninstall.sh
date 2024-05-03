@@ -5,7 +5,7 @@ dialog --title "Warning" --msgbox "This script will uninstall the arch container
 \n3. /userdata/roms/conty \n4. /userdata/roms/lutris \n5. /userdata/roms/heroic2 \n6. /userdata/roms/steam2   \n\nThere may be saves. Data Stored in other locations will NOT be deleted." 20 60
 
 # Confirmation dialog
-if dialog --title "Confirm" --yesno "Do you want to proceed the uninstall and delete the folders? Older Installs: The container's data in ~/pro/steam/home, if exists, will be deleted!!!  Select 'yes' to continue." 10 60; then
+if dialog --title "Confirm" --yesno "Do you want to proceed the uninstall and delete the folders? For Older Installs that used ~/pro/steam/home as home folder: The container's data in ~/pro/steam/home, if exists, will be deleted!!!  Select 'yes' to continue." 10 60; then
     rm -rf ~/pro/steam   
     rm -rf ~/.local/share/Conty
     rm -rf /userdata/roms/conty
