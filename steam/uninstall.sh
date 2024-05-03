@@ -19,7 +19,8 @@ if dialog --title "Confirm" --yesno "Do you want to proceed the uninstall and de
     rm ~/configs/emulationstation/es_features_steam2.cfg*
     
     clear   
-    echo "Files/Folders deleted."
+    echo "Listed Files/Folders deleted."  
+    echo "Steam in ~/.local/share/Steam, if exists, and other app data in ~/ were not deleted."
     echo ""
     echo "" 
     sleep 5
