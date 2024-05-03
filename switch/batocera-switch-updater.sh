@@ -1591,10 +1591,10 @@ fi
 # -------------------------------------------------------------------
 # YUZUEA: 
 if [[ "$(uname -a | awk '{print $3}')" < "6" ]]; then 
-   link_yuzuea=https://github.com/pineappleEA/pineapple-src/releases/download/EA-3333/Linux-Yuzu-EA-3333.AppImage
+   link_yuzuea=https://archive.org/download/yuzu-windows-msvc-20240304-537296095_20240305_1340/Linux/Linux-Yuzu-EA-4176.AppImage
 else 
    release_yuzuea=$(curl -s --retry 5 --retry-delay 1 --retry-connrefused https://github.com/pineappleEA/pineapple-src | grep /releases/ | cut -d "=" -f 5 | cut -d / -f 6 | cut -d '"' -f 1)
-   link_yuzuea=https://github.com/pineappleEA/pineapple-src/releases/download/$release_yuzuea/Linux-Yuzu-$release_yuzuea.AppImage
+   link_yuzuea=https://archive.org/download/yuzu-windows-msvc-20240304-537296095_20240305_1340/Linux/Linux-Yuzu-EA-4176.AppImage
    link_yuzuea=$(curl -s --retry 5 --retry-delay 1 --retry-connrefused https://api.github.com/repos/pineappleEA/pineapple-src/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url")
 fi 
 # -------------------------------------------------------------------
