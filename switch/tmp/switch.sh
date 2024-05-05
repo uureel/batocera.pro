@@ -302,7 +302,6 @@ echo
 echo -e "   ${X}Use Switch Updater in Ports to update emulators${X}" 
 echo -e "   -----------------------------------------------------${X}"
 echo
-echo -e "   ${X}Place your correctly named Yuzu AppImages in /userdata/system/switch${X}" 
 echo
 echo -e "   ${X}-----------------------------------------------------${X}"
 echo -e "   ${X}IN CASE OF ISSUES: ${X}"
@@ -317,6 +316,7 @@ echo -e "   ${X}> emulators logs are in /userdata/system/switch/logs/${X}"
 echo -e "   ${X}> emulationstation logs are in /userdata/system/logs/${X}" 
 echo -e "   ${X}-----------------------------------------------------${X}"
 echo 
+echo -e "   ${X} Put executable yuzu.AppImage / yuzuEA.AppImage in /userdata/system/switch${X}" 
 echo 
 else
 clear 
