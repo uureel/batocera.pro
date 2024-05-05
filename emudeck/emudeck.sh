@@ -1,29 +1,16 @@
 #!/bin/bash
 
-# Check if conty.sh exists
-if [[ ! -f "$conty_path" ]]; then
-    # Ask user if they want to install conty.sh
-    install_option=$(dialog --title "Arch Container Missing" --yesno "Arch Container appears to be not installed. Do you want to install it now?" 10 60 3>&1 1>&2 2>&3)
-    response=$?
-    if [[ $response -eq 0 ]]; then
-        # User chose to install
-        if curl -L steam.batocera.pro | bash; then
-            # Check if the installation was successful
-            if [[ ! -f "$conty_path" ]]; then
-                dialog --msgbox "Installation failed. conty.sh still not found. Exiting script." 5 50
-                exit 1
-            else
-                dialog --msgbox "Arch Container Installation appears completed successfully." 5 50
-            fi
-        else
-            dialog --msgbox "Installation command failed. Exiting script." 5 50
-            exit 1
-        fi
-    else
-        # User chose not to install
-        dialog --msgbox "User opted not to install. Exiting script." 5 50
-        exit 1
-    fi
+# Define the file path
+filePath="$HOME/pro/steam/conty.sh"
+
+# Check if the file exists
+if [ -f "$filePath" ]; then
+    echo "File exists, continuing the script..."
+   
+else
+    echo "It appears the container is not installed. Please install the Arch Steam/lutris/heroic container first, then retry."
+    sleep 10
+    exit 1
 fi
 
 
