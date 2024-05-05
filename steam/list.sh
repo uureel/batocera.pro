@@ -4,7 +4,7 @@
 apps=(
 "Antimicrox"
 "Audacity"
-"Balena-Etcher"
+#"Balena-Etcher"
 "Blender"
 "Boilr"
 "Bottles"
@@ -105,7 +105,7 @@ bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli 
 podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc \
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader strace file glances \
 docker docker-compose portainer-bin gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
-gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename imagemagick xfce4 \
+gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd greenlight-git krusader mcpelauncher-linux-git krename imagemagick xfce4 \
 kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs \
 btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock   \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki  \
@@ -122,7 +122,7 @@ all_packages=$(echo "$audio_pkgs $video_pkgs $wine_pkgs $devel_pkgs $packagelist
 # Function to display packages using dialog
 show_packages() {
     dialog --backtitle "Package List as of Apr. 11, 2024" \
-    --title "All Packages--Apr. 18, 2024" \
+    --title "All Packages--May 5, 2024" \
     --msgbox "$all_packages" 20 70
 }
 
@@ -133,7 +133,7 @@ show_packages
 apps=(
 "Antimicrox"
 "Audacity"
-"Balena-Etcher"
+# "Balena-Etcher"
 "Blender"
 "Boilr"
 "Bottles"
@@ -155,6 +155,7 @@ apps=(
 "Google-Chrome"
 "Gparted"
 "Gthumb"
+"Greenlight"
 "Handbrake"
 "Heroic Game Launcher"
 "Hulu"
