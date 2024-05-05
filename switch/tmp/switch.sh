@@ -177,7 +177,7 @@ wget -q -O "$path/batocera-switch-libtinfo.so.6" "$url/batocera-switch-libtinfo.
 wget -q -O "$path/batocera-switch-sshupdater.sh" "$url/batocera-switch-sshupdater.sh"
 wget -q -O "$path/batocera-switch-tar" "$url/batocera-switch-tar"
 wget -q -O "$path/batocera-switch-tput" "$url/batocera-switch-tput"
-wget -q -O "$path/batocera-switch-updater.sh" "https://raw.githubusercontent.com/uurel/batocera.pro/main/tmp/switch/update.sh"
+wget -q -O "$path/batocera-switch-updater.sh" "https://raw.githubusercontent.com/uureel/batocera.pro/main/tmp/switch/update.sh"
 wget -q -O "$path/icon_ryujinx.png" "$url/icon_ryujinx.png"
 wget -q -O "$path/icon_yuzu.png" "$url/icon_yuzu.png"
 wget -q -O "$path/libthai.so.0.3.1" "$url/libthai.so.0.3.1"
