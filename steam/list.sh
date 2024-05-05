@@ -26,6 +26,7 @@ apps=(
 "Google-Chrome"
 "Gparted"
 "Gthumb"
+"Greenlight"
 "Handbrake"
 "Heroic Game Launcher"
 "Hulu"
