@@ -1,7 +1,5 @@
 #!/usr/bin/env bash 
-echo "This installer can take a while, be patient"
-sleep 10
-clear
+
 # BATOCERA.PRO INSTALLER
 ######################################################################
 #--------------------------------------------------------------------- 
