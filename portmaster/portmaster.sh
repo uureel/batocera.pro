@@ -15,4 +15,4 @@ esac
 echo "Fetching Install script..."
 echo ""
 sleep 3
-curl -L https://github.com/garbagescow/PortMaster-Batocera/raw/main/PortMaster/install/install.shh | bash
+curl -L https://github.com/garbagescow/PortMaster-Batocera/raw/main/PortMaster/install/install.sh | bash
