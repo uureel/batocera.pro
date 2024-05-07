@@ -1,4 +1,18 @@
 #!/usr/bin/env bash 
+#!/bin/bash
+
+# Display a dialog box and capture the user's choice
+dialog --title "Warning" --yesno "Due to missing missing 32-bit libs, only proton builds have been verified working.  Wine-GE builds have failed to launch in previous testing.  It is recommended to use the Arch container version for full compatiblity. Proceed anyway?" 10 60
+
+# Check the exit status of dialog
+response=$?
+case $response in
+    0) echo "Continuing with the script...";;
+    1) echo "You chose to exit."; exit 1;;
+    255) echo "Dialog box closed."; exit 1;;
+esac
+
+
 # BATOCERA.PRO INSTALLER
 ######################################################################
 ######################################################################
