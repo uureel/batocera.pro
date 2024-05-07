@@ -338,6 +338,10 @@ OR<BR>
 ```curl -L pokemmo.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/portmaster/extra/portmaster.png" width=48 height=48 /><b><i>&nbsp;PORTMASTER (ARM64 Only/EXPERIMENTAL)</i></b><br>
+```curl -L https://github.com/uureel/batocera.pro/raw/main/portmaster/portmaster.sh | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/prism-launcher/extra/icon.png" width=48 height=48 /><b><i>&nbsp;PRISM-LAUNCHER</i></b><br>
 ```curl -L prism.batocera.pro | bash```
 <br>
