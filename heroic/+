@@ -1,4 +1,3 @@
-#!/usr/bin/env bash 
 #!/bin/bash
 
 # Display a dialog box and capture the user's choice
