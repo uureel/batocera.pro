@@ -333,16 +333,16 @@ OR<BR>
 ```curl -L plexamp.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/pokemmo/extra/icon.png" width=48 height=48 /><b><i>&nbsp;POKEMMO</i></b><br>
+```curl -L pokemmo.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/portainer.png" width=48 height=48 /><b><i>&nbsp;PORTAINER (Docker)</i></b><br>
 ```curl -L docker.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/portmaster/extra/portmaster.png" width=48 height=48 /><b><i>&nbsp;PORTMASTER (ARM64 Only/EXPERIMENTAL)</i></b><br>
 ```curl -L https://github.com/uureel/batocera.pro/raw/main/portmaster/portmaster.sh | bash```
-<br>
-<br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/pokemmo/extra/icon.png" width=48 height=48 /><b><i>&nbsp;POKEMMO</i></b><br>
-```curl -L pokemmo.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/prism-launcher/extra/icon.png" width=48 height=48 /><b><i>&nbsp;PRISM-LAUNCHER</i></b><br>
