@@ -1,5 +1,7 @@
 # batocera.pro
-<b><i>Unofficial Apps for Batocera x86_64 (AMD/Intel)</i></b><br>
+<b><i>Unofficial Apps for Batocera x86_64* (AMD/Intel)</i></b><br>
+<br>
+*Except Portmaster
 <br>
 <br>
 <i>Support: <a href=https://discord.gg/SWBvBkmn9P>Batocera Nation Discord</a></i><br>
@@ -337,6 +339,10 @@ OR<BR>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/portainer.png" width=48 height=48 /><b><i>&nbsp;PORTAINER (Docker)</i></b><br>
 ```curl -L docker.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/portmaster/extra/portmaster.png" width=48 height=48 /><b><i>&nbsp;PORTMASTER (ARM64 Only/Experimental)</i></b><br>
+```curl -L portmaster.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/prism-launcher/extra/icon.png" width=48 height=48 /><b><i>&nbsp;PRISM-LAUNCHER</i></b><br>
