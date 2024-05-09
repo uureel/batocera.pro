@@ -54,7 +54,7 @@ OR<BR>
 ```curl -L antimicrox.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/appimage/extra/appimage.jpg" width=48 height=48 /><b><i>&nbsp;APPIMAGE PARSER (easily add AppImages to Ports) </font></b></i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/appimage/extra/appimage.jpg" width=48 height=48 /><b><i>&nbsp;APPIMAGE PARSER (easily add AppImage Shortcuts to Ports) </font></b></i><br>
 ```curl -L appimage.batocera.pro | bash```
 <br>
 <br>
