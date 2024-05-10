@@ -457,7 +457,7 @@ OR<BR>
 ```curl -L windows.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/wine-custom/icon/wine.png" width=48 height=48 /><b><i>&nbsp;WINE-CUSTOM & PROTON BUILD DOWNLOADER (Vanilla & TKG-STAGING Kron4ek builds for v40+)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/wine-custom/icon/wine.png" width=48 height=48 /><b><i>&nbsp;WINE-CUSTOM & PROTON BUILD DOWNLOADER/INSTALLER (Vanilla & TKG-STAGING Kron4ek builds for v40+)</i></b><br>
 ```curl -L wine.batocera.pro | bash```
 <br>
 <br>
