@@ -18,7 +18,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Prepare the selection menu using dialog
-cmd=(dialog --separate-output --checklist "Select Wine versions to download:" 22 76 16)
+cmd=(dialog --separate-output --checklist "Select Wine/Proton versions to download:" 22 76 16)
 options=()
 i=1
 
