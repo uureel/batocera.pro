@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the options
-OPTIONS=("1" "Wine Vanilla and Proton" "2" "Wine-tkg staging")
+OPTIONS=("1" "Wine Vanilla and Proton" "2" "Wine-TKG-Staging")
 
 # Use dialog to display the menu
 CHOICE=$(dialog --clear --backtitle "Wine Installation" \
