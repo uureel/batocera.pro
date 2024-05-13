@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 # Function to check if a port is in use
 is_port_in_use() {
