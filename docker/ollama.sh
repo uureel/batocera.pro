@@ -11,7 +11,7 @@ is_port_in_use() {
 
 # Check if port 3000 is in use
 if is_port_in_use 3000; then
-    dialog --title "Port Conflict" --msgbox "Port 4000 is already in use. Please ensure it is available before installing Open Web UI." 10 50
+    dialog --title "Port Conflict" --msgbox "Port 3000 is already in use. Please ensure it is available before installing Open Web UI." 10 50
     clear
     exit 1
 fi
