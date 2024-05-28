@@ -59,90 +59,15 @@ if [ -f "conty.sh" ]; then
     sleep 3
     clear
     animate_text "Downloading Shortcuts"
-    
-github_url="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/"
-target_directory="/userdata/roms/conty/"
 
-# List of .sh files to download
-sh_files=(
-"Antimicrox.sh"
-"AppImage-Pool.sh"
-"Audacity.sh"
-"Blender.sh"
-"Boilr.sh"
-"Bottles.sh"
-"Brave.sh"
-"Chiaki.sh"
-"FileManager-Dolphin.sh"
-"FileManager-DoubleCmd.sh"
-"FileManager-Krusader.sh"
-"FileManager-Nemo.sh"
-"FileManager-PCManFM.sh"
-"FileManager-Thunar.sh"
-"Filezilla.sh"
-"Firefox.sh"
-"Flatpak-Config.sh"
-"FreeFileSync.sh"
-"GameHub.sh"
-"Geforce Now.sh"
-"Gimp.sh"
-"Google-Chrome.sh"
-"Gparted.sh"
-"Gthumb.sh"
-"Handbrake.sh"
-"Heroic Game Launcher.sh"
-"Hulu.sh"
-"Inkscape.sh"
-"Kdenlive.sh"
-"Kodi.sh"
-"Libreoffice.sh"
-"Lutris.sh"
-"Microsoft-Edge.sh"
-"Minigalaxy.sh"
-"Moonlight.sh"
-"Netflix.sh"
-"OBS Studio.sh"
-"Peazip.sh"
-"Play on Linux 4.sh"
-"Protonup-Qt.sh"
-"Qbittorrent.sh"
-"Qdirstat.sh"
-"Shotcut.sh"
-"Smplayer.sh"
-"Spotify.sh"
-"Steam Big Picture Mode.sh"
-"Steam Diagnostic.sh"
-"Steam.sh"
-"SteamTinker Launch (settings).sh"
-"SublimeText.sh"
-"Terminal-Kitty.sh"
-"Terminal-Lxterminal.sh"
-"Terminal-Tabby.sh"
-"Terminal-Terminator.sh"
-"Thunderbird.sh"
-"TigerVNC.sh"
-"VLC.sh"
-"WineGUI.sh"
-"Zoom.sh"
-)
+# Update shortcuts
+wget -q --tries=50 -O /tmp/update_shortcuts.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/update_shortcuts.sh
+dos2unix /tmp/update_shortcuts.sh 2>/dev/null
+chmod 777 /tmp/update_shortcuts.sh 2>/dev/null
+bash /tmp/update_shortcuts.sh 
+sleep 1
 
-# Create the target directory if it doesn't exist
-mkdir -p "$target_directory"
-
-# Download the specified .sh files and make them executable
-for file in "${sh_files[@]}"; do
-  # Replace spaces with '%20' for URL encoding
-  encoded_file=$(echo "$file" | sed 's/ /%20/g')
-  echo "Downloading $file..."
-  #curl -sSL "${github_url}${encoded_file}" -o "${target_directory}${file}"
-  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "${target_directory}${file}" "${github_url}${encoded_file}"
-  chmod +x "${target_directory}${file}"
-done
-
-wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /userdata/system/pro/steam/batocera-conty-patcher.sh https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/batocera-conty-patcher.sh
-dos2unix /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
-chmod 777 /userdata/system/pro/steam/batocera-conty-patcher.sh 2>/dev/null
-
+# Clean up
 animate_text "Cleaning up"
 rm -rf ~/pro/steam/build
 echo "DONE"
