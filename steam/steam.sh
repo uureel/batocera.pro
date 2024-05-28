@@ -12,8 +12,8 @@ fi
 
 
 # Define the options
-OPTIONS=("1" "Install STABLE:   Download Arch Container"
-         "2" "Install UNSTABLE: Build container from scratch (can fail!)"
+OPTIONS=("1" "Install STABLE:    Download Arch Container  (RECOMMENDED)"
+         "2" "Install UNSTABLE:  Build Arch Container  (THIS CAN FAIL!)"
          "3" "List all Packages in Container"
          "4" "Uninstall Arch Container"
          "5" "Update Launcher shortcuts for emulationstation Arch container"
