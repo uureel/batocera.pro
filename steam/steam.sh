@@ -12,8 +12,8 @@ fi
 
 
 # Define the options
-OPTIONS=("1" "New Install: Download Arch Container (Older build)"
-         "2" "New Install: Build Arch container from scratch (up to date)"
+OPTIONS=("1" "Install STABLE:   Download Arch Container"
+         "2" "Install UNSTABLE: Build container from scratch (can fail!)"
          "3" "List all Packages in Container"
          "4" "Uninstall Arch Container"
          "5" "Update Launcher shortcuts for emulationstation Arch container"
