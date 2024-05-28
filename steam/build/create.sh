@@ -13,7 +13,7 @@ tar xf $thisdir/utils_dwarfs.tar.gz
 
 # Package groups
 audio_pkgs="alsa-lib lib32-alsa-lib alsa-plugins lib32-alsa-plugins libpulse lib32-libpulse \
-jack2 lib32-jack2 alsa-tools alsa-utils pavucontrol pipewire lib32-pipewire pipewire-media-session"
+jack2 lib32-jack2 alsa-tools alsa-utils pavucontrol pipewire pipwire-pulse lib32-pipewire pipewire-media-session"
 
 video_pkgs="mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
 vulkan-intel lib32-vulkan-intel nvidia-utils lib32-nvidia-utils \
@@ -59,7 +59,7 @@ podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc
 btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace sdl2_mixer python-pysdl2 \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs sdl2_ttf \
 protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zoom  ventoy-bin 7-zip \
-microsoft-edge-stable-bin qdirstat peazip-gtk2-bin pulseaudio pulseaudio-alsa pulse-native-provider pulseaudio-equalizer pulseaudio-qr  protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch"
+microsoft-edge-stable-bin qdirstat peazip-gtk2-bin  steam-rom-manager-git google-chrome steamtinkerlaunch"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="geforcenow-electron freefilesync-bin sgdboop-bin winegui-bin umu-launcher "
