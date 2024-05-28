@@ -12,7 +12,7 @@ tar xf $thisdir/utils_dwarfs.tar.gz
 ########################################################################
 
 # Package groups
-audio_pkgs="alsa-lib lib32-alsa-lib alsa-plugins lib32-alsa-plugins libpulse lib32-libpulse \
+audio_pkgs="alsa-lib lib32-alsa-lib alsa-plugins lib32-alsa-plugins libpulse lib32-libpulse pipewire-pulse \
 jack2 lib32-jack2 alsa-tools alsa-utils pipewire pulseaudio lib32-pipewire pipewire-media-session"
 
 video_pkgs="mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
