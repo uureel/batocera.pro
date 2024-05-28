@@ -13,7 +13,7 @@ tar xf $thisdir/utils_dwarfs.tar.gz
 
 # Package groups
 audio_pkgs="alsa-lib lib32-alsa-lib alsa-plugins lib32-alsa-plugins libpulse lib32-libpulse pipewire-pulse \
-jack2 lib32-jack2 alsa-tools alsa-utils pavucontrol pipewire pulseaudio lib32-pipewire pipewire-media-session"
+jack2 lib32-jack2 alsa-tools alsa-utils pavucontrol pipewire lib32-pipewire pipewire-media-session"
 
 video_pkgs="mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
 vulkan-intel lib32-vulkan-intel nvidia-utils lib32-nvidia-utils \
@@ -62,7 +62,7 @@ protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zo
 microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch"
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="geforcenow-electron freefilesync-bin sgdboop-bin winegui-bin umu-launcher "
+export aur_packagelist="geforcenow-electron pulseaudio-git freefilesync-bin sgdboop-bin winegui-bin umu-launcher "
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
