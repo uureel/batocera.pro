@@ -119,7 +119,7 @@ echo
 	echo "adding appimaged version of greenlight, due to borked yay git builder"
 		link=$(curl -s https://api.github.com/repos/unknownskl/greenlight/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url" | grep AppImage)
 			wget --tries=50 --no-check-certificate --no-cache --no-cookies -O "/usr/bin/greenlight-beta" "$link"
-
+				chmod 777 /usr/bin/greenlight-beta 2>/dev/null
 rm $f 2>/dev/null
 rm $h 2>/dev/null
 
