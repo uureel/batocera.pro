@@ -13,7 +13,7 @@ tar xf $thisdir/utils_dwarfs.tar.gz
 
 # Package groups
 audio_pkgs="alsa-lib lib32-alsa-lib alsa-plugins lib32-alsa-plugins libpulse lib32-libpulse \
-jack2 lib32-jack2 alsa-tools alsa-utils pavucontrol pipewire pipwire-pulse lib32-pipewire pipewire-media-session"
+jack2 lib32-jack2 alsa-tools alsa-utils pavucontrol pulseaudio"
 
 video_pkgs="mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
 vulkan-intel lib32-vulkan-intel nvidia-utils lib32-nvidia-utils \
