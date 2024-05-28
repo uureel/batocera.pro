@@ -59,10 +59,10 @@ podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc
 btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace sdl2_mixer python-pysdl2 \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs sdl2_ttf \
 protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zoom  ventoy-bin 7-zip \
-microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch"
+microsoft-edge-stable-bin qdirstat peazip-gtk2-bin pulseaudio pulseaudio-alsa pulse-native-provider pulseaudio-equalizer pulseaudio-qr  protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch"
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="geforcenow-electron pulseaudio-git freefilesync-bin sgdboop-bin winegui-bin umu-launcher "
+export aur_packagelist="geforcenow-electron freefilesync-bin sgdboop-bin winegui-bin umu-launcher "
 
 # ALHP is a repository containing packages from the official Arch Linux
 # repos recompiled with -O3, LTO and optimizations for modern CPUs for
