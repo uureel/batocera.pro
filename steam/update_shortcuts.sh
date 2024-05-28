@@ -31,7 +31,6 @@ sh_files=(
 "Gimp.sh"
 "Google-Chrome.sh"
 "Gparted.sh"
-"Greenlight.sh"
 "Gthumb.sh"
 "Handbrake.sh"
 "Heroic Game Launcher.sh"
