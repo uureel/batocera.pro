@@ -11,8 +11,6 @@ animate_text() {
     echo # Move to a new line
 }
 
-
-
 # Step 0: Clean the directory
 animate_text "Cleaning build directory by removing it..."
 rm -rf ~/pro/steam/build
