@@ -7,12 +7,16 @@ tempfile=$(mktemp)
 cat > "$tempfile" <<- EOF
 EmuDeck Installer Notes:
 1. When EmuDeck installs, it will open on the main display. 
-Please install and close out to continue installing parsers.
+Please install and close out to continue installing missing steam rom manager parsers.
 
-2. You must launch Steam ROM Manager through EmulationStation, 
-not through the EmuDeck UI.
+2. The Emulationstation Launcher Arch Container shortcuts for Emudeck are set to the
+paths for an "internal" installation.  If you change the location, you'll need to change the paths
+of the shortcuts in /usedata/roms/conty 
 
-3. If there are no parsers, use the parser fix option to redownload them.
+3. You must launch Steam ROM Manager through EmulationStation, 
+not through the EmuDeck UI as it requires a --no-sandbox flag to be run as root.
+
+4. If there are no parsers, use the parser fix option to redownload them.
 EOF
 
 # Display the message in a dialog box
@@ -85,7 +89,7 @@ done
     chmod 777 /userdata/roms/conty/Emudeck.sh
     chmod 777 /userdata/roms/conty/Emudeck-Steam-Rom-Manager.sh
     chmod 777 /userdata/roms/conty/Emudeck-EmulationStation-DE.sh
-
+    chmod 777 /userdata/roms/conty/Emudeck-Pegasus-Front-end.sh
 
 sleep 3
 echo "Starting Emudeck -- Check your main display -- Please install Emudeck, then close out Emudeck (ALT-F4) to continue installation"
