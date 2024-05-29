@@ -56,6 +56,7 @@ apps=(
     ["DOUBLE-COMMANDER"]="curl -Ls doublecmd.batocera.pro | bash"
     ["EDGE"]="curl -Ls edge.batocera.pro | bash"
     ["EKA2L1"]="curl -Ls eka.batocera.pro | bash"
+    ["EMUDECK/CONTAINER"]="curl -Ls arch.batocera.pro | bash"
     ["EMBY/DOCKER"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/emby.sh | bash"
     ["FERDIUM"]="curl -Ls ferdium.batocera.pro | bash"
     ["FILEZILLA"]="curl -Ls filezilla.batocera.pro | bash"
