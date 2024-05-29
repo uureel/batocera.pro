@@ -10,8 +10,8 @@ EmuDeck Installer Notes:
 Please install and close out to continue installing missing steam rom manager parsers.
 
 2. The Emulationstation Launcher Arch Container shortcuts for Emudeck are set to the
-paths for an "internal" installation.  If you change the location, you'll need to change the paths
-of the shortcuts in /usedata/roms/conty 
+paths for an "internal" installation.  If you change the location, you'll need to change the 
+paths of the shortcuts in /usedata/roms/conty 
 
 3. You must launch Steam ROM Manager through EmulationStation, 
 not through the EmuDeck UI as it requires a --no-sandbox flag to be run as root.
