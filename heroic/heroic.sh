@@ -28,6 +28,7 @@ clear
 case $CHOICE in
     1)
         curl -Ls arch.batocera.pro | bash
+        ;;
     2)
         echo "Heroic installer via AppImage..."
         curl -Ls https://github.com/uureel/batocera.pro/raw/main/heroic/install.sh | bash
