@@ -30,11 +30,7 @@ case $CHOICE in
         curl -Ls arch.batocera.pro | bash
     2)
         echo "Heroic installer via AppImage..."
-        rm /tmp/runner 2>/dev/null
-        wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/heroic/install.sh
-        dos2unix /tmp/runner 2>/dev/null 
-        chmod 777 /tmp/runner 2>/dev/null
-        bash /tmp/runner
+        curl -Ls https://github.com/uureel/batocera.pro/raw/main/heroic/install.sh | bash
         ;;
     
     *)
