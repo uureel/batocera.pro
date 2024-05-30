@@ -186,13 +186,8 @@ OR<BR>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/heroic/extra/icon.png" width=48 height=48 />
-<b><i>&nbsp;HEROIC-LAUNCHER </b>(AppImage)</i></b><br>
+<b><i>&nbsp;HEROIC-LAUNCHER </b></i></b><br>
 ```curl -L heroic.batocera.pro | bash```
-<br>
-<br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/heroic-container/icon.png" width=48 height=48 />
-<b><i>&nbsp;HEROIC-LAUNCHER </b>(via Arch Container)</i></b><br>
-```curl -L heroic2.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/hulu/extra/icon.png" width=48 height=48 />
