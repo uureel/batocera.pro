@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Display a dialog box and capture the user's choice
-dialog --title "Warning" --yesno "Due to missing missing 32-bit libs, only proton builds have been verified working.  Wine-GE builds have failed to launch in previous testing.  It is recommended to use the Arch container version for full compatiblity. Proceed anyway?" 10 60
+dialog --title "Warning" --yesno "Due to missing missing 32-bit libs, only proton runners, which have shown xinput issues, have been verified working.  Wine-GE runners have failed to launch in previous testing.  It is recommended to use the Arch container version for full compatiblity. Proceed anyway?" 10 60
 
 # Check the exit status of dialog
 response=$?
