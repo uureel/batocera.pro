@@ -1,39 +1,71 @@
 #!/bin/bash
 
-# Function to display animated title
+# Function to display animated title with colors
 animate_title() {
     local text="BATOCERA PRO APP INSTALLER"
     local delay=0.03
     local length=${#text}
 
+    echo -ne "\e[1;36m"  # Set color to cyan
     for (( i=0; i<length; i++ )); do
         echo -n "${text:i:1}"
         sleep $delay
+    done
+    echo -e "\e[0m"  # Reset color
+}
+
+# Function to display animated border
+animate_border() {
+    local char="#"
+    local width=50
+
+    for (( i=0; i<width; i++ )); do
+        echo -n "$char"
+        sleep 0.02
     done
     echo
 }
 
 # Function to display controls
 display_controls() {
-    echo
+    echo -e "\e[1;32m"  # Set color to green
     echo "Controls:"
     echo "  Navigate with up-down-left-right"
     echo "  Select app with A/B/SPACE and execute with Start/X/Y/ENTER"
-    echo
-    sleep 4  # Delay for 5 seconds
+    echo -e "\e[0m"  # Reset color
+    sleep 4
+}
+
+# Function to display loading animation
+loading_animation() {
+    local delay=0.1
+    local spinstr='|/-\'
+    echo -n "Loading "
+    while :; do
+        for (( i=0; i<${#spinstr}; i++ )); do
+            echo -ne "${spinstr:i:1}"
+            echo -ne "\010"
+            sleep $delay
+        done
+    done &
+    spinner_pid=$!
+    sleep 3
+    kill $spinner_pid
+    echo "Done!"
 }
 
 # Main script execution
 clear
+animate_border
 animate_title
+animate_border
 display_controls
-
 
 # Define an associative array for app names and their install commands
 declare -A apps
 apps=(
     # ... (populate with your apps as shown before)
-    ["ARCH-CONTAINER"]="curl -Ls steam.batocera.pro | bash"
+ ["ARCH-CONTAINER"]="curl -Ls steam.batocera.pro | bash"
     ["7ZIP"]="curl -Ls 7zip.batocera.pro | bash"
     ["86BOX"]="curl -Ls 86box.batocera.pro | bash"
     ["ALTUS"]="curl -Ls altus.batocera.pro | bash"
@@ -140,6 +172,8 @@ apps=(
     ["WINE-MANAGER"]="curl -Ls winemanager.batocera.pro | bash"
     ["YARG/YARC-LAUNCHER"]="curl -Ls yarg.batocera.pro | bash"
     ["YOUTUBE-TV"]="curl -Ls yttv.batocera.pro | bash"
+
+    # Add other apps here
 )
 
 # Prepare array for dialog command, sorted by app name
@@ -167,7 +201,7 @@ for choice in $choices; do
         dos2unix /tmp/.app 2>/dev/null
         chmod 777 /tmp/.app 2>/dev/null
         clear
-        # Run installer w/o refreshing ES
+        loading_animation
         sed 's,:1234,,g' /tmp/.app | bash
         echo -e "\n\n$choice DONE.\n\n"
     else 
@@ -179,3 +213,4 @@ done
 curl http://127.0.0.1:1234/reloadgames
 
 echo "Exiting."
+
