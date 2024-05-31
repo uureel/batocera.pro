@@ -51,15 +51,15 @@ minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
 ripgrep i7z sd bandwhich tre zoxide p7zip atop iftop sysstat totem feh krename \
 bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli \
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader file discord \
-docker docker-compose portainer-bin gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole \
+docker docker-compose portainer-bin unzip gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename glances \
 steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat  appimagepool-appimage \
-kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs tre screenfetch \
-podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc yarn sdl2 sdl2_image \
+kate kmod pciutils xrdp x11vnc tigervnc onboard remmina vinagre freerdp sunshine btrfs-progs tre screenfetch \
+podman distrobox cheese filezilla dos2unix blender wmctrl xorg-xprop fzf scc yarn sdl2 sdl2_image \
 btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace sdl2_mixer python-pysdl2 \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs sdl2_ttf \
-protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zoom  ventoy-bin 7-zip \
-microsoft-edge-stable-bin qdirstat peazip-gtk2  steam-rom-manager-git google-chrome steamtinkerlaunch"
+protontricks-git chiaki sublime-text-4 fuse2 heroic-games-launcher-bin moonlight-qt zoom  ventoy-bin 7-zip \
+microsoft-edge-stable-bin qdirstat peazip-gtk2 jq steam-rom-manager-git google-chrome steamtinkerlaunch"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="geforcenow-electron freefilesync-bin sgdboop-bin winegui-bin umu-launcher "
