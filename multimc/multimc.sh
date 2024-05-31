@@ -478,6 +478,20 @@ if [[ "$(java --version | sed '1q;d' | awk '{print $2}')" < "19" ]]; then
 echo -e "${R}--------------------------------------------${W}"
 echo -e "${R}YOU ALSO NEED TO INSTALL LATEST JAVA-RUNTIME${W}" 
 echo -e "${R}--------------------------------------------${W}"
+# Display a dialog box to the user
+dialog --title "Java Runtime Installation" --yesno "This Application needs Java Runtimes. Would you like to Install now?" 7 60
+
+# Get the exit status of the dialog command
+response=$?
+
+if [ $response -eq 0 ]; then
+    # User selected "Yes"
+    curl -L java.batocera.pro | bash
+else
+    # User selected "No" or pressed "Cancel"
+    echo "Installation aborted."
+    exit 1
+fi
 fi
 sleep 4
 # reaload for ports file
