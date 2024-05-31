@@ -64,12 +64,9 @@ apps=(
 "Zoom"
 )
 
-# Use dialog to display the list in a message box
-dialog --title "Container Apps Available via EmulationStation" --msgbox "$(printf '%s\n' "${apps[@]}")" 30 55
-
 # Package groups
-audio_pkgs="alsa-lib lib32-alsa-lib alsa-plugins lib32-alsa-plugins libpulse \
-lib32-libpulse jack2 lib32-jack2 alsa-tools alsa-utils pipewire pulseaudio lib32-pipewire"
+audio_pkgs="alsa-lib lib32-alsa-lib alsa-plugins lib32-alsa-plugins libpulse lib32-libpulse \
+jack2 lib32-jack2 alsa-tools alsa-utils pavucontrol pipewire lib32-pipewire"
 
 video_pkgs="mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
 vulkan-intel lib32-vulkan-intel nvidia-utils lib32-nvidia-utils \
@@ -93,6 +90,9 @@ lib32-gst-plugins-base gst-libav wget wine-mono wine-gecko"
 devel_pkgs="base-devel git meson mingw-w64-gcc cmake"
 
 # Packages to install
+# You can add packages that you want and remove packages that you don't need
+# Apart from packages from the official Arch repos, you can also specify
+# packages from the Chaotic-AUR repo
 export packagelist="${audio_pkgs} ${video_pkgs} ${wine_pkgs} ${devel_pkgs} \
 nano ttf-dejavu ttf-liberation steam firefox mpv pcmanfm strace nnn bat \
 htop qbittorrent aria2 neofetch xorg-xwayland kdenlive gedit btop ranger \
@@ -103,19 +103,20 @@ xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet nvtop duf exa \
 minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
 ripgrep i7z sd bandwhich tre zoxide p7zip atop iftop sysstat totem feh krename \
 bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli \
-podman distrobox cheese filezilla dos2unix nix blender wmctrl xorg-xprop fzf scc \
-handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader strace file glances \
-docker docker-compose portainer-bin gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole screenfetch procs tre \
-gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd greenlight-git krusader mcpelauncher-linux-git krename imagemagick xfce4 \
-kate kmod pciutils xrdp x11vnc tigervnc remmina vinagre freerdp sunshine btrfs-progs \
-btrfs-heatmap meld lynx yq xfce4-goodies xorg xorg-server-xvfb nodejs npm cairo-dock   \
-tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki  \
-freefilesync-bin steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat  \
-protontricks-git chiaki sublime-text-4 heroic-games-launcher-bin moonlight-qt zoom balena-etcher ventoy-bin 7-zip \
-microsoft-edge-stable-bin qdirstat peazip-gtk2-bin protonup-qt steam-rom-manager-git google-chrome steamtinkerlaunch "
+handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader file discord \
+docker docker-compose portainer-bin unzip gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole \
+gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename glances \
+steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat  appimagepool-appimage \
+kate kmod pciutils xrdp x11vnc tigervnc onboard remmina vinagre freerdp sunshine btrfs-progs tre screenfetch \
+podman distrobox cheese filezilla dos2unix blender wmctrl xorg-xprop fzf scc yarn sdl2 sdl2_image \
+btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace sdl2_mixer python-pysdl2 \
+tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs sdl2_ttf \
+protontricks-git chiaki sublime-text-4 fuse2 heroic-games-launcher-bin moonlight-qt zoom  ventoy-bin 7-zip \
+microsoft-edge-stable-bin qdirstat peazip-gtk2 jq steam-rom-manager-git google-chrome steamtinkerlaunch"
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="geforcenow-electron appimagetool-bin sgdboop-bin winegui-bin umu-launcher"
+export aur_packagelist="geforcenow-electron freefilesync-bin sgdboop-bin winegui-bin umu-launcher "
+
 
 # Concatenate all packages and sort them alphabetically
 all_packages=$(echo "$audio_pkgs $video_pkgs $wine_pkgs $devel_pkgs $packagelist $aur_packagelist" | tr ' ' '\n' | sort | tr '\n' ' ')
@@ -123,7 +124,7 @@ all_packages=$(echo "$audio_pkgs $video_pkgs $wine_pkgs $devel_pkgs $packagelist
 # Function to display packages using dialog
 show_packages() {
     dialog --backtitle "Package List as of Apr. 11, 2024" \
-    --title "All Packages--May 5, 2024" \
+    --title "All Packages--May 31, 2024" \
     --msgbox "$all_packages" 20 70
 }
 
