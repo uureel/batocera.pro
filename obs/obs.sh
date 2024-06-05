@@ -6,8 +6,10 @@ APPNAME="OBS-STUDIO" # for installer info
 appname=obs   # directory name in /userdata/system/pro/...
 AppName=obs   # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=http://batocera.pro/app/obs.AppImage
-ORIGIN="APPREPO.DE/APPIMAGE/OBS-STUDIO" # credit & info
+APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/OBS-Studio-appimage/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url")
+ORIGIN="github.com/ivan-hc/OBS-Studio-appimage" # credit & info
+#APPLINK=http://batocera.pro/app/obs.AppImage
+#ORIGIN="APPREPO.DE/APPIMAGE/OBS-STUDIO" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
 # show console/ssh info: 
