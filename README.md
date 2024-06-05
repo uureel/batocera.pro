@@ -300,8 +300,8 @@ OR<BR>
 ```curl -L nvtop.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/obs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;OBS-STUDIO</i></b><br>
-```curl -L obs.batocera.pro | bash```
+<img src="https://github.com/uureel/batocera.pro/raw/main/obs/extra/icon.png" width=48 height=48 /><b><i>&nbsp;OBS-STUDIO (via Arch Container)</i></b><br>
+```curl -L arch.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/odio/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ODIO</i></b><br>
