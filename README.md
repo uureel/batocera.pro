@@ -388,6 +388,10 @@ OR<BR>
 ```curl -L sayonara.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/sheepshaver/extra/SheepShaver.png" width=48 height=48 /><b><i>&nbsp;SHEEPSHAVER</i></b> <br>
+```curl -L sheepshaver.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/smplayer/extra/icon.png" width=48 height=48 /><b><i>&nbsp;SMPLAYER</i></b> <br>
 ```curl -L smplayer.batocera.pro | bash```
 <br>
