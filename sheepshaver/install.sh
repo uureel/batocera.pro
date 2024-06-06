@@ -23,7 +23,7 @@ cat <<EOF > /userdata/roms/ports/SheepShaver.sh
 DISPLAY=:0.0 ~/pro/sheepshaver/SheepShaver-x86_64.AppImage
 EOF
 
-chmod +x /userdata/roms/ports/sheepshaver.sh
+chmod +x /userdata/roms/ports/SheepShaver.sh
 echo "Installation complete. You can now launch SheepShaver in PORTS"
 sleep 3
 
