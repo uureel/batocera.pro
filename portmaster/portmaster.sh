@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Display a dialog box and capture the user's choice
-dialog --title "Warning" --yesno "This is an older version of PortMaster that has been modified to work with Batocera. Tested on v39 Raspberry PI 3b+ and 4. Devices < 2gb RAM may experience crashes. Game Compatibility Varies between devices. It is experimental and not supported by Batocera PRO or the Portmaster Dev team--no support will be offered for using this version. Proceed?" 10 60
+dialog --title "Warning" --yesno "This is an older version of PortMaster that has been modified to work with Batocera. Tested on v39 Raspberry PI 3b+ and 4. Devices < 2gb RAM may experience crashes. Game Compatibility Varies between devices. It is experimental and not supported by Batocera PRO or the Portmaster Dev team--no support will be offered for using this version. Proceed?" 15 80
 
 # Check the exit status of dialog
 response=$?
