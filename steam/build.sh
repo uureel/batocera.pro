@@ -40,6 +40,18 @@ curl -Ls https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/
 # Make the scripts executable
 chmod 777 compress.sh conty-start.sh create.sh 2>/dev/null
 
+# Ask the user if they want to edit create.sh to add any packages
+dialog --yesno "Do you want to edit create.sh to add or remove any packages from Arch repos, Chaotic repos, or AUR?" 10 60
+response=$?
+
+if [ $response -eq 0 ]; then
+    # Prompt the user to add packages
+    dialog --msgbox "Please add or remove any packages from the Arch repos, Chaotic repos, or AUR." 10 60
+
+    # Open create.sh in nano for editing
+    nano create.sh
+fi
+
 # Run scripts with animated messages
 animate_text "Running create.sh..."
 bash ./create.sh
