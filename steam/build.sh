@@ -51,6 +51,7 @@ if [ $response -eq 0 ]; then
     # Open create.sh in nano for editing
     nano create.sh
 fi
+clear
 
 # Run scripts with animated messages
 animate_text "Running create.sh..."
