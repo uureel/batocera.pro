@@ -48,8 +48,8 @@ if [ $response -eq 0 ]; then
     # Prompt the user to add packages
     dialog --msgbox "Please add or remove any packages from the Arch repos, Chaotic repos, or AUR." 10 60
 
-    # Open create.sh in nano for editing
-  bash nano ~/pro/steam/build/create.sh
+    # Open create.shor editing
+  nano ~/pro/steam/build/create.sh &&
 fi
 clear
 
