@@ -12,18 +12,18 @@ fi
 
 
 # Define the options
-OPTIONS=("1" "Install STABLE:    Download Arch Container  (RECOMMENDED)"
-         "2" "Install UNSTABLE:  Build Arch Container  (THIS CAN FAIL!)"
+OPTIONS=("1" "Install STABLE: Download prebuilt Arch Container (RECOMMENDED)"
+         "2" "Install UNSTABLE: Build Container from scratch (ARCH MIRRORS CAN FAIL!)"
          "3" "List all Packages in Container"
          "4" "Uninstall Arch Container"
-         "5" "Update Launcher shortcuts for emulationstation Arch container"
-         "6" "Re-download container"
-         "7" "Update apps/rebuild container (CAN FAIL/~45-90min/30GB free space needed)"
+         "5" "Update ES Launcher shortcuts for Arch container"
+         "6" "Re-download prebuilt container"
+         "7" "Container Update (MIRRORS CAN FAIL/~45-90min/30GB free space needed)"
          "8" "Addon: DESKTOP/WINDOWED Mode (Experimental)"
          "9" "Addon: Add/Update Lutris Menu & Shortcuts to Emulationstation"
          "10" "Addon: Add/Update Heroic Menu & Shortcuts to Emulationstation"
          "11" "Addon: Emudeck (experimental)"
-         "12" "Addon: Add/Update Webapps Web/Internet Menu to Emulationstation")
+         "12" "Addon: Nativefier (turn websites into apps and add to ES Menu ")
 
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Arch Container Management" \
