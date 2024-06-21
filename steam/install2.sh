@@ -9,7 +9,7 @@ if [ "$architecture" != "x86_64" ]; then
     exit 1
 fi
 
-MESSAGE="Since Version 39 of Batocera, apparently due to SDL changes, xinput over bluetooth does not work on steam in the Arch container. Xbox One/S/X controllers are verified working via wired USB or Xbox wireless adapter only. 8bitDO controller users can switch their input mode to d-input or switch input.  Continue?"
+MESSAGE="Since Version 39 of Batocera, apparently due to kernel and/or SDL changes, xinput over bluetooth does not work on steam in the Arch container. Xbox One/S/X controllers are verified working via wired USB or Xbox wireless adapter only. 8bitDO controller users can switch their input mode to d-input or switch input.  Continue?"
 
 # Use dialog to create a yes/no box
 if dialog --title "Compatibility Warning" --yesno "$MESSAGE" 10 70; then
@@ -122,7 +122,7 @@ sleep 1
 
 ###############
 
-MSG="Install Done.  You should see a new system  in EmulatiationStation called Linux or Arch Container depending on theme\nNVIDIA Users: Drivers will download on First app start-up & can take a while."
+MSG="Install Done.  You should see a new system  in EmulatiationStation called Linux or Arch Container depending on theme\nNVIDIA Users: Drivers will download in the background on First app start-up & can take a while."
 dialog --title "Arch Container Setup Complete" --msgbox "$MSG" 20 70
 
 ###############
