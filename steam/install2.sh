@@ -83,7 +83,10 @@ fi
 if [ ! -d "$HOME_DIR" ]; then
   mkdir -p "$HOME_DIR"
 fi
-   
+
+########
+#make steam2 folder for steam shortcuts
+mkdir -p /userdata/roms/steam2
 ###############
 
 # Step 3: Download conty.sh with download percentage indicator
