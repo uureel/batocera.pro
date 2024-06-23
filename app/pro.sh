@@ -70,6 +70,7 @@ apps=(
     ["86BOX"]="curl -Ls 86box.batocera.pro | bash"
     ["ALTUS"]="curl -Ls altus.batocera.pro | bash"
     ["AMAZON-LUNA"]="curl -Ls amazonluna.batocera.pro | bash"
+    ["ANDROID-BLISS_OS/DOCKER/QEMU"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/bliss_install.sh | bash" 
     ["ANTIMICROX"]="curl -Ls antimicrox.batocera.pro | bash"
     ["APPIMAGE-PARSER"]="curl -Ls appimage.batocera.pro | bash"
     ["ATOM"]="curl -Ls atom.batocera.pro | bash"
