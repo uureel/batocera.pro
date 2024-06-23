@@ -65,12 +65,12 @@ display_controls
 declare -A apps
 apps=(
     # ... (populate with your apps as shown before)
- ["ARCH-CONTAINER"]="curl -Ls steam.batocera.pro | bash"
+    ["ARCH-CONTAINER"]="curl -Ls steam.batocera.pro | bash"
     ["7ZIP"]="curl -Ls 7zip.batocera.pro | bash"
     ["86BOX"]="curl -Ls 86box.batocera.pro | bash"
     ["ALTUS"]="curl -Ls altus.batocera.pro | bash"
     ["AMAZON-LUNA"]="curl -Ls amazonluna.batocera.pro | bash"
-    ["ANDROID-BLISS_OS/DOCKER/QEMU"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/bliss_install.sh | bash" 
+    ["ANDROID/BLISS-OS/DOCKER/QEMU"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/bliss_install.sh | bash" 
     ["ANTIMICROX"]="curl -Ls antimicrox.batocera.pro | bash"
     ["APPIMAGE-PARSER"]="curl -Ls appimage.batocera.pro | bash"
     ["ATOM"]="curl -Ls atom.batocera.pro | bash"
