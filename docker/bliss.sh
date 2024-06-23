@@ -1,3 +1,6 @@
+echo "Starting Bliss OS...This can take a while..."
+echo "Adjust display to fit to screen in top menu bar settings"
+echo ""
 docker run -it \
     --privileged \
     --device /dev/kvm \
