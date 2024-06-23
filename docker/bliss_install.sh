@@ -40,7 +40,7 @@ fi
 
 
 # Final dialog message with Portainer management info
-MSG="Bliss OS Docker container has been set up.\n\nBliss-OS can be run from ports\n\nAdjust other settings in your clients as needed.\n\nThe container can be managed via Portainer web UI on port 9443."
+MSG="Bliss OS Docker container has been set up.\n\nBliss-OS can be run from ports--startup takes a while...\n\nAdjust other settings in your clients as needed.\n\nThe container can be managed via Portainer web UI on port 9443."
 dialog --title "Bliss OS Setup Complete" --msgbox "$MSG" 20 70
 
 clear
