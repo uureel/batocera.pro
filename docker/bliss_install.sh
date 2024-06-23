@@ -38,17 +38,6 @@ if is_port_in_use 5930; then
     exit 1
 fi
 
-# Bliss Docker config
-docker run -it \
-    --privileged \
-    --device /dev/kvm \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -e "DISPLAY=${DISPLAY:-:0.0}" \
-    --net=host \
-    --device=/dev/dri \
-    --group-add video \
-    -e EXTRA='-display gtk,gl=on -vga qxl -spice port=5930,disable-ticketing' \
-    sickcodes/dock-droid:latest
 
 # Final dialog message with Portainer management info
 MSG="Bliss OS Docker container has been set up.\n\nBliss-OS can be run from ports\n\nAdjust other settings in your clients as needed.\n\nThe container can be managed via Portainer web UI on port 9443."
