@@ -1,6 +1,15 @@
 echo "Starting Bliss OS...This can take a while..."
 echo "Adjust display to fit to screen in top menu bar settings"
 echo ""
+# Check if the container is already running
+if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
+    dialog --title "Container Running" --msgbox "The Bliss OS Docker container is already running." 10 50
+else
+    # Check if the container exists
+    if [ "$(docker ps -aq -f name=$CONTAINER_NAME)" ]; then
+        # Start the existing container
+        docker start $CONTAINER_NAME
+
 docker run -it \
     --privileged \
     --device /dev/kvm \
