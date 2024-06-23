@@ -2,7 +2,7 @@
 
 CONTAINER_NAME="bliss"
 
-docker run -it \
+docker run -i \
     --privileged \
     --device /dev/kvm \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
