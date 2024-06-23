@@ -13,6 +13,5 @@ docker run -it \
     --group-add video  \
     --device /dev/snd \
     --group-add audio \
-   
     -e EXTRA='-display gtk,gl=on -vga qxl -spice port=5930,disable-ticketing' \
     sickcodes/dock-droid:latest
