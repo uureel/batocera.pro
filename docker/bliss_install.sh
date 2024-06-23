@@ -46,7 +46,7 @@ fi
 clear
 echo "Loading container... After Docker pulls the container, it should start in the main display after a while."
 sleep 5
-
+curl -L https://github.com/uureel/batocera.pro/raw/main/docker/bliss_cli.sh | bash
 
 
 # Final dialog message with Portainer management info
