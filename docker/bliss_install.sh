@@ -22,7 +22,7 @@ if ! command -v docker &> /dev/null; then
     fi
 fi
 
-# Create directories and download necessary scripts
+# Create directories if they don't exist and download necessary scripts
 mkdir -p ~/pro/bliss
 curl -L https://github.com/uureel/batocera.pro/raw/main/docker/bliss.sh -o ~/pro/bliss/bliss.sh
 chmod +x ~/pro/bliss/bliss.sh
@@ -38,11 +38,10 @@ if is_port_in_use 5930; then
     exit 1
 fi
 
-echo "Loading container...after docker pulls container, It should start in the main display after a while.."
+echo "Loading container... After Docker pulls the container, it should start in the main display after a while."
 sleep 5
 
 CONTAINER_NAME="bliss"
-
 
 docker run -it \
     --privileged \
@@ -53,16 +52,12 @@ docker run -it \
     -p 5555:5555 \
     -p 50922:10022 \
     --device=/dev/dri \
-    --group-add video  \
+    --group-add video \
     --device /dev/snd \
     --group-add audio \
     -e EXTRA='-display gtk,gl=on -vga qxl -spice port=5930,disable-ticketing' \
-     --name $CONTAINER_NAME \
+    --name $CONTAINER_NAME \
     sickcodes/dock-droid:latest
-
-
-
-
 
 # Final dialog message with Portainer management info
 MSG="Bliss OS Docker container has been set up.\n\nBliss-OS can be run from ports--startup takes a while...\n\nAdjust other settings in your clients as needed.\n\nThe container can be managed via Portainer web UI on port 9443."
