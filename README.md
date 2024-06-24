@@ -51,7 +51,7 @@ OR<BR>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/droid.png" width=48 height=48 /><b><i>&nbsp;ANDROID/BLISS OS (DOCKER/QEMU)</i></b> <br>
-```User Batocera PRO GUI installer```
+```Use Batocera PRO GUI installer```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/antimicrox/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ANTIMICROX </font></b></i><br>
