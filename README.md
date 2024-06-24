@@ -236,11 +236,11 @@ OR<BR>
 ```curl -L ksnip.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX XFCE/I3/MATE/KDE DESKTOPS (UBUNTU/FEDORA/ARCH/ALPINE distros via RDP/DOCKER)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.png" width=48 height=48 /><b><i>&nbsp;LINUX XFCE/I3/MATE/KDE DESKTOPS (UBUNTU/FEDORA/ARCH/ALPINE distros via RDP/DOCKER)</i></b><br>
 ```curl -L rdp.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.jpg" width=48 height=48 /><b><i>&nbsp;LINUX VIRTUAL MACHINES (via QEMU/DOCKER)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/tux.png" width=48 height=48 /><b><i>&nbsp;LINUX VIRTUAL MACHINES (via QEMU/DOCKER)</i></b><br>
 ```curl -L qemu.batocera.pro | bash```
 <br>
 <br>
