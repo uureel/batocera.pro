@@ -26,15 +26,16 @@ fi
 clear
 echo "Installing Launcher.."
 mkdir -p ~/pro/bliss
-curl -L https://github.com/uureel/batocera.pro/raw/main/docker/bliss.sh -o ~/pro/bliss/bliss.sh
+curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/bliss.sh -o ~/pro/bliss/bliss.sh
 chmod +x ~/pro/bliss/bliss.sh
 sleep 5
 
 echo "Installing Shortcut to ports..."
 mkdir -p /userdata/roms/ports
-curl -L https://github.com/uureel/batocera.pro/raw/main/docker/Bliss-OS.sh -o /userdata/roms/ports/Bliss-OS.sh
+curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/Bliss-OS.sh -o /userdata/roms/ports/Bliss-OS.sh
 chmod +x /userdata/roms/ports/Bliss-OS.sh
 sleep 5
+clear
 
 # Check if port 5930 is in use
 if is_port_in_use 5930; then
@@ -46,7 +47,7 @@ fi
 clear
 echo "Loading container... After Docker pulls the container, it should start in the main display after a while."
 sleep 5
-curl -L https://github.com/uureel/batocera.pro/raw/main/docker/bliss_cli.sh | bash
+curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/bliss_cli.sh | bash
 
 
 # Final dialog message with Portainer management info
