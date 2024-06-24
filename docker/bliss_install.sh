@@ -1,5 +1,7 @@
 #!/bin/bash
 
+dialog --title "Warning" --yesno "This container is experimental and not supported by Batocera PRO. Contact sickcodes github repo or bliss os for support. Proceed?" 15 80
+
 # Function to check if a port is in use
 is_port_in_use() {
     if lsof -i:$1 > /dev/null 2>&1; then
