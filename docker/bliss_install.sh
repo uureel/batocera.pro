@@ -1,7 +1,19 @@
 #!/bin/bash
 
+# Display the warning message
 dialog --title "Warning" --yesno "This container is experimental and not supported by Batocera PRO. Contact sickcodes github repo or bliss os for support. Proceed?" 15 80
 
+# Capture the exit status of the dialog command
+response=$?
+
+# Check the response and exit if "No" (exit status 1) is selected
+if [ $response -ne 0 ]; then
+  echo "Exiting..."
+  exit 1
+fi
+
+# Continue with the rest of the script if "Yes" (exit status 0) is selected
+echo "Proceeding with the script..."
 # Function to check if a port is in use
 is_port_in_use() {
     if lsof -i:$1 > /dev/null 2>&1; then
