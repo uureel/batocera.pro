@@ -106,7 +106,12 @@ echo
 			cp -r ${PWD}/* $p/
 			cd $p 
 			rm -rf $t
-			echo "added fightcade2 latest realease"
+				if [[ -f "${p}"/Fightcade2.sh ]]; 
+					then
+					ln -sf "${p}"/Fightcade2.sh /usr/bin/fightcade 2>/dev/null
+					ln -sf "${p}"/Fightcade2.sh /usr/bin/fightcade2 2>/dev/null
+					echo "added fightcade2 latest realease"
+				fi
 
 #--------------------------------------------------------------------------------------------
 # add blender
