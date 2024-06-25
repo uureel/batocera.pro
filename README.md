@@ -150,7 +150,7 @@ OR<BR>
 ```curl -L ffnightly.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/fightcade/extra/icong.png" width=48 height=48 /><b><i>&nbsp;FIGHTCADE 2</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/fightcade/extra/icong.png" width=48 height=48 /><b><i>&nbsp;FIGHTCADE 2 (via Arch Container)</i></b><br>
 ```curl -L fightcade.batocera.pro | bash```
 <br>
 <br>
