@@ -105,15 +105,8 @@ echo
 			cd ${PWD}/*/
 			cp -r ${PWD}/* $p/
 			cd $p 
-			sed -i 's,${FC2} --no-sandbox,killall -9 fc2-electron 2>/dev/null \&\& dbus-run-session ${FC2} --no-sandbox,g' $p/Fightcade2.sh
-			rm /usr/bin/fightcade /usr/bin/fightcade2 2>/dev/null
 			rm -rf $t
-				if [[ -f "${p}"/Fightcade2.sh ]]; 
-					then
-					ln -sf "${p}"/Fightcade2.sh /usr/bin/fightcade 2>/dev/null
-					ln -sf "${p}"/Fightcade2.sh /usr/bin/fightcade2 2>/dev/null
-					echo "added fightcade2 latest realease"
-				fi
+			echo "added fightcade2 latest realease"
 
 #--------------------------------------------------------------------------------------------
 # add blender
