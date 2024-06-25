@@ -16,6 +16,7 @@ sh_files=(
 "Bottles.sh"
 "Brave.sh"
 "Chiaki.sh"
+"Fightcade.sh"
 "FileManager-Dolphin.sh"
 "FileManager-DoubleCmd.sh"
 "FileManager-Krusader.sh"
