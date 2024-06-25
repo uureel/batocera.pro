@@ -51,7 +51,7 @@ OR<BR>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/droid.png" width=48 height=48 /><b><i>&nbsp;ANDROID/BLISS OS (Docker/QEMU)</i></b> <br>
-```Use Batocera PRO installer in PORTS (install info above)```
+```curl -L android.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/antimicrox/extra/icon.png" width=48 height=48 /><b><i>&nbsp;ANTIMICROX </font></b></i><br>
