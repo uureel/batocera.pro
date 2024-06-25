@@ -216,7 +216,7 @@ OR<BR>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/jellyfin.png" width=48 height=48 /></a>
-<b><i>&nbsp;JELLYFIN (Docker)</i></b><br>
+<b><i>&nbsp;JELLYFIN SERVER (Docker)</i></b><br>
 ```curl -L jellyfin.batocera.pro | bash```
 <br>
 <br>
