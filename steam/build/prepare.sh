@@ -41,31 +41,30 @@
 	      mkdir -p $C/overlayfs_$md5/up/etc 2>/dev/null
 	        cp -r /etc/ld.so.cache $C/nvidia/ld.so.cache-$v-$md5 2>/dev/null
 	  fi
-	  # & patch nv drivers for nvenc support
-		  if [[ ! -s "$C/nvidia/patch.sh" ]]; then
-		  	wget -q --tries=30 -O "$C/nvidia/patch.sh" "https://raw.githubusercontent.com/keylase/nvidia-patch/master/patch.sh" 2>/dev/null
-		  	if [[ -s "$C/nvidia/patch-fbc.sh" ]]; then
-			  	dos2unix "$C/nvidia/patch.sh" 2>/dev/null
-			  	chmod 777 "$C/nvidia/patch.sh" 2>/dev/null
-		  		"$C/nvidia/patch.sh" 1>/dev/null 2>/dev/null
-			  fi
-		  else
-		  	if [[ -f "$C/nvidia/patch.sh" ]]; then
-		  		"$C/nvidia/patch.sh" 1>/dev/null 2>/dev/null
-		  	fi
-		  fi
-		  if [[ ! -s "$C/nvidia/patch-fbc.sh" ]]; then
-		  	wget -q --tries=30 -O "$C/nvidia/patch-fbc.sh" "https://raw.githubusercontent.com/keylase/nvidia-patch/master/patch-fbc.sh" 2>/dev/null
-		  	if [[ -s "$C/nvidia/patch-fbc.sh" ]]; then
-			  	dos2unix "$C/nvidia/patch-fbc.sh" 2>/dev/null
-			  	chmod 777 "$C/nvidia/patch-fbc.sh" 2>/dev/null
-			  	"$C/nvidia/patch-fbc.sh" 1>/dev/null 2>/dev/null
-			  fi
-		  else
-		  	if [[ -f "$C/nvidia/patch-fbc.sh" ]]; then
-			  	"$C/nvidia/patch-fbc.sh" 1>/dev/null 2>/dev/null
-			  fi
-		  fi
+	  #
+	  	# & patch nv drivers for nvenc support
+				#------------------------------------
+		  	patch="$C/overlayfs_$md5/up/bin/nvidia-patch.sh"
+				  if [[ ! -s "$patch" ]]; then
+				  	wget -q --tries=30 -O "$patch" "https://raw.githubusercontent.com/keylase/nvidia-patch/master/patch.sh" 2>/dev/null
+				  fi
+				  #\
+					  if [[ -s "$patch" ]]; then
+						  dos2unix "$patch" 1>/dev/null 2>/dev/null
+						  chmod 777 "$patch" 1>/dev/null 2>/dev/null
+					  		"$patch" 1>/dev/null 2>/dev/null
+					  fi
+				#------------------------------------
+		  	patchfbc="$C/overlayfs_$md5/up/bin/nvidia-patch-fbc.sh"
+				  if [[ ! -s "$patchfbc" ]]; then
+				  	wget -q --tries=30 -O "$patchfbc" "https://raw.githubusercontent.com/keylase/nvidia-patch/master/patch-fbc.sh" 2>/dev/null
+				  fi
+				  #\
+				  	if [[ -s "$patchfbc" ]]; then
+					  	dos2unix "$patchfbc" 1>/dev/null 2>/dev/null
+					  	chmod 777 "$patchfbc" 1>/dev/null 2>/dev/null
+					  		"$patchfbc" 1>/dev/null 2>/dev/null
+					  fi
 	fi
 
 # ----------------------------------------------------
