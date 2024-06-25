@@ -328,7 +328,7 @@ OR<BR>
 ```curl -L photocollage.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/plex.png" width=48 height=48 /><b><i>&nbsp;PLEX SERVER(Docker)</i></b><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/plex.png" width=48 height=48 /><b><i>&nbsp;PLEX SERVER (Docker)</i></b><br>
 ```curl -L plex.batocera.pro | bash```
 <br>
 <br>
