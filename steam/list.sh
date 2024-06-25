@@ -64,6 +64,7 @@ apps=(
 "Zoom"
 )
 
+
 # Package groups
 audio_pkgs="alsa-lib lib32-alsa-lib alsa-plugins lib32-alsa-plugins libpulse lib32-libpulse \
 jack2 lib32-jack2 alsa-tools alsa-utils pavucontrol pipewire lib32-pipewire"
@@ -75,7 +76,7 @@ lib32-vulkan-mesa-layers libva-mesa-driver lib32-libva-mesa-driver \
 libva-intel-driver lib32-libva-intel-driver intel-media-driver \
 mesa-utils vulkan-tools nvidia-prime libva-utils lib32-mesa-utils"
 
-wine_pkgs="wine-tkg-staging-fsync-git winetricks-git wine-nine wineasio \
+wine_pkgs="wine-tkg-staging-fsync-git winetricks wine-nine wineasio \
 giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap \
 gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal \
 v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins \
@@ -102,21 +103,20 @@ qt5-wayland xorg-server-xephyr inkscape openbox obs-studio gamehub binutils \
 xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet nvtop duf exa \
 minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
 ripgrep i7z sd bandwhich tre zoxide p7zip atop iftop sysstat totem feh krename \
-bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli \
-handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader file discord \
+bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli mullvad-browser-bin \
+handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader file discord pcem \
 docker docker-compose portainer-bin unzip gthumb doublecmd-qt6 dolphin nmon thunar nemo konsole \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename glances \
 steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat  appimagepool-appimage \
 kate kmod pciutils xrdp x11vnc tigervnc onboard remmina vinagre freerdp sunshine btrfs-progs tre screenfetch \
-podman distrobox cheese filezilla dos2unix blender wmctrl xorg-xprop fzf scc yarn sdl2 sdl2_image \
+podman distrobox cheese filezilla dos2unix wmctrl xorg-xprop fzf scc yarn sdl2 sdl2_image squashfs-tools \
 btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace sdl2_mixer python-pysdl2 \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs sdl2_ttf \
 protontricks-git chiaki sublime-text-4 fuse2 heroic-games-launcher-bin moonlight-qt zoom  ventoy-bin 7-zip \
-microsoft-edge-stable-bin qdirstat peazip-gtk2 jq steam-rom-manager-git google-chrome steamtinkerlaunch"
+microsoft-edge-stable-bin qdirstat peazip jq steam-rom-manager-git google-chrome steamtinkerlaunch"
 
 # If you want to install AUR packages, specify them in this variable
-export aur_packagelist="geforcenow-electron freefilesync-bin sgdboop-bin winegui-bin umu-launcher "
-
+export aur_packagelist="geforcenow-electron blender-bin fightcade2 protonup-qt freefilesync-bin sgdboop-bin winegui-bin umu-launcher "
 
 # Concatenate all packages and sort them alphabetically
 all_packages=$(echo "$audio_pkgs $video_pkgs $wine_pkgs $devel_pkgs $packagelist $aur_packagelist" | tr ' ' '\n' | sort | tr '\n' ' ')
@@ -124,7 +124,7 @@ all_packages=$(echo "$audio_pkgs $video_pkgs $wine_pkgs $devel_pkgs $packagelist
 # Function to display packages using dialog
 show_packages() {
     dialog --backtitle "Package List as of Apr. 11, 2024" \
-    --title "All Packages--May 31, 2024" \
+    --title "All Packages--June 25, 2024" \
     --msgbox "$all_packages" 20 70
 }
 
