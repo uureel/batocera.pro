@@ -280,6 +280,7 @@ echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo
 echo
 # --------------------------------------------------------------------
+
 # DOWNLOAD ROMSET: 
 #link type https://github.com/86Box/roms/archive/refs/tags/v3.7.zip
 
@@ -292,7 +293,6 @@ APPLINK="https://github.com/86Box/roms/archive/refs/tags/v${latestromsetversion}
 # Print the constructed URL for verification
 echo "Download URL: $APPLINK"
 
-
 rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 echo -e "${G}DOWNLOADING   2/2   ${W}ROMSET"
@@ -301,11 +301,13 @@ echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/nul
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
-unzip -qq $temp/*.zip -d $pro/$appname/roms 2>/dev/null
-#unzip -qq *.zip 2>/dev/null
-#mv ./roms-$latestromset $pro/$appname/roms 2>/dev/null
+unzip -qq $temp/*.zip -d $temp/roms 2>/dev/null
+mkdir -p $pro/$appname/roms
+mv $temp/roms/*/* $pro/$appname/roms/ 2>/dev/null
 SIZE=$(du -sh $pro/$appname/roms | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname/roms  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
+
+
 #echo -e "${G}> ${W}DONE"
 echo
 echo; #line $cols '='; echo
