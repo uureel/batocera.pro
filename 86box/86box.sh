@@ -301,8 +301,9 @@ echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/nul
 cd $temp
 curl --progress-bar --remote-name --location "$APPLINK"
 cd ~/
-unzip -qq *.zip 2>/dev/null
-mv ./roms-$latestromset $pro/$appname/roms 2>/dev/null
+unzip -qq $temp/*.zip -d $pro/$appname/roms 2>/dev/null
+#unzip -qq *.zip 2>/dev/null
+#mv ./roms-$latestromset $pro/$appname/roms 2>/dev/null
 SIZE=$(du -sh $pro/$appname/roms | awk '{print $1}') 2>/dev/null
 echo -e "${T}$pro/$appname/roms  ${T}$SIZE( )  ${G}OK${W}" | sed 's/( )//g'
 #echo -e "${G}> ${W}DONE"
