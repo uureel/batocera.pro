@@ -16,7 +16,7 @@
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >>
 APPNAME=moonlight 
-APPLINK=$(curl https://github.com/moonlight-stream/moonlight-qt/releases/tag/v4.3.1 | grep AppImage | sed 's,^.*href=",,g' | cut -d \" -f1)
+APPLINK=$(curl -L https://github.com/moonlight-stream/moonlight-qt/releases/latest | grep AppImage | sed 's,^.*href=",,g' | cut -d \" -f1)
 APPHOME="github.com/moonlight-stream"
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
