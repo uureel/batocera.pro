@@ -282,9 +282,17 @@ echo
 # --------------------------------------------------------------------
 # DOWNLOAD ROMSET: 
 #link type https://github.com/86Box/roms/archive/refs/tags/v3.7.zip
-latestromsetversion=$(curl -s https://api.github.com/repos/86Box/roms/releases | grep zipball_url | head -n 1 | sed 's,^.*zipball_url": ,,g' | sed 's,",,g' | sed 's,^.*zipball/,,g' | sed 's/,//g')
-APPLINK=https://github.com/86Box/roms/archive/refs/tags/$latestromsetversion.zip
-latestromset=$(echo $latestromsetversion | sed 's,v,,g')
+
+# Fetch the latest ROM set version from the 86Box GitHub repository
+latestromsetversion=$(curl -s https://api.github.com/repos/86Box/roms/releases/latest | grep '"tag_name":' | sed 's/[^0-9.]*//g')
+
+# Construct the download URL
+APPLINK="https://github.com/86Box/roms/archive/refs/tags/v${latestromsetversion}.zip"
+
+# Print the constructed URL for verification
+echo "Download URL: $APPLINK"
+
+
 rm -rf $temp 2>/dev/null
 mkdir -p $temp 2>/dev/null
 echo -e "${G}DOWNLOADING   2/2   ${W}ROMSET"
