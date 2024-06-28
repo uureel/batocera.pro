@@ -66,7 +66,8 @@ echo -e "${RED}#                                #${NC}"
 echo -e "${YELLOW}###############################${NC}"
 
 
-echo "REFRESH ES/UPDATE GAMELISTS TO SEE APP"
-
+echo "REFRESH ES/UPDATE GAMELISTS TO SEE APP in WINDOWS"
+echo""
+echo""
 echo "DONE"
 sleep 5
