@@ -12,7 +12,7 @@ function fancy_title() {
     clear
     echo -e "${RED}#####################################${NC}"
     echo -e "${GREEN}#                                   #${NC}"
-    echo -e "${YELLOW}#  Batocera AppleWin PRO Installer    #${NC}"
+    echo -e "${YELLOW}#  Batocera PRO AppleWin Installer    #${NC}"
     echo -e "${BLUE}#                                   #${NC}"
     echo -e "${RED}#####################################${NC}"
     sleep 2
