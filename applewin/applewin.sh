@@ -11,9 +11,9 @@ NC='\033[0m' # No Color
 function fancy_title() {
     clear
     echo -e "${RED}#####################################${NC}"
-    echo -e "${GREEN}#                                 #${NC}"
-    echo -e "${YELLOW}#  Batocera AppleWin Installer   #${NC}"
-    echo -e "${BLUE}#                                  #${NC}"
+    echo -e "${GREEN}#                                   #${NC}"
+    echo -e "${YELLOW}#  Batocera AppleWin Installer       #${NC}"
+    echo -e "${BLUE}#                                   #${NC}"
     echo -e "${RED}#####################################${NC}"
     sleep 2
 }
@@ -59,10 +59,10 @@ rm /tmp/AppleWin.zip
 display_step "Cleaning up..."
 clear
 echo -e "${YELLOW}###############################${NC}"
-echo -e "${BLUE}#                              #${NC}"
+echo -e "${BLUE}#                             #${NC}"
 echo -e "${GREEN}# AppleWIN has been installed #${NC}"
 echo -e "${YELLOW}# to the Windows system.      #${NC}"
-echo -e "${RED}#                              #{NC}"
+echo -e "${RED}#                             #${NC}"
 echo -e "${YELLOW}###############################${NC}"
 
 
