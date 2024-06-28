@@ -59,8 +59,8 @@ rm /tmp/AppleWin.zip
 display_step "Cleaning up..."
 clear
 echo -e "${YELLOW}###############################${NC}"
-echo -e "${GREEN}#                             #${NC}"
-echo -e "${BLUE}# AppleWIN has been installed #${NC}"
+echo -e "${BLUE}#                              #${NC}"
+echo -e "${GREEN}# AppleWIN has been installed #${NC}"
 echo -e "${YELLOW}# to the Windows system.      #${NC}"
 echo -e "${RED}#                              #{NC}"
 echo -e "${YELLOW}###############################${NC}"
