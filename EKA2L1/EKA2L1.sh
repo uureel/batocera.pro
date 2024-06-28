@@ -6,7 +6,7 @@ APPNAME="EKA2L1" # for installer info
 appname=EKA2L1   # directory name in /userdata/system/pro/...
 AppName=EKA2L1   # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=https://github.com/EKA2L1/EKA2L1/releases/download/continous/ubuntu-latest.AppImage
+APPLINK=https://github.com/EKA2L1/EKA2L1/releases/download/continous/EKA2L1-Linux-x86_64.AppImage
 ORIGIN="github.com/EKA2L1" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
