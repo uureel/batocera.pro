@@ -59,13 +59,14 @@ rm /tmp/AppleWin.zip
 display_step "Cleaning up..."
 clear
 echo -e "${YELLOW}###############################${NC}"
-echo -e "${GREEN}#                             #${NC}"
-echo -e "${BLUE}# AppleWIN has been installed #${NC}"
+echo -e "${GREEN}#                              #${NC}"
+echo -e "${BLUE}# AppleWIN has been installed   #${NC}"
 echo -e "${YELLOW}# to the Windows system.      #${NC}"
 echo -e "${RED}#                                #${NC}"
 echo -e "${YELLOW}###############################${NC}"
 
-curl http://127.0.0.1:1234/reloadgames
+
+echo "REFRESH ES TO SEE APP"
 
 echo "DONE"
 sleep 5
