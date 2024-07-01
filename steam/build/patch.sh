@@ -145,12 +145,13 @@ echo
 		sed -i '/<description>.*<\/description>/d' /etc/fonts/fonts.conf 2>/dev/null
 		sed -i '/<description>.*<\/description>/d' /etc/fonts/conf.d/* 2>/dev/null
 			cd /usr/lib
-			#rm $(find /usr/lib | grep nvidia) 2>/dev/null
-			find . -path ./python\* -prune -o -type f -name \*nvidia\* -exec rm {} +
+			rm $(find /usr/lib | grep nvidia) 2>/dev/null
 			cd /usr/lib32 
 			rm $(find /usr/lib32 | grep nvidia) 2>/dev/null
-				useradd -r -d /var/lib/libvirt -s /bin/false libvirt-qemu
-				usermod -a -G kvm libvirt-qemu
+			find . -path ./python\* -prune -o -type f -name \*nvidia\* -exec rm {} +
+   				pacman -S libnvidia-container --overwrite='*'
+					useradd -r -d /var/lib/libvirt -s /bin/false libvirt-qemu
+					usermod -a -G kvm libvirt-qemu
 
 #--------------------------------------------------------------------------------------------
 # fix samba collisions 
