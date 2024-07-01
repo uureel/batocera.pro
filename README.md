@@ -58,12 +58,12 @@ OR<BR>
 ```curl -L antimicrox.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/applewin/extra/apple.png" width=48 height=48 /><b><i>&nbsp;APPLEWIN (WINE)</b></i><br>
-```curl -L applewin.batocera.pro | bash```
-<br>
-<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/appimage/extra/appimage.jpg" width=48 height=48 /><b><i>&nbsp;APPIMAGE PARSER (easily add AppImage Shortcuts to Ports) </font></b></i><br>
 ```curl -L appimage.batocera.pro | bash```
+<br>
+<br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/applewin/extra/apple.png" width=48 height=48 /><b><i>&nbsp;APPLEWIN (WINE)</b></i><br>
+```curl -L applewin.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/steam/arch.png" width=48 height=48 /><b><i>&nbsp;ARCH CONTAINER (Conty/Immutable) </font></b></i><br>
