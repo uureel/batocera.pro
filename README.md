@@ -78,6 +78,10 @@ OR<BR>
 ```curl -L balena.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/launchers/extra/battlenet.png" width=48 height=48 /><b><i>&nbsp;BATTLE.NET (WINE) </font></b></i><br>
+```curl -L battlenet.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/blender/extra/blender.png" width=48 height=48 /><b><i>&nbsp;BLENDER </font></b></i><br>
 ```curl -L blender.batocera.pro | bash```
 <br>
