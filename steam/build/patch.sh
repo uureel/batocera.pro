@@ -149,7 +149,7 @@ echo
 			cd /usr/lib32 
 			rm $(find /usr/lib32 | grep nvidia) 2>/dev/null
 			find . -path ./python\* -prune -o -type f -name \*nvidia\* -exec rm {} +
-   				pacman -S libnvidia-container --overwrite='*'
+   				pacman -S libnvidia-container --overwrite='*' 2>/dev/null
 					useradd -r -d /var/lib/libvirt -s /bin/false libvirt-qemu
 					usermod -a -G kvm libvirt-qemu
 
