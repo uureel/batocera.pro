@@ -1,0 +1,1 @@
+WINE launchers for batocera.
