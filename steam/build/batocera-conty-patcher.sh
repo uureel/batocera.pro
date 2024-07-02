@@ -1,6 +1,7 @@
 #!/bin/bash 
 # -------------------------------------------------------------------------------
 conty="/userdata/system/pro/steam/conty.sh"
+if [[ ! -e "$conty" ]]; then echo "arch container not found, is it installed?" && exit 1; fi
 md5="$(head -c 4000000 "${conty}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${conty}" | md5sum | head -c 7)"
 # -------------------------------------------------------------------------------
 v=$(ls /lib32/libnvidia-* | sort | tail -n1 | sed 's,^.*.so.,,g')
@@ -55,69 +56,86 @@ if [[ -s /userdata/system/.local/share/Conty/nvidia/ld.so.cache-$v-$md5 ]]; then
 fi
 # -------------------------------------------------------------------------------
 # patch prepare script 
-ubp="$c/usr/bin/prepare"
-bp="$c/bin/prepare"
-if [[ ! -s "$ubp" ]] || [[ ! -s "$bp" ]] || [[ ! -s "/userdata/system/pro/steam/prepare.sh" ]]; then
-  mkdir -p "$c/bin" 2>/dev/null
-  mkdir -p "$c/usr/bin" 2>/dev/null
-  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$ubp" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/prepare.sh
-  dos2unix "$ubp" 2>/dev/null
-  chmod 777 "$ubp" 2>/dev/null
-  cp "$ubp" "$bp" 2>/dev/null
-  cp "$ubp" "/userdata/system/pro/steam/prepare.sh" 2>/dev/null
-fi
+function pre1() {
+    ubp="$c/usr/bin/prepare"
+    bp="$c/bin/prepare"
+    env="$c/opt/env"
+    if [[ ! -s "$ubp" ]] || [[ ! -s "$bp" ]] || [[ ! -s "/userdata/system/pro/steam/prepare.sh" ]]; then
+      mkdir -p "$c/bin" 2>/dev/null
+      mkdir -p "$c/usr/bin" 2>/dev/null
+      wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$ubp" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/prepare.sh
+      dos2unix "$ubp" 2>/dev/null
+      chmod 777 "$ubp" 2>/dev/null
+      cp "$ubp" "$bp" 2>/dev/null
+      cp "$ubp" "/userdata/system/pro/steam/prepare.sh" 2>/dev/null
+      ##
+      mkdir -p "$c/opt" 2>/dev/null
+      wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$env" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/env.sh
+      dos2unix "$env" 2>/dev/null
+      chmod 777 "$env" 2>/dev/null
+    fi
+}
 # -------------------------------------------------------------------------------
 # patch group&passwd 
-f="$c/etc/passwd"
-if [[ ! -s "$f" ]] || [[ ! -s "/userdata/system/.local/share/Conty/passwd" ]]; then
-  mkdir -p "$c/etc" 2>/dev/null
-  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$f" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/passwd.sh
-  dos2unix "$f" 2>/dev/null
-  chmod 777 "$f" 2>/dev/null
-  cp "$f" "/userdata/system/.local/share/Conty/passwd" 2>/dev/null
-fi
-f="$c/etc/group"
-if [[ ! -s "$c/etc/group" ]] || [[ ! -s "/userdata/system/.local/share/Conty/group" ]]; then
-  mkdir -p "$c/etc" 2>/dev/null
-  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$f" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/group.sh
-  dos2unix "$f" 2>/dev/null
-  chmod 777 "$f" 2>/dev/null
-  cp "$f" "/userdata/system/.local/share/Conty/group" 2>/dev/null
-fi
+function pre2() {
+    f="$c/etc/passwd"
+    if [[ ! -s "$f" ]] || [[ ! -s "/userdata/system/.local/share/Conty/passwd" ]]; then
+      mkdir -p "$c/etc" 2>/dev/null
+      wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$f" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/passwd.sh
+      dos2unix "$f" 2>/dev/null
+      chmod 777 "$f" 2>/dev/null
+      cp "$f" "/userdata/system/.local/share/Conty/passwd" 2>/dev/null
+    fi
+    f="$c/etc/group"
+    if [[ ! -s "$c/etc/group" ]] || [[ ! -s "/userdata/system/.local/share/Conty/group" ]]; then
+      mkdir -p "$c/etc" 2>/dev/null
+      wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$f" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/group.sh
+      dos2unix "$f" 2>/dev/null
+      chmod 777 "$f" 2>/dev/null
+      cp "$f" "/userdata/system/.local/share/Conty/group" 2>/dev/null
+    fi
+}
 # -------------------------------------------------------------------------------
 # patch lutris 
-if [[ ! -s "$c/usr/bin/lutris" ]]; then
-  mkdir -p "$c/usr/bin/" 2>/dev/null
-  mkdir -p "$c/bin/" 2>/dev/null
-  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
-  dos2unix "$c/usr/bin/lutris" 2>/dev/null
-  chmod 777 "$c/usr/bin/lutris" 2>/dev/null
-  cp "$c/usr/bin/lutris" "$c/bin/lutris" 2>/dev/null
-else
-  if [[ "$(cat "$c/usr/bin/lutris" | grep 'ulimit')" = "" ]]; then
-  mkdir -p "$c/usr/bin/" 2>/dev/null
-  mkdir -p "$c/bin/" 2>/dev/null
-  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
-  dos2unix "$c/usr/bin/lutris" 2>/dev/null
-  chmod 777 "$c/usr/bin/lutris" 2>/dev/null
-  cp "$c/usr/bin/lutris" "$c/bin/lutris" 2>/dev/null
-  fi
-fi
+function pre3() {
+    if [[ ! -s "$c/usr/bin/lutris" ]]; then
+      mkdir -p "$c/usr/bin/" 2>/dev/null
+      mkdir -p "$c/bin/" 2>/dev/null
+      wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
+      dos2unix "$c/usr/bin/lutris" 2>/dev/null
+      chmod 777 "$c/usr/bin/lutris" 2>/dev/null
+      cp "$c/usr/bin/lutris" "$c/bin/lutris" 2>/dev/null
+    else
+      if [[ "$(cat "$c/usr/bin/lutris" | grep 'ulimit')" = "" ]]; then
+      mkdir -p "$c/usr/bin/" 2>/dev/null
+      mkdir -p "$c/bin/" 2>/dev/null
+      wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$c/usr/bin/lutris" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
+      dos2unix "$c/usr/bin/lutris" 2>/dev/null
+      chmod 777 "$c/usr/bin/lutris" 2>/dev/null
+      cp "$c/usr/bin/lutris" "$c/bin/lutris" 2>/dev/null
+      fi
+    fi
+}
+# -------------------------------------------------------------------------------
+pre1 &
+pre2 & 
+pre3 &
+    wait
 # -------------------------------------------------------------------------------
 # mount cgroups for podman/docker/distrobox
 function cgroups() {
-set -e
-mkdir -p /sys/fs/cgroup 2>/dev/null
-if ! grep -qs '/sys/fs/cgroup ' /proc/mounts; then
-    mount -t tmpfs -o mode=0755 cgroup /sys/fs/cgroup
-fi
-CGROUPS="blkio cpu cpuacct cpuset devices freezer hugetlb memory net_cls net_prio perf_event pids systemd"
-for CGROUP in $CGROUPS; do
-    mkdir -p /sys/fs/cgroup/$CGROUP 2>/dev/null
-    if ! grep -qs "/sys/fs/cgroup/$CGROUP " /proc/mounts; then
-        mount -t cgroup -o $CGROUP cgroup /sys/fs/cgroup/$CGROUP 2>/dev/null
+    set -e
+    mkdir -p /sys/fs/cgroup 2>/dev/null
+    if ! grep -qs '/sys/fs/cgroup ' /proc/mounts; then
+        mount -t tmpfs -o mode=0755 cgroup /sys/fs/cgroup
     fi
-done
+    CGROUPS="blkio cpu cpuacct cpuset devices freezer hugetlb memory net_cls net_prio perf_event pids systemd"
+    for CGROUP in $CGROUPS; do
+        mkdir -p /sys/fs/cgroup/$CGROUP 2>/dev/null
+        if ! grep -qs "/sys/fs/cgroup/$CGROUP " /proc/mounts; then
+            mount -t cgroup -o $CGROUP cgroup /sys/fs/cgroup/$CGROUP 2>/dev/null
+        fi
+    done
 }
 # -------------------------------------------------------------------------------
 # check prime
@@ -254,7 +272,18 @@ nvdir="/userdata/system/.local/share/Conty/nvidia"
    rm /tmp/.conty-nvidia-started 2>/dev/null
    touch /tmp/.conty-nvidia-started 2>/dev/null
 # -------------------------------------------------------------------------------
-if [[ ! -s "${nvdir}"/.nvidia-$v-downloaded ]]; then
+if [[ ! -s "${nvdir}/.nvidia-$v-downloaded" ]]; then
+    # get aria2c
+    if [[ 1 = 0 ]] && [[ ! -e /usr/bin/aria2c ]]; then
+        if [[ -e /userdata/system/.local/share/Conty/aria2c ]]; then
+            cp /userdata/system/.local/share/Conty/aria2c /usr/bin/aria2c
+            chmod 777 /usr/bin/aria2c 2>/dev/null
+        else
+            wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /usr/bin/aria2c https://github.com/uureel/batocera.pro/raw/main/.dep/aria2c
+            chmod 777 /usr/bin/aria2c 2>/dev/null
+            cp /usr/bin/aria2c /userdata/system/.local/share/Conty/aria2c
+        fi
+    fi
     rm "${nvdir}"/.nvidia-$v 2>/dev/null
     rm -rf "${nvdir}"/nvidia-$v* 2>/dev/null
     rm -rf "${nvdir}"/nvidia-$v.run 2>/dev/null
@@ -262,14 +291,18 @@ if [[ ! -s "${nvdir}"/.nvidia-$v-downloaded ]]; then
       rm "${nvdir}/.nvidia-$v-downloaded" 2>/dev/null
         rm /tmp/.conty-nvidia-downloading 2>/dev/null
         touch /tmp/.conty-nvidia-downloading 2>/dev/null
-          echo "downloading..."
-            wget -q --tries=30 --no-check-certificate --no-cache --no-cookies --show-progress -O nvidia-$v.run https://us.download.nvidia.com/XFree86/Linux-x86_64/$v/NVIDIA-Linux-x86_64-$v.run
-            chmod +x nvidia-$v.run 2>/dev/null
+          echo "downloading nvidia drivers..."
+            if [[ 1 = 0 ]] && [[ -e /usr/bin/aria2c ]]; then
+                aria2c -x 10 -o "$nvdir"/nvidia-$v.run https://us.download.nvidia.com/XFree86/Linux-x86_64/$v/NVIDIA-Linux-x86_64-$v.run
+            else 
+                wget -q --tries=30 --no-check-certificate --no-cache --no-cookies --show-progress -O "${nvdir}/nvidia-$v.run" "https://us.download.nvidia.com/XFree86/Linux-x86_64/$v/NVIDIA-Linux-x86_64-$v.run"
+            fi
+            chmod +x "${nvdir}/nvidia-$v.run" 2>/dev/null
         rm /tmp/.conty-nvidia-downloading 2>/dev/null
       echo "OK" >> "${nvdir}/.nvidia-$v-downloaded"
 fi
 # -------------------------------------------------------------------------------
-if [ ! -f nvidia-$v.run ]; then
+if [[ ! -f "${nvdir}/nvidia-$v.run" ]]; then
     echo "failed to download nvidia $v :( try again?"
     cgroups
     exit 1
@@ -333,6 +366,12 @@ c="${2}"
 n="nvidia-$v"
 nvdir="/userdata/system/.local/share/Conty/nvidia"
 cd "$nvdir/$n"
+    cp "$nvdir/$n/nvidia-smi" "$c/usr/bin/nvidia-smi" 2>/dev/null &
+    cp "$nvdir/$n/nvidia-powerd" "$c/usr/bin/nvidia-powerd" 2>/dev/null &
+    cp "$nvdir/$n/nvidia-settings" "$c/usr/bin/nvidia-settings" 2>/dev/null &
+    cp "$nvdir/$n/nvidia-modprobe" "$c/usr/bin/nvidia-modprobe" 2>/dev/null &
+    cp "$nvdir/$n/nvidia-persistenced" "$c/usr/bin/nvidia-persistenced" 2>/dev/null &
+        wait
 for file in *; do
     name="$(basename $(realpath "$file"))"
     clean=$(echo "$name" | cut -d "." -f1)
