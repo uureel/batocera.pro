@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && dbus-run-session doublecmd '"${@}"''
+  bash -c 'prepare && source /opt/env && dbus-run-session doublecmd '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
