@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && dbus-run-session protonup-qt '"${@}"''
+  bash -c 'prepare && source /opt/env && dbus-run-session protonup-qt '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
