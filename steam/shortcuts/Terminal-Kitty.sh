@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && kitty '"${@}"''
+  bash -c 'prepare && source /opt/env && kitty '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
