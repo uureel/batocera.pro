@@ -103,6 +103,17 @@
 
 # ----------------------------------------------------
 # remaining env
+ 	if [[ -e /opt/cuda/bin ]]; 
+		if [[ -d /opt/cuda/targets/x86_64-linux/lib ]]; then
+		    export LD_LIBRARY_PATH="/opt/cuda/targets/x86_64-linux/lib:${LD_LIBRARY_PATH}"
+		fi
+		if [[ -d /opt/cuda/targets/x86_64-linux/include ]]; then
+		    export CPATH="/opt/cuda/targets/x86_64-linux/include:${CPATH}"
+		fi
+  		export PATH="/opt/cuda/bin:${PATH}"
+		export CUDA_HOME=/opt/cuda
+    		export CUDADIR=/opt/cuda
+    	fi
 	export XDG_CURRENT_DESKTOP=XFCE
 	export DESKTOP_SESSION=XFCE
 	export QT_SCALE_FACTOR=1 
