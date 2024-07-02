@@ -9,7 +9,7 @@
 # ----------------------------------------------------
 # check conty version md5
 	conty="/userdata/system/pro/steam/conty.sh"
-	md5="$(head -c 4000000 "${conty}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${conty}" | md5sum | head -c 7)"
+	md5="$(head -c 4000000 "$conty" | md5sum | head -c 7)"_"$(tail -c 1000000 "$conty" | md5sum | head -c 7)"
 	C=/userdata/system/.local/share/Conty
 
 # ----------------------------------------------------
@@ -99,18 +99,18 @@
 # ----------------------------------------------------
 # patch portproton
 	if [[ -e /usr/bin/properportproton ]]; then sed -i 's,(id -u),(fakeid -u),g' /usr/bin/properportproton 2>/dev/null; fi
-	if [[ -e "${HOME}/.config/PortProton.conf" ]]; then sed -i 's,(id -u),(fakeid -u),g' "$(cat "${HOME}/.config/PortProton.conf" | grep '/' | head -n1)/data/scripts/runlib" 2>/dev/null; fi
+	if [[ -e "$HOME/.config/PortProton.conf" ]]; then sed -i 's,(id -u),(fakeid -u),g' "$(cat "$HOME/.config/PortProton.conf" | grep '/' | head -n1)/data/scripts/runlib" 2>/dev/null; fi
 
 # ----------------------------------------------------
 # remaining env
  	if [[ -e /opt/cuda/bin ]]; then
 		if [[ -e /opt/cuda/targets/x86_64-linux/lib ]]; then
-		    export LD_LIBRARY_PATH="/opt/cuda/targets/x86_64-linux/lib:${LD_LIBRARY_PATH}"
+		    export LD_LIBRARY_PATH="/opt/cuda/targets/x86_64-linux/lib:$LD_LIBRARY_PATH"
 		fi
 		if [[ -e /opt/cuda/targets/x86_64-linux/include ]]; then
-		    export CPATH="/opt/cuda/targets/x86_64-linux/include:${CPATH}"
+		    export CPATH="/opt/cuda/targets/x86_64-linux/include:$CPATH"
 		fi
-  		export PATH="/opt/cuda/bin:${PATH}"
+  		export PATH="/opt/cuda/bin:$PATH"
 		export CUDA_HOME=/opt/cuda
     		export CUDADIR=/opt/cuda
     	fi
@@ -121,5 +121,8 @@
 	export GDK_SCALE=1
 	export DISPLAY=:0.0
 # ----------------------------------------------------
+ 	if [[ -e /opt/env ]]; then
+  		source /opt/env 2>/dev/null
+	fi
 	sysctl -w fs.inotify.max_user_watches=8192000 vm.max_map_count=2147483642 fs.file-max=8192000 >/dev/null 2>&1
 	eval "$(dbus-launch --sh-syntax)"
