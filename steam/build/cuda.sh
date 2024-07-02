@@ -582,14 +582,14 @@ echo -e "this can take a while, please wait\n"
     yes "Y" | tar -xf "$c/$pkg_2"
     echo "> installing opencl-nvidia"
     yes "Y" | tar -xf "$c/$pkg_3"
-    echo "> installing nvidia-settings"
-    yes "Y" | tar -xf "$c/$pkg_4"
-    echo "> installing nvidia-utils"
-    yes "Y" | tar -xf "$c/$pkg_5"
     echo "> installing nvidia-container-toolkit"
     yes "Y" | tar -xf "$c/$pkg_6"
     echo "> installing libnvidia-container"
     yes "Y" | tar -xf "$c/$pkg_7"
+    echo "> installing nvidia-settings"
+    yes "Y" | tar -xf "$c/$pkg_4"
+    echo "> installing nvidia-utils"
+    yes "Y" | tar -xf "$c/$pkg_5"
 
     rm -rf "$c/$pkg_1" 2>/dev/null
     rm -rf "$c/$pkg_2" 2>/dev/null
