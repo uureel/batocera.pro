@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && dbus-run-session /opt/google/chrome/google-chrome --no-sandbox --test-type --start-fullscreen --force-device-scale-factor=1.25 "play.spotify.com"'
+  bash -c 'prepare && source /opt/env && dbus-run-session /opt/google/chrome/google-chrome --no-sandbox --test-type --start-fullscreen --force-device-scale-factor=1.25 "play.spotify.com"'
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
