@@ -518,13 +518,13 @@ echo "$v" >> "$c/.conty-nvidia-$v-$md5"
 
 cudaver=$("$nvsmi" | grep 'CUDA' | sed 's,^.*CUDA Version: ,,g' | awk '{print $1}')
 
-pkg_1=$(curl -Ls https://archive.archlinux.org/packages/c/cuda | grep '.pkg.tar.zst<' | sort | sed 's,^.*href=",,g' | cut -d \" -f1 | grep "$cudaver" | head -n1)
-pkg_2=$(curl -Ls https://archive.archlinux.org/packages/c/cuda-tools | grep '.pkg.tar.zst<' | sort | sed 's,^.*href=",,g' | cut -d \" -f1 | grep "$cudaver" | head -n1)
-pkg_3=$(curl -Ls https://archive.archlinux.org/packages/o/opencl-nvidia | grep '.pkg.tar.zst<' | sort | grep ''${v}'' | tail -n1 | sed 's,^.*href=",,g' | cut -d \" -f1)
-pkg_4=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-settings/ | grep '.pkg.tar.zst<' | sort | grep ''${v}'' | tail -n1 | sed 's,^.*href=",,g' | cut -d \" -f1)
-pkg_5=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-utils/ | grep '.pkg.tar.zst<' | sort | grep ''${v}'' | tail -n1 | sed 's,^.*href=",,g' | cut -d \" -f1)
-pkg_6=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-container-toolkit | grep 'pkg.tar.zst"' | sort | tail -n1 | cut -d \" -f2 | cut -d \" -f1)
-pkg_7=$(curl -Ls https://archive.archlinux.org/packages/l/libnvidia-container | grep 'pkg.tar.zst"' | sort | tail -n1 | cut -d \" -f2 | cut -d \" -f1)
+pkg_1=$(curl -Ls https://archive.archlinux.org/packages/c/cuda/ | grep '.pkg.tar.zst<' | sort | sed 's,^.*href=",,g' | cut -d \" -f1 | grep "$cudaver" | head -n1)
+pkg_2=$(curl -Ls https://archive.archlinux.org/packages/c/cuda-tools/ | grep '.pkg.tar.zst<' | sort | sed 's,^.*href=",,g' | cut -d \" -f1 | grep "$cudaver" | head -n1)
+pkg_3=$(curl -Ls https://archive.archlinux.org/packages/o/opencl-nvidia/ | grep '.pkg.tar.zst<' | sort | grep "$v" | head -n1 | cut -d \" -f2 | cut -d \" -f1)
+pkg_4=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-settings/ | grep '.pkg.tar.zst<' | sort | grep "$v" | head -n1 | cut -d \" -f2 | cut -d \" -f1)
+pkg_5=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-utils/ | grep '.pkg.tar.zst<' | sort | grep "$v" | head -n1 | cut -d \" -f2 | cut -d \" -f1)
+pkg_6=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-container-toolkit/ | grep 'pkg.tar.zst"' | sort | tail -n1 | cut -d \" -f2 | cut -d \" -f1)
+pkg_7=$(curl -Ls https://archive.archlinux.org/packages/l/libnvidia-container/ | grep 'pkg.tar.zst"' | sort | tail -n1 | cut -d \" -f2 | cut -d \" -f1)
 
 link_pkg_1="https://archive.archlinux.org/packages/c/cuda/$pkg_1"
 link_pkg_2="https://archive.archlinux.org/packages/c/cuda-tools/$pkg_2"
