@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && USER=root xterm -bg black -fg white -e bash -c "prepare && NO_AT_BRIDGE=1 DISPLAY=:0.0 playonlinux4"'
+  bash -c 'prepare && source /opt/env && USER=root xterm -bg black -fg white -e bash -c "prepare && NO_AT_BRIDGE=1 DISPLAY=:0.0 playonlinux4"'
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
