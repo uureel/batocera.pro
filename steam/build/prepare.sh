@@ -103,11 +103,11 @@
 
 # ----------------------------------------------------
 # remaining env
- 	if [[ -e /opt/cuda/bin ]]; 
-		if [[ -d /opt/cuda/targets/x86_64-linux/lib ]]; then
+ 	if [[ -e /opt/cuda/bin ]]; then
+		if [[ -e /opt/cuda/targets/x86_64-linux/lib ]]; then
 		    export LD_LIBRARY_PATH="/opt/cuda/targets/x86_64-linux/lib:${LD_LIBRARY_PATH}"
 		fi
-		if [[ -d /opt/cuda/targets/x86_64-linux/include ]]; then
+		if [[ -e /opt/cuda/targets/x86_64-linux/include ]]; then
 		    export CPATH="/opt/cuda/targets/x86_64-linux/include:${CPATH}"
 		fi
   		export PATH="/opt/cuda/bin:${PATH}"
