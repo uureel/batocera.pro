@@ -591,7 +591,7 @@ echo -e "this can take a while, please wait\n"
     echo "> installing nvidia-utils"
     yes "Y" | tar -xf "$c/$pkg_5"
 
-    cp -r "$c"/usr/bin/* "$c"/bin/* 2>/dev/null
+    cp -r "$c"/usr/bin/* "$c"/bin/ 2>/dev/null
 
     rm -rf "$c/$pkg_1" 2>/dev/null
     rm -rf "$c/$pkg_2" 2>/dev/null
