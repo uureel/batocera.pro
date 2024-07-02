@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && dbus-run-session inkscape '"${@}"''
+  bash -c 'prepare && source /opt/env && dbus-run-session inkscape '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
