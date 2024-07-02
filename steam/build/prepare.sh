@@ -42,7 +42,8 @@
 	        cp -r /etc/ld.so.cache $C/nvidia/ld.so.cache-$v-$md5 2>/dev/null
 	  fi
 	  #
-	  	# & patch nv drivers for nvenc support
+   		function off() {
+	  	# patch nv drivers for nvenc support // disabled because it borks cuda, fu nv
 				#------------------------------------
 		  	patch="$C/overlayfs_$md5/up/bin/nvidia-patch.sh"
 				  if [[ ! -s "$patch" ]]; then
@@ -65,6 +66,7 @@
 					  	chmod 777 "$patchfbc" 1>/dev/null 2>/dev/null
 					  		"$patchfbc" 1>/dev/null 2>/dev/null
 					  fi
+       		}
 	fi
 
 # ----------------------------------------------------
