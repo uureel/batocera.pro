@@ -120,6 +120,6 @@
 	export QT_FONT_DPI=96
 	export GDK_SCALE=1
 	export DISPLAY=:0.0
-
+# ----------------------------------------------------
+	sysctl -w fs.inotify.max_user_watches=8192000 vm.max_map_count=2147483642 fs.file-max=8192000 >/dev/null 2>&1
 	eval "$(dbus-launch --sh-syntax)"
- 
