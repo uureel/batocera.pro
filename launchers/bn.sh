@@ -1,5 +1,7 @@
 #!/bin/bash
 
+curl -Ls https://github.com/uureel/batocera.pro/raw/main/launchers/compositor.sh | bash
+sleep 5
 # Colors for fancy output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
