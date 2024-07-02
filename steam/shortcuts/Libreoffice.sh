@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && libreoffice '"${@}"''
+  bash -c 'prepare && source /opt/env && libreoffice '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
