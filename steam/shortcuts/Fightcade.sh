@@ -33,7 +33,7 @@ batocera-mouse show
           --bind /userdata/roms/snes /opt/fightcade2/emulator/snes9x/ROMs \
           --bind /userdata/roms/fbneo /opt/fightcade2/emulator/fbneo/ROMs \
           --bind /userdata/roms/dreamcast /opt/fightcade2/emulator/flycast/ROMs \
-  bash -c 'prepare && cp /userdata/system/pro/steam/batocera-fightcade.sh /opt/fightcade2/batocera-fightcade.sh && dbus-run-session /opt/fightcade2/batocera-fightcade.sh'
+  bash -c 'prepare && source /opt/env && cp /userdata/system/pro/steam/batocera-fightcade.sh /opt/fightcade2/batocera-fightcade.sh && dbus-run-session /opt/fightcade2/batocera-fightcade.sh'
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
