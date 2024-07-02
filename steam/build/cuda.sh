@@ -7,6 +7,7 @@ md5="$(head -c 4000000 "${conty}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${c
 v=$(ls /lib32/libnvidia-* | sort | tail -n1 | sed 's,^.*.so.,,g')
 c="/userdata/system/.local/share/Conty/overlayfs_$md5/up"
 # -------------------------------------------------------------------------------
+use_aria=0
 echo
 mkdir -p "$c/etc/" 2>/dev/null
 chown -R root:root /var/run/pulse 2>/dev/null
@@ -274,7 +275,7 @@ nvdir="/userdata/system/.local/share/Conty/nvidia"
 # -------------------------------------------------------------------------------
 if [[ ! -s "${nvdir}/.nvidia-$v-downloaded" ]]; then
     # get aria2c
-    if [[ 1 = 0 ]] && [[ ! -e /usr/bin/aria2c ]]; then
+    if [[ $use_aria = 1 ]] && [[ ! -e /usr/bin/aria2c ]]; then
         if [[ -e /userdata/system/.local/share/Conty/aria2c ]]; then
             cp /userdata/system/.local/share/Conty/aria2c /usr/bin/aria2c
             chmod 777 /usr/bin/aria2c 2>/dev/null
@@ -292,8 +293,10 @@ if [[ ! -s "${nvdir}/.nvidia-$v-downloaded" ]]; then
         rm /tmp/.conty-nvidia-downloading 2>/dev/null
         touch /tmp/.conty-nvidia-downloading 2>/dev/null
           echo "downloading nvidia drivers..."
-            if [[ 1 = 0 ]] && [[ -e /usr/bin/aria2c ]]; then
-                aria2c -x 10 -o "$nvdir"/nvidia-$v.run https://us.download.nvidia.com/XFree86/Linux-x86_64/$v/NVIDIA-Linux-x86_64-$v.run
+            if [[ $use_aria = 1 ]] && [[ -e /usr/bin/aria2c ]]; then
+                rm "$PWD"/*.run 2>/dev/null
+                aria2c -x 5 https://us.download.nvidia.com/XFree86/Linux-x86_64/$v/NVIDIA-Linux-x86_64-$v.run
+                mv "$PWD"/*.run "$nvdir"/nvidia-$v.run
             else 
                 wget -q --tries=30 --no-check-certificate --no-cache --no-cookies --show-progress -O "${nvdir}/nvidia-$v.run" "https://us.download.nvidia.com/XFree86/Linux-x86_64/$v/NVIDIA-Linux-x86_64-$v.run"
             fi
@@ -507,46 +510,58 @@ echo "$v" >> /userdata/system/.local/share/Conty/nvidia/.active 2>/dev/null
 rm "$c/.conty-nvidia-$v-$md5" 2>/dev/null
 echo "$v" >> "$c/.conty-nvidia-$v-$md5"
 # -------------------------------------------------------------------------------
+# prerun conty in case of first boot
+conty=/userdata/system/pro/steam/conty.sh
+  "$conty" \
+          --bind /userdata/system/containers/storage /var/lib/containers/storage \
+          --bind /userdata/system/flatpak /var/lib/flatpak \
+          --bind /userdata/system/etc/passwd /etc/passwd \
+          --bind /userdata/system/etc/group /etc/group \
+          --bind /var/run/nvidia /var/run/nvidia \
+          --bind /userdata/system /home/batocera \
+          --bind /sys/fs/cgroup /sys/fs/cgroup \
+          --bind /userdata/system /home/root \
+          --bind /etc/fonts /etc/fonts \
+          --bind /userdata /userdata \
+          --bind /newroot /newroot \
+          --bind / /batocera \
+  bash -c 'prepare && source /opt/env && exit'
 # -------------------------------------------------------------------------------
-# -------------------------------------------------------------------------------
-
 # get nvidia-smi 
     nvsmi=/tmp/.nvidia-smi && rm "$nvsmi" 2>/dev/null
     wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$nvsmi" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/nvidia-smi
     dos2unix "$nvsmi" 2>/dev/null
     chmod 777 "$nvsmi" 2>/dev/null
-
-cudaver=$("$nvsmi" | grep 'CUDA' | sed 's,^.*CUDA Version: ,,g' | awk '{print $1}')
-
-pkg_1=$(curl -Ls https://archive.archlinux.org/packages/c/cuda/ | grep '.pkg.tar.zst<' | sort | sed 's,^.*href=",,g' | cut -d \" -f1 | grep "$cudaver" | head -n1)
-pkg_2=$(curl -Ls https://archive.archlinux.org/packages/c/cuda-tools/ | grep '.pkg.tar.zst<' | sort | sed 's,^.*href=",,g' | cut -d \" -f1 | grep "$cudaver" | head -n1)
-pkg_3=$(curl -Ls https://archive.archlinux.org/packages/o/opencl-nvidia/ | grep '.pkg.tar.zst<' | sort | grep "$v" | head -n1 | cut -d \" -f2 | cut -d \" -f1)
-pkg_4=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-settings/ | grep '.pkg.tar.zst<' | sort | grep "$v" | head -n1 | cut -d \" -f2 | cut -d \" -f1)
-pkg_5=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-utils/ | grep '.pkg.tar.zst<' | sort | grep "$v" | head -n1 | cut -d \" -f2 | cut -d \" -f1)
-pkg_6=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-container-toolkit/ | grep 'pkg.tar.zst"' | sort | tail -n1 | cut -d \" -f2 | cut -d \" -f1)
-pkg_7=$(curl -Ls https://archive.archlinux.org/packages/l/libnvidia-container/ | grep 'pkg.tar.zst"' | sort | tail -n1 | cut -d \" -f2 | cut -d \" -f1)
-
-link_pkg_1="https://archive.archlinux.org/packages/c/cuda/$pkg_1"
-link_pkg_2="https://archive.archlinux.org/packages/c/cuda-tools/$pkg_2"
-link_pkg_3="https://archive.archlinux.org/packages/o/opencl-nvidia/$pkg_3"
-link_pkg_4="https://archive.archlinux.org/packages/n/nvidia-settings/$pkg_4"
-link_pkg_5="https://archive.archlinux.org/packages/n/nvidia-utils/$pkg_5"
-link_pkg_6="https://archive.archlinux.org/packages/n/nvidia-container-toolkit/$pkg_6"
-link_pkg_7="https://archive.archlinux.org/packages/l/libnvidia-container/$pkg_7"
-
-rm -rf "$c/$pkg_1" 2>/dev/null
-rm -rf "$c/$pkg_2" 2>/dev/null
-rm -rf "$c/$pkg_3" 2>/dev/null
-rm -rf "$c/$pkg_4" 2>/dev/null
-rm -rf "$c/$pkg_5" 2>/dev/null
-rm -rf "$c/$pkg_6" 2>/dev/null
-rm -rf "$c/$pkg_7" 2>/dev/null
-
+# -------------------------------------------------------------------------------
+# get cuda
+    cudaver=$("$nvsmi" | grep 'CUDA' | sed 's,^.*CUDA Version: ,,g' | awk '{print $1}')
+        pkg_1=$(curl -Ls https://archive.archlinux.org/packages/c/cuda/ | grep '.pkg.tar.zst<' | sort | sed 's,^.*href=",,g' | cut -d \" -f1 | grep "$cudaver" | head -n1)
+        pkg_2=$(curl -Ls https://archive.archlinux.org/packages/c/cuda-tools/ | grep '.pkg.tar.zst<' | sort | sed 's,^.*href=",,g' | cut -d \" -f1 | grep "$cudaver" | head -n1)
+        pkg_3=$(curl -Ls https://archive.archlinux.org/packages/o/opencl-nvidia/ | grep '.pkg.tar.zst<' | sort | grep "$v" | head -n1 | cut -d \" -f2 | cut -d \" -f1)
+        pkg_4=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-settings/ | grep '.pkg.tar.zst<' | sort | grep "$v" | head -n1 | cut -d \" -f2 | cut -d \" -f1)
+        pkg_5=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-utils/ | grep '.pkg.tar.zst<' | sort | grep "$v" | head -n1 | cut -d \" -f2 | cut -d \" -f1)
+        pkg_6=$(curl -Ls https://archive.archlinux.org/packages/n/nvidia-container-toolkit/ | grep 'pkg.tar.zst"' | sort | tail -n1 | cut -d \" -f2 | cut -d \" -f1)
+        pkg_7=$(curl -Ls https://archive.archlinux.org/packages/l/libnvidia-container/ | grep 'pkg.tar.zst"' | sort | tail -n1 | cut -d \" -f2 | cut -d \" -f1)
+            link_pkg_1="https://archive.archlinux.org/packages/c/cuda/$pkg_1"
+            link_pkg_2="https://archive.archlinux.org/packages/c/cuda-tools/$pkg_2"
+            link_pkg_3="https://archive.archlinux.org/packages/o/opencl-nvidia/$pkg_3"
+            link_pkg_4="https://archive.archlinux.org/packages/n/nvidia-settings/$pkg_4"
+            link_pkg_5="https://archive.archlinux.org/packages/n/nvidia-utils/$pkg_5"
+            link_pkg_6="https://archive.archlinux.org/packages/n/nvidia-container-toolkit/$pkg_6"
+            link_pkg_7="https://archive.archlinux.org/packages/l/libnvidia-container/$pkg_7"
+                rm -rf "$c/$pkg_1" 2>/dev/null
+                rm -rf "$c/$pkg_2" 2>/dev/null
+                rm -rf "$c/$pkg_3" 2>/dev/null
+                rm -rf "$c/$pkg_4" 2>/dev/null
+                rm -rf "$c/$pkg_5" 2>/dev/null
+                rm -rf "$c/$pkg_6" 2>/dev/null
+                rm -rf "$c/$pkg_7" 2>/dev/null
+# -------------------------------------------------------------------------------
 echo -e "\ndownloading cuda $cudaver for drivers $v"
 echo -e "this can take a while, please wait\n"
     cd "$c"
     # get aria2c
-    if [[ 0 = 1 ]] && [[ ! -e /usr/bin/aria2c ]]; then
+    if [[ $use_aria = 1 ]] && [[ ! -e /usr/bin/aria2c ]]; then
         if [[ -e /userdata/system/.local/share/Conty/aria2c ]]; then
             cp /userdata/system/.local/share/Conty/aria2c /usr/bin/aria2c
             chmod 777 /usr/bin/aria2c 2>/dev/null
@@ -556,14 +571,14 @@ echo -e "this can take a while, please wait\n"
             cp /usr/bin/aria2c /userdata/system/.local/share/Conty/aria2c
         fi
     fi
-    if [[ 0 = 1 ]] && [[ -e /usr/bin/aria2c ]]; then
-        aria2c -x 10 -o "$c/$pkg_1" "$link_pkg_1"
-        aria2c -x 10 -o "$c/$pkg_2" "$link_pkg_2"
-        aria2c -x 10 -o "$c/$pkg_3" "$link_pkg_3"
-        aria2c -x 10 -o "$c/$pkg_4" "$link_pkg_4"
-        aria2c -x 10 -o "$c/$pkg_5" "$link_pkg_5"
-        aria2c -x 10 -o "$c/$pkg_6" "$link_pkg_6"
-        aria2c -x 10 -o "$c/$pkg_7" "$link_pkg_7"
+    if [[ $use_aria = 1 ]] && [[ -e /usr/bin/aria2c ]]; then
+        aria2c -x 5 "$link_pkg_1"
+        aria2c -x 5 "$link_pkg_2"
+        aria2c -x 5 "$link_pkg_3"
+        aria2c -x 5 "$link_pkg_4"
+        aria2c -x 5 "$link_pkg_5"
+        aria2c -x 5 "$link_pkg_6"
+        aria2c -x 5 "$link_pkg_7"
     else 
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies --show-progress -O "$c/$pkg_1" "$link_pkg_1"
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies --show-progress -O "$c/$pkg_2" "$link_pkg_2"
@@ -573,7 +588,7 @@ echo -e "this can take a while, please wait\n"
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies --show-progress -O "$c/$pkg_6" "$link_pkg_6"
         wget -q --tries=30 --no-check-certificate --no-cache --no-cookies --show-progress -O "$c/$pkg_7" "$link_pkg_7"
     fi
-
+# -------------------------------------------------------------------------------
 echo -e "\ninstalling cuda packages"
 echo -e "this can take a while, please wait\n"
     echo "> installing cuda"
@@ -590,21 +605,15 @@ echo -e "this can take a while, please wait\n"
     yes "Y" | tar -xf "$c/$pkg_4"
     echo "> installing nvidia-utils"
     yes "Y" | tar -xf "$c/$pkg_5"
-
-    cp -r "$c"/usr/bin/* "$c"/bin/ 2>/dev/null
-
-    rm -rf "$c/$pkg_1" 2>/dev/null
-    rm -rf "$c/$pkg_2" 2>/dev/null
-    rm -rf "$c/$pkg_3" 2>/dev/null
-    rm -rf "$c/$pkg_4" 2>/dev/null
-    rm -rf "$c/$pkg_5" 2>/dev/null
-    rm -rf "$c/$pkg_6" 2>/dev/null
-    rm -rf "$c/$pkg_7" 2>/dev/null
-
+        cp -r "$c"/usr/bin/* "$c"/bin/ 2>/dev/null
+            rm -rf "$c/$pkg_1" 2>/dev/null
+            rm -rf "$c/$pkg_2" 2>/dev/null
+            rm -rf "$c/$pkg_3" 2>/dev/null
+            rm -rf "$c/$pkg_4" 2>/dev/null
+            rm -rf "$c/$pkg_5" 2>/dev/null
+            rm -rf "$c/$pkg_6" 2>/dev/null
+            rm -rf "$c/$pkg_7" 2>/dev/null
 echo -e "\ncuda $cudaver should now be available inside conty arch container\n"
-
-# -------------------------------------------------------------------------------
-# -------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------
 echo
 cgroups
