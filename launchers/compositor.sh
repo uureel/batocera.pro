@@ -17,7 +17,10 @@ case $response in
       chmod +x ~/batocera-compositor/batocera-compositor
 
       # Add line to launch it in the background in ~/custom.sh for next boot
-         echo "/userdata/system/batocera-compositor/batocera-compositor start " >> /userdata/system/custom.sh
+        
+      if ! grep -Fxq "/userdata/system/batocera-compositor/batocera-compositor start" ~/custom.sh; then
+         echo "/userdata/system/batocera-compositor/batocera-compositor start" >> ~/custom.sh
+      fi
 
       # Launch the compositor in the background
       ~/batocera-compositor/batocera-compositor start
