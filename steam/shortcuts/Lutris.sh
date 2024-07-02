@@ -17,7 +17,7 @@ batocera-mouse show
           --bind /userdata /userdata \
           --bind /newroot /newroot \
           --bind / /batocera \
-  bash -c 'prepare && ulimit -H -n 819200 && ulimit -S -n 819200 && sysctl -w fs.inotify.max_user_watches=8192000 vm.max_map_count=2147483642 fs.file-max=8192000 >/dev/null 2>&1 && dbus-run-session /opt/lutris/bin/lutris '"${@}"''
+  bash -c 'prepare && source /opt/env && ulimit -H -n 819200 && ulimit -S -n 819200 && sysctl -w fs.inotify.max_user_watches=8192000 vm.max_map_count=2147483642 fs.file-max=8192000 >/dev/null 2>&1 && dbus-run-session /opt/lutris/bin/lutris '"${@}"''
 #------------------------------------------------
 # batocera-mouse hide
 #------------------------------------------------
