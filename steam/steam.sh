@@ -23,7 +23,8 @@ OPTIONS=("1" "Install STABLE: Download prebuilt Arch Container (RECOMMENDED)"
          "9" "Addon: Add/Update Lutris Menu & Shortcuts to Emulationstation"
          "10" "Addon: Add/Update Heroic Menu & Shortcuts to Emulationstation"
          "11" "Addon: Emudeck (experimental)"
-         "12" "Addon: Nativefier (turn websites into apps and add to ES Menu) ")
+         "12" "Addon: Nativefier (turn websites into apps and add to ES Menu)")
+         "13" "Addon: NVIDIA CUDA")
 
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Arch Container Management" \
@@ -131,7 +132,15 @@ case $CHOICE in
         dos2unix /tmp/runner 2>/dev/null 
         chmod 777 /tmp/runner 2>/dev/null
         bash /tmp/runner
-        ;;   
+        ;;
+    13)  
+        echo "NVIDIA CUDA Installer..."
+        rm /tmp/runner 2>/dev/null
+        wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /tmp/runner https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/cuda.sh
+        dos2unix /tmp/runner 2>/dev/null 
+        chmod 777 /tmp/runner 2>/dev/null
+        bash /tmp/runner
+        ;;
     *)
         echo "No valid option selected or cancelled. Exiting."
         ;;
