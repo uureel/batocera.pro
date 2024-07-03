@@ -74,7 +74,7 @@ OR<BR>
 ```curl -L atom.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Audacity-thumb.png"  width=48 height=48 /><b><i>&nbsp;Audacity (via Arch Container)</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Audacity-thumb.png"  width=48 height=48 /><b><i>&nbsp;AUDACITY (via Arch Container)</i></b> <br>
 ```curl -L arch.batocera.pro | bash``` 
 <br>
 <br>
@@ -180,7 +180,7 @@ OR<BR>
 ```curl -L geforcenow.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Gimp-thumb.png"  width=48 height=48 /><b><i>&nbsp;Gimp (via Arch Container)</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Gimp-thumb.png"  width=48 height=48 /><b><i>&nbsp;GIMP (via Arch Container)</i></b> <br>
 ```curl -L arch.batocera.pro | bash``` 
 <br>
 <br>
@@ -221,7 +221,7 @@ OR<BR>
 ```curl -L hyper.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Inkscape-thumb.png"  width=48 height=48 /><b><i>&nbsp;Inkscape (via Arch Container)</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Inkscape-thumb.png"  width=48 height=48 /><b><i>&nbsp;INKSCAPE (via Arch Container)</i></b> <br>
 ```curl -L arch.batocera.pro | bash``` 
 <br>
 <br>
@@ -256,7 +256,7 @@ OR<BR>
 ```curl -L ksnip.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Libreoffice-thumb.png"  width=48 height=48 /><b><i>&nbsp;LibreOffice (via Arch Container)</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Libreoffice-thumb.png"  width=48 height=48 /><b><i>&nbsp;LIBREOFFICE (via Arch Container)</i></b> <br>
 ```curl -L arch.batocera.pro | bash``` 
 <br>
 <br>
@@ -424,7 +424,7 @@ OR<BR>
 ```curl -L sheepshaver.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Shotcut-thumb.png"  width=48 height=48 /><b><i>&nbsp;Shotcut (via Arch Container)</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Shotcut-thumb.png"  width=48 height=48 /><b><i>&nbsp;SHOTCUT (via Arch Container)</i></b> <br>
 ```curl -L arch.batocera.pro | bash``` 
 <br>
 <br>
@@ -520,7 +520,7 @@ OR<BR>
 ```curl -L yttv.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Zoom-thumb.png"  width=48 height=48 /><b><i>&nbsp;Zoom (via Arch Container)</i></b> <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/Zoom-thumb.png"  width=48 height=48 /><b><i>&nbsp;ZOOM (via Arch Container)</i></b> <br>
 ```curl -L arch.batocera.pro | bash``` 
 <br>
 <br>
