@@ -1,5 +1,6 @@
 #!/bin/bash 
 # -------------------------------------------------------------------------------
+echo -e "\n\nnote: if this installer doesn't work, restart batocera and try again without running conty/arch container first\n\n"
 conty="/userdata/system/pro/steam/conty.sh"
 if [[ ! -e "$conty" ]]; then echo "arch container not found, is it installed?" && exit 1; fi
 md5="$(head -c 4000000 "${conty}" | md5sum | head -c 7)"_"$(tail -c 1000000 "${conty}" | md5sum | head -c 7)"
