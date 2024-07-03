@@ -54,6 +54,7 @@ sh_files=(
 "Protonup-Qt.sh"
 "Qbittorrent.sh"
 "Qdirstat.sh"
+"Rustdesk.sh"
 "Shotcut.sh"
 "Smplayer.sh"
 "Spotify.sh"
