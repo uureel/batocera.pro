@@ -344,6 +344,10 @@ OR<BR>
 ```curl -L opera.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/pcem.png"  width=48 height=48 /><b><i>&nbsp;PCEM (via Arch Container)</i></b> <br>
+```curl -L arch.batocera.pro | bash``` 
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/peazip/extra/icon.png" width=48 height=48 /><b><i>&nbsp;PEAZIP</i></b><br>
 ```curl -L peazip.batocera.pro | bash```
 <br>
