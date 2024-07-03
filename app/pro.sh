@@ -149,6 +149,7 @@ apps=(
     ["QDIRSTAT"]="curl -Ls qdirstat.batocera.pro | bash"
     ["RATS-SEARCH"]="curl -Ls rats.batocera.pro | bash"
     ["RHYTHMBOX"]="curl -Ls rhythmbox.batocera.pro | bash"
+    ["RUSTDESK/CONTAINER/OPTION-2"]="curl -Ls arch.batocera.pro | bash"
     ["SABNZBD/DOCKER"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/sabnzbd.sh | bash"
     ["SAK"]="curl -Ls sak.batocera.pro | bash"
     ["SAYONARA"]="curl -Ls sayonara.batocera.pro | bash"
