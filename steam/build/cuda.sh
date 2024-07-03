@@ -119,9 +119,22 @@ function pre3() {
     fi
 }
 # -------------------------------------------------------------------------------
+# patch env
+function pre4() {
+    env="$c/opt/env"
+    if [[ ! -s "$env" ]] || [[ ! -s "/userdata/system/pro/steam/env.sh" ]]; then
+      mkdir -p "$c/opt" 2>/dev/null
+      wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O "$env" https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/env.sh
+      dos2unix "$env" 2>/dev/null
+      chmod 777 "$env" 2>/dev/null
+      cp "$env" "/userdata/system/pro/steam/env.sh" 2>/dev/null
+    fi
+}
+# -------------------------------------------------------------------------------
 pre1 &
 pre2 & 
 pre3 &
+pre4 &
     wait
 # -------------------------------------------------------------------------------
 # mount cgroups for podman/docker/distrobox
