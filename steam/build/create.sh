@@ -54,13 +54,13 @@ handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader f
 docker docker-compose portainer-bin unzip gthumb doublecmd-qt6 dolphin nmon thunar nemo \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename \
 steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat appimagepool-appimage \
-kate kmod pciutils xrdp x11vnc tigervnc onboard remmina vinagre freerdp sunshine btrfs-progs tre rustdesk-bin \
+kate kmod pciutils xrdp x11vnc tigervnc onboard remmina vinagre freerdp sunshine btrfs-progs tre \
 podman distrobox cheese filezilla dos2unix wmctrl xorg-xprop fzf scc yarn sdl2 sdl2_image squashfs-tools   \
 btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace sdl2_mixer python-pysdl2 \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs sdl2_ttf \
 protontricks-git chiaki sublime-text-4 fuse2 heroic-games-launcher-bin moonlight-qt zoom ventoy-bin 7-zip \
 microsoft-edge-stable-bin qdirstat peazip jq steam-rom-manager-git google-chrome steamtinkerlaunch \
-screenfetch glances konsole mullvad-browser-bin discord pcem jre8-openjdk gcc13 python-pip remmina-plugin-rustdesk"
+screenfetch glances konsole mullvad-browser-bin discord pcem jre8-openjdk gcc13 python-pip"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="geforcenow-electron protonup-qt freefilesync-bin sgdboop-bin winegui-bin umu-launcher"
