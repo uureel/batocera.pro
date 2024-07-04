@@ -404,10 +404,6 @@ OR<BR>
 ```curl -L rhythmbox.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/shortcuts/images/rustdesk.png"  width=48 height=48 /><b><i>&nbsp;RUSTDESK (via Arch Container)</i></b> <br>
-```curl -L arch.batocera.pro | bash``` ```Option 2```
-<br>
-<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/sabnzbd.png" width=48 height=48 /><b><i>&nbsp;SABNZBD (Docker) </i></b> <br>
 ```curl -L sabnzbd.batocera.pro | bash```
 <br>
