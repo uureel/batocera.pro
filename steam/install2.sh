@@ -9,7 +9,7 @@ if [ "$architecture" != "x86_64" ]; then
     exit 1
 fi
 
-MESSAGE="This container is compatible with EXT4 or BTRFS partitions only NTFS/EXFat are not supported.  Continue?"
+MESSAGE="This container is compatible with EXT4 or BTRFS partitions only!  NTFS/EXFat are not supported.  Continue?"
 
 # Use dialog to create a yes/no box
 if dialog --title "Compatibility Warning" --yesno "$MESSAGE" 10 70; then
@@ -23,7 +23,7 @@ else
 fi
 
 
-MESSAGE="Since Version 39 of Batocera, apparently due to kernel and/or SDL changes, xinput over bluetooth does not work on steam in the Arch container. Xbox One/S/X controllers are verified working via wired USB or Xbox wireless adapter only. 8bitDO controller users can switch their input mode to d-input or switch input.  Continue?"
+MESSAGE="Since Version 39 of Batocera, apparently due to kernel and/or SDL changes, XINPUT OVER BLUETOOTH DOES NOT WORK!  Xbox One/S/X controllers are verified working via wired USB or Xbox wireless adapter only. 8bitDO controller users can switch their input mode to d-input or switch input.  Continue?"
 
 # Use dialog to create a yes/no box
 if dialog --title "Compatibility Warning" --yesno "$MESSAGE" 10 70; then
