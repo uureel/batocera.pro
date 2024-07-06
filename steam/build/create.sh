@@ -60,7 +60,7 @@ btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagi
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs sdl2_ttf \
 protontricks-git chiaki sublime-text-4 fuse2 heroic-games-launcher-bin moonlight-qt zoom ventoy-bin 7-zip \
 microsoft-edge-stable-bin qdirstat peazip jq steam-rom-manager-git google-chrome steamtinkerlaunch \
-screenfetch glances konsole mullvad-browser-bin discord pcem jre8-openjdk gcc13 python-pip"
+screenfetch glances konsole mullvad-browser-bin discord pcem jre8-openjdk gcc13 python-pip xfce4 xfce4-goodies"
 
 # If you want to install AUR packages, specify them in this variable
 export aur_packagelist="geforcenow-electron protonup-qt freefilesync-bin sgdboop-bin winegui-bin umu-launcher"
