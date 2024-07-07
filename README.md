@@ -367,7 +367,7 @@ OR<BR>
 <img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/portainer.png" width=48 height=48 /><b><i>&nbsp;PORTAINER (Docker)</i></b><br>
 ```curl -L docker.batocera.pro | bash```
 <br>
-<brs>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/portmaster/extra/portmaster.png" width=48 height=48 /><b><i>&nbsp;PORTMASTER (ARM64 Only/Experimental)</i></b><br>
 ```curl -L portmaster.batocera.pro | bash```
 <br>
