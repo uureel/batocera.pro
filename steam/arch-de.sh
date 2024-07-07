@@ -44,16 +44,16 @@ echo "Downloading LXDE script..."
 curl -L -o /userdata/desktop/LXDE.sh https://github.com/uureel/batocera.pro/raw/main/steam/desktop/LXDE.sh
 echo "Downloading MATE script..."
 curl -L -o /userdata/desktop/MATE.sh https://github.com/uureel/batocera.pro/raw/main/steam/desktop/MATE.sh
-#echo "Downloading XFCE script..."
-#curl -L -o /userdata/desktop/XFCE.sh https://github.com/uureel/batocera.pro/raw/main/steam/desktop/XFCE.sh
+echo "Downloading XFCE script..."
+curl -L -o /userdata/desktop/XFCE.sh https://github.com/uureel/batocera.pro/raw/main/steam/desktop/XFCE.sh
 chmod +x /userdata/desktop/LXDE.sh
 chmod +x /userdata/desktop/MATE.sh
-#chmod +x /userdata/desktop/XFCE.sh
+chmod +x /userdata/desktop/XFCE.sh
 
 # Convert downloaded shell scripts to Unix format
 dos2unix /userdata/desktop/LXDE.sh
 dos2unix /userdata/desktop/MATE.sh
-#dos2unix /userdata/desktop/XFCE.sh
+dos2unix /userdata/desktop/XFCE.sh
 
 # Display completion message
 dialog --title "Installation Complete" --msgbox " To access desktop mode:\n1. In Emulationstation, Go to Main Menu-->System Settings-->services and toggle on the windowed service. Make sure to select back to save service \n2. Reboot Batocera.\n3. Press F1. You should see a windowed pcmanFM file manager.\n4. In /userdata/desktop, launch one of the desktop environment scripts. (can take a while) \n5. To revert back to regular mode, simply deactivate windowed service and reboot" 12 80
