@@ -367,8 +367,8 @@ OR<BR>
 <img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/portainer.png" width=48 height=48 /><b><i>&nbsp;PORTAINER (Docker)</i></b><br>
 ```curl -L docker.batocera.pro | bash```
 <br>
-<br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/portmaster/extra/portmaster.png" width=48 height=48 /><b><i>&nbsp;PORTMASTER (ARM64 Only/Experimental)/(Broken on v40)</i></b><br>
+<brs>
+<img src="https://github.com/uureel/batocera.pro/raw/main/portmaster/extra/portmaster.png" width=48 height=48 /><b><i>&nbsp;PORTMASTER (ARM64 Only/Experimental)/(v39 only!/Broken on v40)</i></b><br>
 ```curl -L portmaster.batocera.pro | bash```
 <br>
 <br>
