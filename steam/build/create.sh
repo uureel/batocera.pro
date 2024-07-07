@@ -59,7 +59,7 @@ podman distrobox cheese filezilla dos2unix wmctrl xorg-xprop fzf scc yarn sdl2 s
 btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace sdl2_mixer python-pysdl2 \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs sdl2_ttf \
 protontricks-git chiaki sublime-text-4 fuse2 heroic-games-launcher-bin moonlight-qt zoom ventoy-bin 7-zip \
-microsoft-edge-stable-bin qdirstat peazip jq steam-rom-manager-git google-chrome steamtinkerlaunch \
+microsoft-edge-stable-bin qdirstat peazip jq steam-rom-manager-git google-chrome steamtinkerlaunch xfwm4 xfwm4-themes \
 screenfetch glances konsole mullvad-browser-bin discord pcem jre8-openjdk gcc13 python-pip xfce4 xfce4-goodies"
 
 # If you want to install AUR packages, specify them in this variable
