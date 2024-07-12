@@ -1,5 +1,5 @@
 # batocera.pro
-<b><i>Unofficial Apps for Batocera x86_6 (AMD/Intel)</i></b><br>
+<b><i>Unofficial Apps for Batocera x86_64 (AMD/Intel)</i></b><br>
 <br>
 <br>
 <i>Support: <a href=https://discord.gg/SWBvBkmn9P>Batocera Nation Discord</a></i><br>
