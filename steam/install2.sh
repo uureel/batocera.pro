@@ -39,6 +39,11 @@ fi
 # Clear the screen after the dialog is closed
 clear
 
+echo "FOR A BETTER STEAM+EMULATOR EXPERIENCE, WE RECOMMEND RETROBAT"
+sleep 10
+clear
+
+
 echo "Starting Steam Installer Script..."
 
 sleep 2
