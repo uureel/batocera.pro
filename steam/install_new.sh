@@ -94,6 +94,9 @@ else
 fi
 clear
 
+echo "FOR A BETTER STEAM+EMULATOR EXPERIENCE, WE RECOMMEND RETROBAT"
+sleep 10
+clear
 
 # Define colors
 BLUE="\033[1;34m"
