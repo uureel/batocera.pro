@@ -124,8 +124,8 @@ OR<BR>
 ```curl -L doublecmd.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/edge/extra/icon.png" width=48 height=48 /><b><i>&nbsp;EDGE</i></b><br>
-```curl -L edge.batocera.pro | bash```
+<img src="https://github.com/uureel/batocera.pro/raw/main/edge/extra/icon.png" width=48 height=48 /><b><i>&nbsp;EDGE (via Arch container)</i></b><br>
+```curl -L arch.batocera.pro | bash```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/EKA2L1/extra/icon.png" width=48 height=48 /><b><i>&nbsp;EKA2L1 </font></b></i><br>
