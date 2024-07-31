@@ -259,7 +259,7 @@ rm -rf $temp/*.AppImage
 cd ~/pro/$appname/
 ~/pro/$appname/*.AppImage --appimage-extract 1>/dev/null 2>/dev/null
 mv ~/pro/$appname/squashfs-root ~/pro/$appname/$appname 2>/dev/null
-rm -rf ~/pro/$appname/*.AppImage 2>/dev/null
+#rm -rf ~/pro/$appname/*.AppImage 2>/dev/null
 SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE"
