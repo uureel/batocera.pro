@@ -9,7 +9,8 @@ APPNAME=EDGE # for installer info
 appname=edge # directory name in /userdata/system/pro/...
 AppName=edge # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
-APPLINK=http://batocera.pro/app/$appname.AppImage
+APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/MS-Edge-appimage/releases | grep AppImage | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g' | head -n 1)
+#APPLINK=http://batocera.pro/app/$appname.AppImage
 ORIGIN="batocera.pro@github.com/ivan-hc/MS-Edge-appimage" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
@@ -255,6 +256,10 @@ cd ~/
 mv $temp/* $APPPATH 2>/dev/null
 chmod a+x $APPPATH 2>/dev/null
 rm -rf $temp/*.AppImage
+cd ~/pro/$appname/
+~/pro/$appname/*.AppImage --appimage-extract 1>/dev/null 2>/dev/null
+mv ~/pro/$appname/squashfs-root ~/pro/$appname/$appname 2>/dev/null
+rm -rf ~/pro/$appname/*.AppImage 2>/dev/null
 SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
 echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
 echo -e "${G}> ${W}DONE"
@@ -267,7 +272,7 @@ sleep 1.333
 echo
 echo -e "${G}INSTALLING ${W}. . ."
 # -- prepare launcher to solve dependencies on each run and avoid overlay, 
-launcher=/userdata/system/pro/$appname/$appname
+launcher=/userdata/system/pro/$appname/Launcher
 rm -rf $launcher
 echo '#!/bin/bash ' >> $launcher
 echo 'export DISPLAY=:0.0; unclutter-remote -s' >> $launcher
@@ -277,7 +282,7 @@ echo 'export DISPLAY=:0.0; unclutter-remote -s' >> $launcher
 ###################################################################### 
 ######################################################################
 ######################################################################
-echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" QT_FONT_DPI=128 QT_DPI_SCALE=1 DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage "$@"' >> $launcher
+echo 'LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" QT_FONT_DPI=128 QT_DPI_SCALE=1 DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'/msedge --no-sandbox --test-type "$@"' >> $launcher
 ######################################################################
 ######################################################################
 ######################################################################
@@ -297,7 +302,7 @@ rm -rf $shortcut 2>/dev/null
 echo "[Desktop Entry]" >> $shortcut
 echo "Version=1.0" >> $shortcut
 echo "Icon=/userdata/system/pro/$appname/extra/icon.png" >> $shortcut
-echo "Exec=/userdata/system/pro/$appname/$appname %U" >> $shortcut
+echo "Exec=/userdata/system/pro/$appname/Launcher %U" >> $shortcut
 echo "Terminal=false" >> $shortcut
 echo "Type=Application" >> $shortcut
 echo "Categories=Game;batocera.linux;" >> $shortcut
