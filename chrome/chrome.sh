@@ -10,7 +10,7 @@ appname=chrome # directory name in /userdata/system/pro/...
 AppName=$appname # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$appname.AppImage
 #APPLINK=http://batocera.pro/app/$appname.AppImage
-APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Chrome-appimage/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url" | grep Beta)
+APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Chrome-appimage/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url" | grep eta)
 ORIGIN="github.com/ivan-hc/Chrome-appimage" # credit & info
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
