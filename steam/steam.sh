@@ -24,7 +24,7 @@ OPTIONS=("1" "Install STABLE: Download prebuilt Arch Container (RECOMMENDED)"
          "10" "Addon: Add/Update Heroic Menu & Shortcuts to Emulationstation"
          "11" "Addon: Emudeck (experimental)"
          "12" "Addon: Nativefier (turn websites into apps and add to ES Menu)"
-         "13" "Addon: NVIDIA CUDA")
+         "13" "Addon: NVIDIA CUDA Support")
 
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Arch Container Management" \
