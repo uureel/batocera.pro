@@ -13,7 +13,7 @@ fi
 
 # Define the options
 OPTIONS=("1" "Install STABLE: Download prebuilt Arch Container (RECOMMENDED)"
-         "2" "Install UNSTABLE: Build Container from scratch (ARCH MIRRORS CAN FAIL!)"
+         "2" "Install BLEEDING EDGE: Build from scratch (ARCH MIRRORS CAN FAIL!)"
          "3" "List all Packages in Container"
          "4" "Uninstall Arch Container"
          "5" "Update ES Launcher shortcuts for Arch container"
