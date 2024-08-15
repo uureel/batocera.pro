@@ -33,7 +33,7 @@ OPTIONS=("1" "Install STABLE: Download prebuilt Arch Container (RECOMMENDED)"
 # Display the dialog and get the user choice
 CHOICE=$(dialog --clear --backtitle "Arch Container Management" \
                 --title "Main Menu" \
-                --menu "Choose an option:" 20 90 3 \
+                --menu "Choose an option:" 22 90 5 \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
