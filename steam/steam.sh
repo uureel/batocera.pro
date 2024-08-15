@@ -63,6 +63,7 @@ case $CHOICE in
      flatpak install --system -y com.valvesoftware.Steam
      clear
      echo "Refresh game list and you should see steam in the system menu"
+       ;;  
      4)
         echo "Loading Package List..."
         rm /tmp/runner 2>/dev/null
