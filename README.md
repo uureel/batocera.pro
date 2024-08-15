@@ -141,7 +141,7 @@ OR<BR>
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/blob/main/emudeck/extra/emudeck.jpg" width=48 height=48 /><b><i>&nbsp;EMUDECK (via Arch Container)</i></b><br>
-```curl -L arch.batocera.pro | bash```  ```option 11```
+```curl -L arch.batocera.pro | bash```  ```option 12```
 <br>
 <br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/ferdium/extra/icon.png" width=48 height=48 /><b><i>&nbsp;FERDIUM</i></b><br>
