@@ -11,7 +11,7 @@ fi
 
 clear 
 
-MESSAGE="This container is compatible with EXT4 or BTRFS partitions only!  NTFS/EXFat are not supported.  Continue?"
+MESSAGE="This container is compatible with EXT4 or BTRFS partitions only!  FAT32/NTFS/EXFFAT are not supported.  Continue?"
 
 # Use dialog to create a yes/no box
 if dialog --title "Compatibility Warning" --yesno "$MESSAGE" 10 70; then
