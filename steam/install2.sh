@@ -9,7 +9,7 @@ if [ "$architecture" != "x86_64" ]; then
     exit 1
 fi
 
-MESSAGE="This container is compatible with EXT4 or BTRFS partitions only!  NTFS/EXFat are not supported.  Continue?"
+MESSAGE="This container is compatible with EXT4 or BTRFS partitions only!  FAT32/NTFS/EXFAT are not supported.  Continue?"
 
 # Use dialog to create a yes/no box
 if dialog --title "Compatibility Warning" --yesno "$MESSAGE" 10 70; then
