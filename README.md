@@ -13,7 +13,7 @@ Docker/Podman, and Docker Apps are also available.<br>
 There's also a few custom systems available, and a full Arch Container <br>
 with Steam/Lutris/Heroic and more. <br>
 The full Arch Container applist can be viewed via:<br>
-```curl -L arch.batocera.pro | bash``` option 3 <br>
+```curl -L arch.batocera.pro | bash``` option 4 <br>
 <br>
 <br>
 <b></i>HOW TO INSTALL: </font></b></i><br>
