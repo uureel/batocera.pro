@@ -174,6 +174,7 @@ apps=(
     ["WINE-CUSTOM-DOWNLOADER/v40+"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/wine-custom/wine.sh | bash"
     ["WINE-MANAGER"]="curl -Ls winemanager.batocera.pro | bash"
     ["YARG/YARC-LAUNCHER"]="curl -Ls yarg.batocera.pro | bash"
+    ["YOUTUBE-MUSIC"]="curl -Ls ytm.batocera.pro | bash" 
     ["YOUTUBE-TV"]="curl -Ls yttv.batocera.pro | bash"
 
     # Add other apps here
