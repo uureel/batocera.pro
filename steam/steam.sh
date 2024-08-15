@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Part 1: Display initial message
-dialog --msgbox "Note for Steam: the official flatpak version of Steam is now working on v40.\n\nRegular Proton builds have been verified working and are a smaller install.\n\nThe Arch container build supports xdg and launching Heroic, Lutris, and other games via Steam.\n\nIt stores data in ~/.local/share/Steam with a total size of around 5GB." 15 70
+dialog --msgbox "Note for Steam: the official flatpak version of Steam is now working on v40.\n\nRegular Proton builds have been verified working and the flatpak build is a smaller install.\n\nThe Arch container build supports xdg and launching Heroic, Lutris, and other games via Steam.\n\nIt stores data in ~/.local/share/Steam with a total size of around 5GB." 15 70
 
 # Get the machine hardware name
 architecture=$(uname -m)
