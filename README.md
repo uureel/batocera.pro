@@ -470,6 +470,10 @@ OR<BR>
 ```curl -L transmission.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/virtualbox/extra/icon.png" width=48 height=48 /><b><i>&nbsp;VIRTUALBOX</i></b><br>
+```curl -L virtualbox.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/vivaldi/extra/icon.png" width=48 height=48 /><b><i>&nbsp;VIVALDI</i></b><br>
 ```curl -L vivaldi.batocera.pro | bash```
 <br>
