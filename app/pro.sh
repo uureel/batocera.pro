@@ -164,6 +164,7 @@ apps=(
     ["TELEGRAM"]="curl -Ls telegram.batocera.pro | bash"
     ["TOTAL-COMMANDER"]="curl -Ls totalcmd.batocera.pro | bash"
     ["TRANSMISSION"]="curl -Ls transmission.batocera.pro | bash"
+    ["VIRTUALBOX"]="curl -Ls virtualbox.batocera.pro | bash"
     ["VIVALDI"]="curl -Ls vivaldi.batocera.pro | bash"
     ["VLC"]="curl -Ls vlc.batocera.pro | bash"
     ["WHATSAPP"]="curl -Ls whatsapp.batocera.pro | bash"
