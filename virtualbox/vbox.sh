@@ -296,6 +296,7 @@ cp $shortcut $f1shortcut 2>/dev/null
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # RUN:
+echo "DONE"
 # |
   batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
 # --------------------------------------------------------------------
