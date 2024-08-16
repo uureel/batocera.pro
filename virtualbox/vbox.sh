@@ -1,27 +1,30 @@
 #!/usr/bin/env bash 
-# BATOCERA.PRO INSTALLER
+# VIRTUALBOX APPIMAGE INSTALLER
 ######################################################################
 #--------------------------------------------------------------------- 
 #       DEFINE APP INFO >> 
-APPNAME=virtualbox 
+APPNAME=virtualbox
 APPHOME="github.com/ivan-hc/VirtualBox-appimage"
 #---------------------------------------------------------------------
 
-# Fetch latest release download URL from GitHub
-APPLINK="https://github.com/ivan-hc/VirtualBox-appimage/releases/download/continuous/VirtualBox-KVM-7.0.18-MUI-and-USB-support-x86_64.AppImage"
+# Fetch the latest AppImage download URL from the GitHub API
+APPLINK=$(curl -Ls https://api.github.com/repos/ivan-hc/VirtualBox-appimage/releases | grep "browser_download_url.*AppImage" | awk -F '"' '{print $4}' | head -n 1)
 
 # Validate if APPLINK was found
 if [ -z "$APPLINK" ]; then
-  echo "Failed to retrieve the latest release URL. Exiting..."
+  echo "Failed to retrieve the latest .AppImage link. Exiting..."
   exit 1
 fi
 
+# Extract the filename from the APPLINK
+FILENAME=$(basename "$APPLINK")
+
 #---------------------------------------------------------------------
 #       DEFINE LAUNCHER COMMAND >>
-COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 ALLOW_ROOT=1 /userdata/system/pro/'$APPNAME'/'$APPNAME'.AppImage --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
+COMMAND='mkdir /userdata/system/pro/'$APPNAME'/home 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/config 2>/dev/null; mkdir /userdata/system/pro/'$APPNAME'/roms 2>/dev/null; LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" HOME=/userdata/system/pro/'$APPNAME'/home XDG_CONFIG_HOME=/userdata/system/pro/'$APPNAME'/config QT_SCALE_FACTOR="1" GDK_SCALE="1" XDG_DATA_HOME=/userdata/system/pro/'$APPNAME'/home DISPLAY=:0.0 ALLOW_ROOT=1 /userdata/system/pro/'$APPNAME'/'$FILENAME' --no-sandbox --disable-gpu "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"'
 #--------------------------------------------------------------------- 
 ######################################################################
-APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
+APPNAME="${APPNAME^^}"; ORIGIN="${APPHOME^^}"; appname=$(echo "$APPNAME" | awk '{print tolower($0)}'); AppName=$appname; APPPATH=/userdata/system/pro/$appname/$FILENAME
 # --------------------------------------------------------------------
 # show console/ssh info: 
 clear 
@@ -70,8 +73,6 @@ chmod 777 ~/pro/.dep/* && for file in /userdata/system/pro/.dep/lib*; do sudo ln
 #
 # --------------------------------------------------------------------
 # -- run before installer:  
-#killall wget 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null && killall $AppName 2>/dev/null
-# --------------------------------------------------------------------
 cols=$($dep/tput cols); rm -rf /userdata/system/pro/$appname/extra/cols
 echo $cols >> /userdata/system/pro/$appname/extra/cols
 line(){
@@ -189,7 +190,6 @@ echo
 sleep 0.33
 clear
 echo
-echo
 echo -e "${W}- - -"
 echo -e "${W}BATOCERA.PRO/${G}$APPNAME${W} INSTALLER ${W}"
 echo -e "${W}- - -"
@@ -249,13 +249,18 @@ echo -e "${G}DOWNLOADING${W} $APPNAME . . ."
 sleep 1
 echo -e "${T}$APPLINK" | sed 's,https://,> ,g' | sed 's,http://,> ,g' 2>/dev/null
 cd $temp
-curl --progress-bar --remote-name --location "$APPLINK"
-cd ~/
-mv $temp/* $APPPATH 2>/dev/null
+curl -L -o "$FILENAME" "$APPLINK"
+mv "$FILENAME" $APPPATH 2>/dev/null
 chmod a+x $APPPATH 2>/dev/null
-rm -rf $temp/*.AppImage
-SIZE=$(($(wc -c $APPPATH | awk '{print $1}')/1048576)) 2>/dev/null
-echo -e "${T}$APPPATH ${T}$SIZE( )MB ${G}OK${W}" | sed 's/( )//g'
+
+if [ -f "$APPPATH" ]; then
+    SIZE=$(($(wc -c <"$APPPATH")/1048576)) 2>/dev/null
+    echo -e "${T}$APPPATH ${T}$SIZE MB ${G}OK${W}"
+else
+    echo -e "${RED}Failed to download the AppImage.${X}"
+    exit 1
+fi
+
 echo -e "${G}> ${W}DONE" 
 echo
 sleep 1.333 
@@ -296,9 +301,19 @@ cp $shortcut $f1shortcut 2>/dev/null
 export -f batocera-pro-installer 2>/dev/null
 # --------------------------------------------------------------------
 # RUN:
-echo "DONE"
+echo "INSTALLATION COMPLETE"
 # |
-  batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
+function animate_done() {
+    chars="/-\|"
+    for (( i=0; i<10; i++ )); do
+        echo -ne "\r${chars:i%4:1} DONE ${chars:i%4:1}"
+        sleep 0.2
+    done
+    echo -ne "\r DONE          \n"
+}
+
+batocera-pro-installer "$APPNAME" "$appname" "$AppName" "$APPPATH" "$APPLINK" "$ORIGIN"
+animate_done
 # --------------------------------------------------------------------
 # BATOCERA.PRO INSTALLER //
 ##########################
