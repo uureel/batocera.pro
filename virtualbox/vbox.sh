@@ -1,4 +1,10 @@
 #!/usr/bin/env bash 
+
+echo "NVIDIA USERS -- THIS APP PULLS NVIDIA DRIVERS IN THE BACKGROUND AND CAN DELAY FIRST STARTUP"
+sleep 10
+echo "Launching Install script.."
+sleep 2
+
 # VIRTUALBOX APPIMAGE INSTALLER
 ######################################################################
 #--------------------------------------------------------------------- 
