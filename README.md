@@ -502,6 +502,10 @@ OR<BR>
 ```curl -L winemanager.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/wps-office/extra/icon.png" width=48 height=48 /><b><i>&nbsp;WPS OFFICE</i></b><br>
+```curl -L wps.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/xarchiver/extra/icon.png" width=48 height=48 /><b><i>&nbsp;XARCHIVER</i></b><br>
 ```curl -L xarchiver.batocera.pro | bash```
 <br>
