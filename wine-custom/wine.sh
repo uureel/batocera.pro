@@ -27,7 +27,7 @@ case $CHOICE in
 
     3)
         echo "You chose Wine-GE Custom."
-        curl -L  https://github.com/uureel/batocera.pro/raw/main/wine-custom/wine-ge.sh
+        curl -L  https://github.com/uureel/batocera.pro/raw/main/wine-custom/wine-ge.sh | bash
         ;;
      *)
         echo "Invalid choice or no choice made. Exiting."
