@@ -231,7 +231,6 @@ EOF
 generate_mirrorlist_og () {
 	cat <<EOF > mirrorlist
 Server = https://mirror.osbeck.com/archlinux/\$repo/os/\$arch
-Server = https://mirror.f4st.host/archlinux/\$repo/os/\$arch
 Server = https://archlinux.thaller.ws/\$repo/os/\$arch
 Server = https://mirror.moson.org/arch/\$repo/os/\$arch
 Server = https://md.mirrors.hacktegic.com/archlinux/\$repo/os/\$arch
