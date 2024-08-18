@@ -10,7 +10,7 @@ mkdir -p /userdata/system/wine/exe
 ./aria2c -x 5 -s 5 -d /userdata/system/wine/exe https://batocera.pro/app/steamy.exe
 
 # Check if the file was downloaded
-if [ -f "/userdata/roms/wine/exe/steamy.exe" ]; then
+if [ -f "/userdata/syste,/wine/exe/steamy.exe" ]; then
     echo "steamy.exe downloaded successfully."
 else
     echo "Download failed or file not found."
