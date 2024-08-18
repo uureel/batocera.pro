@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the options
-OPTIONS=("1" "Wine and Proton" "2" "Wine-TKG-Staging" "3" "Wine-GE Custom" "4" "GE-Proton")
+OPTIONS=("1" "Wine and Proton" "2" "Wine-TKG-Staging" "3" "Wine-GE Custom" "4" "GE-Proton" "5" "Steamy-AIO Wine Dependency Installer")
 
 # Use dialog to display the menu
 CHOICE=$(dialog --clear --backtitle "Wine Installation" \
@@ -33,6 +33,10 @@ case $CHOICE in
         echo "You chose GE-Proton."
         curl -L  https://github.com/uureel/batocera.pro/raw/main/wine-custom/ge-proton.sh | bash
         ;;
+    5)
+        echo "You chose Steamy-AIO."
+        curl -L  https://github.com/uureel/batocera.pro/raw/main/wine-custom/steamy.sh | bash
+        ;;    
      *)
         echo "Invalid choice or no choice made. Exiting."
         ;;
