@@ -292,8 +292,7 @@ if [ ! -s chaotic-keyring.pkg.tar.zst ] || [ ! -s chaotic-mirrorlist.pkg.tar.zst
 	exit 1
 fi
 
-bootstrap_urls=("mirror.f4st.host" \
-			"arch.hu.fo" \
+bootstrap_urls=("arch.hu.fo" \
 			"mirror.cyberbits.eu" \
 			"mirror.osbeck.com" \
 			"mirror.lcarilla.de" \
