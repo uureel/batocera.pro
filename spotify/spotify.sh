@@ -11,7 +11,7 @@ AppName=spotify # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
 #APPLINK=$(curl -s https://api.github.com/repos/ivan-hc/Spotify-appimage/releases | grep AppImage | grep continuous | grep "browser_download_url" | awk '{print $2}' | sed 's,",,g')
 #APPLINK=http://batocera.pro/app/spotify.AppImage
-APPLINK="$(curl -s https://api.github.com/repos/ivan-hc/Chrome-appimage/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url" | grep Beta)"
+APPLINK="$(curl -s https://api.github.com/repos/ivan-hc/Chrome-appimage/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url" | grep eta)"
 ORIGIN="github.com/ivan-hc/chrome-appimage" # credit & info 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
