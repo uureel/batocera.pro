@@ -9,7 +9,7 @@ APPNAME=NETFLIX # for installer info
 appname=netflix # directory name in /userdata/system/pro/...
 AppName=netflix # App.AppImage name
 APPPATH=/userdata/system/pro/$appname/$AppName.AppImage
-APPLINK="$(curl -s https://api.github.com/repos/ivan-hc/Chrome-appimage/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url" | grep Beta)"
+APPLINK="$(curl -s https://api.github.com/repos/ivan-hc/Chrome-appimage/releases/latest | jq -r ".assets[] | select(.name | endswith(\".AppImage\")) | .browser_download_url" | grep eta)"
 ORIGIN="github.com/ivan-hc/chrome-appimage" # credit & info 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
