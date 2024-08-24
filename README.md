@@ -374,6 +374,10 @@ OR<BR>
 ```curl -L prism.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/protonup-qt/extra/icon.png" width=48 height=48 /><b><i>&nbsp;PROTONUP-QT</i></b><br>
+```curl -L protonup.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/ps2minus/extras/icon.png" width=48 height=48 /><b><i>&nbsp;PS2- (OLD PCSX2 V1.6, FOR CPUS WITHOUT SSE4.1)</i></b><br>
 ```curl -L ps2minus.batocera.pro | bash```
 <br>
