@@ -22,7 +22,7 @@ APPLINK=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/latest 
 APPHOME="github.com/uureel/batocera-apps"
 #---------------------------------------------------------------------
 # DEFINE LAUNCHER COMMAND >> 
-COMMAND='LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage'
+COMMAND='LD_LIBRARY_PATH="/userdata/system/pro/.dep:${LD_LIBRARY_PATH}" DISPLAY=:0.0 /userdata/system/pro/'$appname'/'$appname'.AppImage --no-sandbox --test-type "${@}"'
 #---------------------------------------------------------------------
 ######################################################################
 ######################################################################
