@@ -141,6 +141,7 @@ apps=(
     ["POKEMMO"]="curl -Ls pokemmo.batocera.pro | bash"
     ["PORTAINER/DOCKER"]="curl -Ls https://github.com/uureel/batocera.pro/raw/main/docker/install.sh | bash"
     ["PRISM-LAUNCHER"]="curl -Ls prism.batocera.pro | bash"
+    ["PROTONUP-QT"]="curl -Ls protonup.batocera.pro | bash"
     ["PS2-MINUS"]="curl -Ls ps2minus.batocera.pro | bash"
     ["PS2-PLUS"]="curl -Ls ps2plus.batocera.pro | bash"
     ["PS3-PLUS"]="curl -Ls ps3plus.batocera.pro | bash"
