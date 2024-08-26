@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # API endpoint for GitHub releases
-REPO_URL="https://api.github.com/repos/Kron4ek/Wine-Builds/releases"
+REPO_URL="https://api.github.com/repos/Kron4ek/Wine-Builds/releases?per_page=100"
 
 # Directory to store custom Wine versions
 INSTALL_DIR="/userdata/system/wine/custom/"
