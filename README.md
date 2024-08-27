@@ -310,6 +310,10 @@ OR<BR>
 ```curl -L myretrotv.batocera.pro | bash```
 <br>
 <br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/docker/extra/netboot.png" width=48 height=48 /><b><i>&nbsp;NETBOOT.XYZ SERVER (Docker)</i></b><br>
+```curl -L netboot.batocera.pro | bash```
+<br>
+<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/netflix/extra/icon.png" width=48 height=48 /><b><i>&nbsp;NETFLIX</i></b><br>
 ```curl -L netflix.batocera.pro | bash```
 <br>
