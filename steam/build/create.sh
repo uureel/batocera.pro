@@ -17,7 +17,7 @@ jack2 lib32-jack2 alsa-tools alsa-utils pavucontrol pipewire lib32-pipewire"
 
 video_pkgs="mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
 vulkan-intel lib32-vulkan-intel nvidia-utils lib32-nvidia-utils wayland \
-vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-layers weston\
+vulkan-icd-loader lib32-vulkan-icd-loader vulkan-mesa-layers weston \
 lib32-vulkan-mesa-layers libva-mesa-driver lib32-libva-mesa-driver \
 libva-intel-driver lib32-libva-intel-driver intel-media-driver \
 mesa-utils vulkan-tools nvidia-prime libva-utils lib32-mesa-utils"
