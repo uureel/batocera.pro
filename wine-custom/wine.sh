@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the options
-OPTIONS=("1" "Wine and Proton" "2" "Wine-TKG-Staging" "3" "Wine-GE Custom" "4" "GE-Proton" "5" "Steamy-AIO Wine Dependency Installer")
+OPTIONS=("1" "Wine & Proton (vanilla/regular)" "2" "Wine-TKG-Staging" "3" "Wine-GE Custom" "4" "GE-Proton" "5" "Steamy-AIO Wine Dependency Installer")
 
 # Use dialog to display the menu
 CHOICE=$(dialog --clear --backtitle "Wine Installation" \
