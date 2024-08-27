@@ -49,7 +49,7 @@ qt5-wayland xorg-server-xephyr inkscape openbox obs-studio gamehub binutils \
 xdotool xbindkeys gparted vlc smplayer mpv fish zsh xmlstarlet nvtop duf exa \
 minigalaxy legendary gamescope yt-dlp playonlinux minizip flatpak libreoffice \
 ripgrep i7z sd bandwhich tre zoxide p7zip atop iftop sysstat totem feh krename \
-bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli waydroid \
+bottles bauh flatseal rebuild-detector ccache axel breeze xorg-xdpyinfo dua-cli \
 handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader file  \
 docker docker-compose portainer-bin unzip gthumb doublecmd-qt6 dolphin nmon thunar nemo \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename \
