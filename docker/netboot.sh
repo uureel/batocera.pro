@@ -54,12 +54,6 @@ docker run -d \
   -e CONTAINER_IP=$CONTAINER_IP \
   samdbmg/dhcp-netboot.xyz
 
-# Setup Firewall Rules
-dialog --title "Setting up Firewall" --infobox "Configuring firewall rules to allow PXE boot traffic..." 10 50
-sudo ufw allow proto udp from any to any port 67
-sudo ufw allow proto udp from any to any port 69
-sudo ufw allow proto udp from any to any port 4011
-sudo ufw allow proto tcp from any to any port 80
 
 # Final message to the user
 MSG="Your Netboot.xyz docker container has been started with the following configurations:\n
@@ -68,9 +62,8 @@ MSG="Your Netboot.xyz docker container has been started with the following confi
 - Gateway IP: $GATEWAY\n
 - Subnet: $SUBNET\n
 - Container IP: $CONTAINER_IP\n
-- Ports opened: 67 (DHCP), 69 (TFTP), 4011 (PXE), 80 (HTTP)\n
 \nYou can now boot clients via PXE and access installers and utilities through netboot.xyz.\n
-\nRemember to remove the firewall rules and shutdown the container when you're done."
+\nThe Container can be managed via docker cli or portainer on port 9443."
 
 # Use dialog to display the message
 dialog --title "Netboot Setup Complete" --msgbox "$MSG" 20 70
