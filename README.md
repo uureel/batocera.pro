@@ -64,7 +64,7 @@ OR<BR>
 ```curl -L applewin.batocera.pro | bash```
 <br>
 <br>
-<img src="https://github.com/uureel/batocera.pro/raw/main/steam/arch.png" width=48 height=48 /><b><i>&nbsp;ARCH CONTAINER (Conty/Immutable) </font></b></i><br>
+<img src="https://github.com/uureel/batocera.pro/raw/main/steam/arch.png" width=48 height=48 /><b><i>&nbsp;ARCH CONTAINER (Conty) </font></b></i><br>
 ```curl -L arch.batocera.pro | bash```
 <br>
 <br>
