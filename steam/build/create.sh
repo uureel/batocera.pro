@@ -54,8 +54,8 @@ handbrake tigervnc remmina yt-dlp kitty terminator xorg-xkill media-downloader f
 docker docker-compose portainer-bin unzip gthumb doublecmd-qt6 dolphin nmon thunar nemo \
 gdk-pixbuf-xlib gdk-pixbuf2 xarchiver mc vifm fd krusader mcpelauncher-linux-git krename \
 steam-boilr-gui btrfs-assistant protontricks-git lib32-sdl12-compat sdl12-compat appimagepool-appimage \
-kate kmod pciutils xrdp x11vnc tigervnc onboard remmina vinagre freerdp sunshine btrfs-progs tre gnome gnome-extra \
-podman distrobox cheese filezilla dos2unix wmctrl xorg-xprop fzf scc yarn sdl2 sdl2_image squashfs-tools plasma kde-applications  \
+kate kmod pciutils xrdp x11vnc tigervnc onboard remmina vinagre freerdp sunshine btrfs-progs tre  \
+podman distrobox cheese filezilla dos2unix wmctrl xorg-xprop fzf scc yarn sdl2 sdl2_image squashfs-tools \
 btrfs-heatmap meld lynx yq xorg xorg-server-xvfb nodejs npm cairo-dock imagemagick strace sdl2_mixer python-pysdl2 \
 tint2 plank lxde mate mate-extra dialog xterm compsize antimicrox qdirstat lutris-git chiaki procs sdl2_ttf \
 protontricks-git chiaki sublime-text-4 fuse2 heroic-games-launcher-bin moonlight-qt zoom ventoy-bin 7-zip \
