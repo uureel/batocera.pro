@@ -128,6 +128,26 @@
 	export GDK_SCALE=1
 	export DISPLAY=:0.0
 # ----------------------------------------------------
+# add basic pacman support
+  if [[ -e /opt/pacman ]]; then
+     [[ -e /opt/pacman/pacman.conf ]] && rm /etc/pacman.conf 2>/dev/null && ln -sf /opt/pacman/pacman.conf /etc/pacman.conf 2>/dev/null
+     [[ -e /opt/pacman/pacman.d ]] && rm -rf /etc/pacman.d 2>/dev/null && ln -sf /opt/pacman/pacman.d /etc/pacman.d 2>/dev/null
+     [[ -e /opt/pacman/cache ]] && rm -rf /var/cache/pacman 2>/dev/null && mkdir -p /var/cache && ln -sf /opt/pacman/cache /var/cache/pacman 2>/dev/null
+     [[ -e /opt/pacman/lib ]] && rm -rf /var/lib/pacman 2>/dev/null && mkdir -p /var/lib && ln -sf /opt/pacman/lib /var/lib/pacman 2>/dev/null
+  fi
+  if [[ ! -e "$(which realpacman)" ]]; then
+     p=/usr/bin/pacman
+     mv "$(which pacman)" "/usr/bin/realpacman" 2>/dev/null
+     echo '#!/bin/bash' >> $p
+     echo 'if [[ "$(echo "${@}" | grep overwrite)" = "" ]]; then' >> $p
+     echo '  realpacman "${@}" --overwrite="*"' >> $p
+     echo 'else' >> $p
+     echo '  realpacman "${@}" ' >> $p
+     echo 'fi' >> $p
+     echo 'exit 0' >> $p
+     dos2unix $p 2>/dev/null && chmod 777 $p 2>/dev/null
+  fi
+# ----------------------------------------------------
  	if [[ -e /opt/env ]]; then
   		source /opt/env 2>/dev/null
 	fi
