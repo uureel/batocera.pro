@@ -120,7 +120,7 @@
 	   mv "$(which pacman)" "/usr/bin/realpacman" 2>/dev/null
 	   echo '#!/bin/bash' >> $p
 	   echo 'if [[ "$(echo "${@}" | grep overwrite)" = "" ]]; then' >> $p
-	   echo '  realpacman "${@}" --overwrite="*"' >> $p
+	   echo '  realpacman "${@}" ' >> $p
 	   echo 'else' >> $p
 	   echo '  realpacman "${@}" ' >> $p
 	   echo 'fi' >> $p
