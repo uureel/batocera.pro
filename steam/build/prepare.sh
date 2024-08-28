@@ -123,6 +123,17 @@
 	   dos2unix $p 2>/dev/null && chmod 777 $p 2>/dev/null
 	fi
 # ----------------------------------------------------
+# ensure dockerd 
+	if [[ "$(echo "${@}" | grep docker)" != "" ]] || [[ "$(echo "${@}" | grep container)" != "" ]]; then
+		if [[ "$(which dockerd)" != "" ]]; then
+		  if [[ "$(pidof dockerd)" = "" ]]; then
+		    killall containerd 2>/dev/null
+		    su -c "nohup dockerd 1>/dev/null 2>/dev/null &" root 1>/dev/null 2>/dev/null &
+		    clear
+		  fi
+		fi
+  	fi
+# ----------------------------------------------------
 # remaining env
  	if [[ -e /opt/cuda/bin ]]; then
 		if [[ -e /opt/cuda/targets/x86_64-linux/lib ]]; then
