@@ -187,6 +187,9 @@ echo
 				echo 'exit 0' >> $p
 					dos2unix $p 2>/dev/null && chmod 777 $p 2>/dev/null
 #--------------------------------------------------------------------------------------------
+# rootpatch makepkg
+	sed -i 's,EUID == 0,EUID == 8888,g' $(which makepkg) 2>/dev/null
+#--------------------------------------------------------------------------------------------
 	rm $f 2>/dev/null
 	rm $h 2>/dev/null
 		ldconfig
