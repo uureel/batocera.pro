@@ -1,11 +1,9 @@
 #!/bin/bash
-
 echo
 echo "-----------------------------------------"
 echo "RUNNING ADDITIONAL BATOCERA CONTY PATCHES"
 echo "-----------------------------------------"
 echo
-
 #--------------------------------------------------------------------------------------------
 # prepare/preload
 	echo -e "\n\n\nfixing nvidia ld.so.cache"
@@ -15,7 +13,6 @@ echo
 				dos2unix /usr/bin/prepare 2>/dev/null 
 				chmod 777 /usr/bin/prepare 2>/dev/null
 					cp /usr/bin/prepare /usr/bin/preload 2>/dev/null
-
 #--------------------------------------------------------------------------------------------
 # fix for nvidia lutris
 	echo -e "\n\n\nfixing lutris"
@@ -29,7 +26,6 @@ echo
 			  wget -q --tries=30 --no-check-certificate --no-cache --no-cookies -O /usr/bin/lutris https://raw.githubusercontent.com/uureel/batocera.pro/main/steam/build/lutris.sh
 				  dos2unix /usr/bin/lutris 2>/dev/null
 				  chmod 777 /usr/bin/lutris 2>/dev/null
-
 #--------------------------------------------------------------------------------------------
 # add ~/.bashrc&profile env
 	echo -e "\n\n\nfixing .bashrc and .profile"
@@ -42,7 +38,6 @@ echo
 			echo 'export GDK_SCALE=1' >> ~/.bashrc
 			echo 'export USER=root' >> ~/.bashrc
 				dos2unix ~/.bashrc 2>/dev/null
-
 #--------------------------------------------------------------------------------------------
 # add fakeid
 	f=/usr/bin/fakeid
@@ -50,7 +45,6 @@ echo
 		echo 'echo 888' >> "$f"
 			dos2unix "$f" 2>/dev/null
 			chmod 777 "$f" 2>/dev/null
-
 #--------------------------------------------------------------------------------------------
 # fix for winestaging bork
 	echo -e "\n\n\nfixing paths for wine staging"
@@ -58,7 +52,6 @@ echo
 		rm -rf /share 2>/dev/null
 			ln -sf /usr/lib32 /lib32
 			ln -sf /usr/share /share
-
 #--------------------------------------------------------------------------------------------
 # fix borked faudio repo
 	echo -e "\n\n\nfixing faudio staging"
@@ -71,7 +64,6 @@ echo
 					wget -q --show-progress --tries=30 -O "$f" "$link"
 					yes "Y" | pacman -U "$f" --overwrite='*' && rm "$f"
 			cd ~/
-
 #--------------------------------------------------------------------------------------------
 # add tabby 
 	echo -e "\n\n\nadding tabby"
@@ -81,14 +73,12 @@ echo
 				wget -q --show-progress --tries=30 -O "$f" "$link" 
 					yes "Y" | pacman -U "$f" --overwrite='*' && rm "$f"
 		cd ~/
-
 #--------------------------------------------------------------------------------------------
 # add nativefier
 	echo -e "\n\n\nadding nativefier"
 		if [[ "$(which node)" != "" ]] && [[ "$(which npm)" != "" ]]; then
 			npm install -g nativefier
 		fi
-
 #--------------------------------------------------------------------------------------------
 # add fightcade2
 	echo -e "\n\n\nadding fightcade2"
@@ -112,7 +102,6 @@ echo
 					ln -sf "${p}"/Fightcade2.sh /usr/bin/fightcade2 2>/dev/null
 					echo "added fightcade2 latest realease"
 				fi
-
 #--------------------------------------------------------------------------------------------
 # add blender
 	echo -e "\n\n\nadding blender"
@@ -136,7 +125,6 @@ echo
 					ln -sf "${p}"/blender /usr/bin/blender 2>/dev/null
 					echo "added blender 4.1.1"
 				fi
-
 #--------------------------------------------------------------------------------------------
 # run additional rootpatches/fixes
 	echo -e "\n\n\nfixing root apps"
@@ -152,14 +140,12 @@ echo
    				yes "Y" | pacman -S libnvidia-container nvidia-container-toolkit --overwrite='*'
 					useradd -r -d /var/lib/libvirt -s /bin/false libvirt-qemu
 					usermod -a -G kvm libvirt-qemu
-
 #--------------------------------------------------------------------------------------------
 # fix samba collisions 
 	echo -e "\n\n\nfixing samba"
 		rm /usr/bin/samba* 2>/dev/null
 		rm /usr/bin/smb* 2>/dev/null
 		rm -rf ~/build 2>/dev/null
-
 #--------------------------------------------------------------------------------------------
 # purge baloo 
 	echo -e "\n\n\npurging baloo"
@@ -176,7 +162,6 @@ echo
 		rm -rf /usr/share/qlogging-categories6/baloo* 2>/dev/null &
 		rm -rf /usr/share/dbus-1/interfaces/org.kde.baloo* 2>/dev/null &
 			wait
-
 #--------------------------------------------------------------------------------------------
 # add appimage greenlight version due to borked yay builder
 	echo -e "\n\n\nadding greenlight"
@@ -184,28 +169,43 @@ echo
 			wget --tries=50 --no-check-certificate --no-cache --no-cookies -O "/usr/bin/greenlight-beta" "$link"
 				chmod 777 /usr/bin/greenlight-beta 2>/dev/null
 					ln -sf /usr/bin/greenlight-beta /usr/bin/greenlight 2>/dev/null
-
-
+#--------------------------------------------------------------------------------------------
+# add basic pacman support
+	echo -e "\n\n\nadding basic pacman support"
+		mkdir -p /opt/pacman/lib /opt/pacman/cache 2>/dev/null
+	 	cp -r /etc/pacman* /opt/pacman/ 2>/dev/null
+	 	cp -r /var/lib/pacman/* /opt/pacman/lib/ 2>/dev/null
+		cp -r /var/cache/pacman/* /opt/pacman/cache/ 2>/dev/null  
+			p=/usr/bin/pacman
+			mv "$(which pacman)" "/usr/bin/realpacman" 2>/dev/null
+				echo '#!/bin/bash' >> $p
+				echo 'if [[ "$(echo "${@}" | grep overwrite)" = "" ]]; then' >> $p
+				echo '  realpacman "${@}" --overwrite="*"' >> $p
+				echo 'else' >> $p
+				echo '  realpacman "${@}" ' >> $p
+				echo 'fi' >> $p
+				echo 'exit 0' >> $p
+					dos2unix $p 2>/dev/null && chmod 777 $p 2>/dev/null
 #--------------------------------------------------------------------------------------------
 	rm $f 2>/dev/null
 	rm $h 2>/dev/null
-
-	ldconfig
-
-	echo
-	echo
-	echo "--------"
-	echo "  DONE"
-	echo "--------"
-	echo
-	echo
-
+		ldconfig
+			echo
+			echo
+			echo "--------"
+			echo "  DONE"
+			echo "--------"
+			echo
+			echo
+#--------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
 exit 0
-
 #--------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------
-
+#
+# obsolete:
 function libc-dthash-patch() {
 	echo "fixing libc dthash"
 	ver=$(ldd --version | head -n1 | rev | awk '{print $1}' | rev)
