@@ -31,6 +31,11 @@
 
 # ----------------------------------------------------
 # reload ld
+        cd /usr/lib
+        [[ -e /usr/lib/libGLX.so.0.0.0 ]] && ln -sf libGLX.so.0.0.0 libGLX.so.0 2>/dev/null
+        [[ -e /usr/lib/libOpenGL.so.0.0.0 ]] && ln -sf libOpenGL.so.0.0.0 libOpenGL.so.0 2>/dev/null
+        [[ -e /usr/lib/libGLdispatch.so.0.0.0 ]] && ln -sf libGLdispatch.so.0.0.0 libGLdispatch.so.0 2>/dev/null
+        cd ~/
 	if [[ -s $C/nvidia/.active ]]; then
 	  v="$(cat $C/nvidia/.active | head -n1)"
 	  if [[ -s $C/nvidia/ld.so.cache-$v-$md5 ]]; then
