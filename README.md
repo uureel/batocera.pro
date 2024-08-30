@@ -27,7 +27,7 @@ the icon in the F1-applications menu will disappear after restart.<br>
 <img src="https://github.com/uureel/batocera.pro/raw/main/app/pro.PNG" style="width:50%;height:auto;"/>
 <br>
 <br>
-OR<BR>
+ALTERNATIVE INSTALL METHOD:<BR>
 <br>
 `  RUN THE FOLLOWING COMMANDS IN SSH/XTERM:  `
 <br>
