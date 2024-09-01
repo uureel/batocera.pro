@@ -1,11 +1,8 @@
 # batocera.pro
-<br><br><br>
-<b>This repo is scheduled for phase out</b><br>
-<br><br><br>
+<br><br><br><br>
+<b>This repo is scheduled for phase out and is not supported anymore</b><br>
+<br><br><br><br>
 <b><i>Unofficial Apps for Batocera x86_64 (AMD/Intel)</i></b><br>
-<br>
-<br>
-<i>Support: <a href=https://discord.gg/SWBvBkmn9P>Batocera Nation Discord</a></i><br>
 <br>
 <br>
 </b>Most of these apps will be available in <i>F1-Applications</i> <br>
