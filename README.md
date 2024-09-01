@@ -543,11 +543,6 @@ ALTERNATIVE INSTALL METHOD:<BR>
 <br>
 <i>This is a small hobby repository in no way <br>
 shape or form affiliated with Batocera </i><br>
-<br>
-<br>
-<br>
-<br><b><i>QUESTIONS & SUGGESTIONS: </font></b></i><br>
-<a href=https://discord.gg/SWBvBkmn9P>https://discord.gg/SWBvBkmn9P</a>
-<br>
-<br>
-<br>
+<br><br><br><br>
+<b>This repo is scheduled for phase out and is not supported anymore</b><br>
+<br><br><br><br>
