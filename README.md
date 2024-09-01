@@ -1,10 +1,7 @@
 # batocera.pro
-<br>
-<br>
-**This repo is scheduled for phase out
-**
-<br>
-<br>
+<br><br><br>
+<b>This repo is scheduled for phase out</b><br>
+<br><br><br>
 <b><i>Unofficial Apps for Batocera x86_64 (AMD/Intel)</i></b><br>
 <br>
 <br>
