@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Part 1: Display initial message
-dialog --msgbox "Note: Batocera.Pro is deprecated and going archived. No more updates will issued for the container" 20 70
+dialog --msgbox "Note: Batocera.Pro is deprecated and going archived. Support is not longer available and no more updates will issued for the container" 20 70
 
 
 # Part 1: Display initial message
