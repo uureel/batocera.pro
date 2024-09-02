@@ -1,6 +1,8 @@
 #!/bin/bash
 
+clear
 dialog --msgbox "Note: Batocera.Pro is deprecated and going archived. Support is not longer available." 20 70
+clear
 
 # Function to display animated title with colors
 animate_title() {
