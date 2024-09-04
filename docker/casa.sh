@@ -21,14 +21,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-#Get aria2c
-echo "Fetching Aria2c"
+# Download the split zip files with progress bars
+echo "Downloading split zip files..."
+wget "${ZIP_PART_1}" -O "batocera-casaos.tar.zip.001" --progress=bar:force:noscroll 2>&1
+wget "${ZIP_PART_2}" -O "batocera-casaos.tar.zip.002" --progress=bar:force:noscroll 2>&1
+wget "${ZIP_PART_3}" -O "batocera-casaos.tar.zip.003" --progress=bar:force:noscroll 2>&1
+wget "${ZIP_PART_4}" -O "batocera-casaos.tar.zip.004" --progress=bar:force:noscroll 2>&1
 
-curl -L https://github.com/garbagescow/batocera.pro/raw/main/.dep/.scripts/aria2c.sh | bash
-
-# Download the split zip files using aria2 with multiple connections
-echo "Downloading split zip files using multiple connections..."
-./aria2c -x 5 -s 5 "${ZIP_PART_1}" "${ZIP_PART_2}" "${ZIP_PART_3}" "${ZIP_PART_4}"
 if [ $? -ne 0 ]; then
     echo "Failed to download one or more parts of the split zip file. Exiting."
     exit 1
@@ -62,9 +61,9 @@ fi
 rm batocera-casaos.tar.zip*
 rm batocera-casaos.tar
 
-# Download the executable using aria2
+# Download the executable
 echo "Downloading the executable file..."
-aria2c -x 5 -s 5 "https://github.com/garbagescow/batocera.pro/releases/download/batocera-containers/batocera-casaos" -o "${HOME_DIR}/casaos/batocera-casaos"
+wget "https://github.com/garbagescow/batocera.pro/releases/download/batocera-containers/batocera-casaos" -O "${HOME_DIR}/casaos/batocera-casaos" --progress=bar:force:noscroll 2>&1
 if [ $? -ne 0 ]; then
     echo "Failed to download executable. Exiting."
     exit 1
