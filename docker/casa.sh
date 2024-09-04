@@ -29,10 +29,10 @@ fi
 
 # Download the split zip files with aria2c
 echo "Downloading split zip files using aria2c..."
-./aria2c "${ZIP_PART_1}" -x 5 -o "batocera-casaos.tar.zip.001"
-./aria2c "${ZIP_PART_2}" -x 5 -o "batocera-casaos.tar.zip.002"
-./aria2c "${ZIP_PART_3}" -x 5 -o "batocera-casaos.tar.zip.003"
-./aria2c "${ZIP_PART_4}" -x 5 -o "batocera-casaos.tar.zip.004"
+./aria2c -x 10 "${ZIP_PART_1}" -o "batocera-casaos.tar.zip.001"
+./aria2c -x 10 "${ZIP_PART_2}" -o "batocera-casaos.tar.zip.002"
+./aria2c -x 10 "${ZIP_PART_3}" -o "batocera-casaos.tar.zip.003"
+./aria2c -x 10 "${ZIP_PART_4}" -o "batocera-casaos.tar.zip.004"
 
 if [ $? -ne 0 ]; then
     echo "Failed to download one or more parts of the split zip file. Exiting."
@@ -57,7 +57,7 @@ fi
 
 # Extract the tar.gz file
 echo "Extracting the tar.gz file..."
-tar -xvzf "batocera-casaos.tar.gz"
+tar -xzvf "batocera-casaos.tar.gz"
 if [ $? -ne 0 ]; then
     echo "Failed to extract the tar.gz file. Exiting."
     exit 1
@@ -65,18 +65,19 @@ fi
 
 # Clean up zip and tar files
 rm batocera-casaos.tar.zip*
-rm batocera-casaos.tar
+rm batocera-casaos.tar.gz
 
 # Download the executable using aria2c
 echo "Downloading the executable file..."
-./aria2c "https://github.com/garbagescow/batocera.pro/releases/download/batocera-containers/batocera-casaos" -o "${HOME_DIR}/casaos/batocera-casaos"
+./aria2c -x 5 "https://github.com/garbagescow/batocera.pro/releases/download/batocera-containers/batocera-casaos" -o "casaos/batocera-casaos"
+
 if [ $? -ne 0 ]; then
     echo "Failed to download executable. Exiting."
     exit 1
 fi
 
 # Make the executable runnable
-chmod +x "${HOME_DIR}/casaos/batocera-casaos"
+chmod +x "/userdata/system/casaos/batocera-casaos"
 if [ $? -ne 0 ]; then
     echo "Failed to make the file executable. Exiting."
     exit 1
@@ -92,6 +93,8 @@ if [ $? -ne 0 ]; then
     echo "Failed to run the executable. Exiting."
     exit 1
 fi
+
+rm aria2c
 
 # Final dialog message with casaos management info
 MSG="Casaos container has been set up.\n\nAccess casa Web UI at http://<your-batocera-ip>:80 \n\nRDP Debian XFCE Desktop port 3389 username/password is root/linux\n\nCasaos data stored in: ~/casaos\n\nDefault web ui username/password is batocera/batoceralinux"
