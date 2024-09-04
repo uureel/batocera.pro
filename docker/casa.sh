@@ -29,10 +29,10 @@ fi
 
 # Download the split zip files with aria2c
 echo "Downloading split zip files using aria2c..."
-./aria2c "${ZIP_PART_1}" -x 5-o "batocera-casaos.tar.zip.001"
-./aria2c "${ZIP_PART_2}" -x 5-o "batocera-casaos.tar.zip.002"
-./aria2c "${ZIP_PART_3}" -x 5-o "batocera-casaos.tar.zip.003"
-./aria2c "${ZIP_PART_4}" -x 5-o "batocera-casaos.tar.zip.004"
+./aria2c "${ZIP_PART_1}" -x 5 -o "batocera-casaos.tar.zip.001"
+./aria2c "${ZIP_PART_2}" -x 5 -o "batocera-casaos.tar.zip.002"
+./aria2c "${ZIP_PART_3}" -x 5 -o "batocera-casaos.tar.zip.003"
+./aria2c "${ZIP_PART_4}" -x 5 -o "batocera-casaos.tar.zip.004"
 
 if [ $? -ne 0 ]; then
     echo "Failed to download one or more parts of the split zip file. Exiting."
