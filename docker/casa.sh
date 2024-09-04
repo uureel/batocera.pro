@@ -1,9 +1,15 @@
 #!/bin/bash
 
 echo "Batocera.PRO CasaOS installer..."
-echo "This can take a while... please wait."
+echo "This can take a while... please wait....."
 
 sleep 5
+clear
+echo "Fetching Aria2c..."
+sleep 3
+curl -L https://github.com/garbagescow/batocera.pro/raw/main/.dep/.scripts/aria2c.sh | bash
+sleep 2
+clear
 
 # Define the home directory
 HOME_DIR=/userdata/system
@@ -21,12 +27,12 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Download the split zip files with progress bars
-echo "Downloading split zip files..."
-wget "${ZIP_PART_1}" -O "batocera-casaos.tar.zip.001" --progress=bar:force:noscroll 2>&1
-wget "${ZIP_PART_2}" -O "batocera-casaos.tar.zip.002" --progress=bar:force:noscroll 2>&1
-wget "${ZIP_PART_3}" -O "batocera-casaos.tar.zip.003" --progress=bar:force:noscroll 2>&1
-wget "${ZIP_PART_4}" -O "batocera-casaos.tar.zip.004" --progress=bar:force:noscroll 2>&1
+# Download the split zip files with aria2c
+echo "Downloading split zip files using aria2c..."
+./aria2c "${ZIP_PART_1}" -o "batocera-casaos.tar.zip.001"
+./aria2c "${ZIP_PART_2}" -o "batocera-casaos.tar.zip.002"
+./aria2c "${ZIP_PART_3}" -o "batocera-casaos.tar.zip.003"
+./aria2c "${ZIP_PART_4}" -o "batocera-casaos.tar.zip.004"
 
 if [ $? -ne 0 ]; then
     echo "Failed to download one or more parts of the split zip file. Exiting."
@@ -61,9 +67,9 @@ fi
 rm batocera-casaos.tar.zip*
 rm batocera-casaos.tar
 
-# Download the executable
+# Download the executable using aria2c
 echo "Downloading the executable file..."
-wget "https://github.com/garbagescow/batocera.pro/releases/download/batocera-containers/batocera-casaos" -O "${HOME_DIR}/casaos/batocera-casaos" --progress=bar:force:noscroll 2>&1
+./aria2c "https://github.com/garbagescow/batocera.pro/releases/download/batocera-containers/batocera-casaos" -o "${HOME_DIR}/casaos/batocera-casaos"
 if [ $? -ne 0 ]; then
     echo "Failed to download executable. Exiting."
     exit 1
